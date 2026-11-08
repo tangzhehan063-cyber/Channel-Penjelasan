@@ -1,0 +1,11 @@
+:root{--ink:#23242a;--mid:#6a6a70;--red:#e45a3e;--bg:#e6e6de;--card:#f6f2e9}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Space Grotesk",system-ui,sans-serif}
+header{max-width:1400px;margin:0 auto;padding:36px 24px 8px}.kicker{font:700 12px "Space Mono",monospace;letter-spacing:.18em;color:var(--red)}
+h1{font-size:clamp(28px,4vw,44px);margin:.2em 0 .3em;line-height:1.05}.meta{color:var(--mid);margin:.2em 0;font-size:14px}
+main{max-width:1400px;margin:0 auto;padding:16px 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.panel{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(40,40,30,.12)}
+.cv{position:relative;background:#d8d5ca}.cv canvas{display:block;width:100%;height:auto;aspect-ratio:9/16}
+.badge{position:absolute;top:10px;left:10px;background:var(--ink);color:#fff;font:700 14px "Space Mono";border-radius:20px;padding:2px 10px}
+.info{padding:14px 16px 18px;font-size:14px}.row{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.tm{font:700 12px "Space Mono";color:var(--red);white-space:nowrap}.lbl{font:700 11px "Space Mono";letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-top:10px}
+.ost{font-weight:700}.notes{max-width:1400px;margin:0 auto;padding:8px 24px 48px}.notes h2{font-size:22px}.notes li{margin:.5em 0;max-width:900px}

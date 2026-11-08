@@ -1,6 +1,8 @@
 # STATUS & log kerja (baca ini dulu di sesi baru)
 
 ## Posisi terakhir (8 Nov 2026)
+- **Aset video #1–#4 masuk repo** (8 Nov, sore): MP4 final + SRT di `video/`, caption di `caption/`, cover (frame hook) di `cover/`, sumber engine kertas origami + VO asli di `arsip/origami/`. Jadwal posting: #3 meteran kWh Senin 9 Nov 19.00 WIB, #4 keramik Rabu 11 Nov 19.00 WIB.
+- **Branding** (8 Nov): foto profil rumah kertas + bohlam (`branding/FaktaRumah_PP_teal.png` rekomendasi, `..._mustard.png`) + bio IG/TikTok/YT di `branding/bio.md` (nama sementara "Fakta Rumah").
 - Video #1–#4 (bata, semen, meteran kWh, keramik): naskahnya jadi referensi di `referensi/`; kolom visual sudah ditulis ulang ke gaya editorial 3D + aset (gaya lama dihapus total, 8 Nov).
 - **Kit aset tambahan** (8 Nov): `style/aset.md` + `remotion/src/aset/` (bayangan teralis, siluet tegel/daun, kotak teks TikTok, judul dua tingkat, sinar, layar koral pemutus pola, grid teka-teki, grain). Dari 4 referensi user di `style/referensi-visual/`. Claude membuat aset sendiri dari screenshot referensi.
 - Gaya visual sudah diganti ke **editorial 3D bersih** (`style/style.md`, contoh `style/contoh-frame.png`).
@@ -13,6 +15,8 @@
 3. Animasi video #6: pakai kit aset `style/aset.md` (TikTokBox, PatternBreak, PuzzleGrid, ShadowCast, Grain) + aturan kontras video #5 (`style/style.md` baris "Kontras", contoh `style/contoh-frame-v05-kontras.png`). Video #5 dibuat sebelum kit aset masuk, jadi belum memakainya.
 
 ## Preferensi user
+- Suara VO tidak diolah (tanpa potong jeda/tempo/kompresi); animasi & durasi video yang mengikuti VO (diminta user setelah VO video #3 "pecah").
+- Objek digambar halus/membulat seperti line-art referensi, bukan kotak kaku.
 - Bahasa Indonesia; suka saran "out of the box".
 - Visual harus **kontras/tegas**, jangan "saru" (pucat menyatu dengan latar).
 - Selalu caption + cover setelah video selesai.
@@ -25,6 +29,7 @@
 - Kompetitor yang dipantau: @howcomeid (TikTok), niche "kenapa di rumah".
 
 ## Log
+- 8 Nov 2026 (sore): aset video #1–#4 (MP4, SRT, caption, cover, kode engine origami, VO asli) + branding (foto profil, bio) di-push ke repo.
 - 8 Nov 2026: referensi video gerak (05) dipelajari → `remotion/src/aset/Gerak.tsx` (ObjectWord, KineticWords, FocusList, Squiggle, whip) + `GerakDemo` (hook video #5, `style/contoh-aset/gerak-demo.mp4`). Env kini sinkron (still = video); kit aset pakai `Env intensity={0}`, default tetap 1 agar Video05 tidak berubah.
 - 8 Nov 2026 (sesi 2, revisi kontras atas permintaan user "terlalu saru"): plester/bata lebih pekat, air biru tegas + garis tepi gelap, outline tinta di objek, lampu lebih kontras; judul/subtitle/label diberi kartu putih kertas. Aturan ini dipakai untuk video berikutnya (lihat style.md).
 - 8 Nov 2026 (sesi 2): render final video #5 + cover; loudnorm −14 LUFS via ffmpeg (render Remotion keluar −16,7). Catatan teknis: render 1410 frame ±25 menit di container (swangle, concurrency 4); `remotion still` sesekali hang → kill & ulang.

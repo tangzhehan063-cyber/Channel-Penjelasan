@@ -1,0 +1,79 @@
+1
+00:00:00,550 --> 00:00:03,350
+Lampu merah yang kedip-kedip di meteran listrikmu itu...
+
+2
+00:00:03,660 --> 00:00:04,840
+lagi ngitung uangmu.
+
+3
+00:00:05,780 --> 00:00:09,560
+Tiap alat punya watt, tanda seberapa rakus dia makan listrik.
+
+4
+00:00:10,150 --> 00:00:13,060
+Lampu 10 watt, rice cooker 400.
+
+5
+00:00:13,770 --> 00:00:15,870
+kWh itu watt dikali jam.
+
+6
+00:00:16,210 --> 00:00:19,180
+1.000 watt nyala sejam, itu 1 kWh.
+
+7
+00:00:19,960 --> 00:00:23,170
+Di dalam meteran, ada chip yang ngukur tegangan dan arus
+
+8
+00:00:23,170 --> 00:00:26,100
+ribuan kali tiap detik, lalu dikali jadi watt.
+
+9
+00:00:26,620 --> 00:00:28,990
+Terus dijumlahkan, jadi kWh.
+
+10
+00:00:29,330 --> 00:00:30,670
+Itu yang motong tokenmu.
+
+11
+00:00:31,470 --> 00:00:32,610
+Nah, kedipan tadi?
+
+12
+00:00:33,120 --> 00:00:34,860
+1 kedip = 1 watt-jam.
+
+13
+00:00:35,130 --> 00:00:36,970
+1.000 kedip = 1 kWh.
+
+14
+00:00:37,750 --> 00:00:39,830
+Kedip cepat bukan berarti meteran rusak.
+
+15
+00:00:40,090 --> 00:00:42,260
+Artinya pemakaianmu lagi besar.
+
+16
+00:00:42,930 --> 00:00:44,890
+Meteran lama pakai piringan berputar.
+
+17
+00:00:44,890 --> 00:00:46,820
+Makin kencang, makin boros.
+
+18
+00:00:47,210 --> 00:00:49,970
+1 kWh sekitar Rp1.400-an.
+
+19
+00:00:50,450 --> 00:00:52,020
+Jadi, matikan yang nggak dipakai.
+
+20
+00:00:52,530 --> 00:00:54,420
+Follow buat fakta rumah berikutnya!
