@@ -4,6 +4,7 @@ Aset tambahan untuk memperkaya video bergaya editorial 3D (`style.md`). Semua as
 Kode: `remotion/src/aset/Aset.tsx` · Demo: komposisi `AsetDemo` (`remotion/src/aset/AsetDemo.tsx`) · Contoh frame: `contoh-aset/`.
 
 ## Cara kerja dengan referensi
+- **Video lebih baik dari gambar**: kirim file video referensi (MP4). Claude memecahnya jadi frame (5 per detik) lalu membuat lembar kontak untuk mempelajari gerak & ritme; lembar kontak disimpan di `style/referensi-visual/NN-nama/`.
 1. User mengirim **screenshot 3–5 frame** referensi (hook, objek + label, transisi, teks/angka) + bagian yang disukai.
 2. Claude menyimpan referensi ke `style/referensi-visual/NN-nama.png`, lalu menuliskan yang diambil (bukan meniru branding/handle/tata letak persis).
 3. Claude **membuat asetnya sendiri** di `Aset.tsx` (SVG/CSS/three.js), merender still untuk dicek user, lalu menambahkannya ke tabel di bawah.
@@ -22,6 +23,20 @@ Kode: `remotion/src/aset/Aset.tsx` · Demo: komposisi `AsetDemo` (`remotion/src/
 | `PuzzleGrid mode="ubin"` | 03 grid huruf | "Cari ubin/bata yang beda": penonton ikut mencari, lalu target dilingkari koral | **Maks. 1× per video** (beat ajak cek) |
 | `PuzzleGrid mode="huruf"` | 03 grid huruf | Kata tersembunyi (istilah teknis, mis. TRASRAM) yang lalu ditandai | Alternatif jeda interaktif |
 | `Grain` | 03 tekstur | Tekstur film halus di atas semua lapisan | 0,05 di kertas, 0,12 di layar koral |
+
+## Bahasa gerak (dari referensi video 05, kode `remotion/src/aset/Gerak.tsx`, demo `GerakDemo` → `contoh-aset/gerak-demo.mp4`)
+Ritme: **satu kejadian baru tiap 0,4–0,6 detik**; tidak ada layar yang diam lebih dari ±1 detik.
+| Teknik | Komponen | Cara pakai |
+|---|---|---|
+| Objek menggantikan huruf di judul, berdiri di atas tiang | `ObjectWord` | Hook: mis. "temb[bata]k", huruf memudar dari abu ke hitam ±0,6 dtk |
+| Kalimat muncul kata per kata, kata terakhir koral & besar | `KineticWords` | Di bawah judul hook; jeda 6 frame per kata |
+| Objek abu naik dari bawah sambil berputar lalu berubah koral | pola di `GerakDemo` (tint 0→1) | Transisi hook → isi |
+| Kamera mendekat lalu "whip pan" ke sudut dengan motion blur | `whip()` | Pergantian sub-topik; objek dipotong tepi layar |
+| Daftar serif italic: blur + abu → tajam + hitam, bergiliran | `FocusList` | Gejala / penyebab / ciri (maks. 3 butir) |
+| Coretan zigzag tergambar di sudut | `Squiggle` | Hanya di hook, 2 buah di sudut berlawanan |
+| Keluar: semua elemen blur + pudar, objek meluncur keluar | `out` di tiap komponen | Akhir babak |
+
+Catatan teknis: `Env` di `pengetahuan/Scene.tsx` sekarang dipasang sinkron; kit aset memakai `<Env intensity={0} />`. Sebelumnya still terlihat benar tapi video jadi pucat karena pencahayaan lingkungan baru termuat saat render video. **Selalu cek warna di MP4, bukan hanya still.**
 
 ## Aturan komposisi
 - Satu objek 3D utama tetap pusat perhatian; aset hanya pendukung.

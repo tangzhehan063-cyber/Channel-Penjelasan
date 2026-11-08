@@ -3,7 +3,7 @@ import '@fontsource/inter/400.css'; import '@fontsource/inter/700.css'; import '
 import '@fontsource/playfair-display/400-italic.css'; import '@fontsource/playfair-display/700-italic.css';
 import {ThreeCanvas} from '@remotion/three';
 import {useThree} from '@react-three/fiber';
-import {useEffect} from 'react';
+import {useLayoutEffect} from 'react';
 import * as THREE from 'three';
 import {RoomEnvironment} from 'three/examples/jsm/environments/RoomEnvironment.js';
 import {AbsoluteFill, interpolate, Easing, useCurrentFrame, useVideoConfig} from 'remotion';
@@ -11,9 +11,11 @@ import {Brain} from './Brain';
 
 export const PALETTE = {paper: '#f3f2ef', paper2: '#e4e3df', ink: '#1c1c1e', sub: '#8a8a8e', hero: '#ef7663', ghost: 'rgba(28,28,30,0.055)'};
 
-export const Env: React.FC = () => {
+// Pencahayaan lingkungan dipasang sinkron (useLayoutEffect) supaya still dan video identik.
+// Default 1 = perilaku video #5. Kit aset/gerak memakai intensity={0} (objek lebih pekat, tidak pucat).
+export const Env: React.FC<{intensity?: number}> = ({intensity = 1}) => {
   const {gl, scene} = useThree();
-  useEffect(() => { const pm = new THREE.PMREMGenerator(gl); scene.environment = pm.fromScene(new RoomEnvironment(), 0.04).texture; return () => pm.dispose(); }, [gl, scene]);
+  useLayoutEffect(() => { const pm = new THREE.PMREMGenerator(gl); scene.environment = pm.fromScene(new RoomEnvironment(), 0.04).texture; scene.environmentIntensity = intensity; return () => pm.dispose(); }, [gl, scene, intensity]);
   return null;
 };
 

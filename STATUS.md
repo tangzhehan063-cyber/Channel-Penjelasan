@@ -25,6 +25,7 @@
 - Kompetitor yang dipantau: @howcomeid (TikTok), niche "kenapa di rumah".
 
 ## Log
+- 8 Nov 2026: referensi video gerak (05) dipelajari → `remotion/src/aset/Gerak.tsx` (ObjectWord, KineticWords, FocusList, Squiggle, whip) + `GerakDemo` (hook video #5, `style/contoh-aset/gerak-demo.mp4`). Env kini sinkron (still = video); kit aset pakai `Env intensity={0}`, default tetap 1 agar Video05 tidak berubah.
 - 8 Nov 2026 (sesi 2, revisi kontras atas permintaan user "terlalu saru"): plester/bata lebih pekat, air biru tegas + garis tepi gelap, outline tinta di objek, lampu lebih kontras; judul/subtitle/label diberi kartu putih kertas. Aturan ini dipakai untuk video berikutnya (lihat style.md).
 - 8 Nov 2026 (sesi 2): render final video #5 + cover; loudnorm −14 LUFS via ffmpeg (render Remotion keluar −16,7). Catatan teknis: render 1410 frame ±25 menit di container (swangle, concurrency 4); `remotion still` sesekali hang → kill & ulang.
 - 8 Nov 2026 (sesi 2, awal): Video05 draft animasi lengkap 9 beat mengikuti timestamp VO; still dicek, perbaikan framing judul/tisu/penampang.

@@ -31,7 +31,7 @@ const SceneA: React.FC = () => {
       <ShadowCast kind="teralis" x={430} y={-60} o={0.13} />
       <Ghost lines={['Kapiler', 'Rembes']} y={1180} />
       <ThreeCanvas width={1080} height={1920} camera={{position: [0, 0, 6.4], fov: 30}} gl={{alpha: true, antialias: true}}>
-        <Env /><ambientLight intensity={0.35} /><directionalLight position={[3, 4, 5]} intensity={2.2} /><directionalLight position={[-4, -1, 2]} intensity={0.6} color="#ffe2da" />
+        <Env intensity={0} /><ambientLight intensity={0.35} /><directionalLight position={[3, 4, 5]} intensity={2.2} /><directionalLight position={[-4, -1, 2]} intensity={0.6} color="#ffe2da" />
         <group position={[-0.75, 0.55, 0]} scale={0.62} rotation={[0.05, 0.5 + f * 0.002, 0]}><Wall water={p(10, 55)} /></group>
       </ThreeCanvas>
       <Cutout kind="daun" x={1130} y={1180} s={0.85} rot={200} p={p(0, 20)} />
