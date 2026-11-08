@@ -8,6 +8,7 @@ Channel pengetahuan, seri utama **"fakta rumah"**, Bahasa Indonesia santai, audi
 ## Aturan inti
 - Fakta harus akurat dengan sumber; tandai "(perkiraan)" dan penyederhanaan visual; jangan mengarang angka, kutipan, atau jumlah tayangan.
 - Tahap ide: riset tren (ScrapeMedsos, TikTok/YouTube region ID) + **saran improvisasi topik** + satu rekomendasi; simpan ke `riset/`.
+- **Saat menulis/merevisi naskah, pakai skill `naskah-viral`** (`.claude/skills/naskah-viral/SKILL.md`, panggil `/naskah-viral <topik>`): lapisan pola viral di atas `naskah/alur-naskah.md`.
 - Storyboard (Tahap 2) memuat bagian "Fakta, tren & asumsi" lalu tabel beat; contoh nada & format di `referensi/` (video #1–#4).
 - **Setelah video selesai, SELALU buat caption posting + cover**: caption ke `caption/<slug>.md` (TikTok/Reels, YouTube Shorts, komentar pin, 3 judul alternatif, 5 tag), cover 1080×1920 ke `cover/<slug>.png`.
 - Penutup video: "Follow buat fakta rumah berikutnya!"

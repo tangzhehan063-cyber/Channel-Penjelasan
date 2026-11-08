@@ -1,11 +1,11 @@
 # Video #4: Kenapa keramik bisa meledak sendiri
-Sumber: artifact storyboard milik user (claude.ai/artifact slug `887df8dd-7fdc-493b-b786-3cba902be109`), gaya visual lama Origami Studio. Dipakai sebagai referensi ALUR NASKAH, bukan visual.
+Sumber: artifact storyboard milik user (claude.ai/artifact slug `887df8dd-7fdc-493b-b786-3cba902be109`), kolom visual & SFX sudah ditulis ulang ke gaya editorial 3D + kit aset (`style/style.md`, `style/aset.md`).
 
 ## Catatan storyboard
 Storyboard
 STORYBOARD · VIDEO #4 · TAHAP 2 · DRAFT
 Kenapa keramik lantai bisa "meledak" sendiri
-Origami Studio · 1080×1920 (9:16) · ±40 detik (sementara, nanti mengikuti suara asli) · VO Bahasa Indonesia santai · audiens 35+ · CTA follow · seri "fakta rumah"
+Editorial 3D · 1080×1920 (9:16) · ±40 detik (sementara, nanti mengikuti suara asli) · VO Bahasa Indonesia santai · audiens 35+ · CTA follow · seri "fakta rumah"
 Garis merah putus-putus = batas safe zone (15% atas, 20% bawah). Subtitle nanti diletakkan tepat di atas garis bawah.
 Fakta, tren & asumsi
 Tren:
@@ -23,15 +23,15 @@ Audio:
  suara asli dari Google AI dipakai tanpa diolah, lalu animasi menyesuaikan suara.
 
 ## Beat
-| # | Detik | Judul | Teks layar | VO | Visual (origami) | SFX |
+| # | Detik | Judul | Teks layar | VO | Visual (editorial 3D + aset) | SFX |
 |---|---|---|---|---|---|---|
-| 1 | 0–2.6 | Hook | Keramik bisa / MELEDAK SENDIRI | Keramik di lantai rumahmu bisa meledak sendiri. Tanpa disentuh siapa pun. | Pembuka: lantai keramik kertas terbentang. Dua keramik di tengah bergetar, lalu "DUK!" terangkat membentuk segitiga. Serpihan kecil terpental, muncul ledakan kertas kuning bertuliskan DUK! | Gemeretak kecil, lalu "duk" berat dan serpihan berjatuhan. |
-| 2 | 2.6–4.4 | Bukan mistis | Bukan mistis, / INI FISIKA | Ini bukan mistis. Ini fisika. | Kontinu: papan judul terlipat ulang. Lantai yang terangkat tetap terlihat. | Lipatan papan (refold). |
-| 3 | 4.4–11.2 | Memuai | Kena panas, keramik / MEMUAI | Saat kena panas, keramik memuai. Cuma sedikit, lantai lima meter memanjang sekitar satu milimeter. Tapi dorongannya kuat. | Kamera geser. Penampang lantai berdiri (beton, adukan, keramik, nat). Matahari kertas muncul, garis panas naik, keramik melebar dan menekan nat. Panah merah mendorong ke luar. Kartu "± 1 mm memanjang" muncul di depan. | Glide kamera, desir hangat, crease kartu. |
-| 4 | 11.2–15.4 | Dipasang mepet | Dipasang mepet? / NGGAK ADA RUANG | Kalau keramik dipasang mepet tanpa celah, dorongan itu nggak punya tempat lari. | Kamera geser. Penampang yang sama, tapi diapit dua dinding dan keramik rapat tanpa nat. Panah merah dari dinding saling menekan dan keramik mulai bergetar. | Tekanan berderit naik. |
-| 5 | 15.4–19.4 | Popping! | Tekanan numpuk / POPPING! | Tekanannya numpuk, lalu... duk! Keramik terangkat. Ini disebut popping. | Kamera mendorong masuk. Dua keramik tengah terangkat jadi segitiga, adukan di bawahnya retak, dan serpihan terlempar. Papan terlipat ulang jadi "POPPING!", lalu muncul kartu "nat = ruang napas keramik". | "DUK!" besar, serpihan, crease kartu. |
-| 6 | 19.4–24.6 | Kopong | Perekat nggak penuh? / KOPONG | Penyebab kedua: perekat nggak penuh, jadi ada rongga di bawahnya. Coba ketuk. Yang padat bunyinya "tok", yang kopong bunyinya "dug". | Kamera geser. Penampang tiga keramik. Di bawah keramik tengah, perekatnya cuma titik-titik sehingga terlihat rongga gelap. Palu kertas mengetuk keramik kiri (kartu "tok"), lalu keramik tengah (kartu "DUG..", keramik bergetar). | Ketukan padat "tok" lalu ketukan berongga "dug". |
-| 7 | 24.6–28 | Air masuk | Air masuk lewat nat, / MAKIN LEPAS | Kalau air masuk lewat nat, perekatnya makin lepas. | Kontinu: tetes air kertas jatuh ke nat, merembes, dan menggenang di rongga bawah keramik. | Tetes air lembut. |
-| 8 | 28–35.8 | Solusi | Biar aman: / BERI CELAH | Biar aman: pakai nat dua sampai tiga milimeter, sisakan celah di tepi dinding, dan pastikan perekatnya penuh. | Kamera geser. Penampang yang benar: nat terlihat, plint menutup celah tepi dinding, perekat penuh. Tiga label muncul satu per satu dengan centang hijau. Panas datang lagi, keramik memuai ke dalam celah dan aman (centang besar). | Pop label + centang, desir hangat, chime lega. |
-| 9 | 35.8–38 | Ajakan cek | Coba ketuk lantaimu, / ADA YANG KOPONG? | Coba ketuk lantai rumahmu. Ada yang kopong? | Kontinu: papan terlipat ulang jadi ajakan. Label-label turun. | Refold. |
-| 10 | 38–41.5 | CTA follow | FOLLOW / buat fakta rumah berikutnya | Follow buat fakta rumah berikutnya! | Kartu FOLLOW hijau terlipat naik, bintang kertas pop. | Crease besar, chime kecil. |
+| 1 | 0–2.6 | Hook | Keramik bisa / MELEDAK SENDIRI | Keramik di lantai rumahmu bisa meledak sendiri. Tanpa disentuh siapa pun. | TikTokBox "Keramik bisa meledak sendiri?". Lantai keramik 3D dari atas (dipotong tepi layar); dua keramik tengah bergetar lalu terangkat membentuk segitiga, serpihan kecil terpental. | Gemeretak kecil, lalu "duk" berat yang teredam, serpihan. |
+| 2 | 2.6–4.4 | Bukan mistis | Bukan mistis, / INI FISIKA | Ini bukan mistis. Ini fisika. | PEMUTUS POLA singkat: layar koral penuh + grain, teks putih "BUKAN MISTIS. / INI FISIKA." | Whoosh masuk-keluar layar koral. |
+| 3 | 4.4–11.2 | Memuai | Kena panas, keramik / MEMUAI | Saat kena panas, keramik memuai. Cuma sedikit, lantai lima meter memanjang sekitar satu milimeter. Tapi dorongannya kuat. | Penampang lantai terbelah (beton, adukan, keramik koral, nat) dengan label garis tipis. Sinar diagonal = panas; keramik melebar menekan nat; kartu "± 1 mm memanjang (perkiraan)". | Desir hangat, klik kartu. |
+| 4 | 11.2–15.4 | Dipasang mepet | Dipasang mepet? / NGGAK ADA RUANG | Kalau keramik dipasang mepet tanpa celah, dorongan itu nggak punya tempat lari. | Penampang yang sama diapit dua dinding, keramik rapat tanpa nat; panah tipis saling menekan, keramik bergetar. | Tekanan berderit naik. |
+| 5 | 15.4–19.4 | Popping! | Tekanan numpuk / POPPING! | Tekanannya numpuk, lalu... duk! Keramik terangkat. Ini disebut popping. | Push-in: dua keramik tengah terangkat jadi segitiga, adukan retak; TwoTier "Tekanan numpuk / POPPING!" koral; Callout "nat = ruang napas keramik". | Duk besar teredam, serpihan, pop label. |
+| 6 | 19.4–24.6 | Kopong | Perekat nggak penuh? / KOPONG | Penyebab kedua: perekat nggak penuh, jadi ada rongga di bawahnya. Coba ketuk. Yang padat bunyinya "tok", yang kopong bunyinya "dug". | JEDA INTERAKTIF: grid ubin dari atas + TikTokBox "Coba cari: ubin mana yang kopong?"; ubin target dilingkari koral. Lalu penampang: perekat cuma titik-titik, rongga gelap; Callout "tok" vs "dug". | Ketukan padat "tok" lalu ketukan berongga "dug", tick saat lingkaran tergambar. |
+| 7 | 24.6–28 | Air masuk | Air masuk lewat nat, / MAKIN LEPAS | Kalau air masuk lewat nat, perekatnya makin lepas. | Makro: tetes air jatuh ke nat, merembes, menggenang di rongga bawah keramik (air koral tua). | Tetes air lembut. |
+| 8 | 28–35.8 | Solusi | Biar aman: / BERI CELAH | Biar aman: pakai nat dua sampai tiga milimeter, sisakan celah di tepi dinding, dan pastikan perekatnya penuh. | Penampang benar: nat terlihat, plint menutup celah tepi, perekat penuh; tiga label muncul dengan centang koral. Sinar panas datang lagi, keramik memuai ke celah dengan aman. | Pop label + centang, desir hangat, chime lega. |
+| 9 | 35.8–38 | Ajakan cek | Coba ketuk lantaimu, / ADA YANG KOPONG? | Coba ketuk lantai rumahmu. Ada yang kopong? | TwoTier "Coba ketuk lantaimu / ADA YANG KOPONG?"; ornamen tegel siluet masuk dari sudut. | Ketukan pelan dua kali. |
+| 10 | 38–41.5 | CTA follow | FOLLOW / buat fakta rumah berikutnya | Follow buat fakta rumah berikutnya! | Kartu FOLLOW koral terangkat, potongan keramik berputar pelan. | Chime kecil. |

@@ -8,7 +8,6 @@ Terinspirasi estetika "clean medical/editorial 3D"; JANGAN meniru branding, hand
 ## Niche & isi
 - Channel pengetahuan, seri utama **"fakta rumah"** (video #1–#4: bata, semen, meteran listrik, keramik; berikutnya #5). Audiens 35+, bahasa santai.
 - **Alur naskah WAJIB mengikuti `naskah/alur-naskah.md`** (Tahap 1 ide + tren → Tahap 2 storyboard dengan "Fakta, tren & asumsi" → Tahap 3 naskah final + suara → animasi mengikuti suara). Contoh naskah: `referensi/`.
-- Visual origami lama sudah DIGANTI dengan style editorial 3D di bawah ini.
 
 ## Visual (wajib sama setiap video)
 | Elemen | Aturan |
@@ -23,6 +22,11 @@ Terinspirasi estetika "clean medical/editorial 3D"; JANGAN meniru branding, hand
 | Kontras (revisi video #5) | Objek harus kontras dengan latar: warna pekat (bata `#e65a43`, plester `#f39a85`), **outline tinta tipis** di siluet objek, lampu kunci kuat + ambient rendah. Judul, subtitle, dan label selalu di atas **kartu kertas putih** (`rgba(250,249,246,.94)`, radius 22–26, bayangan halus) supaya terbaca di atas objek koral/air. |
 | Gerak | Pelan & mewah: objek berputar perlahan, kamera dolly halus, easing cubic; tidak ada shake/flash. |
 | Transisi | Objek berganti dengan morph/zoom ke detail (makro), atau geser lembut; bukan cut keras. |
+
+## Aset tambahan (memperkaya, bukan mengganti gaya)
+Kit aset prosedural di `remotion/src/aset/Aset.tsx`, katalog & aturan pakai di **`style/aset.md`**, contoh frame di `style/contoh-aset/`.
+Diterjemahkan dari referensi user di `style/referensi-visual/`: bayangan jatuh di kertas, siluet potongan dengan bayangan di sudut, kotak teks hitam ala TikTok, judul dua tingkat abu gelap, layar koral pemutus pola + grain, grid teka-teki.
+**Claude membuat aset sendiri** dari referensi (user cukup memberi screenshot referensi, tidak perlu memberi file aset).
 
 ## Suara & audio
 - Voice default: ElevenLabs **Riri Rida – Documentary & News** (`tCKeP99grYL9wZRg6sQ9`), `eleven_v4`, tenang dan berwibawa (berbeda dari channel stickman). Ganti hanya bila user minta.
