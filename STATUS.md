@@ -29,6 +29,7 @@
 - Kompetitor yang dipantau: @howcomeid (TikTok), niche "kenapa di rumah".
 
 ## Log
+- 8 Nov 2026: 2 referensi video baru (06 cerita produk, 07 kolase editorial) digabung dengan 05 jadi **sistem gabungan** (`remotion/src/aset/Gabung.tsx`, demo `GabungDemo` → `style/contoh-aset/gabung-demo.mp4`, aturan di `style/aset.md`): semantik warna koral/biru/sage, tipografi mono + serif + Inter, jangkar kicker + pertanyaan. Dipakai mulai video #6.
 - 8 Nov 2026 (sore): aset video #1–#4 (MP4, SRT, caption, cover, kode engine origami, VO asli) + branding (foto profil, bio) di-push ke repo.
 - 8 Nov 2026: referensi video gerak (05) dipelajari → `remotion/src/aset/Gerak.tsx` (ObjectWord, KineticWords, FocusList, Squiggle, whip) + `GerakDemo` (hook video #5, `style/contoh-aset/gerak-demo.mp4`). Env kini sinkron (still = video); kit aset pakai `Env intensity={0}`, default tetap 1 agar Video05 tidak berubah.
 - 8 Nov 2026 (sesi 2, revisi kontras atas permintaan user "terlalu saru"): plester/bata lebih pekat, air biru tegas + garis tepi gelap, outline tinta di objek, lampu lebih kontras; judul/subtitle/label diberi kartu putih kertas. Aturan ini dipakai untuk video berikutnya (lihat style.md).

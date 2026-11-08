@@ -87,7 +87,7 @@ export const Cutout: React.FC<{kind: 'daun' | 'tegel' | 'bunga'; x: number; y: n
 };
 
 // Motif tegel kunci (ubin kuno): bintang 4 kelopak + lingkaran + sudut.
-const Tegel: React.FC = () => (
+export const Tegel: React.FC = () => (
   <g>
     <path fillRule="evenodd" d="M-300 -300 H300 V300 H-300 Z M-270 -270 H270 V270 H-270 Z" />
     {[0, 90, 180, 270].map((r) => <g key={r} transform={`rotate(${r})`}>

@@ -38,6 +38,29 @@ Ritme: **satu kejadian baru tiap 0,4–0,6 detik**; tidak ada layar yang diam le
 
 Catatan teknis: `Env` di `pengetahuan/Scene.tsx` sekarang dipasang sinkron; kit aset memakai `<Env intensity={0} />`. Sebelumnya still terlihat benar tapi video jadi pucat karena pencahayaan lingkungan baru termuat saat render video. **Selalu cek warna di MP4, bukan hanya still.**
 
+## Sistem gabungan (ref 05 + 06 + 07) — dipakai mulai video #6
+Kode `remotion/src/aset/Gabung.tsx`, demo `GabungDemo` → `contoh-aset/gabung-demo.mp4`. Ref 06 = cerita produk (lembar kontak di `referensi-visual/06-cerita-produk/`), ref 07 = kolase editorial (`07-kolase-editorial/`).
+
+**Semantik warna (wajib konsisten):** koral = masalah/sorotan · biru `#1f7fdc` = air · hijau sage `#6fae6a` = solusi/benar · tinta = teks & garis. Tidak ada warna lain.
+
+**Tipografi 3 lapis:**
+- Kicker & subtitle VO: IBM Plex Mono (`Kicker`, `MonoSub`) — kesan "catatan teknik".
+- Judul: Playfair Display 900, baris kedua italic koral (`SerifHead`), kata per kata abu → tinta.
+- Label/angka UI: Inter (label prop italic tebal, tombol). `TwoTier` Inter tetap boleh untuk kata besar tunggal.
+
+**Kerangka layar tetap (jangkar):** kicker mono `—— FAKTA RUMAH · #NN ——` + pertanyaan hook di kotak hitam (`TikTokBox`) tetap di atas sepanjang video (ref 06), subtitle mono di bawah, 2 ornamen tegel berputar pelan di sudut berlawanan (berubah koral saat momen pemutus pola).
+
+| Babak | Komponen | Asal |
+|---|---|---|
+| Hook | Objek 3D masuk berputar dari kiri + `Disc` koral muda di belakang + `Disc` kecil warna semantik + `FocusRing` putus-putus di bagian yang dibahas | 06 + 07 |
+| Penyebab/ciri | Objek di-whip keluar, `PropRow` 3 ikon dalam cincin putus-putus + label italic | 06 |
+| Mitos/twist | `FocusRing` membesar menutup layar (flood) → teks serif putih + italic tinta | 06 (transisi cincin) + pemutus pola |
+| Angka | `StatPanel`: garis pembatas tergambar, ikon, angka serif menghitung, label mono; angka solusi berwarna sage | 07 |
+| Ajak cek | `CommentBubble` kata diketik (jawaban yang diharapkan di komentar) | 07 |
+| Penutup | `FollowButton` diklik kursor → "✓ Following" | 06 |
+
+Yang sengaja TIDAK diambil: foto/footage asli dalam kartu (kita tanpa footage), kolase foto hitam-putih halftone (bertabrakan dengan objek 3D), branding/handle kreator referensi.
+
 ## Aturan komposisi
 - Satu objek 3D utama tetap pusat perhatian; aset hanya pendukung.
 - Maks. 3 aset tambahan aktif di satu adegan (di luar Paper & Grain).
