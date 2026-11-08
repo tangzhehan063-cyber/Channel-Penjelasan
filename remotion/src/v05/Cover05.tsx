@@ -6,7 +6,7 @@ import {AbsoluteFill} from 'remotion';
 import {Env, Paper, Ghost, PALETTE} from '../pengetahuan/Scene';
 import {Wall, YAW} from './Tembok';
 
-const Cam: React.FC = () => { const c = useThree((s) => s.camera) as THREE.PerspectiveCamera; c.position.set(1.0, 1.2, 8.6); c.fov = 34; c.updateProjectionMatrix(); c.lookAt(0.2, 0.55, 0); return null; };
+const Cam: React.FC = () => { const c = useThree((s) => s.camera) as THREE.PerspectiveCamera; c.position.set(1.0, 1.9, 10.4); c.fov = 34; c.updateProjectionMatrix(); c.lookAt(0.15, 1.75, 0); return null; };
 export const Cover05: React.FC = () => (
   <AbsoluteFill>
     <Paper t={0} />
