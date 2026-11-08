@@ -3,7 +3,16 @@
 Channel pengetahuan, seri utama **"fakta rumah"**, Bahasa Indonesia santai, audiens 35+, gaya visual **editorial 3D bersih**.
 (Channel stickman self-improvement ada di repo terpisah `RAKA`; jangan campur gaya.)
 
-**Di awal setiap sesi baca `STATUS.md`**, lalu `style/style.md` (tampilan wajib) dan `naskah/alur-naskah.md` (alur naskah Tahap 1–5). Perbarui `STATUS.md` setiap ada kemajuan dan push ke repo; jangan menunggu akhir sesi.
+**Di awal setiap sesi baca `STATUS.md` saja**, lalu baca file lain hanya sesuai tahap yang dikerjakan (lihat "Hemat token"). Perbarui `STATUS.md` setiap ada kemajuan dan push ke repo; jangan menunggu akhir sesi.
+
+## Hemat token (wajib)
+- Baca sesuai tahap: Tahap 1–2 → `naskah/alur-naskah.md` + skill `naskah-viral`; Tahap 4–5 → `style/style.md` + `style/aset.md`; caption → bagian caption di file ini. Jangan membaca ulang file yang tidak berubah.
+- Pakai `grep`/`sed -n` untuk bagian tertentu, bukan membaca file utuh. Gambar dibaca hanya untuk cek visual: still `--scale=0.5`, gabung jadi satu contact sheet, maks. 1–2 sheet per putaran.
+- Video baru = salin `remotion/src/v05/` sebagai template, ganti data (timeline beat, judul, kamera), jangan menulis ulang dari nol.
+- Render penuh (±25 menit) hanya setelah still disetujui; kumpulkan revisi lalu render sekali. Tunggu render dengan satu notifikasi selesai, tanpa laporan progres per event.
+- Hasil ScrapeMedsos selalu disimpan ringkas di `riset/` agar tidak di-scrape ulang.
+- Jawaban ke user singkat: hasil, file, keputusan yang dibutuhkan.
+- Pekerjaan selesai per tahap di-merge ke `main` (sesi baru selalu mulai dari `main`).
 
 ## Aturan inti
 - Fakta harus akurat dengan sumber; tandai "(perkiraan)" dan penyederhanaan visual; jangan mengarang angka, kutipan, atau jumlah tayangan.
