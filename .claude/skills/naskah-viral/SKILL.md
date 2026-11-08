@@ -58,7 +58,7 @@ Pelajaran dari riset: video viral 3D print (24 jam, Rp1 juta/m²) dan kisah ruma
 ## Output (selain tabel beat standar)
 1. 3 alternatif hook + pilihan + alasan
 2. Mode yang dipakai + alasan singkat
-3. Tabel beat standar alur (`# | detik | judul | teks layar | VO | visual | SFX`)
+3. Tabel beat standar alur (`# | detik | judul | teks layar | VO | visual | SFX`); kolom visual memakai kosakata aset di `style/aset.md` (TikTokBox untuk hook, PatternBreak untuk mitos/twist, PuzzleGrid untuk ajak cek)
 4. Payoff satu kalimat, tips aksi, pemicu share, dan CTA, ditandai jelas
 5. Daftar [⚠ CEK] yang masih harus diverifikasi
 6. 2 ide judul lanjutan untuk mini-seri

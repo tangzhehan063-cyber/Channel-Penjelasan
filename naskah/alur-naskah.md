@@ -1,6 +1,6 @@
 # Alur naskah: STYLE PENGETAHUAN (seri "fakta rumah")
 
-Alur ini meneruskan cara kerja 4 video pertama (referensi di `referensi/`), dengan tambahan dari ScriptForge. Visual lama (origami) TIDAK dipakai lagi; semua adegan diterjemahkan ke visual editorial 3D di `style.md`.
+Alur ini meneruskan cara kerja 4 video pertama (referensi di `referensi/`), dengan tambahan dari ScriptForge. Semua visual memakai gaya editorial 3D di `style/style.md` + kit aset di `style/aset.md`.
 
 ## Identitas konten (dari video #1–#4)
 - Seri **"fakta rumah"**: benda & sistem di rumah sehari-hari (bata, semen, meteran listrik, keramik → berikutnya: pipa, atap, kabel, kulkas, cat, kloset, genteng, dsb.).
@@ -47,14 +47,17 @@ Header: `STORYBOARD · VIDEO #N · TAHAP 2 · DRAFT`, durasi sementara, "VO Baha
 - Timestamp: ElevenLabs Scribe → `tools/scribe_to_timeline.py` (angka jadi numeral di subtitle).
 
 ## Tahap 4–5: Animasi & render (style pengetahuan)
-Terjemahan visual origami → editorial 3D:
-| Dulu (origami) | Sekarang (editorial 3D) |
+Kosakata visual per beat (kode di `remotion/src/aset/Aset.tsx`, katalog di `style/aset.md`):
+| Beat | Aset yang dipakai |
 |---|---|
-| Benda dari kertas lipat | Benda 3D glossy koral `#f27a63` dibuat prosedural (bata, keramik, meteran, pipa…) di atas latar kertas putih |
-| Penampang kertas | Penampang 3D terbelah (cutaway) dengan label garis tipis |
-| Kartu kertas kuning / ledakan "DUK!" | Kartu label bersih (Inter), angka besar tinta gelap, kata kunci koral |
-| Papan judul terlipat ulang | Judul Inter Black yang ganti dengan slide/fade halus |
-| SFX kertas (crease, refold) | SFX halus: klik, whoosh lembut, pop kecil, chime |
+| Hook | Objek 3D utama dipotong tepi layar + **TikTokBox** (pertanyaan hook, muncul kata per kata) + bayangan teralis/daun samar (**ShadowCast**) |
+| Mekanisme | Penampang 3D terbelah (cutaway) + **Callout** label garis tipis + kartu angka bersih; **LightBeam** untuk panas/cahaya/aliran |
+| Mitos / twist | **PatternBreak**: layar koral penuh + grain + teks putih tebal (maks. 1× per video) |
+| Ajak cek | **PuzzleGrid** "cari yang beda" (ubin/bata/huruf) sebagai jeda interaktif (maks. 1× per video) |
+| Takeaway | **TwoTier** `kalimat kecil / KATA BESAR` abu gelap, kata kunci koral |
+| CTA | Kartu FOLLOW koral + ornamen **Cutout** (tegel/daun) dari sudut |
+| Semua | **Grain** halus (opacity ±0,05) di atas semua lapisan |
+SFX: klik, whoosh lembut, pop kecil, tick, chime; tanpa SFX kertas.
 
 ## Setelah render (wajib)
 Caption posting (TikTok/Reels, YouTube Shorts, komentar pin) + **cover** + dari ScriptForge: **3 judul alternatif, teks cover 2–4 kata, 5 tag, estimasi durasi**.

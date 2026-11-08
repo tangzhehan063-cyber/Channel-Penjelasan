@@ -11,13 +11,13 @@ import {Brain} from './Brain';
 
 export const PALETTE = {paper: '#f3f2ef', paper2: '#e4e3df', ink: '#1c1c1e', sub: '#8a8a8e', hero: '#ef7663', ghost: 'rgba(28,28,30,0.055)'};
 
-const Env: React.FC = () => {
+export const Env: React.FC = () => {
   const {gl, scene} = useThree();
   useEffect(() => { const pm = new THREE.PMREMGenerator(gl); scene.environment = pm.fromScene(new RoomEnvironment(), 0.04).texture; return () => pm.dispose(); }, [gl, scene]);
   return null;
 };
 
-const Paper: React.FC<{t: number}> = ({t}) => (
+export const Paper: React.FC<{t: number}> = ({t}) => (
   <AbsoluteFill style={{background: `radial-gradient(120% 80% at 70% 30%, #fbfaf8 0%, ${PALETTE.paper} 45%, ${PALETTE.paper2} 100%)`}}>
     <svg width="1080" height="1920" style={{position: 'absolute'}}>
       <defs>
