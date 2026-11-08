@@ -63,9 +63,9 @@ const PORI_KEYS: Key[] = [
 ];
 const LAP_YAW = -0.5;
 const LAP_KEYS: Key[] = [
-  {t: 17.0, pos: [0.2, 1.4, 6.6], look: [0.1, 1.05, 0]},
-  {t: 21.0, pos: [0.4, 1.2, 5.6], look: [0.3, 1.0, 0]},
-  {t: 25.8, pos: [0.6, 1.1, 4.8], look: [0.35, 0.95, 0]},
+  {t: 17.0, pos: [0.5, 1.6, 9.4], look: [0.2, 1.05, 0]},
+  {t: 21.0, pos: [0.7, 1.4, 8.2], look: [0.35, 1.0, 0]},
+  {t: 25.8, pos: [0.85, 1.3, 7.2], look: [0.45, 0.95, 0]},
 ];
 
 function wallState(t: number) {
@@ -225,15 +225,16 @@ export const Video05: React.FC = () => {
 
       {/* label garis tipis */}
       <Callout from={poriPt} to={[poriPt[0] + 60, poriPt[1] - 330]} label="Pori kapiler" sub="saluran super kecil" p={r(t, 9.4, 10.4) * (1 - r(t, 12.4, 12.8))} />
-      <Callout from={tisuPt} to={[tisuPt[0] - 300, tisuPt[1] + 200]} label="Kayak tisu" sub="ujungnya dicelup air" p={r(t, 12.6, 13.4) * (1 - r(t, 14.2, 14.5))} />
+      <Callout from={tisuPt} to={[tisuPt[0] - 330, tisuPt[1] - 240]} label="Kayak tisu" sub="ujungnya dicelup air" p={r(t, 12.6, 13.4) * (1 - r(t, 14.2, 14.5))} />
       {t > B.meter && t < B.garam && <Ruler a={rulA} b={rulB} p={r(t, 14.6, 16.4)} label="± 1 m" sub="(perkiraan)" />}
-      {(() => { const pb = lp([0, 1.95, 0.14]), pp = lp([0.9, 1.6, 0.6]), pc2 = lp([-0.8, 0.35, 0.98]), px = lp([0.15, 0.95, 0.9]);
+      {(() => { const pb = lp([1.1, 1.9, 0.1]), pp = lp([0.9, 1.75, 0.6]), pc2 = lp([-0.7, 0.45, 0.98]), px = lp([0.62, 0.8, 0.75]);
+        const cl = (p: [number, number], dx: number, dy: number): [number, number] => [Math.max(40, Math.min(760, p[0] + dx)), Math.max(660, Math.min(1290, p[1] + dy))];
         const on = t > B.garam && t < B.mitos ? 1 - r(t, 25.2, 25.6) : 0;
         return on > 0 && <>
-          <Callout from={pb} to={[pb[0] + 40, pb[1] - 120]} label="Bata" p={r(t, 17.4, 18.2) * on} />
-          <Callout from={pp} to={[pp[0] + 50, pp[1] - 100]} label="Plester" p={r(t, 17.8, 18.6) * on} />
-          <Callout from={pc2} to={[pc2[0] - 360, pc2[1] + 120]} label="Cat" p={r(t, 18.2, 19.0) * on} />
-          <Callout from={px} to={[px[0] - 400, px[1] + 260]} label="Kristal garam" sub="(efflorescence)" p={r(t, 21.4, 22.4) * on} />
+          <Callout from={pb} to={cl(pb, 30, -110)} label="Bata" p={r(t, 17.4, 18.2) * on} />
+          <Callout from={pp} to={cl(pp, -330, -60)} label="Plester" p={r(t, 17.8, 18.6) * on} />
+          <Callout from={pc2} to={cl(pc2, -40, 170)} label="Cat" p={r(t, 18.2, 19.0) * on} />
+          <Callout from={px} to={cl(px, 60, 220)} label="Kristal garam" sub="(efflorescence)" p={r(t, 21.4, 22.4) * on} />
         </>; })()}
       {t > 30.4 && t < B.solusi && <Dashed a={oldA} b={oldB} p={r(t, 30.4, 31.2)} label="batas tadi" />}
       {t > B.mitos && t < B.solusi && <Callout from={coatPt} to={[coatPt[0] + 120, coatPt[1] + 150]} label="Cat kedap" sub="air nggak bisa keluar" p={r(t, 26.6, 27.6) * (1 - r(t, 33.4, 33.9))} />}
