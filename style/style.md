@@ -20,6 +20,7 @@ Terinspirasi estetika "clean medical/editorial 3D"; JANGAN meniru branding, hand
 | Label | Titik hitam + garis tipis + label Inter Bold, sub-label abu-abu. Muncul tergambar. |
 | Judul/hook di layar | Inter Black, rapat (letter-spacing −2), tinta `#1c1c1e`, **kata kunci berwarna koral**. |
 | Caption | Inter Bold tinta gelap, kata aktif koral, tanpa outline tebal; di sepertiga bawah. |
+| Kontras (revisi video #5) | Objek harus kontras dengan latar: warna pekat (bata `#e65a43`, plester `#f39a85`), **outline tinta tipis** di siluet objek, lampu kunci kuat + ambient rendah. Judul, subtitle, dan label selalu di atas **kartu kertas putih** (`rgba(250,249,246,.94)`, radius 22–26, bayangan halus) supaya terbaca di atas objek koral/air. |
 | Gerak | Pelan & mewah: objek berputar perlahan, kamera dolly halus, easing cubic; tidak ada shake/flash. |
 | Transisi | Objek berganti dengan morph/zoom ke detail (makro), atau geser lembut; bukan cut keras. |
 

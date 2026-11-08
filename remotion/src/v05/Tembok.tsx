@@ -22,9 +22,11 @@ void main(){
   float top = uLevel + w;
   if (vP.y > top || vP.y < -0.001) discard;
   float edge = smoothstep(top - 0.14, top, vP.y);
-  float a = uOp * (0.34 + 0.4 * edge);
-  vec3 c = mix(uCol, vec3(0.80, 0.93, 1.0), edge * 0.55);
-  gl_FragColor = vec4(c, a);
+  float line = exp(-pow((vP.y - top + 0.012) / 0.011, 2.0));
+  float a = min(1.0, uOp * (0.62 + 0.25 * edge));
+  vec3 c = mix(uCol, vec3(0.55, 0.82, 1.0), edge * 0.45);
+  c = mix(c, vec3(0.03, 0.25, 0.55), line);
+  gl_FragColor = vec4(c, max(a, line * min(1.0, uOp)));
 }`;
 // noda garam (tide mark): garis putih kusam + area bawah sedikit lebih gelap
 const FRAG_STAIN = `
@@ -32,19 +34,23 @@ uniform float uLevel, uOp; varying vec3 vP;
 void main(){
   float x = vP.x + vP.z;
   float top = uLevel + 0.03 * sin(x * 5.0) + 0.015 * sin(x * 13.0 + 1.0);
-  float band = exp(-pow((vP.y - top) / 0.028, 2.0));
+  float band = exp(-pow((vP.y - top) / 0.05, 2.0));
   float below = (vP.y < top ? 1.0 : 0.0) * 0.18;
-  float a = uOp * (band * 0.85 + below);
-  vec3 c = mix(vec3(0.62, 0.46, 0.40), vec3(1.0, 0.98, 0.95), band);
+  float a = uOp * (band * 1.0 + below * 2.6);
+  vec3 c = mix(vec3(0.45, 0.25, 0.2), vec3(1.0, 1.0, 1.0), band);
   gl_FragColor = vec4(c, a);
 }`;
 
-export function useWaterMat(color = '#3d9be9', stain = false) {
+export function useWaterMat(color = '#1f7fdc', stain = false) {
   return useMemo(() => new THREE.ShaderMaterial({
     vertexShader: VERT, fragmentShader: stain ? FRAG_STAIN : FRAG_WATER, transparent: true, depthWrite: false, side: THREE.DoubleSide,
     uniforms: {uLevel: {value: 0}, uTime: {value: 0}, uOp: {value: 1}, uCol: {value: new THREE.Color(color)}},
   }), [color, stain]);
 }
+const INK = new THREE.MeshBasicMaterial({color: '#1c1c1e', side: THREE.BackSide});
+const UBOX = new THREE.BoxGeometry(1, 1, 1);
+export const Ink: React.FC<{p: [number, number, number]; s: [number, number, number]; w?: number}> = ({p, s, w = 0.028}) =>
+  <mesh geometry={UBOX} material={INK} position={p} scale={[s[0] + w, s[1] + w, s[2] + w]} />;
 const setU = (m: THREE.ShaderMaterial, level: number, time: number, op = 1) => { m.uniforms.uLevel.value = level; m.uniforms.uTime.value = time; m.uniforms.uOp.value = op; };
 
 // plane vertikal yang koordinat lokalnya = koordinat tembok (y 0..h), untuk shader berbasis tinggi
@@ -70,9 +76,9 @@ const FLAKES: [number, number, number][] = [[-0.42, 0.5, 0], [0.42, 0.62, 0.4], 
 
 export const Wall: React.FC<WallState> = ({t, level, waterOp = 1, bubbles = 0, peel = 0, coat = 0, trasram = 0, stain = 0}) => {
   const m = useMemo(() => ({
-    brick: phys(CORAL), mortar: phys('#f6b4a3', {roughness: 0.7, clearcoat: 0.1}),
-    plaster: phys('#f9d5ca', {roughness: 0.55, clearcoat: 0.35}), coat: phys('#c24f3e', {roughness: 0.25, clearcoat: 1}),
-    trasram: phys('#ece7e0', {roughness: 0.35, clearcoat: 0.8, sheen: 0}), ground: phys('#dcd6cd', {roughness: 0.9, clearcoat: 0, sheen: 0}),
+    brick: phys('#e65a43'), mortar: phys('#fbe6de', {roughness: 0.7, clearcoat: 0.1}),
+    plaster: phys('#f39a85', {roughness: 0.5, clearcoat: 0.4}), coat: phys('#7e2a20', {roughness: 0.25, clearcoat: 1}),
+    trasram: phys('#e3ded6', {roughness: 0.35, clearcoat: 0.8, sheen: 0}), ground: phys('#b9b1a6', {roughness: 0.9, clearcoat: 0, sheen: 0}),
   }), []);
   const box = useMemo(() => new THREE.BoxGeometry(1, 1, 1), []);
   const sph = useMemo(() => new THREE.SphereGeometry(1, 40, 20, 0, Math.PI * 2, 0, Math.PI / 2), []);
@@ -98,6 +104,9 @@ export const Wall: React.FC<WallState> = ({t, level, waterOp = 1, bubbles = 0, p
     <group>
       {/* tanah */}
       <mesh geometry={box} material={m.ground} position={[0, -0.18, 0.1]} scale={[4.6, 0.36, 2.2]} />
+      <Ink p={[0, -0.18, 0.1]} s={[4.6, 0.36, 2.2]} />
+      <Ink p={[0, H / 2, 0]} s={[W, H, D]} />
+      <Ink p={[0, 0.7, D / 2 + 0.02]} s={[W, 1.4, 0.04]} /><Ink p={[-0.5, 1.9, D / 2 + 0.02]} s={[2.0, 1.0, 0.04]} /><Ink p={[0.75, 1.55, D / 2 + 0.02]} s={[0.5, 0.3, 0.04]} />
       {/* inti adukan + bata */}
       <mesh geometry={box} material={m.mortar} position={[0, H / 2, 0]} scale={[W - 0.004, H - 0.004, D - 0.03]} />
       {bricks.map((b, i) => <mesh key={i} geometry={box} material={m.brick} position={[b.x, b.y, 0]} scale={[b.l - 0.026, 0.134, D - 0.006]} />)}
@@ -138,10 +147,10 @@ export const Wall: React.FC<WallState> = ({t, level, waterOp = 1, bubbles = 0, p
 const BW = 2.4, BH = 1.7, BD = 1.2;
 function rand(i: number) { const s = Math.sin(i * 127.1 + 311.7) * 43758.5453; return s - Math.floor(s); }
 export const PoriBata: React.FC<{t: number; p: number; tissue: number}> = ({t, p, tissue}) => {
-  const brick = useMemo(() => phys(CORAL), []);
-  const pore = useMemo(() => phys('#b5493a', {roughness: 0.6, clearcoat: 0.2}), []);
+  const brick = useMemo(() => phys('#e65a43'), []);
+  const pore = useMemo(() => phys('#8e2d20', {roughness: 0.6, clearcoat: 0.2}), []);
   const tissueM = useMemo(() => phys('#fbfaf7', {roughness: 0.9, clearcoat: 0, sheen: 0.3, sheenColor: new THREE.Color('#ffffff')}), []);
-  const pool = useMemo(() => phys('#7cc0f2', {roughness: 0.08, clearcoat: 1, transparent: true, opacity: 0.55, sheen: 0}), []);
+  const pool = useMemo(() => phys('#2f8fe6', {roughness: 0.08, clearcoat: 1, transparent: true, opacity: 0.75, sheen: 0}), []);
   const chans = useMemo(() => Array.from({length: 34}, (_, i) => {
     const x0 = -BW / 2 + 0.08 + (i + rand(i) * 0.7) * ((BW - 0.16) / 34);
     const pts = Array.from({length: 9}, (_, k) => new THREE.Vector3(x0 + Math.sin(k * 1.3 + i) * 0.035 + (rand(i * 9 + k) - 0.5) * 0.03, (k / 8) * BH, BD / 2 + 0.002));
@@ -152,13 +161,14 @@ export const PoriBata: React.FC<{t: number; p: number; tissue: number}> = ({t, p
     uniforms: {uLevel: {value: 0}, uTime: {value: 0}, uOp: {value: 1.8}, uCol: {value: new THREE.Color('#2f8fe6')}}})), [chans]);
   chans.forEach((c, i) => setU(mats[i], p * BH * 1.05 * c.speed, t, 2.2));
   const tGeo = useMemo(() => { const g = new THREE.PlaneGeometry(0.55, 1.8, 10, 30); const pos = g.attributes.position as THREE.BufferAttribute; for (let i = 0; i < pos.count; i++) pos.setZ(i, Math.sin(pos.getX(i) * 4) * 0.05); g.translate(0, 0.9, 0); g.computeVertexNormals(); return g; }, []);
-  const tWater = useWaterMat('#3d9be9');
+  const tWater = useWaterMat('#1f7fdc');
   setU(tWater, -0.05 + tissue * 1.3, t, 1.4);
   const box = useMemo(() => new THREE.BoxGeometry(1, 1, 1), []);
   return (
     <group>
       <mesh geometry={box} material={pool} position={[0.7, -0.06, 0]} scale={[5.6, 0.12, 2.4]} />
       <mesh geometry={box} material={brick} position={[0, BH / 2, 0]} scale={[BW, BH, BD]} />
+      <Ink p={[0, BH / 2, 0]} s={[BW, BH, BD]} w={0.04} />
       {chans.map((c, i) => <mesh key={i} geometry={c.dark} material={pore} />)}
       {chans.map((c, i) => <mesh key={'w' + i} geometry={c.wet} material={mats[i]} />)}
       <group position={[1.62, -0.08, 0.3]} rotation={[0, -0.2, 0.03]}>
@@ -171,8 +181,8 @@ export const PoriBata: React.FC<{t: number; p: number; tissue: number}> = ({t, p
 
 // ---------- PENAMPANG LAPISAN: bata | plester | cat, kristal garam mendorong cat ----------
 export const Lapisan: React.FC<{t: number; water: number; crystal: number; bulge: number; powder: number; spread: number}> = ({t, water, crystal, bulge, powder, spread}) => {
-  const m = useMemo(() => ({brick: phys(CORAL), plaster: phys('#f9d5ca', {roughness: 0.55, clearcoat: 0.35}), paint: phys('#fff0ea', {roughness: 0.3, clearcoat: 0.9, side: THREE.DoubleSide}),
-    salt: phys('#ffffff', {roughness: 0.15, clearcoat: 1, sheen: 0}), groove: phys('#f6b4a3', {roughness: 0.7, clearcoat: 0.1})}), []);
+  const m = useMemo(() => ({brick: phys('#e65a43'), plaster: phys('#f39a85', {roughness: 0.5, clearcoat: 0.4}), paint: phys('#ffffff', {roughness: 0.3, clearcoat: 0.9, side: THREE.DoubleSide}),
+    salt: phys('#ffffff', {roughness: 0.15, clearcoat: 1, sheen: 0, emissive: new THREE.Color('#ffffff'), emissiveIntensity: 0.25}), groove: phys('#fbe6de', {roughness: 0.7, clearcoat: 0.1})}), []);
   const box = useMemo(() => new THREE.BoxGeometry(1, 1, 1), []);
   const S = 2.2, zPl = 0.35 + spread * 0.25, zCat = 0.48 + spread * 0.5;
   const cx = 0.42, cy = 1.0, R = 0.5;
@@ -192,6 +202,7 @@ export const Lapisan: React.FC<{t: number; water: number; crystal: number; bulge
   return (
     <group>
       <mesh geometry={box} material={m.brick} position={[0, S / 2, -0.12]} scale={[S, S, 0.5]} />
+      <Ink p={[0, S / 2, -0.12]} s={[S, S, 0.5]} w={0.035} /><Ink p={[0, S / 2, zPl - 0.06]} s={[S, S, 0.12]} w={0.035} />
       {[0.42, 0.84, 1.26, 1.68].map((y) => <mesh key={y} geometry={box} material={m.groove} position={[0, y, 0.135]} scale={[S + 0.002, 0.028, 0.02]} />)}
       <mesh geometry={box} material={m.plaster} position={[0, S / 2, zPl - 0.06]} scale={[S, S, 0.12]} />
       {crystals.map((c, i) => {

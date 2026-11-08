@@ -12,7 +12,7 @@ export const Cover05: React.FC = () => (
     <Paper t={0} />
     <Ghost lines={['Air', 'Tanah']} y={1180} />
     <ThreeCanvas width={1080} height={1920} camera={{position: [1, 1.2, 8.6], fov: 34}} gl={{alpha: true, antialias: true}}>
-      <Env /><ambientLight intensity={0.35} /><directionalLight position={[3, 5, 6]} intensity={2.2} /><directionalLight position={[-4, 1, 3]} intensity={0.6} color="#ffe2da" />
+      <Env /><ambientLight intensity={0.15} /><directionalLight position={[4, 6, 5]} intensity={3.0} /><directionalLight position={[-4, 1, 3]} intensity={0.35} color="#ffe2da" />
       <Cam />
       <group rotation={[0, YAW, 0]}><Wall t={1.3} level={0.95} bubbles={0.8} peel={0.45} /></group>
     </ThreeCanvas>

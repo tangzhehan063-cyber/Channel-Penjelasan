@@ -49,9 +49,9 @@ export const Callout: React.FC<{from: [number, number]; to: [number, number]; la
         <circle cx={x1} cy={y1} r={9 * Math.min(1, p * 3)} fill={PALETTE.ink} /><circle cx={x1} cy={y1} r={22 * Math.min(1, p * 3)} fill="none" stroke={PALETTE.ink} strokeWidth="2" opacity="0.4" />
         <line x1={x1} y1={y1} x2={ex} y2={ey} stroke={PALETTE.ink} strokeWidth="2.5" /><line x1={x2} y1={y2} x2={x2 + 180 * a} y2={y2} stroke={PALETTE.ink} strokeWidth="2.5" />
       </svg>
-      <div style={{position: 'absolute', left: x2 + 4, top: y2 - 58, opacity: a, fontFamily: 'Inter', color: PALETTE.ink, whiteSpace: 'nowrap'}}>
-        <div style={{fontSize: 38, fontWeight: 700, letterSpacing: -0.5}}>{label}</div>
-        {sub && <div style={{fontSize: 26, fontWeight: 400, color: PALETTE.sub, marginTop: 14}}>{sub}</div>}
+      <div style={{position: 'absolute', left: x2 - 8, top: y2 - 66, opacity: a, fontFamily: 'Inter', color: PALETTE.ink, whiteSpace: 'nowrap'}}>
+        <div style={{fontSize: 38, fontWeight: 700, letterSpacing: -0.5, padding: '2px 12px', borderRadius: 10, background: 'rgba(250,249,246,0.94)', display: 'inline-block'}}>{label}</div>
+        {sub && <div><div style={{fontSize: 26, fontWeight: 400, color: '#5f5f63', marginTop: 12, padding: '2px 12px', borderRadius: 8, background: 'rgba(250,249,246,0.94)', display: 'inline-block'}}>{sub}</div></div>}
       </div>
     </>
   );

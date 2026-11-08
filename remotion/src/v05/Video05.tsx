@@ -87,7 +87,7 @@ const Rig: React.FC<{k: Key}> = ({k}) => {
   cam.position.set(...k.pos); cam.fov = FOV; cam.updateProjectionMatrix(); cam.lookAt(...k.look);
   return null;
 };
-const Lights: React.FC = () => (<><Env /><ambientLight intensity={0.35} /><directionalLight position={[3, 5, 6]} intensity={2.2} /><directionalLight position={[-4, 1, 3]} intensity={0.6} color="#ffe2da" /></>);
+const Lights: React.FC = () => (<><Env /><ambientLight intensity={0.15} /><directionalLight position={[4, 6, 5]} intensity={3.0} /><directionalLight position={[-4, 1, 3]} intensity={0.35} color="#ffe2da" /></>);
 const Canvas3D: React.FC<{k: Key; children: React.ReactNode}> = ({k, children}) => (
   <ThreeCanvas width={1080} height={1920} camera={{position: k.pos, fov: FOV}} gl={{alpha: true, antialias: true}}>
     <Lights /><Rig k={k} />{children}
@@ -105,9 +105,9 @@ const Title: React.FC<{t: number; a: number; b: number; small: string; big: stri
   const i = r(t, a, a + 0.45, Easing.out(Easing.cubic)), o = 1 - r(t, b - 0.3, b);
   if (i * o <= 0) return null;
   return (
-    <div style={{position: 'absolute', left: 84, right: 60, top: 300, fontFamily: 'Inter', color: INK, opacity: i * o, transform: `translateY(${(1 - i) * 26}px)`}}>
+    <div style={{position: 'absolute', left: 60, top: 290, maxWidth: 960, padding: '22px 30px 26px', borderRadius: 26, background: 'rgba(250,249,246,0.94)', boxShadow: '0 12px 40px rgba(28,28,30,0.12)', fontFamily: 'Inter', color: INK, opacity: i * o, transform: `translateY(${(1 - i) * 26}px)`}}>
       <div style={{fontSize: 54, fontWeight: 700, letterSpacing: -1}}>{small}</div>
-      <div style={{fontSize: size, fontWeight: 900, letterSpacing: -2, lineHeight: 1.0, color: bigColor, marginTop: 6}}>{big}</div>
+      <div style={{whiteSpace: 'nowrap', fontSize: size, fontWeight: 900, letterSpacing: -2, lineHeight: 1.0, color: bigColor, marginTop: 6}}>{big}</div>
     </div>
   );
 };
@@ -121,8 +121,10 @@ const Captions: React.FC<{ms: number}> = ({ms}) => {
   if (!pg) return null;
   const k = r(ms / 1000, pg.startMs / 1000, pg.startMs / 1000 + 0.15);
   return (
-    <div style={{position: 'absolute', left: 70, right: 70, top: 1400, textAlign: 'center', fontFamily: 'Inter', fontWeight: 700, fontSize: 62, letterSpacing: -0.8, lineHeight: 1.15, color: INK, opacity: k, transform: `translateY(${(1 - k) * 10}px)`}}>
-      {pg.tokens.map((tk, i) => <span key={i} style={{color: ms >= tk.fromMs && ms < tk.toMs + 120 ? CORAL : INK}}>{tk.text}</span>)}
+    <div style={{position: 'absolute', left: 60, right: 60, top: 1400, textAlign: 'center', fontFamily: 'Inter', fontWeight: 700, fontSize: 62, letterSpacing: -0.8, lineHeight: 1.15, color: INK, opacity: k, transform: `translateY(${(1 - k) * 10}px)`}}>
+      <span style={{display: 'inline-block', padding: '12px 28px 16px', borderRadius: 22, background: 'rgba(250,249,246,0.94)', boxShadow: '0 10px 30px rgba(28,28,30,0.12)'}}>
+        {pg.tokens.map((tk, i) => <span key={i} style={{color: ms >= tk.fromMs && ms < tk.toMs + 120 ? CORAL : INK}}>{tk.text}</span>)}
+      </span>
     </div>
   );
 };
@@ -135,7 +137,7 @@ const Ruler: React.FC<{a: [number, number]; b: [number, number]; p: number; labe
         <line x1={a[0]} y1={a[1]} x2={b[0]} y2={y2} stroke={INK} strokeWidth="3" />
         {[0, 0.25, 0.5, 0.75, 1].filter((k) => k <= p + 0.001).map((k) => <line key={k} x1={a[0] - (k % 0.5 ? 10 : 18)} x2={a[0] + (k % 0.5 ? 10 : 18)} y1={a[1] + (b[1] - a[1]) * k} y2={a[1] + (b[1] - a[1]) * k} stroke={INK} strokeWidth="3" />)}
       </svg>
-      <div style={{position: 'absolute', left: b[0] - 250, top: b[1] - 40, width: 220, textAlign: 'right', fontFamily: 'Inter', color: INK, opacity: lab}}>
+      <div style={{position: 'absolute', left: b[0] - 270, top: b[1] - 50, width: 230, textAlign: 'right', padding: '8px 14px', borderRadius: 14, background: 'rgba(250,249,246,0.94)', fontFamily: 'Inter', color: INK, opacity: lab}}>
         <div style={{fontSize: 46, fontWeight: 900, letterSpacing: -1}}>{label}</div>
         <div style={{fontSize: 26, color: PALETTE.sub, marginTop: 4}}>{sub}</div>
       </div>
@@ -145,7 +147,7 @@ const Ruler: React.FC<{a: [number, number]; b: [number, number]; p: number; labe
 const Dashed: React.FC<{a: [number, number]; b: [number, number]; p: number; label: string}> = ({a, b, p, label}) => (
   <>
     <svg width="1080" height="1920" style={{position: 'absolute'}}><line x1={a[0]} y1={a[1]} x2={a[0] + (b[0] - a[0]) * p} y2={a[1] + (b[1] - a[1]) * p} stroke={INK} strokeWidth="3" strokeDasharray="14 10" /></svg>
-    <div style={{position: 'absolute', left: a[0], top: a[1] - 56, fontFamily: 'Inter', fontWeight: 700, fontSize: 32, color: INK, opacity: r(p, 0.5, 1, Easing.linear)}}>{label}</div>
+    <div style={{position: 'absolute', left: a[0] + 10, top: a[1] - 62, padding: '4px 12px', borderRadius: 10, background: 'rgba(250,249,246,0.94)', fontFamily: 'Inter', fontWeight: 700, fontSize: 32, color: INK, opacity: r(p, 0.5, 1, Easing.linear)}}>{label}</div>
   </>
 );
 const Mark: React.FC<{x: number; y: number; p: number; ok?: boolean}> = ({x, y, p, ok}) => {
@@ -215,24 +217,24 @@ export const Video05: React.FC = () => {
 
       {/* judul 2 baris per beat */}
       <Title t={t} a={0.05} b={B.kelupas} small="Tembokmu" big="MINUM AIR" />
-      <Title t={t} a={B.kelupas} b={B.pori} small="Cat bawah" big="NGELUPAS TERUS" size={108} />
+      <Title t={t} a={B.kelupas} b={B.pori} small="Cat bawah" big="NGELUPAS TERUS" size={94} />
       <Title t={t} a={B.pori} b={B.meter} small="Pori bata" big="NYEDOT AIR" />
       <Title t={t} a={B.meter} b={B.garam} small="Bisa naik" big="± 1 METER" />
-      <Title t={t} a={B.garam} b={B.mitos} small="Garam mengkristal," big="CAT KEDORONG" />
-      <Title t={t} a={B.mitos} b={B.solusi} small={t < 28.5 ? 'Cat anti air?' : 'Cat anti air? Salah!'} big={t < 31.0 ? 'BUKAN SOLUSI' : 'AIRNYA MALAH NAIK'} size={t < 31.0 ? 116 : 98} />
+      <Title t={t} a={B.garam} b={B.mitos} small="Garam mengkristal," big="CAT KEDORONG" size={104} />
+      <Title t={t} a={B.mitos} b={B.solusi} small={t < 28.5 ? 'Cat anti air?' : 'Cat anti air? Salah!'} big={t < 31.0 ? 'BUKAN SOLUSI' : 'AIRNYA MALAH NAIK'} size={t < 31.0 ? 110 : 86} />
       <Title t={t} a={B.solusi} b={B.cek} small="Putus dari bawah:" big="TRASRAM" />
-      <Title t={t} a={B.cek} b={B.cta} small="Ada noda" big="SETINGGI LUTUT?" size={104} />
+      <Title t={t} a={B.cek} b={B.cta} small="Ada noda" big="SETINGGI LUTUT?" size={94} />
 
       {/* label garis tipis */}
       <Callout from={poriPt} to={[poriPt[0] + 60, poriPt[1] - 330]} label="Pori kapiler" sub="saluran super kecil" p={r(t, 9.4, 10.4) * (1 - r(t, 12.4, 12.8))} />
       <Callout from={tisuPt} to={[tisuPt[0] - 330, tisuPt[1] - 240]} label="Kayak tisu" sub="ujungnya dicelup air" p={r(t, 12.6, 13.4) * (1 - r(t, 14.2, 14.5))} />
       {t > B.meter && t < B.garam && <Ruler a={rulA} b={rulB} p={r(t, 14.6, 16.4)} label="± 1 m" sub="(perkiraan)" />}
-      {(() => { const pb = lp([1.1, 1.9, 0.1]), pp = lp([0.9, 1.75, 0.6]), pc2 = lp([-0.7, 0.45, 0.98]), px = lp([0.62, 0.8, 0.75]);
+      {(() => { const pb = lp([1.1, 1.35, 0.1]), pp = lp([0.9, 1.45, 0.6]), pc2 = lp([-0.7, 0.45, 0.98]), px = lp([0.62, 0.8, 0.75]);
         const cl = (p: [number, number], dx: number, dy: number): [number, number] => [Math.max(40, Math.min(760, p[0] + dx)), Math.max(660, Math.min(1290, p[1] + dy))];
         const on = t > B.garam && t < B.mitos ? 1 - r(t, 25.2, 25.6) : 0;
         return on > 0 && <>
-          <Callout from={pb} to={cl(pb, 30, -110)} label="Bata" p={r(t, 17.4, 18.2) * on} />
-          <Callout from={pp} to={cl(pp, -330, -60)} label="Plester" p={r(t, 17.8, 18.6) * on} />
+          <Callout from={pb} to={cl(pb, 40, 120)} label="Bata" p={r(t, 17.4, 18.2) * on} />
+          <Callout from={pp} to={cl(pp, -330, -40)} label="Plester" p={r(t, 17.8, 18.6) * on} />
           <Callout from={pc2} to={cl(pc2, -40, 170)} label="Cat" p={r(t, 18.2, 19.0) * on} />
           <Callout from={px} to={cl(px, 60, 220)} label="Kristal garam" sub="(efflorescence)" p={r(t, 21.4, 22.4) * on} />
         </>; })()}
