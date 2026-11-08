@@ -18,3 +18,10 @@ Channel pengetahuan, seri utama **"fakta rumah"**, Bahasa Indonesia santai, audi
 - Suara: ElevenLabs `eleven_v4` (default voice Riri Rida `tCKeP99grYL9wZRg6sQ9`) atau Google AI Studio bila user memilih; angka di teks TTS ditulis sebagai kata. Unduh dari `elevenlabsusercontent.com`.
 - Timestamp: ElevenLabs Scribe → `python3 tools/scribe_to_timeline.py <words.json> <out.json>` (angka jadi numeral, tag audio dibuang). Whisper/huggingface diblokir di cloud.
 - Container baru: `./setup.sh`.
+
+## Caption & komentar pertama (berlaku setelah user ACC naskah final)
+- Begitu user menyatakan **ACC/final** untuk naskah, langsung kirim **caption posting + komentar pertama** (jangan tunggu video selesai; cover tetap dibuat setelah render).
+- **Wajib riset bahasa manusia dulu:** pakai ScrapeMedsos (TikTok `v1_tiktok_search_keyword` region ID, lalu komentar video teratas dengan `v1_tiktok_video_comments`, bila perlu YouTube) untuk topik yang sama. Catat kata, singkatan, dan gaya yang benar-benar dipakai orang (mis. "jeglek", "kopong", "rembes", "wkwk", "auto", "relate banget").
+- Tulis caption & komentar pertama meniru ritme itu: kalimat pendek, boleh tidak baku, emoji secukupnya (0–2), tanpa frasa khas AI ("Yuk simak!", "Tahukah kamu", "di era modern ini", "mari kita", "penting untuk diingat", tanda "—" berlebihan, daftar berpoin di caption).
+- Komentar pertama = pancingan diskusi dari sudut pandang kreator (pertanyaan spesifik atau "aku dulu juga…"), bukan ringkasan video.
+- Simpan contoh bahasa hasil scrape (maks. 10 kutipan pendek) di file caption sebagai bukti, jangan menyalin komentar orang utuh ke caption.

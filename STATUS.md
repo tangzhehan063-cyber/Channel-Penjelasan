@@ -10,6 +10,7 @@
 - Bahasa Indonesia; suka saran "out of the box".
 - Selalu caption + cover setelah video selesai.
 - Tahap ide: selalu riset tren + saran improvisasi topik.
+- Setelah ACC naskah final: kirim caption + komentar pertama berbahasa manusia (hasil scrape sosmed), bukan gaya AI.
 
 ## Lingkungan
 - `elevenlabsusercontent.com` diizinkan di environment Default; huggingface diblokir.
