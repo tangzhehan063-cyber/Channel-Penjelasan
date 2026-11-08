@@ -1,0 +1,569 @@
+{
+"words": [
+{
+"word": "Tembok",
+"start": 0.073,
+"end": 0.32
+},
+{
+"word": "rumahmu",
+"start": 0.4,
+"end": 0.88
+},
+{
+"word": "tiap",
+"start": 0.96,
+"end": 1.12
+},
+{
+"word": "hari",
+"start": 1.2,
+"end": 1.36
+},
+{
+"word": "minum",
+"start": 1.44,
+"end": 1.6
+},
+{
+"word": "air.",
+"start": 1.68,
+"end": 2.24
+},
+{
+"word": "Dari",
+"start": 2.4,
+"end": 2.56
+},
+{
+"word": "tanah.",
+"start": 2.64,
+"end": 3.32
+},
+{
+"word": "Pernah",
+"start": 3.52,
+"end": 3.68
+},
+{
+"word": "lihat",
+"start": 3.76,
+"end": 4.0
+},
+{
+"word": "cat",
+"start": 4.08,
+"end": 4.24
+},
+{
+"word": "bagian",
+"start": 4.32,
+"end": 4.56
+},
+{
+"word": "bawah",
+"start": 4.64,
+"end": 4.8
+},
+{
+"word": "tembok",
+"start": 4.88,
+"end": 5.04
+},
+{
+"word": "ngelupas",
+"start": 5.08,
+"end": 5.44
+},
+{
+"word": "terus?",
+"start": 5.56,
+"end": 6.16
+},
+{
+"word": "Padahal",
+"start": 6.24,
+"end": 6.56
+},
+{
+"word": "udah",
+"start": 6.64,
+"end": 6.8
+},
+{
+"word": "dicat",
+"start": 6.88,
+"end": 7.12
+},
+{
+"word": "ulang.",
+"start": 7.2,
+"end": 7.92
+},
+{
+"word": "Bata",
+"start": 7.96,
+"end": 8.32
+},
+{
+"word": "sama",
+"start": 8.373,
+"end": 8.48
+},
+{
+"word": "plester",
+"start": 8.56,
+"end": 8.88
+},
+{
+"word": "itu",
+"start": 8.96,
+"end": 9.28
+},
+{
+"word": "penuh",
+"start": 9.333,
+"end": 9.52
+},
+{
+"word": "pori",
+"start": 9.6,
+"end": 9.72
+},
+{
+"word": "kecil.",
+"start": 9.76,
+"end": 10.56
+},
+{
+"word": "Air",
+"start": 10.68,
+"end": 10.8
+},
+{
+"word": "tanah",
+"start": 10.88,
+"end": 11.12
+},
+{
+"word": "naik",
+"start": 11.2,
+"end": 11.44
+},
+{
+"word": "lewat",
+"start": 11.48,
+"end": 11.68
+},
+{
+"word": "situ,",
+"start": 11.72,
+"end": 12.34
+},
+{
+"word": "kayak",
+"start": 12.36,
+"end": 12.56
+},
+{
+"word": "tisu",
+"start": 12.6,
+"end": 12.88
+},
+{
+"word": "yang",
+"start": 12.96,
+"end": 13.12
+},
+{
+"word": "ujungnya",
+"start": 13.16,
+"end": 13.44
+},
+{
+"word": "dicelup",
+"start": 13.52,
+"end": 13.84
+},
+{
+"word": "air.",
+"start": 13.92,
+"end": 14.587
+},
+{
+"word": "Naiknya",
+"start": 14.613,
+"end": 15.04
+},
+{
+"word": "bisa",
+"start": 15.093,
+"end": 15.2
+},
+{
+"word": "sampai",
+"start": 15.28,
+"end": 15.52
+},
+{
+"word": "sekitar",
+"start": 15.6,
+"end": 15.92
+},
+{
+"word": "satu",
+"start": 16.0,
+"end": 16.24
+},
+{
+"word": "meter.",
+"start": 16.32,
+"end": 16.96
+},
+{
+"word": "Airnya",
+"start": 17.12,
+"end": 17.44
+},
+{
+"word": "bawa",
+"start": 17.52,
+"end": 17.76
+},
+{
+"word": "garam",
+"start": 17.84,
+"end": 18.16
+},
+{
+"word": "dari",
+"start": 18.213,
+"end": 18.32
+},
+{
+"word": "tanah.",
+"start": 18.4,
+"end": 19.093
+},
+{
+"word": "Pas",
+"start": 19.147,
+"end": 19.2
+},
+{
+"word": "menguap,",
+"start": 19.24,
+"end": 19.84
+},
+{
+"word": "garamnya",
+"start": 19.92,
+"end": 20.16
+},
+{
+"word": "ketinggalan,",
+"start": 20.267,
+"end": 21.04
+},
+{
+"word": "jadi",
+"start": 21.16,
+"end": 21.28
+},
+{
+"word": "kristal",
+"start": 21.32,
+"end": 21.68
+},
+{
+"word": "di",
+"start": 21.76,
+"end": 21.84
+},
+{
+"word": "balik",
+"start": 21.92,
+"end": 22.08
+},
+{
+"word": "cat.",
+"start": 22.16,
+"end": 22.64
+},
+{
+"word": "Catnya",
+"start": 22.72,
+"end": 22.96
+},
+{
+"word": "kedorong,",
+"start": 23.093,
+"end": 23.68
+},
+{
+"word": "menggelembung,",
+"start": 23.733,
+"end": 24.48
+},
+{
+"word": "lalu",
+"start": 24.52,
+"end": 24.72
+},
+{
+"word": "ngelupas.",
+"start": 24.76,
+"end": 25.68
+},
+{
+"word": "Banyak",
+"start": 25.787,
+"end": 26.0
+},
+{
+"word": "yang",
+"start": 26.08,
+"end": 26.16
+},
+{
+"word": "kira",
+"start": 26.2,
+"end": 26.48
+},
+{
+"word": "solusinya",
+"start": 26.56,
+"end": 27.04
+},
+{
+"word": "cat",
+"start": 27.2,
+"end": 27.36
+},
+{
+"word": "anti",
+"start": 27.44,
+"end": 27.6
+},
+{
+"word": "air.",
+"start": 27.68,
+"end": 28.32
+},
+{
+"word": "Salah!",
+"start": 28.587,
+"end": 29.12
+},
+{
+"word": "Kalau",
+"start": 29.413,
+"end": 29.52
+},
+{
+"word": "bawahnya",
+"start": 29.6,
+"end": 29.84
+},
+{
+"word": "ditutup",
+"start": 29.92,
+"end": 30.24
+},
+{
+"word": "rapat,",
+"start": 30.32,
+"end": 30.88
+},
+{
+"word": "airnya",
+"start": 31.04,
+"end": 31.28
+},
+{
+"word": "nggak",
+"start": 31.32,
+"end": 31.413
+},
+{
+"word": "bisa",
+"start": 31.44,
+"end": 31.6
+},
+{
+"word": "keluar.",
+"start": 31.72,
+"end": 32.32
+},
+{
+"word": "Malah",
+"start": 32.36,
+"end": 32.64
+},
+{
+"word": "naik",
+"start": 32.76,
+"end": 32.96
+},
+{
+"word": "lebih",
+"start": 33.04,
+"end": 33.2
+},
+{
+"word": "tinggi.",
+"start": 33.28,
+"end": 34.0
+},
+{
+"word": "Kuncinya",
+"start": 34.08,
+"end": 34.64
+},
+{
+"word": "di",
+"start": 34.72,
+"end": 34.88
+},
+{
+"word": "bawah.",
+"start": 34.92,
+"end": 35.76
+},
+{
+"word": "Pakai",
+"start": 35.813,
+"end": 36.0
+},
+{
+"word": "trasram,",
+"start": 36.08,
+"end": 36.8
+},
+{
+"word": "adukan",
+"start": 36.88,
+"end": 37.2
+},
+{
+"word": "kedap",
+"start": 37.28,
+"end": 37.52
+},
+{
+"word": "air",
+"start": 37.6,
+"end": 37.76
+},
+{
+"word": "di",
+"start": 37.84,
+"end": 37.92
+},
+{
+"word": "kaki",
+"start": 37.96,
+"end": 38.16
+},
+{
+"word": "tembok,",
+"start": 38.24,
+"end": 38.72
+},
+{
+"word": "biar",
+"start": 38.8,
+"end": 38.96
+},
+{
+"word": "jalur",
+"start": 39.04,
+"end": 39.28
+},
+{
+"word": "airnya",
+"start": 39.36,
+"end": 39.68
+},
+{
+"word": "putus",
+"start": 39.84,
+"end": 40.16
+},
+{
+"word": "dari",
+"start": 40.2,
+"end": 40.4
+},
+{
+"word": "tanah.",
+"start": 40.52,
+"end": 41.04
+},
+{
+"word": "Coba",
+"start": 41.12,
+"end": 41.28
+},
+{
+"word": "lihat",
+"start": 41.32,
+"end": 41.44
+},
+{
+"word": "tembok",
+"start": 41.52,
+"end": 41.68
+},
+{
+"word": "rumahmu.",
+"start": 41.76,
+"end": 42.4
+},
+{
+"word": "Ada",
+"start": 42.52,
+"end": 42.64
+},
+{
+"word": "noda",
+"start": 42.68,
+"end": 42.88
+},
+{
+"word": "setinggi",
+"start": 42.96,
+"end": 43.2
+},
+{
+"word": "lutut?",
+"start": 43.32,
+"end": 43.84
+},
+{
+"word": "Follow",
+"start": 43.92,
+"end": 44.24
+},
+{
+"word": "buat",
+"start": 44.32,
+"end": 44.48
+},
+{
+"word": "fakta",
+"start": 44.56,
+"end": 44.8
+},
+{
+"word": "rumah",
+"start": 44.88,
+"end": 45.04
+},
+{
+"word": "berikutnya!",
+"start": 45.12,
+"end": 46.0
+}
+]
+}

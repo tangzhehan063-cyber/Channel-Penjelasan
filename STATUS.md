@@ -3,8 +3,8 @@
 ## Posisi terakhir (8 Nov 2026)
 - Video #1–#4 (bata, semen, meteran kWh, keramik) dibuat sebelumnya dengan gaya origami; naskahnya jadi referensi di `referensi/`.
 - Gaya visual sudah diganti ke **editorial 3D bersih** (`style/style.md`, contoh `style/contoh-frame.png`).
-- **Video #5 "Tembokmu Minum Air dari Tanah"**: Tahap 1 selesai; **Tahap 2 storyboard draft selesai** di `naskah/video-05-tembok-minum-air.md`. **Naskah ACC final** (8 Nov). Caption + komentar pertama SELESAI di `caption/video-05-tembok-minum-air.md`. Berikutnya: Tahap 3 suara (konfirmasi voice: Riri Rida vs Google AI Studio).
-- Belum diputuskan: nama channel/handle, voice final (default Riri Rida), realisme objek 3D (prosedural vs model CC0/public domain).
+- **Video #5 "Tembokmu Minum Air dari Tanah"**: Tahap 1 selesai; **Tahap 2 storyboard draft selesai** di `naskah/video-05-tembok-minum-air.md`. **Naskah ACC final** (8 Nov). Caption + komentar pertama SELESAI di `caption/video-05-tembok-minum-air.md`. Tahap 3 suara SELESAI: Riri Rida (eleven_v4), 45,9 dtk, `remotion/public/v05/vo.mp3` + timestamp `remotion/public/v05/words.json` (ElevenLabs flow 2GY0rXzG7PVOaAnGzjCC). Berikutnya: Tahap 4 animasi Remotion (komposisi Video05), lalu render, cover.
+- Belum diputuskan: nama channel/handle, voice: Riri Rida dipilih user untuk video #5, realisme objek 3D (prosedural vs model CC0/public domain).
 
 ## Preferensi user
 - Bahasa Indonesia; suka saran "out of the box".
