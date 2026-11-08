@@ -8,6 +8,8 @@ Alur ini meneruskan cara kerja 4 video pertama (referensi di `referensi/`), deng
 - Durasi **±38–45 detik**, **8–10 beat**, 9:16. Penomoran video berlanjut (berikutnya **#5**).
 - Penutup tetap: **"Follow buat fakta rumah berikutnya!"**
 
+> **Lapisan viral:** saat Tahap 1–2, terapkan juga skill `.claude/skills/naskah-viral/SKILL.md` (hook 3 alternatif, isi berlapis, payoff, pemicu share, tanda [⚠ CEK]). Dasar data: `riset/2026-11-08-bedah-10-video-viral.md`.
+
 ## Tahap 1: Ide
 1. Beri **10 ide** dalam seri fakta rumah (format ScriptForge langkah 2: judul ≤ 60 karakter + satu baris hook/alasan orang klik). Campur format: "kenapa…", "cara … bekerja", "mitos vs fakta", "bahaya yang nggak kelihatan".
 2. **Cek tren** untuk ide unggulan: cari video serupa di TikTok/YouTube (tool ScrapeMedsos bila tersedia) dan catat judul + jumlah tayangan sebagai bukti. Jangan mengarang angka tayangan.

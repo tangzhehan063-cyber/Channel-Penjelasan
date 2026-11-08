@@ -14,8 +14,9 @@
 
 ## Lingkungan
 - `elevenlabsusercontent.com` diizinkan di environment Default; huggingface diblokir.
-- ScrapeMedsos: ±72 kredit per 8 Nov 2026.
+- ScrapeMedsos: ±59 kredit per 8 Nov 2026 (siang).
 - Kompetitor yang dipantau: @howcomeid (TikTok), niche "kenapa di rumah".
 
 ## Log
+- 8 Nov 2026: bedah 10 video viral info rumah (`riset/2026-11-08-bedah-10-video-viral.md`) → skill `/naskah-viral` (`.claude/skills/naskah-viral/`) ditambahkan sebagai lapisan di atas alur naskah. ScrapeMedsos tersisa ±59 kredit.
 - 8 Nov 2026: repo dibuat; dipindahkan dari repo RAKA (style, alur naskah, referensi #1–#4, riset ide #5, kode Remotion + otak 3D prosedural).

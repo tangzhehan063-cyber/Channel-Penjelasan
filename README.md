@@ -12,3 +12,4 @@
 | `remotion/` | Kode Remotion + three.js (objek 3D prosedural) |
 | `tools/` | Konversi transkrip ElevenLabs → timeline |
 | `prompts/` | ScriptForge |
+| `.claude/skills/naskah-viral/` | Skill Claude Code `/naskah-viral`: pola naskah viral |
