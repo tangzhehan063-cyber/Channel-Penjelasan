@@ -1,5 +1,7 @@
 # STYLE PENGETAHUAN: channel pengetahuan (editorial 3D bersih)
 
+> **Dua gaya terpisah:** Gaya A = editorial 3D (file ini + `style/aset.md`, aktif). Gaya B = diorama kertas, origami × editorial (`style/diorama-kertas/`, konsep untuk video #6). Origami murni lama hanya arsip di `arsip/origami/`.
+
 Channel terpisah dari channel stickman. Gunakan profil ini bila prompt menyebut **"style pengetahuan"** / "channel pengetahuan" / "style 3D bersih".
 Contoh frame: `style/contoh-frame.png`. Kode: `remotion/src/pengetahuan/` (komposisi `PengetahuanTest`).
 Objek tidak harus otak: bata, keramik, meteran, pipa, dll. dibuat 3D koral glossy dengan cara yang sama.

@@ -29,6 +29,7 @@
 - Kompetitor yang dipantau: @howcomeid (TikTok), niche "kenapa di rumah".
 
 ## Log
+- 8 Nov 2026: **gaya dipisah jadi dua**: Gaya A editorial 3D (`style/style.md`, `style/aset.md`) dan Gaya B diorama kertas = origami × editorial (`style/diorama-kertas/README.md` + `moodboard.html`; keputusan user: latar krem + meja, pertanyaan hook tetap di atas lalu berganti jadi jawaban). Belum ada kode/still Gaya B; calon gaya video #6.
 - 8 Nov 2026: 2 referensi video baru (06 cerita produk, 07 kolase editorial) digabung dengan 05 jadi **sistem gabungan** (`remotion/src/aset/Gabung.tsx`, demo `GabungDemo` → `style/contoh-aset/gabung-demo.mp4`, aturan di `style/aset.md`): semantik warna koral/biru/sage, tipografi mono + serif + Inter, jangkar kicker + pertanyaan. Dipakai mulai video #6.
 - 8 Nov 2026 (sore): aset video #1–#4 (MP4, SRT, caption, cover, kode engine origami, VO asli) + branding (foto profil, bio) di-push ke repo.
 - 8 Nov 2026: referensi video gerak (05) dipelajari → `remotion/src/aset/Gerak.tsx` (ObjectWord, KineticWords, FocusList, Squiggle, whip) + `GerakDemo` (hook video #5, `style/contoh-aset/gerak-demo.mp4`). Env kini sinkron (still = video); kit aset pakai `Env intensity={0}`, default tetap 1 agar Video05 tidak berubah.
