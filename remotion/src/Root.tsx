@@ -8,6 +8,7 @@ import {Cover06} from './v06/Cover06';
 import {AsetDemo} from './aset/AsetDemo';
 import {GerakDemo} from './aset/GerakDemo';
 import {GabungDemo} from './aset/GabungDemo';
+import {BakeAset} from './aset/BakeAset';
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -15,6 +16,8 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="Cover06" component={Cover06} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Video06" component={Video06} durationInFrames={V06_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Video05" component={Video05} durationInFrames={V05_FRAMES} fps={30} width={1080} height={1920} />
+  <Composition id="BakeAset" component={BakeAset} durationInFrames={1} fps={30} width={1080} height={1920} defaultProps={{kind: 'kertas-dasar' as const}}
+    calculateMetadata={({props}) => ({width: props.kind === 'grain' ? 512 : props.kind.startsWith('kertas') ? 1080 : 960, height: props.kind === 'grain' ? 512 : props.kind.startsWith('kertas') ? 1920 : 960})} />
   <Composition id="GabungDemo" component={GabungDemo} durationInFrames={450} fps={30} width={1080} height={1920} />
   <Composition id="GerakDemo" component={GerakDemo} durationInFrames={270} fps={30} width={1080} height={1920} />
   <Composition id="AsetDemo" component={AsetDemo} durationInFrames={240} fps={30} width={1080} height={1920} />

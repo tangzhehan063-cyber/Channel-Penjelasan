@@ -27,3 +27,8 @@
 4. Render per bagian ±15 dtk + `--timeout=120000`; audio selalu dirakit ffmpeg.
 5. Target render penuh: < 15 menit (perkiraan dari uji di atas, perlu dibuktikan).
 6. VO ≤ 105 kata; momen twist diberi garis bantu/tampak samping.
+
+## Sudah diterapkan (9 Nov, setelah evaluasi)
+Efek dipanggang lewat komposisi `BakeAset` → `remotion/public/aset/` (`kertas-dasar.png`, `kertas-bayang.png`, `grain.png` tile 512 px, `tegel-ink.png`, `tegel-coral.png`). `PaperPlus`, `Grain`, `Ornament` kini memakai PNG; API komponen tidak berubah. Tampilan dicek berdampingan dengan video #6: sama.
+Uji 40 frame yang sama: **182 dtk → 49 dtk** (±15 dtk di antaranya bundling). Perkiraan render penuh video sepanjang #6: **±25 mnt** (dari ±100 mnt). Sisa beban terbesar sekarang 3D (software rendering).
+Catatan: bayangan lembut di kertas kini bergeser 4 px/dtk (sebelumnya ujung kurvanya yang bergeser); `Paper` asli (video #5) tidak diubah.
