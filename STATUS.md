@@ -13,6 +13,9 @@
 
 - **Sub-seri barang/produk "Bongkar Barang"** (9 Nov): user tanya bisa video soal barang seperti semen → bisa. Riset tren + format 5 bagian + 10 ide di `riset/2026-11-09-ide-seri-barang.md`; rekomendasi "Pasir di Genteng Metal Itu Bukan Hiasan", wildcard "Bata yang Bisa Ngapung". Dipilih user: **Baja Ringan vs Kayu** (video #7 = Bongkar Barang #01). **Tahap 2 storyboard DRAFT** di `naskah/video-07-baja-ringan-vs-kayu.md` (±107 kata, ±46 dtk, semua klaim bersumber). **Naskah ACC final** (9 Nov). Caption + komentar pertama di `caption/video-07-baja-ringan-vs-kayu.md` (riset komentar TikTok: penonton curiga ke penjual → posisi netral). Tahap 3: 2 take VO Riri Rida eleven_v4 di `remotion/public/v07/take1.mp3` (50,5 dtk) & `take2.mp3` (51,0 dtk), flow ElevenLabs 597IMPSQjZbuZc6ty9IC node Kbz1elRQfXr1CbWPOU5V. **Dipilih take 2** → `remotion/public/v07/vo.mp3` (51,0 dtk) + timestamp `words.json` (Scribe). Tahap 4: draft animasi `Video07` (`remotion/src/v07/`: `Atap.tsx` profil C/balok kayu/rayap/timbangan prosedural, 10 beat, durasi 52,4 dtk). Still review `style/contoh-frame-v07-review.png`. Still ACC. **SELESAI 9 Nov:** `video/video-07-baja-ringan-vs-kayu.mp4` (52,4 dtk, −14 LUFS) + `.srt`, cover `cover/video-07-baja-ringan-vs-kayu.png` (`Cover07`), caption `caption/video-07-baja-ringan-vs-kayu.md`. Render penuh ±16 mnt (satu kali, concurrency 4). Berikutnya: user review/posting; ide lanjutan Bongkar Barang: genteng metal pasir, bata ringan ngapung, "baja ringan gampang terbang?" (dari komentar). ScrapeMedsos sisa ±38 kredit.
 
+- **Video #8 "Bunyi 'Tek!' di Atap Tengah Malam Bukan Hantu"** (mini-seri "Bukan Hantu" #01, untuk Facebook; 9 Nov): topik dari rekomendasi riset #6, tanpa scrape (keputusan user). **Tahap 2 storyboard DRAFT** di `naskah/video-08-bunyi-tek-atap.md` (±107 kata, ±47 dtk, semua klaim bersumber). **MENUNGGU ACC naskah.**
+- Catatan 9 Nov: cabang `claude/inspiring-hawking-d7gijp` (video #7) belum di-merge ke `main`; sudah digabung ke `claude/epic-pasteur-j87tc4`. Di awal sesi: cek cabang `claude/*` yang belum masuk.
+
 ## Sesi berikutnya (mulai dari sini)
 0. **Evaluasi video #6** di `riset/2026-11-09-evaluasi-video-6.md`: render lambat karena efek 2D SVG (kertas kusut/grain/bayangan ornamen ±85–90% waktu), bukan 3D. **Sudah diterapkan:** `PaperPlus`/`Grain`/`Ornament` pakai PNG panggang (`remotion/public/aset/`), uji 40 frame 182→49 dtk, perkiraan render penuh ±25 mnt. Untuk video #7: VO ≤105 kata (Riri ±2,3 kata/dtk); hindari istilah tukang.
 1. User review/posting video #5 (`video/`, `cover/`, `caption/`). Revisi kecil yang tertunda (opsional): noda garam setinggi lutut masih samar; label "Kayak tisu" sedikit menimpa bata.
@@ -35,6 +38,7 @@
 - Kompetitor yang dipantau: @howcomeid (TikTok), niche "kenapa di rumah".
 
 ## Log
+- 9 Nov 2026: storyboard draft video #8 (Bunyi Tek, Bukan Hantu #01); cabang video #7 digabung.
 - 9 Nov 2026: video #7 "Baja Ringan vs Kayu" selesai (sub-seri Bongkar Barang #01); render 16 mnt.
 - 9 Nov 2026: riset sub-seri barang/produk (4 kredit ScrapeMedsos).
 - 9 Nov 2026: video #6 selesai + evaluasi (render 100 mnt; penyebab diukur).
