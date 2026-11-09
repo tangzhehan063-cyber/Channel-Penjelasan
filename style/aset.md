@@ -61,6 +61,9 @@ Kode `remotion/src/aset/Gabung.tsx`, demo `GabungDemo` → `contoh-aset/gabung-d
 
 Yang sengaja TIDAK diambil: foto/footage asli dalam kartu (kita tanpa footage), kolase foto hitam-putih halftone (bertabrakan dengan objek 3D), branding/handle kreator referensi.
 
+## Performa render (9 Nov)
+`PaperPlus`, `Grain`, `Ornament` memakai PNG panggang di `remotion/public/aset/` (komposisi `BakeAset`). Kalau tampilan efek diubah, panggang ulang: `npx remotion still BakeAset public/aset/<kind>.png --props='{"kind":"<kind>"}' --image-format=png`. Jangan menambah filter SVG (feTurbulence/feGaussianBlur/drop-shadow) yang dihitung tiap frame; panggang dulu. Render per bagian ±15 dtk + `--timeout=120000`; audio dirakit ffmpeg.
+
 ## Aturan komposisi
 - Satu objek 3D utama tetap pusat perhatian; aset hanya pendukung.
 - Maks. 3 aset tambahan aktif di satu adegan (di luar Paper & Grain).

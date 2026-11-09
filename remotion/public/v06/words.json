@@ -1,0 +1,649 @@
+{
+"words": [
+{
+"word": "Lantai",
+"start": 0.0,
+"end": 0.32
+},
+{
+"word": "kamar",
+"start": 0.36,
+"end": 0.56
+},
+{
+"word": "mandimu",
+"start": 0.64,
+"end": 1.04
+},
+{
+"word": "nggak",
+"start": 1.08,
+"end": 1.2
+},
+{
+"word": "rata.",
+"start": 1.28,
+"end": 2.04
+},
+{
+"word": "Dan",
+"start": 2.24,
+"end": 2.4
+},
+{
+"word": "memang",
+"start": 2.48,
+"end": 2.96
+},
+{
+"word": "harus",
+"start": 3.04,
+"end": 3.2
+},
+{
+"word": "begitu.",
+"start": 3.28,
+"end": 4.0
+},
+{
+"word": "Ada",
+"start": 4.32,
+"end": 4.48
+},
+{
+"word": "tiga",
+"start": 4.56,
+"end": 4.8
+},
+{
+"word": "alasannya.",
+"start": 4.88,
+"end": 5.68
+},
+{
+"word": "Yang",
+"start": 5.84,
+"end": 5.92
+},
+{
+"word": "ketiga",
+"start": 6.0,
+"end": 6.4
+},
+{
+"word": "jarang",
+"start": 6.64,
+"end": 7.04
+},
+{
+"word": "disadari.",
+"start": 7.12,
+"end": 7.68
+},
+{
+"word": "Miringnya",
+"start": 8.0,
+"end": 8.4
+},
+{
+"word": "cuma",
+"start": 8.48,
+"end": 8.64
+},
+{
+"word": "sekitar",
+"start": 8.72,
+"end": 9.04
+},
+{
+"word": "dua",
+"start": 9.2,
+"end": 9.36
+},
+{
+"word": "persen",
+"start": 9.44,
+"end": 9.76
+},
+{
+"word": "ke",
+"start": 9.84,
+"end": 9.92
+},
+{
+"word": "lubang",
+"start": 9.96,
+"end": 10.16
+},
+{
+"word": "buang.",
+"start": 10.24,
+"end": 10.8
+},
+{
+"word": "Tiap",
+"start": 10.96,
+"end": 11.12
+},
+{
+"word": "satu",
+"start": 11.16,
+"end": 11.28
+},
+{
+"word": "meter,",
+"start": 11.36,
+"end": 11.88
+},
+{
+"word": "turun",
+"start": 12.0,
+"end": 12.24
+},
+{
+"word": "dua",
+"start": 12.32,
+"end": 12.44
+},
+{
+"word": "senti.",
+"start": 12.48,
+"end": 12.96
+},
+{
+"word": "Hampir",
+"start": 13.2,
+"end": 13.52
+},
+{
+"word": "nggak",
+"start": 13.56,
+"end": 13.68
+},
+{
+"word": "kelihatan.",
+"start": 13.76,
+"end": 14.72
+},
+{
+"word": "Pertama,",
+"start": 14.88,
+"end": 15.52
+},
+{
+"word": "air",
+"start": 15.68,
+"end": 15.92
+},
+{
+"word": "nggak",
+"start": 16.0,
+"end": 16.16
+},
+{
+"word": "menggenang.",
+"start": 16.2,
+"end": 16.8
+},
+{
+"word": "Genangan",
+"start": 17.04,
+"end": 17.36
+},
+{
+"word": "tipis",
+"start": 17.44,
+"end": 17.68
+},
+{
+"word": "itu",
+"start": 17.76,
+"end": 18.0
+},
+{
+"word": "yang",
+"start": 18.08,
+"end": 18.16
+},
+{
+"word": "bikin",
+"start": 18.24,
+"end": 18.4
+},
+{
+"word": "orang",
+"start": 18.48,
+"end": 18.64
+},
+{
+"word": "tua",
+"start": 18.72,
+"end": 18.88
+},
+{
+"word": "kepeleset.",
+"start": 18.96,
+"end": 19.72
+},
+{
+"word": "Kedua,",
+"start": 19.84,
+"end": 20.48
+},
+{
+"word": "air",
+"start": 20.64,
+"end": 20.88
+},
+{
+"word": "yang",
+"start": 20.96,
+"end": 21.04
+},
+{
+"word": "diam",
+"start": 21.12,
+"end": 21.44
+},
+{
+"word": "ninggalin",
+"start": 21.56,
+"end": 21.92
+},
+{
+"word": "kerak",
+"start": 22.04,
+"end": 22.32
+},
+{
+"word": "dan",
+"start": 22.4,
+"end": 22.48
+},
+{
+"word": "lumut",
+"start": 22.56,
+"end": 22.88
+},
+{
+"word": "di",
+"start": 22.96,
+"end": 23.04
+},
+{
+"word": "sela-sela",
+"start": 23.08,
+"end": 23.44
+},
+{
+"word": "keramik.",
+"start": 23.52,
+"end": 24.12
+},
+{
+"word": "Ketiga,",
+"start": 24.24,
+"end": 24.84
+},
+{
+"word": "yang",
+"start": 24.96,
+"end": 25.12
+},
+{
+"word": "jarang",
+"start": 25.2,
+"end": 25.52
+},
+{
+"word": "disadari:",
+"start": 25.6,
+"end": 26.28
+},
+{
+"word": "air",
+"start": 26.4,
+"end": 26.64
+},
+{
+"word": "itu",
+"start": 26.72,
+"end": 27.04
+},
+{
+"word": "pelan-pelan",
+"start": 27.12,
+"end": 27.6
+},
+{
+"word": "nyerep",
+"start": 27.68,
+"end": 28.08
+},
+{
+"word": "lewat",
+"start": 28.16,
+"end": 28.32
+},
+{
+"word": "sela-sela",
+"start": 28.4,
+"end": 28.8
+},
+{
+"word": "keramik,",
+"start": 28.88,
+"end": 29.4
+},
+{
+"word": "turun",
+"start": 29.44,
+"end": 29.76
+},
+{
+"word": "ke",
+"start": 29.84,
+"end": 29.92
+},
+{
+"word": "bawahnya.",
+"start": 29.96,
+"end": 30.68
+},
+{
+"word": "Ada",
+"start": 30.88,
+"end": 31.04
+},
+{
+"word": "yang",
+"start": 31.12,
+"end": 31.2
+},
+{
+"word": "bilang",
+"start": 31.28,
+"end": 31.6
+},
+{
+"word": "lantai",
+"start": 31.68,
+"end": 32.0
+},
+{
+"word": "miring",
+"start": 32.08,
+"end": 32.4
+},
+{
+"word": "tanda",
+"start": 32.48,
+"end": 32.72
+},
+{
+"word": "tukang",
+"start": 32.8,
+"end": 33.04
+},
+{
+"word": "nggak",
+"start": 33.08,
+"end": 33.2
+},
+{
+"word": "becus.",
+"start": 33.28,
+"end": 34.0
+},
+{
+"word": "Ada",
+"start": 34.16,
+"end": 34.32
+},
+{
+"word": "yang",
+"start": 34.36,
+"end": 34.4
+},
+{
+"word": "bilang",
+"start": 34.48,
+"end": 34.8
+},
+{
+"word": "semua",
+"start": 35.04,
+"end": 35.52
+},
+{
+"word": "harus",
+"start": 35.6,
+"end": 35.76
+},
+{
+"word": "miring.",
+"start": 35.84,
+"end": 36.4
+},
+{
+"word": "Dua-duanya",
+"start": 36.56,
+"end": 37.12
+},
+{
+"word": "setengah",
+"start": 37.2,
+"end": 37.52
+},
+{
+"word": "benar.",
+"start": 37.64,
+"end": 38.0
+},
+{
+"word": "Kamar",
+"start": 38.24,
+"end": 38.48
+},
+{
+"word": "tidur",
+"start": 38.56,
+"end": 38.88
+},
+{
+"word": "harus",
+"start": 39.04,
+"end": 39.36
+},
+{
+"word": "rata.",
+"start": 39.44,
+"end": 40.0
+},
+{
+"word": "Kamar",
+"start": 40.16,
+"end": 40.4
+},
+{
+"word": "mandi",
+"start": 40.52,
+"end": 40.72
+},
+{
+"word": "dan",
+"start": 40.8,
+"end": 40.88
+},
+{
+"word": "teras",
+"start": 40.96,
+"end": 41.36
+},
+{
+"word": "harus",
+"start": 41.52,
+"end": 41.76
+},
+{
+"word": "miring.",
+"start": 41.84,
+"end": 42.4
+},
+{
+"word": "Dan",
+"start": 42.56,
+"end": 42.72
+},
+{
+"word": "kalau",
+"start": 42.8,
+"end": 43.12
+},
+{
+"word": "miringnya",
+"start": 43.16,
+"end": 43.52
+},
+{
+"word": "kelihatan",
+"start": 43.56,
+"end": 43.92
+},
+{
+"word": "mata,",
+"start": 44.0,
+"end": 44.64
+},
+{
+"word": "itu",
+"start": 44.8,
+"end": 44.96
+},
+{
+"word": "kebanyakan.",
+"start": 45.04,
+"end": 45.84
+},
+{
+"word": "Coba",
+"start": 46.0,
+"end": 46.24
+},
+{
+"word": "taruh",
+"start": 46.32,
+"end": 46.48
+},
+{
+"word": "kelereng",
+"start": 46.52,
+"end": 46.88
+},
+{
+"word": "di",
+"start": 46.92,
+"end": 46.96
+},
+{
+"word": "lantai",
+"start": 47.04,
+"end": 47.28
+},
+{
+"word": "kamar",
+"start": 47.32,
+"end": 47.52
+},
+{
+"word": "mandimu.",
+"start": 47.64,
+"end": 48.16
+},
+{
+"word": "Yang",
+"start": 48.32,
+"end": 48.4
+},
+{
+"word": "lagi",
+"start": 48.48,
+"end": 48.64
+},
+{
+"word": "pasang",
+"start": 48.72,
+"end": 48.88
+},
+{
+"word": "keramik,",
+"start": 48.96,
+"end": 49.52
+},
+{
+"word": "tes",
+"start": 49.64,
+"end": 49.76
+},
+{
+"word": "sebelum",
+"start": 49.84,
+"end": 50.08
+},
+{
+"word": "tukangnya",
+"start": 50.12,
+"end": 50.48
+},
+{
+"word": "pulang.",
+"start": 50.52,
+"end": 51.0
+},
+{
+"word": "Kelerengmu",
+"start": 51.12,
+"end": 51.6
+},
+{
+"word": "lari",
+"start": 51.64,
+"end": 51.84
+},
+{
+"word": "ke",
+"start": 51.88,
+"end": 51.92
+},
+{
+"word": "mana?",
+"start": 52.0,
+"end": 52.6
+},
+{
+"word": "Follow",
+"start": 52.8,
+"end": 53.2
+},
+{
+"word": "buat",
+"start": 53.28,
+"end": 53.44
+},
+{
+"word": "fakta",
+"start": 53.52,
+"end": 53.76
+},
+{
+"word": "rumah",
+"start": 53.84,
+"end": 54.16
+},
+{
+"word": "berikutnya!",
+"start": 54.24,
+"end": 55.12
+}
+]
+}

@@ -3,19 +3,21 @@
 import '@fontsource/inter/400.css'; import '@fontsource/inter/700.css'; import '@fontsource/inter/900.css';
 import '@fontsource/playfair-display/400-italic.css';
 import React from 'react';
-import {AbsoluteFill, interpolate, random, useCurrentFrame, Easing} from 'remotion';
+import {AbsoluteFill, Img, interpolate, random, staticFile, useCurrentFrame, Easing} from 'remotion';
 
 export const C = {ink: '#1c1c1e', grey: '#4a4a4c', sub: '#8a8a8e', coral: '#f27a63', coralDeep: '#e2563f', paper: '#f3f2ef'};
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 const ease = (p: number) => Easing.out(Easing.cubic)(Math.max(0, Math.min(1, p)));
 
 /* ---------- 1. Grain: tekstur film halus di atas semua lapisan ---------- */
-export const Grain: React.FC<{o?: number; id?: string}> = ({o = 0.08, id = 'g'}) => {
-  const f = useCurrentFrame(), seed = Math.floor(f / 2);
+export const Grain: React.FC<{o?: number; id?: string}> = ({o = 0.08}) => {
+  // Tile noise 512 px yang sudah dipanggang (public/aset/grain.png); posisinya diacak tiap 2 frame = grain hidup, tanpa filter SVG mahal.
+  const f = useCurrentFrame(), seed = Math.floor(f / 2), ox = Math.floor(random(`gx${seed}`) * 512), oy = Math.floor(random(`gy${seed}`) * 512);
   return (
-    <AbsoluteFill style={{pointerEvents: 'none', mixBlendMode: 'multiply', opacity: o}}>
-      <svg width="1080" height="1920"><filter id={id}><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed={seed} /><feColorMatrix type="saturate" values="0" /></filter>
-        <rect width="1080" height="1920" filter={`url(#${id})`} /></svg>
+    <AbsoluteFill style={{pointerEvents: 'none', mixBlendMode: 'multiply', opacity: o, overflow: 'hidden'}}>
+      <div style={{position: 'absolute', left: -ox, top: -oy, width: 1536, display: 'flex', flexWrap: 'wrap'}}>
+        {Array.from({length: 15}, (_, i) => <Img key={i} src={staticFile('aset/grain.png')} style={{width: 512, height: 512, display: 'block'}} />)}
+      </div>
     </AbsoluteFill>
   );
 };

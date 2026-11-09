@@ -5,9 +5,8 @@ import '@fontsource/ibm-plex-mono/400.css'; import '@fontsource/ibm-plex-mono/50
 import '@fontsource/playfair-display/900.css'; import '@fontsource/playfair-display/900-italic.css';
 import '@fontsource/inter/700.css'; import '@fontsource/inter/800-italic.css';
 import React from 'react';
-import {AbsoluteFill, Easing, interpolate, useCurrentFrame} from 'remotion';
-import {Paper} from '../pengetahuan/Scene';
-import {C, Tegel} from './Aset';
+import {AbsoluteFill, Easing, Img, interpolate, staticFile, useCurrentFrame} from 'remotion';
+import {C} from './Aset';
 import {rise} from './Gerak';
 
 export const K = {...C, blue: '#1f7fdc', sage: '#6fae6a', line: 'rgba(28,28,30,0.85)'};
@@ -19,17 +18,14 @@ const mix = (a: string, b: string, t: number) => {
   const A = h(a), B = h(b); return `rgb(${A.map((v, i) => Math.round(v + (B[i] - v) * t)).join(',')})`;
 };
 
-/* Kertas + tekstur kusut halus (ref 07). */
+/* Kertas + tekstur kusut halus (ref 07). Tekstur sudah dipanggang ke public/aset/kertas.png (komposisi BakeAset). */
 export const PaperPlus: React.FC = () => {
+  // Latar + kertas kusut dipanggang jadi satu PNG; hanya bayangan lembut yang bergeser pelan (4 px/dtk).
   const f = useCurrentFrame();
   return (
     <AbsoluteFill>
-      <Paper t={f / 30} />
-      <svg width="1080" height="1920" style={{position: 'absolute', mixBlendMode: 'multiply', opacity: 0.22}}>
-        <filter id="crumple"><feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="4" seed="4" result="n" />
-          <feDiffuseLighting in="n" lightingColor="#fff" surfaceScale="2.2"><feDistantLight azimuth="45" elevation="58" /></feDiffuseLighting></filter>
-        <rect width="1080" height="1920" filter="url(#crumple)" />
-      </svg>
+      <Img src={staticFile('aset/kertas-dasar.png')} style={{position: 'absolute', width: 1080, height: 1920}} />
+      <Img src={staticFile('aset/kertas-bayang.png')} style={{position: 'absolute', width: 1080, height: 1920, transform: `translateX(${(f / 30) * 4}px)`}} />
     </AbsoluteFill>
   );
 };
@@ -180,11 +176,13 @@ export const FollowButton: React.FC<{start: number; click: number; y: number}> =
 
 /* Ornamen tegel berputar pelan di sudut; warnanya bisa berganti saat momen aksen (ref 06 bunga hitam → merah). */
 export const Ornament: React.FC<{cx: number; cy: number; size?: number; start?: number; accent?: number}> = ({cx, cy, size = 420, start = 0, accent = 0}) => {
-  const f = useCurrentFrame(), t = pop(f, start, 16);
-  const col = mix(K.ink, K.coral, accent);
+  // PNG panggang (BakeAset): tegel 840 px + bayangan di kanvas 960 px; warna tinta → koral lewat crossfade.
+  const f = useCurrentFrame(), t = pop(f, start, 16), W = size * 960 / 840;
+  const st: React.CSSProperties = {position: 'absolute', left: 0, top: 0, width: W, height: W};
   return (
-    <div style={{position: 'absolute', left: cx - size / 2, top: cy - size / 2, width: size, height: size, transform: `rotate(${f * 0.35}deg) scale(${t})`, filter: 'drop-shadow(12px 20px 14px rgba(0,0,0,0.28))'}}>
-      <svg width={size} height={size} viewBox="-320 -320 640 640"><g fill={col}><Tegel /></g></svg>
+    <div style={{position: 'absolute', left: cx - W / 2, top: cy - W / 2, width: W, height: W, transform: `rotate(${f * 0.35}deg) scale(${t})`}}>
+      <Img src={staticFile('aset/tegel-ink.png')} style={{...st, opacity: 1 - accent}} />
+      {accent > 0 && <Img src={staticFile('aset/tegel-coral.png')} style={{...st, opacity: accent}} />}
     </div>
   );
 };
