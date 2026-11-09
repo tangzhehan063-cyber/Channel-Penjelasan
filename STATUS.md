@@ -38,6 +38,7 @@
 - Kompetitor yang dipantau: @howcomeid (TikTok), niche "kenapa di rumah".
 
 ## Log
+- 9 Nov 2026: daftar cek bug visual `style/cek-bug.md` dibuat (bug pelana menembus atap, elemen tertutup judul, teks bertumpuk, dll.); wajib dicek sebelum render.
 - 9 Nov 2026: storyboard draft video #8 (Bunyi Tek, Bukan Hantu #01); cabang video #7 digabung.
 - 9 Nov 2026: video #7 "Baja Ringan vs Kayu" selesai (sub-seri Bongkar Barang #01); render 16 mnt.
 - 9 Nov 2026: riset sub-seri barang/produk (4 kredit ScrapeMedsos).

@@ -9,6 +9,7 @@ Channel pengetahuan, seri utama **"fakta rumah"**, Bahasa Indonesia santai, audi
 - Baca sesuai tahap: Tahap 1–2 → `naskah/alur-naskah.md` + skill `naskah-viral`; Tahap 4–5 → `style/style.md` + `style/aset.md` (Gaya A) atau `style/diorama-kertas/README.md` (Gaya B, diorama kertas); caption → bagian caption di file ini. Jangan membaca ulang file yang tidak berubah.
 - Pakai `grep`/`sed -n` untuk bagian tertentu, bukan membaca file utuh. Gambar dibaca hanya untuk cek visual: still `--scale=0.5`, gabung jadi satu contact sheet, maks. 1–2 sheet per putaran.
 - Video baru = salin `remotion/src/v05/` sebagai template, ganti data (timeline beat, judul, kamera), jangan menulis ulang dari nol.
+- **Sebelum render penuh, cek contact sheet still terhadap `style/cek-bug.md`** (daftar bug yang pernah terjadi; tambahkan bug baru di sana).
 - Render penuh (±25 menit) hanya setelah still disetujui; kumpulkan revisi lalu render sekali. Tunggu render dengan satu notifikasi selesai, tanpa laporan progres per event.
 - Hasil ScrapeMedsos selalu disimpan ringkas di `riset/` agar tidak di-scrape ulang.
 - Jawaban ke user singkat: hasil, file, keputusan yang dibutuhkan.
