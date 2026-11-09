@@ -1,5 +1,7 @@
 # STYLE PENGETAHUAN: channel pengetahuan (editorial 3D bersih)
 
+> **Patokan gaya (9 Nov 2026, ACC user): video #7 "Baja Ringan vs Kayu" & #8 "Bunyi Tek di Atap".** Jika aturan di bawah berbeda dengan dua video itu, ikuti dua video itu. Template kode: `remotion/src/v08/`.
+
 > **Dua gaya terpisah:** Gaya A = editorial 3D (file ini + `style/aset.md`, aktif). Gaya B = diorama kertas, origami × editorial (`style/diorama-kertas/`, konsep untuk video #6). Origami murni lama hanya arsip di `arsip/origami/`.
 
 Channel terpisah dari channel stickman. Gunakan profil ini bila prompt menyebut **"style pengetahuan"** / "channel pengetahuan" / "style 3D bersih".

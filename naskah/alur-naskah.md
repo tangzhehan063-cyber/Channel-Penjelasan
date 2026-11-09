@@ -12,7 +12,7 @@ Alur ini meneruskan cara kerja 4 video pertama (referensi di `referensi/`), deng
 
 ## Tahap 1: Ide
 1. Beri **10 ide** dalam seri fakta rumah (format ScriptForge langkah 2: judul ≤ 60 karakter + satu baris hook/alasan orang klik). Campur format: "kenapa…", "cara … bekerja", "mitos vs fakta", "bahaya yang nggak kelihatan".
-2. **Cek tren** untuk ide unggulan: cari video serupa di TikTok/YouTube (tool ScrapeMedsos bila tersedia) dan catat judul + jumlah tayangan sebagai bukti. Jangan mengarang angka tayangan.
+2. **Cek tren** untuk ide unggulan: cari video serupa di Facebook (ScrapeMedsos `v1_facebook_search_videos`) dan catat judul + jumlah tayangan sebagai bukti. Jangan mengarang angka tayangan.
 3. **Selalu sertakan saran improvisasi** per topik (permintaan user): ubah sudut ke masalah yang terlihat penonton, mitos yang bisa dipatahkan, mini-seri, atau sudut berbeda dari kompetitor (mis. @howcomeid). Beri satu rekomendasi utama + alasan.
 4. Simpan hasil riset ke `riset/<tanggal>-ide-video-N.md`.
 5. User memilih satu.
