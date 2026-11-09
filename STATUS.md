@@ -26,7 +26,8 @@
 - Visual harus **kontras/tegas**, jangan "saru" (pucat menyatu dengan latar).
 - Selalu caption + cover setelah video selesai.
 - Tahap ide: selalu riset tren + saran improvisasi topik.
-- Setelah ACC naskah final: kirim caption + komentar pertama berbahasa manusia (hasil scrape sosmed), bukan gaya AI.
+- Setelah ACC naskah final: kirim caption + komentar pertama berbahasa manusia, bukan gaya AI.
+- **(9 Nov) Riset channel ini cukup di Facebook; semua output ringkas.** TikTok = channel self-improve (RAKA).
 
 ## Lingkungan
 - `elevenlabsusercontent.com` diizinkan di environment Default; huggingface diblokir.

@@ -62,7 +62,7 @@ Pelajaran dari riset: video viral 3D print (24 jam, Rp1 juta/m²) dan kisah ruma
 4. Payoff satu kalimat, tips aksi, pemicu share, dan CTA, ditandai jelas
 5. Daftar [⚠ CEK] yang masih harus diverifikasi
 6. 2 ide judul lanjutan untuk mini-seri
-Caption & komentar pertama tetap mengikuti aturan "Caption & komentar pertama" di `CLAUDE.md` (riset bahasa manusia lewat ScrapeMedsos dulu).
+Caption & komentar pertama tetap mengikuti aturan "Caption & komentar pertama" di `CLAUDE.md` (riset bahasa manusia lewat ScrapeMedsos Facebook dulu, tulis ringkas).
 
 ## Checklist sebelum menyerahkan draft
 - [ ] Hook ≤3 dtk dan membantah/menakuti/mengontraskan, bukan memperkenalkan
