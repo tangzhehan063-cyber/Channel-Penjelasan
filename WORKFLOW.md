@@ -36,7 +36,7 @@ Satu video = satu chat, ±8 langkah. **Satu chat hanya untuk repo ini.** Semua p
 1. Kirim ke user: MP4 + cover (SendUserFile) + caption (tempel di chat).
 2. Perbarui `STATUS.md` (2–3 baris, bukan paragraf).
 3. Commit + push ke cabang kerja.
-4. **Buat PR ke `main`** dan beri link. User klik **Merge**, supaya chat berikutnya mulai dari kondisi lengkap.
+4. **Buat PR ke `main` lalu merge sendiri** (`merge_pull_request`, izin user 9 Nov), supaya chat berikutnya mulai dari kondisi lengkap. Laporkan singkat: "sudah masuk main".
 
 ## Hemat token
 - Jangan baca JSON mentah, kode video lama, atau file yang tidak berubah; pakai `grep`/`sed -n`.

@@ -10,7 +10,7 @@
 ## Preferensi user
 - **Gaya animasi baku = video #7 & #8** (`remotion/src/v07/`, `remotion/src/v08/`): disukai user, sudah sesuai. Video baru menyalin gaya ini; tweak hanya bila user minta.
 - **Satu chat = satu repo.** Repo lain → chat baru.
-- **Setiap video selesai: PR ke `main` → user klik Merge.** (User bukan programmer; jelaskan singkat bila perlu.)
+- **Setiap video selesai: PR ke `main` lalu Claude langsung merge sendiri (izin user 9 Nov).** User bukan programmer; laporan cukup "sudah masuk main".
 - Bahasa naskah **sederhana, tanpa istilah teknis**. Bahasa Indonesia; suka saran "out of the box".
 - VO tidak diolah (tanpa potong jeda/tempo); animasi mengikuti VO.
 - Visual **kontras/tegas**, objek halus membulat. Posisi subtitle (top 1400) sudah ACC, jangan diubah.
