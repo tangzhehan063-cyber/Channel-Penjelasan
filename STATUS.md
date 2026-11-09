@@ -23,6 +23,7 @@
 3. Animasi video #6: pakai kit aset `style/aset.md` (TikTokBox, PatternBreak, PuzzleGrid, ShadowCast, Grain) + aturan kontras video #5 (`style/style.md` baris "Kontras", contoh `style/contoh-frame-v05-kontras.png`). Video #5 dibuat sebelum kit aset masuk, jadi belum memakainya.
 
 ## Preferensi user
+- **(9 Nov) Satu chat = satu repo.** Kalau perlu repo lain (RAKA ↔ Channel-Penjelasan), user membuka chat baru; jangan menambah repo kedua di sesi yang sama.
 - Suara VO tidak diolah (tanpa potong jeda/tempo/kompresi); animasi & durasi video yang mengikuti VO (diminta user setelah VO video #3 "pecah").
 - Objek digambar halus/membulat seperti line-art referensi, bukan kotak kaku.
 - Bahasa Indonesia; suka saran "out of the box".
