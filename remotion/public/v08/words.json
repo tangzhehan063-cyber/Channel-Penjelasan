@@ -1,0 +1,559 @@
+{
+"words": [
+{
+"word": "Bunyi",
+"start": 0.0,
+"end": 0.32
+},
+{
+"word": "tek",
+"start": 0.48,
+"end": 0.8
+},
+{
+"word": "di",
+"start": 0.88,
+"end": 0.96
+},
+{
+"word": "atap",
+"start": 1.04,
+"end": 1.2
+},
+{
+"word": "tengah",
+"start": 1.28,
+"end": 1.44
+},
+{
+"word": "malam?",
+"start": 1.52,
+"end": 2.08
+},
+{
+"word": "Bukan",
+"start": 2.24,
+"end": 2.56
+},
+{
+"word": "hantu.",
+"start": 2.64,
+"end": 3.28
+},
+{
+"word": "Siang",
+"start": 3.68,
+"end": 3.84
+},
+{
+"word": "tadi,",
+"start": 3.92,
+"end": 4.48
+},
+{
+"word": "atap",
+"start": 4.56,
+"end": 4.8
+},
+{
+"word": "seng",
+"start": 4.88,
+"end": 5.04
+},
+{
+"word": "panasnya",
+"start": 5.12,
+"end": 5.6
+},
+{
+"word": "lebih",
+"start": 5.72,
+"end": 6.0
+},
+{
+"word": "dari",
+"start": 6.08,
+"end": 6.24
+},
+{
+"word": "40",
+"start": 6.32,
+"end": 6.667
+},
+{
+"word": "derajat.",
+"start": 6.72,
+"end": 7.2
+},
+{
+"word": "Kena",
+"start": 7.52,
+"end": 7.68
+},
+{
+"word": "panas,",
+"start": 7.76,
+"end": 8.32
+},
+{
+"word": "besi",
+"start": 8.4,
+"end": 8.6
+},
+{
+"word": "memanjang.",
+"start": 8.64,
+"end": 9.28
+},
+{
+"word": "Malam",
+"start": 9.68,
+"end": 9.92
+},
+{
+"word": "dingin,",
+"start": 10.0,
+"end": 10.52
+},
+{
+"word": "besi",
+"start": 10.64,
+"end": 10.96
+},
+{
+"word": "mengkerut",
+"start": 11.0,
+"end": 11.44
+},
+{
+"word": "lagi.",
+"start": 11.56,
+"end": 11.92
+},
+{
+"word": "Besi",
+"start": 12.32,
+"end": 12.56
+},
+{
+"word": "atap",
+"start": 12.64,
+"end": 12.88
+},
+{
+"word": "enam",
+"start": 12.92,
+"end": 13.04
+},
+{
+"word": "meter",
+"start": 13.12,
+"end": 13.44
+},
+{
+"word": "bisa",
+"start": 13.52,
+"end": 13.68
+},
+{
+"word": "mengkerut",
+"start": 13.76,
+"end": 14.16
+},
+{
+"word": "sampai",
+"start": 14.28,
+"end": 14.48
+},
+{
+"word": "dua",
+"start": 14.64,
+"end": 14.88
+},
+{
+"word": "milimeter.",
+"start": 14.96,
+"end": 15.8
+},
+{
+"word": "Tapi",
+"start": 16.0,
+"end": 16.32
+},
+{
+"word": "sekrupnya",
+"start": 16.4,
+"end": 16.8
+},
+{
+"word": "nahan.",
+"start": 16.84,
+"end": 17.48
+},
+{
+"word": "Ditahan,",
+"start": 17.68,
+"end": 18.52
+},
+{
+"word": "ditahan,",
+"start": 18.56,
+"end": 19.4
+},
+{
+"word": "terus",
+"start": 19.52,
+"end": 19.76
+},
+{
+"word": "lepas.",
+"start": 19.84,
+"end": 20.44
+},
+{
+"word": "Tek!",
+"start": 20.56,
+"end": 20.88
+},
+{
+"word": "Kayak",
+"start": 21.12,
+"end": 21.28
+},
+{
+"word": "jentik",
+"start": 21.36,
+"end": 21.68
+},
+{
+"word": "jari.",
+"start": 21.76,
+"end": 22.48
+},
+{
+"word": "Siang",
+"start": 22.72,
+"end": 22.96
+},
+{
+"word": "ramai,",
+"start": 23.04,
+"end": 23.52
+},
+{
+"word": "nggak",
+"start": 23.6,
+"end": 23.76
+},
+{
+"word": "kedengeran.",
+"start": 23.84,
+"end": 24.52
+},
+{
+"word": "Malam",
+"start": 24.64,
+"end": 24.88
+},
+{
+"word": "sepi,",
+"start": 24.96,
+"end": 25.44
+},
+{
+"word": "baru",
+"start": 25.6,
+"end": 25.92
+},
+{
+"word": "kedengeran.",
+"start": 26.0,
+"end": 26.8
+},
+{
+"word": "Jadi",
+"start": 27.04,
+"end": 27.44
+},
+{
+"word": "yang",
+"start": 27.52,
+"end": 27.6
+},
+{
+"word": "bunyi",
+"start": 27.68,
+"end": 28.0
+},
+{
+"word": "bukan",
+"start": 28.08,
+"end": 28.32
+},
+{
+"word": "penunggu",
+"start": 28.4,
+"end": 28.64
+},
+{
+"word": "rumah,",
+"start": 28.72,
+"end": 29.36
+},
+{
+"word": "tapi",
+"start": 29.44,
+"end": 29.6
+},
+{
+"word": "atapmu",
+"start": 29.68,
+"end": 30.24
+},
+{
+"word": "yang",
+"start": 30.28,
+"end": 30.32
+},
+{
+"word": "lagi",
+"start": 30.4,
+"end": 30.56
+},
+{
+"word": "kedinginan.",
+"start": 30.6,
+"end": 31.6
+},
+{
+"word": "Bunyinya",
+"start": 31.84,
+"end": 32.24
+},
+{
+"word": "pindah-pindah",
+"start": 32.28,
+"end": 32.88
+},
+{
+"word": "kayak",
+"start": 32.96,
+"end": 33.12
+},
+{
+"word": "orang",
+"start": 33.24,
+"end": 33.36
+},
+{
+"word": "jalan?",
+"start": 33.44,
+"end": 34.0
+},
+{
+"word": "Itu",
+"start": 34.16,
+"end": 34.48
+},
+{
+"word": "beda.",
+"start": 34.56,
+"end": 35.28
+},
+{
+"word": "Cek",
+"start": 35.44,
+"end": 35.6
+},
+{
+"word": "tikus",
+"start": 35.68,
+"end": 36.08
+},
+{
+"word": "atau",
+"start": 36.16,
+"end": 36.32
+},
+{
+"word": "musang.",
+"start": 36.44,
+"end": 36.8
+},
+{
+"word": "Mau",
+"start": 37.04,
+"end": 37.2
+},
+{
+"word": "bukti?",
+"start": 37.24,
+"end": 37.8
+},
+{
+"word": "Siang",
+"start": 38.0,
+"end": 38.24
+},
+{
+"word": "nanti,",
+"start": 38.28,
+"end": 38.8
+},
+{
+"word": "dengar",
+"start": 38.88,
+"end": 39.2
+},
+{
+"word": "pas",
+"start": 39.28,
+"end": 39.44
+},
+{
+"word": "matahari",
+"start": 39.52,
+"end": 39.84
+},
+{
+"word": "ketutup",
+"start": 39.92,
+"end": 40.24
+},
+{
+"word": "awan.",
+"start": 40.44,
+"end": 40.72
+},
+{
+"word": "Atap",
+"start": 41.04,
+"end": 41.44
+},
+{
+"word": "mendadak",
+"start": 41.493,
+"end": 41.84
+},
+{
+"word": "dingin,",
+"start": 41.96,
+"end": 42.48
+},
+{
+"word": "bunyi",
+"start": 42.52,
+"end": 42.72
+},
+{
+"word": "juga.",
+"start": 42.8,
+"end": 43.4
+},
+{
+"word": "Yang",
+"start": 43.6,
+"end": 43.76
+},
+{
+"word": "tiap",
+"start": 43.8,
+"end": 44.0
+},
+{
+"word": "malam",
+"start": 44.08,
+"end": 44.24
+},
+{
+"word": "takut",
+"start": 44.32,
+"end": 44.64
+},
+{
+"word": "sama",
+"start": 44.72,
+"end": 44.88
+},
+{
+"word": "bunyi",
+"start": 44.96,
+"end": 45.12
+},
+{
+"word": "atap,",
+"start": 45.2,
+"end": 45.76
+},
+{
+"word": "perlu",
+"start": 45.84,
+"end": 46.0
+},
+{
+"word": "tahu",
+"start": 46.08,
+"end": 46.32
+},
+{
+"word": "ini.",
+"start": 46.48,
+"end": 46.84
+},
+{
+"word": "Atap",
+"start": 47.04,
+"end": 47.28
+},
+{
+"word": "rumahmu",
+"start": 47.36,
+"end": 47.76
+},
+{
+"word": "sering",
+"start": 47.84,
+"end": 48.0
+},
+{
+"word": "bunyi",
+"start": 48.04,
+"end": 48.24
+},
+{
+"word": "jam",
+"start": 48.32,
+"end": 48.4
+},
+{
+"word": "berapa?",
+"start": 48.48,
+"end": 49.08
+},
+{
+"word": "Follow",
+"start": 49.28,
+"end": 49.6
+},
+{
+"word": "buat",
+"start": 49.68,
+"end": 49.84
+},
+{
+"word": "fakta",
+"start": 49.92,
+"end": 50.16
+},
+{
+"word": "rumah",
+"start": 50.24,
+"end": 50.48
+},
+{
+"word": "berikutnya!",
+"start": 50.56,
+"end": 51.36
+}
+]
+}
