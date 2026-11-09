@@ -177,7 +177,7 @@ export const Video09: React.FC = () => {
   const glowM = r(t, 15.4, 16.0);
   const pb = r(t, 18.72, 19.35) * (1 - r(t, 22.75, 23.05));
 
-  const sign = proj(ct, [0, 1.8, W.front + 0.02]), signEnd = proj(ce, [0, 1.8, W.front + 0.02]);
+  const sign = proj(ct, [0, 1.13, W.front + 0.62]), signEnd = proj(ce, [0, 1.13, W.front + 0.62]), signSaran = proj(cs, [0, 1.13, W.front + 0.62]);
   const potPt = proj(cs, [-1.2, 0.5, W.fenceZ + 0.55]), treePt = proj(cs, [0.75, 1.5, 2.05]);
 
   return (
@@ -235,6 +235,7 @@ export const Video09: React.FC = () => {
 
       <Chip x={signEnd[0]} y={signEnd[1]} p={r(t, 40.5, 40.9)} text="WARUNG" size={34} color={CORAL} />
 
+      <Chip x={signSaran[0]} y={signSaran[1]} p={r(t, 32.1, 32.4) * (1 - r(t, 35.1, 35.36))} text="WARUNG" size={34} color={CORAL} />
       {/* ---------- saran ---------- */}
       <Chip x={Math.max(200, potPt[0])} y={potPt[1] + 120} p={r(t, 33.5, 33.8) * (1 - r(t, 35.0, 35.3))} text="pot beton" size={40} />
       <Chip x={Math.min(860, treePt[0] + 120)} y={Math.max(780, treePt[1] - 150)} p={r(t, 34.6, 34.9) * (1 - r(t, 35.0, 35.3))} text="pohon" size={40} color={K.sage} />

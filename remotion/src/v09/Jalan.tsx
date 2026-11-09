@@ -101,10 +101,13 @@ export const Tree: React.FC<{p: number; x?: number; z?: number}> = ({p, x = 0.75
 export const Awning: React.FC<{p: number}> = ({p}) => {
   const s = pop(p); if (s <= 0) return null;
   return (
+    <>
     <group position={[0, 1.42, W.front + 0.3]} scale={[1, s, s]}>
       {Array.from({length: 8}, (_, i) => <Box key={i} p={[-1.4 + i * 0.4 + 0.2, 0, 0]} s={[0.4, 0.05, 0.62]} m={i % 2 ? M9.white : M9.awn} ink={0.012} r={[0.28, 0, 0]} />)}
-      <Box p={[0, 0.36, -0.28]} s={[1.6, 0.36, 0.05]} m={M9.white} ink={0.025} />
     </group>
+    {/* papan nama tergantung di bawah tepi depan tenda (bukan di atas atap) */}
+    {s > 0 && <Box p={[0, 1.13, W.front + 0.6]} s={[1.3, 0.2 * s, 0.04]} m={M9.white} ink={0.02} />}
+    </>
   );
 };
 
