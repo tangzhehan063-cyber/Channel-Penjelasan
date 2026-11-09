@@ -31,7 +31,7 @@
 
 ## Lingkungan
 - `elevenlabsusercontent.com` diizinkan di environment Default; huggingface diblokir.
-- ScrapeMedsos: ±59 kredit per 8 Nov 2026 (siang).
+- ScrapeMedsos (Scrape Creators): ±27 kredit per 9 Nov; kredit prabayar, **tidak reset bulanan & tidak kedaluwarsa**; habis = beli lagi. Gaya caption tersimpan di `caption/gaya-caption.md`, jadi scrape opsional.
 - Kompetitor yang dipantau: @howcomeid (TikTok), niche "kenapa di rumah".
 
 ## Log
