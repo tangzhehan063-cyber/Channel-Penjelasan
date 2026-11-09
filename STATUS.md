@@ -3,7 +3,7 @@
 ## Posisi terakhir (9 Nov 2026)
 - **Video #1–#8 selesai** (MP4 + SRT di `video/`, cover di `cover/`, caption di `caption/`). Terbaru: #7 "Baja Ringan vs Kayu" (Bongkar Barang #01), #8 "Bunyi Tek di Atap Bukan Hantu" (Bukan Hantu #01, untuk Facebook).
 - Jadwal posting lama: #3 meteran kWh Sen 9 Nov 19.00 WIB, #4 keramik Rab 11 Nov 19.00 WIB.
-- **Video #9 sedang dikerjakan:** "Rumah Tusuk Sate Bukan Bawa Sial" (seri baru Bukan Sial #01), naskah draft v1 `naskah/video-09-rumah-tusuk-sate.md`, menunggu ACC. Ide cadangan: `riset/2026-11-09-ide-video-9.md`.
+- **Video #9 sedang dikerjakan:** "Rumah Tusuk Sate Bukan Bawa Sial" (seri baru Bukan Sial #01), naskah ACC final v1 `naskah/video-09-rumah-tusuk-sate.md`. Ide cadangan: `riset/2026-11-09-ide-video-9.md`.
 - Revisi kecil tertunda (opsional): #5 noda garam setinggi lutut samar; label "Kayak tisu" sedikit menimpa bata.
 - Branding: foto profil `branding/FaktaRumah_PP_teal.png`, bio `branding/bio.md` (nama sementara "Fakta Rumah"). Belum diputuskan: nama channel/handle, realisme objek 3D.
 

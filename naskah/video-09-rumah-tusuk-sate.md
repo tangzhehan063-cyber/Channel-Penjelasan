@@ -1,4 +1,4 @@
-# STORYBOARD · VIDEO #9 · TAHAP 2 · DRAFT v1 (9 Nov 2026)
+# STORYBOARD · VIDEO #9 · TAHAP 2 · ACC FINAL v1 (9 Nov 2026)
 ## Rumah Tusuk Sate Bukan Bawa Sial
 **Seri baru "Bukan Sial" #01** (format: kutip anggapan sial → cap BUKAN SIAL → alasan nyata → orang tua ada benarnya → cek sendiri).
 Gaya A editorial 3D (DNA v07/v08) · 1080×1920 · ±48 dtk · VO Riri Rida · FB 35+ · skill `naskah-viral` + `sutradara`.
@@ -57,7 +57,7 @@ VO ±105 kata (Riri ±2,2 kata/dtk → ±47 dtk).
 1. Pintu Depan Lurus ke Pintu Belakang, Rezeki Bablas?
 2. Anak Tangga Harus Ganjil? Ini Alasan Kakimu
 
-## Teks TTS v1 (angka ditulis kata)
+## Teks TTS final v1 (angka ditulis kata)
 Rumah tusuk sate katanya bawa sial? Bukan sial.
 Jalannya lurus, ujungnya tepat di rumahmu.
 Mobil empat puluh kilo per jam butuh sekitar dua puluh meter buat berhenti. Rem telat sedikit, yang ketabrak pagarmu.
