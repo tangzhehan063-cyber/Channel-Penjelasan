@@ -3,7 +3,7 @@
 Channel pengetahuan, seri utama **"fakta rumah"**, Bahasa Indonesia santai, audiens 35+, gaya visual **editorial 3D bersih**.
 (Channel stickman self-improvement ada di repo terpisah `RAKA`; jangan campur gaya.)
 
-**Alur kerja lengkap ada di `WORKFLOW.md` (ikuti langkah 0–7, termasuk distribusi: PR ke `main` → user Merge).** Di awal setiap sesi baca `STATUS.md` saja, lalu baca file lain hanya sesuai tahap yang dikerjakan (lihat "Hemat token"). Perbarui `STATUS.md` setiap ada kemajuan dan push ke repo; jangan menunggu akhir sesi.
+**Alur kerja lengkap ada di `WORKFLOW.md` (ikuti langkah 0–7, termasuk distribusi: PR ke `main` → Claude merge sendiri).** Di awal setiap sesi baca `STATUS.md` saja, lalu baca file lain hanya sesuai tahap yang dikerjakan (lihat "Hemat token"). Perbarui `STATUS.md` setiap ada kemajuan dan push ke repo; jangan menunggu akhir sesi.
 
 ## Hemat token (wajib)
 - Baca sesuai tahap: Tahap 1–2 → `naskah/alur-naskah.md` + skill `naskah-viral`; Tahap 4–5 → `style/style.md` + `style/aset.md` (Gaya A) atau `style/diorama-kertas/README.md` (Gaya B, diorama kertas); caption → bagian caption di file ini. Jangan membaca ulang file yang tidak berubah.
