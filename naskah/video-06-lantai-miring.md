@@ -1,4 +1,4 @@
-# STORYBOARD · VIDEO #6 · TAHAP 2 · DRAFT
+# STORYBOARD · VIDEO #6 · TAHAP 2 · ACC FINAL (9 Nov 2026)
 ## Lantai Rumahmu Sengaja Dibuat Miring
 Gaya A editorial 3D + sistem gabungan (`style/aset.md`) · 1080×1920 (9:16) · ±44 detik (sementara, nanti mengikuti suara asli) · VO Bahasa Indonesia santai · audiens 35+ · CTA follow · seri "fakta rumah"
 Safe zone: 15% atas, 20% bawah; subtitle tepat di atas garis bawah.
@@ -22,7 +22,7 @@ Alasan: (a) paling pendek (≤3 dtk) dan membalik anggapan "lantai bagus = rata"
 - **Tes kelereng** [✓ Detik Properti]: kelereng harus menggelinding ke floor drain; kalau tidak, pemasangan keramik salah.
 - **Genangan bikin licin**: pengetahuan umum, tanpa angka.
 - **Air diam ninggalin kerak & lumut di sela keramik (nat)**: pengetahuan umum (air sadah, jamur di area lembap), tanpa angka.
-- **Air menyerap lewat sela keramik ke bawah**: pengisi sela (istilah tukang: nat) dari semen berpori dan tidak kedap air; panduan pemasangan menekankan semua lapisan harus miring ke saluran agar air tidak tertahan [⚠ CEK: halaman Ceramic Tile Foundation "Everything must slope to the drain" baru terlihat judulnya di hasil pencarian, belum dibaca isinya]. **Penyederhanaan visual:** air digambar turun lurus lewat nat.
+- **Air menyerap lewat sela keramik ke bawah**: pengisi sela (istilah tukang: nat) dari semen berpori dan tidak kedap air; panduan pemasangan menekankan semua lapisan harus miring ke saluran agar air tidak tertahan [✓ Pro Tiler Tools, "Is Grout Waterproof?": keramik berglasir kedap, tapi itu tidak mencegah air lewat sela nat dan merembes ke bawah keramik; Weber, "Grouting in bathroom and kitchen"]. **Penyederhanaan visual:** air digambar turun lurus lewat nat.
 - **Ruang kering rata, area basah miring**: ruang dalam dipasang waterpass; area basah (kamar mandi, teras, carport) dibuat miring ke saluran. Untuk teras/carport **tidak disebut angka** karena sumbernya belum ada.
 - **Sengaja tidak dibahas:** waterproofing di bawah keramik, kemiringan pipa buang, jenis floor drain.
 
@@ -51,7 +51,7 @@ Aturan kata: pakai kata sehari-hari. "Nat" → "sela-sela keramik"; "floor drain
 - **CTA dua arah:** "Kelerengmu lari ke mana?" → "Follow buat fakta rumah berikutnya!"
 
 ## [⚠ CEK] tersisa
-- Klaim beat 6 (air nyerep lewat sela keramik ke bawah): sumber belum dibaca penuh.
+- Tidak ada. Klaim beat 6 sudah bersumber (9 Nov).
 - Catatan: angka 1,5–2% bersumber praktisi (Detik), bukan SNI; disampaikan "sekitar dua persen". Kalau user mau dasar SNI resmi, perlu dicari lagi.
 
 ## Checklist
@@ -71,7 +71,21 @@ Aturan kata: pakai kata sehari-hari. "Nat" → "sela-sela keramik"; "floor drain
 Caption + komentar pertama. Catatan: aturan CLAUDE.md meminta scrape bahasa sosmed dulu; user memutuskan tanpa scrape, jadi caption ditulis dari pengalaman bahasa umum kecuali user minta scrape.
 Judul alternatif (draft): "Lantai Kamar Mandi Memang Harus Miring" / "Tes Kelereng di Kamar Mandimu" / "Rata Belum Tentu Bagus". Teks cover: "SENGAJA MIRING".
 
+## Teks TTS final (angka ditulis kata)
+Lantai kamar mandimu nggak rata. Dan memang harus begitu.
+Ada tiga alasannya. Yang ketiga jarang disadari.
+Miringnya cuma sekitar dua persen ke lubang buang. Tiap satu meter, turun dua senti. Hampir nggak kelihatan.
+Pertama, air nggak menggenang. Genangan tipis itu yang bikin orang tua kepeleset.
+Kedua, air yang diam ninggalin kerak dan lumut di sela-sela keramik.
+Ketiga, yang jarang disadari: air itu pelan-pelan nyerep lewat sela-sela keramik, turun ke bawahnya.
+Ada yang bilang lantai miring tanda tukang nggak becus. Ada yang bilang semua harus miring. Dua-duanya setengah benar. Kamar tidur harus rata. Kamar mandi dan teras harus miring.
+Dan kalau miringnya kelihatan mata, itu kebanyakan.
+Coba taruh kelereng di lantai kamar mandimu. Yang lagi pasang keramik, tes sebelum tukangnya pulang.
+Kelerengmu lari ke mana? Follow buat fakta rumah berikutnya!
+
 ## Sumber
+- Pro Tiler Tools, Is Grout Waterproof?: https://www.protilertools.co.uk/news/is-grout-waterproof
+- Weber, Grouting in bathroom and kitchen: https://www.th.weber/en/tile-grout/grouting-bathroom-and-kitchen
 - Detik Properti, Cara simpel cek kemiringan lantai kamar mandi: https://www.detik.com/properti/tips-dan-panduan/d-8183296/cara-simpel-cek-kemiringan-lantai-kamar-mandi-cuma-butuh-1-benda
 - Ceramic Tile Foundation, Everything must slope to the drain: https://www.ceramictilefoundation.org/blog/everything-must-slope-to-the-drain
 - Placer County, Shower Pans: https://www.placer.ca.gov/DocumentCenter/View/3285/Shower-Pans-PDF
