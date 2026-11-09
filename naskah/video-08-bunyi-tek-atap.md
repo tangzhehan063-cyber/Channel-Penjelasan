@@ -1,4 +1,4 @@
-# STORYBOARD · VIDEO #8 · TAHAP 2 · DRAFT v2 (9 Nov 2026, bahasa disederhanakan atas permintaan user)
+# STORYBOARD · VIDEO #8 · TAHAP 2 · ACC FINAL v2 (9 Nov 2026, bahasa disederhanakan)
 ## Bunyi "Tek!" di Atap Tengah Malam Bukan Hantu
 **Mini-seri "Bukan Hantu" #01** (format: kutip anggapan mistis → cap BUKAN HANTU → fisikanya → cara membedakan → cek sendiri).
 Gaya A editorial 3D + sistem gabungan (`style/aset.md`) · 1080×1920 (9:16) · ±47 dtk (sementara, nanti mengikuti suara asli) · VO Riri Rida · audiens FB 35+ · seri "fakta rumah"
@@ -32,20 +32,20 @@ Total VO ±107 kata (Riri ±2,3 kata/dtk → ±47 dtk).
 | # | Detik | Judul | Teks layar | VO | Visual (editorial 3D + aset) | SFX |
 |---|---|---|---|---|---|---|
 | 1 | 0–3 | Hook | Bunyi "tek" tengah malam? / BUKAN HANTU | Bunyi "tek" di atap tengah malam? Bukan hantu. | Rumah kertas malam, jam "00.13", lampu kamar menyala. Gelembung "TEK!" di atap. Cap koral miring "BUKAN HANTU" menghantam layar. | Hening, TEK! keras, cap stempel. |
-| 2 | 3–8 | Siang panas | Siang, atap seng / >40 °C | Siang tadi, atap seng bisa panas lebih dari empat puluh derajat. | Matahari kertas; lembar atap 3D memerah (gradasi koral), termometer naik ke "43–53 °C". Batang baja ringan memanjang sedikit (panah ↔). | Desis panas, tick termometer. |
-| 3 | 8–14 | Malam menyusut | Malam, besi / MENGKERUT · "6 m → −2 mm (perkiraan)" | Malamnya suhu anjlok. Logam menyusut. Batang enam meter memendek hampir dua milimeter. | Langit berganti malam (whip), atap biru dingin, termometer turun. Penggaris kertas di batang 6 m, Callout "± 2 mm" dengan lup. | Whoosh malam, tick turun, klik angka. |
-| 4 | 14–20 | Ketahan sekrup (pemutus pola) | Ditahan sekrup… / LALU LEPAS: TEK! | Tapi sekrup menahannya. Ketahan, ketahan, lalu lepas tiba-tiba. Tek! Kayak jentikan jari. | PatternBreak koral: close-up sekrup + lembar; lembar menegang (garis getar), lalu snap bergeser 1 langkah. Ikon tangan menjentik di sudut. | Derit tegang naik → TEK! tajam. |
+| 2 | 3–8 | Siang panas | Siang, atap seng / >40 °C | Siang tadi, atap seng panasnya lebih dari empat puluh derajat. | Matahari kertas; lembar atap 3D memerah (gradasi koral), termometer naik ke "43–53 °C". Batang baja ringan memanjang sedikit (panah ↔). | Desis panas, tick termometer. |
+| 3 | 8–14 | Malam menyusut | Malam, besi / MENGKERUT · "6 m → −2 mm (perkiraan)" | Kena panas, besi memanjang. Malam dingin, besi mengkerut lagi. Besi atap enam meter bisa mengkerut sampai dua milimeter. | Langit berganti malam (whip), atap biru dingin, termometer turun. Penggaris kertas di batang 6 m, Callout "± 2 mm" dengan lup. | Whoosh malam, tick turun, klik angka. |
+| 4 | 14–20 | Ketahan sekrup (pemutus pola) | Ditahan sekrup… / LALU LEPAS: TEK! | Tapi sekrupnya nahan. Ditahan, ditahan, terus lepas. Tek! Kayak jentik jari. | PatternBreak koral: close-up sekrup + lembar; lembar menegang (garis getar), lalu snap bergeser 1 langkah. Ikon tangan menjentik di sudut. | Derit tegang naik → TEK! tajam. |
 | 5 | 20–25 | Kenapa malam | Siang ramai / MALAM SEPI, KEDENGERAN | Siang ramai, nggak kedengeran. Malam sepi, baru kedengeran. | Dua panel: siang (motor, TV, ikon suara banyak) vs malam (kosong, satu "tek"). | Ramai → senyap, satu tek. |
 | 6 | 25–30 | Payoff | Bukan penunggu rumah / ATAPMU KEDINGINAN | Jadi yang bunyi bukan penunggu rumah, tapi atapmu yang lagi kedinginan. | TwoTier "Bukan penunggu rumah / ATAPMU KEDINGINAN" (koral). Siluet "hantu" kertas tersobek jadi rangka atap. | Chime tunggal, kertas sobek. |
-| 7 | 30–35 | Bedakan | Pindah-pindah? / CEK TIKUS & MUSANG | Bunyinya pindah-pindah kayak langkah? Itu beda cerita. Cek tikus atau musang. | Plafon cutaway: jejak kaki kecil berpindah (titik), ikon tikus & musang; vs satu titik "tek" diam di sambungan. | Langkah kecil tik-tik-tik. |
-| 8 | 35–42 | Cek sendiri | Mau bukti? / DENGAR PAS KETUTUP AWAN | Mau bukti? Siang nanti, dengar pas awan lewat. Atapnya mendadak dingin, bunyi juga. Yang tiap malam parno sama atapnya, perlu tahu ini. | Awan kertas melintas menutup matahari, bayangan di atap, "tek" kecil muncul. Ikon bookmark koral. | Angin lembut, tek kecil, pop bookmark. |
+| 7 | 30–35 | Bedakan | Pindah-pindah? / CEK TIKUS & MUSANG | Bunyinya pindah-pindah kayak orang jalan? Itu beda. Cek tikus atau musang. | Plafon cutaway: jejak kaki kecil berpindah (titik), ikon tikus & musang; vs satu titik "tek" diam di sambungan. | Langkah kecil tik-tik-tik. |
+| 8 | 35–42 | Cek sendiri | Mau bukti? / DENGAR PAS KETUTUP AWAN | Mau bukti? Siang nanti, dengar pas matahari ketutup awan. Atap mendadak dingin, bunyi juga. Yang tiap malam takut sama bunyi atap, perlu tahu ini. | Awan kertas melintas menutup matahari, bayangan di atap, "tek" kecil muncul. Ikon bookmark koral. | Angin lembut, tek kecil, pop bookmark. |
 | 9 | 42–45 | Ajak komentar | Atapmu biasanya bunyi / JAM BERAPA? | Atap rumahmu sering bunyi jam berapa? | Jam dinding kertas, jarum berputar; PuzzleGrid pilihan "20.00 / 00.00 / 03.00". | Tick jam. |
 | 10 | 45–47 | CTA | FOLLOW · fakta rumah berikutnya | Follow buat fakta rumah berikutnya! | Kartu FOLLOW koral + Cutout daun. | Tiga chime naik. |
 
 ## Penanda
 - **Payoff:** "Jadi yang bunyi bukan penunggu rumah, tapi atapmu yang lagi kedinginan."
 - **Tips aksi:** dengarkan atap saat awan lewat siang hari; bunyi berpindah-pindah → cek tikus/musang.
-- **Pemicu share:** "Yang tiap malam parno sama atapnya, perlu tahu ini."
+- **Pemicu share:** "Yang tiap malam takut sama bunyi atap, perlu tahu ini."
 - **CTA dua arah:** "Atap rumahmu sering bunyi jam berapa?"
 
 ## [⚠ CEK] tersisa
@@ -55,7 +55,7 @@ Total VO ±107 kata (Riri ±2,3 kata/dtk → ±47 dtk).
 1. Lampu LED Nyala Redup Padahal Saklar Mati
 2. Pintu Kebuka Sendiri? Itu Beda Tekanan Angin
 
-## Teks TTS draft v2 (bahasa disederhanakan, angka ditulis kata)
+## Teks TTS final v2 (bahasa disederhanakan, angka ditulis kata)
 Bunyi "tek" di atap tengah malam? Bukan hantu.
 Siang tadi, atap seng panasnya lebih dari empat puluh derajat.
 Kena panas, besi memanjang. Malam dingin, besi mengkerut lagi.
