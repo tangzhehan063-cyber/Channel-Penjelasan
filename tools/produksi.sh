@@ -30,6 +30,7 @@ if cur: print(f"{cur[0]['start']:6.2f}  {' '.join(x['word'] for x in cur)}")
 EOF
   ;;
 sheet)
+  node "$(dirname "$0")/cek-sutradara.mjs" "$NN" || echo "!! cek-sutradara: ada GAGAL, perbaiki dulu"
   d="$SC/sheet-v$NN"; mkdir -p "$d"; find "$d" -name 'f*.png' -delete
   cd "$R"; IFS=',' read -ra T <<< "$3"
   for s in "${T[@]}"; do fr=$(python3 -c "print(round($s*30))"); timeout 300 npx remotion still "Video$NN" "$d/f$(printf %05d "$fr").png" --frame="$fr" --scale=0.5 --log=error; done

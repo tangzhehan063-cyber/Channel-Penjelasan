@@ -29,6 +29,7 @@ Channel pengetahuan, seri utama **"fakta rumah"**, Bahasa Indonesia santai, audi
 - Objek 3D dibuat prosedural (contoh: `remotion/src/pengetahuan/Brain.tsx`), warna koral `#f27a63`, latar kertas, label garis tipis (`Scene.tsx`: `Paper`, `Ghost`, `Callout`).
 - Suara: ElevenLabs `eleven_v4` (default voice Riri Rida `tCKeP99grYL9wZRg6sQ9`) atau Google AI Studio bila user memilih; angka di teks TTS ditulis sebagai kata. Unduh dari `elevenlabsusercontent.com`.
 - Timestamp: ElevenLabs Scribe → `python3 tools/scribe_to_timeline.py <words.json> <out.json>` (angka jadi numeral, tag audio dibuang). Whisper/huggingface diblokir di cloud.
+- **Penyutradaraan: pakai skill `sutradara`** (`.claude/skills/sutradara/SKILL.md`): DNA video #7–#8 dikunci + shot list, kamera beralasan, ritme, suara; cek otomatis `node tools/cek-sutradara.mjs NN` sebelum render.
 - **Animasi/render (Tahap 4–5): pakai skill `remotion-fitur`** (`.claude/skills/remotion-fitur/SKILL.md`): aturan 3D wajib + fitur peningkat (light leak, transisi, color correction, motion blur, gerak ikut suara). Paket sudah ada di `remotion/package.json`.
 - Container baru: `./setup.sh`.
 

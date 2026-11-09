@@ -13,6 +13,7 @@ Satu video = satu chat, ±8 langkah. **Satu chat hanya untuk repo ini.** Semua p
 ## 2. Naskah (1–3 WebSearch)
 - Baca `naskah/alur-naskah.md` + skill `naskah-viral` (sekali saja). Salin format `naskah/video-08-bunyi-tek-atap.md`.
 - Bahasa **sederhana, tanpa istilah teknis/tukang** (permintaan user). VO ≤105 kata (Riri ±2,2 kata/dtk ≈ 50 dtk).
+- **Sutradara** (skill `sutradara`, bagian B+D): logline 1 kalimat, 1 momen khas di puncak, kolom shot list (framing, gerak kamera + alasan) di tabel beat.
 - Kirim teks TTS ke user dalam chat. Tunggu **ACC**.
 
 ## 3. Setelah ACC (satu giliran)
@@ -24,10 +25,11 @@ Satu video = satu chat, ±8 langkah. **Satu chat hanya untuk repo ini.** Semua p
 - `creative_add_flow_asset_node` (generation_id take) → `creative_transcribe_audio` → `tools/produksi.sh words <NN> "<words_download_url>"` (mencetak kalimat + detik).
 
 ## 5. Animasi
-- Salin `remotion/src/v08/` → `vNN/` (Video + Cover + objek 3D). Ganti beat `B`, kamera, judul, SFX. Daftarkan di `remotion/src/Root.tsx`.
+- Salin `remotion/src/v08/` → `vNN/` (Video + Cover + objek 3D). Ganti beat `B`, kamera (dari shot list, ≥4 jenis gerak, skill `sutradara`), judul, SFX. Daftarkan di `remotion/src/Root.tsx`.
 - Gaya: `style/style.md` + `style/aset.md` hanya bila butuh aset baru.
 
 ## 6. Cek → render
+- `tools/produksi.sh sheet` otomatis menjalankan `node tools/cek-sutradara.mjs <NN>` (ritme, kamera, waktu baca, jeda sunyi): GAGAL wajib diperbaiki.
 - `tools/produksi.sh sheet <NN> <8–10 detik penting>` → lihat 1 gambar, cocokkan dengan **`style/cek-bug.md`**, perbaiki, kirim sheet ke user.
 - User OK → `tools/produksi.sh final <NN> <slug>` (Bash `run_in_background`, ±20 mnt). **Jangan hentikan render** kecuali perubahan memang untuk video ini.
 - Lihat sheet QC yang dicetak (1 gambar). `tools/produksi.sh cover <NN> <slug>`.
