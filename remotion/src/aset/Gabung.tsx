@@ -87,13 +87,16 @@ export const FocusRing: React.FC<{x: number; y: number; r: number; start: number
 };
 
 /* Ikon prop sederhana bergaya potongan (bayangan jatuh). */
-export const Icon: React.FC<{kind: 'tetes' | 'bata' | 'panah' | 'penggaris' | 'centang' | 'tanah'; s?: number}> = ({kind, s = 1}) => (
+export const Icon: React.FC<{kind: 'tetes' | 'bata' | 'panah' | 'penggaris' | 'centang' | 'tanah' | 'baja' | 'kayu' | 'rayap'; s?: number}> = ({kind, s = 1}) => (
   <svg width={150 * s} height={150 * s} viewBox="-75 -75 150 150" style={{filter: 'drop-shadow(6px 10px 8px rgba(0,0,0,0.25))', overflow: 'visible'}}>
     {kind === 'tetes' && <path d="M0 -52 C 22 -20, 40 2, 40 22 A40 40 0 0 1 -40 22 C -40 2, -22 -20, 0 -52 Z" fill={K.blue} />}
     {kind === 'bata' && <g><rect x={-56} y={-30} width={112} height={60} rx={4} fill={K.coral} />{[-28, 0, 28].map((x) => <circle key={x} cx={x} cy={0} r={7} fill="#7e2a20" />)}</g>}
     {kind === 'panah' && <path d="M0 -56 L40 -10 H16 V54 H-16 V-10 H-40 Z" fill={K.ink} />}
     {kind === 'penggaris' && <g transform="rotate(-35)"><rect x={-70} y={-16} width={140} height={32} rx={3} fill="#e3b04b" />{Array.from({length: 9}, (_, i) => <rect key={i} x={-62 + i * 15} y={-16} width={3} height={i % 2 ? 9 : 15} fill={K.ink} />)}</g>}
     {kind === 'centang' && <g><circle r={50} fill={K.sage} /><path d="M-24 2 L-6 20 L26 -16" fill="none" stroke="#fff" strokeWidth={11} strokeLinecap="round" strokeLinejoin="round" /></g>}
+    {kind === 'baja' && <path d="M30 -50 H-30 V50 H30 V34 H-12 V-34 H30 Z" fill="#c3c8ce" stroke={K.ink} strokeWidth={6} strokeLinejoin="round" />}
+    {kind === 'kayu' && <g><rect x={-58} y={-34} width={116} height={68} rx={6} fill="#c98a4b" stroke={K.ink} strokeWidth={6} />{[-12, 10].map((y) => <path key={y} d={`M-44 ${y} Q 0 ${y - 10} 44 ${y}`} fill="none" stroke="#8a5528" strokeWidth={5} strokeLinecap="round" />)}</g>}
+    {kind === 'rayap' && <g fill={K.coral} stroke={K.ink} strokeWidth={5}><ellipse cx={0} cy={22} rx={20} ry={30} /><circle cx={0} cy={-18} r={15} /><circle cx={0} cy={-42} r={14} /><path d="M-10 -52 L-26 -66 M10 -52 L26 -66 M-18 10 L-44 0 M18 10 L44 0 M-18 30 L-44 40 M18 30 L44 40" fill="none" strokeLinecap="round" /></g>}
     {kind === 'tanah' && <g><path d="M-62 10 Q -30 -14 0 6 T 62 0 V 40 H -62 Z" fill="#8b6a4f" />{[-36, -6, 26].map((x, i) => <circle key={i} cx={x} cy={24} r={5} fill={K.blue} />)}</g>}
   </svg>
 );
