@@ -45,17 +45,17 @@ const B = {hook: 0, lurus: 3.76, mobil: 6.96, rem: 11.44, malam: 14.4, payoff: 1
 
 // ---------- kamera per adegan (shot list: naskah/video-09) ----------
 // e: easing segmen yang dimulai di key itu ('lin' = laju tetap, 'out' = mengerem)
-const CAM_HOOK: Key[] = [{t: 0, pos: [6.0, 9.5, 19.0], look: [0, 0.6, 3.0]}, {t: 3.9, pos: [5.4, 8.6, 17.4], look: [0, 0.6, 3.0]}];
+const CAM_HOOK: Key[] = [{t: 0, pos: [6.0, 9.5, 20.0], look: [0, 2.6, 2.0]}, {t: 3.9, pos: [5.4, 8.6, 18.4], look: [0, 2.4, 2.0]}];
 const CAM_LURUS: Key[] = [{t: 3.6, pos: [0, 8.0, 26.0], look: [0, 0.5, 4.0]}, {t: 7.1, pos: [0, 1.5, 20.0], look: [0, 1.0, 1.0]}];
-const CAM_MOBIL: Key[] = [{t: 6.96, pos: [1.8, 1.5, 44.2], look: [0, 0.6, 33.0], e: 'lin'}, {t: 11.44, pos: [1.8, 1.5, 12.2], look: [0, 0.6, 1.0]}];
-const CAM_POV: Key[] = [{t: 11.44, pos: [0, 0.78, 8.15], look: [0, 0.6, 0.0], fov: 50, e: 'out'}, {t: 13.3, pos: [0, 0.78, 2.51], look: [0, 0.5, -6.0], fov: 50}];
-const CAM_MALAM: Key[] = [{t: 14.2, pos: [7.0, 2.6, 9.0], look: [0, 0.8, 5.5]}, {t: 18.9, pos: [5.0, 3.0, 13.0], look: [0, 0.8, 5.5]}];
+const CAM_MOBIL: Key[] = [{t: 6.96, pos: [0.5, 1.5, 44.2], look: [0, 0.6, 33.0], e: 'lin'}, {t: 11.44, pos: [0.5, 1.5, 12.2], look: [0, 0.6, 1.0]}];
+const CAM_POV: Key[] = [{t: 11.44, pos: [0, 1.5, 10.4], look: [0, 0.9, 0.0], fov: 50, e: 'out'}, {t: 13.3, pos: [0, 1.5, 4.76], look: [0, 1.1, -3.0], fov: 50}];
+const CAM_MALAM: Key[] = [{t: 14.2, pos: [8.5, 3.0, 10.0], look: [0, 1.4, 1.5]}, {t: 18.9, pos: [6.0, 3.4, 14.5], look: [0, 1.4, 1.5]}];
 const CAM_PAY: Key[] = [{t: 22.8, pos: [2.6, 2.2, 8.0], look: [0, 0.9, 1.5]}, {t: 25.9, pos: [5.0, 5.5, 16.0], look: [0, 0.8, 2.5]}];
 const CAM_TWIST: Key[] = [{t: 25.6, pos: [1.4, 1.7, 30.0], look: [-7.0, 0.4, 24.0], fov: 30}, {t: 27.4, pos: [1.4, 1.7, 30.0], look: [0, 1.2, 0], fov: 30}, {t: 32.1, pos: [0.9, 1.6, 24.0], look: [0, 1.2, 0], fov: 30}];
-const CAM_SARAN: Key[] = [{t: 31.9, pos: [3.6, 2.2, 9.5], look: [0, 0.6, 1.8]}, {t: 35.5, pos: [2.4, 1.5, 6.2], look: [0, 0.6, 1.8]}];
-const CAM_NAHAN: Key[] = [{t: 35.2, pos: [3.5, 0.7, 8.0], look: [0, 0.7, 2.5]}, {t: 37.6, pos: [4.2, 3.4, 11.0], look: [0, 0.6, 3.0]}];
-const CAM_CEK: Key[] = [{t: 37.52, pos: [0, 0.78, 18.15], look: [0, 0.6, 8.0], fov: 50}, {t: 40.2, pos: [0, 0.78, 3.45], look: [0, 0.55, -5.0], fov: 50}];
-const CAM_END: Key[] = [{t: 40.2, pos: [-5.0, 4.2, 13.0], look: [0, 0.8, 2.0]}, {t: 46.4, pos: [-2.0, 3.6, 14.5], look: [0, 0.9, 2.0]}];
+const CAM_SARAN: Key[] = [{t: 31.9, pos: [5.6, 3.4, 15.0], look: [0, 1.4, 1.2]}, {t: 35.5, pos: [4.3, 2.5, 11.0], look: [0, 1.4, 1.2]}];
+const CAM_NAHAN: Key[] = [{t: 35.2, pos: [4.0, 0.8, 9.5], look: [0, 1.2, 1.5]}, {t: 37.6, pos: [4.6, 3.6, 12.0], look: [0, 1.4, 1.5]}];
+const CAM_CEK: Key[] = [{t: 37.52, pos: [0, 1.5, 19.4], look: [0, 0.9, 8.0], fov: 50}, {t: 40.2, pos: [0, 1.5, 5.8], look: [0, 1.1, -3.0], fov: 50}];
+const CAM_END: Key[] = [{t: 40.2, pos: [-5.5, 4.4, 14.0], look: [0, 2.45, 1.5]}, {t: 46.4, pos: [-2.2, 3.8, 15.5], look: [0, 2.45, 1.5]}];
 
 // ---------- komponen ----------
 const Rig: React.FC<{k: Key}> = ({k}) => {
@@ -164,12 +164,12 @@ export const Video09: React.FC = () => {
   const cp = camAt(CAM_PAY, t), ct = camAt(CAM_TWIST, t), cs = camAt(CAM_SARAN, t), cx = camAt(CAM_NAHAN, t), cc = camAt(CAM_CEK, t), ce = camAt(CAM_END, t);
 
   // mobil ikut kamera (kamera = mata/pengikut mobil)
-  const carMobil = cm.pos[2] - 4.2;
+  const carMobil = cm.pos[2] - 4.2, carPov = cv.pos[2] - 2.4, carCek = cc.pos[2] - 2.4;
   // tabrakan pelan ke pagar di 13,3 dtk
   const dt = t - 13.3, hit = dt > 0 ? Math.exp(-dt * 4) : 0;
-  const wob = dt > 0 ? 0.2 * hit * Math.sin(dt * 20) : 0;
+  const wob = dt > 0 ? -0.2 * hit * Math.sin(dt * 20) : 0;
   const shake = dt > 0 ? 0.035 * hit * Math.sin(dt * 55) : 0;
-  const povK: Key = {...cv, pos: [cv.pos[0], cv.pos[1] + shake, cv.pos[2]], look: [cv.look[0], cv.look[1] - 0.25 * hit, cv.look[2]]};
+  const povK: Key = {...cv, pos: [cv.pos[0], cv.pos[1] + shake, cv.pos[2]], look: [cv.look[0], cv.look[1] - 0.08 * hit, cv.look[2]]};
 
   const night = Math.max(r(t, 14.2, 14.6) * (1 - r(t, 18.55, 18.85)), r(t, 35.2, 35.5) * (1 - r(t, 37.35, 37.65)));
   const shop = r(t, 27.3, 27.9, Easing.linear);
@@ -177,7 +177,7 @@ export const Video09: React.FC = () => {
   const glowM = r(t, 15.4, 16.0);
   const pb = r(t, 18.72, 19.35) * (1 - r(t, 22.75, 23.05));
 
-  const sign = proj(ct, [0, 1.8, W.front + 0.02]);
+  const sign = proj(ct, [0, 1.8, W.front + 0.02]), signEnd = proj(ce, [0, 1.8, W.front + 0.02]);
   const potPt = proj(cs, [-1.2, 0.5, W.fenceZ + 0.55]), treePt = proj(cs, [0.75, 1.5, 2.05]);
 
   return (
@@ -185,37 +185,38 @@ export const Video09: React.FC = () => {
       <PaperPlus />
       <AbsoluteFill style={{background: `linear-gradient(180deg, ${NAVY} 0%, #2b3a5e 100%)`, opacity: 0.94 * night}} />
 
-      {/* jangkar atas */}
-      <Kicker text="BUKAN SIAL · #01" y={292} start={0} />
-      <TikTokBox text="Sial beneran?" p={r(t, 0.15, 0.8, Easing.linear)} y={338} size={40} />
 
       {/* ---------- 3D ---------- */}
       <Seg a={0} b={B.lurus} f={f} first><Canvas3D k={ch}><Scene /></Canvas3D></Seg>
       <Seg a={B.lurus} b={B.mobil} f={f}><Canvas3D k={cl}><Scene dash={r(t, 4.1, 6.5, Easing.linear)} /></Canvas3D></Seg>
       <Seg a={B.mobil} b={B.rem} f={f}><Canvas3D k={cm}><Scene dash={1} band={[21.75, W.fenceZ, r(t, 9.45, 10.4)]} car={{z: carMobil}} /></Canvas3D></Seg>
-      <Seg a={B.rem} b={B.malam} f={f}><Canvas3D k={povK}><Scene dash={1} band={[21.75, W.fenceZ, 1]} wob={wob} /></Canvas3D></Seg>
+      <Seg a={B.rem} b={B.malam} f={f}><Canvas3D k={povK}><Scene dash={1} band={[21.75, W.fenceZ, 1]} wob={wob} car={{z: carPov, pitch: -0.05 * Math.sin(Math.PI * r(t, 11.44, 13.3, Easing.linear)) + 0.03 * hit * Math.sin(dt * 30)}} /></Canvas3D></Seg>
       <Seg a={B.malam} b={B.payoff} f={f}><Canvas3D k={cn} night={1}><Scene dash={1} car={{z: 12, lights: r(t, 14.9, 15.3), beam: 10.3 * r(t, 15.2, 16.0)}} night={1} glow={glowM} /></Canvas3D></Seg>
       <Seg a={B.payoff} b={B.twist} f={f}><Canvas3D k={cp}><Scene dash={1} /></Canvas3D></Seg>
       <Seg a={B.twist} b={B.saran} f={f}><Canvas3D k={ct}><Scene dash={1} shop={shop} /></Canvas3D></Seg>
       <Seg a={B.saran} b={B.nahan} f={f}><Canvas3D k={cs}><Scene dash={1} shop={1} pots={pots} tree={tree} /></Canvas3D></Seg>
       <Seg a={B.nahan} b={B.cek} f={f}><Canvas3D k={cx} night={1}><Scene dash={1} shop={1} pots={1} tree={1} night={1} glow={0.15} car={{z: 12, lights: 1, beam: 9.4 * r(t, 35.5, 36.1)}} /></Canvas3D></Seg>
-      <Seg a={B.cek} b={B.tanya} f={f}><Canvas3D k={cc}><Scene dash={1} shop={1} pots={1} tree={1} /></Canvas3D></Seg>
+      <Seg a={B.cek} b={B.tanya} f={f}><Canvas3D k={cc}><Scene dash={1} shop={1} pots={1} tree={1} car={{z: carCek}} /></Canvas3D></Seg>
       <Seg a={B.tanya} b={B.end} f={f}><Canvas3D k={ce}><Scene dash={1} shop={1} pots={1} tree={1} /></Canvas3D></Seg>
+
+      {/* jangkar atas */}
+      <Kicker text="BUKAN SIAL · #01" y={292} start={0} />
+      <TikTokBox text="Sial beneran?" p={r(t, 0.15, 0.8, Easing.linear)} y={338} size={40} />
 
       {/* ---------- hook ---------- */}
       <Stamp p={r(t, 2.45, 2.8, Easing.out(Easing.cubic)) * (1 - r(t, 3.45, 3.75))} text="BUKAN SIAL" y={1060} />
 
       {/* ---------- judul ---------- */}
       <Title t={t} a={0.05} b={2.6} small="Rumah tusuk sate," big="BAWA SIAL?" size={120} />
-      <Title t={t} a={B.lurus} b={B.mobil} small="Jalannya lurus," big="UJUNGNYA RUMAHMU" size={92} />
+      <Title t={t} a={B.lurus} b={B.mobil} small="Jalannya lurus," big="UJUNGNYA RUMAHMU" size={82} />
       <Title t={t} a={B.mobil} b={B.rem} small="Mobil 40 km/jam, berhenti" big="± 20 METER" size={140} />
-      <Title t={t} a={B.malam} b={B.payoff} small="Malam, lampu mobil" big="40 M KE KAMARMU" bigColor={'#f6c453'} size={100} />
+      <Title t={t} a={B.malam} b={B.payoff} small="Malam, lampu mobil" big="40 M KE KAMARMU" bigColor={'#f6c453'} size={92} />
       <Title t={t} a={23.04} b={B.twist} small="Orang tua nggak salah," big="BAHASANYA BEDA" bigColor={K.sage} size={104} />
-      <Title t={t} a={B.twist} b={29.68} small="Justru karena itu," big="PEDAGANG NYARI" size={116} />
+      <Title t={t} a={B.twist} b={29.68} small="Justru karena itu," big="PEDAGANG NYARI" size={102} />
       <Title t={t} a={29.68} b={B.saran} small="Kelihatan" big="DARI UJUNG JALAN" size={96} />
       <Title t={t} a={B.saran} b={B.nahan} small="Saran orang tua:" big="PAGAR & POHON" bigColor={K.sage} size={116} />
       <Title t={t} a={B.nahan} b={B.cek} small="Itu nahan" big="MOBIL & SILAU" bigColor={'#f6c453'} size={116} />
-      <Title t={t} a={B.cek} b={B.tanya} small="Cari rumah? Cek" big="UJUNG JALANNYA" bigColor={K.sage} size={104} />
+      <Title t={t} a={B.cek} b={B.tanya} small="Cari rumah? Cek" big="UJUNG JALANNYA" bigColor={K.sage} size={96} />
 
       {/* ---------- mobil & rem ---------- */}
       <Chip x={540} y={1210} p={r(t, 9.5, 9.9) * (1 - r(t, 11.1, 11.4))} text="jarak berhenti (perkiraan)" size={42} color={CORAL} />
@@ -232,13 +233,15 @@ export const Video09: React.FC = () => {
       <Chip x={sign[0]} y={sign[1]} p={r(t, 27.6, 28.0) * (1 - r(t, 31.7, 32.0))} text="WARUNG" size={30} color={CORAL} />
       <Chip x={540} y={1230} p={r(t, 30.0, 30.4) * (1 - r(t, 31.6, 31.95))} text="kelihatan dari jauh" size={44} />
 
+      <Chip x={signEnd[0]} y={signEnd[1]} p={r(t, 40.5, 40.9)} text="WARUNG" size={34} color={CORAL} />
+
       {/* ---------- saran ---------- */}
-      <Chip x={potPt[0]} y={potPt[1] + 120} p={r(t, 33.5, 33.8) * (1 - r(t, 35.0, 35.3))} text="pot beton" size={40} />
-      <Chip x={Math.min(860, treePt[0] + 120)} y={treePt[1] - 150} p={r(t, 34.6, 34.9) * (1 - r(t, 35.0, 35.3))} text="pohon" size={40} color={K.sage} />
+      <Chip x={Math.max(200, potPt[0])} y={potPt[1] + 120} p={r(t, 33.5, 33.8) * (1 - r(t, 35.0, 35.3))} text="pot beton" size={40} />
+      <Chip x={Math.min(860, treePt[0] + 120)} y={Math.max(780, treePt[1] - 150)} p={r(t, 34.6, 34.9) * (1 - r(t, 35.0, 35.3))} text="pohon" size={40} color={K.sage} />
       <Chip x={540} y={1230} p={r(t, 36.2, 36.5) * (1 - r(t, 37.2, 37.45))} text="silau ketahan" size={44} color={INK} />
 
       {/* ---------- ajak komentar + follow ---------- */}
-      <CommentBubble word="buat apa?" start={Math.round(40.5 * FPS)} y={600} out={Math.round(43.3 * FPS)} />
+      <CommentBubble word="buat apa?" start={Math.round(40.5 * FPS)} y={520} out={Math.round(43.3 * FPS)} />
       <FollowButton start={Math.round(43.5 * FPS)} click={Math.round(44.6 * FPS)} y={1250} />
       <Captions ms={t * 1000} />
 

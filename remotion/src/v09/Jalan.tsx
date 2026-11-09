@@ -19,7 +19,9 @@ export const M9 = {
 export const W = {front: 1.1, fenceZ: 1.75, crossA: 2.3, crossB: 3.9, roadHalf: 0.8, far: 46};
 
 /* tanah + jalan pertigaan; dash = 0..1 garis putus koral digambar dari ujung jalan ke pintu; band = pita "20 m" [z0, z1, p] */
-export const Ground: React.FC<{dash?: number; band?: [number, number, number]}> = ({dash = 0, band}) => {
+export const Ground: React.FC<{dash?: number; band?: [number, number, number]; night?: number}> = ({dash = 0, band, night = 0}) => {
+  M9.ground.color.set(K9.ground).lerp(new THREE.Color('#2f3a58'), night * 0.92);
+  M9.road.color.set(K9.road).lerp(new THREE.Color('#1d2233'), night * 0.7);
   const zc = (W.crossA + W.crossB) / 2, wc = W.crossB - W.crossA, L = W.far - W.crossB;
   const n = 30, zEnd = W.far, zStart = 1.9, dashLen = (zEnd - zStart) / n;
   return (
@@ -108,7 +110,7 @@ export const Awning: React.FC<{p: number}> = ({p}) => {
 
 export const Scene: React.FC<{car?: React.ComponentProps<typeof Car> | null; dash?: number; band?: [number, number, number]; wob?: number; pots?: number; tree?: number; shop?: number; glow?: number; night?: number}> = ({car, dash, band, wob, pots = 0, tree = 0, shop = 0, glow = 0, night = 0}) => (
   <group>
-    <Ground dash={dash} band={band} />
+    <Ground dash={dash} band={band} night={night} />
     <group rotation={[0, 0, 0]}><House heat={0} night={night} glow={glow} /></group>
     <Fence wob={wob} />
     <Pots p={pots} />
