@@ -16,6 +16,8 @@ export const FPS = 30;
 export const V08_END = 52.2;
 export const V08_FRAMES = Math.ceil(V08_END * FPS);
 const FOV = 34, ASPECT = 1080 / 1920;
+// posisi subtitle baku channel (lihat CLAUDE.md): top 1400, sudah ACC user, jangan diubah
+const CC_TOP = 1400;
 const INK = PALETTE.ink, CORAL = '#ef7663', BLUE = '#5d8fd6', NAVY = '#1b2640';
 
 const ease = Easing.inOut(Easing.cubic);
@@ -94,7 +96,7 @@ const Captions: React.FC<{ms: number}> = ({ms}) => {
   if (!pg) return null;
   const k = r(ms / 1000, pg.startMs / 1000, pg.startMs / 1000 + 0.15);
   return (
-    <div style={{position: 'absolute', left: 60, right: 60, top: 1400, textAlign: 'center', fontFamily: 'Inter', fontWeight: 700, fontSize: 60, letterSpacing: -0.8, lineHeight: 1.15, color: INK, opacity: k, transform: `translateY(${(1 - k) * 10}px)`}}>
+    <div style={{position: 'absolute', left: 60, right: 60, top: CC_TOP, textAlign: 'center', fontFamily: 'Inter', fontWeight: 700, fontSize: 60, letterSpacing: -0.8, lineHeight: 1.15, color: INK, opacity: k, transform: `translateY(${(1 - k) * 10}px)`}}>
       <span style={{display: 'inline-block', padding: '12px 28px 16px', borderRadius: 22, background: 'rgba(250,249,246,0.95)', boxShadow: '0 10px 30px rgba(28,28,30,0.18)'}}>
         {pg.tokens.map((tk, i) => <span key={i} style={{color: ms >= tk.fromMs && ms < tk.toMs + 120 ? CORAL : INK}}>{tk.text}</span>)}
       </span>
