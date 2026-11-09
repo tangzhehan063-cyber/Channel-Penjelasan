@@ -9,6 +9,8 @@
 - **Video #5 "Tembokmu Minum Air dari Tanah"**: Tahap 1 selesai; **Tahap 2 storyboard draft selesai** di `naskah/video-05-tembok-minum-air.md`. **Naskah ACC final** (8 Nov). Caption + komentar pertama SELESAI di `caption/video-05-tembok-minum-air.md`. Tahap 3 suara SELESAI: Riri Rida (eleven_v4), 45,9 dtk, `remotion/public/v05/vo.mp3` + timestamp `remotion/public/v05/words.json` (ElevenLabs flow 2GY0rXzG7PVOaAnGzjCC). Tahap 4–5 SELESAI: komposisi `Video05` (`remotion/src/v05/`), render final `video/video-05-tembok-minum-air.mp4` (47 dtk, 1080×1920, audio −14 LUFS), cover `cover/video-05-tembok-minum-air.png` (komposisi `Cover05`). SFX/ambient disintesis `tools/make_sfx.py`. Caption sudah ada di `caption/`. Berikutnya: user review video → revisi bila perlu → posting; lalu Tahap 1 video #6.
 - Belum diputuskan: nama channel/handle, voice: Riri Rida dipilih user untuk video #5, realisme objek 3D (prosedural vs model CC0/public domain).
 
+- **Video #6 Tahap 1** (9 Nov): 10 ide + riset tren di `riset/2026-11-09-ide-video-6.md`; rekomendasi "Bunyi 'Tek!' di Atap Tengah Malam Bukan Hantu" (calon mini-seri "Bukan Hantu"). MENUNGGU PILIHAN USER. ScrapeMedsos ±48 kredit.
+
 ## Sesi berikutnya (mulai dari sini)
 1. User review/posting video #5 (`video/`, `cover/`, `caption/`). Revisi kecil yang tertunda (opsional): noda garam setinggi lutut masih samar; label "Kayak tisu" sedikit menimpa bata.
 2. **Video #6 memakai gabungan: `naskah/alur-naskah.md` (ScriptForge: Tahap 1–5, 10 ide, rumus 10 beat) + skill `/naskah-viral`** (3 alternatif hook, mode HYBRID, isi berlapis, payoff 1 kalimat, pemicu share, tanda [⚠ CEK]). Mulai dari Tahap 1: 10 ide + riset tren ScrapeMedsos (±59 kredit).
@@ -29,6 +31,7 @@
 - Kompetitor yang dipantau: @howcomeid (TikTok), niche "kenapa di rumah".
 
 ## Log
+- 9 Nov 2026: Tahap 1 video #6 (5 kredit ScrapeMedsos).
 - 8 Nov 2026: **gaya dipisah jadi dua**: Gaya A editorial 3D (`style/style.md`, `style/aset.md`) dan Gaya B diorama kertas = origami × editorial (`style/diorama-kertas/README.md` + `moodboard.html`; keputusan user: latar krem + meja, pertanyaan hook tetap di atas lalu berganti jadi jawaban). Belum ada kode/still Gaya B; calon gaya video #6.
 - 8 Nov 2026: 2 referensi video baru (06 cerita produk, 07 kolase editorial) digabung dengan 05 jadi **sistem gabungan** (`remotion/src/aset/Gabung.tsx`, demo `GabungDemo` → `style/contoh-aset/gabung-demo.mp4`, aturan di `style/aset.md`): semantik warna koral/biru/sage, tipografi mono + serif + Inter, jangkar kicker + pertanyaan. Dipakai mulai video #6.
 - 8 Nov 2026 (sore): aset video #1–#4 (MP4, SRT, caption, cover, kode engine origami, VO asli) + branding (foto profil, bio) di-push ke repo.
