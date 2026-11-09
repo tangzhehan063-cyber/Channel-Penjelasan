@@ -8,6 +8,7 @@
 - Branding: foto profil `branding/FaktaRumah_PP_teal.png`, bio `branding/bio.md` (nama sementara "Fakta Rumah"). Belum diputuskan: nama channel/handle, realisme objek 3D.
 
 ## Preferensi user
+- **Gaya animasi baku = video #7 & #8** (`remotion/src/v07/`, `remotion/src/v08/`): disukai user, sudah sesuai. Video baru menyalin gaya ini; tweak hanya bila user minta.
 - **Satu chat = satu repo.** Repo lain → chat baru.
 - **Setiap video selesai: PR ke `main` → user klik Merge.** (User bukan programmer; jelaskan singkat bila perlu.)
 - Bahasa naskah **sederhana, tanpa istilah teknis**. Bahasa Indonesia; suka saran "out of the box".
