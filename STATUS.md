@@ -1,9 +1,9 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
 ## Posisi terakhir (9 Nov 2026)
-- **Video #1–#8 selesai** (MP4 + SRT di `video/`, cover di `cover/`, caption di `caption/`). Terbaru: #7 "Baja Ringan vs Kayu" (Bongkar Barang #01), #8 "Bunyi Tek di Atap Bukan Hantu" (Bukan Hantu #01, untuk Facebook).
+- **Video #1–#9 selesai** (MP4 + SRT di `video/`, cover di `cover/`, caption di `caption/`). Terbaru: #8 "Bunyi Tek di Atap Bukan Hantu" (Bukan Hantu #01), #9 "Rumah Tusuk Sate Bukan Bawa Sial" (seri baru Bukan Sial #01, video pertama dengan skill `sutradara`).
 - Jadwal posting lama: #3 meteran kWh Sen 9 Nov 19.00 WIB, #4 keramik Rab 11 Nov 19.00 WIB.
-- **Video berikutnya (#9), ide siap pakai:** Bukan Hantu #02 "Lampu LED Nyala Redup Padahal Saklar Mati" atau "Pintu Kebuka Sendiri"; Bongkar Barang #02 "Pasir di Genteng Metal Itu Bukan Hiasan". Detail di `riset/2026-11-09-ide-video-6.md`, `riset/2026-11-09-ide-seri-barang.md`.
+- **Video berikutnya (#10):** lanjutan seri (Bukan Sial #02 "Pintu depan lurus pintu belakang" / "Anak tangga ganjil"; Bukan Hantu #02; Bongkar Barang #02). Ide: `riset/2026-11-09-ide-video-9.md`, naskah #9 bagian "Judul lanjutan".
 - Revisi kecil tertunda (opsional): #5 noda garam setinggi lutut samar; label "Kayak tisu" sedikit menimpa bata.
 - Branding: foto profil `branding/FaktaRumah_PP_teal.png`, bio `branding/bio.md` (nama sementara "Fakta Rumah"). Belum diputuskan: nama channel/handle, realisme objek 3D.
 
@@ -19,13 +19,12 @@
 
 ## Lingkungan
 - `elevenlabsusercontent.com` diizinkan; huggingface diblokir. ElevenLabs: pakai koneksi `ElevenLabs-3f8d1d88` (akun upgrade).
-- ScrapeMedsos ±27 kredit (prabayar, tidak kedaluwarsa).
+- ScrapeMedsos ±16 kredit (prabayar, tidak kedaluwarsa).
 - Render penuh ±20 mnt (swangle, concurrency 4). Efek 2D berat sudah dipanggang ke PNG (`remotion/public/aset/`).
 
 ## Log (5 terakhir; lebih lama lihat `git log`)
+- 9 Nov: video #9 selesai (46,4 dtk, -14 LUFS, render ±30 mnt). Kamera 6 jenis (chase cam mobil + rem = momen khas). Bug baru dicatat: papan menembus atap.
 - 9 Nov: skill `sutradara` (dari repo Motion-videos: DIRECTOR lemo-opuscar, LottieFiles, motion-lab) + `tools/cek-sutradara.mjs`; DNA #7–#8 dikunci. Baseline: #07 kamera 6 jenis, #08 hanya 3 (push) → #9 wajib pull/crane/dive.
 - 9 Nov: skill `remotion-fitur` + paket `@remotion/transitions`, `motion-blur`, `effects` dipasang (siap dipakai mulai video #9; belum dicoba di video).
 - 9 Nov: workflow disederhanakan (`WORKFLOW.md` + `tools/produksi.sh`); STATUS diringkas.
 - 9 Nov: video #8 selesai; daftar cek bug `style/cek-bug.md` dibuat (bug pelana menembus atap, dll.).
-- 9 Nov: cabang video #7 (`claude/inspiring-hawking-d7gijp`) digabung ke cabang kerja.
-- 9 Nov: video #7 selesai (render 16 mnt); riset pindah ke Facebook.

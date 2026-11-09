@@ -51,6 +51,8 @@ const moveOf = (k0, k1) => {
   const d0 = len(sub(k0.pos, k0.look)), d1 = len(sub(k1.pos, k1.look));
   const a0 = Math.atan2(k0.pos[0] - k0.look[0], k0.pos[2] - k0.look[2]), a1 = Math.atan2(k1.pos[0] - k1.look[0], k1.pos[2] - k1.look[2]);
   const t = [];
+  const mv = sub(k1.pos, k0.pos), travel = len(mv), dir = sub(k0.look, k0.pos), fwd = (mv[0] * dir[0] + mv[1] * dir[1] + mv[2] * dir[2]) / len(dir);
+  if (travel > 5 && fwd > 0.7 * travel) return ['dive'];
   const dz = (d1 - d0) / d0;
   if (dz < -0.06) t.push(dz < -0.3 ? 'dive' : 'push');
   if (dz > 0.06) t.push('pull');

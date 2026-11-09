@@ -1,0 +1,519 @@
+{
+"words": [
+{
+"word": "Rumah",
+"start": 0.0,
+"end": 0.24
+},
+{
+"word": "tusuk",
+"start": 0.32,
+"end": 0.56
+},
+{
+"word": "sate",
+"start": 0.64,
+"end": 0.96
+},
+{
+"word": "katanya",
+"start": 1.04,
+"end": 1.28
+},
+{
+"word": "bawa",
+"start": 1.36,
+"end": 1.6
+},
+{
+"word": "sial?",
+"start": 1.68,
+"end": 2.32
+},
+{
+"word": "Bukan",
+"start": 2.48,
+"end": 2.72
+},
+{
+"word": "sial.",
+"start": 2.8,
+"end": 3.44
+},
+{
+"word": "Jalannya",
+"start": 3.76,
+"end": 4.16
+},
+{
+"word": "lurus,",
+"start": 4.24,
+"end": 4.88
+},
+{
+"word": "ujungnya",
+"start": 5.0,
+"end": 5.44
+},
+{
+"word": "tepat",
+"start": 5.6,
+"end": 6.0
+},
+{
+"word": "di",
+"start": 6.04,
+"end": 6.08
+},
+{
+"word": "rumahmu.",
+"start": 6.16,
+"end": 6.8
+},
+{
+"word": "Mobil",
+"start": 6.96,
+"end": 7.28
+},
+{
+"word": "40",
+"start": 7.36,
+"end": 7.84
+},
+{
+"word": "kilo",
+"start": 7.92,
+"end": 8.08
+},
+{
+"word": "per",
+"start": 8.16,
+"end": 8.24
+},
+{
+"word": "jam",
+"start": 8.32,
+"end": 8.56
+},
+{
+"word": "butuh",
+"start": 8.64,
+"end": 8.88
+},
+{
+"word": "sekitar",
+"start": 8.96,
+"end": 9.28
+},
+{
+"word": "20",
+"start": 9.44,
+"end": 9.84
+},
+{
+"word": "meter",
+"start": 9.92,
+"end": 10.24
+},
+{
+"word": "buat",
+"start": 10.36,
+"end": 10.48
+},
+{
+"word": "berhenti.",
+"start": 10.52,
+"end": 11.04
+},
+{
+"word": "Rem",
+"start": 11.44,
+"end": 11.6
+},
+{
+"word": "telat",
+"start": 11.68,
+"end": 11.84
+},
+{
+"word": "sedikit,",
+"start": 11.92,
+"end": 12.56
+},
+{
+"word": "yang",
+"start": 12.64,
+"end": 12.72
+},
+{
+"word": "ketabrak",
+"start": 12.8,
+"end": 13.28
+},
+{
+"word": "pagarmu.",
+"start": 13.36,
+"end": 14.2
+},
+{
+"word": "Malam,",
+"start": 14.4,
+"end": 14.96
+},
+{
+"word": "lampu",
+"start": 15.04,
+"end": 15.28
+},
+{
+"word": "mobil",
+"start": 15.32,
+"end": 15.6
+},
+{
+"word": "nyorot",
+"start": 15.68,
+"end": 16.08
+},
+{
+"word": "40",
+"start": 16.16,
+"end": 16.52
+},
+{
+"word": "meter,",
+"start": 16.56,
+"end": 17.2
+},
+{
+"word": "lurus",
+"start": 17.28,
+"end": 17.68
+},
+{
+"word": "ke",
+"start": 17.72,
+"end": 17.76
+},
+{
+"word": "kamarmu.",
+"start": 17.84,
+"end": 18.4
+},
+{
+"word": "Jadi",
+"start": 18.72,
+"end": 19.2
+},
+{
+"word": "yang",
+"start": 19.28,
+"end": 19.36
+},
+{
+"word": "orang",
+"start": 19.44,
+"end": 19.6
+},
+{
+"word": "tua",
+"start": 19.68,
+"end": 19.84
+},
+{
+"word": "sebut",
+"start": 19.88,
+"end": 20.08
+},
+{
+"word": "sial,",
+"start": 20.16,
+"end": 20.8
+},
+{
+"word": "aslinya",
+"start": 20.88,
+"end": 21.28
+},
+{
+"word": "ketabrak",
+"start": 21.4,
+"end": 21.84
+},
+{
+"word": "dan",
+"start": 21.92,
+"end": 22.0
+},
+{
+"word": "silau.",
+"start": 22.16,
+"end": 22.72
+},
+{
+"word": "Mereka",
+"start": 23.04,
+"end": 23.28
+},
+{
+"word": "nggak",
+"start": 23.36,
+"end": 23.52
+},
+{
+"word": "salah,",
+"start": 23.68,
+"end": 24.16
+},
+{
+"word": "cuma",
+"start": 24.2,
+"end": 24.4
+},
+{
+"word": "bahasanya",
+"start": 24.48,
+"end": 24.88
+},
+{
+"word": "beda.",
+"start": 24.96,
+"end": 25.6
+},
+{
+"word": "Tapi",
+"start": 25.76,
+"end": 26.08
+},
+{
+"word": "justru",
+"start": 26.24,
+"end": 26.64
+},
+{
+"word": "karena",
+"start": 26.68,
+"end": 26.88
+},
+{
+"word": "itu,",
+"start": 26.96,
+"end": 27.36
+},
+{
+"word": "pedagang",
+"start": 27.44,
+"end": 27.92
+},
+{
+"word": "nyari",
+"start": 27.96,
+"end": 28.16
+},
+{
+"word": "rumah",
+"start": 28.24,
+"end": 28.48
+},
+{
+"word": "tusuk",
+"start": 28.56,
+"end": 28.8
+},
+{
+"word": "sate.",
+"start": 28.84,
+"end": 29.48
+},
+{
+"word": "Tokonya",
+"start": 29.68,
+"end": 30.16
+},
+{
+"word": "kelihatan",
+"start": 30.24,
+"end": 30.72
+},
+{
+"word": "dari",
+"start": 30.8,
+"end": 30.96
+},
+{
+"word": "ujung",
+"start": 31.04,
+"end": 31.2
+},
+{
+"word": "jalan.",
+"start": 31.28,
+"end": 31.84
+},
+{
+"word": "Saran",
+"start": 32.0,
+"end": 32.32
+},
+{
+"word": "orang",
+"start": 32.4,
+"end": 32.48
+},
+{
+"word": "tua:",
+"start": 32.56,
+"end": 33.04
+},
+{
+"word": "pasang",
+"start": 33.2,
+"end": 33.52
+},
+{
+"word": "pagar,",
+"start": 33.68,
+"end": 34.24
+},
+{
+"word": "tanam",
+"start": 34.32,
+"end": 34.56
+},
+{
+"word": "pohon.",
+"start": 34.6,
+"end": 35.04
+},
+{
+"word": "Itu",
+"start": 35.36,
+"end": 35.68
+},
+{
+"word": "nahan",
+"start": 35.72,
+"end": 35.92
+},
+{
+"word": "mobil",
+"start": 36.0,
+"end": 36.32
+},
+{
+"word": "dan",
+"start": 36.4,
+"end": 36.56
+},
+{
+"word": "silau.",
+"start": 36.64,
+"end": 37.32
+},
+{
+"word": "Yang",
+"start": 37.52,
+"end": 37.6
+},
+{
+"word": "lagi",
+"start": 37.68,
+"end": 37.84
+},
+{
+"word": "cari",
+"start": 37.88,
+"end": 38.08
+},
+{
+"word": "rumah,",
+"start": 38.16,
+"end": 38.72
+},
+{
+"word": "cek",
+"start": 38.8,
+"end": 38.96
+},
+{
+"word": "ujung",
+"start": 39.04,
+"end": 39.2
+},
+{
+"word": "jalannya",
+"start": 39.28,
+"end": 39.6
+},
+{
+"word": "dulu.",
+"start": 39.68,
+"end": 40.24
+},
+{
+"word": "Di",
+"start": 40.4,
+"end": 40.48
+},
+{
+"word": "daerahmu,",
+"start": 40.56,
+"end": 41.28
+},
+{
+"word": "rumah",
+"start": 41.36,
+"end": 41.52
+},
+{
+"word": "tusuk",
+"start": 41.56,
+"end": 41.76
+},
+{
+"word": "sate",
+"start": 41.84,
+"end": 42.08
+},
+{
+"word": "dipakai",
+"start": 42.12,
+"end": 42.4
+},
+{
+"word": "buat",
+"start": 42.48,
+"end": 42.64
+},
+{
+"word": "apa?",
+"start": 42.8,
+"end": 43.04
+},
+{
+"word": "Follow",
+"start": 43.44,
+"end": 43.84
+},
+{
+"word": "buat",
+"start": 43.92,
+"end": 44.08
+},
+{
+"word": "fakta",
+"start": 44.16,
+"end": 44.4
+},
+{
+"word": "rumah",
+"start": 44.48,
+"end": 44.72
+},
+{
+"word": "berikutnya!",
+"start": 44.8,
+"end": 45.76
+}
+]
+}
