@@ -1,13 +1,15 @@
 # Caption #9 "Rumah Tusuk Sate Bukan Bawa Sial" (Bukan Sial #01)
 
 ## Facebook / Reels
-Rumah tusuk sate dari dulu dibilang bawa sial, sampai ada yang mundur pas mau beli.
-Padahal yang bikin orang tua wanti-wanti itu jalannya. Mobil yang telat ngerem, lampu yang nyorot ke kamar tiap malam. Lucunya, pedagang malah rebutan lokasi kayak gini.
-Rumah kalian atau tetangga ada yang tusuk sate? 😄
-#rumahtusuksate #bukansial #mitosrumah #faktarumah #rumah
+Katanya rumah tusuk sate bawa sial 😅
+Padahal yg bahaya itu mobil kencang, rem telat, langsung ke pagar. Belum lagi silau lampu mobil tiap malam.
+Rumah kalian tusuk sate juga gak?
+#rumahtusuksate #pamali #faktarumah
 
 ## Komentar pertama (pin)
-Dulu deket rumahku ada rumah tusuk sate, kosong lama katanya "sial". Sekarang jadi warung, rame terus. Di daerah kalian rumah tusuk sate jadi apa?
+Yg rumahnya persis di tengah pertigaan, pernah ada motor atau mobil nyelonong ke pagar gak?
+
+(cadangan: "Orang tua dulu bilang pamali, ternyata ada alasannya juga ya. Rumah kalian di kompleks atau pinggir jalan gede?")
 
 ## YouTube Shorts
 **Judul:** Rumah Tusuk Sate Bukan Bawa Sial #shorts
@@ -22,4 +24,9 @@ Dulu deket rumahku ada rumah tusuk sate, kosong lama katanya "sial". Sekarang ja
 rumah tusuk sate, mitos rumah, bukan sial, beli rumah, fakta rumah
 
 ## Catatan bahasa
-Dari judul/deskripsi video FB 9 Nov (`riset/2026-11-09-tusuk-sate.md`): "bawa sial", "bukan vonis", "pebisnis justru rebutan", "harga murah… bisik-bisik tetangga", "dari rumah yang katanya tusuk sate".
+Scrape komentar FB 9 Nov (2 reel tusuk sate, 401 rb & 97 rb tayangan). Kutipan pendek:
+- "yg bahaya ketika rumah tusuk sate yang berada di jalan poros tiba2 mobil kencang rem blong nabrak"
+- "katanya ya katanya 😂"
+- "Rejeki udah diatur sama Tuhan bun. Bukan diatur pamali"
+- "Tusuk sate tu rumahnya menghadap persis di tengah pertigaan"
+- "kalau di kompleks aman2 aja"
