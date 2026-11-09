@@ -12,6 +12,7 @@
 - **Video #6 Tahap 1** (9 Nov): 10 ide + riset tren di `riset/2026-11-09-ide-video-6.md`; rekomendasi "Bunyi 'Tek!' di Atap Tengah Malam Bukan Hantu" (calon mini-seri "Bukan Hantu"). Dipilih: "Lantai Rumahmu Sengaja Dibuat Miring". **Naskah ACC final** (`naskah/video-06-lantai-miring.md`, istilah "nat" diganti "sela-sela keramik", semua klaim bersumber). Caption + komentar pertama di `caption/video-06-lantai-miring.md` (tanpa scrape, keputusan user). Tahap 3: VO Riri Rida eleven_v4 **55,1 dtk** di `remotion/public/v06/vo.mp3` (flow ElevenLabs Tbl0UbYD8RZVPmFoEEKp, node AvT03lHlAVcmUCbfyrzl). Timestamp `remotion/public/v06/words.json`. Animasi `Video06` (`remotion/src/v06/`). **SELESAI 9 Nov:** `video/video-06-lantai-miring.mp4` (56,2 dtk, −14 LUFS) + `.srt`, cover `cover/video-06-lantai-miring.png` (`Cover06`), caption `caption/video-06-lantai-miring.md`. Render ±100 mnt (4 bagian, audio dirakit ffmpeg). ScrapeMedsos ±48 kredit.
 
 ## Sesi berikutnya (mulai dari sini)
+0. **Evaluasi video #6** di `riset/2026-11-09-evaluasi-video-6.md`: render lambat karena efek 2D SVG (kertas kusut/grain/bayangan ornamen ±85–90% waktu), bukan 3D. Sebelum video #7: ganti `PaperPlus`, `Grain`, `Ornament` di kit aset ke PNG statis; VO ≤105 kata (Riri ±2,3 kata/dtk); hindari istilah tukang.
 1. User review/posting video #5 (`video/`, `cover/`, `caption/`). Revisi kecil yang tertunda (opsional): noda garam setinggi lutut masih samar; label "Kayak tisu" sedikit menimpa bata.
 2. **Video #6 memakai gabungan: `naskah/alur-naskah.md` (ScriptForge: Tahap 1–5, 10 ide, rumus 10 beat) + skill `/naskah-viral`** (3 alternatif hook, mode HYBRID, isi berlapis, payoff 1 kalimat, pemicu share, tanda [⚠ CEK]). Mulai dari Tahap 1: 10 ide + riset tren ScrapeMedsos (±59 kredit).
 3. Animasi video #6: pakai kit aset `style/aset.md` (TikTokBox, PatternBreak, PuzzleGrid, ShadowCast, Grain) + aturan kontras video #5 (`style/style.md` baris "Kontras", contoh `style/contoh-frame-v05-kontras.png`). Video #5 dibuat sebelum kit aset masuk, jadi belum memakainya.
@@ -31,6 +32,7 @@
 - Kompetitor yang dipantau: @howcomeid (TikTok), niche "kenapa di rumah".
 
 ## Log
+- 9 Nov 2026: video #6 selesai + evaluasi (render 100 mnt; penyebab diukur).
 - 9 Nov 2026: Tahap 1 video #6 (5 kredit ScrapeMedsos).
 - 8 Nov 2026: **gaya dipisah jadi dua**: Gaya A editorial 3D (`style/style.md`, `style/aset.md`) dan Gaya B diorama kertas = origami × editorial (`style/diorama-kertas/README.md` + `moodboard.html`; keputusan user: latar krem + meja, pertanyaan hook tetap di atas lalu berganti jadi jawaban). Belum ada kode/still Gaya B; calon gaya video #6.
 - 8 Nov 2026: 2 referensi video baru (06 cerita produk, 07 kolase editorial) digabung dengan 05 jadi **sistem gabungan** (`remotion/src/aset/Gabung.tsx`, demo `GabungDemo` → `style/contoh-aset/gabung-demo.mp4`, aturan di `style/aset.md`): semantik warna koral/biru/sage, tipografi mono + serif + Inter, jangkar kicker + pertanyaan. Dipakai mulai video #6.
