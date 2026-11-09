@@ -7,7 +7,7 @@ import {M as M7, Box, Profile, Screw} from '../v07/Atap';
 export const K8 = {wall: '#efe6d6', wallDark: '#d8cbb4', door: '#8a5528', glass: '#ffd77a', glassOff: '#5b6b85', seng: '#b9c0c8', hot: '#ef7663', cold: '#5d8fd6', ink: '#1c1c1e'};
 const phys = (color: string, o: Partial<THREE.MeshPhysicalMaterialParameters> = {}) =>
   new THREE.MeshPhysicalMaterial({color, roughness: 0.4, clearcoat: 0.6, clearcoatRoughness: 0.25, ...o});
-export const M8 = {wall: phys(K8.wall, {roughness: 0.85, clearcoat: 0}), wallDark: phys(K8.wallDark, {roughness: 0.85, clearcoat: 0}), door: phys(K8.door, {roughness: 0.7, clearcoat: 0.1})};
+export const M8 = {wall: phys(K8.wall, {roughness: 0.85, clearcoat: 0}), wallDark: phys(K8.wallDark, {roughness: 0.85, clearcoat: 0, side: THREE.DoubleSide}), door: phys(K8.door, {roughness: 0.7, clearcoat: 0.1})};
 
 const lerpC = (a: string, b: string, k: number) => new THREE.Color(a).lerp(new THREE.Color(b), Math.max(0, Math.min(1, k)));
 /** warna seng: heat 0 = netral, >0 menuju koral (panas), <0 menuju biru (dingin) */
@@ -59,9 +59,10 @@ export const House: React.FC<{heat?: number; night?: number; glow?: number}> = (
     <group>
       <Box p={[0, H / 2, 0]} s={[W, H, D]} m={M8.wall} ink={0.03} />
       {/* segitiga pelana depan & belakang */}
-      {[D / 2, -D / 2].map((z, i) => (
-        <mesh key={i} position={[0, H, z * 0.999]} material={M8.wallDark}>
-          <shapeGeometry args={[(() => { const s = new THREE.Shape(); s.moveTo(-W / 2, 0); s.lineTo(W / 2, 0); s.lineTo(0, rise * 0.92); s.closePath(); return s; })()]} />
+      {/* segitiga pelana di ujung kiri & kanan (di bawah atap) */}
+      {[W / 2, -W / 2].map((x, i) => (
+        <mesh key={i} position={[x * 0.999, H, 0]} rotation={[0, Math.PI / 2, 0]} material={M8.wallDark}>
+          <shapeGeometry args={[(() => { const s = new THREE.Shape(); s.moveTo(-D / 2, 0); s.lineTo(D / 2, 0); s.lineTo(0, rise * 0.9); s.closePath(); return s; })()]} />
         </mesh>
       ))}
       <Box p={[-0.65, 0.5, D / 2 + 0.01]} s={[0.55, 1.0, 0.04]} m={M8.door} ink={0.02} />
