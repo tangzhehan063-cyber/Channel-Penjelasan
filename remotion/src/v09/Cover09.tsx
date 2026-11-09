@@ -8,7 +8,7 @@ import {PaperPlus} from '../aset/Gabung';
 import {Scene} from './Jalan';
 
 const CORAL = '#ef7663', INK = '#1c1c1e';
-const Cam: React.FC = () => { const c = useThree((s) => s.camera) as THREE.PerspectiveCamera; c.position.set(0, 3.2, 24); c.fov = 32; c.updateProjectionMatrix(); c.lookAt(0, 0.3, 4); return null; };
+const Cam: React.FC = () => { const c = useThree((s) => s.camera) as THREE.PerspectiveCamera; c.position.set(0, 3.2, 24); c.fov = 32; c.updateProjectionMatrix(); c.lookAt(0, 1.7, 3); return null; };
 export const Cover09: React.FC = () => (
   <AbsoluteFill>
     <PaperPlus />
