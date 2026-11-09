@@ -19,7 +19,7 @@
 
 ## Lingkungan
 - `elevenlabsusercontent.com` diizinkan; huggingface diblokir. ElevenLabs: pakai koneksi `ElevenLabs-3f8d1d88` (akun upgrade).
-- ScrapeMedsos ±16 kredit (prabayar, tidak kedaluwarsa).
+- ScrapeMedsos ±14 kredit (prabayar, tidak kedaluwarsa).
 - Render penuh ±20 mnt (swangle, concurrency 4). Efek 2D berat sudah dipanggang ke PNG (`remotion/public/aset/`).
 
 ## Log (5 terakhir; lebih lama lihat `git log`)
