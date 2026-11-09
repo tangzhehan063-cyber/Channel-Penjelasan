@@ -1,4 +1,4 @@
-# STORYBOARD · VIDEO #7 · TAHAP 2 · DRAFT (9 Nov 2026)
+# STORYBOARD · VIDEO #7 · TAHAP 2 · ACC FINAL (9 Nov 2026)
 ## Baja Ringan vs Kayu: Musuhnya Beda
 **Sub-seri "Bongkar Barang" #1** (format: hook bantahan → isinya apa → salah kaprah → payoff → "cek ini sebelum beli").
 Gaya A editorial 3D + sistem gabungan (`style/aset.md`) · 1080×1920 (9:16) · ±46 detik (sementara, nanti mengikuti suara asli) · VO Bahasa Indonesia santai · audiens 35+ · CTA follow · seri "fakta rumah"
@@ -58,3 +58,14 @@ Total VO ±107 kata (Riri ±2,3 kata/dtk → ±46 dtk).
 ## Judul lanjutan "Bongkar Barang"
 1. Pasir di Genteng Metal Itu Bukan Hiasan
 2. Bata yang Bisa Ngapung di Air
+
+## Teks TTS final (angka ditulis kata)
+Baja ringan itu bajanya nggak ringan.
+Sepotong baja seukuran kayu, beratnya lebih dari sepuluh kali. Ringannya karena tipis, cuma sekitar satu milimeter.
+Ditekuk kayak kertas dilipat, rangkanya cuma sepertiga berat rangka kayu.
+Terus, mana yang lebih kuat? Pertanyaannya salah. Musuh mereka beda.
+Kayu takut rayap. Kerugiannya di Indonesia ditaksir dua koma delapan triliun setahun.
+Baja ringan takut karat dan salah pasang. Sekrup dihemat, rangkanya bisa melengkung.
+Jadi atap awet bukan soal kayu atau baja, tapi siapa musuhnya.
+Mau beli baja ringan? Cek angka tebal yang tercetak di batangnya. Beli kayu? Tanya, sudah diawetkan belum. Yang mau ganti atap, simpan ini.
+Atap rumahmu kayu atau baja ringan? Follow buat fakta rumah berikutnya!
