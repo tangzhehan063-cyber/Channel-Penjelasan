@@ -5,7 +5,7 @@
 - Jadwal posting lama: #3 meteran kWh Sen 9 Nov 19.00 WIB, #4 keramik Rab 11 Nov 19.00 WIB.
 - **Video berikutnya (#10):** lanjutan seri (Bukan Sial #02 "Pintu depan lurus pintu belakang" / "Anak tangga ganjil"; Bukan Hantu #02; Bongkar Barang #02). Ide: `riset/2026-11-09-ide-video-9.md`, naskah #9 bagian "Judul lanjutan".
 - Revisi kecil tertunda (opsional): #5 noda garam setinggi lutut samar; label "Kayak tisu" sedikit menimpa bata.
-- Branding: foto profil `branding/FaktaRumah_PP_teal.png`, bio `branding/bio.md` (nama sementara "Fakta Rumah"). Belum diputuskan: nama channel/handle, realisme objek 3D.
+- Branding baru (10 Nov): logo `branding/logo-fakta-rumah.png` + bio 41 karakter di `branding/bio.md`, seragam 3 platform (nama sementara "Fakta Rumah"). Belum diputuskan: nama channel/handle, realisme objek 3D.
 
 ## Preferensi user
 - **Gaya animasi baku = video #7 & #8** (`remotion/src/v07/`, `remotion/src/v08/`): disukai user, sudah sesuai. Video baru menyalin gaya ini; tweak hanya bila user minta.
