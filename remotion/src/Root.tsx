@@ -15,6 +15,7 @@ import {Video10, V10_FRAMES} from './v10/Video10';
 import {Cover10} from './v10/Cover10';
 import {Video11, V11_FRAMES} from './v11/Video11';
 import {Cover11} from './v11/Cover11';
+import {Mood11} from './v11/Mood11';
 import {AsetDemo} from './aset/AsetDemo';
 import {GerakDemo} from './aset/GerakDemo';
 import {GabungDemo} from './aset/GabungDemo';
@@ -30,6 +31,7 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="Cover09" component={Cover09} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Video09" component={Video09} durationInFrames={V09_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Video10" component={Video10} durationInFrames={V10_FRAMES} fps={30} width={1080} height={1920} />
+  <Composition id="Mood11" component={Mood11} durationInFrames={4} fps={30} width={1080} height={1920} />
   <Composition id="Video11" component={Video11} durationInFrames={V11_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Cover10" component={Cover10} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Video07" component={Video07} durationInFrames={V07_FRAMES} fps={30} width={1080} height={1920} />
