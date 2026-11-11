@@ -3,7 +3,7 @@
 ## Posisi terakhir (9 Nov 2026)
 - **Video #1–#9 selesai** (MP4 + SRT di `video/`, cover di `cover/`, caption di `caption/`). Terbaru: #8 "Bunyi Tek di Atap Bukan Hantu" (Bukan Hantu #01), #9 "Rumah Tusuk Sate Bukan Bawa Sial" (seri baru Bukan Sial #01, video pertama dengan skill `sutradara`).
 - Jadwal posting lama: #3 meteran kWh Sen 9 Nov 19.00 WIB, #4 keramik Rab 11 Nov 19.00 WIB.
-- **Video berikutnya (#10):** lanjutan seri (Bukan Sial #02 "Pintu depan lurus pintu belakang" / "Anak tangga ganjil"; Bukan Hantu #02; Bongkar Barang #02). Ide: `riset/2026-11-09-ide-video-9.md`, naskah #9 bagian "Judul lanjutan".
+- **Video #10 (11 Nov):** draft naskah "Anak Tangga Harus Ganjil?" (Bukan Sial #02) di `naskah/video-10-anak-tangga-ganjil.md`, gaya B diorama kertas/origami versi halus. Menunggu ACC user + pilihan [⚠ CEK] beat 7.
 - Revisi kecil tertunda (opsional): #5 noda garam setinggi lutut samar; label "Kayak tisu" sedikit menimpa bata.
 - Branding baru (10 Nov): logo `branding/logo-fakta-rumah.png` + bio 41 karakter di `branding/bio.md`, seragam 3 platform (nama sementara "Fakta Rumah"). Belum diputuskan: nama channel/handle, realisme objek 3D.
 
