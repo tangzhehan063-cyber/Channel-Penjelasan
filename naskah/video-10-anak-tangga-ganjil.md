@@ -1,4 +1,4 @@
-# STORYBOARD · VIDEO #10 · TAHAP 2 · DRAFT v2 (11 Nov 2026)
+# STORYBOARD · VIDEO #10 · TAHAP 2 · ACC FINAL v2 (teks dari user) (11 Nov 2026)
 ## Anak Tangga Harus Ganjil? Ini Alasan Kakimu
 **Bukan Sial #02** · **Gaya B diorama kertas / origami** (`style/diorama-kertas/README.md`) versi halus · 1080×1920 · ±45 dtk · VO Riri Rida · FB 35+ · skill `naskah-viral` + `sutradara`.
 Jangkar layar: kicker `—— BUKAN SIAL · #02 ——` + kotak hitam "Harus ganjil?" → berganti sage "Jawabannya: tinggi yang sama ✓".
@@ -59,15 +59,20 @@ VO ±100 kata (±45 dtk).
 1. Pintu Depan Lurus ke Pintu Belakang, Rezeki Bablas?
 2. Kamar Mandi Nggak Boleh di Depan? Ini Alasan Hidungmu
 
-## Teks TTS v1 (angka ditulis kata)
-Anak tangga harus ganjil biar nggak sial? Bukan itu yang bikin jatuh.
-Orang dulu menghitung tiap anak tangga. Harus berhenti di hitungan baik.
-Kalau ganjil, kaki yang mulai naik, sama dengan kaki yang sampai atas. Langkahnya terasa pas.
-Tapi kaki kita menghafal tinggi anak tangga. Beda satu sentimeter saja, langsung kesandung.
-Jadi yang bikin aman bukan ganjilnya. Tapi tingginya sama semua.
-Patokan nyaman: tinggi lima belas sampai delapan belas senti, pijakan dua puluh lima sampai tiga puluh.
-Yang lagi bangun rumah, minta tukang ukur semua anak tangga sebelum dicor. Cek juga anak tangga paling atas.
-Tangga rumahmu ganjil atau genap? Follow buat fakta rumah berikutnya!
+## Teks TTS v2 (naskah dari user, 11 Nov; menggantikan v1)
+Pernah dengar kalau anak tangga harus ganjil supaya nggak membawa sial? Ternyata, ada alasan lain di baliknya.
+Dulu, jumlah anak tangga memang sering dihitung dengan pola tertentu.
+Salah satu kepercayaannya, jumlah ganjil membuat kaki yang mulai melangkah menjadi kaki yang sama saat tiba di lantai atas.
+Makanya, tangga ganjil dianggap lebih pas.
+Tapi sebenarnya, ada hal yang jauh lebih penting daripada jumlah anak tangga.
+Yaitu... tinggi setiap anak tangganya.
+Tubuh kita terbiasa menghafal ritme saat menaiki tangga. Kalau satu anak tangga saja lebih tinggi atau lebih rendah dari yang lain, langkah bisa langsung terganggu.
+Itulah yang bisa membuat kita tersandung.
+Idealnya, tinggi anak tangga sekitar lima belas sampai delapan belas sentimeter, dengan lebar pijakan dua puluh lima sampai tiga puluh sentimeter.
+Jadi, kalau sedang membangun rumah, pastikan semua anak tangga memiliki ukuran yang konsisten. Bahkan anak tangga paling atas pun jangan sampai berbeda.
+Sekarang coba ingat-ingat tangga di rumahmu.
+Jumlahnya ganjil atau genap? Tulis di komentar, ya. Siapa tahu kita bisa menemukan pola menarik dari rumah kalian!
+Follow buat fakta rumah berikutnya!
 
 ## Sumber
 - Templer, J. *The Staircase: Studies of Hazards, Falls, and Safer Design* (MIT Press, 1992)
