@@ -3,7 +3,7 @@
 ## Posisi terakhir (9 Nov 2026)
 - **Video #1–#9 selesai** (MP4 + SRT di `video/`, cover di `cover/`, caption di `caption/`). Terbaru: #8 "Bunyi Tek di Atap Bukan Hantu" (Bukan Hantu #01), #9 "Rumah Tusuk Sate Bukan Bawa Sial" (seri baru Bukan Sial #01, video pertama dengan skill `sutradara`).
 - Jadwal posting lama: #3 meteran kWh Sen 9 Nov 19.00 WIB, #4 keramik Rab 11 Nov 19.00 WIB.
-- **Video #10 (11 Nov):** draft naskah "Anak Tangga Harus Ganjil?" (Bukan Sial #02) di `naskah/video-10-anak-tangga-ganjil.md`, gaya B diorama kertas/origami versi halus. ACC user 11 Nov; caption siap di `caption/video-10-anak-tangga-ganjil.md`. VO naskah user take 2 (76,7 dtk) + words.json di `remotion/public/v10/`; kode `remotion/src/v10/` (satu kanvas, kamera terbang mulus, bayangan lembut); still `style/still-v10-review.jpg` menunggu ACC sebelum render.
+- **Video #10 (11 Nov):** draft naskah "Anak Tangga Harus Ganjil?" (Bukan Sial #02) di `naskah/video-10-anak-tangga-ganjil.md`, gaya B diorama kertas/origami versi halus. ACC user 11 Nov; caption siap di `caption/video-10-anak-tangga-ganjil.md`. VO naskah user take 2 (76,7 dtk) + words.json di `remotion/public/v10/`; kode `remotion/src/v10/` (satu kanvas, kamera terbang mulus, bayangan lembut); still ACC 11 Nov; render per bagian (`tools/produksi.sh bagian 10 anak-tangga-ganjil`, revisi = hapus `remotion/out/parts-v10/pXX.mp4` lalu jalankan ulang).
 - Revisi kecil tertunda (opsional): #5 noda garam setinggi lutut samar; label "Kayak tisu" sedikit menimpa bata.
 - Branding baru (10 Nov): logo `branding/logo-fakta-rumah.png` + bio 41 karakter di `branding/bio.md`, seragam 3 platform (nama sementara "Fakta Rumah"). Belum diputuskan: nama channel/handle, realisme objek 3D.
 

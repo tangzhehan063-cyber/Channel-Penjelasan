@@ -5,6 +5,7 @@
 #   tools/produksi.sh words  <NN> "<words_url>"     # unduh timestamp Scribe -> public/vNN/words.json + cetak kalimat & detik
 #   tools/produksi.sh sheet  <NN> 1.2,8.5,20 ...    # still 0.5x di detik tertentu -> satu contact sheet (cek pakai style/cek-bug.md)
 #   tools/produksi.sh final  <NN> <slug>            # render penuh + −14 LUFS + SRT + sheet QC -> video/<slug>.mp4 (jalankan di background)
+#   tools/produksi.sh bagian <NN> <slug>            # render per bagian 15 dtk (lewati yg sudah ada) + gabung + audio; revisi = hapus out/parts-vNN/pXX.mp4
 #   tools/produksi.sh cover  <NN> <slug>            # komposisi CoverNN -> cover/<slug>.png
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"; R="$ROOT/remotion"
@@ -37,6 +38,21 @@ sheet)
   n=$(ls "$d"/f*.png | wc -l); cols=$(( n < 5 ? n : 5 )); rows=$(( (n + cols - 1) / cols ))
   ffmpeg -y -v error -pattern_type glob -i "$d/f*.png" -filter_complex "tile=${cols}x${rows}" -frames:v 1 "$d/sheet.jpg"
   echo "$d/sheet.jpg" ;;
+bagian)
+  # render per bagian 15 dtk (tanpa suara); bagian yang sudah ada dilewati -> revisi cukup hapus file bagian terkait
+  slug="$3"; cd "$R"; P="out/parts-v$NN"; mkdir -p "$P"
+  total=$(npx remotion compositions 2>&1 | awk -v id="Video$NN" '$1==id{print $4}')
+  step=450; i=0
+  for ((a=0; a<total; a+=step)); do b=$((a+step-1)); [ $b -ge $total ] && b=$((total-1))
+    f="$P/p$(printf %02d $i).mp4"
+    if [ ! -s "$f" ]; then echo "render bagian $i ($a-$b)"; npx remotion render "Video$NN" "$f" --frames=$a-$b --muted --concurrency=4 --log=error; fi
+    echo "file '$(basename "$f")'" ; i=$((i+1))
+  done > "$P/list.txt.tmp"; grep "^file" "$P/list.txt.tmp" > "$P/list.txt"
+  npx remotion render "Video$NN" "$P/audio.aac" --codec=aac --log=error
+  ffmpeg -y -v error -f concat -safe 0 -i "$P/list.txt" -c copy "$P/video.mp4"
+  ffmpeg -y -v error -i "$P/video.mp4" -i "$P/audio.aac" -map 0:v -map 1:a -c:v copy -af loudnorm=I=-14:TP=-1.5:LRA=11 -ar 48000 -c:a aac -b:a 192k -shortest "$ROOT/video/$slug.mp4"
+  ffprobe -v error -show_entries format=duration -of csv=p=0 "$ROOT/video/$slug.mp4"
+  ffmpeg -y -v error -i "$ROOT/video/$slug.mp4" -vf "fps=1/6.5,scale=270:-1,tile=6x2" -frames:v 1 "$SC/qc-v$NN.jpg"; echo "QC sheet: $SC/qc-v$NN.jpg" ;;
 final)
   slug="$3"; cd "$R"; mkdir -p out
   npx remotion render "Video$NN" "out/$slug-raw.mp4" --concurrency=4 --log=error
