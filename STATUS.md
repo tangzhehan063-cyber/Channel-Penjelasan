@@ -1,7 +1,7 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
 ## Posisi terakhir (11 Nov 2026)
-- **Video #11 (KPR) tahap naskah:** draft `naskah/video-11-kpr-separuh-lunas.md`, riset `riset/2026-11-11-kpr.md`; menunggu ACC user. Kredit ScrapeMedsos habis (0).
+- **Video #11 selesai (11 Nov):** "10 Tahun Nyicil, Rumahmu Baru Separuh Lunas" (seri baru Hitung Rumah #01), 74,2 dtk, `remotion/src/v11/`. Properti baru (user minta visual lebih kaya): gedung bank mini, uang kertas berikat (biru = bunga, koral = rumah), amplop, kalender meja, map kontrak. MP4+SRT, cover, caption. Kredit ScrapeMedsos habis (0).
 - **Video #1–#9 selesai** (MP4 + SRT di `video/`, cover di `cover/`, caption di `caption/`). Terbaru: #8 "Bunyi Tek di Atap Bukan Hantu" (Bukan Hantu #01), #9 "Rumah Tusuk Sate Bukan Bawa Sial" (seri baru Bukan Sial #01, video pertama dengan skill `sutradara`).
 - Jadwal posting lama: #3 meteran kWh Sen 9 Nov 19.00 WIB, #4 keramik Rab 11 Nov 19.00 WIB.
 - **Video #10 selesai (11 Nov):** "Anak Tangga Harus Ganjil?" (Bukan Sial #02), naskah dari user, 77,2 dtk, -14 LUFS, gaya diorama kertas halus (`remotion/src/v10/`). MP4+SRT `video/video-10-anak-tangga-ganjil.*`, cover, caption. Render per bagian: `tools/produksi.sh bagian NN slug`.
@@ -27,6 +27,7 @@
 - Render penuh ±20 mnt (swangle, concurrency 4). Efek 2D berat sudah dipanggang ke PNG (`remotion/public/aset/`).
 
 ## Log (5 terakhir; lebih lama lihat `git log`)
+- 11 Nov: video #11 KPR selesai. VO cukup 1 take (hemat ElevenLabs). Moodboard = still Remotion dulu sebelum ubah animasi. Bug baru: subtitle angka "koma".
 - 11 Nov: platform utama pindah ke YouTube (riset via ScrapeMedsos YouTube). User puas kualitas #10; minta opsi warna latar nanti.
 - 11 Nov: workflow hemat: suara dicampur `tools/mix-audio.mjs` (3 dtk, dulu render frame ±menit + sering timeout), bayangan 1024, render per bagian (`produksi.sh bagian`) jadi cara baku, still 4–6 frame.
 - 11 Nov: video #10 selesai. Gaya baru: satu kanvas 3D, kamera terbang mulus antar-adegan, bayangan lembut, lipatan lentur. Render per bagian 15 dtk + audio terpisah (timeout 120 dtk wajib, audio sempat gagal di 28 dtk).

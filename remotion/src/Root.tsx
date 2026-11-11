@@ -30,6 +30,7 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="Cover09" component={Cover09} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Video09" component={Video09} durationInFrames={V09_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Video10" component={Video10} durationInFrames={V10_FRAMES} fps={30} width={1080} height={1920} />
+  <Composition id="Cover11" component={Cover11} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Video11" component={Video11} durationInFrames={V11_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Cover10" component={Cover10} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Video07" component={Video07} durationInFrames={V07_FRAMES} fps={30} width={1080} height={1920} />
