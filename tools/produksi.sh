@@ -45,18 +45,17 @@ bagian)
   step=450; i=0
   for ((a=0; a<total; a+=step)); do b=$((a+step-1)); [ $b -ge $total ] && b=$((total-1))
     f="$P/p$(printf %02d $i).mp4"
-    if [ ! -s "$f" ]; then echo "render bagian $i ($a-$b)"; npx remotion render "Video$NN" "$f" --frames=$a-$b --muted --concurrency=3 --timeout=120000 --log=error; fi
+    if [ ! -s "$f" ]; then echo "render bagian $i ($a-$b)"; npx remotion render "Video$NN" "$f" --frames=$a-$b --muted --concurrency=4 --timeout=120000 --log=error; fi
     echo "file '$(basename "$f")'" ; i=$((i+1))
   done > "$P/list.txt.tmp"; grep "^file" "$P/list.txt.tmp" > "$P/list.txt"
-  npx remotion render "Video$NN" "$P/audio.aac" --codec=aac --concurrency=2 --timeout=120000 --log=error
+  node "$ROOT/tools/mix-audio.mjs" "$NN" "$P/audio.aac"   # campur langsung, tanpa render frame
   ffmpeg -y -v error -f concat -safe 0 -i "$P/list.txt" -c copy "$P/video.mp4"
   ffmpeg -y -v error -i "$P/video.mp4" -i "$P/audio.aac" -map 0:v -map 1:a -c:v copy -af loudnorm=I=-14:TP=-1.5:LRA=11 -ar 48000 -c:a aac -b:a 192k -shortest "$ROOT/video/$slug.mp4"
+  "$ROOT/tools/produksi.sh" srt "$NN" "$slug"
   ffprobe -v error -show_entries format=duration -of csv=p=0 "$ROOT/video/$slug.mp4"
   ffmpeg -y -v error -i "$ROOT/video/$slug.mp4" -vf "fps=1/6.5,scale=270:-1,tile=6x2" -frames:v 1 "$SC/qc-v$NN.jpg"; echo "QC sheet: $SC/qc-v$NN.jpg" ;;
-final)
-  slug="$3"; cd "$R"; mkdir -p out
-  npx remotion render "Video$NN" "out/$slug-raw.mp4" --concurrency=4 --log=error
-  ffmpeg -y -v error -i "out/$slug-raw.mp4" -c:v copy -af loudnorm=I=-14:TP=-1.5:LRA=11 -ar 48000 -c:a aac -b:a 192k "$ROOT/video/$slug.mp4"
+srt)
+  slug="$3"
   python3 - "$R/public/v$NN/words.json" "$ROOT/video/$slug.srt" <<'EOF'
 import json,re,sys
 ws=json.load(open(sys.argv[1]))['words']; S=[]; cur=[]
@@ -67,6 +66,12 @@ if cur: S.append(cur)
 f=lambda t:'%02d:%02d:%02d,%03d'%(t//3600,t%3600//60,int(t%60),round((t%1)*1000)%1000)
 open(sys.argv[2],'w').write('\n'.join(f"{i}\n{f(s[0]['start'])} --> {f(s[-1]['end'])}\n{' '.join(w['word'] for w in s)}\n" for i,s in enumerate(S,1)))
 EOF
+  echo "SRT: video/$slug.srt" ;;
+final)
+  slug="$3"; cd "$R"; mkdir -p out
+  npx remotion render "Video$NN" "out/$slug-raw.mp4" --concurrency=4 --log=error
+  ffmpeg -y -v error -i "out/$slug-raw.mp4" -c:v copy -af loudnorm=I=-14:TP=-1.5:LRA=11 -ar 48000 -c:a aac -b:a 192k "$ROOT/video/$slug.mp4"
+  "$ROOT/tools/produksi.sh" srt "$NN" "$slug"
   ffmpeg -hide_banner -i "$ROOT/video/$slug.mp4" -af loudnorm=print_format=summary -f null - 2>&1 | grep -E "Duration|Input Integrated"
   ffmpeg -y -v error -i "$ROOT/video/$slug.mp4" -vf "fps=1/4.4,scale=270:-1,tile=6x2" -frames:v 1 "$SC/qc-v$NN.jpg"
   echo "QC sheet: $SC/qc-v$NN.jpg" ;;

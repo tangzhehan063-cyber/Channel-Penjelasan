@@ -5,7 +5,7 @@ Alur ini meneruskan cara kerja 4 video pertama (referensi di `referensi/`), deng
 ## Identitas konten (dari video #1–#4)
 - Seri **"fakta rumah"**: benda & sistem di rumah sehari-hari (bata, semen, meteran listrik, keramik → berikutnya: pipa, atap, kabel, kulkas, cat, kloset, genteng, dsb.).
 - Audiens **35+** (pemilik rumah, tukang, bapak-ibu). Bahasa **santai**: "nggak", "kayak", "Nah", "-mu", "Pernah perhatiin?". Tanpa istilah teknis yang tidak dijelaskan.
-- Durasi **±38–45 detik**, **8–10 beat**, 9:16. Penomoran video berlanjut (berikutnya **#5**).
+- Durasi **fleksibel** (mulai ±45 dtk, boleh naik bertahap ke video panjang sesuai keinginan user), beat menyesuaikan, 9:16. Penomoran video berlanjut (berikutnya **#5**).
 - Penutup tetap: **"Follow buat fakta rumah berikutnya!"**
 
 > **Lapisan viral:** saat Tahap 1–2, terapkan juga skill `.claude/skills/naskah-viral/SKILL.md` (hook 3 alternatif, isi berlapis, payoff, pemicu share, tanda [⚠ CEK]). Dasar data: `riset/2026-11-08-bedah-10-video-viral.md`.

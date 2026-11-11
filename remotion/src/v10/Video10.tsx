@@ -99,7 +99,7 @@ const Rig: React.FC<{k: Key}> = ({k}) => {
 const Lights: React.FC = () => (
   <>
     <hemisphereLight args={['#fffaf0', '#d8cfbd', 0.9]} />
-    <directionalLight position={[2.5, 4.5, 3.0]} intensity={2.2} color="#fff4e6" castShadow shadow-mapSize-width={2048} shadow-mapSize-height={2048} shadow-camera-left={-4} shadow-camera-right={4} shadow-camera-top={4} shadow-camera-bottom={-4} shadow-radius={6} shadow-bias={-0.0004} />
+    <directionalLight position={[2.5, 4.5, 3.0]} intensity={2.2} color="#fff4e6" castShadow shadow-mapSize-width={1024} shadow-mapSize-height={1024} shadow-camera-left={-4} shadow-camera-right={4} shadow-camera-top={4} shadow-camera-bottom={-4} shadow-radius={6} shadow-bias={-0.0004} />
     <directionalLight position={[-3, 1.5, 2]} intensity={0.35} color="#ffe2da" />
   </>
 );
