@@ -1,4 +1,4 @@
-# STORYBOARD · VIDEO #10 · TAHAP 2 · DRAFT v1 (11 Nov 2026)
+# STORYBOARD · VIDEO #10 · TAHAP 2 · DRAFT v2 (11 Nov 2026)
 ## Anak Tangga Harus Ganjil? Ini Alasan Kakimu
 **Bukan Sial #02** · **Gaya B diorama kertas / origami** (`style/diorama-kertas/README.md`) versi halus · 1080×1920 · ±45 dtk · VO Riri Rida · FB 35+ · skill `naskah-viral` + `sutradara`.
 Jangkar layar: kicker `—— BUKAN SIAL · #02 ——` + kotak hitam "Harus ganjil?" → berganti sage "Jawabannya: tinggi yang sama ✓".
@@ -40,7 +40,7 @@ VO ±100 kata (±45 dtk).
 | 4 | 13–21 | Signature | Beda 1 cm / KAKI SUDAH HAFAL | Tapi kaki kita menghafal tinggi anak tangga. Beda satu sentimeter saja, langsung kesandung. | Lipatan ke-5 naik 2 cm (sorot FocusRing kapur). Ketukan meleset. | **POV turun tangga**: tap rapi → hening 0,8 dtk → sentak | tap…tap…(hening)…"tuk" |
 | 5 | 21–28 | Payoff | Bukan ganjilnya, tapi / TINGGINYA SAMA | Jadi yang bikin aman bukan ganjilnya. Tapi tingginya sama semua. | Lembar koral terlipat menutup layar (PatternBreak), lalu buka: semua lipatan rata, garis ukur sage. Kotak atas jadi "Jawabannya: tinggi sama ✓". | pull lebar, tahan | sobek → chime, light leak |
 | 6 | 28–35 | Angka | 15–18 cm tinggi / 25–30 cm PIJAKAN | Patokan nyaman: tinggi lima belas sampai delapan belas senti, pijakan dua lima sampai tiga puluh. | Penggaris kertas berdiri di satu anak tangga, angka dicetak di kartu (StatPanel). | push ke penggaris | tick ukur |
-| 7 | 35–40 | Solusi | Sebelum dicor, / UKUR SEMUA ANAK TANGGA | Yang lagi bangun rumah, minta tukang ukur semua anak tangga sebelum dicor. Paling sering beda itu yang paling atas dan paling bawah. | Kursor kertas mengetuk anak tangga atas & bawah, tanda ✓ sage. | orbit 30° | pop ×2 |
+| 7 | 35–40 | Solusi | Sebelum dicor, / UKUR SEMUA ANAK TANGGA | Yang lagi bangun rumah, minta tukang ukur semua anak tangga sebelum dicor. Cek juga anak tangga paling atas. | Kursor kertas mengetuk anak tangga atas & bawah, tanda ✓ sage. | orbit 30° | pop ×2 |
 | 8 | 40–42 | Gema | | (musik) | POV turun tangga lagi, ketukan rapi sampai bawah. | POV pelan | tap ×7 → chime |
 | 9 | 42–44 | CTA | Tangga rumahmu / GANJIL ATAU GENAP? | Tangga rumahmu ganjil atau genap? | CommentBubble kertas "ganjil/genap?" | lebar | pop |
 | 10 | 44–46 | Follow | | Follow buat fakta rumah berikutnya! | FollowButton kertas ditekan | tahan | chime naik |
@@ -52,7 +52,7 @@ VO ±100 kata (±45 dtk).
 - **CTA dua arah:** "Tangga rumahmu ganjil atau genap?"
 
 ## [⚠ CEK] tersisa
-- Klaim "paling sering beda yang paling atas dan paling bawah" (umum di lapangan karena sisa ukuran lantai/finishing keramik) → perlu sumber, atau ganti VO jadi "Cek juga anak tangga paling atas." Naskah belum boleh ACC final sebelum ini dipilih.
+- (Selesai) klaim "paling sering beda atas & bawah" diganti VO aman "Cek juga anak tangga paling atas."
 - Kata hitungan Jawa per daerah (tidak di VO).
 
 ## Judul lanjutan "Bukan Sial"
@@ -66,7 +66,7 @@ Kalau ganjil, kaki yang mulai naik, sama dengan kaki yang sampai atas. Langkahny
 Tapi kaki kita menghafal tinggi anak tangga. Beda satu sentimeter saja, langsung kesandung.
 Jadi yang bikin aman bukan ganjilnya. Tapi tingginya sama semua.
 Patokan nyaman: tinggi lima belas sampai delapan belas senti, pijakan dua puluh lima sampai tiga puluh.
-Yang lagi bangun rumah, minta tukang ukur semua anak tangga sebelum dicor. Paling sering beda itu yang paling atas dan paling bawah.
+Yang lagi bangun rumah, minta tukang ukur semua anak tangga sebelum dicor. Cek juga anak tangga paling atas.
 Tangga rumahmu ganjil atau genap? Follow buat fakta rumah berikutnya!
 
 ## Sumber
