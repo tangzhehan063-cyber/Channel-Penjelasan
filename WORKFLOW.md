@@ -7,7 +7,7 @@ Satu video = satu chat, ±8 langkah. **Satu chat hanya untuk repo ini.** Semua p
 3. Container baru: `tools/produksi.sh setup` (jalankan di background sambil menulis naskah).
 
 ## 1. Ide (bila user belum memberi topik)
-- Cek dulu ide yang belum terpakai di `riset/` (tanpa kredit). Scrape Facebook hanya bila perlu (`v1_facebook_search_videos`, ≤3 kredit), simpan ringkas ke `riset/`.
+- Cek dulu ide yang belum terpakai di `riset/` (tanpa kredit). Scrape YouTube hanya bila perlu (`v1_youtube_search`/`v1_youtube_shorts_trending`, `v1_youtube_video_comments`; dulu Facebook: ≤3 kredit), simpan ringkas ke `riset/`.
 - Beri 3–5 ide + 1 rekomendasi out-of-the-box. Tunggu pilihan.
 
 ## 2. Naskah (1–3 WebSearch)

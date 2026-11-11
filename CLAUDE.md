@@ -17,8 +17,8 @@ Channel pengetahuan, seri utama **"fakta rumah"**, Bahasa Indonesia santai, audi
 
 ## Aturan inti
 - Fakta harus akurat dengan sumber; tandai "(perkiraan)" dan penyederhanaan visual; jangan mengarang angka, kutipan, atau jumlah tayangan.
-- **Riset channel ini cukup di Facebook** (ScrapeMedsos `v1_facebook_search_videos` + `v1_facebook_post_comments`); TikTok dipakai channel self-improve (repo `RAKA`), bukan di sini. **Semua output ditulis ringkas** (riset, storyboard, caption, laporan).
-- Tahap ide: riset tren Facebook + **saran improvisasi topik** + satu rekomendasi; simpan ringkas ke `riset/`.
+- **Platform utama: YouTube (Shorts), sejak 11 Nov 2026** (progres paling cepat). Riset di YouTube: ScrapeMedsos `v1_youtube_search` / `v1_youtube_shorts_trending` + `v1_youtube_video_comments` (bahasa penonton). Facebook hanya cadangan; TikTok untuk repo `RAKA`. **Semua output ditulis ringkas** (riset, storyboard, caption, laporan).
+- Tahap ide: riset tren YouTube + **saran improvisasi topik** + satu rekomendasi; simpan ringkas ke `riset/`.
 - Skill tambahan `social-video-scriptwriting` (umum: review naskah user, skor kualitas, analisis performa); aturan channel tetap menang.
 - **Saat menulis/merevisi naskah, pakai skill `naskah-viral`** (`.claude/skills/naskah-viral/SKILL.md`, panggil `/naskah-viral <topik>`): lapisan pola viral di atas `naskah/alur-naskah.md`.
 - Storyboard (Tahap 2) memuat bagian "Fakta, tren & asumsi" lalu tabel beat; contoh nada & format di `referensi/` (video #1–#4).
@@ -37,7 +37,7 @@ Channel pengetahuan, seri utama **"fakta rumah"**, Bahasa Indonesia santai, audi
 ## Caption & komentar pertama (berlaku setelah user ACC naskah final)
 - Begitu user menyatakan **ACC/final** untuk naskah, langsung kirim **caption posting + komentar pertama** (jangan tunggu video selesai; cover tetap dibuat setelah render).
 - **Pegangan utama: `caption/gaya-caption.md`** (gaya sudah disimpan; scrape tidak wajib). Scrape hanya bila topik/istilahnya baru dan kredit masih ada; temuan baru ditambahkan ke file itu.
-- Riset bahasa (opsional): pakai ScrapeMedsos Facebook (`v1_facebook_search_videos`, lalu komentar video teratas dengan `v1_facebook_post_comments`) untuk topik yang sama. Catat kata, singkatan, dan gaya yang benar-benar dipakai orang (mis. "jeglek", "kopong", "rembes", "wkwk", "auto", "relate banget").
+- Riset bahasa (opsional): pakai ScrapeMedsos YouTube (`v1_youtube_search`, lalu komentar video teratas dengan `v1_youtube_video_comments`) untuk topik yang sama. Catat kata, singkatan, dan gaya yang benar-benar dipakai orang (mis. "jeglek", "kopong", "rembes", "wkwk", "auto", "relate banget").
 - Tulis caption & komentar pertama meniru ritme itu: kalimat pendek, boleh tidak baku, emoji secukupnya (0–2), tanpa frasa khas AI ("Yuk simak!", "Tahukah kamu", "di era modern ini", "mari kita", "penting untuk diingat", tanda "—" berlebihan, daftar berpoin di caption).
 - Komentar pertama = pancingan diskusi dari sudut pandang kreator (pertanyaan spesifik atau "aku dulu juga…"), bukan ringkasan video.
 - Simpan contoh bahasa hasil scrape (maks. 5 kutipan pendek) di file caption sebagai bukti, jangan menyalin komentar orang utuh ke caption.
