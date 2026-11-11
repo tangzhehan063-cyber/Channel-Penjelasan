@@ -45,10 +45,10 @@ bagian)
   step=450; i=0
   for ((a=0; a<total; a+=step)); do b=$((a+step-1)); [ $b -ge $total ] && b=$((total-1))
     f="$P/p$(printf %02d $i).mp4"
-    if [ ! -s "$f" ]; then echo "render bagian $i ($a-$b)"; npx remotion render "Video$NN" "$f" --frames=$a-$b --muted --concurrency=4 --log=error; fi
+    if [ ! -s "$f" ]; then echo "render bagian $i ($a-$b)"; npx remotion render "Video$NN" "$f" --frames=$a-$b --muted --concurrency=3 --timeout=120000 --log=error; fi
     echo "file '$(basename "$f")'" ; i=$((i+1))
   done > "$P/list.txt.tmp"; grep "^file" "$P/list.txt.tmp" > "$P/list.txt"
-  npx remotion render "Video$NN" "$P/audio.aac" --codec=aac --log=error
+  npx remotion render "Video$NN" "$P/audio.aac" --codec=aac --concurrency=2 --timeout=120000 --log=error
   ffmpeg -y -v error -f concat -safe 0 -i "$P/list.txt" -c copy "$P/video.mp4"
   ffmpeg -y -v error -i "$P/video.mp4" -i "$P/audio.aac" -map 0:v -map 1:a -c:v copy -af loudnorm=I=-14:TP=-1.5:LRA=11 -ar 48000 -c:a aac -b:a 192k -shortest "$ROOT/video/$slug.mp4"
   ffprobe -v error -show_entries format=duration -of csv=p=0 "$ROOT/video/$slug.mp4"
