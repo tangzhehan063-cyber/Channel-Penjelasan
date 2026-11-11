@@ -19,6 +19,7 @@ Channel pengetahuan, seri utama **"fakta rumah"**, Bahasa Indonesia santai, audi
 - Fakta harus akurat dengan sumber; tandai "(perkiraan)" dan penyederhanaan visual; jangan mengarang angka, kutipan, atau jumlah tayangan.
 - **Riset channel ini cukup di Facebook** (ScrapeMedsos `v1_facebook_search_videos` + `v1_facebook_post_comments`); TikTok dipakai channel self-improve (repo `RAKA`), bukan di sini. **Semua output ditulis ringkas** (riset, storyboard, caption, laporan).
 - Tahap ide: riset tren Facebook + **saran improvisasi topik** + satu rekomendasi; simpan ringkas ke `riset/`.
+- Skill tambahan `social-video-scriptwriting` (umum: review naskah user, skor kualitas, analisis performa); aturan channel tetap menang.
 - **Saat menulis/merevisi naskah, pakai skill `naskah-viral`** (`.claude/skills/naskah-viral/SKILL.md`, panggil `/naskah-viral <topik>`): lapisan pola viral di atas `naskah/alur-naskah.md`.
 - Storyboard (Tahap 2) memuat bagian "Fakta, tren & asumsi" lalu tabel beat; contoh nada & format di `referensi/` (video #1–#4).
 - **Setelah video selesai, SELALU buat caption posting + cover**: caption ringkas ke `caption/<slug>.md` (Facebook/Reels, YouTube Shorts, komentar pin, 3 judul alternatif, 5 tag), cover 1080×1920 ke `cover/<slug>.png`.
