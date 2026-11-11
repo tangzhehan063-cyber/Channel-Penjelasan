@@ -13,7 +13,7 @@ import {Stairs, Table, Foot, ChalkRing, S, topY, zMid, KT} from './Tangga';
 import words from '../../public/v10/words.json';
 
 export const FPS = 30;
-export const V10_END = 46.0;
+export const V10_END = 77.2;
 export const V10_FRAMES = Math.ceil(V10_END * FPS);
 const FOV = 34, ASPECT = 1080 / 1920;
 const CC_TOP = 1400; // posisi subtitle baku channel, jangan diubah
@@ -41,7 +41,7 @@ function proj(cam: Key, p: V3): [number, number] {
 }
 
 // ---------- beat (detik dari timestamp VO) ----------
-const B = {hook: 0, bukan: 2.88, hitung: 4.96, kaki: 9.6, hafal: 15.84, pov: 18.88, payoff: 22.24, angka: 27.12, solusi: 33.28, gema: 40.0, follow: 42.52, end: V10_END};
+const B = {hook: 0, sial: 2.48, bukan: 4.32, hitung: 7.44, kaki: 11.84, twist: 22.88, yaitu: 27.76, hafal: 31.12, pov: 38.6, payoff: 44.24, angka: 46.64, solusi: 53.52, gema: 63.76, tanya: 66.45, follow: 74.32, end: V10_END};
 
 // ---------- POV turun tangga (kamera = mata) ----------
 const EYE = 0.85;
@@ -56,24 +56,26 @@ function povAt(t: number, steps: [number, number, number, number][], bump: numbe
   }
   return {t, pos: pose.pos, look: pose.look, fov};
 }
-const STEP_SIG: [number, number, number, number][] = [[18.95, 19.4, 6, 5], [19.55, 20.0, 5, 4]]; // langkah ke-2 mendarat di anak tangga beda tinggi
-const STEP_GEMA: [number, number, number, number][] = [0, 1, 2, 3, 4, 5].map((i) => [40.15 + i * 0.36, 40.15 + i * 0.36 + 0.3, 6 - i, 5 - i]);
+const STEP_SIG: [number, number, number, number][] = [[40.9, 41.35, 6, 5], [41.5, 42.96, 5, 4]]; // langkah ke-2 mendarat di anak tangga beda tinggi
+const STEP_GEMA: [number, number, number, number][] = [0, 1, 2, 3, 4, 5].map((i) => [63.9 + i * 0.4, 63.9 + i * 0.4 + 0.33, 6 - i, 5 - i]);
 
 // ---------- kamera per adegan (shot list) ----------
 const C0: V3 = [0, 0.6, -1.0];
-const CAM_HOOK: Key[] = [{t: 0, pos: [0.3, 5.2, 0.2], look: [0, 0.2, -1.0]}, {t: 4.9, pos: [2.7, 1.9, 2.4], look: [0, 0.6, -1.0]}];
-const CAM_HITUNG: Key[] = [{t: 4.96, pos: [2.0, 1.1, 1.3], look: [0, 0.3, -0.2]}, {t: 9.5, pos: [1.9, 2.1, -0.6], look: [0, 1.1, -1.8]}];
-const CAM_KAKI: Key[] = [{t: 9.6, pos: [4.2, 2.2, -0.4], look: [0, 0.65, -1.0]}, {t: 15.8, pos: [3.8, 2.5, -0.6], look: [0, 0.75, -1.05]}];
-const CAM_HAFAL: Key[] = [{t: 15.84, pos: [2.5, 1.5, 0.5], look: [0, 0.85, -1.26]}, {t: 18.85, pos: [1.35, 1.15, -0.55], look: [0, 0.85, -1.26]}];
-const CAM_POV: Key[] = [{t: 18.88, pos: [0, 2.04, -1.77], look: [0, 0.44, -0.67], fov: 52}, {t: 22.2, pos: [0, 1.7, -1.21], look: [0, 0.1, -0.11], fov: 52}];
-const CAM_PAY: Key[] = [{t: 22.24, pos: [2.8, 2.1, 2.3], look: [0, 0.6, -1.0]}, {t: 27.1, pos: [3.2, 2.6, 3.0], look: [0, 0.6, -1.0]}];
-const CAM_ANGKA: Key[] = [{t: 27.12, pos: [1.6, 0.95, 0.7], look: [0, 0.45, -0.55]}, {t: 33.2, pos: [1.15, 0.8, 0.3], look: [0, 0.45, -0.55]}];
-const CAM_SOLUSI: Key[] = [{t: 33.28, pos: [-2.7, 1.7, 1.4], look: [0, 0.6, -1.0]}, {t: 39.95, pos: [-2.9, 2.3, -0.6], look: [0, 0.75, -1.1]}];
-const CAM_GEMA: Key[] = [{t: 40.0, pos: [0, 2.04, -1.77], look: [0, 0.44, -0.67], fov: 52}, {t: 42.4, pos: [0, 1.02, -0.09], look: [0, -0.58, 1.01], fov: 52}];
-const CAM_END: Key[] = [{t: 42.52, pos: [2.9, 2.2, 2.2], look: [0, 0.6, -1.0]}, {t: 46.0, pos: [2.2, 2.0, 2.9], look: [0, 0.6, -1.0]}];
+const CAM_HOOK: Key[] = [{t: 0.0, pos: [0.3, 5.2, 0.2], look: [0, 0.2, -1.0]}, {t: 7.35, pos: [2.7, 1.9, 2.4], look: [0, 0.6, -1.0]}];
+const CAM_HITUNG: Key[] = [{t: 7.44, pos: [2.0, 1.1, 1.3], look: [0, 0.3, -0.2]}, {t: 11.75, pos: [1.9, 2.1, -0.6], look: [0, 1.1, -1.8]}];
+const CAM_KAKI: Key[] = [{t: 11.84, pos: [4.2, 2.2, -0.4], look: [0, 0.65, -1.0]}, {t: 22.81, pos: [3.8, 2.5, -0.6], look: [0, 0.75, -1.05]}];
+const CAM_TWIST: Key[] = [{t: 22.88, pos: [2.2, 1.5, 1.8], look: [0, 0.6, -1.0]}, {t: 31.0, pos: [1.6, 1.2, 1.2], look: [0, 0.6, -1.0]}];
+const CAM_HAFAL: Key[] = [{t: 31.12, pos: [2.5, 1.5, 0.5], look: [0, 0.85, -1.26]}, {t: 38.53, pos: [1.35, 1.15, -0.55], look: [0, 0.85, -1.26]}];
+const CAM_POV: Key[] = [{t: 38.6, pos: [0, 2.04, -1.77], look: [0, 0.44, -0.67], fov: 52}, {t: 43.69, pos: [0, 1.7, -1.21], look: [0, 0.1, -0.11], fov: 52}];
+const CAM_PAY: Key[] = [{t: 43.7, pos: [2.8, 2.1, 2.3], look: [0, 0.6, -1.0]}, {t: 45.99, pos: [3.2, 2.6, 3.0], look: [0, 0.6, -1.0]}];
+const CAM_ANGKA: Key[] = [{t: 46.0, pos: [1.6, 0.95, 0.7], look: [0, 0.45, -0.55]}, {t: 53.42, pos: [1.15, 0.8, 0.3], look: [0, 0.45, -0.55]}];
+const CAM_SOLUSI: Key[] = [{t: 53.52, pos: [-2.7, 1.7, 1.4], look: [0, 0.6, -1.0]}, {t: 63.67, pos: [-2.9, 2.3, -0.6], look: [0, 0.75, -1.1]}];
+const CAM_GEMA: Key[] = [{t: 63.76, pos: [0, 2.04, -1.77], look: [0, 0.44, -0.67], fov: 52}, {t: 66.45, pos: [0, 1.02, -0.09], look: [0, -0.58, 1.01], fov: 52}];
+const CAM_TANYA: Key[] = [{t: 66.45, pos: [-2.4, 1.9, 1.6], look: [0, 0.6, -1.0]}, {t: 74.3, pos: [-1.2, 2.2, 2.6], look: [0, 0.6, -1.0]}];
+const CAM_END: Key[] = [{t: 74.32, pos: [2.9, 2.2, 2.2], look: [0, 0.6, -1.0]}, {t: 77.2, pos: [2.2, 2.0, 2.9], look: [0, 0.6, -1.0]}];
 
 /* adegan: [mulai, keys, potong keras?] ; tanpa potong = kamera terbang 0,7 dtk dari pose adegan sebelumnya */
-const SETS: [number, Key[], boolean][] = [[0, CAM_HOOK, true], [B.hitung, CAM_HITUNG, false], [B.kaki, CAM_KAKI, false], [B.hafal, CAM_HAFAL, false], [B.pov, CAM_POV, true], [B.payoff, CAM_PAY, true], [B.angka, CAM_ANGKA, false], [B.solusi, CAM_SOLUSI, false], [B.gema, CAM_GEMA, true], [B.follow, CAM_END, true]];
+const SETS: [number, Key[], boolean][] = [[0, CAM_HOOK, true], [B.hitung, CAM_HITUNG, false], [B.kaki, CAM_KAKI, false], [B.twist, CAM_TWIST, false], [B.hafal, CAM_HAFAL, false], [B.pov, CAM_POV, true], [B.payoff, CAM_PAY, true], [B.angka, CAM_ANGKA, false], [B.solusi, CAM_SOLUSI, false], [B.gema, CAM_GEMA, true], [B.tanya, CAM_TANYA, true], [B.follow, CAM_END, false]];
 const FLY = 0.7;
 /* layar tegak = sudut horizontal sempit → kamera adegan lebar dimundurkan (bukan POV) */
 const DIST = 1.95;
@@ -139,7 +141,7 @@ const Stamp: React.FC<{p: number; text: string; y?: number}> = ({p, text, y = 76
   const s = interpolate(p, [0, 0.5, 1], [2.0, 0.95, 1]), o = Math.min(1, p * 2.5);
   return (
     <div style={{position: 'absolute', left: 0, right: 0, top: y, display: 'flex', justifyContent: 'center', opacity: o}}>
-      <div style={{transform: `rotate(-8deg) scale(${s})`, padding: '18px 44px', border: `12px solid ${CORAL}`, borderRadius: 24, color: CORAL, background: 'rgba(250,249,246,0.93)', fontFamily: 'Inter', fontWeight: 900, fontSize: 112, letterSpacing: -2, lineHeight: 1, whiteSpace: 'nowrap', boxShadow: '0 16px 40px rgba(0,0,0,0.22)'}}>{text}</div>
+      <div style={{transform: `rotate(-8deg) scale(${s})`, padding: '18px 44px', border: `12px solid ${CORAL}`, borderRadius: 24, color: CORAL, background: 'rgba(250,249,246,0.93)', fontFamily: 'Inter', fontWeight: 900, fontSize: 84, letterSpacing: -2, lineHeight: 1, whiteSpace: 'nowrap', boxShadow: '0 16px 40px rgba(0,0,0,0.22)'}}>{text}</div>
     </div>
   );
 };
@@ -163,31 +165,31 @@ const LightLeak: React.FC<{p: number}> = ({p}) => {
 };
 
 const SFX: [string, number, number][] = [
-  ['whoosh', 0.15, 0.3], ['pop', 0.6, 0.3], ['pop', 0.85, 0.3], ['pop', 1.1, 0.3], ['pop', 1.35, 0.3], ['knock', 2.95, 0.8],
-  ['whoosh', 4.96, 0.25], ['tick', 5.6, 0.35], ['tick', 6.05, 0.35], ['tick', 6.5, 0.35], ['tick', 6.95, 0.35], ['tick', 7.4, 0.35], ['tick', 7.85, 0.35], ['ting', 8.8, 0.45],
-  ['whoosh', 9.6, 0.25], ['knock', 10.5, 0.3], ['knock', 10.9, 0.3], ['knock', 11.3, 0.3], ['knock', 11.7, 0.3], ['knock', 12.1, 0.3], ['knock', 12.5, 0.3], ['knock', 12.9, 0.3], ['chime', 14.2, 0.3],
-  ['whoosh', 15.84, 0.25], ['riser', 16.9, 0.3], ['pop', 17.6, 0.4],
-  ['whoosh', 18.88, 0.25], ['knock', 19.4, 0.45], ['thud', 20.0, 0.9],
-  ['crackle', 22.24, 0.4], ['chime', 25.0, 0.45],
-  ['whoosh', 27.12, 0.25], ['tick', 28.3, 0.4], ['tick', 30.7, 0.4],
-  ['whoosh', 33.28, 0.25], ['pop', 35.3, 0.35], ['pop', 35.6, 0.35], ['pop', 35.9, 0.35], ['pop', 36.2, 0.35], ['pop', 36.5, 0.35], ['pop', 36.8, 0.35], ['pop', 37.1, 0.35], ['ting', 38.5, 0.45],
-  ['whoosh', 40.0, 0.25], ['knock', 40.45, 0.3], ['knock', 40.81, 0.3], ['knock', 41.17, 0.3], ['knock', 41.53, 0.3], ['knock', 41.89, 0.3], ['knock', 42.25, 0.3], ['chime', 42.3, 0.4],
-  ['pop', 40.3, 0.4], ['pop', 42.6, 0.4], ['chime', 43.9, 0.4],
+  ['whoosh', 0.23, 0.3], ['pop', 0.9, 0.3], ['pop', 1.28, 0.3], ['pop', 1.65, 0.3], ['pop', 2.03, 0.3], ['knock', 4.43, 0.8],
+  ['whoosh', 7.44, 0.25], ['tick', 8.05, 0.35], ['tick', 8.47, 0.35], ['tick', 8.9, 0.35], ['tick', 9.33, 0.35], ['tick', 9.75, 0.35], ['tick', 10.18, 0.35], ['ting', 11.08, 0.45],
+  ['whoosh', 11.84, 0.25], ['knock', 13.43, 0.3], ['knock', 14.14, 0.3], ['knock', 14.85, 0.3], ['knock', 15.56, 0.3], ['knock', 16.26, 0.3], ['knock', 16.97, 0.3], ['knock', 17.68, 0.3], ['chime', 19.98, 0.3],
+  ['whoosh', 31.12, 0.25], ['riser', 33.73, 0.3], ['pop', 35.45, 0.4],
+  ['whoosh', 38.6, 0.25], ['knock', 40.62, 0.45], ['thud', 42.96, 0.9],
+  ['whoosh', 22.88, 0.25], ['crackle', 27.76, 0.45], ['whoosh', 44.24, 0.3], ['chime', 45.0, 0.45],
+  ['whoosh', 46.0, 0.25], ['tick', 47.44, 0.4], ['tick', 50.37, 0.4],
+  ['whoosh', 53.52, 0.25], ['pop', 56.25, 0.35], ['pop', 56.65, 0.35], ['pop', 57.06, 0.35], ['pop', 57.46, 0.35], ['pop', 57.87, 0.35], ['pop', 58.28, 0.35], ['pop', 58.68, 0.35], ['ting', 60.93, 0.45],
+  ['whoosh', 63.76, 0.25], ['knock', 64.26, 0.3], ['knock', 64.67, 0.3], ['knock', 65.07, 0.3], ['knock', 65.47, 0.3], ['knock', 65.88, 0.3], ['knock', 66.28, 0.3], ['chime', 66.34, 0.4],
+  ['pop', 64.1, 0.4], ['pop', 74.39, 0.4], ['chime', 75.46, 0.4],
 ];
 
 export const Video10: React.FC = () => {
   const f = useCurrentFrame(), t = f / FPS;
   // tinggi beda di anak tangga ke-5: naik saat "menghafal", hilang di payoff
-  const bump = r(t, 16.8, 17.6, Easing.bezier(0.34, 1.28, 0.64, 1)) * (1 - r(t, 25.0, 25.9));
+  const bump = r(t, 36.5, 37.3, Easing.bezier(0.34, 1.28, 0.64, 1)) * (1 - r(t, 45.0, 45.42));
   const cam0 = camFor(t, bump);
   // sentakan saat kesandung (20,0 dtk): kepala tersentak & miring sebentar
-  const dj = t - 20.0, jolt = dj > 0 && t < B.payoff ? Math.exp(-dj * 3.2) : 0;
+  const dj = t - 42.96, jolt = dj > 0 && t < B.payoff ? Math.exp(-dj * 3.2) : 0;
   const cam: Key = jolt > 0 ? {...cam0, pos: [cam0.pos[0] + 0.03 * jolt * Math.sin(dj * 40), cam0.pos[1] - 0.06 * jolt, cam0.pos[2]], look: [cam0.look[0] + 0.12 * jolt, cam0.look[1] - 0.25 * jolt, cam0.look[2]]} : cam0;
 
-  const fold = r(t, 0.2, 1.9, Easing.linear);
-  const sage = r(t, 25.2, 26.2);
-  const pb = r(t, 22.24, 22.9) * (1 - r(t, 24.7, 25.05));
-  const checks = Array.from({length: S.n}, (_, i) => r(t, 35.3 + i * 0.3, 35.6 + i * 0.3));
+  const fold = r(t, 0.3, 2.85, Easing.linear);
+  const sage = r(t, 45.1, 45.57);
+  const pb = r(t, 27.76, 28.3) * (1 - r(t, 30.6, 31.0));
+  const checks = Array.from({length: S.n}, (_, i) => r(t, 55.8 + i * 0.3, 56.1 + i * 0.3));
 
   // overlay posisi dari proyeksi 3D
   const numPt = Array.from({length: S.n}, (_, i) => proj(cam, [0.36, topY(i, bump) + 0.05, zMid(i)]));
@@ -195,7 +197,7 @@ export const Video10: React.FC = () => {
   const riserPt = proj(cam, [0.52, topY(1) - S.h / 2, zMid(2) + S.t / 2]), treadPt = proj(cam, [0, topY(1) + 0.02, zMid(1)]);
   const topPt = proj(cam, [0, topY(6) + 0.04, zMid(6)]);
   // jejak kaki (adegan kaki): bergantian kanan-kiri, kanan pertama & terakhir koral
-  const footT = (i: number) => 10.45 + i * 0.4;
+  const footT = (i: number) => 13.4 + i * 0.75;
   const inPov = (t >= B.pov && t < B.payoff) || (t >= B.gema && t < B.follow);
 
   return (
@@ -205,57 +207,59 @@ export const Video10: React.FC = () => {
         <Lights /><Rig k={cam} />
         <fog attach="fog" args={['#efece4', 9, 22]} />
         <Table />
-        <Stairs fold={fold} bump={bump} sage={sage} hi={t >= 19.5 && t < 25.0 ? [4] : []} />
-        {t >= 10.3 && t < 15.9 && Array.from({length: S.n}, (_, i) => <Foot key={i} i={i} side={i % 2 ? -1 : 1} p={r(t, footT(i), footT(i) + 0.3)} coral={i === 0 || i === S.n - 1} />)}
-        <ChalkRing p={[0, topY(4, bump) + 0.02, zMid(4)]} r={0.3} k={r(t, 17.0, 17.7, Easing.linear) * (1 - r(t, 18.7, 18.9))} />
+        <Stairs fold={fold} bump={bump} sage={sage} hi={t >= 40.3 && t < 45.1 ? [4] : []} />
+        {t >= 13.2 && t < 22.95 && Array.from({length: S.n}, (_, i) => <Foot key={i} i={i} side={i % 2 ? -1 : 1} p={r(t, footT(i), footT(i) + 0.3)} coral={i === 0 || i === S.n - 1} />)}
+        <ChalkRing p={[0, topY(4, bump) + 0.02, zMid(4)]} r={0.3} k={r(t, 36.6, 37.3, Easing.linear) * (1 - r(t, 38.3, 38.6))} />
         {checks.map((c, i) => c > 0 && t < B.gema && <ChalkRing key={i} p={[0, topY(i) + 0.02, zMid(i)]} r={0.1} k={c} />)}
-        <ChalkRing p={[0, topY(6) + 0.02, zMid(6)]} r={0.28} k={r(t, 37.9, 38.6, Easing.linear) * (1 - r(t, 39.7, 39.95))} />
+        <ChalkRing p={[0, topY(6) + 0.02, zMid(6)]} r={0.28} k={r(t, 59.79, 61.12, Easing.linear) * (1 - r(t, 63.19, 63.67))} />
       </ThreeCanvas>
 
       {/* jangkar atas: pertanyaan → jawaban */}
       <Kicker text="BUKAN SIAL · #02" y={292} start={0} />
-      <TikTokBox text="Harus ganjil?" p={r(t, 0.15, 0.8, Easing.linear) * (1 - r(t, 25.0, 25.2, Easing.linear))} y={338} size={40} />
-      <AnswerBox p={r(t, 25.1, 25.6)} y={338} />
+      <TikTokBox text="Harus ganjil?" p={r(t, 0.23, 1.2, Easing.linear) * (1 - r(t, 45.0, 45.1, Easing.linear))} y={338} size={40} />
+      <AnswerBox p={r(t, 45.05, 45.28)} y={338} />
 
       {/* ---------- hook ---------- */}
-      <Stamp p={r(t, 2.9, 3.25, Easing.out(Easing.cubic)) * (1 - r(t, 4.5, 4.9))} text="BUKAN ITU" y={1060} />
-      <Title t={t} a={0.05} b={2.85} small="Anak tangga" big="HARUS GANJIL?" size={112} />
+      <Stamp p={r(t, 4.35, 4.88, Easing.out(Easing.cubic)) * (1 - r(t, 6.75, 7.35))} text="ADA ALASAN LAIN" y={1060} />
+      <Title t={t} a={0.08} b={4.28} small="Anak tangga harus" big="GANJIL?" size={112} />
 
       {/* ---------- hitungan ---------- */}
       <Title t={t} a={B.hitung} b={B.kaki} small="Dihitung satu-satu," big="BERHENTI DI BAIK" size={88} />
-      {t >= 5.4 && t < 9.7 && numPt.map(([x, y], i) => <Chip key={i} x={x} y={y - 40} p={r(t, 5.55 + i * 0.45, 5.85 + i * 0.45) * (1 - r(t, 9.35, 9.65))} text={String(i + 1)} size={40} color={i === 6 && t > 8.8 ? SAGE : INK} fill={i === 6 && t > 8.8 ? SAGE : 'rgba(250,249,246,0.97)'} />)}
+      {t >= 8.0 && t < 11.95 && numPt.map(([x, y], i) => <Chip key={i} x={x} y={y - 40} p={r(t, 8.3 + i * 0.4, 8.6 + i * 0.4) * (1 - r(t, 11.6, 11.93))} text={String(i + 1)} size={40} color={i === 6 && t > 10.9 ? SAGE : INK} fill={i === 6 && t > 10.9 ? SAGE : 'rgba(250,249,246,0.97)'} />)}
 
       {/* ---------- kaki ---------- */}
-      <Title t={t} a={B.kaki} b={B.hafal} small="Ganjil: kaki mulai" big="& SELESAI SAMA" size={104} />
-      <Chip x={540} y={1250} p={r(t, 13.9, 14.3) * (1 - r(t, 15.5, 15.8))} text="langkahnya terasa pas" size={44} color={SAGE} />
+      <Title t={t} a={B.kaki} b={B.twist} small="Ganjil: kaki mulai" big="& SELESAI SAMA" size={104} />
+      <Chip x={540} y={1250} p={r(t, 19.45, 20.16) * (1 - r(t, 22.28, 22.81))} text="langkahnya terasa pas" size={44} color={SAGE} />
 
+      <Title t={t} a={22.88} b={27.7} small="Tapi ada yang" big="JAUH LEBIH PENTING" size={78} />
       {/* ---------- kaki menghafal + beda tinggi ---------- */}
       <Title t={t} a={B.hafal} b={B.pov} small="Kaki kita" big="SUDAH HAFAL" size={120} />
-      <Chip x={bumpPt[0] + 150} y={bumpPt[1] - 120} p={r(t, 17.5, 17.9) * (1 - r(t, 18.6, 18.88))} text="+1 cm" size={52} color={CORAL} />
-      <Title t={t} a={B.pov} b={B.payoff} small="Beda 1 cm saja," big="KESANDUNG" size={130} />
+      <Chip x={bumpPt[0] + 150} y={bumpPt[1] - 120} p={r(t, 37.0, 37.4) * (1 - r(t, 38.2, 38.6))} text="lebih tinggi" size={52} color={CORAL} />
+      <Title t={t} a={B.pov} b={B.payoff} small="Beda sedikit saja," big="KESANDUNG" size={130} />
       {inPov && t < B.payoff && <AbsoluteFill style={{background: 'radial-gradient(75% 60% at 50% 45%, rgba(0,0,0,0) 55%, rgba(28,28,30,0.35) 100%)'}} />}
-      <Chip x={540} y={1180} p={r(t, 21.2, 21.45, Easing.linear) * (1 - r(t, 21.9, 22.2))} text="TUK!" size={80} color={CORAL} />
+      <Chip x={540} y={1180} p={r(t, 43.36, 43.44, Easing.linear) * (1 - r(t, 43.59, 43.69))} text="TUK!" size={80} color={CORAL} />
 
       {/* ---------- payoff ---------- */}
-      {pb > 0 && <AbsoluteFill style={{opacity: 1 - r(t, 24.7, 25.05)}}><PatternBreak lines={['BUKAN', 'GANJILNYA,', 'TINGGINYA SAMA']} p={r(t, 22.24, 23.2)} /></AbsoluteFill>}
-      <Title t={t} a={25.0} b={B.angka} small="Yang bikin aman:" big="TINGGI SAMA" bigColor={SAGE} size={124} />
-      <LightLeak p={r(t, 24.9, 26.9, Easing.linear)} />
+      {pb > 0 && <AbsoluteFill style={{opacity: 1 - r(t, 30.6, 31.0)}}><PatternBreak lines={['YAITU…', 'TINGGI SETIAP', 'ANAK TANGGA']} p={r(t, 27.76, 28.7)} /></AbsoluteFill>}
+      <Title t={t} a={44.24} b={B.angka} small="Yang bikin aman:" big="TINGGI SAMA" bigColor={SAGE} size={124} />
+      <LightLeak p={r(t, 44.95, 45.9, Easing.linear)} />
 
       {/* ---------- angka ---------- */}
-      <Title t={t} a={B.angka} b={30.6} small="Tinggi anak tangga" big="15–18 CM" size={150} />
-      <Title t={t} a={30.6} b={B.solusi} small="Pijakan" big="25–30 CM" bigColor={SAGE} size={150} />
-      <Chip x={riserPt[0] + 70} y={riserPt[1]} p={r(t, 28.3, 28.7) * (1 - r(t, 33.0, 33.28))} text="↕ 15–18" size={44} color={CORAL} />
-      <Chip x={treadPt[0]} y={treadPt[1] - 70} p={r(t, 30.7, 31.1) * (1 - r(t, 33.0, 33.28))} text="↔ 25–30" size={44} color={SAGE} />
-      <Chip x={540} y={1250} p={r(t, 28.0, 28.4) * (1 - r(t, 32.9, 33.2))} text="(patokan umum, perkiraan)" size={34} />
+      <Title t={t} a={B.angka} b={50.25} small="Tinggi anak tangga" big="15–18 CM" size={150} />
+      <Title t={t} a={50.25} b={B.solusi} small="Pijakan" big="25–30 CM" bigColor={SAGE} size={150} />
+      <Chip x={riserPt[0] + 70} y={riserPt[1]} p={r(t, 47.44, 47.93) * (1 - r(t, 53.18, 53.52))} text="↕ 15–18" size={44} color={CORAL} />
+      <Chip x={treadPt[0]} y={treadPt[1] - 70} p={r(t, 50.37, 50.86) * (1 - r(t, 53.18, 53.52))} text="↔ 25–30" size={44} color={SAGE} />
+      <Chip x={540} y={1250} p={r(t, 47.07, 47.56) * (1 - r(t, 53.06, 53.42))} text="(patokan umum, perkiraan)" size={34} />
 
       {/* ---------- solusi ---------- */}
-      <Title t={t} a={B.solusi} b={37.84} small="Sebelum dicor," big="UKUR SEMUA" bigColor={SAGE} size={130} />
-      <Title t={t} a={37.84} b={B.gema} small="Cek juga" big="PALING ATAS" size={130} />
-      <Chip x={topPt[0]} y={topPt[1] - 80} p={r(t, 38.2, 38.6) * (1 - r(t, 39.7, 40.0))} text="ukur ✓" size={44} color={SAGE} />
+      <Title t={t} a={B.solusi} b={59.68} small="Sebelum dicor," big="UKUR SEMUA" bigColor={SAGE} size={130} />
+      <Title t={t} a={59.68} b={B.gema} small="Cek juga" big="PALING ATAS" size={130} />
+      <Chip x={topPt[0]} y={topPt[1] + 90} p={r(t, 60.36, 61.12) * (1 - r(t, 63.19, 63.76))} text="ukur ✓" size={44} color={SAGE} />
 
       {/* ---------- CTA ---------- */}
-      <CommentBubble word="ganjil/genap?" start={Math.round(40.3 * FPS)} y={520} out={Math.round(42.4 * FPS)} />
-      <FollowButton start={Math.round(42.6 * FPS)} click={Math.round(43.9 * FPS)} y={1180} />
+      <Title t={t} a={66.45} b={74.2} small="Tangga rumahmu" big="GANJIL / GENAP?" size={96} top={1000} />
+      <CommentBubble word="ganjil/genap?" start={Math.round(66.6 * FPS)} y={520} out={Math.round(74.1 * FPS)} />
+      <FollowButton start={Math.round(74.39 * FPS)} click={Math.round(75.46 * FPS)} y={1080} />
       <Captions ms={t * 1000} />
       <Grain o={0.06} id="g10" />
 
