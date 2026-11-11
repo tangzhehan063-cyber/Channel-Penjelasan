@@ -23,6 +23,7 @@ Channel pengetahuan, seri utama **"fakta rumah"**, Bahasa Indonesia santai, audi
 - **Saat menulis/merevisi naskah, pakai skill `naskah-viral`** (`.claude/skills/naskah-viral/SKILL.md`, panggil `/naskah-viral <topik>`): lapisan pola viral di atas `naskah/alur-naskah.md`.
 - Storyboard (Tahap 2) memuat bagian "Fakta, tren & asumsi" lalu tabel beat; contoh nada & format di `referensi/` (video #1–#4).
 - **Setelah video selesai, SELALU buat caption posting + cover**: caption ringkas ke `caption/<slug>.md` (Facebook/Reels, YouTube Shorts, komentar pin, 3 judul alternatif, 5 tag), cover 1080×1920 ke `cover/<slug>.png`.
+- **Hasil jadi disimpan di Google Drive, BUKAN GitHub (perintah user, 11 Nov 2026, berlaku untuk semua video ke depan):** video render (MP4), cover, dan info video (caption, komentar pin, judul/deskripsi YouTube, judul alternatif, tag) diunggah ke folder Drive "Fakta Rumah" (`1Dx9nqhifWRbixFb_2u4XrHMIaHHJloAt`), satu subfolder per video `#NN <judul singkat>`. MP4 & PNG cover tidak di-commit ke repo (`.gitignore`). Konektor Drive dari cloud maks ±3 MB per panggilan: cover (kompres bila perlu) + info langsung diunggah; MP4 dikirim ke user (SendUserFile, versi ringan <10 MB juga) untuk diunggah manual, kecuali user memberi cara lain.
 - Penutup video: "Follow buat fakta rumah berikutnya!"
 
 ## Produksi

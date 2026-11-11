@@ -35,10 +35,11 @@ Satu video = satu chat, ±8 langkah. **Satu chat hanya untuk repo ini.** Semua p
 - Lihat sheet QC yang dicetak (1 gambar). `tools/produksi.sh cover <NN> <slug>`.
 
 ## 7. Distribusi (wajib, urut)
-1. Kirim ke user: MP4 + cover (SendUserFile) + caption (tempel di chat).
-2. Perbarui `STATUS.md` (2–3 baris, bukan paragraf).
-3. Commit + push ke cabang kerja.
-4. **Buat PR ke `main` lalu merge sendiri** (`merge_pull_request`, izin user 9 Nov), supaya chat berikutnya mulai dari kondisi lengkap. Laporkan singkat: "sudah masuk main".
+1. **Google Drive (wajib, semua video):** buat subfolder `#NN <judul singkat>` di folder "Fakta Rumah" (`1Dx9nqhifWRbixFb_2u4XrHMIaHHJloAt`), unggah cover + dokumen info (caption, komentar pin, judul/deskripsi YouTube, judul alternatif, tag). MP4 >3 MB tidak bisa lewat konektor: kirim ke user (asli + versi ringan <10 MB) untuk diunggah manual ke subfolder itu. Beri link folder.
+2. Kirim ke user: MP4 + cover (SendUserFile) + caption (tempel di chat).
+3. Perbarui `STATUS.md` (2–3 baris, bukan paragraf).
+4. Commit + push ke cabang kerja (tanpa MP4/cover, sudah di `.gitignore`).
+5. **Buat PR ke `main` lalu merge sendiri** (`merge_pull_request`, izin user 9 Nov), supaya chat berikutnya mulai dari kondisi lengkap. Laporkan singkat: "sudah masuk main".
 
 ## Hemat token
 - Jangan baca JSON mentah, kode video lama, atau file yang tidak berubah; pakai `grep`/`sed -n`.

@@ -3,3 +3,7 @@ out/
 .DS_Store
 vo-pilihan/
 take-vo/
+
+# Hasil jadi disimpan di Google Drive, bukan GitHub (user 11 Nov 2026)
+video/*.mp4
+cover/*.png
