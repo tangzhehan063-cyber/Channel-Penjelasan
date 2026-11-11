@@ -12,7 +12,7 @@ Satu video = satu chat, ±8 langkah. **Satu chat hanya untuk repo ini.** Semua p
 
 ## 2. Naskah (1–3 WebSearch)
 - Baca `naskah/alur-naskah.md` + skill `naskah-viral` (sekali saja). Salin format `naskah/video-08-bunyi-tek-atap.md`.
-- Bahasa **sederhana, tanpa istilah teknis/tukang** (permintaan user). VO ≤105 kata (Riri ±2,2 kata/dtk ≈ 50 dtk).
+- Bahasa **sederhana, tanpa istilah teknis/tukang** (permintaan user). Durasi **fleksibel, naik bertahap** (user ingin menuju video panjang); patokan Riri ±2,2 kata/dtk. Naskah dari user tidak dipotong.
 - **Sutradara** (skill `sutradara`, bagian B+D): logline 1 kalimat, 1 momen khas di puncak, kolom shot list (framing, gerak kamera + alasan) di tabel beat.
 - Kirim teks TTS ke user dalam chat. Tunggu **ACC**.
 
@@ -30,8 +30,8 @@ Satu video = satu chat, ±8 langkah. **Satu chat hanya untuk repo ini.** Semua p
 
 ## 6. Cek → render
 - `tools/produksi.sh sheet` otomatis menjalankan `node tools/cek-sutradara.mjs <NN>` (ritme, kamera, waktu baca, jeda sunyi): GAGAL wajib diperbaiki.
-- `tools/produksi.sh sheet <NN> <8–10 detik penting>` → lihat 1 gambar, cocokkan dengan **`style/cek-bug.md`**, perbaiki, kirim sheet ke user.
-- User OK → `tools/produksi.sh final <NN> <slug>` (Bash `run_in_background`, ±20 mnt). **Jangan hentikan render** kecuali perubahan memang untuk video ini.
+- `tools/produksi.sh sheet <NN> <4–6 detik penting>` (putaran berikutnya cukup frame yang diubah) → lihat 1 gambar, cocokkan dengan **`style/cek-bug.md`**, perbaiki, kirim sheet ke user.
+- User OK → `tools/produksi.sh bagian <NN> <slug>` (Bash `run_in_background`): render per potongan 15 dtk tanpa suara, suara dicampur langsung oleh `tools/mix-audio.mjs` (detik, bukan menit), lalu −14 LUFS + SRT + QC. **Revisi = hapus `remotion/out/parts-vNN/pXX.mp4` yang berubah lalu jalankan ulang** (bagian lain dipakai lagi). `final` = cara lama render utuh.
 - Lihat sheet QC yang dicetak (1 gambar). `tools/produksi.sh cover <NN> <slug>`.
 
 ## 7. Distribusi (wajib, urut)

@@ -15,7 +15,7 @@ Dasar data: `riset/2026-11-08-bedah-10-video-viral.md` (10 video TikTok info rum
   - **REACH**: dibuka dengan cerita/keanehan/kisah nyata untuk mengejar views dan penonton baru. Data: video cerita dapat 14–22 jt views, tapi share rate cuma 0,1–0,2%.
   - **SHARE**: penjelasan "kenapa X terjadi" untuk mengejar share, save, dan follower. Data: share rate 0,6–1,0%, 4–9× lebih tinggi.
   - **HYBRID**: hook bergaya cerita/keanehan, isinya mekanisme teknis. Ini mode yang paling cocok dengan identitas channel.
-- **Durasi**: default 38–45 dtk sesuai alur. Boleh sampai 60 dtk HANYA kalau isinya daftar bernomor yang tiap beat-nya membawa lapisan baru (video 2 menit dengan 6 aturan tetap dapat like rate 8,8%).
+- **Durasi**: fleksibel. Mulai ±45 dtk, boleh naik bertahap ke video panjang (permintaan user 11 Nov). Makin panjang, makin wajib tiap beat membawa lapisan baru + umpan "tapi…" agar penonton bertahan.
 - Patokan tempo VO: ±2,5 kata per detik.
 
 ## Aturan tambahan per beat (dipetakan ke rumus 10 beat)
