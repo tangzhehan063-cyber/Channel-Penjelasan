@@ -133,8 +133,8 @@ export const Bills: React.FC<{p: V3; gray: number; coral: number; appear?: numbe
         let pos: V3 = [p[0] + jit(i) * 0.012, p[1] + 0.009 + lvl * BT + (1 - a) * 0.25, p[2] + jit(i + 7) * 0.012], s = 1, rot = jit(i + 3) * 0.035;
         const flyK = isC ? fly : flyGray, dest = isC ? to : toBank, order = isC ? j : g - 1 - j;
         if (flyK > 0) {
-          const k = Easing.inOut(Easing.cubic)(interpolate(flyK * 1.6 - order * 0.035, [0, 1], [0, 1], cl));
-          pos = [pos[0] + (dest[0] - pos[0]) * k, pos[1] + (dest[1] - pos[1]) * k + Math.sin(Math.PI * k) * 0.7, pos[2] + (dest[2] - pos[2]) * k]; s = 1 - k * 0.85; rot += k * 3;
+          const cnt = isC ? n - g : g, st = 0.45 / Math.max(1, cnt - 1), k = Easing.inOut(Easing.cubic)(interpolate(flyK * 1.45 - order * st, [0, 1], [0, 1], cl));
+          pos = [pos[0] + (dest[0] - pos[0]) * k, pos[1] + (dest[1] - pos[1]) * k + Math.sin(Math.PI * k) * 0.7, pos[2] + (dest[2] - pos[2]) * k]; s = 1 - k * 0.35; rot += k * 3;
           if (k >= 0.999) return null;
         }
         return (

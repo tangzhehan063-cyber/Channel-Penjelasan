@@ -9,7 +9,7 @@ import {AbsoluteFill, Easing, interpolate, Sequence, staticFile, useCurrentFrame
 import {Grain, PatternBreak, TikTokBox} from '../aset/Aset';
 import {PaperPlus, Kicker, CommentBubble, FollowButton} from '../aset/Gabung';
 import {Table} from '../v10/Tangga';
-import {House, Coins, Tower, Block, bricksAt, houseH, roofTop, CT, KT, BLUE} from './Kpr';
+import {House, Bills, Folders, Block, Bank, Envelope, Calendar, bankDoor, bricksAt, houseH, BT as CT, KT, BLUE} from './Kpr';
 import words from '../../public/v11/words.json';
 
 export const FPS = 30;
@@ -45,16 +45,18 @@ const B = {hook: 0, janji: 4.0, contoh: 7.12, split: 15.52, kenapa: 22.72, twist
 
 // posisi objek
 const HC: V3 = [0, 0.75, -1.0];          // tengah rumah
-const CP: V3 = [1.7, 0, -0.85];         // dasar tumpukan koin
-const TP: V3 = [-1.45, 0, -0.85];        // dasar menara utang
+const CP: V3 = [1.25, 0, -0.2];         // dasar tumpukan uang
+const TP: V3 = [-1.3, 0, 0.05];       // dasar tumpukan map kontrak
+const BANK: V3 = [-2.0, 0, -2.6], ENV: V3 = [1.3, 0, 0.35], CAL: V3 = [0.62, 0, -0.1];
+const DOOR: V3 = [BANK[0], 0.55, BANK[2] + 0.5];
 
 // ---------- kamera per adegan (shot list) ----------
-const CAM_HOOK: Key[] = [{t: 0.0, pos: [2.0, 2.3, 7.4], look: [0.1, 0.95, -1.0]}, {t: 4.2, pos: [1.4, 1.8, 5.5], look: [0.0, 0.9, -1.0]}];
-const CAM_JANJI: Key[] = [{t: 4.0, pos: [-2.6, 2.0, 5.0], look: [0, 0.9, -1.0]}, {t: 7.05, pos: [2.9, 2.1, 4.9], look: [0, 0.9, -1.0]}];
-const CAM_CONTOH: Key[] = [{t: 7.12, pos: [0.6, 5.0, 6.0], look: [0.5, 0.8, -1.0]}, {t: 15.45, pos: [0.9, 1.6, 7.6], look: [0.6, 0.95, -1.0]}];
-const CAM_SPLIT: Key[] = [{t: 15.52, pos: [2.75, 1.2, 2.5], look: [1.7, 0.5, -0.85]}, {t: 20.3, pos: [2.55, 1.15, 2.2], look: [1.7, 0.48, -0.85]}, {t: 22.65, pos: [1.6, 1.4, 4.0], look: [0.6, 0.45, -1.0]}];
-const CAM_KENAPA: Key[] = [{t: 22.72, pos: [-0.2, 2.0, 5.2], look: [-1.3, 1.05, -0.85]}, {t: 29.95, pos: [0.1, 2.6, 7.2], look: [-0.9, 1.1, -0.9]}];
-const CAM_TWIST: Key[] = [{t: 30.0, pos: [3.4, 1.7, 5.4], look: [1.6, 0.85, -0.85]}, {t: 37.0, pos: [2.9, 1.6, 4.4], look: [1.65, 0.8, -0.85]}, {t: 41.85, pos: [2.75, 1.5, 4.1], look: [1.65, 0.78, -0.85]}];
+const CAM_HOOK: Key[] = [{t: 0.0, pos: [2.0, 2.6, 7.6], look: [-0.1, 1.05, -1.3]}, {t: 4.0, pos: [1.4, 2.0, 5.8], look: [-0.1, 0.95, -1.2]}];
+const CAM_JANJI: Key[] = [{t: 4.0, pos: [-2.8, 2.3, 5.2], look: [-0.3, 1.0, -1.4]}, {t: 7.05, pos: [3.0, 2.3, 5.2], look: [0, 1.0, -1.3]}];
+const CAM_CONTOH: Key[] = [{t: 7.12, pos: [0.6, 5.2, 6.4], look: [0.3, 0.8, -1.0]}, {t: 12.6, pos: [1.3, 2.2, 6.6], look: [0.6, 0.8, -0.6]}, {t: 15.45, pos: [2.2, 1.4, 3.6], look: [1.2, 0.5, -0.1]}];
+const CAM_SPLIT: Key[] = [{t: 15.52, pos: [2.3, 1.2, 2.6], look: [1.25, 0.45, -0.2]}, {t: 17.4, pos: [2.2, 1.25, 2.8], look: [1.2, 0.45, -0.2]}, {t: 18.3, pos: [-0.6, 2.3, 2.8], look: [-2.0, 1.25, -2.4]}, {t: 19.7, pos: [-0.75, 2.2, 2.5], look: [-2.0, 1.2, -2.4]}, {t: 20.5, pos: [1.6, 2.3, 5.6], look: [-0.2, 0.6, -1.0]}, {t: 22.65, pos: [1.4, 2.2, 5.2], look: [-0.2, 0.6, -1.0]}];
+const CAM_KENAPA: Key[] = [{t: 22.72, pos: [-0.2, 1.9, 4.9], look: [-1.25, 0.7, -0.1]}, {t: 29.95, pos: [0.1, 2.5, 6.8], look: [-0.9, 0.85, -0.5]}];
+const CAM_TWIST: Key[] = [{t: 30.0, pos: [2.9, 1.7, 4.8], look: [1.2, 0.8, -0.2]}, {t: 37.0, pos: [2.4, 1.6, 3.8], look: [1.2, 0.75, -0.2]}, {t: 39.5, pos: [2.3, 1.55, 3.6], look: [1.2, 0.72, -0.2]}, {t: 40.3, pos: [-0.6, 2.3, 2.8], look: [-2.0, 1.25, -2.4]}, {t: 41.85, pos: [-0.75, 2.2, 2.5], look: [-2.0, 1.2, -2.4]}];
 const CAM_ANGKA: Key[] = [{t: 41.92, pos: [0.4, 0.8, 4.4], look: [0, 0.75, -1.0]}, {t: 48.65, pos: [0.7, 3.4, 6.3], look: [0, 0.95, -1.0]}];
 const CAM_PAY: Key[] = [{t: 48.72, pos: [1.4, 1.9, 5.2], look: [0.2, 0.9, -1.0]}, {t: 53.6, pos: [2.2, 2.5, 7.6], look: [0.3, 0.95, -1.0]}];
 const CAM_AKSI: Key[] = [{t: 53.68, pos: [-3.0, 2.2, 6.6], look: [-0.35, 1.3, -1.0]}, {t: 58.0, pos: [-2.3, 2.0, 6.0], look: [-0.3, 1.2, -1.0]}, {t: 67.45, pos: [-0.9, 1.9, 5.4], look: [0, 0.95, -1.0]}];
@@ -179,6 +181,9 @@ export const Video11: React.FC = () => {
   const appear = t < 12.8 ? 0 : r(t, 12.8, 14.6, Easing.linear);
   const fly = t >= 20.5 && t < 22.72 ? r(t, 20.5, 21.4, Easing.linear) : 0;
   const coinTo: V3 = [-0.77, 0.05, -0.95];
+  const sp = Easing.bezier(0.34, 1.28, 0.64, 1);
+  const calS = 0.85 * (r(t, 0, 0.3, sp) * (1 - r(t, 4.0, 4.3)) + r(t, 67.6, 68.0, sp));
+  const flyGray = t >= 17.9 && t < 22.72 ? r(t, 17.9, 19.5, Easing.linear) : t >= 39.7 && t < B.angka ? r(t, 39.7, 41.2, Easing.linear) : 0;
 
   // ---- menara utang & balok ----
   const towerS = r(t, 22.85, 23.5, Easing.bezier(0.34, 1.28, 0.64, 1)) * (1 - r(t, 29.7, 30.0));
@@ -191,8 +196,8 @@ export const Video11: React.FC = () => {
   const grayTop = proj(cam, [CP[0] + 0.2, gray * CT * 0.5, CP[2]]), coralMid = proj(cam, [CP[0] + 0.2, (gray + coral * 0.5) * CT, CP[2]]);
   const stackTop = proj(cam, [CP[0], (gray + coral) * CT + 0.12, CP[2]]);
   const brick1 = proj(cam, [-0.77, 0.25, -0.94]);
-  const showYear = (t < 4.2) || (t >= 7.5 && t < 15.4) || (t >= 30.4 && t < 34.2) || (t >= 42.0 && t < 48.6) || (t >= 54.0 && t < 60.3) || (t >= 67.6 && t < 72.5);
 
+  const showYear = calS < 0.05 && ((t >= 7.5 && t < 15.4) || (t >= 30.4 && t < 34.2) || (t >= 42.0 && t < 48.6) || (t >= 54.0 && t < 60.3));
   return (
     <AbsoluteFill>
       <PaperPlus />
@@ -201,8 +206,11 @@ export const Video11: React.FC = () => {
         <fog attach="fog" args={['#efece4', 10, 24]} />
         <Table />
         <House fill={fill} build={build} />
-        <Coins p={CP} gray={gray} coral={coral} appear={appear} fly={fly} to={coinTo} />
-        <Tower p={TP} h={towerH} s={towerS} />
+        <Bank p={BANK} s={1.15} />
+        <Envelope p={ENV} s={r(t, 12.6, 13.0, Easing.bezier(0.34, 1.28, 0.64, 1))} />
+        <Calendar s={calS} p={CAL} text={yearText(t)} sub={t < B.contoh ? 'separuh lunas' : undefined} done={t >= 70.6} />
+        <Bills p={CP} gray={gray} coral={coral} appear={appear} fly={fly} to={coinTo} flyGray={flyGray} toBank={DOOR} />
+        <Folders p={TP} h={towerH} s={towerS} />
         <Block p={[0.1, blockY, -0.45]} s={blockS} />
       </ThreeCanvas>
 
@@ -212,8 +220,8 @@ export const Video11: React.FC = () => {
       <AnswerBox p={r(t, 49.35, 49.6)} y={338} text="Karena bunga dari sisa utang ✓" />
 
       {/* kalender */}
-      {showYear && <Chip x={880} y={770} p={1} text={yearText(t)} size={38} color={t >= 70.6 ? SAGE : INK} solid={t >= 70.6} />}
 
+      {showYear && <Chip x={800} y={770} p={1} text={yearText(t)} size={38} />}
       {/* ---------- hook ---------- */}
       <Title t={t} a={0.08} b={4.2} small="10 tahun nyicil," big="BARU SEPARUH LUNAS" size={76} />
       <Chip x={legBank[0]} y={legBank[1]} p={r(t, 1.9, 2.3) * (1 - r(t, 5.6, 5.9))} text="abu: punya bank" size={34} color="#8a857a" />
@@ -228,14 +236,15 @@ export const Video11: React.FC = () => {
 
       {/* ---------- ke mana uangnya ---------- */}
       <Title t={t} a={B.split} b={19.6} small="Bayar bunga dulu" big="1,2 JUTA" bigColor={BLUE} size={150} />
-      <Chip x={grayTop[0] + 150} y={grayTop[1]} p={r(t, 16.7, 17.1) * (1 - r(t, 20.2, 20.5))} text="← bunga" size={40} color={BLUE} />
+      <Chip x={grayTop[0] + 150} y={grayTop[1]} p={r(t, 16.7, 17.1) * (1 - r(t, 17.5, 17.8))} text="← bunga" size={40} color={BLUE} />
       <Title t={t} a={19.68} b={B.kenapa} small="Yang jadi rumah" big="1,7 JUTA" size={150} />
-      <Chip x={coralMid[0] + 150} y={coralMid[1]} p={r(t, 19.75, 20.1) * (1 - r(t, 20.4, 20.6))} text="← rumah" size={40} color={CORAL} />
+      <Chip x={540} y={1250} p={r(t, 18.3, 18.6) * (1 - r(t, 19.5, 19.7))} text="bunga masuk ke bank" size={40} color={BLUE} />
+      <Chip x={540} y={1250} p={r(t, 19.75, 20.1) * (1 - r(t, 22.3, 22.6))} text="sisanya jadi rumah" size={40} color={CORAL} />
       <Chip x={brick1[0]} y={brick1[1] - 70} p={r(t, 21.45, 21.8) * (1 - r(t, 22.4, 22.7))} text="+1 bata" size={40} color={CORAL} />
 
       {/* ---------- kenapa ---------- */}
       <Title t={t} a={B.kenapa} b={B.twist} small="Bunga dihitung dari" big="SISA UTANG" size={120} />
-      <Chip x={540} y={1250} p={r(t, 23.3, 23.7) * (1 - r(t, 27.0, 27.3))} text="sisa utang 400 jt" size={40} color={BLUE} />
+      <Chip x={540} y={1250} p={r(t, 23.3, 23.7) * (1 - r(t, 27.0, 27.3))} text="map utang: 400 jt" size={40} color={BLUE} />
       <Chip x={540} y={1250} p={r(t, 27.4, 27.8) * (1 - r(t, 29.5, 29.9))} text="utang turun → bunga turun" size={40} color={BLUE} />
 
       {/* ---------- twist ---------- */}
