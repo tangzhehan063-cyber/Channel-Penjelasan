@@ -11,6 +11,8 @@ import {Video08, V08_FRAMES} from './v08/Video08';
 import {Cover08} from './v08/Cover08';
 import {Video09, V09_FRAMES} from './v09/Video09';
 import {Cover09} from './v09/Cover09';
+import {Video10, V10_FRAMES} from './v10/Video10';
+import {Cover10} from './v10/Cover10';
 import {AsetDemo} from './aset/AsetDemo';
 import {GerakDemo} from './aset/GerakDemo';
 import {GabungDemo} from './aset/GabungDemo';
@@ -25,6 +27,8 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="Video08" component={Video08} durationInFrames={V08_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Cover09" component={Cover09} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Video09" component={Video09} durationInFrames={V09_FRAMES} fps={30} width={1080} height={1920} />
+  <Composition id="Video10" component={Video10} durationInFrames={V10_FRAMES} fps={30} width={1080} height={1920} />
+  <Composition id="Cover10" component={Cover10} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Video07" component={Video07} durationInFrames={V07_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Video06" component={Video06} durationInFrames={V06_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Video05" component={Video05} durationInFrames={V05_FRAMES} fps={30} width={1080} height={1920} />

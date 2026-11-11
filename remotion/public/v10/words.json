@@ -1,0 +1,839 @@
+{
+"words": [
+{
+"word": "Pernah",
+"start": 0.0,
+"end": 0.24
+},
+{
+"word": "dengar",
+"start": 0.32,
+"end": 0.72
+},
+{
+"word": "kalau",
+"start": 0.8,
+"end": 0.96
+},
+{
+"word": "anak",
+"start": 1.04,
+"end": 1.2
+},
+{
+"word": "tangga",
+"start": 1.28,
+"end": 1.52
+},
+{
+"word": "harus",
+"start": 1.6,
+"end": 1.84
+},
+{
+"word": "ganjil",
+"start": 1.92,
+"end": 2.4
+},
+{
+"word": "supaya",
+"start": 2.48,
+"end": 2.8
+},
+{
+"word": "nggak",
+"start": 2.84,
+"end": 2.96
+},
+{
+"word": "membawa",
+"start": 3.0,
+"end": 3.36
+},
+{
+"word": "sial?",
+"start": 3.44,
+"end": 3.84
+},
+{
+"word": "Ternyata,",
+"start": 4.32,
+"end": 5.12
+},
+{
+"word": "ada",
+"start": 5.2,
+"end": 5.44
+},
+{
+"word": "alasan",
+"start": 5.52,
+"end": 5.84
+},
+{
+"word": "lain",
+"start": 5.92,
+"end": 6.16
+},
+{
+"word": "di",
+"start": 6.2,
+"end": 6.24
+},
+{
+"word": "baliknya.",
+"start": 6.32,
+"end": 6.88
+},
+{
+"word": "Dulu,",
+"start": 7.44,
+"end": 8.0
+},
+{
+"word": "jumlah",
+"start": 8.08,
+"end": 8.4
+},
+{
+"word": "anak",
+"start": 8.44,
+"end": 8.64
+},
+{
+"word": "tangga",
+"start": 8.72,
+"end": 9.04
+},
+{
+"word": "memang",
+"start": 9.12,
+"end": 9.36
+},
+{
+"word": "sering",
+"start": 9.44,
+"end": 9.68
+},
+{
+"word": "dihitung",
+"start": 9.72,
+"end": 10.16
+},
+{
+"word": "dengan",
+"start": 10.24,
+"end": 10.4
+},
+{
+"word": "pola",
+"start": 10.48,
+"end": 10.72
+},
+{
+"word": "tertentu.",
+"start": 10.8,
+"end": 11.44
+},
+{
+"word": "Salah",
+"start": 11.84,
+"end": 12.04
+},
+{
+"word": "satu",
+"start": 12.08,
+"end": 12.24
+},
+{
+"word": "kepercayaannya,",
+"start": 12.32,
+"end": 13.52
+},
+{
+"word": "jumlah",
+"start": 13.68,
+"end": 13.84
+},
+{
+"word": "ganjil",
+"start": 13.92,
+"end": 14.4
+},
+{
+"word": "membuat",
+"start": 14.48,
+"end": 14.8
+},
+{
+"word": "kaki",
+"start": 14.88,
+"end": 15.2
+},
+{
+"word": "yang",
+"start": 15.28,
+"end": 15.36
+},
+{
+"word": "mulai",
+"start": 15.44,
+"end": 15.6
+},
+{
+"word": "melangkah",
+"start": 15.68,
+"end": 16.16
+},
+{
+"word": "menjadi",
+"start": 16.24,
+"end": 16.56
+},
+{
+"word": "kaki",
+"start": 16.64,
+"end": 16.96
+},
+{
+"word": "yang",
+"start": 17.04,
+"end": 17.12
+},
+{
+"word": "sama",
+"start": 17.28,
+"end": 17.6
+},
+{
+"word": "saat",
+"start": 17.68,
+"end": 17.92
+},
+{
+"word": "tiba",
+"start": 18.0,
+"end": 18.24
+},
+{
+"word": "di",
+"start": 18.32,
+"end": 18.4
+},
+{
+"word": "lantai",
+"start": 18.453,
+"end": 18.64
+},
+{
+"word": "atas.",
+"start": 18.72,
+"end": 19.28
+},
+{
+"word": "Makanya,",
+"start": 19.68,
+"end": 20.4
+},
+{
+"word": "tangga",
+"start": 20.44,
+"end": 20.72
+},
+{
+"word": "ganjil",
+"start": 20.8,
+"end": 21.2
+},
+{
+"word": "dianggap",
+"start": 21.28,
+"end": 21.6
+},
+{
+"word": "lebih",
+"start": 21.68,
+"end": 21.84
+},
+{
+"word": "pas.",
+"start": 21.92,
+"end": 22.6
+},
+{
+"word": "Tapi",
+"start": 22.88,
+"end": 23.12
+},
+{
+"word": "sebenarnya,",
+"start": 23.2,
+"end": 24.0
+},
+{
+"word": "ada",
+"start": 24.12,
+"end": 24.24
+},
+{
+"word": "hal",
+"start": 24.32,
+"end": 24.48
+},
+{
+"word": "yang",
+"start": 24.56,
+"end": 24.64
+},
+{
+"word": "jauh",
+"start": 24.88,
+"end": 25.16
+},
+{
+"word": "lebih",
+"start": 25.2,
+"end": 25.44
+},
+{
+"word": "penting",
+"start": 25.56,
+"end": 25.76
+},
+{
+"word": "daripada",
+"start": 25.84,
+"end": 26.24
+},
+{
+"word": "jumlah",
+"start": 26.32,
+"end": 26.64
+},
+{
+"word": "anak",
+"start": 26.68,
+"end": 26.88
+},
+{
+"word": "tangga.",
+"start": 26.92,
+"end": 27.36
+},
+{
+"word": "Yaitu...",
+"start": 27.76,
+"end": 28.72
+},
+{
+"word": "tinggi",
+"start": 28.88,
+"end": 29.12
+},
+{
+"word": "setiap",
+"start": 29.2,
+"end": 29.68
+},
+{
+"word": "anak",
+"start": 29.76,
+"end": 29.92
+},
+{
+"word": "tangganya.",
+"start": 29.96,
+"end": 30.8
+},
+{
+"word": "Tubuh",
+"start": 31.12,
+"end": 31.36
+},
+{
+"word": "kita",
+"start": 31.44,
+"end": 31.76
+},
+{
+"word": "terbiasa",
+"start": 31.84,
+"end": 32.32
+},
+{
+"word": "menghafal",
+"start": 32.36,
+"end": 32.88
+},
+{
+"word": "ritme",
+"start": 32.96,
+"end": 33.36
+},
+{
+"word": "saat",
+"start": 33.44,
+"end": 33.68
+},
+{
+"word": "menaiki",
+"start": 33.72,
+"end": 34.08
+},
+{
+"word": "tangga.",
+"start": 34.16,
+"end": 34.56
+},
+{
+"word": "Kalau",
+"start": 35.04,
+"end": 35.28
+},
+{
+"word": "satu",
+"start": 35.36,
+"end": 35.6
+},
+{
+"word": "anak",
+"start": 35.68,
+"end": 35.84
+},
+{
+"word": "tangga",
+"start": 35.92,
+"end": 36.16
+},
+{
+"word": "saja",
+"start": 36.2,
+"end": 36.48
+},
+{
+"word": "lebih",
+"start": 36.52,
+"end": 36.72
+},
+{
+"word": "tinggi",
+"start": 36.8,
+"end": 37.2
+},
+{
+"word": "atau",
+"start": 37.36,
+"end": 37.56
+},
+{
+"word": "lebih",
+"start": 37.6,
+"end": 37.76
+},
+{
+"word": "rendah",
+"start": 37.84,
+"end": 38.16
+},
+{
+"word": "dari",
+"start": 38.2,
+"end": 38.32
+},
+{
+"word": "yang",
+"start": 38.4,
+"end": 38.48
+},
+{
+"word": "lain,",
+"start": 38.56,
+"end": 39.2
+},
+{
+"word": "langkah",
+"start": 39.28,
+"end": 39.68
+},
+{
+"word": "bisa",
+"start": 39.72,
+"end": 39.92
+},
+{
+"word": "langsung",
+"start": 40.08,
+"end": 40.4
+},
+{
+"word": "terganggu.",
+"start": 40.48,
+"end": 41.12
+},
+{
+"word": "Itulah",
+"start": 41.52,
+"end": 41.92
+},
+{
+"word": "yang",
+"start": 42.0,
+"end": 42.08
+},
+{
+"word": "bisa",
+"start": 42.16,
+"end": 42.32
+},
+{
+"word": "membuat",
+"start": 42.4,
+"end": 42.64
+},
+{
+"word": "kita",
+"start": 42.72,
+"end": 42.88
+},
+{
+"word": "tersandung.",
+"start": 42.96,
+"end": 43.68
+},
+{
+"word": "Idealnya,",
+"start": 44.24,
+"end": 45.2
+},
+{
+"word": "tinggi",
+"start": 45.32,
+"end": 45.52
+},
+{
+"word": "anak",
+"start": 45.6,
+"end": 45.76
+},
+{
+"word": "tangga",
+"start": 45.84,
+"end": 46.16
+},
+{
+"word": "sekitar",
+"start": 46.24,
+"end": 46.56
+},
+{
+"word": "15",
+"start": 46.64,
+"end": 47.12
+},
+{
+"word": "sampai",
+"start": 47.28,
+"end": 47.52
+},
+{
+"word": "18",
+"start": 47.6,
+"end": 48.187
+},
+{
+"word": "sentimeter,",
+"start": 48.293,
+"end": 49.04
+},
+{
+"word": "dengan",
+"start": 49.2,
+"end": 49.44
+},
+{
+"word": "lebar",
+"start": 49.52,
+"end": 49.76
+},
+{
+"word": "pijakan",
+"start": 49.84,
+"end": 50.32
+},
+{
+"word": "25",
+"start": 50.48,
+"end": 51.12
+},
+{
+"word": "sampai",
+"start": 51.28,
+"end": 51.68
+},
+{
+"word": "30",
+"start": 51.72,
+"end": 52.16
+},
+{
+"word": "sentimeter.",
+"start": 52.24,
+"end": 53.36
+},
+{
+"word": "Jadi,",
+"start": 53.52,
+"end": 54.0
+},
+{
+"word": "kalau",
+"start": 54.08,
+"end": 54.24
+},
+{
+"word": "sedang",
+"start": 54.32,
+"end": 54.56
+},
+{
+"word": "membangun",
+"start": 54.6,
+"end": 54.96
+},
+{
+"word": "rumah,",
+"start": 55.04,
+"end": 55.68
+},
+{
+"word": "pastikan",
+"start": 55.8,
+"end": 56.24
+},
+{
+"word": "semua",
+"start": 56.32,
+"end": 56.72
+},
+{
+"word": "anak",
+"start": 56.8,
+"end": 57.04
+},
+{
+"word": "tangga",
+"start": 57.12,
+"end": 57.44
+},
+{
+"word": "memiliki",
+"start": 57.52,
+"end": 57.92
+},
+{
+"word": "ukuran",
+"start": 58.0,
+"end": 58.4
+},
+{
+"word": "yang",
+"start": 58.48,
+"end": 58.56
+},
+{
+"word": "konsisten.",
+"start": 58.6,
+"end": 59.28
+},
+{
+"word": "Bahkan",
+"start": 59.68,
+"end": 60.16
+},
+{
+"word": "anak",
+"start": 60.24,
+"end": 60.4
+},
+{
+"word": "tangga",
+"start": 60.48,
+"end": 60.72
+},
+{
+"word": "paling",
+"start": 60.88,
+"end": 61.2
+},
+{
+"word": "atas",
+"start": 61.36,
+"end": 61.52
+},
+{
+"word": "pun",
+"start": 61.64,
+"end": 61.76
+},
+{
+"word": "jangan",
+"start": 61.92,
+"end": 62.24
+},
+{
+"word": "sampai",
+"start": 62.32,
+"end": 62.56
+},
+{
+"word": "berbeda.",
+"start": 62.64,
+"end": 63.12
+},
+{
+"word": "Sekarang",
+"start": 63.76,
+"end": 64.24
+},
+{
+"word": "coba",
+"start": 64.4,
+"end": 64.64
+},
+{
+"word": "ingat-ingat",
+"start": 64.72,
+"end": 65.12
+},
+{
+"word": "tangga",
+"start": 65.2,
+"end": 65.44
+},
+{
+"word": "di",
+"start": 65.48,
+"end": 65.52
+},
+{
+"word": "rumahmu.",
+"start": 65.6,
+"end": 66.16
+},
+{
+"word": "Jumlahnya",
+"start": 66.48,
+"end": 66.96
+},
+{
+"word": "ganjil",
+"start": 67.04,
+"end": 67.52
+},
+{
+"word": "atau",
+"start": 67.68,
+"end": 67.88
+},
+{
+"word": "genap?",
+"start": 67.92,
+"end": 68.4
+},
+{
+"word": "Tulis",
+"start": 68.72,
+"end": 68.96
+},
+{
+"word": "di",
+"start": 69.04,
+"end": 69.12
+},
+{
+"word": "komentar,",
+"start": 69.227,
+"end": 69.68
+},
+{
+"word": "ya.",
+"start": 69.76,
+"end": 70.04
+},
+{
+"word": "Siapa",
+"start": 70.24,
+"end": 70.56
+},
+{
+"word": "tahu",
+"start": 70.6,
+"end": 70.96
+},
+{
+"word": "kita",
+"start": 71.04,
+"end": 71.2
+},
+{
+"word": "bisa",
+"start": 71.28,
+"end": 71.44
+},
+{
+"word": "menemukan",
+"start": 71.48,
+"end": 71.92
+},
+{
+"word": "pola",
+"start": 72.0,
+"end": 72.24
+},
+{
+"word": "menarik",
+"start": 72.32,
+"end": 72.72
+},
+{
+"word": "dari",
+"start": 72.76,
+"end": 72.96
+},
+{
+"word": "rumah",
+"start": 73.04,
+"end": 73.2
+},
+{
+"word": "kalian!",
+"start": 73.28,
+"end": 74.04
+},
+{
+"word": "Follow",
+"start": 74.32,
+"end": 74.72
+},
+{
+"word": "buat",
+"start": 74.8,
+"end": 74.96
+},
+{
+"word": "fakta",
+"start": 75.12,
+"end": 75.36
+},
+{
+"word": "rumah",
+"start": 75.44,
+"end": 75.76
+},
+{
+"word": "berikutnya!",
+"start": 75.84,
+"end": 76.8
+}
+]
+}
