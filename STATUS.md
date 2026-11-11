@@ -14,7 +14,7 @@
 - **Setiap video selesai: PR ke `main` lalu Claude langsung merge sendiri (izin user 9 Nov).** User bukan programmer; laporan cukup "sudah masuk main".
 - **Durasi fleksibel, naik bertahap ke video panjang** (11 Nov); naskah dari user dipakai apa adanya.
 - Bahasa naskah **sederhana, tanpa istilah teknis**. Bahasa Indonesia; suka saran "out of the box".
-- VO tidak diolah (tanpa potong jeda/tempo); animasi mengikuti VO.
+- VO tidak diolah (tanpa potong jeda/tempo); animasi mengikuti VO. **VO cukup 1 take** (hemat kredit ElevenLabs, 11 Nov).
 - Visual **kontras/tegas**, objek halus membulat. Posisi subtitle (top 1400) sudah ACC, jangan diubah.
 - Selalu caption + cover setelah video. Caption & komentar pertama berbahasa manusia (`caption/gaya-caption.md`), tanpa gaya AI.
 - **Pindah fokus ke YouTube (11 Nov)**: riset & paket upload utama di YouTube Shorts; output ringkas.

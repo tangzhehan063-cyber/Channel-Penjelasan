@@ -1,0 +1,699 @@
+{
+"words": [
+{
+"word": "10",
+"start": 0.0,
+"end": 0.4
+},
+{
+"word": "tahun",
+"start": 0.48,
+"end": 0.72
+},
+{
+"word": "nyicil",
+"start": 0.76,
+"end": 1.04
+},
+{
+"word": "rumah,",
+"start": 1.12,
+"end": 1.84
+},
+{
+"word": "ternyata",
+"start": 1.92,
+"end": 2.32
+},
+{
+"word": "baru",
+"start": 2.44,
+"end": 2.56
+},
+{
+"word": "separuh",
+"start": 2.68,
+"end": 3.12
+},
+{
+"word": "yang",
+"start": 3.2,
+"end": 3.28
+},
+{
+"word": "lunas.",
+"start": 3.36,
+"end": 4.04
+},
+{
+"word": "Bukan",
+"start": 4.24,
+"end": 4.48
+},
+{
+"word": "bank",
+"start": 4.56,
+"end": 4.72
+},
+{
+"word": "curang.",
+"start": 4.8,
+"end": 5.44
+},
+{
+"word": "Ini",
+"start": 5.6,
+"end": 5.84
+},
+{
+"word": "cara",
+"start": 5.88,
+"end": 6.08
+},
+{
+"word": "hitungnya.",
+"start": 6.16,
+"end": 6.88
+},
+{
+"word": "Misal",
+"start": 7.12,
+"end": 7.6
+},
+{
+"word": "pinjam",
+"start": 7.84,
+"end": 8.24
+},
+{
+"word": "400 juta,",
+"start": 8.32,
+"end": 9.44
+},
+{
+"word": "15",
+"start": 9.48,
+"end": 9.76
+},
+{
+"word": "tahun.",
+"start": 9.92,
+"end": 10.52
+},
+{
+"word": "Tiga",
+"start": 10.72,
+"end": 10.88
+},
+{
+"word": "tahun",
+"start": 11.04,
+"end": 11.2
+},
+{
+"word": "pertama",
+"start": 11.28,
+"end": 11.68
+},
+{
+"word": "bunga",
+"start": 11.76,
+"end": 12.0
+},
+{
+"word": "promo.",
+"start": 12.08,
+"end": 12.56
+},
+{
+"word": "Cicilannya",
+"start": 12.8,
+"end": 13.44
+},
+{
+"word": "2,9 juta.",
+"start": 13.6,
+"end": 13.84
+},
+{
+"word": "Tapi",
+"start": 15.52,
+"end": 15.68
+},
+{
+"word": "dari",
+"start": 15.76,
+"end": 15.92
+},
+{
+"word": "situ,",
+"start": 16.0,
+"end": 16.56
+},
+{
+"word": "1,2 juta",
+"start": 16.64,
+"end": 16.88
+},
+{
+"word": "dibayar",
+"start": 17.76,
+"end": 18.32
+},
+{
+"word": "buat",
+"start": 18.44,
+"end": 18.56
+},
+{
+"word": "bunga",
+"start": 18.64,
+"end": 18.8
+},
+{
+"word": "dulu.",
+"start": 18.88,
+"end": 19.28
+},
+{
+"word": "Yang",
+"start": 19.68,
+"end": 19.84
+},
+{
+"word": "beneran",
+"start": 19.88,
+"end": 20.16
+},
+{
+"word": "jadi",
+"start": 20.24,
+"end": 20.4
+},
+{
+"word": "rumah,",
+"start": 20.48,
+"end": 21.04
+},
+{
+"word": "1,7 juta.",
+"start": 21.12,
+"end": 21.36
+},
+{
+"word": "Kenapa?",
+"start": 22.72,
+"end": 23.48
+},
+{
+"word": "Bunga",
+"start": 23.76,
+"end": 24.16
+},
+{
+"word": "dihitung",
+"start": 24.24,
+"end": 24.64
+},
+{
+"word": "dari",
+"start": 24.72,
+"end": 24.88
+},
+{
+"word": "sisa",
+"start": 25.04,
+"end": 25.36
+},
+{
+"word": "utang.",
+"start": 25.44,
+"end": 25.92
+},
+{
+"word": "Awal-awal",
+"start": 26.24,
+"end": 26.8
+},
+{
+"word": "utangmu",
+"start": 26.88,
+"end": 27.2
+},
+{
+"word": "masih",
+"start": 27.28,
+"end": 27.44
+},
+{
+"word": "gede,",
+"start": 27.52,
+"end": 28.08
+},
+{
+"word": "bunganya",
+"start": 28.2,
+"end": 28.64
+},
+{
+"word": "ikut",
+"start": 28.72,
+"end": 28.96
+},
+{
+"word": "gede.",
+"start": 29.08,
+"end": 29.44
+},
+{
+"word": "Nah,",
+"start": 30.0,
+"end": 30.4
+},
+{
+"word": "tahun",
+"start": 30.52,
+"end": 30.64
+},
+{
+"word": "keempat",
+"start": 30.72,
+"end": 31.12
+},
+{
+"word": "promo",
+"start": 31.28,
+"end": 31.6
+},
+{
+"word": "habis.",
+"start": 31.68,
+"end": 32.24
+},
+{
+"word": "Bunga",
+"start": 32.48,
+"end": 32.8
+},
+{
+"word": "naik",
+"start": 32.88,
+"end": 33.12
+},
+{
+"word": "ke",
+"start": 33.2,
+"end": 33.24
+},
+{
+"word": "11",
+"start": 33.28,
+"end": 33.52
+},
+{
+"word": "persen.",
+"start": 33.6,
+"end": 34.08
+},
+{
+"word": "Cicilan",
+"start": 34.4,
+"end": 34.88
+},
+{
+"word": "jadi",
+"start": 34.96,
+"end": 35.12
+},
+{
+"word": "4,2 juta.",
+"start": 35.28,
+"end": 35.52
+},
+{
+"word": "Naik,",
+"start": 37.04,
+"end": 37.52
+},
+{
+"word": "tapi",
+"start": 37.6,
+"end": 37.84
+},
+{
+"word": "yang",
+"start": 37.88,
+"end": 37.92
+},
+{
+"word": "jadi",
+"start": 38.0,
+"end": 38.16
+},
+{
+"word": "rumah",
+"start": 38.24,
+"end": 38.56
+},
+{
+"word": "malah",
+"start": 38.64,
+"end": 38.8
+},
+{
+"word": "turun.",
+"start": 38.88,
+"end": 39.48
+},
+{
+"word": "Tinggal",
+"start": 39.6,
+"end": 39.84
+},
+{
+"word": "1,1 juta.",
+"start": 40.0,
+"end": 40.24
+},
+{
+"word": "Makanya",
+"start": 41.92,
+"end": 42.48
+},
+{
+"word": "separuh",
+"start": 42.56,
+"end": 42.96
+},
+{
+"word": "rumah",
+"start": 43.04,
+"end": 43.28
+},
+{
+"word": "baru",
+"start": 43.44,
+"end": 43.6
+},
+{
+"word": "jadi",
+"start": 43.68,
+"end": 43.84
+},
+{
+"word": "milikmu",
+"start": 43.92,
+"end": 44.32
+},
+{
+"word": "di",
+"start": 44.36,
+"end": 44.4
+},
+{
+"word": "tahun",
+"start": 44.48,
+"end": 44.64
+},
+{
+"word": "kesepuluh.",
+"start": 44.72,
+"end": 45.36
+},
+{
+"word": "Total",
+"start": 45.76,
+"end": 46.0
+},
+{
+"word": "bunganya",
+"start": 46.08,
+"end": 46.56
+},
+{
+"word": "sekitar",
+"start": 46.64,
+"end": 46.96
+},
+{
+"word": "300 juta.",
+"start": 47.12,
+"end": 48.16
+},
+{
+"word": "Jadi",
+"start": 48.72,
+"end": 49.12
+},
+{
+"word": "yang",
+"start": 49.28,
+"end": 49.36
+},
+{
+"word": "bikin",
+"start": 49.44,
+"end": 49.68
+},
+{
+"word": "KPR",
+"start": 49.76,
+"end": 50.24
+},
+{
+"word": "mahal",
+"start": 50.36,
+"end": 50.72
+},
+{
+"word": "bukan",
+"start": 50.8,
+"end": 51.04
+},
+{
+"word": "cicilannya,",
+"start": 51.08,
+"end": 52.0
+},
+{
+"word": "tapi",
+"start": 52.107,
+"end": 52.32
+},
+{
+"word": "lamanya.",
+"start": 52.4,
+"end": 53.2
+},
+{
+"word": "Punya",
+"start": 53.68,
+"end": 53.84
+},
+{
+"word": "uang",
+"start": 53.92,
+"end": 54.08
+},
+{
+"word": "lebih,",
+"start": 54.16,
+"end": 54.64
+},
+{
+"word": "misal",
+"start": 54.76,
+"end": 55.04
+},
+{
+"word": "20 juta?",
+"start": 55.12,
+"end": 55.84
+},
+{
+"word": "Setor",
+"start": 56.16,
+"end": 56.56
+},
+{
+"word": "pas",
+"start": 56.64,
+"end": 56.72
+},
+{
+"word": "promo",
+"start": 56.8,
+"end": 57.04
+},
+{
+"word": "habis.",
+"start": 57.16,
+"end": 57.6
+},
+{
+"word": "Minta",
+"start": 57.84,
+"end": 58.08
+},
+{
+"word": "cicilan",
+"start": 58.12,
+"end": 58.48
+},
+{
+"word": "tetap,",
+"start": 58.6,
+"end": 59.04
+},
+{
+"word": "waktunya",
+"start": 59.08,
+"end": 59.44
+},
+{
+"word": "dipotong.",
+"start": 59.52,
+"end": 60.16
+},
+{
+"word": "Bunganya",
+"start": 60.48,
+"end": 60.88
+},
+{
+"word": "hemat",
+"start": 61.0,
+"end": 61.28
+},
+{
+"word": "hampir",
+"start": 61.32,
+"end": 61.68
+},
+{
+"word": "50 juta.",
+"start": 61.76,
+"end": 62.88
+},
+{
+"word": "Tanya",
+"start": 63.2,
+"end": 63.44
+},
+{
+"word": "dulu",
+"start": 63.52,
+"end": 63.76
+},
+{
+"word": "dendanya",
+"start": 63.84,
+"end": 64.16
+},
+{
+"word": "ke",
+"start": 64.24,
+"end": 64.32
+},
+{
+"word": "bank.",
+"start": 64.4,
+"end": 65.0
+},
+{
+"word": "Yang",
+"start": 65.2,
+"end": 65.28
+},
+{
+"word": "baru",
+"start": 65.36,
+"end": 65.52
+},
+{
+"word": "mau",
+"start": 65.6,
+"end": 65.76
+},
+{
+"word": "akad,",
+"start": 65.88,
+"end": 66.32
+},
+{
+"word": "hitung",
+"start": 66.4,
+"end": 66.56
+},
+{
+"word": "ini",
+"start": 66.64,
+"end": 66.8
+},
+{
+"word": "dulu.",
+"start": 66.84,
+"end": 67.36
+},
+{
+"word": "Cicilan",
+"start": 67.52,
+"end": 67.84
+},
+{
+"word": "rumahmu",
+"start": 67.92,
+"end": 68.32
+},
+{
+"word": "masih",
+"start": 68.4,
+"end": 68.56
+},
+{
+"word": "promo,",
+"start": 68.8,
+"end": 69.2
+},
+{
+"word": "atau",
+"start": 69.36,
+"end": 69.6
+},
+{
+"word": "sudah",
+"start": 69.68,
+"end": 69.92
+},
+{
+"word": "naik?",
+"start": 70.0,
+"end": 70.4
+},
+{
+"word": "Follow",
+"start": 70.8,
+"end": 71.2
+},
+{
+"word": "buat",
+"start": 71.28,
+"end": 71.44
+},
+{
+"word": "fakta",
+"start": 71.52,
+"end": 71.84
+},
+{
+"word": "rumah",
+"start": 71.92,
+"end": 72.16
+},
+{
+"word": "berikutnya!",
+"start": 72.24,
+"end": 73.2
+}
+]
+}
