@@ -43,7 +43,8 @@ header { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; ju
 .pill.warn .dot { background: var(--coral); }
 
 .grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 18px; align-items: start; }
-@media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+.grid2 { grid-template-columns: 1fr 1fr; }
+@media (max-width: 860px) { .grid, .grid2 { grid-template-columns: 1fr; } }
 .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; display: grid; gap: 14px; }
 .card h2 { font-size: 17px; font-weight: 800; }
 .muted { color: var(--sub); font-size: 13px; }
@@ -128,10 +129,7 @@ input[type=file] { font-size: 13px; }
       <span class="kicker" id="kick">fakta rumah · panel produksi</span>
       <h1 id="h1">Studio Fakta Rumah</h1>
     </div>
-    <div class="tabs" role="tablist" aria-label="Pilih channel">
-      <button type="button" role="tab" id="tab-fr" data-ch="fr" aria-selected="true">Fakta Rumah</button>
-      <button type="button" role="tab" id="tab-raka" data-ch="raka" aria-selected="false">RAKA</button>
-    </div>
+    <div class="tabs" role="tablist" aria-label="Pilih channel" id="tabs"></div>
     <span class="pill" id="conn"><span class="dot"></span><span id="connText">Memeriksa sambungan ke Claude…</span></span>
   </header>
 
@@ -160,6 +158,9 @@ input[type=file] { font-size: 13px; }
     <div style="display:grid; gap:18px;">
       <section class="card" aria-labelledby="newH">
         <h2 id="newH">Mulai video baru</h2>
+        <div><label for="fwSel" class="muted">Framework berpikir untuk video berikutnya</label>
+          <select id="fwSel" style="width:100%"></select>
+          <div class="muted" id="fwDesc" style="margin-top:6px"></div></div>
         <div class="ideas" id="ideas"><span class="muted">Memuat ide…</span></div>
         <label for="ownTopic" class="muted">Atau tulis topik / tempel naskah sendiri</label>
         <textarea id="ownTopic" maxlength="3500" placeholder="Contoh: DP 0% bikin cicilan berapa lama?"></textarea>
@@ -187,6 +188,31 @@ input[type=file] { font-size: 13px; }
     <div class="refs" id="refs"><span class="muted">Belum ada referensi.</span></div>
   </section>
 
+  <div class="grid grid2">
+    <section class="card" aria-labelledby="fwH">
+      <h2 id="fwH">Framework channel ini</h2>
+      <div class="ideas" id="fwList"></div>
+      <form id="fwForm" style="display:grid; gap:8px">
+        <label for="fwNama" class="muted">Tambah framework baru</label>
+        <input type="text" id="fwNama" maxlength="80" placeholder="Nama, misal: Cerita 3 babak ala dongeng">
+        <textarea id="fwIsi" maxlength="3500" placeholder="Tulis aturan/langkahnya, atau unggah file di bawah"></textarea>
+        <input type="file" id="fwFile" accept="application/pdf,text/markdown,text/plain,.md,.txt" aria-label="File framework">
+        <div class="row"><button class="btn" type="submit" id="fwSave">Simpan framework</button></div>
+      </form>
+    </section>
+    <section class="card" aria-labelledby="chH">
+      <h2 id="chH">Tambah channel</h2>
+      <form id="chForm" style="display:grid; gap:8px">
+        <label for="chNama" class="muted">Nama channel</label><input type="text" id="chNama" maxlength="40" placeholder="Misal: Dapur Sains">
+        <label for="chRepo" class="muted">Repo GitHub (pemilik/nama)</label><input type="text" id="chRepo" maxlength="100" placeholder="tangzhehan063-cyber/nama-repo">
+        <label for="chSteps" class="muted">Tahap kerja, pisahkan dengan koma (kosongkan = bawaan)</label><input type="text" id="chSteps" maxlength="300" placeholder="Ide, Naskah, Suara, Animasi, Cek gambar, Render, Distribusi, Selesai">
+        <label for="chDrive" class="muted">Folder Google Drive (opsional)</label><input type="text" id="chDrive" maxlength="300" placeholder="https://drive.google.com/…">
+        <div class="row"><button class="btn coral" type="submit" id="chSave">Tambah channel</button></div>
+        <span class="muted">Claude akan meng-clone repo dan membaca cara kerjanya saat perintah pertama dari tab itu.</span>
+      </form>
+    </section>
+  </div>
+
   <section class="card" aria-labelledby="allH">
     <div class="row" style="justify-content:space-between">
       <h2 id="allH">Semua video</h2>
@@ -210,17 +236,19 @@ input[type=file] { font-size: 13px; }
 <script>
 /* Dua channel dalam satu panel. Koleksi Fakta Rumah: aktif, videos, ide, log, ref.
    Koleksi RAKA memakai awalan "raka-": raka-aktif, raka-videos, raka-ide, raka-log, raka-ref. */
-const CH = {
-  fr: {nama: 'Fakta Rumah', pre: '', kick: 'fakta rumah · panel produksi',
+const DEF_STEPS = ['Ide', 'Naskah', 'Suara', 'Animasi', 'Cek gambar', 'Render', 'Distribusi', 'Selesai'];
+let CH = {
+  fr: {nama: 'Fakta Rumah', pre: '', kick: 'fakta rumah · panel produksi', urut: 1, repo: 'tangzhehan063-cyber/Channel-Penjelasan',
        steps: ['Ide', 'Naskah', 'Suara', 'Animasi', 'Cek gambar', 'Render', 'Drive', 'Selesai'],
        drive: 'https://drive.google.com/drive/folders/1Dx9nqhifWRbixFb_2u4XrHMIaHHJloAt', ph: 'Contoh: DP 0% bikin cicilan berapa lama?'},
-  raka: {nama: 'RAKA', pre: 'raka-', kick: 'raka · stickman self-improvement',
+  raka: {nama: 'RAKA', pre: 'raka-', kick: 'raka · stickman self-improvement', urut: 2, repo: 'tangzhehan063-cyber/RAKA',
        steps: ['Ide', 'Naskah', 'Caption & suara', 'VO', 'Contact sheet', 'Render', 'Distribusi', 'Selesai'],
        drive: '', ph: 'Contoh: kenapa kita tiba-tiba rajin nyapu pas ada deadline?'},
 };
 const $ = (id) => document.getElementById(id);
 let ch = 'fr';
-try { const h = location.hash.slice(1); if (CH[h]) ch = h; else { const m = localStorage.getItem('studio-ch'); if (CH[m]) ch = m; } } catch {}
+try { const h = location.hash.slice(1); if (h) ch = h; else { const m = localStorage.getItem('studio-ch'); if (m) ch = m; } } catch {}
+const wantCh = ch; if (!CH[ch]) ch = 'fr';
 let db = null, comments = null, assets = null, canSend = 'off', busy = false;
 let aktif = null, unsubs = [];
 
@@ -232,7 +260,7 @@ const pad = (n) => '#' + String(n).padStart(2, '0');
 /* ---------- kirim perintah ke Claude ---------- */
 async function send(text, anchorEl) {
   if (busy) return;
-  const full = `[Panel Studio · ${CH[ch].nama}] ` + text;
+  const fw = curFw(); const full = `[Panel Studio · ${CH[ch].nama} · repo ${CH[ch].repo || '-'}] ` + text + (fw && /video baru/i.test(text) ? ` Framework: ${fw.nama}${fw.file ? ' (file ' + col('framework') + '/' + fw.id + ')' : ''}.` : '');
   $('fallback').classList.remove('show');
   if (comments && canSend === 'available' && 'sendToClaude' in comments) {
     busy = true; setButtons(true);
@@ -265,7 +293,7 @@ async function addLog(teks) { if (!db) return; try { await db.collection(col('lo
 
 /* ---------- video berjalan ---------- */
 function renderNow() {
-  const C = CH[ch], STEPS = C.steps;
+  const C = CH[ch], STEPS = C.steps || DEF_STEPS;
   const a = aktif || {nn: 0, judul: 'Belum ada data', seri: '', tahap: 0, catatan: 'Memuat…'};
   $('nowNn').textContent = (a.nn ? pad(a.nn) : '#—') + (a.seri ? ' · ' + a.seri : '');
   $('nowJudul').textContent = a.judul || 'Belum ada judul';
@@ -416,19 +444,76 @@ function subscribe() {
   unsubs.push(db.doc(col('aktif') + '/sekarang').onSnapshot((s) => { done(); aktif = s.exists ? s.data() : {nn: 0, judul: 'Belum ada video', tahap: 0}; renderNow(); }, done));
   unsubs.push(db.collection(col('ide')).orderBy('urut').onSnapshot((s) => { done(); renderIdeas(s.docs); }, done));
   unsubs.push(db.collection(col('videos')).orderBy('nn').onSnapshot((s) => { done(); renderVids(s.docs); }, done));
+  unsubs.push(db.collection(col('framework')).orderBy('t').onSnapshot((s) => renderFws(s.docs), () => {}));
   unsubs.push(db.collection(col('ref')).orderBy('t', 'desc').limit(60).onSnapshot((s) => renderRefs(s.docs), () => {}));
   unsubs.push(db.collection(col('log')).orderBy('t', 'desc').limit(15).onSnapshot((s) => renderLog(s.docs), () => {}));
 }
 function setCh(c) {
+  if (!CH[c]) c = 'fr';
   ch = c;
-  document.querySelectorAll('.tabs button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.ch === c)));
+  renderTabs();
   $('kick').textContent = CH[c].kick; $('h1').textContent = 'Studio ' + CH[c].nama; $('ownTopic').placeholder = CH[c].ph;
   $('fallback').classList.remove('show');
   try { localStorage.setItem('studio-ch', c); } catch {}
   if (location.hash.slice(1) !== c) history.replaceState(null, '', '#' + c);
   subscribe();
 }
-document.querySelectorAll('.tabs button').forEach((b) => b.addEventListener('click', () => setCh(b.dataset.ch)));
+function renderTabs() {
+  const t = $('tabs'); t.replaceChildren();
+  Object.entries(CH).sort((x, y) => (x[1].urut || 99) - (y[1].urut || 99)).forEach(([id, c]) => {
+    const b = el('button', {type: 'button', textContent: c.nama}); b.setAttribute('role', 'tab'); b.dataset.ch = id;
+    b.setAttribute('aria-selected', String(id === ch)); b.onclick = () => setCh(id); t.append(b);
+  });
+}
+/* ---------- framework ---------- */
+let fws = [];
+function curFw() { return fws.find((f) => f.id === $('fwSel').value) || null; }
+function renderFws(docs) {
+  fws = docs.map((d) => ({id: d.id, ...d.data()}));
+  const sel = $('fwSel'), keep = sel.value; sel.replaceChildren();
+  if (!fws.length) sel.append(el('option', {value: '', textContent: 'Bawaan channel (dari repo)'}));
+  for (const f of fws) sel.append(el('option', {value: f.id, textContent: f.nama + (f.bawaan ? ' (bawaan)' : '')}));
+  sel.value = fws.some((f) => f.id === keep) ? keep : (fws.find((f) => f.bawaan) || fws[0] || {id: ''}).id;
+  $('fwDesc').textContent = (curFw() && curFw().ket) || '';
+  const box = $('fwList'); box.replaceChildren();
+  if (!fws.length) { box.append(el('span', {className: 'muted', textContent: 'Belum ada framework tercatat. Claude memakai yang ada di repo.'})); return; }
+  for (const f of fws) {
+    const kids = [el('b', {textContent: f.nama + (f.bawaan ? ' · bawaan' : '')})];
+    const mk = el('button', {className: 'btn small ' + (f.bawaan ? 'sage' : ''), type: 'button', textContent: f.bawaan ? 'Bawaan' : 'Jadikan bawaan', disabled: !!f.bawaan});
+    mk.onclick = async () => { try { for (const g of fws) if (g.bawaan) await db.doc(col('framework') + '/' + g.id).update({bawaan: false}); await db.doc(col('framework') + '/' + f.id).update({bawaan: true}); toast('Framework bawaan: ' + f.nama); } catch { toast('Gagal menyimpan.'); } };
+    kids.push(mk, el('span', {className: 'muted', textContent: (f.ket || '') + (f.file ? ' · ada file' : '')}));
+    box.append(el('div', {className: 'idea'}, kids));
+  }
+}
+$('fwSel').addEventListener('change', () => { $('fwDesc').textContent = (curFw() && curFw().ket) || ''; });
+$('fwForm').addEventListener('submit', async (e) => {
+  e.preventDefault(); if (!db) return;
+  const nama = $('fwNama').value.trim(), isi = $('fwIsi').value.trim(), f = $('fwFile').files[0];
+  if (!nama) { toast('Beri nama framework-nya.'); return; }
+  if (!isi && !f) { toast('Tulis isinya atau unggah file.'); return; }
+  $('fwSave').disabled = true;
+  try {
+    const row = {nama: nama.slice(0, 80), ket: isi.slice(0, 3500), t: Date.now(), bawaan: false};
+    if (f) { if (!assets) throw {code: 'no_assets'}; const up = await assets.upload(f, /\.md$/i.test(f.name) ? {type: 'text/markdown'} : /\.txt$/i.test(f.name) ? {type: 'text/plain'} : undefined); Object.assign(row, {file: up.id, namaFile: f.name.slice(0, 120)}); }
+    await db.collection(col('framework')).add(row);
+    $('fwNama').value = ''; $('fwIsi').value = ''; $('fwFile').value = ''; toast('Framework tersimpan. Pilih di "Mulai video baru".');
+  } catch (err) { toast(err && err.code === 'too_large' ? 'File terlalu besar (maks. 20 MB).' : 'Gagal menyimpan framework.'); }
+  finally { $('fwSave').disabled = false; }
+});
+/* ---------- tambah channel ---------- */
+$('chForm').addEventListener('submit', async (e) => {
+  e.preventDefault(); if (!db) return;
+  const nama = $('chNama').value.trim(), repo = $('chRepo').value.trim(), steps = $('chSteps').value.split(',').map((x) => x.trim()).filter(Boolean), drive = $('chDrive').value.trim();
+  if (!nama || !/^[\w.-]+\/[\w.-]+$/.test(repo)) { toast('Isi nama dan repo dengan format pemilik/nama.'); return; }
+  const id = nama.toLowerCase().replace(/[^a-z0-9]+/g, '').slice(0, 20) || 'ch' + Date.now();
+  if (CH[id]) { toast('Nama channel sudah ada.'); return; }
+  $('chSave').disabled = true;
+  try {
+    await db.doc('channels/' + id).set({nama: nama.slice(0, 40), repo, pre: id + '-', steps: steps.length >= 3 ? steps.slice(0, 10) : DEF_STEPS, drive: drive.slice(0, 300), kick: nama.toLowerCase() + ' · panel produksi', ph: 'Tulis topik video…', urut: 10 + Object.keys(CH).length});
+    $('chForm').reset(); toast('Channel ' + nama + ' ditambahkan.');
+    setTimeout(() => setCh(id), 600);
+  } catch { toast('Gagal menambah channel.'); } finally { $('chSave').disabled = false; }
+});
 window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (CH[h] && h !== ch) setCh(h); });
 setCh(ch);
 
@@ -443,6 +528,11 @@ setCh(ch);
   try { assets = await claude.use('assets'); } catch { assets = null; }
   try { db = await claude.use('db'); } catch { db = null; }
   if (!db) { $('ideas').replaceChildren(el('span', {className: 'muted', textContent: 'Data tidak bisa dimuat di tampilan ini. Buka halaman ini di claude.ai saat sudah masuk.'})); return; }
+  db.collection('channels').onSnapshot((snap) => {
+    for (const d of snap.docs) CH[d.id] = {...(CH[d.id] || {}), ...d.data()};
+    renderTabs();
+    if (CH[wantCh] && ch !== wantCh && !renderTabs.went) { renderTabs.went = true; setCh(wantCh); }
+  }, () => {});
   subscribe();
 })();
 </script>
