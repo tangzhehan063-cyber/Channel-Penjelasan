@@ -1,6 +1,7 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
-## Posisi terakhir (11 Nov 2026)
+## Posisi terakhir (12 Nov 2026)
+- **Video #12 selesai (12 Nov)**, lihat Log. Berikutnya: Hitung Rumah #03 "DP 0% Bikin Cicilan Berapa Lama?" atau ide di `riset/`.
 - **Video #11 selesai (11 Nov):** "10 Tahun Nyicil, Rumahmu Baru Separuh Lunas" (seri baru Hitung Rumah #01), 74,2 dtk, `remotion/src/v11/`. Properti baru (user minta visual lebih kaya): gedung bank mini, uang kertas berikat (biru = bunga, koral = rumah), amplop, kalender meja, map kontrak. MP4+SRT, cover, caption. Kredit ScrapeMedsos habis (0).
 - **Video #1–#9 selesai** (MP4 + SRT di `video/`, cover di `cover/`, caption di `caption/`). Terbaru: #8 "Bunyi Tek di Atap Bukan Hantu" (Bukan Hantu #01), #9 "Rumah Tusuk Sate Bukan Bawa Sial" (seri baru Bukan Sial #01, video pertama dengan skill `sutradara`).
 - Jadwal posting lama: #3 meteran kWh Sen 9 Nov 19.00 WIB, #4 keramik Rab 11 Nov 19.00 WIB.
@@ -28,7 +29,7 @@
 - Render penuh ±20 mnt (swangle, concurrency 4). Efek 2D berat sudah dipanggang ke PNG (`remotion/public/aset/`).
 
 ## Log (5 terakhir; lebih lama lihat `git log`)
-- 12 Nov: #12 "Ngontrak vs Nyicil" (Hitung Rumah #02, gaya VS #7, rumah subsidi Rp166 jt pilihan user; 400 jt bukan subsidi). Draft `naskah/video-12-ngontrak-vs-nyicil.md`, menunggu ACC.
+- 12 Nov: **video #12 selesai** "Ngontrak Sejuta vs Nyicil Sejuta" (Hitung Rumah #02, gaya VS #7 di satu kanvas 3D: timbangan 2 rumah, tumpukan uang, jalan ke kantor), 85,2 dtk, `remotion/src/v12/`. Drive #12 `1GnbpbE7vDu6gXvrUVKLyjtKNsbc75mgf` (cover + info); MP4 dikirim ke user untuk diunggah manual. Rumah subsidi Rp166 jt (400 jt bukan subsidi).
 - 12 Nov: uji Zdog (3D kanvas 2D, ±6x lebih cepat) **ditolak user: tetap three.js cara biasa**. Jangan tawarkan ganti engine lagi.
 - 11 Nov: video #11 KPR selesai. VO cukup 1 take (hemat ElevenLabs). Moodboard = still Remotion dulu sebelum ubah animasi. Bug baru: subtitle angka "koma".
 - 11 Nov: platform utama pindah ke YouTube (riset via ScrapeMedsos YouTube). User puas kualitas #10; minta opsi warna latar nanti.
