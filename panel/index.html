@@ -101,6 +101,19 @@ a { color: var(--blue); }
 .log { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 13px; }
 .log li { display: grid; grid-template-columns: 92px 1fr; gap: 10px; }
 .log time { font-family: var(--font-mono); color: var(--sub); font-size: 12px; }
+.tabs { display: inline-flex; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 4px; gap: 4px; }
+.tabs button { border: 0; background: transparent; padding: 7px 14px; border-radius: 9px; font-weight: 800; }
+.tabs button[aria-selected="true"] { background: var(--ink); color: #fff; }
+.refs { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.ref { border: 1px solid var(--line); border-radius: 12px; background: #fff; padding: 10px; display: grid; gap: 8px; align-content: start; }
+.ref img, .ref video { width: 100%; max-height: 220px; object-fit: cover; border-radius: 8px; background: var(--paper); }
+.ref .meta { font-size: 12px; color: var(--sub); font-family: var(--font-mono); }
+.ref p { margin: 0; font-size: 14px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.ref a { overflow-wrap: anywhere; font-size: 14px; }
+.refform { display: grid; gap: 8px; grid-template-columns: 1fr 1fr; }
+.refform .full { grid-column: 1 / -1; }
+@media (max-width: 560px) { .refform { grid-template-columns: 1fr; } }
+input[type=file] { font-size: 13px; }
 .toast { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 10px; font-weight: 600; max-width: calc(100% - 32px); display: none; }
 .toast.show { display: block; }
 .fallback { display: none; gap: 8px; }
@@ -112,8 +125,12 @@ a { color: var(--blue); }
 <div class="wrap">
   <header>
     <div class="brand">
-      <span class="kicker">fakta rumah · panel produksi</span>
-      <h1>Studio Fakta Rumah</h1>
+      <span class="kicker" id="kick">fakta rumah · panel produksi</span>
+      <h1 id="h1">Studio Fakta Rumah</h1>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Pilih channel">
+      <button type="button" role="tab" id="tab-fr" data-ch="fr" aria-selected="true">Fakta Rumah</button>
+      <button type="button" role="tab" id="tab-raka" data-ch="raka" aria-selected="false">RAKA</button>
     </div>
     <span class="pill" id="conn"><span class="dot"></span><span id="connText">Memeriksa sambungan ke Claude…</span></span>
   </header>
@@ -123,8 +140,8 @@ a { color: var(--blue); }
     <section class="card" id="nowCard" aria-labelledby="nowH">
       <h2 id="nowH">Video yang sedang dikerjakan</h2>
       <div class="now-title">
-        <span class="nn" id="nowNn">#12 · Hitung Rumah #02</span>
-        <h3 id="nowJudul">Ngontrak Sejuta vs Nyicil Sejuta</h3>
+        <span class="nn" id="nowNn">#—</span>
+        <h3 id="nowJudul">Memuat…</h3>
       </div>
       <ol class="steps" id="steps"></ol>
       <div class="gate" id="gate"></div>
@@ -156,6 +173,20 @@ a { color: var(--blue); }
     </div>
   </div>
 
+  <section class="card" aria-labelledby="refH">
+    <div class="row" style="justify-content:space-between">
+      <h2 id="refH">Referensi</h2>
+      <span class="muted" id="refCount"></span>
+    </div>
+    <form class="refform" id="refForm">
+      <div><label for="refUrl" class="muted">Link (TikTok, YouTube, artikel)</label><input type="text" id="refUrl" placeholder="https://…"></div>
+      <div><label for="refFile" class="muted">Atau unggah file (gambar, video MP4, PDF · maks. 20 MB)</label><input type="file" id="refFile" accept="image/*,video/mp4,video/webm,application/pdf"></div>
+      <div class="full"><label for="refNote" class="muted">Catatan: apa yang mau ditiru dari referensi ini?</label><textarea id="refNote" maxlength="2000" placeholder="Misal: suka cara hook 2 detik pertamanya, dan warna latarnya"></textarea></div>
+      <div class="full row"><button class="btn coral" type="submit" id="refSave">Simpan referensi</button><span class="muted" id="refStatus"></span></div>
+    </form>
+    <div class="refs" id="refs"><span class="muted">Belum ada referensi.</span></div>
+  </section>
+
   <section class="card" aria-labelledby="allH">
     <div class="row" style="justify-content:space-between">
       <h2 id="allH">Semua video</h2>
@@ -177,25 +208,38 @@ a { color: var(--blue); }
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
-const STEPS = ['Ide', 'Naskah', 'Suara', 'Animasi', 'Cek gambar', 'Render', 'Drive', 'Selesai'];
-const DRIVE_ROOT = 'https://drive.google.com/drive/folders/1Dx9nqhifWRbixFb_2u4XrHMIaHHJloAt';
+/* Dua channel dalam satu panel. Koleksi Fakta Rumah: aktif, videos, ide, log, ref.
+   Koleksi RAKA memakai awalan "raka-": raka-aktif, raka-videos, raka-ide, raka-log, raka-ref. */
+const CH = {
+  fr: {nama: 'Fakta Rumah', pre: '', kick: 'fakta rumah · panel produksi',
+       steps: ['Ide', 'Naskah', 'Suara', 'Animasi', 'Cek gambar', 'Render', 'Drive', 'Selesai'],
+       drive: 'https://drive.google.com/drive/folders/1Dx9nqhifWRbixFb_2u4XrHMIaHHJloAt', ph: 'Contoh: DP 0% bikin cicilan berapa lama?'},
+  raka: {nama: 'RAKA', pre: 'raka-', kick: 'raka · stickman self-improvement',
+       steps: ['Ide', 'Naskah', 'Caption & suara', 'VO', 'Contact sheet', 'Render', 'Distribusi', 'Selesai'],
+       drive: '', ph: 'Contoh: kenapa kita tiba-tiba rajin nyapu pas ada deadline?'},
+};
 const $ = (id) => document.getElementById(id);
-let db = null, comments = null, canSend = 'off', aktif = null, busy = false;
+let ch = 'fr';
+try { const h = location.hash.slice(1); if (CH[h]) ch = h; else { const m = localStorage.getItem('studio-ch'); if (CH[m]) ch = m; } } catch {}
+let db = null, comments = null, assets = null, canSend = 'off', busy = false;
+let aktif = null, unsubs = [];
 
 function toast(msg) { const t = $('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove('show'), 4200); }
 function el(tag, props = {}, kids = []) { const e = document.createElement(tag); Object.assign(e, props); for (const k of [].concat(kids)) e.append(k); return e; }
+const col = (name) => CH[ch].pre + name;
+const pad = (n) => '#' + String(n).padStart(2, '0');
 
 /* ---------- kirim perintah ke Claude ---------- */
 async function send(text, anchorEl) {
   if (busy) return;
-  const full = '[Panel Studio] ' + text;
+  const full = `[Panel Studio · ${CH[ch].nama}] ` + text;
   $('fallback').classList.remove('show');
   if (comments && canSend === 'available' && 'sendToClaude' in comments) {
     busy = true; setButtons(true);
     try {
       const anchor = await comments.anchorFor(anchorEl || $('nowCard'));
       await comments.sendToClaude({anchor, text: full});
-      toast('Terkirim ke Claude. Balasan muncul di komentar halaman ini dan di chat.');
+      toast('Terkirim ke Claude. Balasan muncul di komentar halaman ini.');
       await addLog(text);
     } catch (e) {
       if (e && e.code === 'consent_required') toast('Izinkan halaman ini berkomentar atas namamu, lalu tekan lagi.');
@@ -209,6 +253,7 @@ async function send(text, anchorEl) {
 function showFallback(full, why) {
   $('fallbackText').textContent = full;
   $('fallback').classList.add('show');
+  $('nowCard').scrollIntoView({block: 'nearest'});
   if (why && why !== 'off') toast('Belum bisa kirim langsung (' + why + '). Salin perintahnya.');
 }
 $('copyBtn').addEventListener('click', async () => {
@@ -216,94 +261,134 @@ $('copyBtn').addEventListener('click', async () => {
   catch { toast('Tidak bisa menyalin otomatis. Blok teksnya lalu salin.'); }
 });
 function setButtons(dis) { document.querySelectorAll('button[data-send]').forEach((b) => (b.disabled = dis)); }
+async function addLog(teks) { if (!db) return; try { await db.collection(col('log')).add({t: Date.now(), teks: String(teks).slice(0, 400)}); } catch {} }
 
-async function addLog(teks) {
-  if (!db) return;
-  try { await db.collection('log').add({t: Date.now(), teks: String(teks).slice(0, 400)}); } catch {}
-}
-
-/* ---------- render: video berjalan ---------- */
+/* ---------- video berjalan ---------- */
 function renderNow() {
-  const a = aktif || {nn: 12, judul: 'Ngontrak Sejuta vs Nyicil Sejuta', seri: 'Hitung Rumah #02', tahap: 7, catatan: 'Selesai. MP4 sudah dikirim, cover & info di Drive.'};
-  $('nowNn').textContent = '#' + String(a.nn).padStart(2, '0') + (a.seri ? ' · ' + a.seri : '');
+  const C = CH[ch], STEPS = C.steps;
+  const a = aktif || {nn: 0, judul: 'Belum ada data', seri: '', tahap: 0, catatan: 'Memuat…'};
+  $('nowNn').textContent = (a.nn ? pad(a.nn) : '#—') + (a.seri ? ' · ' + a.seri : '');
   $('nowJudul').textContent = a.judul || 'Belum ada judul';
   const st = $('steps'); st.replaceChildren();
   STEPS.forEach((s, i) => st.append(el('li', {className: i < a.tahap || a.tahap >= 7 ? 'done' : i === a.tahap ? 'cur' : '', textContent: s})));
   $('naskah').textContent = a.naskah || 'Naskah muncul di sini setelah Claude menulisnya.';
-
   const g = $('gate'); g.replaceChildren(); g.className = 'gate';
-  const nn = '#' + String(a.nn).padStart(2, '0');
+  const nn = pad(a.nn), step = STEPS[Math.min(a.tahap, 7)];
   const note = el('div', {className: 'muted', textContent: a.catatan || ''});
+  const btn = (txt, cls, cmd) => { const b = el('button', {className: 'btn ' + cls, type: 'button', textContent: txt}); b.dataset.send = '1'; b.onclick = () => send(cmd, b); return b; };
   const revisi = () => {
     const ta = el('textarea', {id: 'revTa', maxLength: 3000, placeholder: 'Tulis yang mau diubah…'});
-    const b = el('button', {className: 'btn ghost', type: 'button', textContent: 'Kirim revisi'});
-    b.dataset.send = '1';
-    b.onclick = () => { const v = ta.value.trim(); if (!v) { toast('Tulis dulu revisinya.'); return; } send(`Revisi ${STEPS[a.tahap].toLowerCase()} video ${nn}: ${v}`, b); ta.value = ''; };
+    const b = el('button', {className: 'btn ghost', type: 'button', textContent: 'Kirim revisi'}); b.dataset.send = '1';
+    b.onclick = () => { const v = ta.value.trim(); if (!v) { toast('Tulis dulu revisinya.'); return; } send(`Revisi ${step.toLowerCase()} video ${nn}: ${v}`, b); ta.value = ''; };
     return [el('label', {htmlFor: 'revTa', className: 'muted', textContent: 'Ada yang mau diubah?'}), ta, el('div', {className: 'row'}, [b])];
   };
-  const btn = (txt, cls, cmd) => { const b = el('button', {className: 'btn ' + cls, type: 'button', textContent: txt}); b.dataset.send = '1'; b.onclick = () => send(cmd, b); return b; };
-
-  if (a.tahap === 1 && a.menunggu) {
-    g.append(el('div', {className: 'label', textContent: 'Menunggu kamu: ACC naskah'}), note,
-      el('div', {className: 'row'}, [btn('ACC naskah', 'coral', `ACC naskah video ${nn}. Lanjut caption + VO 1 take.`)]), ...revisi());
-  } else if (a.tahap === 4 && a.menunggu) {
-    g.append(el('div', {className: 'label', textContent: 'Menunggu kamu: cek cuplikan gambar'}), note,
-      el('div', {className: 'row'}, [btn('Oke, render', 'coral', `Cuplikan video ${nn} oke. Render penuh lalu distribusi (Drive, kirim MP4, merge).`)]), ...revisi());
+  if (a.menunggu && a.tahap > 0 && a.tahap < 7) {
+    g.append(el('div', {className: 'label', textContent: 'Menunggu kamu: cek ' + step.toLowerCase()}), note,
+      el('div', {className: 'row'}, [btn('ACC ' + step.toLowerCase(), 'coral', `ACC ${step.toLowerCase()} video ${nn}. Lanjut ke tahap berikutnya.`)]), ...revisi());
   } else if (a.tahap === 0) {
     g.append(el('div', {className: 'label', textContent: 'Menunggu kamu: pilih topik'}), el('div', {className: 'muted', textContent: 'Pilih salah satu ide di kanan, atau tulis topik sendiri.'}));
   } else if (a.tahap >= 7) {
     g.classList.add('done');
     g.append(el('div', {className: 'label', textContent: 'Selesai'}), note,
-      el('div', {className: 'row'}, [btn('Minta ide topik berikutnya', 'sage', 'Beri 3–5 ide topik video berikutnya + 1 rekomendasi, isi ke daftar ide panel.')]));
+      el('div', {className: 'row'}, [btn('Minta ide topik berikutnya', 'sage', 'Beri 3–5 ide topik video berikutnya + 1 rekomendasi, isi ke daftar ide panel (pakai referensi di panel bila ada).')]));
   } else {
     g.classList.add('work');
-    g.append(el('div', {className: 'label', textContent: 'Claude sedang mengerjakan: ' + STEPS[a.tahap]}), note,
+    g.append(el('div', {className: 'label', textContent: 'Claude sedang mengerjakan: ' + step}), note,
       el('div', {className: 'row'}, [btn('Tanya progres', 'ghost', `Bagaimana progres video ${nn}? Perbarui status di panel.`)]));
   }
 }
 
-/* ---------- render: ide ---------- */
+/* ---------- ide ---------- */
 function renderIdeas(docs) {
   const box = $('ideas'); box.replaceChildren();
   const list = docs.filter((d) => !d.data().dipakai);
   if (!list.length) { box.append(el('span', {className: 'muted', textContent: 'Belum ada ide. Tekan "Minta ide topik berikutnya" atau tulis topik sendiri.'})); return; }
   for (const d of list) {
     const v = d.data();
-    const b = el('button', {className: 'btn small ' + (v.rek ? 'coral' : ''), type: 'button', textContent: 'Pakai'});
-    b.dataset.send = '1';
-    b.onclick = () => send(`Buat video baru dengan topik: "${v.judul}". Mulai tahap naskah, kirim teks TTS untuk ACC.`, b);
+    const b = el('button', {className: 'btn small ' + (v.rek ? 'coral' : ''), type: 'button', textContent: 'Pakai'}); b.dataset.send = '1';
+    b.onclick = () => send(`Buat video baru dengan topik: "${v.judul}". Mulai tahap naskah, kirim untuk ACC.`, b);
     const title = el('b', {textContent: v.judul}); if (v.rek) title.append(el('span', {className: 'tag', textContent: 'REKOMENDASI'}));
     box.append(el('div', {className: 'idea' + (v.rek ? ' rek' : '')}, [title, b, el('span', {className: 'muted', textContent: v.catatan || ''})]));
   }
 }
 
-/* ---------- render: semua video ---------- */
+/* ---------- semua video ---------- */
 function renderVids(docs) {
   const tb = $('vids'); tb.replaceChildren();
-  if (!docs.length) { tb.append(el('tr', {}, [el('td', {colSpan: 6, className: 'muted', textContent: 'Belum ada data video.'})])); return; }
+  if (!docs.length) { tb.append(el('tr', {}, [el('td', {colSpan: 6, className: 'muted', textContent: 'Belum ada data video.'})])); $('sumLine').textContent = ''; return; }
   let tayang = 0;
   for (const d of docs) {
     const v = d.data(); if (v.posting === 'tayang') tayang++;
-    const sel = el('select', {id: 'post-' + d.id, ariaLabel: 'Status posting #' + v.nn});
+    const sel = el('select', {id: 'post-' + d.id}); sel.setAttribute('aria-label', 'Status posting ' + pad(v.nn));
     for (const [val, txt] of [['belum', 'Belum'], ['terjadwal', 'Terjadwal'], ['tayang', 'Tayang']]) sel.append(el('option', {value: val, textContent: txt, selected: v.posting === val}));
-    sel.onchange = async () => {
-      try { await db.doc('videos/' + d.id).update({posting: sel.value}); toast('Status #' + v.nn + ': ' + sel.value); }
-      catch { toast('Gagal menyimpan status. Coba lagi.'); }
-    };
-    const drive = v.drive ? el('a', {href: v.drive, target: '_blank', rel: 'noopener', textContent: 'Buka'}) : el('a', {href: DRIVE_ROOT, target: '_blank', rel: 'noopener', textContent: 'Folder induk'});
+    const path = col('videos') + '/' + d.id;
+    sel.onchange = async () => { try { await db.doc(path).update({posting: sel.value}); toast('Status ' + pad(v.nn) + ': ' + sel.value); } catch { toast('Gagal menyimpan status. Coba lagi.'); } };
+    const link = v.drive || CH[ch].drive;
+    const drive = link ? el('a', {href: link, target: '_blank', rel: 'noopener', textContent: v.drive ? 'Buka' : 'Folder induk'}) : el('span', {className: 'muted', textContent: '—'});
     tb.append(el('tr', {}, [
-      el('td', {className: 'num', textContent: String(v.nn).padStart(2, '0')}),
-      el('td', {textContent: v.judul}),
-      el('td', {className: 'muted', textContent: v.seri || '—'}),
-      el('td', {className: 'muted', textContent: v.durasi ? v.durasi + ' dtk' : '—'}),
-      el('td', {}, [sel]),
-      el('td', {}, [drive]),
+      el('td', {className: 'num', textContent: String(v.nn).padStart(2, '0')}), el('td', {textContent: v.judul}),
+      el('td', {className: 'muted', textContent: v.seri || '—'}), el('td', {className: 'muted', textContent: v.durasi ? v.durasi + ' dtk' : '—'}),
+      el('td', {}, [sel]), el('td', {}, [drive]),
     ]));
   }
   $('sumLine').textContent = `${docs.length} video · ${tayang} tayang`;
 }
 
-/* ---------- render: log ---------- */
+/* ---------- referensi ---------- */
+function renderRefs(docs) {
+  const box = $('refs'); box.replaceChildren();
+  $('refCount').textContent = docs.length ? docs.length + ' referensi' : '';
+  if (!docs.length) { box.append(el('span', {className: 'muted', textContent: 'Belum ada referensi. Tempel link atau unggah file di atas.'})); return; }
+  for (const d of docs) {
+    const v = d.data(), kids = [];
+    if (v.file) {
+      const src = '/_blob/' + v.file, ty = v.tipe || '';
+      if (ty.startsWith('image/')) kids.push(el('img', {src, alt: v.nama || 'Referensi', loading: 'lazy'}));
+      else if (ty.startsWith('video/')) kids.push(el('video', {src, controls: true, preload: 'metadata'}));
+      kids.push(el('a', {href: src, target: '_blank', rel: 'noopener', textContent: v.nama || 'Buka file'}));
+    }
+    if (v.url) kids.push(el('a', {href: v.url, target: '_blank', rel: 'noopener', textContent: v.url}));
+    if (v.catatan) kids.push(el('p', {textContent: v.catatan}));
+    const dt = new Date(v.t);
+    kids.push(el('span', {className: 'meta', textContent: dt.toLocaleDateString('id-ID', {day: '2-digit', month: 'short'}) + (v.dibedah ? ' · sudah dibedah Claude' : '')}));
+    const ask = el('button', {className: 'btn small', type: 'button', textContent: 'Minta Claude bedah'}); ask.dataset.send = '1';
+    ask.onclick = () => send(`Bedah referensi ${col('ref')}/${d.id} (${v.url || v.nama || 'catatan'}). Catatan saya: ${v.catatan || '-'}. Simpan temuan ke repo dan tandai dibedah di panel.`, ask);
+    const del = el('button', {className: 'btn small ghost', type: 'button', textContent: 'Hapus'});
+    del.onclick = async () => {
+      if (del.dataset.armed !== '1') { del.dataset.armed = '1'; del.textContent = 'Yakin hapus?'; setTimeout(() => { del.dataset.armed = ''; del.textContent = 'Hapus'; }, 4000); return; }
+      try { await db.doc(col('ref') + '/' + d.id).delete(); if (v.file && assets) { try { await assets.delete(v.file); } catch {} } toast('Referensi dihapus.'); }
+      catch { toast('Gagal menghapus. Coba lagi.'); }
+    };
+    kids.push(el('div', {className: 'row'}, [ask, del]));
+    box.append(el('div', {className: 'ref'}, kids));
+  }
+}
+$('refForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (!db) { toast('Data belum tersambung.'); return; }
+  const url = $('refUrl').value.trim(), note = $('refNote').value.trim(), f = $('refFile').files[0];
+  if (!url && !note && !f) { toast('Isi link, catatan, atau pilih file dulu.'); return; }
+  if (url && !/^https?:\/\//i.test(url)) { toast('Link harus diawali https://'); return; }
+  const btn = $('refSave'); btn.disabled = true; $('refStatus').textContent = f ? 'Mengunggah file…' : 'Menyimpan…';
+  try {
+    const row = {t: Date.now(), catatan: note.slice(0, 2000)};
+    if (url) row.url = url.slice(0, 600);
+    if (f) {
+      if (!assets) throw {code: 'no_assets'};
+      if (f.size > 20 * 1024 * 1024) throw {code: 'too_large'};
+      const up = await assets.upload(f);
+      Object.assign(row, {file: up.id, nama: f.name.slice(0, 120), tipe: up.contentType});
+    }
+    await db.collection(col('ref')).add(row);
+    $('refUrl').value = ''; $('refNote').value = ''; $('refFile').value = '';
+    toast('Referensi tersimpan.');
+  } catch (err) {
+    const m = {too_large: 'File lebih dari 20 MB. Potong atau kompres dulu, atau kirim lewat chat.', unsupported_type: 'Jenis file tidak didukung. Pakai gambar, MP4, atau PDF.', no_assets: 'Unggah file hanya bisa oleh pemilik panel.', quota_or_state: 'Penyimpanan panel penuh. Hapus referensi lama.'};
+    toast(m[err && err.code] || 'Gagal menyimpan referensi. Coba lagi.');
+  } finally { btn.disabled = false; $('refStatus').textContent = ''; }
+});
+
+/* ---------- log ---------- */
 function renderLog(docs) {
   const ul = $('log'); ul.replaceChildren();
   if (!docs.length) { ul.append(el('li', {}, [el('time', {textContent: '—'}), el('span', {className: 'muted', textContent: 'Belum ada perintah dari panel.'})])); return; }
@@ -320,7 +405,32 @@ $('ownBtn').onclick = () => { const v = $('ownTopic').value.trim(); if (!v) { to
 $('freeBtn').dataset.send = '1';
 $('freeBtn').onclick = () => { const v = $('freeMsg').value.trim(); if (!v) { toast('Tulis pesannya dulu.'); return; } send(v, $('freeBtn')); $('freeMsg').value = ''; };
 
-renderNow();
+/* ---------- pindah channel ---------- */
+function subscribe() {
+  unsubs.forEach((u) => { try { u(); } catch {} }); unsubs = [];
+  aktif = null; renderNow();
+  $('ideas').replaceChildren(el('span', {className: 'muted', textContent: 'Memuat ide…'}));
+  $('vids').replaceChildren(el('tr', {}, [el('td', {colSpan: 6, className: 'muted', textContent: 'Memuat daftar video…'})]));
+  if (!db) return;
+  const timer = setTimeout(() => toast('Data belum bisa dimuat. Periksa koneksi.'), 10000), done = () => clearTimeout(timer);
+  unsubs.push(db.doc(col('aktif') + '/sekarang').onSnapshot((s) => { done(); aktif = s.exists ? s.data() : {nn: 0, judul: 'Belum ada video', tahap: 0}; renderNow(); }, done));
+  unsubs.push(db.collection(col('ide')).orderBy('urut').onSnapshot((s) => { done(); renderIdeas(s.docs); }, done));
+  unsubs.push(db.collection(col('videos')).orderBy('nn').onSnapshot((s) => { done(); renderVids(s.docs); }, done));
+  unsubs.push(db.collection(col('ref')).orderBy('t', 'desc').limit(60).onSnapshot((s) => renderRefs(s.docs), () => {}));
+  unsubs.push(db.collection(col('log')).orderBy('t', 'desc').limit(15).onSnapshot((s) => renderLog(s.docs), () => {}));
+}
+function setCh(c) {
+  ch = c;
+  document.querySelectorAll('.tabs button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.ch === c)));
+  $('kick').textContent = CH[c].kick; $('h1').textContent = 'Studio ' + CH[c].nama; $('ownTopic').placeholder = CH[c].ph;
+  $('fallback').classList.remove('show');
+  try { localStorage.setItem('studio-ch', c); } catch {}
+  if (location.hash.slice(1) !== c) history.replaceState(null, '', '#' + c);
+  subscribe();
+}
+document.querySelectorAll('.tabs button').forEach((b) => b.addEventListener('click', () => setCh(b.dataset.ch)));
+window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (CH[h] && h !== ch) setCh(h); });
+setCh(ch);
 
 /* ---------- sambungan ---------- */
 (async () => {
@@ -330,15 +440,10 @@ renderNow();
   const msg = {available: 'Tersambung ke Claude', no_session: 'Sesi Claude tidak aktif: perintah akan disalin', writers_only: 'Hanya pemilik yang bisa kirim', off: 'Kirim langsung tidak tersedia: perintah akan disalin'};
   ct.textContent = msg[canSend] || msg.off;
   conn.classList.add(canSend === 'available' ? 'ok' : 'warn');
-
+  try { assets = await claude.use('assets'); } catch { assets = null; }
   try { db = await claude.use('db'); } catch { db = null; }
   if (!db) { $('ideas').replaceChildren(el('span', {className: 'muted', textContent: 'Data tidak bisa dimuat di tampilan ini. Buka halaman ini di claude.ai saat sudah masuk.'})); return; }
-  const timer = setTimeout(() => toast('Data belum bisa dimuat. Periksa koneksi.'), 10000);
-  const done = () => clearTimeout(timer);
-  db.doc('aktif/sekarang').onSnapshot((s) => { done(); if (s.exists) { aktif = s.data(); renderNow(); } }, done);
-  db.collection('ide').orderBy('urut').onSnapshot((s) => { done(); renderIdeas(s.docs); }, done);
-  db.collection('videos').orderBy('nn').onSnapshot((s) => { done(); renderVids(s.docs); }, done);
-  db.collection('log').orderBy('t', 'desc').limit(15).onSnapshot((s) => renderLog(s.docs), () => {});
+  subscribe();
 })();
 </script>
 </body>
