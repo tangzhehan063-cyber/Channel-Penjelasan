@@ -12,6 +12,7 @@ import {Cover08} from './v08/Cover08';
 import {Video09, V09_FRAMES} from './v09/Video09';
 import {Cover09} from './v09/Cover09';
 import {Video10, V10_FRAMES} from './v10/Video10';
+import {Video13, V13_FRAMES} from './v13/Video13';
 import {Cover10} from './v10/Cover10';
 import {Video11, V11_FRAMES} from './v11/Video11';
 import {Cover11} from './v11/Cover11';
@@ -32,6 +33,7 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="Cover09" component={Cover09} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Video09" component={Video09} durationInFrames={V09_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Video10" component={Video10} durationInFrames={V10_FRAMES} fps={30} width={1080} height={1920} />
+  <Composition id="Video13" component={Video13} durationInFrames={V13_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Cover11" component={Cover11} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Video11" component={Video11} durationInFrames={V11_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Cover12" component={Cover12} durationInFrames={1} fps={30} width={1080} height={1920} />
