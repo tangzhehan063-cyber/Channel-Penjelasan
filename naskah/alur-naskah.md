@@ -44,7 +44,7 @@ Sub-format (struktur di atas tetap): **Hitung Rumah** (angka → cara hitung →
 **Teks layar** selalu 2 baris: `kalimat kecil / KATA BESAR` (contoh: `Kena panas, keramik / MEMUAI`), opsional kartu angka (`± 1 mm memanjang`).
 
 ## Tahap 3: Naskah final + suara
-- Rapikan VO jadi teks TTS (angka ditulis sebagai kata). Suara: ElevenLabs (default Riri Rida) **atau** Google AI Studio bila user memilih; suara dipakai **tanpa diolah**, lalu **animasi mengikuti suara** (durasi beat diambil dari timestamp kata).
+- Rapikan VO jadi teks TTS (angka ditulis sebagai kata). Draf/tes suara: Gemini TTS atau edge-tts; ElevenLabs hanya versi final (aturan hemat di CLAUDE.md). Suara: ElevenLabs (default Riri Rida) **atau** Google AI Studio bila user memilih; suara dipakai **tanpa diolah**, lalu **animasi mengikuti suara** (durasi beat diambil dari timestamp kata).
 - Timestamp: ElevenLabs Scribe → `tools/scribe_to_timeline.py` (angka jadi numeral di subtitle).
 
 ## Tahap 4–5: Animasi & render (style pengetahuan)

@@ -35,6 +35,13 @@ Channel pengetahuan, seri utama **"fakta rumah"**, Bahasa Indonesia santai, audi
 - **Animasi/render (Tahap 4–5): pakai skill `remotion-fitur`** (`.claude/skills/remotion-fitur/SKILL.md`): aturan 3D wajib + fitur peningkat (light leak, transisi, color correction, motion blur, gerak ikut suara). Paket sudah ada di `remotion/package.json`.
 - Container baru: `./setup.sh`.
 
+## Aturan hemat ElevenLabs (wajib, permintaan user 12 Nov)
+1. **Selalu 1 take**: `creative_generate_speech` dengan `generations_count: 1`, bukan 2 (bawaan konektor = 2, jadi wajib diisi).
+2. **Naskah final dulu**: ElevenLabs baru dipanggil setelah naskah dinyatakan final dan di-ACC user (tombol ACC di panel atau "ACC" di chat).
+3. **Revisi hanya kalimat yang berubah**: generate ulang kalimat itu saja (1 take), lalu sambung ke VO lama dengan ffmpeg (potong di jeda kalimat, crossfade ±30 ms), lalu ulang timestamp. Jangan generate ulang naskah penuh.
+4. **Draf & tes pakai Gemini TTS atau edge-tts** (`python3 tools/gemini_tts.py`, atau workflow GitHub Actions "Gemini TTS" di repo RAKA). ElevenLabs hanya untuk versi final.
+5. **Satu flow per video**: buat `creative_create_flow` sekali, catat `flow_id` di naskah/STATUS video itu, dan pakai lagi untuk semua generate & transkripsi video yang sama. Jangan buat flow baru untuk video yang sama.
+
 ## Caption & komentar pertama (berlaku setelah user ACC naskah final)
 - Begitu user menyatakan **ACC/final** untuk naskah, langsung kirim **caption posting + komentar pertama** (jangan tunggu video selesai; cover tetap dibuat setelah render).
 - **Pegangan utama: `caption/gaya-caption.md`** (gaya sudah disimpan; scrape tidak wajib). Scrape hanya bila topik/istilahnya baru dan kredit masih ada; temuan baru ditambahkan ke file itu.

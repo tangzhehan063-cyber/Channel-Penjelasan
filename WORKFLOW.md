@@ -24,7 +24,7 @@ Satu video = satu chat, ±8 langkah. **Satu chat hanya untuk repo ini.** Semua p
 
 ## 3. Setelah ACC (satu giliran)
 - Caption + komentar pertama dari `caption/gaya-caption.md` → `caption/<slug>.md`, tempel isinya di chat (file repo ini tidak bisa dibuka di app bila chat dimulai dari repo lain).
-- ElevenLabs (koneksi yang aktif): `creative_create_flow` → `creative_generate_speech` (`eleven_v4`, Riri Rida `tCKeP99grYL9wZRg6sQ9`, angka ditulis kata, **`generations_count: 1`**, hemat kredit, permintaan user 11 Nov). Kirim 1 take (SendUserFile).
+- ElevenLabs (koneksi yang aktif): `creative_create_flow` → `creative_generate_speech` (`eleven_v4`, Riri Rida `tCKeP99grYL9wZRg6sQ9`, angka ditulis kata, **`generations_count: 1`**, hanya setelah naskah ACC final, pakai flow video ini bila sudah ada (lihat "Aturan hemat ElevenLabs" di CLAUDE.md; draf/tes pakai `tools/gemini_tts.py`), hemat kredit, permintaan user 11 Nov). Kirim 1 take (SendUserFile).
 
 ## 4. VO → timestamp
 - `tools/produksi.sh vo <NN> "<content_url take terpilih>"`
