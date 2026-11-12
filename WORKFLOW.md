@@ -10,6 +10,8 @@ Satu video = satu chat, ±8 langkah. **Satu chat hanya untuk repo ini.** Semua p
 
 6. **Konfirmasi di SETIAP tahap (permintaan user 12 Nov, berlaku semua channel):** selesai satu tahap → unggah hasilnya ke panel sebagai pratinjau (`upload_asset` claude-artifacts ke slug panel; gambar/contact sheet, MP3 VO, potongan video ≤20 MB), tulis `pratinjau: [{id, tipe, label}]` + `menunggu: true` + `catatan` di dokumen aktif channel, lalu BERHENTI sampai user menekan ACC atau mengirim revisi. Revisi dikerjakan di tahap itu saja, bukan menunggu video jadi. Pesan "[Panel Studio …] … Gaya visual: X (mesin dari repo Y)" = pakai mesin gambar repo Y untuk video ini (clone repo Y bila perlu); framework berpikir tetap dari channel asal.
 
+7. **Framework bawaan semua channel (12 Nov): `framework/content-framework-3-channel.md`** (dokumen user, juga di panel sebagai "Content Framework 3 Channel (rev)"). Struktur naskah, ritme, visual, dan standar riset ikut dokumen itu; aturan repo masing-masing (DNA, suara, caption) tetap berlaku bila tidak bertentangan.
+
 ## 1. Ide (bila user belum memberi topik)
 - Cek dulu ide yang belum terpakai di `riset/` (tanpa kredit). Scrape YouTube hanya bila perlu (`v1_youtube_search`/`v1_youtube_shorts_trending`, `v1_youtube_video_comments`; dulu Facebook: ≤3 kredit), simpan ringkas ke `riset/`.
 - Beri 3–5 ide + 1 rekomendasi out-of-the-box. Tunggu pilihan.
