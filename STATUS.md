@@ -28,6 +28,7 @@
 - Render penuh ±20 mnt (swangle, concurrency 4). Efek 2D berat sudah dipanggang ke PNG (`remotion/public/aset/`).
 
 ## Log (5 terakhir; lebih lama lihat `git log`)
+- 12 Nov: #12 "Ngontrak vs Nyicil" (Hitung Rumah #02, gaya VS #7, rumah subsidi Rp166 jt pilihan user; 400 jt bukan subsidi). Draft `naskah/video-12-ngontrak-vs-nyicil.md`, menunggu ACC.
 - 12 Nov: uji Zdog (3D kanvas 2D, ±6x lebih cepat) **ditolak user: tetap three.js cara biasa**. Jangan tawarkan ganti engine lagi.
 - 11 Nov: video #11 KPR selesai. VO cukup 1 take (hemat ElevenLabs). Moodboard = still Remotion dulu sebelum ubah animasi. Bug baru: subtitle angka "koma".
 - 11 Nov: platform utama pindah ke YouTube (riset via ScrapeMedsos YouTube). User puas kualitas #10; minta opsi warna latar nanti.
