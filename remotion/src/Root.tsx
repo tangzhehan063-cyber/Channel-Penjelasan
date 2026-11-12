@@ -2,6 +2,7 @@ import {Composition} from 'remotion';
 import {Scene3D} from './Scene3D';
 import {PengetahuanTest} from './pengetahuan/Scene';
 import {Video05, V05_FRAMES} from './v05/Video05';
+import {Video05B, V05B_FRAMES} from './v05b/Video05B';
 import {Cover05} from './v05/Cover05';
 import {Video06, V06_FRAMES} from './v06/Video06';
 import {Cover06} from './v06/Cover06';
@@ -40,6 +41,7 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="Video07" component={Video07} durationInFrames={V07_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Video06" component={Video06} durationInFrames={V06_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Video05" component={Video05} durationInFrames={V05_FRAMES} fps={30} width={1080} height={1920} />
+  <Composition id="Video05B" component={Video05B} durationInFrames={V05B_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="BakeAset" component={BakeAset} durationInFrames={1} fps={30} width={1080} height={1920} defaultProps={{kind: 'kertas-dasar' as const}}
     calculateMetadata={({props}) => ({width: props.kind === 'grain' ? 512 : props.kind.startsWith('kertas') ? 1080 : 960, height: props.kind === 'grain' ? 512 : props.kind.startsWith('kertas') ? 1920 : 960})} />
   <Composition id="GabungDemo" component={GabungDemo} durationInFrames={450} fps={30} width={1080} height={1920} />

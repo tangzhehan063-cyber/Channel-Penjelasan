@@ -1,6 +1,7 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
 ## Posisi terakhir (12 Nov 2026)
+- #5B: komposisi `Video05B` (satu penampang tembok, kaca pembesar untuk pori, gaya #7/#8) sudah dibuat, baru still (contact sheet `style/referensi-visual/09-v05b-still/kontak-v1.png`). Belum ada render penuh; menunggu persetujuan still dari user.
 - **Video #12 selesai (12 Nov)**, lihat Log. Berikutnya: Hitung Rumah #03 "DP 0% Bikin Cicilan Berapa Lama?" atau ide di `riset/`.
 - **Video #11 selesai (11 Nov):** "10 Tahun Nyicil, Rumahmu Baru Separuh Lunas" (seri baru Hitung Rumah #01), 74,2 dtk, `remotion/src/v11/`. Properti baru (user minta visual lebih kaya): gedung bank mini, uang kertas berikat (biru = bunga, koral = rumah), amplop, kalender meja, map kontrak. MP4+SRT, cover, caption. Kredit ScrapeMedsos habis (0).
 - **Video #1–#9 selesai** (MP4 + SRT di `video/`, cover di `cover/`, caption di `caption/`). Terbaru: #8 "Bunyi Tek di Atap Bukan Hantu" (Bukan Hantu #01), #9 "Rumah Tusuk Sate Bukan Bawa Sial" (seri baru Bukan Sial #01, video pertama dengan skill `sutradara`).
