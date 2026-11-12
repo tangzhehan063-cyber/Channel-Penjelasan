@@ -15,7 +15,7 @@
 - **Gaya animasi baku = video #7 & #8** (`remotion/src/v07/`, `remotion/src/v08/`): disukai user, sudah sesuai. Video baru menyalin gaya ini; tweak hanya bila user minta.
 - **Satu chat = satu repo.** Repo lain → chat baru.
 - **Setiap video selesai: PR ke `main` lalu Claude langsung merge sendiri (izin user 9 Nov).** User bukan programmer; laporan cukup "sudah masuk main".
-- **Durasi fleksibel, naik bertahap ke video panjang** (11 Nov); naskah dari user dipakai apa adanya.
+- **Durasi Fakta Rumah tetap 50–60 dtk** (keputusan user 12 Nov: fakta yang terlalu panjang membosankan; cerita panjang untuk RAKA/Yesterlife). Naskah dari user dipakai apa adanya.
 - Bahasa naskah **sederhana, tanpa istilah teknis**. Bahasa Indonesia; suka saran "out of the box".
 - VO tidak diolah (tanpa potong jeda/tempo); animasi mengikuti VO. **VO cukup 1 take** (hemat kredit ElevenLabs, 11 Nov).
 - Visual **kontras/tegas**, objek halus membulat. Posisi subtitle (top 1400) sudah ACC, jangan diubah.
