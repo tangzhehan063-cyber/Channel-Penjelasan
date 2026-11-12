@@ -115,6 +115,12 @@ a { color: var(--blue); }
 .refform .full { grid-column: 1 / -1; }
 @media (max-width: 560px) { .refform { grid-template-columns: 1fr; } }
 input[type=file] { font-size: 13px; }
+.prev { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.prev figure { margin: 0; display: grid; gap: 4px; }
+.prev img, .prev video { width: 100%; border-radius: 8px; background: #fff; border: 1px solid var(--line); }
+.prev audio { width: 100%; }
+.prev figcaption { font-size: 12px; color: var(--sub); }
+.prev a.big img { cursor: zoom-in; }
 .toast { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 10px; font-weight: 600; max-width: calc(100% - 32px); display: none; }
 .toast.show { display: block; }
 .fallback { display: none; gap: 8px; }
@@ -161,6 +167,9 @@ input[type=file] { font-size: 13px; }
         <div><label for="fwSel" class="muted">Framework berpikir untuk video berikutnya</label>
           <select id="fwSel" style="width:100%"></select>
           <div class="muted" id="fwDesc" style="margin-top:6px"></div></div>
+        <div><label for="gySel" class="muted">Gaya visual (mesin gambar)</label>
+          <select id="gySel" style="width:100%"></select>
+          <div class="muted" id="gyDesc" style="margin-top:6px"></div></div>
         <div class="ideas" id="ideas"><span class="muted">Memuat ide…</span></div>
         <label for="ownTopic" class="muted">Atau tulis topik / tempel naskah sendiri</label>
         <textarea id="ownTopic" maxlength="3500" placeholder="Contoh: DP 0% bikin cicilan berapa lama?"></textarea>
@@ -260,7 +269,7 @@ const pad = (n) => '#' + String(n).padStart(2, '0');
 /* ---------- kirim perintah ke Claude ---------- */
 async function send(text, anchorEl) {
   if (busy) return;
-  const fw = curFw(); const full = `[Panel Studio · ${CH[ch].nama} · repo ${CH[ch].repo || '-'}] ` + text + (fw && /video baru/i.test(text) ? ` Framework: ${fw.nama}${fw.file ? ' (file ' + col('framework') + '/' + fw.id + ')' : ''}.` : '');
+  const fw = curFw(), gy = curGy(), baru = /video baru/i.test(text); const full = `[Panel Studio · ${CH[ch].nama} · repo ${CH[ch].repo || '-'}] ` + text + (fw && baru ? ` Framework: ${fw.nama}${fw.file ? ' (file ' + col('framework') + '/' + fw.id + ')' : ''}.` : '') + (gy && baru ? ` Gaya visual: ${gy.nama} (mesin dari repo ${gy.repo}).` : '') + (baru ? ' Minta konfirmasi saya di setiap tahap.' : '');
   $('fallback').classList.remove('show');
   if (comments && canSend === 'available' && 'sendToClaude' in comments) {
     busy = true; setButtons(true);
@@ -310,8 +319,19 @@ function renderNow() {
     b.onclick = () => { const v = ta.value.trim(); if (!v) { toast('Tulis dulu revisinya.'); return; } send(`Revisi ${step.toLowerCase()} video ${nn}: ${v}`, b); ta.value = ''; };
     return [el('label', {htmlFor: 'revTa', className: 'muted', textContent: 'Ada yang mau diubah?'}), ta, el('div', {className: 'row'}, [b])];
   };
+  const prev = el('div', {className: 'prev'});
+  for (const pv of (Array.isArray(a.pratinjau) ? a.pratinjau : []).slice(0, 12)) {
+    if (!pv || typeof pv.id !== 'string' || !/^[A-Za-z0-9_-]{8,64}$/.test(pv.id)) continue;
+    const src = '/_blob/' + pv.id, ty = String(pv.tipe || ''), cap = el('figcaption', {textContent: pv.label || ''});
+    let media;
+    if (ty.startsWith('image/')) media = el('a', {className: 'big', href: src, target: '_blank', rel: 'noopener'}, [el('img', {src, alt: pv.label || 'Pratinjau', loading: 'lazy'})]);
+    else if (ty.startsWith('audio/')) media = el('audio', {src, controls: true, preload: 'metadata'});
+    else if (ty.startsWith('video/')) media = el('video', {src, controls: true, preload: 'metadata'});
+    else media = el('a', {href: src, target: '_blank', rel: 'noopener', textContent: pv.label || 'Buka file'});
+    prev.append(el('figure', {}, [media, cap]));
+  }
   if (a.menunggu && a.tahap > 0 && a.tahap < 7) {
-    g.append(el('div', {className: 'label', textContent: 'Menunggu kamu: cek ' + step.toLowerCase()}), note,
+    g.append(el('div', {className: 'label', textContent: 'Menunggu kamu: cek ' + step.toLowerCase()}), note, prev,
       el('div', {className: 'row'}, [btn('ACC ' + step.toLowerCase(), 'coral', `ACC ${step.toLowerCase()} video ${nn}. Lanjut ke tahap berikutnya.`)]), ...revisi());
   } else if (a.tahap === 0) {
     g.append(el('div', {className: 'label', textContent: 'Menunggu kamu: pilih topik'}), el('div', {className: 'muted', textContent: 'Pilih salah satu ide di kanan, atau tulis topik sendiri.'}));
@@ -322,7 +342,7 @@ function renderNow() {
   } else {
     g.classList.add('work');
     g.append(el('div', {className: 'label', textContent: 'Claude sedang mengerjakan: ' + step}), note,
-      el('div', {className: 'row'}, [btn('Tanya progres', 'ghost', `Bagaimana progres video ${nn}? Perbarui status di panel.`)]));
+      prev, el('div', {className: 'row'}, [btn('Tanya progres', 'ghost', `Bagaimana progres video ${nn}? Perbarui status di panel.`)]));
   }
 }
 
@@ -465,6 +485,17 @@ function renderTabs() {
     b.setAttribute('aria-selected', String(id === ch)); b.onclick = () => setCh(id); t.append(b);
   });
 }
+/* ---------- gaya visual (global, lintas channel) ---------- */
+let gayas = [];
+function curGy() { return gayas.find((g) => g.id === $('gySel').value) || null; }
+function renderGy() {
+  const sel = $('gySel'), keep = sel.value; sel.replaceChildren();
+  sel.append(el('option', {value: '', textContent: 'Bawaan channel ini'}));
+  for (const g of gayas) sel.append(el('option', {value: g.id, textContent: g.nama}));
+  sel.value = gayas.some((g) => g.id === keep) ? keep : '';
+  $('gyDesc').textContent = curGy() ? curGy().ket : 'Gaya visual yang biasa dipakai channel ini.';
+}
+$('gySel').addEventListener('change', renderGy);
 /* ---------- framework ---------- */
 let fws = [];
 function curFw() { return fws.find((f) => f.id === $('fwSel').value) || null; }
@@ -515,6 +546,7 @@ $('chForm').addEventListener('submit', async (e) => {
   } catch { toast('Gagal menambah channel.'); } finally { $('chSave').disabled = false; }
 });
 window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (CH[h] && h !== ch) setCh(h); });
+renderGy();
 setCh(ch);
 
 /* ---------- sambungan ---------- */
@@ -528,6 +560,7 @@ setCh(ch);
   try { assets = await claude.use('assets'); } catch { assets = null; }
   try { db = await claude.use('db'); } catch { db = null; }
   if (!db) { $('ideas').replaceChildren(el('span', {className: 'muted', textContent: 'Data tidak bisa dimuat di tampilan ini. Buka halaman ini di claude.ai saat sudah masuk.'})); return; }
+  db.collection('gaya').orderBy('urut').onSnapshot((snap) => { gayas = snap.docs.map((d) => ({id: d.id, ...d.data()})); renderGy(); }, () => {});
   db.collection('channels').onSnapshot((snap) => {
     for (const d of snap.docs) CH[d.id] = {...(CH[d.id] || {}), ...d.data()};
     renderTabs();
