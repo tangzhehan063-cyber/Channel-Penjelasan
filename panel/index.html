@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studio Fakta Rumah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* Panel produksi channel "fakta rumah": warna merek channel (koral di atas kertas, tinta).
+   Tata letak: kolom kiri = video yang sedang jalan (aksi utama), kolom kanan = mulai baru + pesan; bawah = arsip. */
+:root {
+  --paper: #f3f2ef;
+  --card: #fbfaf7;
+  --ink: #1c1c1e;
+  --sub: #6b6b70;
+  --line: #dedbd3;
+  --coral: #e8604a;
+  --coral-soft: #fbe3dd;
+  --sage: #4f8f4b;
+  --sage-soft: #e3efe0;
+  --blue: #3f6fb5;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.45; }
+h1, h2, h3 { text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+button, select, textarea, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 20px 16px 48px; display: grid; gap: 18px; }
+header { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; justify-content: space-between; }
+.brand { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.brand h1 { font-size: 26px; font-weight: 800; }
+.kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--coral); }
+.pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; background: var(--card); border: 1px solid var(--line); }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--sub); }
+.pill.ok .dot { background: var(--sage); }
+.pill.warn .dot { background: var(--coral); }
+
+.grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+@media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; display: grid; gap: 14px; }
+.card h2 { font-size: 17px; font-weight: 800; }
+.muted { color: var(--sub); font-size: 13px; }
+
+.now-title { display: grid; gap: 4px; }
+.now-title .nn { font-family: var(--font-mono); font-size: 13px; color: var(--coral); }
+.now-title h3 { font-size: 22px; font-weight: 800; }
+
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px; }
+@media (max-width: 560px) { .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.steps li { display: grid; gap: 6px; font-size: 12px; font-weight: 600; color: var(--sub); }
+.steps li::before { content: ""; height: 6px; border-radius: 3px; background: var(--line); }
+.steps li.done::before { background: var(--sage); }
+.steps li.done { color: var(--ink); }
+.steps li.cur::before { background: var(--coral); }
+.steps li.cur { color: var(--coral); }
+
+.gate { border-radius: 12px; padding: 14px; display: grid; gap: 10px; border: 2px solid var(--coral); background: var(--coral-soft); }
+.gate.work { border-color: var(--line); background: var(--paper); }
+.gate.done { border-color: var(--sage); background: var(--sage-soft); }
+.gate .label { font-weight: 800; font-size: 15px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.btn { border: 0; border-radius: 10px; padding: 10px 16px; font-weight: 800; background: var(--ink); color: #fff; }
+.btn.coral { background: var(--coral); }
+.btn.sage { background: var(--sage); }
+.btn.ghost { background: transparent; color: var(--ink); border: 2px solid var(--ink); padding: 8px 14px; }
+.btn.small { padding: 6px 12px; font-size: 13px; border-radius: 8px; }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+textarea, input[type=text] { width: 100%; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; background: #fff; resize: vertical; }
+textarea { min-height: 72px; }
+
+.script { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; max-height: 320px; overflow: auto; white-space: pre-wrap; font-size: 14px; }
+details summary { cursor: pointer; font-weight: 600; }
+
+.ideas { display: grid; gap: 8px; }
+.idea { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; align-items: center; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.idea.rek { border: 2px solid var(--coral); }
+.idea b { font-size: 14px; }
+.idea .muted { grid-column: 1; }
+.idea .btn { grid-row: 1 / span 2; grid-column: 2; }
+.tag { font-family: var(--font-mono); font-size: 11px; color: var(--coral); margin-left: 6px; }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+th { font-size: 12px; color: var(--sub); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+td.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: var(--coral); width: 44px; }
+select { border: 1px solid var(--line); border-radius: 8px; padding: 5px 8px; background: #fff; }
+.st { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+.st.tayang { background: var(--sage-soft); color: var(--sage); }
+.st.belum { background: var(--coral-soft); color: var(--coral); }
+.st.terjadwal { background: #e3ebf7; color: var(--blue); }
+a { color: var(--blue); }
+
+.log { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 13px; }
+.log li { display: grid; grid-template-columns: 92px 1fr; gap: 10px; }
+.log time { font-family: var(--font-mono); color: var(--sub); font-size: 12px; }
+.toast { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 10px; font-weight: 600; max-width: calc(100% - 32px); display: none; }
+.toast.show { display: block; }
+.fallback { display: none; gap: 8px; }
+.fallback.show { display: grid; }
+.fallback code { font-family: var(--font-mono); font-size: 13px; background: #fff; border: 1px dashed var(--coral); border-radius: 8px; padding: 8px 10px; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <span class="kicker">fakta rumah · panel produksi</span>
+      <h1>Studio Fakta Rumah</h1>
+    </div>
+    <span class="pill" id="conn"><span class="dot"></span><span id="connText">Memeriksa sambungan ke Claude…</span></span>
+  </header>
+
+  <div class="grid">
+    <!-- kiri: video berjalan -->
+    <section class="card" id="nowCard" aria-labelledby="nowH">
+      <h2 id="nowH">Video yang sedang dikerjakan</h2>
+      <div class="now-title">
+        <span class="nn" id="nowNn">#12 · Hitung Rumah #02</span>
+        <h3 id="nowJudul">Ngontrak Sejuta vs Nyicil Sejuta</h3>
+      </div>
+      <ol class="steps" id="steps"></ol>
+      <div class="gate" id="gate"></div>
+      <div class="fallback" id="fallback">
+        <span class="muted">Tombol belum bisa langsung mengirim ke Claude. Salin perintah ini lalu tempel di chat Claude:</span>
+        <code id="fallbackText"></code>
+        <div class="row"><button class="btn small" id="copyBtn" type="button">Salin perintah</button></div>
+      </div>
+      <details id="naskahBox" open>
+        <summary>Naskah (teks suara)</summary>
+        <div class="script" id="naskah">Belum ada naskah.</div>
+      </details>
+    </section>
+
+    <!-- kanan: mulai baru + pesan -->
+    <div style="display:grid; gap:18px;">
+      <section class="card" aria-labelledby="newH">
+        <h2 id="newH">Mulai video baru</h2>
+        <div class="ideas" id="ideas"><span class="muted">Memuat ide…</span></div>
+        <label for="ownTopic" class="muted">Atau tulis topik / tempel naskah sendiri</label>
+        <textarea id="ownTopic" maxlength="3500" placeholder="Contoh: DP 0% bikin cicilan berapa lama?"></textarea>
+        <div class="row"><button class="btn coral" id="ownBtn" type="button">Buat video dari ini</button></div>
+      </section>
+      <section class="card" aria-labelledby="msgH">
+        <h2 id="msgH">Pesan bebas ke Claude</h2>
+        <textarea id="freeMsg" maxlength="3500" placeholder="Misal: jadwalkan posting #12 hari Jumat jam 19.00"></textarea>
+        <div class="row"><button class="btn" id="freeBtn" type="button">Kirim</button></div>
+      </section>
+    </div>
+  </div>
+
+  <section class="card" aria-labelledby="allH">
+    <div class="row" style="justify-content:space-between">
+      <h2 id="allH">Semua video</h2>
+      <span class="muted" id="sumLine"></span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Judul</th><th>Seri</th><th>Durasi</th><th>Posting</th><th>Drive</th></tr></thead>
+        <tbody id="vids"><tr><td colspan="6" class="muted">Memuat daftar video…</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="logH">
+    <h2 id="logH">Riwayat perintah</h2>
+    <ul class="log" id="log"><li><time>—</time><span class="muted">Belum ada perintah dari panel.</span></li></ul>
+  </section>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const STEPS = ['Ide', 'Naskah', 'Suara', 'Animasi', 'Cek gambar', 'Render', 'Drive', 'Selesai'];
+const DRIVE_ROOT = 'https://drive.google.com/drive/folders/1Dx9nqhifWRbixFb_2u4XrHMIaHHJloAt';
+const $ = (id) => document.getElementById(id);
+let db = null, comments = null, canSend = 'off', aktif = null, busy = false;
+
+function toast(msg) { const t = $('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove('show'), 4200); }
+function el(tag, props = {}, kids = []) { const e = document.createElement(tag); Object.assign(e, props); for (const k of [].concat(kids)) e.append(k); return e; }
+
+/* ---------- kirim perintah ke Claude ---------- */
+async function send(text, anchorEl) {
+  if (busy) return;
+  const full = '[Panel Studio] ' + text;
+  $('fallback').classList.remove('show');
+  if (comments && canSend === 'available' && 'sendToClaude' in comments) {
+    busy = true; setButtons(true);
+    try {
+      const anchor = await comments.anchorFor(anchorEl || $('nowCard'));
+      await comments.sendToClaude({anchor, text: full});
+      toast('Terkirim ke Claude. Balasan muncul di komentar halaman ini dan di chat.');
+      await addLog(text);
+    } catch (e) {
+      if (e && e.code === 'consent_required') toast('Izinkan halaman ini berkomentar atas namamu, lalu tekan lagi.');
+      else showFallback(full, e && e.code);
+    } finally { busy = false; setButtons(false); }
+  } else {
+    showFallback(full, canSend);
+    await addLog(text + ' (disalin manual)');
+  }
+}
+function showFallback(full, why) {
+  $('fallbackText').textContent = full;
+  $('fallback').classList.add('show');
+  if (why && why !== 'off') toast('Belum bisa kirim langsung (' + why + '). Salin perintahnya.');
+}
+$('copyBtn').addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText($('fallbackText').textContent); toast('Perintah disalin. Tempel di chat Claude.'); }
+  catch { toast('Tidak bisa menyalin otomatis. Blok teksnya lalu salin.'); }
+});
+function setButtons(dis) { document.querySelectorAll('button[data-send]').forEach((b) => (b.disabled = dis)); }
+
+async function addLog(teks) {
+  if (!db) return;
+  try { await db.collection('log').add({t: Date.now(), teks: String(teks).slice(0, 400)}); } catch {}
+}
+
+/* ---------- render: video berjalan ---------- */
+function renderNow() {
+  const a = aktif || {nn: 12, judul: 'Ngontrak Sejuta vs Nyicil Sejuta', seri: 'Hitung Rumah #02', tahap: 7, catatan: 'Selesai. MP4 sudah dikirim, cover & info di Drive.'};
+  $('nowNn').textContent = '#' + String(a.nn).padStart(2, '0') + (a.seri ? ' · ' + a.seri : '');
+  $('nowJudul').textContent = a.judul || 'Belum ada judul';
+  const st = $('steps'); st.replaceChildren();
+  STEPS.forEach((s, i) => st.append(el('li', {className: i < a.tahap || a.tahap >= 7 ? 'done' : i === a.tahap ? 'cur' : '', textContent: s})));
+  $('naskah').textContent = a.naskah || 'Naskah muncul di sini setelah Claude menulisnya.';
+
+  const g = $('gate'); g.replaceChildren(); g.className = 'gate';
+  const nn = '#' + String(a.nn).padStart(2, '0');
+  const note = el('div', {className: 'muted', textContent: a.catatan || ''});
+  const revisi = () => {
+    const ta = el('textarea', {id: 'revTa', maxLength: 3000, placeholder: 'Tulis yang mau diubah…'});
+    const b = el('button', {className: 'btn ghost', type: 'button', textContent: 'Kirim revisi'});
+    b.dataset.send = '1';
+    b.onclick = () => { const v = ta.value.trim(); if (!v) { toast('Tulis dulu revisinya.'); return; } send(`Revisi ${STEPS[a.tahap].toLowerCase()} video ${nn}: ${v}`, b); ta.value = ''; };
+    return [el('label', {htmlFor: 'revTa', className: 'muted', textContent: 'Ada yang mau diubah?'}), ta, el('div', {className: 'row'}, [b])];
+  };
+  const btn = (txt, cls, cmd) => { const b = el('button', {className: 'btn ' + cls, type: 'button', textContent: txt}); b.dataset.send = '1'; b.onclick = () => send(cmd, b); return b; };
+
+  if (a.tahap === 1 && a.menunggu) {
+    g.append(el('div', {className: 'label', textContent: 'Menunggu kamu: ACC naskah'}), note,
+      el('div', {className: 'row'}, [btn('ACC naskah', 'coral', `ACC naskah video ${nn}. Lanjut caption + VO 1 take.`)]), ...revisi());
+  } else if (a.tahap === 4 && a.menunggu) {
+    g.append(el('div', {className: 'label', textContent: 'Menunggu kamu: cek cuplikan gambar'}), note,
+      el('div', {className: 'row'}, [btn('Oke, render', 'coral', `Cuplikan video ${nn} oke. Render penuh lalu distribusi (Drive, kirim MP4, merge).`)]), ...revisi());
+  } else if (a.tahap === 0) {
+    g.append(el('div', {className: 'label', textContent: 'Menunggu kamu: pilih topik'}), el('div', {className: 'muted', textContent: 'Pilih salah satu ide di kanan, atau tulis topik sendiri.'}));
+  } else if (a.tahap >= 7) {
+    g.classList.add('done');
+    g.append(el('div', {className: 'label', textContent: 'Selesai'}), note,
+      el('div', {className: 'row'}, [btn('Minta ide topik berikutnya', 'sage', 'Beri 3–5 ide topik video berikutnya + 1 rekomendasi, isi ke daftar ide panel.')]));
+  } else {
+    g.classList.add('work');
+    g.append(el('div', {className: 'label', textContent: 'Claude sedang mengerjakan: ' + STEPS[a.tahap]}), note,
+      el('div', {className: 'row'}, [btn('Tanya progres', 'ghost', `Bagaimana progres video ${nn}? Perbarui status di panel.`)]));
+  }
+}
+
+/* ---------- render: ide ---------- */
+function renderIdeas(docs) {
+  const box = $('ideas'); box.replaceChildren();
+  const list = docs.filter((d) => !d.data().dipakai);
+  if (!list.length) { box.append(el('span', {className: 'muted', textContent: 'Belum ada ide. Tekan "Minta ide topik berikutnya" atau tulis topik sendiri.'})); return; }
+  for (const d of list) {
+    const v = d.data();
+    const b = el('button', {className: 'btn small ' + (v.rek ? 'coral' : ''), type: 'button', textContent: 'Pakai'});
+    b.dataset.send = '1';
+    b.onclick = () => send(`Buat video baru dengan topik: "${v.judul}". Mulai tahap naskah, kirim teks TTS untuk ACC.`, b);
+    const title = el('b', {textContent: v.judul}); if (v.rek) title.append(el('span', {className: 'tag', textContent: 'REKOMENDASI'}));
+    box.append(el('div', {className: 'idea' + (v.rek ? ' rek' : '')}, [title, b, el('span', {className: 'muted', textContent: v.catatan || ''})]));
+  }
+}
+
+/* ---------- render: semua video ---------- */
+function renderVids(docs) {
+  const tb = $('vids'); tb.replaceChildren();
+  if (!docs.length) { tb.append(el('tr', {}, [el('td', {colSpan: 6, className: 'muted', textContent: 'Belum ada data video.'})])); return; }
+  let tayang = 0;
+  for (const d of docs) {
+    const v = d.data(); if (v.posting === 'tayang') tayang++;
+    const sel = el('select', {id: 'post-' + d.id, ariaLabel: 'Status posting #' + v.nn});
+    for (const [val, txt] of [['belum', 'Belum'], ['terjadwal', 'Terjadwal'], ['tayang', 'Tayang']]) sel.append(el('option', {value: val, textContent: txt, selected: v.posting === val}));
+    sel.onchange = async () => {
+      try { await db.doc('videos/' + d.id).update({posting: sel.value}); toast('Status #' + v.nn + ': ' + sel.value); }
+      catch { toast('Gagal menyimpan status. Coba lagi.'); }
+    };
+    const drive = v.drive ? el('a', {href: v.drive, target: '_blank', rel: 'noopener', textContent: 'Buka'}) : el('a', {href: DRIVE_ROOT, target: '_blank', rel: 'noopener', textContent: 'Folder induk'});
+    tb.append(el('tr', {}, [
+      el('td', {className: 'num', textContent: String(v.nn).padStart(2, '0')}),
+      el('td', {textContent: v.judul}),
+      el('td', {className: 'muted', textContent: v.seri || '—'}),
+      el('td', {className: 'muted', textContent: v.durasi ? v.durasi + ' dtk' : '—'}),
+      el('td', {}, [sel]),
+      el('td', {}, [drive]),
+    ]));
+  }
+  $('sumLine').textContent = `${docs.length} video · ${tayang} tayang`;
+}
+
+/* ---------- render: log ---------- */
+function renderLog(docs) {
+  const ul = $('log'); ul.replaceChildren();
+  if (!docs.length) { ul.append(el('li', {}, [el('time', {textContent: '—'}), el('span', {className: 'muted', textContent: 'Belum ada perintah dari panel.'})])); return; }
+  for (const d of docs) {
+    const v = d.data(), dt = new Date(v.t);
+    const s = dt.toLocaleDateString('id-ID', {day: '2-digit', month: 'short'}) + ' ' + dt.toLocaleTimeString('id-ID', {hour: '2-digit', minute: '2-digit'});
+    ul.append(el('li', {}, [el('time', {textContent: s}), el('span', {textContent: v.teks})]));
+  }
+}
+
+/* ---------- tombol kanan ---------- */
+$('ownBtn').dataset.send = '1';
+$('ownBtn').onclick = () => { const v = $('ownTopic').value.trim(); if (!v) { toast('Tulis topik atau naskahnya dulu.'); return; } send(`Buat video baru dari ini (kalau berupa naskah, pakai apa adanya): ${v}`, $('ownBtn')); $('ownTopic').value = ''; };
+$('freeBtn').dataset.send = '1';
+$('freeBtn').onclick = () => { const v = $('freeMsg').value.trim(); if (!v) { toast('Tulis pesannya dulu.'); return; } send(v, $('freeBtn')); $('freeMsg').value = ''; };
+
+renderNow();
+
+/* ---------- sambungan ---------- */
+(async () => {
+  const conn = $('conn'), ct = $('connText');
+  try { comments = await claude.use('comments'); } catch { comments = null; }
+  if (comments && 'canSendToClaude' in comments) { try { canSend = await comments.canSendToClaude(); } catch { canSend = 'off'; } }
+  const msg = {available: 'Tersambung ke Claude', no_session: 'Sesi Claude tidak aktif: perintah akan disalin', writers_only: 'Hanya pemilik yang bisa kirim', off: 'Kirim langsung tidak tersedia: perintah akan disalin'};
+  ct.textContent = msg[canSend] || msg.off;
+  conn.classList.add(canSend === 'available' ? 'ok' : 'warn');
+
+  try { db = await claude.use('db'); } catch { db = null; }
+  if (!db) { $('ideas').replaceChildren(el('span', {className: 'muted', textContent: 'Data tidak bisa dimuat di tampilan ini. Buka halaman ini di claude.ai saat sudah masuk.'})); return; }
+  const timer = setTimeout(() => toast('Data belum bisa dimuat. Periksa koneksi.'), 10000);
+  const done = () => clearTimeout(timer);
+  db.doc('aktif/sekarang').onSnapshot((s) => { done(); if (s.exists) { aktif = s.data(); renderNow(); } }, done);
+  db.collection('ide').orderBy('urut').onSnapshot((s) => { done(); renderIdeas(s.docs); }, done);
+  db.collection('videos').orderBy('nn').onSnapshot((s) => { done(); renderVids(s.docs); }, done);
+  db.collection('log').orderBy('t', 'desc').limit(15).onSnapshot((s) => renderLog(s.docs), () => {});
+})();
+</script>
+</body>
+</html>
