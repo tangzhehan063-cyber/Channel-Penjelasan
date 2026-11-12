@@ -28,17 +28,18 @@ Header: `STORYBOARD · VIDEO #N · TAHAP 2 · DRAFT`, durasi sementara, "VO Baha
 
 **Tabel beat:** `# | detik | judul | teks layar | VO | visual | SFX`.
 
-### Rumus beat (pola dari 4 video + ScriptForge)
-| Beat | Fungsi | Pola VO |
-|---|---|---|
-| 1 | **Hook** (≤ 3 dtk, tanpa intro) | Klaim mengejutkan tentang benda di rumahmu, atau "Pernah perhatiin? …" |
-| 2 | **Bingkai ulang** / buka rasa penasaran | "Ini bukan mistis. Ini fisika." / "Kenapa, ya?" |
-| 3–6 | **Mekanisme** bertahap, tiap beat 1 ide + 1 angka konkret | Kalimat pendek; angka dengan kartu; tutup beat dengan transisi/mini-cliffhanger ("Tapi…", "Nah…", "Penyebab kedua:") |
-| 1 beat | **Mitos dipatahkan** | "Banyak yang kira … Salah! …" / "… rusak? Bukan!" |
-| 1 beat | **Twist/payoff** (ScriptForge) | Fakta paling mengejutkan disimpan di sini, bukan di awal |
-| 8 | **Solusi praktis** | "Biar aman: …" (2–3 langkah, centang) |
-| 9 | **Ajakan cek di rumah** | "Coba ketuk/lihat/hitung … di rumahmu. Ada yang …?" (memancing komentar) |
-| 10 | **CTA** | "Follow buat fakta rumah berikutnya!" |
+### Rumus beat (framework v2, 12 Nov: `framework/content-framework-3-channel-v2.md`)
+Total **50–60 dtk ≈ 115–140 kata** (Riri ±2,3 kata/dtk). Waktu boleh bergeser beberapa detik, batas durasi tetap.
+| Bagian | Detik | Fungsi | Pola VO |
+|---|---|---|---|
+| 1 Hook | 0–4 | Pertanyaan, mitos, atau salah kaprah; tanpa intro | Klaim mengejutkan tentang benda di rumahmu / "Pernah perhatiin? …" |
+| 2 Masalah / mitos | 4–12 | Kenapa anggapan itu penting, apa dampaknya | "Banyak yang kira … Salah!" / "Kalau dibiarkan, …" |
+| 3 Penjelasan | 12–30 | Fakta bertahap, 2–3 beat, tiap beat 1 ide + 1 angka | Kalimat pendek; tutup beat dengan "Tapi…", "Nah…" |
+| 4 Demonstrasi + momen khas | 30–45 | Simulasi / cutaway / exploded view / perbandingan; 1 signature shot | Narasi mengikuti gambar, bukan mengulang |
+| 5 Payoff | 45–55 | Jawaban yang dijanjikan di hook | 1 kalimat takeaway (TwoTier) |
+| 6 Aksi + CTA | 55–60 | 1 tindakan praktis ("cek ini sebelum beli") atau pertanyaan pilih pihak, lalu "Follow buat fakta rumah berikutnya!" | Pemicu share di sini |
+
+Sub-format (struktur di atas tetap): **Hitung Rumah** (angka → cara hitung → twist → aksi), **VS dua kubu**, **Bukan Sial / Bukan Hantu**, **Bongkar Barang**.
 
 **Teks layar** selalu 2 baris: `kalimat kecil / KATA BESAR` (contoh: `Kena panas, keramik / MEMUAI`), opsional kartu angka (`± 1 mm memanjang`).
 
