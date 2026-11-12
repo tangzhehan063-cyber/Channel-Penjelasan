@@ -5,7 +5,7 @@ description: Menulis atau memperkuat naskah video seri "fakta rumah" dengan pola
 
 # Naskah viral: lapisan di atas alur naskah channel
 
-Skill ini TIDAK menggantikan `naskah/alur-naskah.md`. Ikuti alur itu (Tahap 1–5, rumus 10 beat, bagian "Fakta, tren & asumsi", teks layar 2 baris, penutup "Follow buat fakta rumah berikutnya!"), lalu terapkan aturan tambahan di bawah. Kalau bertentangan, aturan di `CLAUDE.md` dan `alur-naskah.md` menang.
+Skill ini TIDAK menggantikan `naskah/alur-naskah.md`. Ikuti alur itu (Tahap 1–5, rumus 6 bagian framework v2, bagian "Fakta, tren & asumsi", teks layar 2 baris, penutup "Follow buat fakta rumah berikutnya!"), lalu terapkan aturan tambahan di bawah. Kalau bertentangan, aturan di `CLAUDE.md` dan `alur-naskah.md` menang.
 
 Dasar data: `riset/2026-11-08-bedah-10-video-viral.md` (10 video TikTok info rumah, 1–22 jt views).
 
@@ -15,10 +15,10 @@ Dasar data: `riset/2026-11-08-bedah-10-video-viral.md` (10 video TikTok info rum
   - **REACH**: dibuka dengan cerita/keanehan/kisah nyata untuk mengejar views dan penonton baru. Data: video cerita dapat 14–22 jt views, tapi share rate cuma 0,1–0,2%.
   - **SHARE**: penjelasan "kenapa X terjadi" untuk mengejar share, save, dan follower. Data: share rate 0,6–1,0%, 4–9× lebih tinggi.
   - **HYBRID**: hook bergaya cerita/keanehan, isinya mekanisme teknis. Ini mode yang paling cocok dengan identitas channel.
-- **Durasi**: fleksibel. Mulai ±45 dtk, boleh naik bertahap ke video panjang (permintaan user 11 Nov). Makin panjang, makin wajib tiap beat membawa lapisan baru + umpan "tapi…" agar penonton bertahan.
+- **Durasi**: **50–60 dtk tetap** (framework v2, keputusan user 12 Nov), ±115–140 kata; struktur 6 bagian di `naskah/alur-naskah.md`. Makin panjang, makin wajib tiap beat membawa lapisan baru + umpan "tapi…" agar penonton bertahan.
 - Patokan tempo VO: ±2,5 kata per detik.
 
-## Aturan tambahan per beat (dipetakan ke rumus 10 beat)
+## Aturan tambahan per beat (beat lama 1–10 dipetakan ke 6 bagian v2: 1→Hook, 2→Masalah, 3–7→Penjelasan+Demonstrasi, payoff→Payoff, 8–10→Aksi+CTA)
 
 **Beat 1, Hook (≤3 dtk).** Tulis 3 alternatif, pilih satu, dan beri alasannya dalam 1 kalimat:
 - (a) **Bantahan**: "[yang dianggap benar], padahal [kenyataan]". Contoh pola: "Genteng utuh, tapi atap masih bocor."

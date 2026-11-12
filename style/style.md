@@ -27,6 +27,13 @@ Terinspirasi estetika "clean medical/editorial 3D"; JANGAN meniru branding, hand
 | Gerak | Pelan & mewah: objek berputar perlahan, kamera dolly halus, easing cubic; tidak ada shake/flash. |
 | Transisi | Objek berganti dengan morph/zoom ke detail (makro), atau geser lembut; bukan cut keras. |
 
+## Komposisi visual (framework v2, 12 Nov)
+Nama gaya: **minimalist stylized 3D explainer**. Per video kira-kira:
+- **50% minimalist 3D explainer**: objek sederhana, latar bersih, warna terbatas.
+- **30% technical illustration**: cutaway/penampang, isi material, dan **exploded view** (komponen dipisah satu per satu); cocok untuk baja ringan, kayu, beton, pipa.
+- **20% isometrik**: rumah utuh, denah, susunan ruang.
+Low-to-medium poly, material sederhana, kamera terarah (ringan untuk render). Hindari "low poly" murni yang bersudut/mirip aset game. Satu **momen khas** per video di bagian demonstrasi, dipakai juga untuk cover.
+
 ## Aset tambahan (memperkaya, bukan mengganti gaya)
 Kit aset prosedural di `remotion/src/aset/Aset.tsx`, katalog & aturan pakai di **`style/aset.md`**, contoh frame di `style/contoh-aset/`.
 Diterjemahkan dari referensi user di `style/referensi-visual/`: bayangan jatuh di kertas, siluet potongan dengan bayangan di sudut, kotak teks hitam ala TikTok, judul dua tingkat abu gelap, layar koral pemutus pola + grain, grid teka-teki.
