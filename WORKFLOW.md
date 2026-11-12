@@ -5,6 +5,8 @@ Satu video = satu chat, ±8 langkah. **Satu chat hanya untuk repo ini.** Semua p
 1. Baca `STATUS.md` saja. File lain hanya sesuai tahap di bawah.
 2. `git fetch origin` → cabang `claude/*` yang belum masuk `main`? Merge dulu ke cabang kerja (cegah nomor video bentrok / kerja hilang).
 3. Container baru: `tools/produksi.sh setup` (jalankan di background sambil menulis naskah).
+4. **Panel Studio** (https://claude.ai/artifact/4Aiv5HDCLRRfVLdEapvt3s, slug `19a6f0e4-8170-4760-b8cc-959939f686ea`, kode `panel/index.html`): panggil `watch` (claude-artifacts) supaya tombol panel membangunkan chat ini. Perintah dari panel datang sebagai komentar "[Panel Studio] …": baca dengan `read_comments`, kerjakan, balas singkat dengan `reply_comment`.
+5. Setiap pindah tahap, perbarui `aktif/sekarang` lewat `db_write` (field: nn, judul, seri, tahap 0–7 = Ide/Naskah/Suara/Animasi/Cek gambar/Render/Drive/Selesai, menunggu true saat butuh ACC di tahap 1 atau 4, catatan 1 kalimat, naskah = teks TTS). Video selesai → tambah/ubah `videos/vNN` (nn, judul, seri, durasi, drive, posting). Ide baru → `ide/iNN` (urut, judul, catatan, rek); topik terpakai → `dipakai: true`.
 
 ## 1. Ide (bila user belum memberi topik)
 - Cek dulu ide yang belum terpakai di `riset/` (tanpa kredit). Scrape YouTube hanya bila perlu (`v1_youtube_search`/`v1_youtube_shorts_trending`, `v1_youtube_video_comments`; dulu Facebook: ≤3 kredit), simpan ringkas ke `riset/`.
