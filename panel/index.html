@@ -333,6 +333,8 @@ function renderNow() {
   if (a.menunggu && a.tahap > 0 && a.tahap < 7) {
     g.append(el('div', {className: 'label', textContent: 'Menunggu kamu: cek ' + step.toLowerCase()}), note, prev,
       el('div', {className: 'row'}, [btn('ACC ' + step.toLowerCase(), 'coral', `ACC ${step.toLowerCase()} video ${nn}. Lanjut ke tahap berikutnya.`)]), ...revisi());
+  } else if (a.giliran && a.tahap < 7) {
+    g.append(el('div', {className: 'label', textContent: 'Menunggu kamu: ' + a.giliran}), note, prev);
   } else if (a.tahap === 0) {
     g.append(el('div', {className: 'label', textContent: 'Menunggu kamu: pilih topik'}), el('div', {className: 'muted', textContent: 'Pilih salah satu ide di kanan, atau tulis topik sendiri.'}));
   } else if (a.tahap >= 7) {
