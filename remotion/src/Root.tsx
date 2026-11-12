@@ -1,4 +1,5 @@
 import {Composition} from 'remotion';
+import {UjiZdog} from './uji/UjiZdog';
 import {Scene3D} from './Scene3D';
 import {PengetahuanTest} from './pengetahuan/Scene';
 import {Video05, V05_FRAMES} from './v05/Video05';
@@ -22,6 +23,7 @@ import {BakeAset} from './aset/BakeAset';
 
 export const RemotionRoot: React.FC = () => (
   <>
+  <Composition id="UjiZdog" component={UjiZdog} durationInFrames={150} fps={30} width={1080} height={1920} />
   <Composition id="Cover05" component={Cover05} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Cover06" component={Cover06} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Cover07" component={Cover07} durationInFrames={1} fps={30} width={1080} height={1920} />

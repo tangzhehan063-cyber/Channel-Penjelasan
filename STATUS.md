@@ -28,6 +28,7 @@
 - Render penuh ±20 mnt (swangle, concurrency 4). Efek 2D berat sudah dipanggang ke PNG (`remotion/public/aset/`).
 
 ## Log (5 terakhir; lebih lama lihat `git log`)
+- 12 Nov: uji engine 3D ringan **Zdog** (kanvas 2D, tanpa WebGL): 5 dtk video = ±11 dtk render vs three.js ±68 dtk (±6x lebih cepat; video 75 dtk ≈ 3 mnt). Kekurangan: bayangan/cahaya datar, urutan kedalaman per bentuk. Contoh `remotion/src/uji/UjiZdog.tsx` (komposisi `UjiZdog`). Menunggu ACC gaya + topik #12.
 - 11 Nov: video #11 KPR selesai. VO cukup 1 take (hemat ElevenLabs). Moodboard = still Remotion dulu sebelum ubah animasi. Bug baru: subtitle angka "koma".
 - 11 Nov: platform utama pindah ke YouTube (riset via ScrapeMedsos YouTube). User puas kualitas #10; minta opsi warna latar nanti.
 - 11 Nov: workflow hemat: suara dicampur `tools/mix-audio.mjs` (3 dtk, dulu render frame ±menit + sering timeout), bayangan 1024, render per bagian (`produksi.sh bagian`) jadi cara baku, still 4–6 frame.
