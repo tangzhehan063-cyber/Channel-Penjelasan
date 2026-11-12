@@ -146,8 +146,8 @@ export const Wall: React.FC<WallState> = ({t, level, waterOp = 1, bubbles = 0, p
 // ---------- MAKRO: pori kapiler di penampang bata + tisu ----------
 const BW = 2.4, BH = 1.7, BD = 1.2;
 function rand(i: number) { const s = Math.sin(i * 127.1 + 311.7) * 43758.5453; return s - Math.floor(s); }
-export const PoriBata: React.FC<{t: number; p: number; tissue: number}> = ({t, p, tissue}) => {
-  const brick = useMemo(() => phys('#e65a43'), []);
+export const PoriBata: React.FC<{t: number; p: number; tissue: number; color?: string}> = ({t, p, tissue, color = '#e65a43'}) => {
+  const brick = useMemo(() => phys(color, color === '#e65a43' ? {} : {sheen: 0, clearcoat: 0.12, roughness: 0.75}), [color]);
   const pore = useMemo(() => phys('#8e2d20', {roughness: 0.6, clearcoat: 0.2}), []);
   const tissueM = useMemo(() => phys('#fbfaf7', {roughness: 0.9, clearcoat: 0, sheen: 0.3, sheenColor: new THREE.Color('#ffffff')}), []);
   const pool = useMemo(() => phys('#2f8fe6', {roughness: 0.08, clearcoat: 1, transparent: true, opacity: 0.75, sheen: 0}), []);

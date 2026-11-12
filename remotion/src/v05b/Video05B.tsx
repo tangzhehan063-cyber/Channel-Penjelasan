@@ -38,10 +38,10 @@ const B = {hook: 0, kelupas: 3.45, pori: 7.94, meter: 14.5, garam: 17.0, mitos: 
 const CX = 0.35;  // geser supaya tembok di kiri-tengah layar
 const KEYS: Key[] = [
   {t: 0, pos: [CX, 1.6, 11.0], look: [CX, 1.2, 0]}, {t: 3.4, pos: [CX, 1.5, 10.3], look: [CX, 1.2, 0]},
-  {t: 4.4, pos: [CX, 1.15, 9.0], look: [CX, 0.8, 0]}, {t: 7.4, pos: [CX, 1.15, 9.0], look: [CX, 0.8, 0]},
+  {t: 4.4, pos: [CX, 1.25, 9.7], look: [CX, 0.95, 0]}, {t: 7.4, pos: [CX, 1.25, 9.7], look: [CX, 0.95, 0]},
   {t: 8.4, pos: [CX, 1.5, 10.3], look: [CX, 1.2, 0]}, {t: 25.5, pos: [CX, 1.5, 10.3], look: [CX, 1.2, 0]},
-  {t: 26.5, pos: [CX, 1.2, 9.4], look: [CX, 0.9, 0]}, {t: 33.5, pos: [CX, 1.3, 9.9], look: [CX, 1.0, 0]},
-  {t: 34.6, pos: [CX, 1.0, 9.0], look: [CX, 0.7, 0]}, {t: 40.8, pos: [CX, 1.0, 9.0], look: [CX, 0.7, 0]},
+  {t: 26.5, pos: [CX, 1.3, 10.0], look: [CX, 1.05, 0]}, {t: 33.5, pos: [CX, 1.35, 10.2], look: [CX, 1.1, 0]},
+  {t: 34.6, pos: [CX, 1.1, 9.8], look: [CX, 0.85, 0]}, {t: 40.8, pos: [CX, 1.1, 9.8], look: [CX, 0.85, 0]},
   {t: 41.8, pos: [CX, 1.5, 10.3], look: [CX, 1.2, 0]}, {t: 43.8, pos: [CX, 1.5, 10.3], look: [CX, 1.2, 0]}, {t: 45.0, pos: [CX, 1.9, 11.4], look: [CX, 1.0, 0]},
 ];
 const LOUPE_CAM: Key = {t: 0, pos: [0, 0.85, 2.9], look: [0, 0.85, 0]};
@@ -135,7 +135,7 @@ const Loupe: React.FC<{t: number; from: [number, number]}> = ({t, from}) => {
     <svg width="1080" height="1920" style={{position: 'absolute', opacity: o}}><line x1={from[0]} y1={from[1]} x2={LX - LR * 0.8} y2={LY - LR * 0.6} stroke={INK} strokeWidth="3" strokeDasharray="10 8" /><circle cx={from[0]} cy={from[1]} r="9" fill={INK} /></svg>
     <div style={{position: 'absolute', left: LX - LR, top: LY - LR, width: LR * 2, height: LR * 2, borderRadius: '50%', overflow: 'hidden', border: `8px solid ${INK}`, boxSizing: 'border-box', background: '#f3f2ef', boxShadow: '0 20px 50px rgba(28,28,30,0.25)', opacity: o, transform: `scale(${0.9 + 0.1 * o})`}}>
       <div style={{position: 'absolute', left: LR - 540 * s, top: LR - 960 * s, width: 1080, height: 1920, transform: `scale(${s})`, transformOrigin: '0 0'}}>
-        <Canvas3D k={LOUPE_CAM}><PoriBata t={t} p={p} tissue={0} /></Canvas3D>
+        <Canvas3D k={LOUPE_CAM}><PoriBata t={t} p={p} tissue={0} color="#9b1c16" /></Canvas3D>
       </div>
     </div></>);
 };
@@ -151,7 +151,7 @@ export const Video05B: React.FC = () => {
   const f = useCurrentFrame(), t = f / FPS;
   const cam = camAt(KEYS, t), st = state(t);
   const spin = YAW + 0.2 * r(t, B.cta, B.end, Easing.linear);
-  const yawT = t >= B.cta ? spin : YAW - 0.7 * r(t, 22.8, 24.4) * (1 - r(t, 25.6, 26.6));
+  const yawT = t >= B.cta ? spin : YAW - 0.65 * r(t, 4.2, 5.0) * (1 - r(t, 7.3, 8.3)) - 0.7 * r(t, 22.8, 24.4) * (1 - r(t, 25.6, 26.6));
   const FZ = 0.42;
   const rulA = proj(cam, [-0.68, 0, FZ]), rulB = proj(cam, [-0.68, 1.0, FZ]);
   const oldA = proj(cam, [-0.72, 1.0, FZ]), oldB = proj(cam, [0.42, 1.0, -0.42]);
