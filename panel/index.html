@@ -333,6 +333,29 @@ function renderNow() {
   if (a.menunggu && a.tahap > 0 && a.tahap < 7) {
     g.append(el('div', {className: 'label', textContent: 'Menunggu kamu: cek ' + step.toLowerCase()}), note, prev,
       el('div', {className: 'row'}, [btn('ACC ' + step.toLowerCase(), 'coral', `ACC ${step.toLowerCase()} video ${nn}. Lanjut ke tahap berikutnya.`)]), ...revisi());
+  } else if (a.pilihSuara && a.tahap < 7) {
+    const up = el('input', {type: 'file', id: 'voFile', accept: 'audio/mp4,audio/x-m4a,.m4a,video/mp4,video/webm,audio/webm'});
+    const upB = el('button', {className: 'btn ghost', type: 'button', textContent: 'Unggah rekaman'}); upB.dataset.send = '1';
+    upB.onclick = async () => {
+      const f = up.files[0]; if (!f) { toast('Pilih file rekaman dulu (.m4a, .mp4, atau .webm).'); return; }
+      if (!assets) { toast('Unggah hanya bisa oleh pemilik panel.'); return; }
+      try {
+        upB.disabled = true; toast('Mengunggah rekaman…');
+        const ty = /\.webm$/i.test(f.name) ? 'video/webm' : 'video/mp4';
+        const r = await assets.upload(f, {type: ty});
+        await db.doc(col('aktif') + '/sekarang').update({voFile: r.id, voNama: f.name.slice(0, 120)});
+        send(`Suara video ${nn}: rekaman saya sendiri, sudah diunggah ke panel (aset ${r.id}, ${f.name}). Lanjut ke tahap berikutnya.`, upB);
+      } catch (e) { toast(e && e.code === 'too_large' ? 'File lebih dari 20 MB.' : 'Gagal mengunggah. Coba .m4a/.mp4, atau kirim MP3 lewat chat.'); }
+      finally { upB.disabled = false; }
+    };
+    g.append(el('div', {className: 'label', textContent: 'Pilih suara untuk video ini'}), note,
+      el('div', {className: 'row'}, [
+        btn('ElevenLabs (final, pakai kredit)', 'coral', `Suara video ${nn}: ElevenLabs, 1 take, flow video ini. Lanjut.`),
+        btn('Gemini TTS (gratis)', 'sage', `Suara video ${nn}: Gemini TTS (tools/gemini_tts.py). Lanjut.`)]),
+      el('label', {htmlFor: 'voFile', className: 'muted', textContent: 'Atau rekaman sendiri (.m4a / .mp4 / .webm, maks. 20 MB; MP3 kirim lewat chat):'}), up,
+      el('div', {className: 'row'}, [upB]));
+  } else if (a.giliran && a.tahap < 7) {
+    g.append(el('div', {className: 'label', textContent: 'Menunggu kamu: ' + a.giliran}), note, prev);
   } else if (a.tahap === 0) {
     g.append(el('div', {className: 'label', textContent: 'Menunggu kamu: pilih topik'}), el('div', {className: 'muted', textContent: 'Pilih salah satu ide di kanan, atau tulis topik sendiri.'}));
   } else if (a.tahap >= 7) {
