@@ -22,15 +22,15 @@ Alasan: (c) langsung jadi cerita visual (dua rumah) dan menimbulkan "kok bisa be
 - Penyederhanaan visual: gelombang suara digambar sebagai cincin koral; ayunan kaca dibesar-besarkan.
 - Sengaja tidak dibahas: jarak & turunnya desibel, genteng, telinga, fatwa.
 
-## Teks TTS (versi humanis, ±135 kata, ±58 dtk)
+## Teks TTS (versi humanis, ±150 kata, ±60–63 dtk)
 1. Truk sound horeg lewat depan rumah. Kaca tetangga pecah, kaca rumahmu utuh. Padahal suaranya sama kerasnya.
 2. Orang biasanya nyalahin kencangnya. Angkanya bilang lain.
-3. Sound horeg bisa sampai seratus tiga puluh lima desibel. Kaca yang masih utuh umumnya baru pecah di atas seratus lima puluh. Tekanannya sekitar lima kali lipat.
+3. Sound horeg bisa sampai seratus tiga puluh lima desibel. Kaca utuh umumnya baru pecah di atas seratus lima puluh.
 4. Masalahnya ada di bass. Kaca jendela yang lebar punya getar sendiri, kira-kira dua puluhan kali per detik. Bass sound horeg getarnya mirip.
 5. Karena mirip, tiap getaran bass mendorong kaca pas lagi mengayun, dan ayunannya makin lebar. Kayak dorong anak main ayunan. Pelan saja, asal pas, lama-lama tinggi.
-6. Kaca tetangga tadi ternyata gompal sedikit di pinggirnya. Retaknya mulai dari situ.
+6. Kaca tetangga ternyata gompal sedikit di pinggirnya. Retaknya mulai dari situ.
 7. Jadi kaca pecah karena bass yang getarnya sama dengan kaca, ditambah pinggir kaca yang sudah gompal.
-8. Coba raba pinggir kaca jendelamu hari ini, lihat juga karetnya. Ada yang gompal atau karetnya sudah keras, ganti sebelum musim arak-arakan. Apalagi kalau rumahmu di pinggir jalan.
+8. Raba pinggir kaca jendelamu hari ini. Ada yang gompal atau karetnya keras, ganti sebelum musim arak-arakan. Apalagi kalau rumahmu di pinggir jalan.
 9. Kaca di rumahmu pernah ikut bergetar waktu sound horeg lewat? Follow buat fakta rumah berikutnya!
 
 ## Beat
@@ -38,7 +38,7 @@ Alasan: (c) langsung jadi cerita visual (dua rumah) dan menimbulkan "kok bisa be
 |---|---|---|---|---|---|---|
 | 1 | 0–4 | Hook | Kaca tetangga pecah, / KACAMU AMAN? | TTS 1 | Dua rumah kertas bertetangga, jendela besar. Truk kertas + tumpukan speaker masuk dari kiri. Kaca kanan retak "krak". Zoom pelan. | Dentum bass, krak |
 | 2 | 4–7 | Mitos | Karena kencangnya? / BUKAN | TTS 2 | PatternBreak koral, stempel "BUKAN". | Stempel |
-| 3 | 7–15 | Angka | 135 dB vs 150 dB / 5× LEBIH KUAT (perkiraan) | TTS 3 | Dua batang meteran kertas: horeg 135 berhenti di bawah garis "kaca pecah 150". Geser ke atas. | Tick naik |
+| 3 | 7–15 | Angka | 135 dB vs 150 dB / KACA UTUH MASIH TAHAN (perkiraan) | TTS 3 | Dua batang meteran kertas: horeg 135 berhenti di bawah garis "kaca pecah 150". Geser ke atas. | Tick naik |
 | 4 | 15–23 | Resonansi | Getar alami kaca / ±20 KALI PER DETIK | TTS 4 | Close-up kaca; garis getar kaca & gelombang bass koral, lalu dua gelombang menumpuk sama. Zoom in. | Hum rendah |
 | 5 | 23–31 | Momen khas | Didorong pas waktunya / MAKIN LEBAR | TTS 5 | Kaca "bernapas" seirama dentuman, ayunan makin lebar; sisipan kecil ayunan anak didorong. | Dentum berulang makin keras |
 | 6 | 31–38 | Twist | Gompal kecil di tepi / RETAK MULAI DARI SINI | TTS 6 | Lingkaran fokus di gompal tepi kaca tetangga → retak menjalar (efek Tes13). Kaca rumahmu utuh, tepinya rapi. | Krek merambat |
