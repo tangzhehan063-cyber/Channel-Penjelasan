@@ -22,16 +22,16 @@ Alasan: (c) langsung jadi cerita visual (dua rumah) dan menimbulkan "kok bisa be
 - Penyederhanaan visual: gelombang suara digambar sebagai cincin koral; ayunan kaca dibesar-besarkan.
 - Sengaja tidak dibahas: jarak & turunnya desibel, genteng, telinga, fatwa.
 
-## Teks TTS (±128 kata, ±55 dtk)
-1. Truk sound horeg lewat. Kaca tetangga pecah, kacamu aman. Kok bisa?
-2. Banyak yang kira karena kencangnya. Ternyata bukan.
-3. Sound horeg bisa seratus tiga puluh lima desibel. Tapi kaca utuh umumnya baru pecah di atas seratus lima puluh. Tekanannya lima kali lebih kuat.
-4. Nah, rahasianya di bass. Kaca jendela lebar punya getar alami, sekitar dua puluhan kali per detik. Bass sound horeg getarnya mirip.
-5. Begitu sama, kaca ikut berayun. Tiap dentuman mendorong lagi, makin lama makin lebar. Kayak ayunan didorong pas waktunya.
-6. Tapi kaca tetangga punya satu kelemahan. Gompal kecil di tepinya. Dari situ, retak mulai menjalar.
-7. Jadi yang memecahkan kaca bukan kencangnya. Tapi bass yang getarnya sama, ditambah tepi kaca yang sudah lemah.
-8. Cek tepi kaca dan karetnya hari ini. Ada gompal atau karet kering, ganti sebelum musim arak-arakan. Yang rumahnya di pinggir jalan, wajib cek.
-9. Di daerahmu, sound horeg sampai bikin kaca bergetar? Follow buat fakta rumah berikutnya!
+## Teks TTS (versi humanis, ±135 kata, ±58 dtk)
+1. Truk sound horeg lewat depan rumah. Kaca tetangga pecah, kaca rumahmu utuh. Padahal suaranya sama kerasnya.
+2. Orang biasanya nyalahin kencangnya. Angkanya bilang lain.
+3. Sound horeg bisa sampai seratus tiga puluh lima desibel. Kaca yang masih utuh umumnya baru pecah di atas seratus lima puluh. Tekanannya sekitar lima kali lipat.
+4. Masalahnya ada di bass. Kaca jendela yang lebar punya getar sendiri, kira-kira dua puluhan kali per detik. Bass sound horeg getarnya mirip.
+5. Karena mirip, tiap getaran bass mendorong kaca pas lagi mengayun, dan ayunannya makin lebar. Kayak dorong anak main ayunan. Pelan saja, asal pas, lama-lama tinggi.
+6. Kaca tetangga tadi ternyata gompal sedikit di pinggirnya. Retaknya mulai dari situ.
+7. Jadi kaca pecah karena bass yang getarnya sama dengan kaca, ditambah pinggir kaca yang sudah gompal.
+8. Coba raba pinggir kaca jendelamu hari ini, lihat juga karetnya. Ada yang gompal atau karetnya sudah keras, ganti sebelum musim arak-arakan. Apalagi kalau rumahmu di pinggir jalan.
+9. Kaca di rumahmu pernah ikut bergetar waktu sound horeg lewat? Follow buat fakta rumah berikutnya!
 
 ## Beat
 | # | dtk | Judul | Teks layar | VO | Visual / kamera 2,5D | SFX |
@@ -47,9 +47,9 @@ Alasan: (c) langsung jadi cerita visual (dua rumah) dan menimbulkan "kok bisa be
 | 9 | 52–56 | Ajak + CTA | Kacamu ikut bergetar? · FOLLOW | TTS 9 | Dua tombol "PERNAH" / "AMAN", lalu kartu FOLLOW. | Tiga chime |
 
 ## Penanda
-- **Payoff:** "Jadi yang memecahkan kaca bukan kencangnya, tapi bass yang getarnya sama, ditambah tepi kaca yang sudah lemah."
+- **Payoff:** "Jadi kaca pecah karena bass yang getarnya sama dengan kaca, ditambah pinggir kaca yang sudah gompal."
 - **Aksi:** cek tepi kaca (gompal) & karet/dempul; ganti sebelum musim arak-arakan.
-- **Pemicu share:** "Yang rumahnya di pinggir jalan, wajib cek."
+- **Pemicu share:** "Apalagi kalau rumahmu di pinggir jalan."
 - **CTA:** pertanyaan "Di daerahmu, sound horeg sampai bikin kaca bergetar?" + Follow.
 - **[⚠ CEK]:** tidak ada; frekuensi bass horeg & ambang 150 dB ditandai (perkiraan).
 
