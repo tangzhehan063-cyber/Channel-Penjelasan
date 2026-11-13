@@ -39,7 +39,7 @@ Channel pengetahuan, seri utama **"fakta rumah"**, Bahasa Indonesia santai, audi
 1. **Selalu 1 take**: `creative_generate_speech` dengan `generations_count: 1`, bukan 2 (bawaan konektor = 2, jadi wajib diisi).
 2. **Naskah final dulu**: ElevenLabs baru dipanggil setelah naskah dinyatakan final dan di-ACC user (tombol ACC di panel atau "ACC" di chat).
 3. **Revisi hanya kalimat yang berubah**: generate ulang kalimat itu saja (1 take), lalu sambung ke VO lama dengan ffmpeg (potong di jeda kalimat, crossfade ±30 ms), lalu ulang timestamp. Jangan generate ulang naskah penuh.
-4. **Draf & tes pakai Gemini TTS atau edge-tts** (`python3 tools/gemini_tts.py`, atau workflow GitHub Actions "Gemini TTS" di repo RAKA). ElevenLabs hanya untuk versi final.
+4. **Sebelum VO final, selalu tanya user: Gemini TTS atau ElevenLabs** (perintah user 13 Nov; jangan pilih sendiri). Draf & tes pakai Gemini TTS atau edge-tts** (`python3 tools/gemini_tts.py`, atau workflow GitHub Actions "Gemini TTS" di repo RAKA). ElevenLabs hanya untuk versi final.
 5. **Satu flow per video**: buat `creative_create_flow` sekali, catat `flow_id` di naskah/STATUS video itu, dan pakai lagi untuk semua generate & transkripsi video yang sama. Jangan buat flow baru untuk video yang sama.
 
 ## Caption & komentar pertama (berlaku setelah user ACC naskah final)
