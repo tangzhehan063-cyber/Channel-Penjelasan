@@ -17,6 +17,7 @@ import {Video11, V11_FRAMES} from './v11/Video11';
 import {Cover11} from './v11/Cover11';
 import {Video12, V12_FRAMES} from './v12/Video12';
 import {Tes13, T13_FRAMES} from './v13/Tes13';
+import {Mood13, M13_FRAMES} from './v13/Mood13';
 import {Cover12} from './v12/Cover12';
 import {AsetDemo} from './aset/AsetDemo';
 import {GerakDemo} from './aset/GerakDemo';
@@ -25,6 +26,7 @@ import {BakeAset} from './aset/BakeAset';
 
 export const RemotionRoot: React.FC = () => (
   <>
+  <Composition id="Mood13" component={Mood13} durationInFrames={M13_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Tes13" component={Tes13} durationInFrames={T13_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Cover05" component={Cover05} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Cover06" component={Cover06} durationInFrames={1} fps={30} width={1080} height={1920} />
