@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Produksi cepat Channel-Penjelasan (Remotion). Semua perintah dari root repo.
 #   tools/produksi.sh setup                         # container baru (npm install)
-#   tools/produksi.sh vo     <NN> "<url_mp3>"       # unduh VO terpilih -> remotion/public/vNN/vo.mp3 + salin sfx dari video sebelumnya
+#   tools/produksi.sh vo     <NN> "<url_mp3>"       # unduh VO terpilih -> remotion/public/vNN/vo.mp3
 #   tools/produksi.sh words  <NN> "<words_url>"     # unduh timestamp Scribe -> public/vNN/words.json + cetak kalimat & detik
 #   tools/produksi.sh sheet  <NN> 1.2,8.5,20 ...    # still 0.5x di detik tertentu -> satu contact sheet (cek pakai style/cek-bug.md)
 #   tools/produksi.sh final  <NN> <slug>            # render penuh + −14 LUFS + SRT + sheet QC -> video/<slug>.mp4 (jalankan di background)
@@ -15,8 +15,6 @@ case "$cmd" in
 setup) cd "$ROOT" && ./setup.sh ;;
 vo)
   mkdir -p "$R/public/v$NN"; curl -sS -o "$R/public/v$NN/vo.mp3" "$3"
-  prev=$(ls -d "$R"/public/v[0-9][0-9] | sort | grep -v "v$NN$" | tail -1)
-  [ -d "$R/public/v$NN/sfx" ] || cp -r "$prev/sfx" "$R/public/v$NN/"
   ffprobe -v error -show_entries format=duration -of csv=p=0 "$R/public/v$NN/vo.mp3" ;;
 words)
   curl -sS -o "$R/public/v$NN/scribe_words.json" "$3"

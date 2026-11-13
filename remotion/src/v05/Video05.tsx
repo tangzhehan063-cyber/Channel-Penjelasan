@@ -248,8 +248,8 @@ export const Video05: React.FC = () => {
       <Captions ms={t * 1000} />
 
       <Audio src={staticFile('v05/vo.mp3')} />
-      <Audio src={staticFile('v05/sfx/ambient.wav')} volume={0.12} />
-      {SFX.map(([n, s, v], i) => <Sequence key={i} from={Math.round(s * FPS)} layout="none"><Audio src={staticFile(`v05/sfx/${n}.wav`)} volume={v} /></Sequence>)}
+      <Audio src={staticFile('sfx/ambient.wav')} volume={0.12} />
+      {SFX.map(([n, s, v], i) => <Sequence key={i} from={Math.round(s * FPS)} layout="none"><Audio src={staticFile(`sfx/${n}.wav`)} volume={v} /></Sequence>)}
     </AbsoluteFill>
   );
 };
