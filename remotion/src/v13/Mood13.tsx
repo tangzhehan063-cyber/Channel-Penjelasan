@@ -6,11 +6,13 @@ import * as THREE from 'three';
 import {useMemo} from 'react';
 import {AbsoluteFill, random, useCurrentFrame} from 'remotion';
 import {Grain, TikTokBox, TwoTier, PatternBreak, C} from '../aset/Aset';
-import {PaperPlus, Kicker} from '../aset/Gabung';
+import {PaperPlus, Kicker, Ornament} from '../aset/Gabung';
+import {Env} from '../pengetahuan/Scene';
+import {Edges} from '@react-three/drei';
 
 export const M13_FRAMES = 6;
 export const P13 = {
-  wallA: '#1f5e63', wallB: '#c98a12', roofA: '#173f43', roofB: '#8a5a07', frame: '#2a2522', glass: '#5fb4d6', glassHi: '#bfe6f5',
+  wallA: '#5d8fd6', wallB: '#ef7663', roofA: '#3f6fb8', roofB: '#c95a46', frame: '#2a2522', glass: '#5fb4d6', glassHi: '#bfe6f5',
   truck: '#2b2b30', speaker: '#141416', cone: '#3a3a40', coral: '#e2563f', ink: '#1c1c1e', paper: '#f8f6f0', base: '#d9d4c7',
 };
 
@@ -23,7 +25,7 @@ const Glass: React.FC<{w: number; h: number; flex?: number}> = ({w, h, flex = 0}
   }, [w, h, flex]);
   return (
     <group>
-      <mesh geometry={geo}><meshStandardMaterial color={P13.glass} roughness={0.15} metalness={0.1} transparent opacity={0.92} side={THREE.DoubleSide} /></mesh>
+      <mesh geometry={geo}><meshPhysicalMaterial clearcoat={1} clearcoatRoughness={0.1} color={P13.glass} roughness={0.15} metalness={0.1} transparent opacity={0.92} side={THREE.DoubleSide} /></mesh>
       {/* kilau diagonal kertas */}
       <mesh position={[-w * 0.12, h * 0.1, 0.012 + flex * 0.6]} rotation={[0, 0, 0.7]}><planeGeometry args={[w * 0.09, h * 0.9]} /><meshBasicMaterial color={P13.glassHi} toneMapped={false} transparent opacity={0.8} /></mesh>
     </group>
@@ -65,7 +67,7 @@ const Window: React.FC<{w: number; h: number; flex?: number; crack?: number; chi
   return (
     <group>
       {[[0, h / 2 + t / 2, w + 2 * t, t], [0, -h / 2 - t / 2, w + 2 * t, t], [-w / 2 - t / 2, 0, t, h], [w / 2 + t / 2, 0, t, h]].map(([x, y, ww, hh], i) => (
-        <mesh key={i} position={[x, y, 0.03]} castShadow><boxGeometry args={[ww, hh, 0.08]} /><meshStandardMaterial color={P13.frame} roughness={0.8} /></mesh>
+        <mesh key={i} position={[x, y, 0.03]} castShadow><boxGeometry args={[ww, hh, 0.08]} /><meshPhysicalMaterial clearcoat={0.4} clearcoatRoughness={0.3} color={P13.frame} roughness={0.8} /></mesh>
       ))}
       <Glass w={w} h={h} flex={flex} />
       {chip && <mesh position={[-w / 2 + 0.035, -h / 2 + 0.035, 0.02]} rotation={[0, 0, 0.4]}><circleGeometry args={[0.05, 3]} /><meshBasicMaterial color={P13.paper} toneMapped={false} /></mesh>}
@@ -80,10 +82,10 @@ const House: React.FC<{x: number; wall: string; roof: string; crack?: number; ch
   const roofShape = useMemo(() => { const s = new THREE.Shape(); s.moveTo(-W / 2 - 0.15, 0); s.lineTo(0, 0.62); s.lineTo(W / 2 + 0.15, 0); s.lineTo(-W / 2 - 0.15, 0); return s; }, []);
   return (
     <group position={[x, 0, 0]}>
-      <mesh position={[0, H / 2, 0]} castShadow receiveShadow><boxGeometry args={[W, H, 0.9]} /><meshStandardMaterial color={wall} roughness={0.95} /></mesh>
-      <mesh position={[0, H, -0.5]} castShadow><extrudeGeometry args={[roofShape, {depth: 1.0, bevelEnabled: false}]} /><meshStandardMaterial color={roof} roughness={0.9} /></mesh>
+      <mesh position={[0, H / 2, 0]} castShadow receiveShadow><boxGeometry args={[W, H, 0.9]} /><meshPhysicalMaterial clearcoat={0.4} clearcoatRoughness={0.3} color="#fbfaf6" roughness={0.55} /><Edges color={P13.ink} lineWidth={2.5} /></mesh>
+      <mesh position={[0, H, -0.5]} castShadow><extrudeGeometry args={[roofShape, {depth: 1.0, bevelEnabled: false}]} /><meshPhysicalMaterial clearcoat={0.4} clearcoatRoughness={0.3} color={wall} roughness={0.55} /><Edges color={P13.ink} lineWidth={2.5} threshold={20} /></mesh>
       <group position={[-0.2, H * 0.52, 0.46]}><Window w={0.62} h={0.5} crack={crack} chip={chip} flex={flex} /></group>
-      <mesh position={[0.48, 0.32, 0.455]}><boxGeometry args={[0.3, 0.62, 0.02]} /><meshStandardMaterial color={P13.frame} /></mesh>
+      <mesh position={[0.48, 0.32, 0.455]}><boxGeometry args={[0.3, 0.62, 0.02]} /><meshPhysicalMaterial clearcoat={0.4} clearcoatRoughness={0.3} color={roof} /></mesh>
     </group>
   );
 };
@@ -91,17 +93,17 @@ const House: React.FC<{x: number; wall: string; roof: string; crack?: number; ch
 // ---------- truk sound horeg ----------
 const Truck: React.FC<{x: number}> = ({x}) => (
   <group position={[x, 0, 1.3]}>
-    <mesh position={[0.85, 0.42, 0]} castShadow><boxGeometry args={[0.55, 0.62, 0.7]} /><meshStandardMaterial color={P13.coral} roughness={0.8} /></mesh>
-    <mesh position={[0.98, 0.55, 0.36]}><planeGeometry args={[0.24, 0.22]} /><meshStandardMaterial color={P13.glass} /></mesh>
-    <mesh position={[-0.15, 0.2, 0]} castShadow><boxGeometry args={[1.5, 0.14, 0.72]} /><meshStandardMaterial color={P13.truck} /></mesh>
+    <mesh position={[0.85, 0.42, 0]} castShadow><boxGeometry args={[0.55, 0.62, 0.7]} /><meshPhysicalMaterial clearcoat={0.4} clearcoatRoughness={0.3} color={P13.coral} roughness={0.8} /></mesh>
+    <mesh position={[0.98, 0.55, 0.36]}><planeGeometry args={[0.24, 0.22]} /><meshPhysicalMaterial clearcoat={0.4} clearcoatRoughness={0.3} color={P13.glass} /></mesh>
+    <mesh position={[-0.15, 0.2, 0]} castShadow><boxGeometry args={[1.5, 0.14, 0.72]} /><meshPhysicalMaterial clearcoat={0.4} clearcoatRoughness={0.3} color={P13.truck} /></mesh>
     {[-0.5, 0.08].map((wx) => [0, 1].map((row) => (
       <group key={`${wx}${row}`} position={[wx - 0.15, 0.55 + row * 0.62, 0]}>
-        <mesh castShadow><boxGeometry args={[0.56, 0.6, 0.6]} /><meshStandardMaterial color={P13.speaker} roughness={0.7} /></mesh>
-        <mesh position={[0, 0, 0.305]}><circleGeometry args={[0.22, 32]} /><meshStandardMaterial color={P13.cone} /></mesh>
-        <mesh position={[0, 0, 0.31]}><circleGeometry args={[0.07, 24]} /><meshStandardMaterial color={P13.coral} /></mesh>
+        <mesh castShadow><boxGeometry args={[0.56, 0.6, 0.6]} /><meshPhysicalMaterial clearcoat={0.4} clearcoatRoughness={0.3} color={P13.speaker} roughness={0.7} /></mesh>
+        <mesh position={[0, 0, 0.305]}><circleGeometry args={[0.22, 32]} /><meshPhysicalMaterial clearcoat={0.4} clearcoatRoughness={0.3} color={P13.cone} /></mesh>
+        <mesh position={[0, 0, 0.31]}><circleGeometry args={[0.07, 24]} /><meshPhysicalMaterial clearcoat={0.4} clearcoatRoughness={0.3} color={P13.coral} /></mesh>
       </group>
     )))}
-    {[-0.65, 0.55].map((wx) => <mesh key={wx} position={[wx, 0.09, 0.37]}><circleGeometry args={[0.12, 24]} /><meshStandardMaterial color={P13.ink} /></mesh>)}
+    {[-0.65, 0.55].map((wx) => <mesh key={wx} position={[wx, 0.09, 0.37]}><circleGeometry args={[0.12, 24]} /><meshPhysicalMaterial clearcoat={0.4} clearcoatRoughness={0.3} color={P13.ink} /></mesh>)}
   </group>
 );
 
@@ -114,22 +116,34 @@ const Rings: React.FC<{x: number; y: number; z: number; n?: number; r0?: number}
 
 const Rig: React.FC<{x: number; y: number; zoom: number}> = ({x, y, zoom}) => {
   const {camera} = useThree();
-  camera.position.set(x, y + 14, 30); camera.lookAt(x, y, 0);
+  camera.position.set(x + 9, y + 14, 30); camera.lookAt(x, y, 0);
   (camera as THREE.OrthographicCamera).zoom = zoom; camera.updateProjectionMatrix();
   return null;
 };
-const Base: React.FC<{w: number}> = ({w}) => <mesh position={[0, -0.04, 0.4]} receiveShadow><boxGeometry args={[w, 0.06, 2.6]} /><meshStandardMaterial color={P13.base} roughness={1} /></mesh>;
+const Base: React.FC<{w: number}> = ({w}) => <mesh position={[0, -0.04, 0.4]} receiveShadow><boxGeometry args={[w, 0.06, 2.6]} /><meshPhysicalMaterial clearcoat={0.4} clearcoatRoughness={0.3} color={P13.base} roughness={1} /></mesh>;
 
 const Stage: React.FC<{cam: [number, number, number]; children: React.ReactNode}> = ({cam, children}) => (
   <ThreeCanvas width={1080} height={1920} shadows orthographic camera={{position: [0, 4, 30], zoom: 200, near: 0.1, far: 100}} gl={{alpha: true, antialias: true}}>
     <Rig x={cam[0]} y={cam[1]} zoom={cam[2]} />
-    <hemisphereLight args={['#fffaf0', '#d8cfbd', 0.9]} />
+    <Env intensity={0.35} /><hemisphereLight args={['#fffaf0', '#cfc6b4', 0.6]} />
     <directionalLight position={[2.5, 4.5, 3.0]} intensity={2.2} color="#fff4e6" castShadow shadow-mapSize={[1024, 1024]} shadow-camera-left={-6} shadow-camera-right={6} shadow-camera-top={6} shadow-camera-bottom={-6} shadow-radius={6} shadow-bias={-0.0004} />
     <directionalLight position={[-3, 1.5, 2]} intensity={0.35} color="#ffe2da" />
     {children}
   </ThreeCanvas>
 );
 
+const Title: React.FC<{small: string; big: string; color?: string; size?: number; top?: number}> = ({small, big, color = P13.coral, size = 104, top = 450}) => (
+  <div style={{position: 'absolute', left: 60, top, maxWidth: 960, padding: '20px 30px 24px', borderRadius: 26, background: 'rgba(250,249,246,0.95)', boxShadow: '0 12px 40px rgba(28,28,30,0.18)', fontFamily: 'Inter', color: C.ink}}>
+    <div style={{fontSize: 50, fontWeight: 700, letterSpacing: -1}}>{small}</div>
+    <div style={{whiteSpace: 'nowrap', fontSize: size, fontWeight: 900, letterSpacing: -2, lineHeight: 1.0, color, marginTop: 6}}>{big}</div>
+  </div>
+);
+const Sub: React.FC<{pre: string; hi: string; post?: string}> = ({pre, hi, post = ''}) => (
+  <div style={{position: 'absolute', left: 0, right: 0, top: 1400, display: 'flex', justifyContent: 'center'}}>
+    <div style={{fontFamily: 'Inter', fontWeight: 700, fontSize: 54, color: C.ink, background: 'rgba(250,249,246,0.95)', borderRadius: 18, padding: '10px 26px', boxShadow: '0 8px 30px rgba(28,28,30,0.15)'}}>{pre} <span style={{color: P13.coral}}>{hi}</span> {post}</div>
+  </div>
+);
+const Orn: React.FC = () => (<><Ornament cx={1030} cy={150} size={360} start={0} /><Ornament cx={40} cy={1800} size={360} start={0} /></>);
 const Head: React.FC<{q: string}> = ({q}) => (<><Kicker text="FAKTA RUMAH · #13" y={292} start={0} /><TikTokBox text={q} p={1} y={338} size={40} /></>);
 const Tag: React.FC<{x: number; y: number; text: string; color?: string}> = ({x, y, text, color = C.ink}) => (
   <div style={{position: 'absolute', left: x, top: y, transform: 'translate(-50%,-50%)', fontFamily: 'Inter', fontWeight: 800, fontSize: 40, color, background: 'rgba(250,249,246,0.97)', border: `3px solid ${color}`, borderRadius: 14, padding: '6px 18px'}}>{text}</div>
@@ -142,16 +156,16 @@ export const Mood13: React.FC = () => {
     <AbsoluteFill>
       <PaperPlus />
       {s === 0 && (<>
-        <Stage cam={[0, 0.3, 255]}>
+        <Stage cam={[0, 1.55, 250]}>
           <Base w={4.6} />
           <House x={-0.85} wall={P13.wallB} roof={P13.roofB} crack={1} chip />
           <House x={0.85} wall={P13.wallA} roof={P13.roofA} />
-          <group position={[-1.75, 0, 1.0]} scale={0.72}><Truck x={0} /></group>
-          <Rings x={-1.85} y={0.75} z={2.0} n={3} r0={0.55} />
+          <group position={[-1.3, 0, 1.1]} scale={0.6}><Truck x={0} /></group>
+          <Rings x={-1.45} y={0.6} z={2.0} n={3} r0={0.45} />
         </Stage>
         <Head q={Q} />
         <Tag x={290} y={560} text="tetangga" color={P13.coral} /><Tag x={800} y={560} text="rumahmu" color={P13.wallA} />
-        <TwoTier small="Kaca tetangga pecah," big="KACAMU AMAN?" p={1} y={1330} size={110} accent align="center" x={40} />
+        <Title small="Kaca tetangga pecah," big="KACAMU AMAN?" /><Sub pre="kaca rumahmu" hi="utuh." />
       </>)}
       {s === 1 && <PatternBreak lines={['KARENA', 'KENCANGNYA?']} sub="angkanya bilang lain" p={1} />}
       {s === 2 && (<>
@@ -192,14 +206,15 @@ export const Mood13: React.FC = () => {
         <Tag x={430} y={1420} text="gompal kecil di tepi" color={P13.coral} />
       </>)}
       {s === 5 && (<>
-        <Stage cam={[0, 0.2, 255]}>
+        <Stage cam={[0, 1.4, 250]}>
           <Base w={4.6} />
           <House x={-0.85} wall={P13.wallB} roof={P13.roofB} crack={1} chip />
           <House x={0.85} wall={P13.wallA} roof={P13.roofA} />
         </Stage>
         <Kicker text="FAKTA RUMAH · #13" y={292} start={0} />
-        <TwoTier small="Bass yang getarnya sama" big="+ PINGGIR GOMPAL" p={1} y={1260} size={104} accent align="center" x={40} />
+        <Title small="Bass yang getarnya sama" big="+ PINGGIR GOMPAL" size={96} /><Sub pre="ditambah pinggir kaca yang" hi="gompal." />
       </>)}
+      {s !== 1 && <Orn />}
       <Grain o={0.08} />
     </AbsoluteFill>
   );
