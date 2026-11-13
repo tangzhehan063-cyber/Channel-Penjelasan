@@ -30,6 +30,7 @@
 - Render penuh ±20 mnt (swangle, concurrency 4). Efek 2D berat sudah dipanggang ke PNG (`remotion/public/aset/`).
 
 ## Log (5 terakhir; lebih lama lihat `git log`)
+- 13 Nov: keputusan user untuk video #13: **gaya origami lewat Gaya B diorama kertas di Remotion** (bukan mesin canvas lama), efek retak bata (`arsip/origami/01-*/explainer.js`) & keramik pecah (`04-keramik-meledak`) di-port. **Kamera 2,5D** (bukan orbit 3D): sudut tetap, geser/zoom + parallax lapisan, supaya ringan. Tetap three.js (bukan Zdog). VO: tanya Gemini/ElevenLabs. Topik belum dipilih.
 - 12 Nov: **video #12 selesai** "Ngontrak Sejuta vs Nyicil Sejuta" (Hitung Rumah #02, gaya VS #7 di satu kanvas 3D: timbangan 2 rumah, tumpukan uang, jalan ke kantor), 85,2 dtk, `remotion/src/v12/`. Drive #12 `1GnbpbE7vDu6gXvrUVKLyjtKNsbc75mgf` (cover + info); MP4 dikirim ke user untuk diunggah manual. Rumah subsidi Rp166 jt (400 jt bukan subsidi).
 - 12 Nov: uji Zdog (3D kanvas 2D, ±6x lebih cepat) **ditolak user: tetap three.js cara biasa**. Jangan tawarkan ganti engine lagi.
 - 11 Nov: video #11 KPR selesai. VO cukup 1 take (hemat ElevenLabs). Moodboard = still Remotion dulu sebelum ubah animasi. Bug baru: subtitle angka "koma".
