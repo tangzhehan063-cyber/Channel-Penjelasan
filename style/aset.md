@@ -69,3 +69,6 @@ Yang sengaja TIDAK diambil: foto/footage asli dalam kartu (kita tanpa footage), 
 - Maks. 3 aset tambahan aktif di satu adegan (di luar Paper & Grain).
 - Teks tidak boleh ditimpa objek 3D; cek still sebelum render penuh.
 - Safe zone 15% atas, 20% bawah tetap berlaku.
+
+## SFX bersama
+Semua SFX ada di satu tempat: `remotion/public/sfx/` (17 file, 5,4 MB). Kode memanggil `staticFile('sfx/<nama>.wav')`; jangan menyalin SFX ke folder `vNN`. SFX baru = tambahkan ke `public/sfx/` (`tools/make_sfx.py public/sfx`).

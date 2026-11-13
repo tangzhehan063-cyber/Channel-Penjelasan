@@ -264,8 +264,8 @@ export const Video10: React.FC = () => {
       <Grain o={0.06} id="g10" />
 
       <Audio src={staticFile('v10/vo.mp3')} />
-      <Audio src={staticFile('v10/sfx/ambient.wav')} volume={0.08} />
-      {SFX.map(([n, s2, v], i) => <Sequence key={i} from={Math.round(s2 * FPS)} layout="none"><Audio src={staticFile(`v10/sfx/${n}.wav`)} volume={v} /></Sequence>)}
+      <Audio src={staticFile('sfx/ambient.wav')} volume={0.08} />
+      {SFX.map(([n, s2, v], i) => <Sequence key={i} from={Math.round(s2 * FPS)} layout="none"><Audio src={staticFile(`sfx/${n}.wav`)} volume={v} /></Sequence>)}
     </AbsoluteFill>
   );
 };
