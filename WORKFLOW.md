@@ -24,7 +24,7 @@ Satu video = satu chat, ±8 langkah. **Satu chat hanya untuk repo ini.** Semua p
 
 ## 3. Setelah ACC (satu giliran)
 - Caption + komentar pertama dari `caption/gaya-caption.md` → `caption/<slug>.md`, tempel isinya di chat (file repo ini tidak bisa dibuka di app bila chat dimulai dari repo lain).
-- **Tanya user dulu: suara pakai Gemini TTS atau ElevenLabs?** (perintah user 13 Nov; jangan pilih sendiri). Gemini → `python3 tools/gemini_tts.py` (pakai `GEMINI_API_KEY`). ElevenLabs →
+- **Tanya user dulu: suara pakai Gemini TTS atau ElevenLabs?** (perintah user 13 Nov; jangan pilih sendiri). Gemini → `python3 tools/gemini_tts.py` (pakai `GEMINI_API_KEY`). ElevenLabs → lihat baris berikut.
 - ElevenLabs (koneksi yang aktif): `creative_create_flow` → `creative_generate_speech` (`eleven_v4`, Riri Rida `tCKeP99grYL9wZRg6sQ9`, angka ditulis kata, **`generations_count: 1`**, hanya setelah naskah ACC final, pakai flow video ini bila sudah ada (lihat "Aturan hemat ElevenLabs" di CLAUDE.md; draf/tes pakai `tools/gemini_tts.py`), hemat kredit, permintaan user 11 Nov). Kirim 1 take (SendUserFile).
 
 ## 4. VO → timestamp
@@ -32,7 +32,8 @@ Satu video = satu chat, ±8 langkah. **Satu chat hanya untuk repo ini.** Semua p
 - `creative_add_flow_asset_node` (generation_id take) → `creative_transcribe_audio` → `tools/produksi.sh words <NN> "<words_download_url>"` (mencetak kalimat + detik).
 
 ## 5. Animasi
-- Salin `remotion/src/v08/` → `vNN/` (Video + Cover + objek 3D). Ganti beat `B`, kamera (dari shot list, ≥4 jenis gerak, skill `sutradara`), judul, SFX. Daftarkan di `remotion/src/Root.tsx`.
+- **Kunci timing dulu:** `node tools/animatic.mjs <NN> --md` menulis tabel timing per beat (`naskah/animatic-vNN.md`) dari `words.json`; tampilkan ke user dan lanjutkan setelah tidak ada beat bermasalah.
+- Salin video terbaru yang sejenis (mis. `remotion/src/v13/` untuk kamera 2,5D; `v08/` untuk dasar) → `vNN/` (Video + Cover + objek 3D). Ganti beat `B`, kamera (dari shot list, ≥4 jenis gerak, skill `sutradara`), judul, SFX. Daftarkan di `remotion/src/Root.tsx`.
 - Gaya: `style/style.md` + `style/aset.md` hanya bila butuh aset baru.
 
 ## 6. Cek → render
