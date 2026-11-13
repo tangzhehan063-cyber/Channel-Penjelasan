@@ -1,13 +1,14 @@
 // Tes gaya #13: tembok bata kertas retak, kamera 2,5D (ortografis, sudut tetap; hanya geser/zoom + parallax lapisan).
-// Warna berani (bukan pastel). Port logika retak tangga dari arsip/origami/01-bata-selang-seling/explainer.js.
+// Identitas channel tetap (latar kertas krem, font, kicker, kotak judul); hanya warna objek lebih gelap/pekat supaya kontras. Port logika retak tangga dari arsip/origami/01-bata-selang-seling/explainer.js.
 import {ThreeCanvas} from '@remotion/three';
 import {useThree} from '@react-three/fiber';
 import * as THREE from 'three';
 import {AbsoluteFill, Easing, interpolate, random, useCurrentFrame} from 'remotion';
 import {Grain, TikTokBox} from '../aset/Aset';
+import {PaperPlus, Kicker} from '../aset/Gabung';
 
 export const T13_FRAMES = 150;
-const P = {bg: '#16307a', bg2: '#0f2260', brick: '#e8542e', brickHi: '#ff7a4d', mortar: '#ffe9c2', ink: '#14110f', sun: '#ffc531', leaf: '#21b36b', paper: '#fff6e3'};
+const P = {brick: '#b23d1c', brickHi: '#c9532c', brickLo: '#8f2f14', mortar: '#5f564c', ink: '#1c1c1e', paper: '#f8f6f0', table: '#e4dfd3'};
 const ease = Easing.inOut(Easing.cubic);
 const r = (t: number, a: number, b: number, e = ease) => interpolate(t, [a, b], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: e});
 
@@ -61,7 +62,7 @@ const Brk: React.FC<{b: Brick; k: number}> = ({b, k}) => {
   const right = (() => { const ys = yOf(b.r) + BH / 2, pts = CRACK.filter((p) => Math.abs(p[1] - ys) < BH / 2 + G); return pts.length ? cx > pts.reduce((a, p) => a + p[0], 0) / pts.length : false; })();
   const drop = right ? -0.025 * k : 0, tilt = right ? -0.012 * k : 0;
   const hue = random(`h${b.id}`);
-  const col = hue > 0.85 ? P.brickHi : hue < 0.12 ? '#c9441f' : P.brick;
+  const col = hue > 0.85 ? P.brickHi : hue < 0.12 ? P.brickLo : P.brick;
   return (
     <group position={[cx + (right ? 0.012 * k : 0), y + drop, 0.06 + dz]} rotation={[0, 0, rot + tilt]}>
       <mesh castShadow receiveShadow><boxGeometry args={[w, BH, 0.09]} /><meshStandardMaterial color={col} roughness={0.95} /></mesh>
@@ -107,7 +108,7 @@ const Chips: React.FC<{t: number}> = ({t}) => (
 // ---------- kamera 2,5D: ortografis, sudut tetap; hanya geser & zoom ----------
 const Rig: React.FC<{x: number; y: number; zoom: number; shake: number}> = ({x, y, zoom, shake}) => {
   const {camera} = useThree();
-  camera.position.set(x + shake, y + 1.2 + shake * 0.5, 10);
+  camera.position.set(x + shake, y + 4 + shake * 0.5, 30);
   camera.lookAt(x + shake, y + shake * 0.5, 0);
   (camera as THREE.OrthographicCamera).zoom = zoom;
   camera.updateProjectionMatrix();
@@ -117,43 +118,29 @@ const Rig: React.FC<{x: number; y: number; zoom: number; shake: number}> = ({x, 
 export const Tes13: React.FC = () => {
   const f = useCurrentFrame(), t = f / 30;
   const crack = r(t, 1.0, 2.6, Easing.in(Easing.quad));
-  const zoom = interpolate(t, [0, 1, 2.6, 5], [255, 270, 305, 320], {extrapolateRight: 'clamp', easing: ease});
+  const zoom = interpolate(t, [0, 1, 2.6, 5], [240, 250, 280, 290], {extrapolateRight: 'clamp', easing: ease});
   const camX = interpolate(t, [0, 5], [-0.15, 0.15]);
   const shake = t > 1 && t < 2.8 ? Math.sin(t * 90) * 0.012 * (1 - r(t, 2.2, 2.8)) : 0;
   // parallax: lapisan jauh bergerak lebih lambat (dikali faktor < 1) dari kamera
-  const par = (k: number) => camX * (1 - k);
-  return (
-    <AbsoluteFill style={{background: `radial-gradient(90% 60% at 50% 40%, ${P.bg} 0%, ${P.bg2} 100%)`}}>
-      <ThreeCanvas width={1080} height={1920} shadows orthographic camera={{position: [0, 1.2, 10], zoom: 300, near: 0.1, far: 50}} gl={{alpha: true, antialias: true}}>
+    return (
+    <AbsoluteFill>
+      <PaperPlus />
+      <ThreeCanvas width={1080} height={1920} shadows orthographic camera={{position: [0, 1.2, 10], zoom: 300, near: 0.1, far: 100}} gl={{alpha: true, antialias: true}}>
         <Rig x={camX} y={1.0} zoom={zoom} shake={shake} />
-        <ambientLight intensity={1.1} />
-        <directionalLight position={[-3, 5, 6]} intensity={2.2} castShadow shadow-mapSize={[1024, 1024]} shadow-camera-left={-4} shadow-camera-right={4} shadow-camera-top={5} shadow-camera-bottom={-3} shadow-radius={6} />
-        {/* lapisan jauh: matahari + awan kertas */}
-        <group position={[par(0.3), 0, -3]}>
-          <mesh position={[1.1, 3.4, 0]}><circleGeometry args={[0.55, 48]} /><meshBasicMaterial color={P.sun} toneMapped={false} /></mesh>
-          {[[-1.3, 3.0, 0.9], [0.4, 3.75, 0.6]].map(([x, y, s], i) => (
-            <group key={i} position={[x, y, 0.1]} scale={s}>
-              {[[-0.35, 0, 0.32], [0, 0.12, 0.42], [0.38, 0, 0.3]].map(([cx, cy, cr], j) => <mesh key={j} position={[cx, cy, 0]}><circleGeometry args={[cr, 40]} /><meshBasicMaterial color={P.paper} toneMapped={false} /></mesh>)}
-            </group>
-          ))}
-        </group>
-        {/* lapisan tengah: dinding (nat krem di belakang bata) */}
-        <mesh position={[0, yOf(ROWS) / 2 - G / 2, 0]} receiveShadow><boxGeometry args={[WALL_W + 0.06, yOf(ROWS) + 0.02, 0.04]} /><meshStandardMaterial color={P.mortar} roughness={1} /></mesh>
+        <hemisphereLight args={['#fffaf0', '#d8cfbd', 0.9]} />
+        <directionalLight position={[2.5, 4.5, 3.0]} intensity={2.2} color="#fff4e6" castShadow shadow-mapSize={[1024, 1024]} shadow-camera-left={-6} shadow-camera-right={6} shadow-camera-top={6} shadow-camera-bottom={-6} shadow-radius={6} shadow-bias={-0.0004} />
+        <directionalLight position={[-3, 1.5, 2]} intensity={0.35} color="#ffe2da" />
+        {/* alas kertas tipis di bawah tembok (latar tetap kertas channel) */}
+        <mesh position={[0, -0.04, 0.1]} receiveShadow castShadow><boxGeometry args={[WALL_W + 0.9, 0.06, 1.1]} /><meshStandardMaterial color="#d9d4c7" roughness={1} /></mesh>
+        {/* dinding: nat gelap di belakang bata */}
+        <mesh position={[0, yOf(ROWS) / 2 - G / 2, 0]} castShadow receiveShadow><boxGeometry args={[WALL_W + 0.06, yOf(ROWS) + 0.02, 0.04]} /><meshStandardMaterial color={P.mortar} roughness={1} /></mesh>
         {BRICKS.map((b) => <Brk key={b.id} b={b} k={r(t, 2.0, 2.8, Easing.out(Easing.back(2)))} />)}
         <Crack k={crack} />
         <Chips t={t} />
-        {/* lapisan depan: tanah + rumput kertas, bergerak lebih cepat */}
-        <group position={[-camX * 0.35, 0, 1.5]}>
-          <mesh position={[0, -1.57, 0]} receiveShadow><boxGeometry args={[8, 3, 0.3]} /><meshStandardMaterial color="#7a3d1c" roughness={1} /></mesh>
-          {Array.from({length: 14}, (_, i) => (
-            <mesh key={i} position={[-2.6 + i * 0.4 + random(`gx${i}`) * 0.15, -0.02, 0.16]} rotation={[0, 0, (random(`ga${i}`) - 0.5) * 0.5]} castShadow>
-              <coneGeometry args={[0.09, 0.35 + random(`gh${i}`) * 0.25, 3]} /><meshStandardMaterial color={P.leaf} flatShading />
-            </mesh>
-          ))}
-        </group>
       </ThreeCanvas>
-      <TikTokBox text="Retak tangga di tembok, bahaya?" p={r(t, 0.1, 0.9, Easing.linear)} y={300} size={46} />
-      <Grain o={0.1} />
+      <Kicker text="FAKTA RUMAH · #13" y={292} start={0} />
+      <TikTokBox text="Retak tangga di tembok, bahaya?" p={r(t, 0.1, 0.9, Easing.linear)} y={338} size={40} />
+      <Grain o={0.08} />
     </AbsoluteFill>
   );
 };
