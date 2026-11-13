@@ -17,7 +17,7 @@ export const P13 = {
 };
 
 // ---------- kaca: bidang bersegmen yang bisa melengkung (ayunan resonansi) ----------
-const Glass: React.FC<{w: number; h: number; flex?: number}> = ({w, h, flex = 0}) => {
+export const Glass: React.FC<{w: number; h: number; flex?: number}> = ({w, h, flex = 0}) => {
   const geo = useMemo(() => {
     const g = new THREE.PlaneGeometry(w, h, 20, 20), p = g.attributes.position;
     for (let i = 0; i < p.count; i++) { const u = p.getX(i) / w + 0.5, v = p.getY(i) / h + 0.5; p.setZ(i, flex * Math.sin(Math.PI * u) * Math.sin(Math.PI * v)); }
@@ -62,7 +62,7 @@ const Crack: React.FC<{segs: Seg[]; k: number; z?: number; wdt?: number}> = ({se
 );
 
 // ---------- jendela: kusen + kaca ----------
-const Window: React.FC<{w: number; h: number; flex?: number; crack?: number; chip?: boolean}> = ({w, h, flex = 0, crack = 0, chip = false}) => {
+export const Window: React.FC<{w: number; h: number; flex?: number; crack?: number; chip?: boolean}> = ({w, h, flex = 0, crack = 0, chip = false}) => {
   const t = 0.07, segs = useMemo(() => crackSegs(-w / 2 + 0.06, -h / 2 + 0.06, `c${w}`, 6, Math.min(w, h) * 0.9), [w, h]);
   return (
     <group>
@@ -77,7 +77,7 @@ const Window: React.FC<{w: number; h: number; flex?: number; crack?: number; chi
 };
 
 // ---------- rumah kertas ----------
-const House: React.FC<{x: number; wall: string; roof: string; crack?: number; chip?: boolean; flex?: number}> = ({x, wall, roof, crack = 0, chip, flex = 0}) => {
+export const House: React.FC<{x: number; wall: string; roof: string; crack?: number; chip?: boolean; flex?: number}> = ({x, wall, roof, crack = 0, chip, flex = 0}) => {
   const W = 1.5, H = 1.2;
   const roofShape = useMemo(() => { const s = new THREE.Shape(); s.moveTo(-W / 2 - 0.15, 0); s.lineTo(0, 0.62); s.lineTo(W / 2 + 0.15, 0); s.lineTo(-W / 2 - 0.15, 0); return s; }, []);
   return (
@@ -91,7 +91,7 @@ const House: React.FC<{x: number; wall: string; roof: string; crack?: number; ch
 };
 
 // ---------- truk sound horeg ----------
-const Truck: React.FC<{x: number}> = ({x}) => (
+export const Truck: React.FC<{x: number}> = ({x}) => (
   <group position={[x, 0, 1.3]}>
     <mesh position={[0.85, 0.42, 0]} castShadow><boxGeometry args={[0.55, 0.62, 0.7]} /><meshPhysicalMaterial clearcoat={0.4} clearcoatRoughness={0.3} color={P13.coral} roughness={0.8} /></mesh>
     <mesh position={[0.98, 0.55, 0.36]}><planeGeometry args={[0.24, 0.22]} /><meshPhysicalMaterial clearcoat={0.4} clearcoatRoughness={0.3} color={P13.glass} /></mesh>
@@ -108,19 +108,19 @@ const Truck: React.FC<{x: number}> = ({x}) => (
 );
 
 // cincin gelombang bass (koral, makin pudar)
-const Rings: React.FC<{x: number; y: number; z: number; n?: number; r0?: number}> = ({x, y, z, n = 4, r0 = 0.5}) => (
+export const Rings: React.FC<{x: number; y: number; z: number; n?: number; r0?: number}> = ({x, y, z, n = 4, r0 = 0.5}) => (
   <group position={[x, y, z]}>
     {Array.from({length: n}, (_, i) => <mesh key={i}><ringGeometry args={[r0 + i * 0.38, r0 + i * 0.38 + 0.05, 64]} /><meshBasicMaterial color={P13.coral} toneMapped={false} transparent opacity={0.9 - i * 0.2} /></mesh>)}
   </group>
 );
 
-const Rig: React.FC<{x: number; y: number; zoom: number}> = ({x, y, zoom}) => {
+export const Rig: React.FC<{x: number; y: number; zoom: number}> = ({x, y, zoom}) => {
   const {camera} = useThree();
   camera.position.set(x + 9, y + 14, 30); camera.lookAt(x, y, 0);
   (camera as THREE.OrthographicCamera).zoom = zoom; camera.updateProjectionMatrix();
   return null;
 };
-const Base: React.FC<{w: number}> = ({w}) => <mesh position={[0, -0.04, 0.4]} receiveShadow><boxGeometry args={[w, 0.06, 2.6]} /><meshPhysicalMaterial clearcoat={0.4} clearcoatRoughness={0.3} color={P13.base} roughness={1} /></mesh>;
+export const Base: React.FC<{w: number}> = ({w}) => <mesh position={[0, -0.04, 0.4]} receiveShadow><boxGeometry args={[w, 0.06, 2.6]} /><meshPhysicalMaterial clearcoat={0.4} clearcoatRoughness={0.3} color={P13.base} roughness={1} /></mesh>;
 
 const Stage: React.FC<{cam: [number, number, number]; children: React.ReactNode}> = ({cam, children}) => (
   <ThreeCanvas width={1080} height={1920} shadows orthographic camera={{position: [0, 4, 30], zoom: 200, near: 0.1, far: 100}} gl={{alpha: true, antialias: true}}>
@@ -132,18 +132,18 @@ const Stage: React.FC<{cam: [number, number, number]; children: React.ReactNode}
   </ThreeCanvas>
 );
 
-const Title: React.FC<{small: string; big: string; color?: string; size?: number; top?: number}> = ({small, big, color = P13.coral, size = 104, top = 450}) => (
+export const Title: React.FC<{small: string; big: string; color?: string; size?: number; top?: number}> = ({small, big, color = P13.coral, size = 104, top = 450}) => (
   <div style={{position: 'absolute', left: 60, top, maxWidth: 960, padding: '20px 30px 24px', borderRadius: 26, background: 'rgba(250,249,246,0.95)', boxShadow: '0 12px 40px rgba(28,28,30,0.18)', fontFamily: 'Inter', color: C.ink}}>
     <div style={{fontSize: 50, fontWeight: 700, letterSpacing: -1}}>{small}</div>
     <div style={{whiteSpace: 'nowrap', fontSize: size, fontWeight: 900, letterSpacing: -2, lineHeight: 1.0, color, marginTop: 6}}>{big}</div>
   </div>
 );
-const Sub: React.FC<{pre: string; hi: string; post?: string}> = ({pre, hi, post = ''}) => (
+export const Sub: React.FC<{pre: string; hi: string; post?: string}> = ({pre, hi, post = ''}) => (
   <div style={{position: 'absolute', left: 0, right: 0, top: 1400, display: 'flex', justifyContent: 'center'}}>
     <div style={{fontFamily: 'Inter', fontWeight: 700, fontSize: 54, color: C.ink, background: 'rgba(250,249,246,0.95)', borderRadius: 18, padding: '10px 26px', boxShadow: '0 8px 30px rgba(28,28,30,0.15)'}}>{pre} <span style={{color: P13.coral}}>{hi}</span> {post}</div>
   </div>
 );
-const Orn: React.FC = () => (<><Ornament cx={1030} cy={150} size={360} start={0} /><Ornament cx={40} cy={1800} size={360} start={0} /></>);
+export const Orn: React.FC = () => (<><Ornament cx={1030} cy={150} size={360} start={0} /><Ornament cx={40} cy={1800} size={360} start={0} /></>);
 const Head: React.FC<{q: string}> = ({q}) => (<><Kicker text="FAKTA RUMAH · #13" y={292} start={0} /><TikTokBox text={q} p={1} y={338} size={40} /></>);
 const Tag: React.FC<{x: number; y: number; text: string; color?: string}> = ({x, y, text, color = C.ink}) => (
   <div style={{position: 'absolute', left: x, top: y, transform: 'translate(-50%,-50%)', fontFamily: 'Inter', fontWeight: 800, fontSize: 40, color, background: 'rgba(250,249,246,0.97)', border: `3px solid ${color}`, borderRadius: 14, padding: '6px 18px'}}>{text}</div>
