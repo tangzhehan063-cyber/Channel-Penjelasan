@@ -80,7 +80,7 @@ const Seg: React.FC<{a: number; b: number; children: React.ReactNode}> = ({a, b,
 
 // ---------- adegan ----------
 const Street: React.FC<{t: number; truck?: boolean; crackK: number; cam: Cam; shake?: number}> = ({t, truck = true, crackK, cam, shake = 0}) => {
-  const tx = interpolate(t, [0, 2.6], [-3.6, -1.3], {extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic)});
+  const tx = interpolate(t, [0, 2.6], [-3.4, -0.85], {extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic)});
   const th = thump(t, 1.0), flexN = 0.05 * th * (crackK < 1 ? 1 : 0.3);
   return (
     <Stage cam={[cam[0] + shake * Math.sin(t * 80) * 0.01, cam[1], cam[2]]}>
@@ -250,7 +250,7 @@ export const Video13: React.FC = () => {
       <PaperPlus />
 
       {/* A. hook: jalan, truk, kaca tetangga retak */}
-      <Seg a={0} b={B.mitos}><Street t={t} crackK={r(t, 3.6, 4.4, Easing.out(Easing.quad))} cam={camAt(t, [[0, [0, 1.55, 235]], [3.1, [0, 1.55, 245]], [3.8, [-0.85, 0.8, 380]], [4.6, [-0.85, 0.8, 390]], [5.4, [0.85, 0.75, 430]], [6.4, [0.85, 0.75, 440]], [7.2, [0, 1.5, 255]], [9, [0, 1.5, 262]]])} shake={t > 3.6 && t < 4.4 ? 1 : 0} /></Seg>
+      <Seg a={0} b={B.mitos}><Street t={t} crackK={r(t, 3.6, 4.4, Easing.out(Easing.quad))} cam={camAt(t, [[0, [0, 0.95, 235]], [3.1, [0, 1.1, 245]], [3.8, [-0.6, 0.45, 340]], [4.6, [-0.6, 0.45, 350]], [5.4, [0.85, 0.75, 430]], [6.4, [0.85, 0.75, 440]], [7.2, [0, 1.5, 255]], [9, [0, 1.5, 262]]])} shake={t > 3.6 && t < 4.4 ? 1 : 0} /></Seg>
       {/* C. angka */}
       <Seg a={B.angka} b={B.bass}><Bars t={t} /></Seg>
       {/* D. bass: subwoofer memompa + gelombang */}
@@ -287,8 +287,8 @@ export const Video13: React.FC = () => {
       {/* H. aksi: kartu ikon cek, lalu jalan arak-arakan */}
       <Seg a={B.aksi} b={61.4}><CheckCards t={t} /></Seg>
       <Seg a={61.4} b={B.tanya}>
-        <Street t={t - 61.4} crackK={0} cam={[0, 1.55, interpolate(t, [61.4, 67], [250, 270])]} />
-        <Chip x={540} y={760} p={r(t, 64.1, 64.5)} text="rumah di pinggir jalan: wajib" color={CORAL} />
+        <Street t={t - 61.4} crackK={0} cam={[0, 0.95, interpolate(t, [61.4, 67], [250, 265])]} />
+        <Chip x={690} y={1290} p={r(t, 64.1, 64.5)} text="rumah di pinggir jalan: wajib" color={CORAL} />
       </Seg>
       {/* I. tanya + follow */}
       <Seg a={B.tanya} b={B.end}>
