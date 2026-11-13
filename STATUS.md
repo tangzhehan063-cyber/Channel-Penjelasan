@@ -23,7 +23,7 @@
 - Selalu caption + cover setelah video. Caption & komentar pertama berbahasa manusia (`caption/gaya-caption.md`), tanpa gaya AI.
 - **Pindah fokus ke YouTube (11 Nov)**: riset & paket upload utama di YouTube Shorts; output ringkas.
 - Ide visual tertunda: variasi warna latar (bukan krem saja) di video berikutnya.
-- Render lambat (tanpa GPU) — opsi tertunda: C) kanvas 3D 75% (coba di #11), A) render di PC user via Remote Control, B) Remotion Lambda (AWS). User memilih nanti.
+- Render tetap di cloud (keputusan user 13 Nov: laptop kantor, tanpa GPU; opsi Remote Control/Lambda tidak dipakai). Jangan tawarkan lagi.
 
 ## Lingkungan
 - `elevenlabsusercontent.com` diizinkan; huggingface diblokir. ElevenLabs: pakai koneksi `ElevenLabs-3f8d1d88` (akun upgrade).
