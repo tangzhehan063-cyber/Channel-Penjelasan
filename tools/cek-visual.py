@@ -117,14 +117,22 @@ def cmd_frame(preset, files, extra):
         cover = chrom.mean()
         name = pathlib.Path(f).name
         notes = []
-        # latar: median 4 sudut 24x24
-        corners = np.concatenate([a[:24, :24].reshape(-1, 3), a[:24, -24:].reshape(-1, 3), a[-24:, :24].reshape(-1, 3), a[-24:, -24:].reshape(-1, 3)])
-        bgm = np.median(corners, 0)
-        dbg = min(np.linalg.norm(bgm - b) for b in bgs)
-        if cover > 0.6:
-            notes.append(f"layar penuh berwarna ({cover:.0%}), cek latar dilewati")
+        # latar cocok palet: warna yang paling dominan (di luar kartu putih) harus ada di gradien latar palet
+        flat = a.reshape(-1, 3); notcard = flat.min(1) < 236
+        q = (flat[notcard].astype(np.int64) // 24); key = q[:, 0] * 10000 + q[:, 1] * 100 + q[:, 2]
+        vals, cnts = np.unique(key, return_counts=True)
+        order = cnts.argsort()[::-1][:3]  # 3 warna terdominan (alas objek atau kartu krem besar bisa mengalahkan latar)
+        cands = [np.median(flat[notcard][key == vals[i]], 0) for i in order]
+        dists = [float(min(np.linalg.norm(c - b_) for b_ in (bgs[0], bgs[1], mid))) for c in cands]
+        bgm, dbg = cands[0], dists[0]          # utamakan warna paling dominan
+        bgfrac = float(cnts[order[0]] / max(1, notcard.sum())); dbg_any = min(dists)  # dbg_any: ada salah satu dari 3 teratas yang cocok palet?
+        full = cover > 0.6 and min(hd(float(np.median(h[chrom])), al) for al in allowed) <= 25
+        if full:
+            notes.append(f"layar penuh berwarna peran palet ({cover:.0%}, mis. pemutus pola), cek latar dilewati")
+        elif dbg > 55 and dbg_any > 55:
+            notes.append(("GAGAL", f"warna dominan {tuple(int(x) for x in bgm)} ({bgfrac:.0%}) jauh dari latar palet '{preset}' (selisih {dbg:.0f}); pakai preset lain atau samakan latar"))
         elif dbg > 55:
-            notes.append(("GAGAL", f"latar {tuple(int(x) for x in bgm)} jauh dari palet (selisih {dbg:.0f}); pakai preset lain atau samakan"))
+            notes.append(("SARAN", f"warna paling dominan {tuple(int(x) for x in bgm)} bukan latar palet '{preset}' (alas/kartu besar menutupi latar, atau palet salah); cek dengan mata"))
         # warna di luar palet
         if chrom.sum() > 200:
             hh = h[chrom]

@@ -50,4 +50,6 @@ Warna objek 3D ambil dari `p.accent/p.cool/p.good` (bukan hex baru). Warna tamba
 ## Batas yang masih ada (jujur)
 - Teknik latar non-krem = gradien palet + tekstur `kertas-dasar.png` dicampur (multiply/soft-light), bukan kertas sungguhan; hanya **still** yang sudah diuji, belum render video penuh dengan palet non-krem.
 - Video #1–#14 tetap krem; objek 3D lama (`P13`, `P14`) belum terhubung ke `PALET`. Video baru yang memakai palet lain harus mengambil warna dari `PALET`.
+- Deteksi "palet salah" di `cek-visual.py` hanya memberi SARAN bila alas/kartu besar menutupi latar; paling andal untuk latar yang sangat berbeda (mis. gelap vs terang).
+- Teks yang diletakkan langsung di latar (bukan di kartu) harus memakai warna terang di palet gelap; di Video14 hanya label batang yang demikian (`R.ink`/`R.sub`).
 - Angka kontras objek di still bergantung frame; cek visual ini membantu, bukan pengganti melihat sheet.
