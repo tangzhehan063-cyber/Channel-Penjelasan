@@ -31,11 +31,11 @@ export const PaperPlus: React.FC = () => {
 };
 
 /* Kicker mono di atas: —— FAKTA RUMAH · #05 —— */
-export const Kicker: React.FC<{text: string; y?: number; start?: number}> = ({text, y = 300, start = 0}) => {
+export const Kicker: React.FC<{text: string; y?: number; start?: number; color?: string}> = ({text, y = 300, start = 0, color = K.coral}) => {
   const f = useCurrentFrame(), t = rise(f, start, 14);
   return (
-    <div style={{position: 'absolute', left: 0, right: 0, top: y, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 18, fontFamily: 'IBM Plex Mono', fontWeight: 500, fontSize: 24, letterSpacing: 5, color: K.coral}}>
-      <div style={{width: 60 * t, height: 2, background: K.coral}} /><span style={{opacity: t}}>{text}</span><div style={{width: 60 * t, height: 2, background: K.coral}} />
+    <div style={{position: 'absolute', left: 0, right: 0, top: y, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 18, fontFamily: 'IBM Plex Mono', fontWeight: 500, fontSize: 24, letterSpacing: 5, color}}>
+      <div style={{width: 60 * t, height: 2, background: color}} /><span style={{opacity: t}}>{text}</span><div style={{width: 60 * t, height: 2, background: color}} />
     </div>
   );
 };
