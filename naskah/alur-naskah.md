@@ -11,8 +11,8 @@ Alur ini meneruskan cara kerja 4 video pertama (referensi di `referensi/`), deng
 > **Lapisan viral:** saat Tahap 1–2, terapkan juga skill `.claude/skills/naskah-viral/SKILL.md` (hook 3 alternatif, isi berlapis, payoff, pemicu share, tanda [⚠ CEK]). Dasar data: `riset/2026-11-08-bedah-10-video-viral.md`.
 
 ## Tahap 1: Ide
-1. Beri **10 ide** dalam seri fakta rumah (format ScriptForge langkah 2: judul ≤ 60 karakter + satu baris hook/alasan orang klik). Campur format: "kenapa…", "cara … bekerja", "mitos vs fakta", "bahaya yang nggak kelihatan".
-2. **Cek tren** untuk ide unggulan: cari video serupa di Facebook (ScrapeMedsos `v1_facebook_search_videos`) dan catat judul + jumlah tayangan sebagai bukti. Jangan mengarang angka tayangan.
+1. Beri **3–5 ide + 1 rekomendasi** dalam seri fakta rumah (format ScriptForge langkah 2: judul ≤ 60 karakter + satu baris hook/alasan orang klik). Campur format: "kenapa…", "cara … bekerja", "mitos vs fakta", "bahaya yang nggak kelihatan".
+2. **Cek tren** untuk ide unggulan: cari video serupa di YouTube (ScrapeMedsos `v1_youtube_search` / `v1_youtube_shorts_trending`; platform utama sejak 11 Nov 2026) dan catat judul + jumlah tayangan sebagai bukti. Jangan mengarang angka tayangan.
 3. **Selalu sertakan saran improvisasi** per topik (permintaan user): ubah sudut ke masalah yang terlihat penonton, mitos yang bisa dipatahkan, mini-seri, atau sudut berbeda dari kompetitor (mis. @howcomeid). Beri satu rekomendasi utama + alasan.
 4. Simpan hasil riset ke `riset/<tanggal>-ide-video-N.md`.
 5. User memilih satu.
