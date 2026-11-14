@@ -1,6 +1,6 @@
 ---
 name: sutradara
-description: Keahlian sutradara untuk video "fakta rumah" — mempertahankan DNA motion graphic video #7–#8 lalu menambah lapisan penyutradaraan (shot list, ritme, kamera beralasan, suara, waktu baca) dari repo Motion-videos. Pakai di Tahap 2 (storyboard → shot list) dan Tahap 5–6 (animasi, cek sebelum render); jalankan `node tools/cek-sutradara.mjs NN`.
+description: Keahlian sutradara untuk video "fakta rumah" — mempertahankan DNA motion graphic video #7–#8 lalu menambah lapisan penyutradaraan (shot list, ritme, kamera beralasan, suara, waktu baca) dari repo Motion-videos. Pakai di Tahap 2 (storyboard → shot list) dan Tahap 5–6 (animasi, cek sebelum render); jalankan `node tools/cek-sutradara.mjs NN`. Juga memeriksa bentuk, animasi, dan perpaduan warna material (palet latar fleksibel, identitas tetap): `node tools/cek-sutradara.mjs NN` bagian 6–8 dan `python3 tools/cek-visual.py`.
 ---
 
 # Sutradara "fakta rumah"
@@ -8,9 +8,9 @@ description: Keahlian sutradara untuk video "fakta rumah" — mempertahankan DNA
 Sumber (MIT, diringkas & disesuaikan ke Remotion 9:16 yang dikunci ke VO): `lemo-opuscar/DIRECTOR.md`, `LottieFiles/motion-design-skill/director/*`, `lab/prompts/04-numbers.md` + `03-banned.md` di repo `tangzhehan063-cyber/Motion-videos`.
 Urutan nilai film: **suara → ritme → kamera → penyutradaraan**. Frame cantik hanya titik awal.
 
-## A. DNA v07/v08 — JANGAN DIUBAH (ACC user)
-- Kertas krem + grain 0.05, ornamen sudut, kicker seri + TikTokBox di atas (y < 420).
-- Satu objek 3D prosedural per adegan, membulat, koral `#ef7663`; biru `#5d8fd6` = dingin/negatif, sage = solusi.
+## A. DNA v07/v08 — identitas tetap (ACC user); latar dan palet BOLEH berganti
+- **Identitas = sistem, bukan warna latar** (`style/identitas.md`). Latar memakai palet dari `style/palet.json` (krem baku, mint, terakota, batu, madu, langit, malam) lewat `<PaperPalet palet=...>`; jangkar yang tetap: grain 0.05–0.08, ornamen sudut, kicker seri + TikTokBox di atas (y < 420), kartu judul dan subtitle **terang** `#faf9f6`, tipografi, bentuk membulat.
+- Satu objek 3D prosedural per adegan, membulat; warna objek memakai **peran** palet: aksen (koral) = masalah/sorotan, cool (biru) = dingin/negatif/air, good (sage) = solusi/benar. Nilai hex diambil dari `PALET`, bukan hex baru.
 - Kartu judul dua lapis (kecil 50 px / BESAR 84–140 px, `nowrap`) di y 450–700; subtitle top **1400** dengan kata aktif koral.
 - Adegan = `Seg` crossfade 8 frame; kamera `camAt` keyframe ease in-out; `proj()` agar stiker 2D menempel ke titik 3D.
 - Stiker editorial: Chip, TekBurst/Stamp, Callout garis tipis, panel 2D pemutus pola, Bookmark, CommentBubble, FollowButton.
@@ -31,8 +31,20 @@ Urutan nilai film: **suara → ritme → kamera → penyutradaraan**. Frame cant
 ## C. Proses (masuk ke WORKFLOW)
 - **Tahap 2**: tambah logline + momen khas + kolom shot list di tabel beat.
 - **Tahap 5**: tulis kamera (`CAM_*`) dari shot list, baru isi stiker. Ikuti angka di B.
-- **Tahap 6**: `node tools/cek-sutradara.mjs NN` → semua GAGAL diperbaiki, SARAN dipertimbangkan; lalu contact sheet + `style/cek-bug.md`. Satu putaran perbaikan, cek sekali lagi, lalu render.
+- **Tahap 6**: `node tools/cek-sutradara.mjs NN` (ritme, kamera, suara, **animasi, bentuk, warna**) → semua GAGAL diperbaiki, SARAN dipertimbangkan; lalu contact sheet, `python3 tools/cek-visual.py frame <palet> /tmp/produksi/sheet-vNN/f*.png [--extra ...]` + `style/cek-bug.md`. Satu putaran perbaikan, cek sekali lagi, lalu render.
 - Video baru tidak boleh mengulang struktur, momen khas, dan jalur kamera video sebelumnya (≥4 dari 6 berbeda: struktur, pembuka, momen khas, jalur kamera, pola suara, penutup).
+
+## F. Bentuk, animasi, warna: yang dicek otomatis
+`node tools/cek-sutradara.mjs NN` (bagian 6–8, dibaca dari kode) dan `python3 tools/cek-visual.py frame <palet> <still...> [--extra #hex,...]` (dari still hasil `produksi.sh sheet`).
+| Bagian | Yang diperiksa | Patokan |
+|---|---|---|
+| 6 Animasi | durasi tiap `r(t, a, b)`; elemen mulai bersamaan; animasi serentak; `Easing.linear`; overshoot | tidak < 0,12 dtk atau > 2,5 dtk; < 4 elemen mulai bersamaan; ≤ 6 animasi serentak; linear ≤ 2×; ada `Easing.back` ≥ 1× (pop/antisipasi) |
+| 7 Bentuk | radius kotak 2D; rasio geometri 3D kotak vs lengkung; outline tinta (`Edges`); glow/bloom | ≥ 65% kotak 2D berradius ≥ 10; kotak 3D ≤ 70%; outline pada objek utama; glow hanya bila disengaja (1 objek) |
+| 8 Warna | jumlah keluarga warna; neon; kontras warna judul di kartu | ≤ 5 keluarga (60-30-10); tanpa neon; judul ≥ 3:1 terhadap `#faf9f6` |
+| cek-visual | latar cocok palet; warna di luar palet; keluarga dominan; kontras objek vs latar; neon | ≤ 18% di luar palet; ≤ 4 keluarga; objek/latar ≥ 1,8 (GAGAL < 1,25); neon 0 |
+`python3 tools/cek-visual.py palet` memvalidasi semua preset (kontras teks/aksen, tinta, hue). Cek visual **tidak menggantikan** mata: lihat sheet, terutama bentuk dan kesan perpaduan warna.
+
+**Pemilihan palet di Tahap 2** (kolom baru di storyboard: `Palet`): pilih dari `style/identitas.md` sesuai suasana topik, hindari palet yang sama > 2 video berturut-turut, catat warna tambahan yang sengaja (mis. kuning lampu).
 
 ## D. Format shot list (tambahan kolom di tabel beat Tahap 2)
 | # | Detik | Framing | Gerak kamera | Kenapa | Hero | SFX/transisi |
@@ -44,3 +56,4 @@ Urutan nilai film: **suara → ritme → kamera → penyutradaraan**. Frame cant
 - #07: 6 jenis gerak kamera, tempo CV 0,35, hening sebelum payoff — **contoh kamera terbaik**.
 - #08: kamera hampir semua push (3 jenis) → video berikutnya tambah pull/crane/dive; judul "MEMANJANG/MENGKERUT" terlalu cepat dibaca.
 - Keduanya: potongan "follow" belum diberi SFX transisi.
+- Baseline bagian 6–8 (14 Nov): #14 0 GAGAL, 4 SARAN (outline `Edges` jarang, 2 penanda glow = halo lampu menyala); #13 0 GAGAL, 4 SARAN (2 animasi < 0,12 dtk, outline jarang); #08 0 GAGAL, 8 SARAN (linear 5×, 1 animasi > 2,5 dtk, tanpa outline). Palet baku `krem` lolos validasi.

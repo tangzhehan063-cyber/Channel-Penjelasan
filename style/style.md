@@ -16,7 +16,7 @@ Terinspirasi estetika "clean medical/editorial 3D"; JANGAN meniru branding, hand
 ## Visual (wajib sama setiap video)
 | Elemen | Aturan |
 |---|---|
-| Latar | Kertas off-white `#f3f2ef` → `#e4e3df`, gradien radial lembut. Tidak pernah gelap. |
+| Latar | **Palet berganti, identitas tetap** (`style/identitas.md`, `style/palet.json`): baku kertas off-white `#f3f2ef` → `#e4e3df` (krem) atau mint/terakota/batu/madu/langit/malam, gradien radial lembut. Jangkar identitas bukan warna latar. |
 | Tekstur | Grid titik + garis putus-putus (kertas teknik) memudar ke kanan; 1–2 lengkungan abu-abu besar yang blur. |
 | Objek utama | SATU objek 3D glossy per adegan, warna **koral `#f27a63`** (MeshPhysical: clearcoat, sheen). Dibuat prosedural dengan kode (tanpa model berlisensi). Sering **dipotong berani di tepi layar**. |
 | Teks latar | 2–3 kata serif miring (Playfair Display Italic) raksasa, sangat samar `rgba(28,28,30,.055)`, diawali "·". |
