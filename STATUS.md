@@ -1,6 +1,9 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
-## Posisi terakhir (13 Nov 2026)
+## Posisi terakhir (14 Nov 2026)
+- **Video #14 selesai (14 Nov):** "LED Nggak Lebih Terang, Tapi Hemat" (lampu pijar vs LED, lumen vs watt), 67,0 dtk, `remotion/src/v14/` (palet krem baku, kamera 2,5D, objek baru lampu pijar/LED di `Lamp14.tsx`), -14,7 LUFS. VO Gemini TTS Achernar (1 take); timestamp `tools/align_teks.py`; tabel timing `naskah/animatic-v14.md`. Drive #14: https://drive.google.com/drive/folders/1K8pva6WCEY-331xaKy8Qti_X7bNAPN5x (cover + caption). MP4 dikirim ke user. Palet lain (madu, malam) dicoba lewat prop `palet` (sistem palet: `style/identitas.md`, PR #37); video ini dirilis dengan krem.
+
+## Posisi sebelumnya (13 Nov 2026)
 - **Video #13 selesai (13 Nov):** "Kaca Pecah Gara-Gara Sound Horeg?", 74,2 dtk, `remotion/src/v13/` (DNA v8–10 + **kamera 2,5D ortografis**). VO **Gemini TTS Achernar**; timestamp `tools/align_teks.py` (tanpa Scribe). Drive #13 `1EGwBQ0K62lfbJA3IkFgcUUd-8VBWd11p` (cover + info); MP4 dikirim ke user untuk diunggah manual.
 - **Video #12 selesai (12 Nov)**, lihat Log. Berikutnya: Hitung Rumah #03 "DP 0% Bikin Cicilan Berapa Lama?" atau ide di `riset/`.
 - **Video #11 selesai (11 Nov):** "10 Tahun Nyicil, Rumahmu Baru Separuh Lunas" (seri baru Hitung Rumah #01), 74,2 dtk, `remotion/src/v11/`. Properti baru (user minta visual lebih kaya): gedung bank mini, uang kertas berikat (biru = bunga, koral = rumah), amplop, kalender meja, map kontrak. MP4+SRT, cover, caption. Kredit ScrapeMedsos habis (0).
