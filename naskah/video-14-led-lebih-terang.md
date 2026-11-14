@@ -22,31 +22,31 @@ Alasan: (c) langsung memicu "kok bisa?" dan jujur pada pertanyaan penonton ("ken
 - Sengaja tidak dibahas: warna suhu cahaya (kuning/putih), CRI, umur lampu, CFL, driver LED.
 - Sumber utama: [EIA](https://www.eia.gov/TODAYINENERGY/detail.php?id=15471) · [Energy.gov Lighting 2021 (PDF)](https://www.energy.gov/sites/default/files/2021-08/ES-EE%20Lighting_080921.pdf) · [Penn State EGEE 102](https://www.e-education.psu.edu/egee102/node/2037).
 
-## Teks TTS (versi humanis, ±160 kata, ±68–72 dtk)
+## Teks TTS (versi humanis, ±150 kata, ±65–70 dtk)
 1. Lampu LED sembilan watt bisa seterang lampu biasa tujuh puluh lima watt. Kok bisa sehemat itu?
-2. Sebenarnya LED nggak menyala lebih terang. Terang itu diukur pakai lumen, bukan watt. Watt cuma nunjukin seberapa banyak listrik yang dipakai.
+2. Soalnya LED sebenarnya nggak lebih terang. Terang itu diukur pakai lumen. Watt cuma nunjukin seberapa banyak listrik yang disedot.
 3. Lampu biasa bikin cahaya dengan memanaskan kawat kecil sampai membara. Dari sepuluh bagian listrik, sembilan jadi panas. Cuma satu yang jadi cahaya.
-4. Makanya lampu biasa panas banget. Itu listrik yang kebuang percuma.
-5. LED beda. Cahayanya keluar langsung dari chip kecil, tanpa harus dipanaskan sampai membara. Panas yang kebuang jauh lebih sedikit.
-6. Hasilnya, satu watt lampu biasa cuma ngasih sekitar lima belas lumen. Satu watt LED bisa delapan puluh lumen lebih. Sekitar lima kali lipat.
-7. Jadi LED bukan lebih terang. Dia cuma lebih pintar pakai listrik.
-8. Waktu beli lampu, lihat angka lumen di dusnya, bukan wattnya. Sebelas ratus lumen kira-kira seterang lampu biasa tujuh puluh lima watt.
-9. Lampu di rumahmu sekarang LED semua, atau masih ada yang kuning dan panas? Follow buat fakta rumah berikutnya!
+4. Pernah pegang lampu biasa yang baru dimatiin? Panasnya bikin kaget. Itu listrik yang kamu bayar tapi nggak jadi terang.
+5. LED lain. Cahayanya keluar langsung dari chip kecil, nggak perlu dipanaskan sampai membara. Jadi panas yang kebuang jauh lebih sedikit.
+6. Satu watt lampu biasa cuma ngasih sekitar lima belas lumen. Satu watt LED bisa delapan puluh lumen lebih, sekitar lima kali lipat.
+7. Jadi LED seterang lampu biasa dengan listrik yang jauh lebih sedikit.
+8. Waktu beli lampu, lihat angka lumen di dusnya. Sebelas ratus lumen kira-kira seterang lampu biasa tujuh puluh lima watt.
+9. Lampu di rumahmu LED semua, atau masih ada yang kuning dan panas? Follow buat fakta rumah berikutnya!
 
 ## Beat (kunci timing final dibuat dari `words.json` lewat `node tools/animatic.mjs 14 --md` setelah VO)
 | # | dtk (perkiraan) | Judul | Teks layar | VO | Visual / kamera 2,5D | SFX |
 |---|---|---|---|---|---|---|
 | 1 | 0–5 | Hook | Lampu 9 watt = lampu 75 watt? / KOK BISA? | TTS 1 | Dua bola lampu kertas bersebelahan sama terang; meteran watt kiri 75, kanan 9. Zoom pelan. | Klik lampu ×2 |
-| 2 | 5–14 | Bantahan | Terang itu lumen, / BUKAN WATT | TTS 2 | PatternBreak koral, stempel "BUKAN LEBIH TERANG"; lalu dua label: LUMEN (cahaya) vs WATT (listrik). | Stempel |
+| 2 | 5–14 | Bantahan | LED nggak lebih terang. / TERANG = LUMEN | TTS 2 | PatternBreak koral, stempel "BUKAN LEBIH TERANG"; lalu dua label: LUMEN (cahaya) vs WATT (listrik). | Stempel |
 | 3 | 14–24 | Lampu biasa | Kawat dipanaskan / SAMPAI MEMBARA | TTS 3 | Cutaway bola lampu; filamen memerah. | Hum, desis panas |
-| 4 | 24–33 | **Momen khas** | 9 dari 10 / JADI PANAS (perkiraan) | TTS 3b–4 | Sepuluh kotak listrik masuk; sembilan jadi koral menguap, satu kuning. Kamera zoom ke uap panas. | Tick ×10, riser |
+| 4 | 24–33 | **Momen khas** | 9 dari 10 / JADI PANAS (perkiraan) | TTS 3–4 | Sepuluh kotak listrik masuk; sembilan jadi koral menguap, satu kuning. Kamera zoom ke uap panas. | Tick ×10, riser |
 | 5 | 33–42 | LED | Cahaya langsung / DARI CHIP | TTS 5 | Penampang LED: chip kecil menyala, hampir tanpa uap. | Chime lembut |
 | 6 | 42–53 | Angka | ±15 vs 80+ lumen per watt / ±5× LEBIH HEMAT (perkiraan) | TTS 6 | Dua batang: pendek 15, panjang 80+. | Tick naik |
-| 7 | 53–58 | Payoff | LED bukan lebih terang, / TAPI LEBIH PINTAR | TTS 7 | TwoTier. | Chime |
-| 8 | 58–66 | Aksi | Cek angka LUMEN / BUKAN WATT | TTS 8 | Dus lampu kertas, jari menunjuk "1100 lm ≈ 75 W". | Klik, pop |
+| 7 | 53–58 | Payoff | LED seterang lampu biasa, / LISTRIKNYA JAUH LEBIH SEDIKIT | TTS 7 | TwoTier. | Chime |
+| 8 | 58–66 | Aksi | Cek angka / LUMEN DI DUS | TTS 8 | Dus lampu kertas, jari menunjuk "1100 lm ≈ 75 W". | Klik, pop |
 | 9 | 66–70 | Ajak + CTA | LED semua? · FOLLOW | TTS 9 | Dua tombol "LED SEMUA" / "MASIH ADA YANG PANAS"; kartu FOLLOW. | Tiga chime |
 
 ## Penanda
-- **Payoff:** "Jadi LED bukan lebih terang. Dia cuma lebih pintar pakai listrik."
-- **Pemicu share:** beat 8 (aksi cek lumen) dan beat 9 (pilih pihak).
+- **Payoff:** "Jadi LED seterang lampu biasa dengan listrik yang jauh lebih sedikit."
+- **Pemicu share:** beat 8 (aksi cek lumen di dus) dan beat 9 (pilih pihak).
 - **Peringatan hook:** hook menyebut "sembilan watt = tujuh puluh lima watt" (angka Energy.gov); beat 6 memakai angka EIA, sehingga rasio kasar (perkiraan) dan ditandai di layar.
