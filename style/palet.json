@@ -1,0 +1,22 @@
+{
+  "_catatan": "Palet latar & material. Identitas channel TIDAK bergantung pada warna latar (lihat style/identitas.md). Peran: bg/bg2 = latar (gradien), ink = tinta, accent/cool/good = warna objek & stiker langsung di latar, *Teks = warna teks besar di kartu putih (kontras >= 3:1 terhadap kartu). Divalidasi: python3 tools/cek-visual.py palet",
+  "kartu": "#faf9f6",
+  "ink": "#1c1c1e",
+  "presets": {
+    "krem":     {"nama": "Krem kertas (baku #7/#8)", "terang": true,  "bg": "#f3f2ef", "bg2": "#e4e3df", "accent": "#e2563f", "cool": "#5d8fd6", "good": "#4d9a6a", "accentTeks": "#e2563f", "coolTeks": "#4a7cc4", "goodTeks": "#3f8a5a", "tekstur": 1.0,  "ornamen": "ink"},
+    "mint":     {"nama": "Mint sejuk",          "terang": true,  "bg": "#dcebe4", "bg2": "#c9ddd3", "accent": "#d6462f", "cool": "#3f7fb8", "good": "#2f8a57", "accentTeks": "#d6462f", "coolTeks": "#3f7fb8", "goodTeks": "#2f8a57", "tekstur": 0.9,  "ornamen": "ink"},
+    "terakota": {"nama": "Terakota hangat",     "terang": true,  "bg": "#ead2bf", "bg2": "#dcb9a0", "accent": "#a8321f", "cool": "#2f6aa8", "good": "#2f7a4f", "accentTeks": "#a8321f", "coolTeks": "#2f6aa8", "goodTeks": "#2f7a4f", "tekstur": 0.9,  "ornamen": "ink"},
+    "batu":     {"nama": "Abu batu",            "terang": true,  "bg": "#d5d9dc", "bg2": "#bec5ca", "accent": "#c23d27", "cool": "#2f6aa8", "good": "#2f7a4f", "accentTeks": "#c23d27", "coolTeks": "#2f6aa8", "goodTeks": "#2f7a4f", "tekstur": 0.8,  "ornamen": "ink"},
+    "madu":     {"nama": "Madu krim",           "terang": true,  "bg": "#f6e7b8", "bg2": "#efd88f", "accent": "#c9402a", "cool": "#2f6aa8", "good": "#2f7a4f", "accentTeks": "#c9402a", "coolTeks": "#2f6aa8", "goodTeks": "#2f7a4f", "tekstur": 0.9,  "ornamen": "ink"},
+    "langit":   {"nama": "Langit pagi",         "terang": true,  "bg": "#dbeaf6", "bg2": "#c3d9ee", "accent": "#d6462f", "cool": "#2f6aa8", "good": "#2f7a4f", "accentTeks": "#d6462f", "coolTeks": "#2f6aa8", "goodTeks": "#2f7a4f", "tekstur": 0.9,  "ornamen": "ink"},
+    "malam":    {"nama": "Malam (mode gelap)",  "terang": false, "bg": "#1b2640", "bg2": "#2b3a5e", "accent": "#ef7663", "cool": "#7fa8e8", "good": "#8fd18a", "accentTeks": "#d6462f", "coolTeks": "#3f6fb8", "goodTeks": "#2f7a4f", "tekstur": 0.35, "ornamen": "terang"}
+  },
+  "aturan": {
+    "kontrasAksenDiLatar": 2.5,
+    "kontrasTeksDiKartu": 3.0,
+    "kontrasTintaDiLatarTerang": 4.5,
+    "warnaDominanMaks": 4,
+    "diLuarPaletMaksPersen": 18,
+    "jenuhMaks": 0.92
+  }
+}

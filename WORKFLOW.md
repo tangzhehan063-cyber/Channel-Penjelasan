@@ -37,7 +37,8 @@ Satu video = satu chat, ±8 langkah. **Satu chat hanya untuk repo ini.** Semua p
 - Gaya: `style/style.md` + `style/aset.md` hanya bila butuh aset baru.
 
 ## 6. Cek → render
-- `tools/produksi.sh sheet` otomatis menjalankan `node tools/cek-sutradara.mjs <NN>` (ritme, kamera, waktu baca, jeda sunyi): GAGAL wajib diperbaiki.
+- `tools/produksi.sh sheet` otomatis menjalankan `node tools/cek-sutradara.mjs <NN>` (ritme, kamera, waktu baca, jeda sunyi, **animasi, bentuk, warna**): GAGAL wajib diperbaiki. Lalu `python3 tools/cek-visual.py frame <palet> /tmp/produksi/sheet-v<NN>/f*.png` (perpaduan warna dan kontras dari still; `--extra #hex` untuk warna sengaja).
+- **Palet latar** dipilih di Tahap 2 (`style/identitas.md`); video baru boleh memakai palet selain krem lewat `<PaperPalet palet=...>`, identitas dijaga jangkar (kartu terang, kicker, tipografi, bentuk).
 - `tools/produksi.sh sheet <NN> <4–6 detik penting>` (putaran berikutnya cukup frame yang diubah) → lihat 1 gambar, cocokkan dengan **`style/cek-bug.md`**, perbaiki, kirim sheet ke user.
 - User OK → `tools/produksi.sh bagian <NN> <slug>` (Bash `run_in_background`): render per potongan 15 dtk tanpa suara, suara dicampur langsung oleh `tools/mix-audio.mjs` (detik, bukan menit), lalu −14 LUFS + SRT + QC. **Revisi = hapus `remotion/out/parts-vNN/pXX.mp4` yang berubah lalu jalankan ulang** (bagian lain dipakai lagi). `final` = cara lama render utuh.
 - Lihat sheet QC yang dicetak (1 gambar). `tools/produksi.sh cover <NN> <slug>`.

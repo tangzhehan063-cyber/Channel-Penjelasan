@@ -13,3 +13,5 @@ Tambahkan baris baru di bawah, jangan mengedit yang lama (beri tanggal). Bila do
 | 13 Nov | SFX bersama di `remotion/public/sfx/` (tidak disalin per video) | `style/aset.md` |
 | 13 Nov | Template video baru: salin video terbaru yang sejenis (bukan selalu `v08`); kamera 2,5D ada di `v13` | `WORKFLOW.md` 5 |
 | 13 Nov | Animatic ringan: `node tools/animatic.mjs NN` dicek/ACC sebelum animasi | `WORKFLOW.md` 5 |
+| 14 Nov | Identitas channel = sistem (kartu terang, kicker, tipografi, bentuk membulat, peran warna), bukan warna latar; latar boleh berganti lewat palet (`style/palet.json`) | `style/identitas.md` |
+| 14 Nov | `cek-sutradara` memeriksa animasi, bentuk, warna; `cek-visual.py` memeriksa perpaduan warna dari still | `.claude/skills/sutradara/SKILL.md` F |

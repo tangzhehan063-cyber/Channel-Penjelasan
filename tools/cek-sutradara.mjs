@@ -105,6 +105,63 @@ if (words.length) {
   off.length ? hm(`beat tidak jatuh di awal kata VO (±0,35): ${off.join(', ')}`) : ok('semua potongan beat jatuh di awal kata VO');
 }
 
+// --- 6–8. animasi, bentuk, warna (dibaca dari kode video + berkas yang diimpornya) ---
+const dir = path.dirname(src);
+const extra = [...code.matchAll(/from '(\.\/\w+|\.\.\/v\d+\/\w+)'/g)].map((m) => path.resolve(dir, m[1] + '.tsx')).filter((f) => fs.existsSync(f) && !/Tes\d+|Cover\d+/.test(f));
+const srcAll = [code, ...extra.map((f) => fs.readFileSync(f, 'utf8'))].join('\n');
+const palJson = JSON.parse(fs.readFileSync(path.join(root, 'style/palet.json'), 'utf8'));
+const rl = (h) => { const c = [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255).map((x) => (x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4)); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
+const contrast = (a, b) => { const x = rl(a), y = rl(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
+const hsv = (h) => { const [r, g, b] = [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255); const mx = Math.max(r, g, b), mn = Math.min(r, g, b), d = mx - mn; let H = 0; if (d) H = mx === r ? ((g - b) / d) % 6 : mx === g ? (b - r) / d + 2 : (r - g) / d + 4; return [((H * 60) + 360) % 360, mx ? d / mx : 0, mx]; };
+
+// 6. animasi
+out.push('\n6. ANIMASI (dari panggilan r(t, a, b) berangka)');
+const wins = [...srcAll.matchAll(/\br\(t,\s*([\d.]+),\s*([\d.]+)/g)].map((m) => [Number(m[1]), Number(m[2])]).filter(([a, b]) => b > a);
+if (wins.length) {
+  const fast = wins.filter(([a, b]) => b - a < 0.12), slow = wins.filter(([a, b]) => b - a > 2.5);
+  fast.length ? hm(`${fast.length} animasi < 0,12 dtk (terlalu mendadak): mulai ${fast.slice(0, 4).map(([a]) => f1(a)).join(', ')}`) : ok(`${wins.length} animasi berdurasi wajar (tidak ada < 0,12 dtk)`);
+  slow.length ? hm(`${slow.length} animasi > 2,5 dtk (terasa diam): mulai ${slow.slice(0, 4).map(([a]) => f1(a)).join(', ')}`) : ok('tidak ada animasi > 2,5 dtk');
+  const byStart = {}; wins.forEach(([a]) => { const k = a.toFixed(1); byStart[k] = (byStart[k] || 0) + 1; });
+  const same = Object.entries(byStart).filter(([, n]) => n >= 4);
+  same.length ? hm(`≥4 elemen mulai bersamaan di detik ${same.map(([k, n]) => `${k} (${n})`).join(', ')}: bertahap 100–200 ms (hierarki gerak B.8)`) : ok('tidak ada ≥4 elemen masuk bersamaan');
+  let maxc = 0, at = 0; for (let tt = 0; tt < END; tt += 0.25) { const c = wins.filter(([a, b]) => tt >= a && tt <= b).length; if (c > maxc) { maxc = c; at = tt; } }
+  maxc > 6 ? hm(`${maxc} animasi berjalan bersamaan di ${f1(at)} dtk (maks 1/3 elemen bergerak, B.8)`) : ok(`animasi bersamaan maks ${maxc}`);
+}
+const lin = (srcAll.match(/Easing\.linear/g) || []).length, back = (srcAll.match(/Easing\.back/g) || []).length, outE = (srcAll.match(/Easing\.out/g) || []).length;
+lin > 2 ? hm(`Easing.linear dipakai ${lin}× (hanya untuk putaran/progress, B.10)`) : ok(`easing linear ${lin}×`);
+back === 0 ? hm('tidak ada overshoot/antisipasi (Easing.back); pop kunci boleh overshoot 1.5–2.5 (B.9)') : ok(`overshoot/pop (Easing.back) ${back}×, ease-out ${outE}×`);
+
+// 7. bentuk
+out.push('\n7. BENTUK (identitas: membulat, objek 3D berbasis lengkung)');
+const radii = [...srcAll.matchAll(/borderRadius:\s*(?:'(\d+)px'|(\d+))/g)].map((m) => Number(m[1] || m[2])).concat([...srcAll.matchAll(/\brx=\{(\d+)\}/g)].map((m) => Number(m[1])));
+if (radii.length) { const sharp = radii.filter((x) => x < 10).length; sharp / radii.length > 0.35 ? hm(`${sharp}/${radii.length} kotak 2D bersudut tajam (radius < 10); identitas membulat, pakai radius ≥ 14`) : ok(`kotak 2D membulat: ${radii.length - sharp}/${radii.length} berradius ≥ 10`); }
+const nBox = (srcAll.match(/<boxGeometry/g) || []).length, nRound = (srcAll.match(/<(sphere|cylinder|torus|cone|circle|capsule|ring)Geometry/g) || []).length;
+if (nBox + nRound) { nBox / (nBox + nRound) > 0.7 ? hm(`geometri 3D dominan kotak (${nBox} kotak vs ${nRound} lengkung); tambah bentuk membulat/bevel`) : ok(`geometri 3D: ${nRound} lengkung, ${nBox} kotak`); }
+const nMesh = (srcAll.match(/<mesh\b/g) || []).length, nEdge = (srcAll.match(/<Edges\b/g) || []).length;
+nMesh ? (nEdge / nMesh >= 0.25 ? ok(`garis tepi kertas (Edges) pada ${nEdge}/${nMesh} mesh`) : hm(`outline tinta (Edges) hanya ${nEdge}/${nMesh} mesh; objek utama sebaiknya punya outline untuk kontras (style.md)`)) : 0;
+const glow = (srcAll.match(/boxShadow:[^}]*0 0 \d{2,}px|<Halo\b|filter:\s*'?blur\(|bloom|glow\(/gi) || []).length;
+glow ? hm(`${glow} penanda glow/bloom (B.10 melarang); bila sengaja (mis. lampu menyala) batasi 1 objek dan catat di storyboard`) : ok('tidak ada glow/bloom');
+
+// 8. warna
+out.push('\n8. WARNA & MATERIAL (palet: style/palet.json)');
+const usedPal = (srcAll.match(/PaperPalet[^>]*palet=["'{]+(\w+)/) || [])[1] || 'krem';
+const pal = palJson.presets[usedPal] ?? palJson.presets.krem;
+ok(`palet latar: ${usedPal}${usedPal === 'krem' ? ' (baku; tidak ada PaperPalet di kode)' : ''}`);
+const hexes = [...new Set((srcAll.match(/#[0-9a-fA-F]{6}\b/g) || []).map((h) => h.toLowerCase()))];
+const chrom = hexes.filter((h) => { const [, sat, val] = hsv(h); return sat > 0.2 && val > 0.2; });
+const fams = new Set(chrom.map((h) => Math.round(hsv(h)[0] / 30) % 12));
+fams.size > 5 ? hm(`${fams.size} keluarga warna berbeda di kode (${chrom.length} hex); perpaduan ramai, batasi ≤ 5 (60-30-10)`) : ok(`${fams.size} keluarga warna di ${chrom.length} hex berwarna (≤ 5)`);
+const neon = chrom.filter((h) => { const [, sat, val] = hsv(h); return sat > palJson.aturan.jenuhMaks && val > 0.85; });
+neon.length ? bad(`warna neon: ${neon.join(', ')} (jenuh > ${palJson.aturan.jenuhMaks}, terang)`) : ok('tidak ada warna neon');
+// peta nama warna palet (P13.x, P14.x, konstanta) untuk menguji kontras warna Title terhadap kartu
+const map = {};
+for (const m of srcAll.matchAll(/export const (P\d+) = \{([\s\S]*?)\};/g)) for (const k of m[2].matchAll(/(\w+):\s*'(#[0-9a-fA-F]{6})'/g)) map[`${m[1]}.${k[1]}`] = k[2];
+for (const m of srcAll.matchAll(/const (\w+)\s*=\s*(P\d+\.\w+)/g)) if (map[m[2]]) map[m[1]] = map[m[2]];
+const titleCols = [...srcAll.matchAll(/<Title\b[^>]*?color=(?:"(#[0-9a-fA-F]{6})"|\{([\w.]+)\})/g)].map((m) => m[1] || map[m[2]]).filter(Boolean);
+const lowC = [...new Set(titleCols)].filter((h) => contrast(h, palJson.kartu) < palJson.aturan.kontrasTeksDiKartu);
+titleCols.length ? (lowC.length ? bad(`warna judul di kartu kontras < ${palJson.aturan.kontrasTeksDiKartu}: ${lowC.map((h) => `${h} (${contrast(h, palJson.kartu).toFixed(1)})`).join(', ')}`) : ok(`warna judul (${[...new Set(titleCols)].length}) kontras ≥ ${palJson.aturan.kontrasTeksDiKartu} di kartu`)) : 0;
+out.push('  info  peran warna (cek mata di sheet): koral = masalah/sorotan, biru = dingin/air/negatif, sage = solusi/benar; objek utama berkontras ≥ 1,8 terhadap latar → `python3 tools/cek-visual.py frame <palet> <still...>`');
+
 console.log(`CEK SUTRADARA · video #${NN} · ${f1(END)} dtk`);
 console.log(out.join('\n'));
 console.log(`\nHasil: ${fail} GAGAL, ${warn} SARAN`);
