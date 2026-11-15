@@ -66,7 +66,7 @@ const camAt = (t: number, keys: [number, Cam][]): Cam => {
   for (let i = 0; i < keys.length - 1; i++) { const [ta, a] = keys[i], [tb, b] = keys[i + 1]; if (t <= tb) { const k = ease((t - ta) / (tb - ta)); return [lerp(a[0], b[0], k), lerp(a[1], b[1], k), lerp(a[2], b[2], k)]; } }
   return keys[keys.length - 1][1];
 };
-const Stage: React.FC<{cam: Cam; children: React.ReactNode}> = ({cam, children}) => (
+export const Stage: React.FC<{cam: Cam; children: React.ReactNode}> = ({cam, children}) => (
   <ThreeCanvas width={1080} height={1920} shadows orthographic camera={{position: [0, 4, 30], zoom: 200, near: 0.1, far: 100}} gl={{alpha: true, antialias: true}}>
     <Rig x={cam[0]} y={cam[1]} zoom={cam[2]} />
     <Env intensity={0.35} /><hemisphereLight args={['#fffaf0', '#cfc6b4', 0.6]} />
@@ -149,7 +149,7 @@ const Bed: React.FC = () => (
 );
 
 // kamar: lantai, dinding belakang & kiri, AC, kasur, selang ke dinding
-const Room: React.FC<{t: number; leak?: number; vapor?: number; pull?: number}> = ({t, leak = 0, vapor = 0, pull = 0}) => (
+export const Room: React.FC<{t: number; leak?: number; vapor?: number; pull?: number}> = ({t, leak = 0, vapor = 0, pull = 0}) => (
   <group>
     <mesh position={[0, -0.04, 0.2]} receiveShadow><boxGeometry args={[4.2, 0.06, 2.6]} /><Mat c={P14.floor} r={1} cc={0.4} /></mesh>
     <Bx p={[0, 1.15, -1.1]} s={[4.2, 2.4, 0.1]} c={P14.wall} edge={false} />

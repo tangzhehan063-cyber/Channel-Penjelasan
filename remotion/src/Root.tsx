@@ -20,6 +20,7 @@ import {Tes13, T13_FRAMES} from './v13/Tes13';
 import {Mood13, M13_FRAMES} from './v13/Mood13';
 import {Video13, V13_FRAMES} from './v13/Video13';
 import {Video14, V14_FRAMES} from './v14/Video14';
+import {Cover14} from './v14/Cover14';
 import {PaletDemo} from './aset/PaletDemo';
 import {Cover12} from './v12/Cover12';
 import {AsetDemo} from './aset/AsetDemo';
@@ -30,6 +31,7 @@ import {BakeAset} from './aset/BakeAset';
 export const RemotionRoot: React.FC = () => (
   <>
   <Composition id="Video13" component={Video13} durationInFrames={V13_FRAMES} fps={30} width={1080} height={1920} />
+  <Composition id="Cover14" component={Cover14} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Video14" component={Video14} durationInFrames={V14_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="PaletDemo" component={PaletDemo} durationInFrames={60} fps={30} width={1080} height={1920} defaultProps={{palet: 'krem' as const}} />
   <Composition id="Mood13" component={Mood13} durationInFrames={M13_FRAMES} fps={30} width={1080} height={1920} />
