@@ -207,7 +207,7 @@ const FreonLoop: React.FC<{t: number; p: number}> = ({t, p}) => {
   );
 };
 const Bucket: React.FC<{t: number}> = ({t}) => {
-  const lv = r(t, 27.0, 30.3, Easing.inOut(Easing.quad)), L = Math.round(17 * lv);
+  const lv = r(t, 27.0, 29.4, Easing.inOut(Easing.quad)), L = Math.round(17 * lv);
   const top = 760, h = 520, wTop = 560, wBot = 420, cx = 540, wy = top + h - h * 0.92 * lv;
   const at = (y: number) => wBot + (wTop - wBot) * (1 - (y - top) / h);
   return (

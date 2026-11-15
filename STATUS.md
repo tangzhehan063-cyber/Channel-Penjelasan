@@ -1,7 +1,7 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
 ## Posisi terakhir (15 Nov 2026)
-- **Video #14 "Air AC yang Menetes Itu Bukan Bocor" (15 Nov):** Bongkar Barang, naskah draf `naskah/video-14-air-ac-menetes.md` ACC user (15 Nov); caption `caption/video-14-air-ac-menetes.md`. VO ElevenLabs (Riri Rida, 1 take), flow_id `ToIeOERE8lrRsidYIvXS`. Animasi `remotion/src/v14/` (kamera 2,5D, salinan v13), contact sheet dikirim, MENUNGGU ACC sebelum render. Cabang sesi lama sudah digabung (kecuali lucid-wozniak: moodboard #13 lama).
+- **Video #14 selesai (15 Nov):** "Air AC yang Menetes Itu Bukan Bocor" (Bongkar Barang), 60,9 dtk, −14,6 LUFS, `remotion/src/v14/` (kamera 2,5D, kasur ala referensi user: rangka kayu, headboard panel, meja melayang). VO ElevenLabs Riri Rida 1 take (flow `ToIeOERE8lrRsidYIvXS`). Drive #14 `1SoZyehAAFk8QOpTE0U6rpqbJdT9TXR3I` (cover + info); MP4 + versi ringan dikirim ke user. Bug baru di `style/cek-bug.md`.
 
 ## Posisi sebelumnya (13 Nov 2026)
 - **Video #13 selesai (13 Nov):** "Kaca Pecah Gara-Gara Sound Horeg?", 74,2 dtk, `remotion/src/v13/` (DNA v8–10 + **kamera 2,5D ortografis**). VO **Gemini TTS Achernar**; timestamp `tools/align_teks.py` (tanpa Scribe). Drive #13 `1EGwBQ0K62lfbJA3IkFgcUUd-8VBWd11p` (cover + info); MP4 dikirim ke user untuk diunggah manual.

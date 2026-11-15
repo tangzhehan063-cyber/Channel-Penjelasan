@@ -21,3 +21,5 @@ Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) s
 9. Render dijalankan **setelah** user melihat still; kalau ada revisi saat render berjalan, matikan prosesnya sampai benar-benar mati (`pgrep -fa "remotion render"` harus kosong, pakai `kill -9 <pid>` bila perlu) baru render ulang.
 10. Sebelum mulai video baru: `git fetch` dan cek cabang `claude/*` yang belum masuk `main` (video #7 pernah tertinggal di cabang lain sehingga nomor video hampir bentrok).
 - **Subtitle angka "koma" rusak (#11):** Scribe/`scribe_to_timeline.py` mengubah "satu koma satu juta" jadi "satu koma 1000000". Cek `words.json` untuk token angka; gabungkan jadi "1,1 juta".
+- **Angka hitung naik terlambat dari VO** (#14 ember: layar "13 liter" saat VO sudah bilang "17"): animasi counter harus selesai paling lambat di kata angkanya, bukan sesudahnya. Cek still tepat di detik kata angka.
+- **Objek kunci tertutup kotak judul** (#14 AC di bawah judul "SELANG MAMPET"): kamera 2,5D `Rig` → naikkan nilai y supaya objek turun di layar.
