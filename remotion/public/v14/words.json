@@ -1,0 +1,724 @@
+{
+"words": [
+{
+"word": "AC",
+"start": 0.0,
+"end": 0.32
+},
+{
+"word": "di",
+"start": 0.4,
+"end": 0.48
+},
+{
+"word": "kamarmu",
+"start": 0.52,
+"end": 1.12
+},
+{
+"word": "bisa",
+"start": 1.16,
+"end": 1.36
+},
+{
+"word": "narik",
+"start": 1.44,
+"end": 1.68
+},
+{
+"word": "hampir",
+"start": 1.76,
+"end": 2.08
+},
+{
+"word": "satu",
+"start": 2.24,
+"end": 2.56
+},
+{
+"word": "ember",
+"start": 2.72,
+"end": 2.96
+},
+{
+"word": "air",
+"start": 3.12,
+"end": 3.36
+},
+{
+"word": "dari",
+"start": 3.44,
+"end": 3.6
+},
+{
+"word": "udara.",
+"start": 3.68,
+"end": 4.24
+},
+{
+"word": "Tiap",
+"start": 4.4,
+"end": 4.64
+},
+{
+"word": "hari.",
+"start": 4.72,
+"end": 5.2
+},
+{
+"word": "Banyak",
+"start": 5.6,
+"end": 5.92
+},
+{
+"word": "yang",
+"start": 5.96,
+"end": 6.0
+},
+{
+"word": "kira",
+"start": 6.08,
+"end": 6.48
+},
+{
+"word": "air",
+"start": 6.56,
+"end": 6.8
+},
+{
+"word": "AC",
+"start": 6.84,
+"end": 7.04
+},
+{
+"word": "itu",
+"start": 7.12,
+"end": 7.36
+},
+{
+"word": "freon",
+"start": 7.44,
+"end": 7.68
+},
+{
+"word": "bocor.",
+"start": 7.72,
+"end": 8.4
+},
+{
+"word": "Bukan.",
+"start": 8.56,
+"end": 9.2
+},
+{
+"word": "Freon",
+"start": 9.52,
+"end": 9.84
+},
+{
+"word": "itu",
+"start": 10.0,
+"end": 10.16
+},
+{
+"word": "gas",
+"start": 10.32,
+"end": 10.56
+},
+{
+"word": "yang",
+"start": 10.64,
+"end": 10.72
+},
+{
+"word": "muter",
+"start": 10.8,
+"end": 11.2
+},
+{
+"word": "terus",
+"start": 11.28,
+"end": 11.52
+},
+{
+"word": "di",
+"start": 11.56,
+"end": 11.6
+},
+{
+"word": "pipa",
+"start": 11.68,
+"end": 11.88
+},
+{
+"word": "tertutup.",
+"start": 11.92,
+"end": 12.56
+},
+{
+"word": "Airnya",
+"start": 12.88,
+"end": 13.36
+},
+{
+"word": "dari",
+"start": 13.4,
+"end": 13.6
+},
+{
+"word": "udara",
+"start": 13.68,
+"end": 13.92
+},
+{
+"word": "kamarmu",
+"start": 13.96,
+"end": 14.32
+},
+{
+"word": "sendiri.",
+"start": 14.44,
+"end": 15.08
+},
+{
+"word": "Udara",
+"start": 15.28,
+"end": 15.6
+},
+{
+"word": "kita",
+"start": 15.64,
+"end": 15.84
+},
+{
+"word": "lembap,",
+"start": 15.88,
+"end": 16.48
+},
+{
+"word": "penuh",
+"start": 16.56,
+"end": 16.8
+},
+{
+"word": "uap",
+"start": 16.88,
+"end": 17.04
+},
+{
+"word": "air.",
+"start": 17.12,
+"end": 17.52
+},
+{
+"word": "Di",
+"start": 17.84,
+"end": 17.92
+},
+{
+"word": "dalam",
+"start": 18.0,
+"end": 18.24
+},
+{
+"word": "AC",
+"start": 18.28,
+"end": 18.72
+},
+{
+"word": "ada",
+"start": 18.8,
+"end": 18.96
+},
+{
+"word": "sirip",
+"start": 19.04,
+"end": 19.28
+},
+{
+"word": "logam",
+"start": 19.36,
+"end": 19.68
+},
+{
+"word": "yang",
+"start": 19.76,
+"end": 19.84
+},
+{
+"word": "dingin",
+"start": 20.0,
+"end": 20.4
+},
+{
+"word": "banget.",
+"start": 20.48,
+"end": 20.88
+},
+{
+"word": "Uap",
+"start": 21.2,
+"end": 21.44
+},
+{
+"word": "air",
+"start": 21.6,
+"end": 21.76
+},
+{
+"word": "nyentuh",
+"start": 21.84,
+"end": 22.08
+},
+{
+"word": "sirip,",
+"start": 22.16,
+"end": 22.72
+},
+{
+"word": "jadi",
+"start": 22.84,
+"end": 22.96
+},
+{
+"word": "tetes.",
+"start": 23.04,
+"end": 23.6
+},
+{
+"word": "Kayak",
+"start": 23.84,
+"end": 24.08
+},
+{
+"word": "gelas",
+"start": 24.16,
+"end": 24.32
+},
+{
+"word": "es",
+"start": 24.4,
+"end": 24.56
+},
+{
+"word": "teh",
+"start": 24.6,
+"end": 24.72
+},
+{
+"word": "berembun.",
+"start": 24.8,
+"end": 25.36
+},
+{
+"word": "AC",
+"start": 25.76,
+"end": 26.08
+},
+{
+"word": "satu",
+"start": 26.12,
+"end": 26.32
+},
+{
+"word": "PK",
+"start": 26.4,
+"end": 26.72
+},
+{
+"word": "yang",
+"start": 26.8,
+"end": 26.88
+},
+{
+"word": "nyala",
+"start": 26.92,
+"end": 27.12
+},
+{
+"word": "seharian",
+"start": 27.2,
+"end": 27.76
+},
+{
+"word": "bisa",
+"start": 27.84,
+"end": 28.0
+},
+{
+"word": "ngumpulin",
+"start": 28.08,
+"end": 28.56
+},
+{
+"word": "sekitar",
+"start": 28.64,
+"end": 28.96
+},
+{
+"word": "17",
+"start": 29.12,
+"end": 29.6
+},
+{
+"word": "liter.",
+"start": 29.68,
+"end": 30.24
+},
+{
+"word": "Hampir",
+"start": 30.4,
+"end": 30.8
+},
+{
+"word": "seember.",
+"start": 30.88,
+"end": 31.6
+},
+{
+"word": "Tetesnya",
+"start": 32.0,
+"end": 32.4
+},
+{
+"word": "ditampung,",
+"start": 32.52,
+"end": 33.2
+},
+{
+"word": "lalu",
+"start": 33.28,
+"end": 33.44
+},
+{
+"word": "dibuang",
+"start": 33.547,
+"end": 33.84
+},
+{
+"word": "lewat",
+"start": 33.92,
+"end": 34.16
+},
+{
+"word": "selang",
+"start": 34.24,
+"end": 34.4
+},
+{
+"word": "ke",
+"start": 34.48,
+"end": 34.56
+},
+{
+"word": "luar.",
+"start": 34.64,
+"end": 35.16
+},
+{
+"word": "Nah,",
+"start": 35.36,
+"end": 35.68
+},
+{
+"word": "kalau",
+"start": 35.76,
+"end": 35.92
+},
+{
+"word": "netesnya",
+"start": 36.04,
+"end": 36.4
+},
+{
+"word": "di",
+"start": 36.44,
+"end": 36.48
+},
+{
+"word": "dalam",
+"start": 36.56,
+"end": 36.8
+},
+{
+"word": "kamar,",
+"start": 36.84,
+"end": 37.44
+},
+{
+"word": "selangnya",
+"start": 37.52,
+"end": 37.84
+},
+{
+"word": "mampet.",
+"start": 37.92,
+"end": 38.48
+},
+{
+"word": "Biasanya",
+"start": 38.72,
+"end": 39.28
+},
+{
+"word": "lumut",
+"start": 39.44,
+"end": 39.84
+},
+{
+"word": "sama",
+"start": 39.893,
+"end": 40.0
+},
+{
+"word": "debu.",
+"start": 40.08,
+"end": 40.56
+},
+{
+"word": "Jadi",
+"start": 40.88,
+"end": 41.28
+},
+{
+"word": "air",
+"start": 41.44,
+"end": 41.6
+},
+{
+"word": "AC",
+"start": 41.68,
+"end": 41.84
+},
+{
+"word": "itu",
+"start": 41.92,
+"end": 42.16
+},
+{
+"word": "wajar.",
+"start": 42.2,
+"end": 42.8
+},
+{
+"word": "Baru",
+"start": 43.12,
+"end": 43.32
+},
+{
+"word": "jadi",
+"start": 43.36,
+"end": 43.52
+},
+{
+"word": "masalah",
+"start": 43.64,
+"end": 44.08
+},
+{
+"word": "kalau",
+"start": 44.16,
+"end": 44.4
+},
+{
+"word": "jatuhnya",
+"start": 44.44,
+"end": 44.88
+},
+{
+"word": "di",
+"start": 44.92,
+"end": 44.96
+},
+{
+"word": "dalam",
+"start": 45.04,
+"end": 45.2
+},
+{
+"word": "kamar.",
+"start": 45.28,
+"end": 45.96
+},
+{
+"word": "Cek",
+"start": 46.16,
+"end": 46.32
+},
+{
+"word": "ujung",
+"start": 46.4,
+"end": 46.56
+},
+{
+"word": "selang",
+"start": 46.64,
+"end": 46.88
+},
+{
+"word": "AC-mu",
+"start": 46.96,
+"end": 47.36
+},
+{
+"word": "di",
+"start": 47.4,
+"end": 47.44
+},
+{
+"word": "luar.",
+"start": 47.52,
+"end": 47.92
+},
+{
+"word": "Pas",
+"start": 48.24,
+"end": 48.4
+},
+{
+"word": "AC",
+"start": 48.44,
+"end": 48.64
+},
+{
+"word": "nyala,",
+"start": 48.72,
+"end": 49.2
+},
+{
+"word": "harusnya",
+"start": 49.28,
+"end": 49.6
+},
+{
+"word": "netes.",
+"start": 49.76,
+"end": 50.24
+},
+{
+"word": "Kalau",
+"start": 50.56,
+"end": 50.72
+},
+{
+"word": "kering,",
+"start": 50.8,
+"end": 51.28
+},
+{
+"word": "minta",
+"start": 51.36,
+"end": 51.52
+},
+{
+"word": "teknisi",
+"start": 51.6,
+"end": 52.0
+},
+{
+"word": "bersihin",
+"start": 52.12,
+"end": 52.48
+},
+{
+"word": "selangnya.",
+"start": 52.56,
+"end": 53.04
+},
+{
+"word": "Apalagi",
+"start": 53.44,
+"end": 53.92
+},
+{
+"word": "AC",
+"start": 54.0,
+"end": 54.24
+},
+{
+"word": "yang",
+"start": 54.36,
+"end": 54.48
+},
+{
+"word": "pas",
+"start": 54.56,
+"end": 54.72
+},
+{
+"word": "di",
+"start": 54.8,
+"end": 54.88
+},
+{
+"word": "atas",
+"start": 55.0,
+"end": 55.12
+},
+{
+"word": "kasur.",
+"start": 55.24,
+"end": 55.8
+},
+{
+"word": "AC",
+"start": 56.0,
+"end": 56.24
+},
+{
+"word": "di",
+"start": 56.28,
+"end": 56.32
+},
+{
+"word": "rumahmu",
+"start": 56.4,
+"end": 56.88
+},
+{
+"word": "pernah",
+"start": 56.96,
+"end": 57.2
+},
+{
+"word": "netes",
+"start": 57.28,
+"end": 57.44
+},
+{
+"word": "ke",
+"start": 57.52,
+"end": 57.56
+},
+{
+"word": "dalam?",
+"start": 57.6,
+"end": 58.2
+},
+{
+"word": "Follow",
+"start": 58.4,
+"end": 58.8
+},
+{
+"word": "buat",
+"start": 58.88,
+"end": 59.04
+},
+{
+"word": "fakta",
+"start": 59.12,
+"end": 59.36
+},
+{
+"word": "rumah",
+"start": 59.44,
+"end": 59.76
+},
+{
+"word": "berikutnya!",
+"start": 59.84,
+"end": 60.72
+}
+]
+}

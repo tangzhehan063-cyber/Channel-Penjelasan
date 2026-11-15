@@ -1,6 +1,9 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
-## Posisi terakhir (13 Nov 2026)
+## Posisi terakhir (15 Nov 2026)
+- **Video #14 selesai (15 Nov):** "Air AC yang Menetes Itu Bukan Bocor" (Bongkar Barang), 60,9 dtk, −14,6 LUFS, `remotion/src/v14/` (kamera 2,5D, kasur ala referensi user: rangka kayu, headboard panel, meja melayang). VO ElevenLabs Riri Rida 1 take (flow `ToIeOERE8lrRsidYIvXS`). Drive #14 `1SoZyehAAFk8QOpTE0U6rpqbJdT9TXR3I` (cover + info); MP4 + versi ringan dikirim ke user. Bug baru di `style/cek-bug.md`.
+
+## Posisi sebelumnya (13 Nov 2026)
 - **Video #13 selesai (13 Nov):** "Kaca Pecah Gara-Gara Sound Horeg?", 74,2 dtk, `remotion/src/v13/` (DNA v8–10 + **kamera 2,5D ortografis**). VO **Gemini TTS Achernar**; timestamp `tools/align_teks.py` (tanpa Scribe). Drive #13 `1EGwBQ0K62lfbJA3IkFgcUUd-8VBWd11p` (cover + info); MP4 dikirim ke user untuk diunggah manual.
 - **Video #12 selesai (12 Nov)**, lihat Log. Berikutnya: Hitung Rumah #03 "DP 0% Bikin Cicilan Berapa Lama?" atau ide di `riset/`.
 - **Video #11 selesai (11 Nov):** "10 Tahun Nyicil, Rumahmu Baru Separuh Lunas" (seri baru Hitung Rumah #01), 74,2 dtk, `remotion/src/v11/`. Properti baru (user minta visual lebih kaya): gedung bank mini, uang kertas berikat (biru = bunga, koral = rumah), amplop, kalender meja, map kontrak. MP4+SRT, cover, caption. Kredit ScrapeMedsos habis (0).
