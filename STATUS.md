@@ -1,7 +1,7 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
 ## Posisi terakhir (15 Nov 2026)
-- **Video #14 "Air AC yang Menetes Itu Bukan Bocor" (15 Nov):** Bongkar Barang, naskah draf `naskah/video-14-air-ac-menetes.md` ACC user (15 Nov); caption `caption/video-14-air-ac-menetes.md`. Berikutnya: user pilih mesin VO. Cabang sesi lama sudah digabung (kecuali lucid-wozniak: moodboard #13 lama).
+- **Video #14 "Air AC yang Menetes Itu Bukan Bocor" (15 Nov):** Bongkar Barang, naskah draf `naskah/video-14-air-ac-menetes.md` ACC user (15 Nov); caption `caption/video-14-air-ac-menetes.md`. VO ElevenLabs (Riri Rida, 1 take), flow_id `ToIeOERE8lrRsidYIvXS`. Cabang sesi lama sudah digabung (kecuali lucid-wozniak: moodboard #13 lama).
 
 ## Posisi sebelumnya (13 Nov 2026)
 - **Video #13 selesai (13 Nov):** "Kaca Pecah Gara-Gara Sound Horeg?", 74,2 dtk, `remotion/src/v13/` (DNA v8–10 + **kamera 2,5D ortografis**). VO **Gemini TTS Achernar**; timestamp `tools/align_teks.py` (tanpa Scribe). Drive #13 `1EGwBQ0K62lfbJA3IkFgcUUd-8VBWd11p` (cover + info); MP4 dikirim ke user untuk diunggah manual.
