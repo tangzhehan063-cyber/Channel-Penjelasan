@@ -9,7 +9,7 @@ import {PaperPlus, Kicker, Ornament, FollowButton} from '../aset/Gabung';
 import {Env} from '../pengetahuan/Scene';
 import {Rig} from '../v13/Mood13';
 import words from '../../public/v14/words.json';
-import {Edges} from '@react-three/drei';
+import {Edges, RoundedBox} from '@react-three/drei';
 
 export const P14 = {coral: '#e2563f', ink: '#1c1c1e', ac: '#f4f2ec', acEdge: '#cfcac0', wall: '#e9e1d2', wallOut: '#b9c7cf', floor: '#d9d4c7', ground: '#a8b59a', bed: '#5d8fd6', pillow: '#f8f6f0', fin: '#7fa6c4', water: '#4fa3d9', hose: '#e8e3d8', moss: '#6f8a4a', dust: '#8a7d6b'};
 export const FPS = 30;
@@ -115,6 +115,39 @@ const Dripping: React.FC<{t: number; t0: number; at: [number, number, number]; f
   return <group>{[0, 1, 2].map((i) => { const ph = ((t - t0) / every + i / 3) % 1; return <Drop key={i} p={[at[0], at[1] - ph * ph * fall, at[2]]} s={0.045} />; })}</group>;
 };
 
+// tempat tidur ala referensi user: rangka kayu rendah, kasur putih membulat, selimut, bantal, headboard panel kayu, meja melayang + lampu
+const WOOD = '#8a5634', WOOD2 = '#a06a42', WOOD3 = '#74462a';
+const Soft: React.FC<{p: [number, number, number]; s: [number, number, number]; c: string; rad?: number; rot?: [number, number, number]}> = ({p, s, c, rad = 0.05, rot}) => (
+  <RoundedBox args={s} radius={rad} smoothness={4} position={p} rotation={rot} castShadow receiveShadow><meshPhysicalMaterial color={c} roughness={0.95} sheen={0.6} sheenColor="#ffffff" /><Edges color="#1c1c1e" lineWidth={1.2} threshold={30} /></RoundedBox>
+);
+const Bed: React.FC = () => (
+  <group position={[0.1, 0, 0]}>
+    {/* headboard: panel kayu menempel dinding */}
+    <Bx p={[0, 0.72, -1.02]} s={[2.9, 0.98, 0.06]} c={WOOD} />
+    <Bx p={[-0.55, 0.98, -0.985]} s={[0.9, 0.36, 0.02]} c={WOOD2} edge={false} />
+    <Bx p={[0.55, 0.62, -0.985]} s={[0.95, 0.3, 0.02]} c={WOOD2} edge={false} />
+    <Bx p={[1.15, 0.98, -0.985]} s={[0.5, 0.36, 0.02]} c={WOOD3} edge={false} />
+    {/* rangka: alas menjorok + papan lebar */}
+    <Bx p={[0, 0.05, -0.3]} s={[1.6, 0.1, 1.25]} c={WOOD3} />
+    <Bx p={[0, 0.17, -0.27]} s={[1.95, 0.14, 1.55]} c={WOOD} />
+    {/* kasur + selimut */}
+    <Soft p={[0, 0.34, -0.3]} s={[1.65, 0.22, 1.42]} c="#f6f4ef" rad={0.07} />
+    <Soft p={[0, 0.47, -0.08]} s={[1.72, 0.07, 0.98]} c="#ecebe6" rad={0.03} />
+    <Soft p={[0, 0.505, -0.52]} s={[1.68, 0.05, 0.12]} c="#f8f7f3" rad={0.02} />
+    {/* bantal putih + bantal abu */}
+    <Soft p={[-0.4, 0.55, -0.82]} s={[0.66, 0.16, 0.34]} c="#fbfaf7" rad={0.07} rot={[-0.35, 0, 0]} />
+    <Soft p={[0.4, 0.55, -0.82]} s={[0.66, 0.16, 0.34]} c="#fbfaf7" rad={0.07} rot={[-0.35, 0, 0]} />
+    <Soft p={[-0.38, 0.56, -0.66]} s={[0.46, 0.12, 0.2]} c="#a9adb2" rad={0.05} rot={[-0.5, 0, 0]} />
+    <Soft p={[0.38, 0.56, -0.66]} s={[0.46, 0.12, 0.2]} c="#a9adb2" rad={0.05} rot={[-0.5, 0, 0]} />
+    {/* meja samping melayang */}
+    {[-1.28, 1.28].map((x) => <Bx key={x} p={[x, 0.46, -0.8]} s={[0.55, 0.16, 0.42]} c={WOOD} />)}
+    <mesh position={[1.36, 0.6, -0.85]} castShadow><cylinderGeometry args={[0.04, 0.07, 0.14, 20]} /><meshPhysicalMaterial color="#2a2522" roughness={0.5} /></mesh>
+    <mesh position={[1.36, 0.73, -0.85]} castShadow><cylinderGeometry args={[0.07, 0.11, 0.13, 24, 1, true]} /><meshPhysicalMaterial color="#1c1c1e" roughness={0.6} side={2} /></mesh>
+    <mesh position={[-1.38, 0.6, -0.85]} castShadow><sphereGeometry args={[0.07, 20, 16]} /><meshPhysicalMaterial color="#f1ede4" roughness={0.4} clearcoat={0.6} /></mesh>
+    <mesh position={[-1.2, 0.555, -0.78]} castShadow><cylinderGeometry args={[0.07, 0.05, 0.03, 20]} /><meshPhysicalMaterial color="#c9a26b" roughness={0.6} /></mesh>
+  </group>
+);
+
 // kamar: lantai, dinding belakang & kiri, AC, kasur, selang ke dinding
 const Room: React.FC<{t: number; leak?: number; vapor?: number; pull?: number}> = ({t, leak = 0, vapor = 0, pull = 0}) => (
   <group>
@@ -125,12 +158,9 @@ const Room: React.FC<{t: number; leak?: number; vapor?: number; pull?: number}> 
     {/* selang buang: dari sisi kanan AC ke lubang dinding */}
     <Bx p={[0.86, 1.72, -0.95]} s={[0.22, 0.05, 0.05]} c={P14.hose} />
     <mesh position={[0.98, 1.72, -1.04]}><circleGeometry args={[0.05, 16]} /><meshBasicMaterial color="#3a332c" /></mesh>
-    {/* kasur di bawah AC */}
-    <Bx p={[0.1, 0.2, -0.25]} s={[1.6, 0.4, 1.5]} c={P14.bed} />
-    <Bx p={[0.1, 0.47, -0.8]} s={[1.1, 0.14, 0.35]} c={P14.pillow} />
-    <Bx p={[-1.4, 0.35, -0.75]} s={[0.5, 0.7, 0.5]} c="#c9a47a" />
-    {leak > 0 && <Dripping t={t} t0={0} at={[0.25, 1.62, -0.72]} fall={1.18} every={0.5} />}
-    {leak > 0 && <mesh position={[0.25, 0.405, -0.72]} rotation={[-Math.PI / 2, 0, 0]}><circleGeometry args={[0.12 + 0.18 * leak, 32]} /><meshBasicMaterial color="#3f6f99" transparent opacity={0.55} /></mesh>}
+    <Bed />
+    {leak > 0 && <Dripping t={t} t0={0} at={[0.25, 1.62, -0.6]} fall={1.09} every={0.5} />}
+    {leak > 0 && <mesh position={[0.25, 0.535, -0.6]} rotation={[-Math.PI / 2, 0, 0]}><circleGeometry args={[0.1 + 0.16 * leak, 32]} /><meshBasicMaterial color="#7fa6c4" transparent opacity={0.7} /></mesh>}
     {vapor > 0 && <Vapor t={t} n={46} box={[-1.8, 1.8, 0.4, 2.1, -0.7, 1.2]} to={[0.1, 1.85, -0.75]} pull={pull} show={vapor} />}
   </group>
 );
@@ -259,7 +289,7 @@ export const Video14: React.FC = () => {
       <Seg a={9.45} b={B.udara}><FreonLoop t={t} p={r(t, 9.45, 9.9)} /></Seg>
       {/* C. udara lembap: butiran koral muncul memenuhi kamar */}
       <Seg a={B.udara} b={B.sirip}>
-        <Stage cam={camAt(t, [[12.88, [0, 1.3, 330]], [17.84, [-0.2, 1.1, 250]]])}><Room t={t} vapor={r(t, 13.3, 15.4)} /></Stage>
+        <Stage cam={camAt(t, [[12.88, [0, 1.5, 320]], [17.84, [-0.2, 1.35, 250]]])}><Room t={t} vapor={r(t, 13.3, 15.4)} /></Stage>
       </Seg>
       {/* D. sirip dingin close-up, tetes, + gelas es teh */}
       <Seg a={B.sirip} b={B.angka}>
@@ -277,7 +307,7 @@ export const Video14: React.FC = () => {
       {/* G. twist: selang mampet, air balik */}
       <Seg a={B.twist} b={39.6}><HoseClog t={t} /></Seg>
       <Seg a={39.6} b={B.payoff}>
-        <Stage cam={camAt(t, [[39.6, [0.25, 1.0, 380]], [40.88, [0.25, 1.0, 400]]])}><Room t={t} leak={r(t, 39.6, 40.8)} /></Stage>
+        <Stage cam={camAt(t, [[39.6, [0.25, 1.35, 360]], [40.88, [0.25, 1.35, 380]]])}><Room t={t} leak={r(t, 39.6, 40.8)} /></Stage>
       </Seg>
       {/* H. payoff: kamar kering, AC normal */}
       <Seg a={B.payoff} b={B.aksi}>
