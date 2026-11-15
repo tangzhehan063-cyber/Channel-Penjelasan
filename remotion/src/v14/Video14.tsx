@@ -307,7 +307,7 @@ export const Video14: React.FC = () => {
       {/* G. twist: selang mampet, air balik */}
       <Seg a={B.twist} b={39.6}><HoseClog t={t} /></Seg>
       <Seg a={39.6} b={B.payoff}>
-        <Stage cam={camAt(t, [[39.6, [0.25, 1.35, 360]], [40.88, [0.25, 1.35, 380]]])}><Room t={t} leak={r(t, 39.6, 40.8)} /></Stage>
+        <Stage cam={camAt(t, [[39.6, [0.25, 1.7, 330]], [40.88, [0.25, 1.7, 345]]])}><Room t={t} leak={r(t, 39.6, 40.8)} /></Stage>
       </Seg>
       {/* H. payoff: kamar kering, AC normal */}
       <Seg a={B.payoff} b={B.aksi}>
