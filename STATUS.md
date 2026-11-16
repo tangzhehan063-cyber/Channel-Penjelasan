@@ -1,7 +1,7 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
 ## Posisi terakhir (16 Nov 2026)
-- **Video #15 (draf storyboard Tahap 2):** "Air PDAM direbus vs galon isi ulang vs galon merek" (VS), `naskah/video-15-air-pdam-rebus-vs-galon.md`, riset `riset/2026-11-16-air-pdam-rebus-vs-galon.md`. Beat galon merek dihapus atas keputusan user (jadi video #16). Menunggu ACC naskah; sisa 2 cek (salinan Permenkes 2/2023 bertanda tangan, kalimat inferensi titik uji). Topik pajak jual rumah dihentikan user; riset tetap di `riset/2026-11-16-pajak-jual-rumah.md`.
+- **Video #15 (draf storyboard Tahap 2):** "Air PDAM direbus vs galon isi ulang vs galon merek" (VS), `naskah/video-15-air-pdam-rebus-vs-galon.md`, riset `riset/2026-11-16-air-pdam-rebus-vs-galon.md`. Beat galon merek dihapus (jadi video #16). **Naskah ACC 16 Nov; VO ElevenLabs Riri Rida 1 take selesai** (56,6 dtk, flow `Jz54PYCD0D5rHTinLwWx`, `remotion/public/v15/vo.mp3`, timestamp `align_teks.py` → `words.json`). Caption `caption/video-15-air-pdam-rebus-vs-isi-ulang.md`. Berikutnya: Tahap 4 animasi (salin `remotion/src/v14/`, TANPA Ornament), contact sheet untuk ACC. Sisa cek: salinan Permenkes 2/2023 bertanda tangan, kalimat inferensi titik uji. Topik pajak jual rumah dihentikan user; riset tetap di `riset/2026-11-16-pajak-jual-rumah.md`.
 - **Akses sumber resmi dari container:** `curl -A "Mozilla/5.0"` ke pajak.go.id, setkab.go.id, jdih.kemenkeu.go.id (`/api/download/...`), jdih.kemkes.go.id (`/storage/documents/pdfs/...`), who.int/iris.who.int berhasil; bsn.go.id, peraturan.go.id (reset), peraturan.bpk.go.id (Cloudflare), cdc.gov (Akamai) menolak. `pdftotext -layout` tersedia.
 
 ## Posisi sebelumnya (15 Nov 2026)
