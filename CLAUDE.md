@@ -5,6 +5,13 @@ Channel pengetahuan, seri utama **"fakta rumah"**, Bahasa Indonesia santai, audi
 
 **Alur kerja lengkap ada di `WORKFLOW.md` (ikuti langkah 0–7, termasuk distribusi: PR ke `main` → Claude merge sendiri).** Di awal setiap sesi baca `STATUS.md` saja, lalu baca file lain hanya sesuai tahap yang dikerjakan (lihat "Hemat token"). Perbarui `STATUS.md` setiap ada kemajuan dan push ke repo; jangan menunggu akhir sesi.
 
+## ATURAN KAKU: gerbang tahap (perintah user 16 Nov 2026, TIDAK BOLEH dilewati)
+- Setiap video punya `checklist/vNN.md` (salin dari `checklist/_template.md` di awal, sebelum langkah apa pun). **Selama masih ada langkah `[ ]` di tahap sebelumnya, DILARANG masuk tahap berikutnya.** Centang `[x]` hanya setelah benar-benar selesai; keputusan milik user (palet, suara, ACC) hanya dicentang bila user sudah menjawab di chat.
+- Gerbang otomatis: `node tools/gerbang.mjs NN <tahap>`; `tools/produksi.sh` memanggilnya (`sheet` butuh T1–T3, `final|bagian|cover` butuh T1–T5). Jangan mematikan atau menyiasati gerbang; kalau gagal, selesaikan langkahnya.
+- **Palet latar WAJIB diputuskan user di Tahap 2** (tawarkan tabel `style/identitas.md` + rekomendasi + alasan, lalu tunggu jawaban). Dilarang memakai `krem` diam-diam.
+- **Revisi/referensi user:** tulis semuanya di daftar R pada checklist, tafsirkan 1 kalimat (referensi = acuan penempatan, bukan render realistis), kerjakan SEMUA butir, lalu lapor. Dilarang loncat ke tahap lain (cek, render, caption, distribusi) sebelum semua butir R selesai dan dilaporkan.
+- Awal video: `git fetch`, cek nomor di `main` dan cabang `claude/*` sebelum menamai video.
+
 ## Hemat token (wajib)
 - Baca sesuai tahap: Tahap 1–2 → `naskah/alur-naskah.md` + skill `naskah-viral`; Tahap 4–5 → `style/style.md` + `style/aset.md` (Gaya A) atau `style/diorama-kertas/README.md` (Gaya B, diorama kertas); caption → bagian caption di file ini. Jangan membaca ulang file yang tidak berubah.
 - Pakai `grep`/`sed -n` untuk bagian tertentu, bukan membaca file utuh. Gambar dibaca hanya untuk cek visual: still `--scale=0.5`, gabung jadi satu contact sheet, maks. 1–2 sheet per putaran.
