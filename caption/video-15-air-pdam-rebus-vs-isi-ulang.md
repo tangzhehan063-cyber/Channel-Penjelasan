@@ -13,6 +13,7 @@ Yg langganan galon isi ulang, pernah nanya depotnya kapan terakhir uji lab gak?
 Judul: Air PDAM Boleh Diminum Langsung? Cek Titik Ujinya
 Deskripsi: Standar air minum di Indonesia mensyaratkan E. coli nol per 100 ml. Untuk PDAM, titik sampelnya di instalasi dan jaringan distribusi, bukan di keran rumah. Direbus sampai mendidih besar cukup membunuh bakteri, virus, dan parasit menurut WHO, tapi air dingin di wadah kotor bisa tercemar lagi. Depot isi ulang wajib uji E. coli di lab tiap 3 bulan.
 Sumber: Permenkes 2/2023 (Lampiran, parameter wajib air minum, pengawasan internal, depot air minum); WHO Technical Brief "Boil water" (WHO/FWC/WSH/15.02, 2015).
+Catatan: angka batas dan jadwal uji mengacu pada Permenkes 2/2023; cek ke salinan resmi (peraturan.bpk.go.id) untuk versi terbaru.
 
 ## Judul alternatif
 1. Air PDAM Direbus atau Galon Isi Ulang, Mana Lebih Aman?
