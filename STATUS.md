@@ -1,7 +1,7 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
 ## Posisi terakhir (16 Nov 2026)
-- **Video #15 (draf storyboard Tahap 2):** "Air PDAM direbus vs galon isi ulang vs galon merek" (VS), `naskah/video-15-air-pdam-rebus-vs-galon.md`, riset `riset/2026-11-16-air-pdam-rebus-vs-galon.md`. Menunggu ACC naskah + 1 [⚠ CEK] (SNI galon merek). Topik pajak jual rumah dihentikan user; riset tetap di `riset/2026-11-16-pajak-jual-rumah.md`.
+- **Video #15 (draf storyboard Tahap 2):** "Air PDAM direbus vs galon isi ulang vs galon merek" (VS), `naskah/video-15-air-pdam-rebus-vs-galon.md`, riset `riset/2026-11-16-air-pdam-rebus-vs-galon.md`. Beat galon merek dihapus atas keputusan user (jadi video #16). Menunggu ACC naskah; sisa 2 cek (salinan Permenkes 2/2023 bertanda tangan, kalimat inferensi titik uji). Topik pajak jual rumah dihentikan user; riset tetap di `riset/2026-11-16-pajak-jual-rumah.md`.
 - **Akses sumber resmi dari container:** `curl -A "Mozilla/5.0"` ke pajak.go.id, setkab.go.id, jdih.kemenkeu.go.id (`/api/download/...`), jdih.kemkes.go.id (`/storage/documents/pdfs/...`), who.int/iris.who.int berhasil; bsn.go.id, peraturan.go.id (reset), peraturan.bpk.go.id (Cloudflare), cdc.gov (Akamai) menolak. `pdftotext -layout` tersedia.
 
 ## Posisi sebelumnya (15 Nov 2026)
@@ -18,6 +18,7 @@
 - Branding baru (10 Nov): logo `branding/logo-fakta-rumah.png` + bio 41 karakter di `branding/bio.md`, seragam 3 platform (nama sementara "Fakta Rumah"). Belum diputuskan: nama channel/handle, realisme objek 3D.
 
 ## Preferensi user
+- **Tidak ada gambar/animasi kipas di ujung kanan video** (user 16 Nov, berlaku untuk video berikutnya). Elemen itu belum ditemukan di kode `remotion/src`; tanya user video mana yang memuatnya bila muncul lagi.
 - **Kontrol lewat Panel Studio** (12 Nov): https://claude.ai/artifact/4Aiv5HDCLRRfVLdEapvt3s. Tombol ACC/revisi/topik mengirim komentar ke Claude; status video & ide disimpan di database panel (lihat WORKFLOW langkah 0.4–0.5). Status posting #1–#12 belum diisi user.
 - **Hasil jadi (video render, cover, info/caption) disimpan di Google Drive, bukan GitHub** (user 11 Nov). Folder induk "Fakta Rumah" `1Dx9nqhifWRbixFb_2u4XrHMIaHHJloAt`, satu subfolder per video (#11: `11PIHgG1XQ8QXw9FVGMLQaAJObItaWnSP`). Batas upload konektor dari cloud ±3 MB per panggilan: cover + info bisa, MP4 belum (cara upload MP4 menunggu keputusan user).
 - **Gaya animasi baku = video #7 & #8** (`remotion/src/v07/`, `remotion/src/v08/`): disukai user, sudah sesuai. Video baru menyalin gaya ini; tweak hanya bila user minta.
