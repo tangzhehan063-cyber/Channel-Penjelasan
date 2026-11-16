@@ -23,3 +23,5 @@ Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) s
 - **Subtitle angka "koma" rusak (#11):** Scribe/`scribe_to_timeline.py` mengubah "satu koma satu juta" jadi "satu koma 1000000". Cek `words.json` untuk token angka; gabungkan jadi "1,1 juta".
 - **Angka hitung naik terlambat dari VO** (#14 ember: layar "13 liter" saat VO sudah bilang "17"): animasi counter harus selesai paling lambat di kata angkanya, bukan sesudahnya. Cek still tepat di detik kata angka.
 - **Objek kunci tertutup kotak judul** (#14 AC di bawah judul "SELANG MAMPET"): kamera 2,5D `Rig` → naikkan nilai y supaya objek turun di layar.
+- **Overlay 2D menimpa objek 3D (#15 timeline uji lab menimpa depot, label "KAMU" menimpa "uji lab")**: beri kartu latar semi-transparan pada overlay yang lewat di atas objek 3D, dan beri jarak tetap antar label.
+- **Objek kunci di tepi layar (#15 pot dan depot terpotong kiri/kanan di adegan dua objek)**: cek posisi x tiap objek terhadap lebar kamera (lebar dunia = 1080/zoom) sebelum render.
