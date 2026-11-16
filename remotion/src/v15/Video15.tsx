@@ -25,7 +25,7 @@ const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
 // ---------- beat (detik dari words.json) ----------
 
 // ---------- beat (detik dari words.json, Scribe) ----------
-const B = {hook: 0, standar: 6.36, rebus: 16.26, isi: 28.77, payoff: 42.5, aksi: 46.37, cta: 52.5, end: V15_END};
+const B = {hook: 0, hook2: 3.9, standar: 6.36, rebus: 16.26, isi: 28.77, payoff: 42.5, aksi: 46.37, cta: 52.5, end: V15_END};
 const hash = (i: number) => { const x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
 
 // ---------- subtitle ----------
@@ -100,7 +100,7 @@ const Mark: React.FC<{x: number; y: number; ok: boolean; p: number; text: string
 
 // ---------- objek 3D air ----------
 const Cyl: React.FC<{p: [number, number, number]; r: number; h: number; c: string; rot?: [number, number, number]; op?: number; open?: boolean}> = ({p, r: rad, h, c, rot, op = 1, open}) => (
-  <mesh position={p} rotation={rot} castShadow receiveShadow><cylinderGeometry args={[rad, rad, h, 36, 1, open]} /><meshPhysicalMaterial color={c} roughness={0.5} clearcoat={0.4} transparent={op < 1} opacity={op} side={open ? 2 : 0} /></mesh>
+  <mesh position={p} rotation={rot} castShadow receiveShadow><cylinderGeometry args={[rad, rad, h, 36, 1, open]} /><meshPhysicalMaterial color={c} roughness={0.5} clearcoat={0.4} transparent={op < 1} opacity={op} side={open ? 2 : 0} />{op >= 1 && <Edges color="#1c1c1e" lineWidth={1.2} />}</mesh>
 );
 const Ball: React.FC<{p: [number, number, number]; s: number; c: string; sx?: number}> = ({p, s, c, sx = 1}) => (
   <mesh position={p} scale={[s * sx, s, s]} castShadow><sphereGeometry args={[1, 20, 16]} /><meshPhysicalMaterial color={c} roughness={0.4} clearcoat={0.6} /></mesh>
@@ -390,16 +390,16 @@ const Clock24: React.FC<{p: number; x: number; y: number}> = ({p, x, y}) => p <=
 const Timeline: React.FC<{t: number; a: number; gap?: number; you?: number}> = ({t, a, gap = 0, you = 0}) => {
   const k = r(t, a, a + 0.5);
   if (k <= 0) return null;
-  const xs = [90, 330, 570, 810];
+  const xs = [90, 330, 570, 810], names = ['bulan 0', 'bulan 3', 'bulan 6', 'bulan 9'];
   return (
     <div style={{position: 'absolute', left: 60, top: 655, width: 960, height: 225, opacity: k, borderRadius: 28, background: 'rgba(250,249,246,0.88)', boxShadow: '0 10px 30px rgba(28,28,30,0.15)'}}>
       <div style={{position: 'absolute', left: 30, right: 30, top: 80, height: 10, borderRadius: 5, background: INK, opacity: 0.85}} />
       {xs.map((x, i) => <div key={i} style={{position: 'absolute', left: x - 6, top: 56, textAlign: 'center', transform: `translateX(-50%) scale(${Math.min(1, Math.max(0, k * 3 - i * 0.5))})`}}>
-        <div style={{margin: '0 auto', width: 54, height: 54, borderRadius: '50%', background: CORAL, border: '5px solid #faf9f6', boxShadow: '0 6px 16px rgba(28,28,30,0.25)'}} />
-        <div style={{marginTop: 12, fontFamily: 'Inter', fontWeight: 800, fontSize: 30, color: INK, whiteSpace: 'nowrap', position: 'relative', left: 6}}>uji lab</div>
+        <div style={{margin: '0 auto', width: 58, height: 58, borderRadius: '50%', background: CORAL, border: '5px solid #faf9f6', boxShadow: '0 6px 16px rgba(28,28,30,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Inter', fontWeight: 900, fontSize: 30, color: '#faf9f6'}}>{i + 1}</div>
+        <div style={{marginTop: 12, fontFamily: 'Inter', fontWeight: 800, fontSize: 28, color: INK, whiteSpace: 'nowrap', position: 'relative', left: 6}}>{names[i]}</div>
       </div>)}
-      {gap > 0 && <div style={{position: 'absolute', left: 150, top: 8, width: 150, textAlign: 'center', fontFamily: 'Inter', fontWeight: 900, fontSize: 40, color: CORAL, opacity: gap}}>3 bln</div>}
-      {you > 0 && <div style={{position: 'absolute', left: 330, top: 160, width: 200, padding: '8px 0', textAlign: 'center', fontFamily: 'Inter', fontWeight: 900, fontSize: 38, color: '#faf9f6', background: CORAL, borderRadius: 16, opacity: you, transform: `scale(${0.7 + 0.3 * you})`}}>KAMU</div>}
+      {gap > 0 && [210, 450, 690].map((x, i) => { const g = Math.min(1, Math.max(0, gap * 3 - i)); return <div key={i} style={{position: 'absolute', left: x, top: 22, transform: 'translateX(-50%)', fontFamily: 'Inter', fontWeight: 900, fontSize: 34, color: CORAL, opacity: g}}>+3 bln</div>; })}
+      {you > 0 && <div style={{position: 'absolute', left: 330, top: 168, width: 200, padding: '6px 0', textAlign: 'center', fontFamily: 'Inter', fontWeight: 900, fontSize: 34, color: '#faf9f6', background: CORAL, borderRadius: 16, opacity: you, transform: `scale(${0.7 + 0.3 * you})`}}>KAMU</div>}
     </div>
   );
 };
@@ -469,25 +469,26 @@ export const Video15: React.FC = () => {
         <Clock24 p={r(t, 36.0, 38.4) * (t > 35.4 && t < 39.0 ? 1 : 0)} x={870} y={780} />
         {t > 35.4 && t < 39.0 && <Mark x={540} y={1250} ok={false} p={r(t, 37.9, 38.3)} text="lebih dari sehari" />}
       </Seg>
-      {/* E. payoff */}
+      {/* E. payoff: PDAM (instalasi) dan depot, dua pihak penguji */}
       <Seg a={B.payoff} b={B.aksi}>
-        <Stage cam={camAt(t, [[42.5, [0, 1.7, 190]], [46.37, [0, 1.7, 200]]])}>
+        <Stage cam={camAt(t, [[42.5, [0, 1.6, 150]], [46.37, [0, 1.6, 158]]])}>
           <Ground w={12} />
-          <TestPoint x={-1.3} p={r(t, 43.0, 43.6)} />
-          <Galon p={[1.7, 0, 0]} s={1.3} />
+          <group position={[0.36, 0, 0]} scale={0.62}><Instalasi t={t} /></group>
+          <TestPoint x={-0.5} p={r(t, 43.0, 43.6)} />
+          <group position={[2.35, 0, 0]} scale={0.7}><Depot t={t} wash={1} /></group>
         </Stage>
-        <Chip x={270} y={1180} p={r(t, 43.8, 44.2)} text="PDAM" color={P15.water} size={40} />
-        <Chip x={800} y={1180} p={r(t, 44.2, 44.6)} text="depot" color={CORAL} size={40} />
+        <Chip x={290} y={1220} p={r(t, 43.8, 44.2)} text="PDAM" color={P15.water} size={40} />
+        <Chip x={800} y={1220} p={r(t, 44.2, 44.6)} text="depot" color={CORAL} size={40} />
       </Seg>
-      {/* F. aksi */}
-      <Seg a={B.aksi} b={B.cta}>
-        <Stage cam={camAt(t, [[46.37, [-0.1, 2.0, 135]], [52.5, [-0.1, 2.0, 142]]])}>
-          <Ground w={12} />
-          <group position={[-2.7, 0, 0]} scale={0.75}><Pot t={t} dead={r(t, 47.9, 48.6)} /></group>
-          <group position={[1.6, 0, 0]}><Depot t={t} /></group>
-        </Stage>
-        <Mark x={300} y={1210} ok p={r(t, 47.9, 48.3)} text="rebus dulu" />
-        <Mark x={780} y={1210} ok p={r(t, 50.0, 50.4)} text="tanya uji lab" />
+      {/* F1. aksi: air PDAM, rebus dulu */}
+      <Seg a={B.aksi} b={48.9}>
+        <Stage cam={camAt(t, [[46.37, [0, 1.55, 200]], [48.9, [0, 1.55, 210]]])}><Pot t={t} dead={r(t, 47.9, 48.6)} /></Stage>
+        <Mark x={540} y={1325} ok p={r(t, 47.9, 48.3)} text="rebus dulu" />
+      </Seg>
+      {/* F2. aksi: isi ulang, tanya uji lab */}
+      <Seg a={48.9} b={B.cta}>
+        <Stage cam={camAt(t, [[48.9, [0.3, 2.3, 158]], [52.5, [0.3, 2.3, 166]]])}><Depot t={t} wash={1} /></Stage>
+        <Mark x={540} y={1325} ok p={r(t, 50.0, 50.4)} text="tanya uji lab" />
       </Seg>
       {/* G. CTA */}
       <Seg a={B.cta} b={B.end}>
@@ -512,7 +513,7 @@ export const Video15: React.FC = () => {
       <Title t={t} a={B.payoff} b={B.aksi} small="Air aman itu soal" big="SIAPA YANG MENGUJI" bigAt={43.6} size={84} />
       <Title t={t} a={B.aksi} b={48.9} small="Minum air PDAM?" big="REBUS DULU" bigAt={47.7} size={104} />
       <Title t={t} a={48.9} b={B.cta} small="Beli isi ulang?" big="TANYA UJI LAB" bigAt={49.9} size={100} />
-      <Title t={t} a={B.cta} b={54.3} small="Kamu minum" big="YANG MANA?" bigAt={53.7} size={110} />
+      <Title t={t} a={B.cta} b={55.7} small="Kamu minum" big="YANG MANA?" bigAt={53.3} size={110} />
 
       <Kicker text="FAKTA RUMAH · #15" y={292} start={0} />
       <TikTokBox text="Air PDAM boleh langsung diminum?" p={r(t, 0.2, 1.0, Easing.linear)} y={338} size={40} />
