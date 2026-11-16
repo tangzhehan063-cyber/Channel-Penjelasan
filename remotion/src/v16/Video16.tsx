@@ -1,5 +1,5 @@
-// Video #15 "Air PDAM direbus vs galon isi ulang" (VS). DNA v8–14, kamera 2,5D ortografis, TANPA Ornament (perintah user 16 Nov).
-// VO ElevenLabs Riri Rida (flow Jz54PYCD0D5rHTinLwWx), timestamp public/v15/words.json (align_teks). Naskah: naskah/video-15-air-pdam-rebus-vs-galon.md
+// Video #16 "Air PDAM direbus vs galon isi ulang" (VS). DNA v8–14, kamera 2,5D ortografis, TANPA Ornament (perintah user 16 Nov).
+// VO ElevenLabs Riri Rida (flow Jz54PYCD0D5rHTinLwWx), timestamp public/v16/words.json (align_teks). Naskah: naskah/video-15-air-pdam-rebus-vs-galon.md
 import {Audio} from '@remotion/media';
 import {createTikTokStyleCaptions, type Caption} from '@remotion/captions';
 import {ThreeCanvas} from '@remotion/three';
@@ -8,16 +8,16 @@ import {Grain, TikTokBox, PatternBreak, C} from '../aset/Aset';
 import {PaperPlus, Kicker, FollowButton} from '../aset/Gabung';
 import {Env} from '../pengetahuan/Scene';
 import {Rig} from '../v13/Mood13';
-import words from '../../public/v15/words.json';
+import words from '../../public/v16/words.json';
 import {Edges, RoundedBox} from '@react-three/drei';
 import {useMemo} from 'react';
 import {Shape, ExtrudeGeometry} from 'three';
 
-export const P15 = {coral: '#e2563f', ink: '#1c1c1e', ac: '#f4f2ec', acEdge: '#cfcac0', wall: '#e9e1d2', wallOut: '#b9c7cf', floor: '#d9d4c7', ground: '#a8b59a', bed: '#5d8fd6', pillow: '#f8f6f0', fin: '#7fa6c4', water: '#4fa3d9', hose: '#e8e3d8', moss: '#6f8a4a', dust: '#8a7d6b'};
+export const P16 = {coral: '#e2563f', ink: '#1c1c1e', ac: '#f4f2ec', acEdge: '#cfcac0', wall: '#e9e1d2', wallOut: '#b9c7cf', floor: '#d9d4c7', ground: '#a8b59a', bed: '#5d8fd6', pillow: '#f8f6f0', fin: '#7fa6c4', water: '#4fa3d9', hose: '#e8e3d8', moss: '#6f8a4a', dust: '#8a7d6b'};
 export const FPS = 30;
-export const V15_END = 56.7;
-export const V15_FRAMES = Math.ceil(V15_END * FPS);
-const CC_TOP = 1400, CORAL = P15.coral, INK = C.ink;
+export const V16_END = 56.7;
+export const V16_FRAMES = Math.ceil(V16_END * FPS);
+const CC_TOP = 1400, CORAL = P16.coral, INK = C.ink;
 const ease = Easing.inOut(Easing.cubic);
 const r = (t: number, a: number, b: number, e = ease) => interpolate(t, [a, b], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: e});
 const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
@@ -25,7 +25,7 @@ const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
 // ---------- beat (detik dari words.json) ----------
 
 // ---------- beat (detik dari words.json, Scribe) ----------
-const B = {hook: 0, hook2: 3.9, standar: 6.36, rebus: 16.26, isi: 28.77, payoff: 42.5, aksi: 46.37, cta: 52.5, end: V15_END};
+const B = {hook: 0, hook2: 3.9, standar: 6.36, rebus: 16.26, isi: 28.77, payoff: 42.5, aksi: 46.37, cta: 52.5, end: V16_END};
 const hash = (i: number) => { const x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
 
 // ---------- subtitle ----------
@@ -88,7 +88,7 @@ const Bx: React.FC<{p: [number, number, number]; s: [number, number, number]; c:
   <mesh position={p} rotation={rot} castShadow receiveShadow><boxGeometry args={s} /><Mat c={c} />{edge && <Edges color="#1c1c1e" lineWidth={1.5} />}</mesh>
 );
 const Drop: React.FC<{p: [number, number, number]; s?: number}> = ({p, s = 0.05}) => (
-  <mesh position={p} scale={[s, s * 1.25, s]}><sphereGeometry args={[1, 20, 16]} /><meshPhysicalMaterial color={P15.water} roughness={0.1} clearcoat={1} transmission={0.2} /></mesh>
+  <mesh position={p} scale={[s, s * 1.25, s]}><sphereGeometry args={[1, 20, 16]} /><meshPhysicalMaterial color={P16.water} roughness={0.1} clearcoat={1} transmission={0.2} /></mesh>
 );
 // unit AC dinding: badan putih membulat, sirip udara, lampu kecil
 const Mark: React.FC<{x: number; y: number; ok: boolean; p: number; text: string}> = ({x, y, ok, p, text}) => p > 0 ? (
@@ -113,7 +113,7 @@ const Faucet: React.FC<{p: [number, number, number]; t: number; flow?: number}> 
     <Cyl p={[0.2, 0.15, 0]} r={0.09} h={0.8} c="#b9c2c8" rot={[0, 0, Math.PI / 2]} />
     <Cyl p={[0.55, 0.0, 0]} r={0.09} h={0.3} c="#b9c2c8" />
     <Cyl p={[0.12, 0.35, 0]} r={0.1} h={0.12} c={CORAL} />
-    {[0, 1, 2].map((i) => { const k = ((t * 1.4 + i / 3) % 1); return flow > 0 ? <Ball key={i} p={[0.55, -0.1 - k * 0.7, 0]} s={0.055 * flow} c={P15.water} /> : null; })}
+    {[0, 1, 2].map((i) => { const k = ((t * 1.4 + i / 3) % 1); return flow > 0 ? <Ball key={i} p={[0.55, -0.1 - k * 0.7, 0]} s={0.055 * flow} c={P16.water} /> : null; })}
   </group>
 );
 const Tree: React.FC<{p: [number, number, number]; k?: number}> = ({p, k = 1}) => (
@@ -176,7 +176,7 @@ const Instalasi: React.FC<{t: number}> = ({t}) => (
     {[-5.55, -5.2].map((x, i) => <group key={i}><Cyl p={[x, 0.78, -0.35]} r={0.26} h={1.5} c="#c8ced3" /><mesh position={[x, 1.53, -0.35]} scale={[1, 0.45, 1]}><sphereGeometry args={[0.26, 24, 16]} /><Mat c="#c8ced3" /></mesh><Bx p={[x + 0.27, 0.78, -0.35]} s={[0.03, 1.4, 0.06]} c="#8b949a" edge={false} /></group>)}
     {/* kolam pengendap + jembatan */}
     <Bx p={[-4.4, 0.13, 0.45]} s={[2.4, 0.14, 0.7]} c="#d9dbdd" />
-    <Bx p={[-4.4, 0.2, 0.45]} s={[2.2, 0.04, 0.55]} c={P15.water} edge={false} />
+    <Bx p={[-4.4, 0.2, 0.45]} s={[2.2, 0.04, 0.55]} c={P16.water} edge={false} />
     {[-5.1, -4.7, -4.3, -3.9, -3.5].map((x, i) => <Bx key={i} p={[x, 0.22, 0.45]} s={[0.03, 0.05, 0.55]} c="#eef3f6" edge={false} />)}
     <Bx p={[-4.4, 0.3, 0.45]} s={[2.3, 0.04, 0.1]} c="#f4f2ec" />
     {/* pompa + pipa biru */}
@@ -185,14 +185,14 @@ const Instalasi: React.FC<{t: number}> = ({t}) => (
     <Cyl p={[-3.4, 0.1, 0.86]} r={0.05} h={0.25} c="#3b82d6" />
     <Cyl p={[-5.55, 0.4, 0.2]} r={0.05} h={0.8} c="#3b82d6" />
     {[0, 1, 2, 3].map((i) => { const k = (t * 0.6 + i / 4) % 1; return <Ball key={i} p={[-5.9 + k * 1.0, 0.04, 0.45]} s={0.05} c="#e8f6fc" />; })}
-    <Bx p={[-6.1, 0.0, 0.4]} s={[0.8, 0.1, 1.0]} c={P15.water} edge={false} />
+    <Bx p={[-6.1, 0.0, 0.4]} s={[0.8, 0.1, 1.0]} c={P16.water} edge={false} />
   </group>
 );
 const FZ = 1.26;
 const Pipe3: React.FC<{a: number; b: number; y?: number; t?: number}> = ({a, b, y = -0.45, t = 0}) => (
   <group>
     <Cyl p={[(a + b) / 2, y, FZ]} r={0.2} h={Math.abs(b - a)} c="#cfd3d6" op={0.5} rot={[0, 0, Math.PI / 2]} />
-    <Cyl p={[(a + b) / 2, y, FZ]} r={0.14} h={Math.abs(b - a)} c={P15.water} rot={[0, 0, Math.PI / 2]} />
+    <Cyl p={[(a + b) / 2, y, FZ]} r={0.14} h={Math.abs(b - a)} c={P16.water} rot={[0, 0, Math.PI / 2]} />
     {[-2.4, -0.9, 0.6, 2.1].map((x, i) => <mesh key={i} position={[x, y, FZ]} rotation={[0, Math.PI / 2, 0]}><torusGeometry args={[0.2, 0.05, 10, 28]} /><Mat c="#9aa3a9" /></mesh>)}
     {Array.from({length: 14}).map((_, i) => { const k = (t * 0.4 + i / 14) % 1; return <Ball key={i} p={[a + (b - a) * k, y, FZ + 0.12]} s={0.05} c="#e8f6fc" />; })}
   </group>
@@ -226,7 +226,7 @@ const Jalur: React.FC<{t: number; test: number}> = ({t, test}) => (
     <Tree p={[-1.3, 0.1, -0.25]} /><Tree p={[-0.2, 0.1, -0.35]} k={1.25} /><Tree p={[0.9, 0.1, -0.2]} k={0.95} /><Tree p={[-0.7, 0.1, -0.95]} k={1.1} /><Tree p={[0.5, 0.1, -0.9]} />
     <Pipe3 a={-5.3} b={2.9} t={t} />
     <Cyl p={[-5.3, -0.12, FZ]} r={0.2} h={0.66} c="#cfd3d6" op={0.55} />
-    <Cyl p={[-5.3, -0.12, FZ]} r={0.14} h={0.66} c={P15.water} />
+    <Cyl p={[-5.3, -0.12, FZ]} r={0.14} h={0.66} c={P16.water} />
     <Ball p={[-5.3, -0.45, FZ]} s={0.2} c="#cfd3d6" />
     <TestPoint x={-2.6} p={test} />
     <TestPoint x={-0.4} p={test} />
@@ -234,7 +234,7 @@ const Jalur: React.FC<{t: number; test: number}> = ({t, test}) => (
     {/* sambungan rumah: dari pipa utama naik ke meter, lalu pipa menuju rumah */}
     <Cyl p={[2.9, -0.2, FZ]} r={0.075} h={0.5} c="#cfd3d6" />
     <Cyl p={[2.9, 0.12, FZ]} r={0.2} h={0.2} c="#f4f2ec" rot={[Math.PI / 2, 0, 0]} />
-    <mesh position={[2.9, 0.12, FZ + 0.11]}><torusGeometry args={[0.17, 0.03, 10, 28]} /><meshBasicMaterial color={P15.water} /></mesh>
+    <mesh position={[2.9, 0.12, FZ + 0.11]}><torusGeometry args={[0.17, 0.03, 10, 28]} /><meshBasicMaterial color={P16.water} /></mesh>
     <Cyl p={[3.2, -0.0, FZ - 0.5]} r={0.07} h={1.0} c="#cfd3d6" rot={[Math.PI / 2, 0, 0]} />
     <House p={[3.2, 0.1, -0.45]} />
     <Fence x0={2.3} x1={2.95} z={0.3} /><Fence x0={3.35} x1={4.05} z={0.3} /><FenceZ x={2.3} z0={-1.1} z1={0.3} /><FenceZ x={4.05} z0={-1.1} z1={0.3} />
@@ -321,7 +321,7 @@ const Pot: React.FC<{t: number; dead: number; back?: number; ground?: boolean}> 
     {[0, 60, 120].map((d, i) => <Bx key={i} p={[0, 0.88, 0]} s={[1.7, 0.07, 0.1]} c="#2c2f33" edge={false} rot={[0, (d * Math.PI) / 180, 0]} />)}
     {Array.from({length: 12}).map((_, i) => { const a = (i / 12) * Math.PI * 2, fl = 0.85 + 0.25 * Math.sin(t * 14 + i * 1.7); return <group key={i} position={[Math.cos(a) * 0.52, 0.8, Math.sin(a) * 0.52]} scale={[1, fl, 1]}><mesh position={[0, 0.1, 0]}><coneGeometry args={[0.065, 0.24, 10]} /><meshBasicMaterial color="#5aa7e8" /></mesh><mesh position={[0, 0.06, 0]}><coneGeometry args={[0.035, 0.13, 10]} /><meshBasicMaterial color="#f08a3c" /></mesh></group>; })}
     <Cyl p={[0, 1.65, 0]} r={1.0} h={1.5} c="#e8edf0" op={0.3} open />
-    <Cyl p={[0, 1.55, 0]} r={0.93} h={1.2} c={P15.water} op={0.7} />
+    <Cyl p={[0, 1.55, 0]} r={0.93} h={1.2} c={P16.water} op={0.7} />
     <Bx p={[-1.22, 2.0, 0]} s={[0.35, 0.12, 0.12]} c="#303338" />
     <Bx p={[1.22, 2.0, 0]} s={[0.35, 0.12, 0.12]} c="#303338" />
     {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => { const k = (t * 0.9 + i * 0.37) % 1; return <Ball key={i} p={[-0.7 + (i % 4) * 0.45, 1.0 + k * 1.15, 0.5]} s={0.07 + 0.08 * (i % 3) / 2} c="#f3f9fc" />; })}
@@ -337,7 +337,7 @@ const DirtyGlass: React.FC<{t: number; fill: number; germs: number; clean?: bool
   <group>
     <Ground w={6} />
     <Cyl p={[0, 0.9, 0]} r={0.62} h={1.8} c="#e8edf0" op={0.35} open />
-    <Cyl p={[0, 0.13 + fill * 0.6, 0]} r={0.58} h={0.1 + fill * 1.2} c={P15.water} op={0.7} />
+    <Cyl p={[0, 0.13 + fill * 0.6, 0]} r={0.58} h={0.1 + fill * 1.2} c={P16.water} op={0.7} />
     {!clean && <Ball p={[-0.2, 0.1, 0.4]} s={0.2} c="#8a7d6b" sx={1.6} />}
     {!clean && <Ball p={[0.25, 0.07, 0.45]} s={0.14} c="#6f6252" sx={1.4} />}
     {[0, 1, 2, 3, 4].map((i) => <Ball key={i} p={[-0.3 + i * 0.15, 0.5 + (i % 3) * 0.3, 0.4]} s={0.12 * germs} c={i % 2 ? CORAL : '#7a5bd1'} sx={i % 2 ? 1.7 : 1} />)}
@@ -345,7 +345,7 @@ const DirtyGlass: React.FC<{t: number; fill: number; germs: number; clean?: bool
 );
 
 // ---------- depot ----------
-const Galon: React.FC<{p: [number, number, number]; s?: number; c?: string}> = ({p, s = 1, c = P15.water}) => (
+const Galon: React.FC<{p: [number, number, number]; s?: number; c?: string}> = ({p, s = 1, c = P16.water}) => (
   <group position={p} scale={s}>
     <Cyl p={[0, 0.55, 0]} r={0.42} h={1.1} c={c} op={0.6} />
     <Cyl p={[0, 1.2, 0]} r={0.2} h={0.25} c={c} op={0.7} />
@@ -422,7 +422,7 @@ const SFX: [string, number, number][] = [
   ['whoosh', 52.45, 0.3], ['pop', 53.7, 0.35], ['chime', 56.0, 0.4],
 ];
 
-export const Video15: React.FC = () => {
+export const Video16: React.FC = () => {
   const f = useCurrentFrame(), t = f / FPS, ms = t * 1000;
   return (
     <AbsoluteFill>
@@ -441,8 +441,8 @@ export const Video15: React.FC = () => {
       <Seg a={B.standar} b={B.rebus}>
         <Stage cam={camAt(t, [[6.36, [-0.8, 1.3, 104]], [16.2, [-0.8, 1.3, 108]]])}><Jalur t={t} test={Math.max(r(t, 10.5, 11.2), 0.001)} /></Stage>
         <StatCard p={r(t, 7.3, 7.8) * (1 - r(t, 9.4, 9.7))} x={540} y={745} big="0" small="E. coli per 100 ml" />
-        <Chip x={190} y={1330} p={r(t, 10.8, 11.2)} text="instalasi" color={P15.water} size={36} />
-        <Chip x={540} y={1330} p={r(t, 12.4, 12.8)} text="jaringan pipa" color={P15.water} size={36} />
+        <Chip x={190} y={1330} p={r(t, 10.8, 11.2)} text="instalasi" color={P16.water} size={36} />
+        <Chip x={540} y={1330} p={r(t, 12.4, 12.8)} text="jaringan pipa" color={P16.water} size={36} />
         <Chip x={880} y={1330} p={r(t, 14.2, 14.6)} text="di luar titik uji" color={CORAL} size={36} />
       </Seg>
       {/* C. perbandingan: langsung dari keran (atas) vs direbus dulu (bawah) */}
@@ -451,7 +451,7 @@ export const Video15: React.FC = () => {
         <Stage cam={camAt(t, [[16.26, [0, 1.78, 215]], [25.4, [0, 1.78, 222]]])}>
           <group position={[0, 0, 0.4]} scale={0.62}><Pot t={t} dead={r(t, 22.6, 25.0)} ground={false} /></group>
         </Stage>
-        <Chip x={250} y={690} p={r(t, 17.0, 17.4)} text="langsung dari keran" color={P15.water} size={34} />
+        <Chip x={250} y={690} p={r(t, 17.0, 17.4)} text="langsung dari keran" color={P16.water} size={34} />
         <Chip x={250} y={1110} p={r(t, 17.4, 17.8)} text="direbus dulu" color={CORAL} size={34} />
         <StatCard p={r(t, 18.6, 19.0) * (1 - r(t, 25.0, 25.3))} x={880} y={880} big="?" small="tidak diuji di titik ini" />
         <Chip x={880} y={1130} p={r(t, 23.5, 23.9) * (1 - r(t, 25.0, 25.3))} text="kuman mati" color="#3f9a5a" size={36} />
@@ -459,7 +459,7 @@ export const Video15: React.FC = () => {
       {/* C2. gelas kotor, mikroba balik */}
       <Seg a={25.4} b={B.isi}>
         <Stage cam={camAt(t, [[25.4, [0, 1.0, 300]], [28.77, [0, 1.0, 320]]])}><DirtyGlass t={t} fill={r(t, 25.6, 26.6)} germs={r(t, 27.3, 28.0, Easing.out(Easing.back(2)))} /></Stage>
-        <Chip x={540} y={1150} p={r(t, 26.5, 26.9)} text="wadah kotor" color={P15.dust} size={40} />
+        <Chip x={540} y={1150} p={r(t, 26.5, 26.9)} text="wadah kotor" color={P16.dust} size={40} />
       </Seg>
       {/* D. depot */}
       <Seg a={B.isi} b={B.payoff}>
@@ -477,7 +477,7 @@ export const Video15: React.FC = () => {
           <TestPoint x={-0.5} p={r(t, 43.0, 43.6)} />
           <group position={[2.35, 0, 0]} scale={0.7}><Depot t={t} wash={1} /></group>
         </Stage>
-        <Chip x={290} y={1220} p={r(t, 43.8, 44.2)} text="PDAM" color={P15.water} size={40} />
+        <Chip x={290} y={1220} p={r(t, 43.8, 44.2)} text="PDAM" color={P16.water} size={40} />
         <Chip x={800} y={1220} p={r(t, 44.2, 44.6)} text="depot" color={CORAL} size={40} />
       </Seg>
       {/* F1. aksi: air PDAM, rebus dulu */}
@@ -497,7 +497,7 @@ export const Video15: React.FC = () => {
           <group position={[-0.9, 0, 0]}><DirtyGlass t={t} fill={1} germs={0} clean /></group>
           <Galon p={[1.1, 0, 0]} s={1.0} />
         </Stage>
-        <Chip x={300} y={1180} p={r(t, 53.7, 54.1)} text="PDAM direbus" color={P15.water} size={40} />
+        <Chip x={300} y={1180} p={r(t, 53.7, 54.1)} text="PDAM direbus" color={P16.water} size={40} />
         <Chip x={790} y={1180} p={r(t, 54.0, 54.4)} text="isi ulang" color={CORAL} size={40} />
       </Seg>
 
@@ -515,12 +515,12 @@ export const Video15: React.FC = () => {
       <Title t={t} a={48.9} b={B.cta} small="Beli isi ulang?" big="TANYA UJI LAB" bigAt={49.9} size={100} />
       <Title t={t} a={B.cta} b={55.7} small="Kamu minum" big="YANG MANA?" bigAt={53.3} size={110} />
 
-      <Kicker text="FAKTA RUMAH · #15" y={292} start={0} />
+      <Kicker text="FAKTA RUMAH · #16" y={292} start={0} />
       <TikTokBox text="Air PDAM boleh langsung diminum?" p={r(t, 0.2, 1.0, Easing.linear)} y={338} size={40} />
       <FollowButton start={Math.round(54.3 * FPS)} click={Math.round(55.3 * FPS)} y={760} />
       <Captions ms={ms} />
 
-      <Audio src={staticFile('v15/vo.mp3')} />
+      <Audio src={staticFile('v16/vo.mp3')} />
       <Audio src={staticFile('sfx/ambient.wav')} volume={0.08} />
       {SFX.map(([n, s2, v], i) => <Sequence key={i} from={Math.round(s2 * FPS)} layout="none"><Audio src={staticFile(`sfx/${n}.wav`)} volume={v} /></Sequence>)}
       <Grain o={0.08} />

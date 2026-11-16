@@ -1,10 +1,10 @@
-// Cover video #15: wastafel + keran mengalir + judul. Gaya sama Cover14.
+// Cover video #16: wastafel + keran mengalir + judul. Gaya sama Cover14.
 import {AbsoluteFill} from 'remotion';
 import {PaperPlus} from '../aset/Gabung';
-import {KeranFlat} from './Video15';
+import {KeranFlat} from './Video16';
 
 const CORAL = '#e2563f', INK = '#1c1c1e';
-export const Cover15: React.FC = () => (
+export const Cover16: React.FC = () => (
   <AbsoluteFill>
     <PaperPlus />
     <KeranFlat t={0.5} flow={1} cx={640} cy={330} sc={1.5} y0={1230} />

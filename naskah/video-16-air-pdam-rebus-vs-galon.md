@@ -1,4 +1,4 @@
-# STORYBOARD · VIDEO #15 · TAHAP 2 · DRAFT
+# STORYBOARD · VIDEO #16 · TAHAP 2 · DRAFT
 **Air PDAM direbus vs galon isi ulang**: siapa yang menguji airmu?
 Seri: VS dua kubu · mode HYBRID · 1080×1920 (9:16) · ±55 dtk (131 kata, ±2,4 kata/dtk; nanti mengikuti suara asli) · VO Bahasa Indonesia santai · audiens 35+ · CTA follow · safe zone 15% atas, 20% bawah.
 Riset lengkap: `riset/2026-11-16-air-pdam-rebus-vs-galon.md`. Palet: pilih di Tahap 2 lewat `style/identitas.md` (usul: biru-air pucat + jangkar koral).
