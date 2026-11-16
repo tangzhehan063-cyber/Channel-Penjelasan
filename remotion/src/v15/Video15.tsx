@@ -7,7 +7,7 @@ import {AbsoluteFill, Easing, Img, interpolate, Sequence, staticFile, useCurrent
 import {Grain, TikTokBox, PatternBreak, C} from '../aset/Aset';
 import {PaperPlus, Kicker, FollowButton} from '../aset/Gabung';
 import {Env} from '../pengetahuan/Scene';
-import {Rig} from '../v13/Mood13';
+import {Rig, House as House13} from '../v13/Mood13';
 import words from '../../public/v15/words.json';
 import {Edges, RoundedBox} from '@react-three/drei';
 import {useMemo} from 'react';
@@ -291,17 +291,22 @@ const JalurArt: React.FC = () => (
       {[500, 690, 880].map((x) => <g key={x}><rect x={x - 10} y={330} width={20} height={146} fill="#cfd5d9" {...SK} /><rect x={x - 5} y={338} width={10} height={140} fill={BLU} /><rect x={x - 22} y={376} width={44} height={16} rx={6} fill={ORG} {...SK} /><rect x={x - 26} y={300} width={52} height={26} rx={7} fill="#9aa3a9" {...SK} /></g>)}
       {/* meter air */}
       <circle cx={1041} cy={410} r={32} fill="#f4f2ec" {...SK} /><circle cx={1041} cy={410} r={22} fill="#fff" stroke={BLU} strokeWidth={5} /><line x1={1041} y1={410} x2={1052} y2={400} stroke={INK2} strokeWidth={3} strokeLinecap="round" />
-      {/* ===== rumah ===== */}
-      <rect x={1164} y={150} width={24} height={46} fill="#c9bfae" {...SK} />
-      <rect x={1030} y={214} width={190} height={98} fill={CREAM} {...SK} />
-      <polygon points="1008,218 1125,146 1242,218" fill={ORG} {...SK} />
-      <rect x={1062} y={248} width={42} height={64} rx={4} fill="#a65a3a" {...SK} /><circle cx={1096} cy={282} r={3} fill="#e9b44c" />
-      <rect x={1126} y={242} width={54} height={46} rx={4} fill="#a9d2e8" {...SK} /><line x1={1153} y1={242} x2={1153} y2={288} stroke={INK2} strokeWidth={2} /><line x1={1126} y1={265} x2={1180} y2={265} stroke={INK2} strokeWidth={2} />
-      {[1190, 1206, 1222, 1238, 1254].map((x) => <rect key={x} x={x} y={284} width={5} height={30} rx={2} fill="#3a3d42" />)}
-      <rect x={1186} y={292} width={74} height={4} rx={2} fill="#3a3d42" />
-      <circle cx={1014} cy={302} r={17} fill="#5fa65a" {...SK} /><circle cx={1250} cy={296} r={20} fill="#5fa65a" {...SK} />
     </g>
   </svg>
+);
+const House3D: React.FC = () => (
+  <div style={{position: 'absolute', left: 1128 - 640, top: 248 - 360, width: 1280, height: 720, pointerEvents: 'none'}}>
+    <div style={{transform: 'scale(0.5)', transformOrigin: '0 0', width: 2560, height: 1440}}>
+      <ThreeCanvas width={2560} height={1440} shadows orthographic camera={{position: [0, 4, 30], zoom: 190, near: 0.1, far: 100}} gl={{alpha: true, antialias: true}}>
+        <Rig x={0} y={0.55} zoom={190} />
+        <Env intensity={0.35} /><hemisphereLight args={['#fffaf0', '#cfc6b4', 0.6]} />
+        <directionalLight position={[2.5, 4.5, 3.0]} intensity={2.2} color="#fff4e6" castShadow shadow-mapSize={[1024, 1024]} shadow-camera-left={-4} shadow-camera-right={4} shadow-camera-top={4} shadow-camera-bottom={-4} shadow-radius={6} shadow-bias={-0.0004} />
+        <directionalLight position={[-3, 1.5, 2]} intensity={0.35} color="#ffe2da" />
+        <House13 x={0} wall="#f08a3c" roof="#a65a3a" />
+        <Ball p={[-1.0, 0.16, 0.7]} s={0.22} c="#5fa65a" /><Ball p={[1.0, 0.14, 0.7]} s={0.19} c="#6fae5c" />
+      </ThreeCanvas>
+    </div>
+  </div>
 );
 const IMG_Y0 = 1080;
 const JalurImg: React.FC<{t: number; cam: Cam; labels?: boolean; rings?: [number, number]; lp?: [number, number, number]}> = ({t, cam, labels = false, rings = [0, 0], lp = [0, 0, 0]}) => {
@@ -314,6 +319,7 @@ const JalurImg: React.FC<{t: number; cam: Cam; labels?: boolean; rings?: [number
   return (
     <div style={box}>
       <JalurArt />
+      <House3D />
       {dots.map((d, i) => <div key={i} style={{position: 'absolute', left: d.x - 6, top: d.y - 6, width: 12, height: 12, borderRadius: '50%', background: '#f3fbff', boxShadow: '0 0 8px 2px rgba(255,255,255,0.8)'}} />)}
       {ring(139, 322, rings[0])}{ring(690, 330, rings[1])}
       {labels && <>
@@ -417,14 +423,19 @@ const Galon: React.FC<{p: [number, number, number]; s?: number; c?: string}> = (
 const Depot: React.FC<{t: number; wash?: number}> = ({t, wash = 0}) => (
   <group>
     <Ground w={9} />
-    <Bx p={[-0.4, 1.0, 0]} s={[2.6, 2.0, 1.4]} c="#efe8da" />
-    <Bx p={[-0.4, 2.1, 0.2]} s={[2.9, 0.25, 1.8]} c={CORAL} />
-    <Cyl p={[-1.1, 2.7, 0]} r={0.38} h={0.9} c="#b8c4cb" />
-    <Cyl p={[0.2, 1.35, 0.78]} r={0.16} h={0.8} c="#e8edf0" op={0.7} />
-    <Cyl p={[0.55, 1.35, 0.78]} r={0.16} h={0.8} c="#e8edf0" op={0.7} />
-    <Bx p={[-1.0, 0.35, 0.78]} s={[0.5, 0.08, 0.6]} c="#7d868c" />
-    <Galon p={[1.6, 0, 0.3]} />
-    {wash > 0 && [0, 1, 2, 3].map((i) => { const k = (t * 1.5 + i / 4) % 1; return <Ball key={i} p={[1.6, 1.3 - k * 0.9, 0.3]} s={0.05} c="#bfe3f6" />; })}
+    <Bx p={[-0.5, 0.7, 0]} s={[2.4, 1.4, 1.3]} c="#fbfaf6" />
+    <Prism p={[-0.5, 1.4, 0]} w={1.5} h={0.5} d={2.6} c="#f08a3c" rot={[0, Math.PI / 2, 0]} />
+    <Cyl p={[-1.3, 2.0, 0]} r={0.27} h={0.5} c="#c8ced3" />
+    <Cyl p={[-1.3, 1.45, 0.5]} r={0.05} h={0.35} c="#9aa3a9" />
+    <Bx p={[-0.5, 0.62, 0.66]} s={[1.3, 0.8, 0.04]} c="#2b2e33" edge={false} />
+    <Bx p={[-0.5, 0.34, 0.9]} s={[1.5, 0.1, 0.42]} c="#a06a42" />
+    <Bx p={[-0.5, 0.15, 0.9]} s={[1.4, 0.3, 0.36]} c="#d9c9a8" />
+    <Bx p={[-0.5, 1.12, 0.95]} s={[1.7, 0.07, 0.75]} c="#e2563f" rot={[0.28, 0, 0]} />
+    <Bx p={[-0.5, 1.28, 0.7]} s={[1.5, 0.22, 0.05]} c="#3b82d6" />
+    <Galon p={[-0.3, 0.39, 0.9]} s={0.5} />
+    <Cyl p={[-0.3, 0.98, 0.9]} r={0.035} h={0.3} c="#9aa3a9" />
+    {wash > 0 && [0, 1, 2, 3].map((i) => { const k = (t * 1.5 + i / 4) % 1; return <Ball key={i} p={[-0.3, 0.9 - k * 0.45, 0.9]} s={0.04} c="#bfe3f6" />; })}
+    <Galon p={[1.2, 0, 0.5]} s={0.8} /><Galon p={[1.7, 0, 0.5]} s={0.8} /><Galon p={[1.45, 0, -0.15]} s={0.8} />
   </group>
 );
 
@@ -449,7 +460,7 @@ const Timeline: React.FC<{t: number; a: number; gap?: number; you?: number}> = (
   if (k <= 0) return null;
   const xs = [90, 330, 570, 810];
   return (
-    <div style={{position: 'absolute', left: 60, top: 1040, width: 960, height: 240, opacity: k, borderRadius: 28, background: 'rgba(250,249,246,0.88)', boxShadow: '0 10px 30px rgba(28,28,30,0.15)'}}>
+    <div style={{position: 'absolute', left: 60, top: 655, width: 960, height: 225, opacity: k, borderRadius: 28, background: 'rgba(250,249,246,0.88)', boxShadow: '0 10px 30px rgba(28,28,30,0.15)'}}>
       <div style={{position: 'absolute', left: 30, right: 30, top: 80, height: 10, borderRadius: 5, background: INK, opacity: 0.85}} />
       {xs.map((x, i) => <div key={i} style={{position: 'absolute', left: x - 6, top: 56, textAlign: 'center', transform: `translateX(-50%) scale(${Math.min(1, Math.max(0, k * 3 - i * 0.5))})`}}>
         <div style={{margin: '0 auto', width: 54, height: 54, borderRadius: '50%', background: CORAL, border: '5px solid #faf9f6', boxShadow: '0 6px 16px rgba(28,28,30,0.25)'}} />
@@ -517,10 +528,10 @@ export const Video15: React.FC = () => {
       </Seg>
       {/* D. depot */}
       <Seg a={B.isi} b={B.payoff}>
-        <Stage cam={camAt(t, [[28.77, [0.3, 2.1, 175]], [42.5, [0.3, 2.1, 182]]])}><Depot t={t} wash={r(t, 33.4, 33.9) * (1 - r(t, 35.0, 35.3))} /></Stage>
+        <Stage cam={camAt(t, [[28.77, [0.3, 2.3, 158]], [42.5, [0.3, 2.3, 164]]])}><Depot t={t} wash={r(t, 33.4, 33.9) * (1 - r(t, 35.0, 35.3))} /></Stage>
         {(t < 33.2 || t >= 39.0) && <Timeline t={t} a={t < 33.2 ? 30.6 : 39.0} gap={r(t, 32.3, 32.8)} you={r(t, 40.7, 41.2)} />}
-        <Ring10 p={r(t, 33.6, 35.0) * (t < 35.2 ? 1 : 0)} x={850} y={1010} />
-        <Clock24 p={r(t, 36.0, 38.4) * (t > 35.4 && t < 39.0 ? 1 : 0)} x={850} y={1010} />
+        <Ring10 p={r(t, 33.6, 35.0) * (t < 35.2 ? 1 : 0)} x={870} y={780} />
+        <Clock24 p={r(t, 36.0, 38.4) * (t > 35.4 && t < 39.0 ? 1 : 0)} x={870} y={780} />
         {t > 35.4 && t < 39.0 && <Mark x={540} y={1250} ok={false} p={r(t, 37.9, 38.3)} text="lebih dari sehari" />}
       </Seg>
       {/* E. payoff */}
