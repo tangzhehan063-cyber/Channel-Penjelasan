@@ -10,6 +10,8 @@ import {Env} from '../pengetahuan/Scene';
 import {Rig} from '../v13/Mood13';
 import words from '../../public/v15/words.json';
 import {Edges, RoundedBox} from '@react-three/drei';
+import {useMemo} from 'react';
+import {Shape, ExtrudeGeometry} from 'three';
 
 export const P15 = {coral: '#e2563f', ink: '#1c1c1e', ac: '#f4f2ec', acEdge: '#cfcac0', wall: '#e9e1d2', wallOut: '#b9c7cf', floor: '#d9d4c7', ground: '#a8b59a', bed: '#5d8fd6', pillow: '#f8f6f0', fin: '#7fa6c4', water: '#4fa3d9', hose: '#e8e3d8', moss: '#6f8a4a', dust: '#8a7d6b'};
 export const FPS = 30;
@@ -127,29 +129,63 @@ const Fence: React.FC<{x0: number; x1: number; z: number}> = ({x0, x1, z}) => (
     {Array.from({length: Math.round((x1 - x0) / 0.14)}).map((_, i) => <Bx key={i} p={[x0 + i * 0.14, 0.2, z]} s={[0.03, 0.4, 0.03]} c="#3a3d42" edge={false} />)}
   </group>
 );
+const Prism: React.FC<{p: [number, number, number]; w: number; h: number; d: number; c: string; rot?: [number, number, number]; apex?: number}> = ({p, w, h, d, c, rot, apex = 0}) => {
+  const geo = useMemo(() => { const sh = new Shape(); sh.moveTo(-w / 2, 0); sh.lineTo(w / 2, 0); sh.lineTo((apex * w) / 2, h); sh.closePath(); const g = new ExtrudeGeometry(sh, {depth: d, bevelEnabled: false}); g.translate(0, 0, -d / 2); return g; }, [w, h, d, apex]);
+  return <mesh position={p} rotation={rot} geometry={geo} castShadow receiveShadow><Mat c={c} /><Edges color="#1c1c1e" lineWidth={1.5} /></mesh>;
+};
+const Win: React.FC<{p: [number, number, number]; w?: number; h?: number}> = ({p, w = 0.34, h = 0.32}) => (
+  <group position={p}>
+    <Bx p={[0, 0, 0]} s={[w + 0.08, h + 0.08, 0.04]} c="#f6f2ea" edge={false} />
+    <Bx p={[0, 0, 0.03]} s={[w, h, 0.03]} c="#9ec7de" edge={false} />
+    <Bx p={[0, 0, 0.055]} s={[0.025, h, 0.02]} c="#f6f2ea" edge={false} />
+    <Bx p={[0, 0, 0.055]} s={[w, 0.025, 0.02]} c="#f6f2ea" edge={false} />
+  </group>
+);
+const Bush: React.FC<{p: [number, number, number]; s?: number}> = ({p, s = 1}) => <group position={p} scale={s}><Ball p={[0, 0.12, 0]} s={0.14} c="#5a9a55" /><Ball p={[0.12, 0.09, 0.03]} s={0.1} c="#6aab63" /></group>;
 const House: React.FC<{p: [number, number, number]}> = ({p}) => (
   <group position={p}>
-    <Bx p={[0, 0.5, 0]} s={[1.5, 1.0, 1.0]} c="#efe8da" />
-    <mesh position={[0, 1.3, 0]} rotation={[0, Math.PI / 4, 0]} scale={[1.2, 1, 0.82]} castShadow><coneGeometry args={[0.98, 0.7, 4]} /><Mat c="#f08a3c" /><Edges color="#1c1c1e" lineWidth={1.5} /></mesh>
-    <Bx p={[-0.35, 0.4, 0.52]} s={[0.32, 0.5, 0.03]} c="#a65a3a" />
-    <Bx p={[0.3, 0.55, 0.52]} s={[0.34, 0.3, 0.03]} c="#9ec3d6" />
+    <Bx p={[0, 0.5, 0]} s={[1.5, 1.0, 1.0]} c="#f1eadb" />
+    <Bx p={[0, 0.03, 0]} s={[1.6, 0.06, 1.1]} c="#cfc7b6" edge={false} />
+    <Prism p={[0, 1.0, 0]} w={1.2} h={0.62} d={1.78} c="#f08a3c" rot={[0, Math.PI / 2, 0]} />
+    <Bx p={[0, 1.07, 0.0]} s={[1.8, 0.03, 1.1]} c="#d9742c" edge={false} rot={[0, 0, 0]} />
+    <Bx p={[0.45, 1.55, -0.1]} s={[0.18, 0.4, 0.18]} c="#c9bfae" />
+    <Bx p={[-0.35, 0.4, 0.52]} s={[0.36, 0.62, 0.04]} c="#a65a3a" />
+    <Bx p={[-0.35, 0.4, 0.505]} s={[0.44, 0.7, 0.02]} c="#f6f2ea" edge={false} />
+    <Bx p={[-0.35, 0.06, 0.62]} s={[0.5, 0.06, 0.2]} c="#d9d2c3" />
+    <Ball p={[-0.2, 0.45, 0.56]} s={0.025} c="#e9b44c" />
+    <Win p={[0.3, 0.6, 0.52]} w={0.38} h={0.36} />
+    <Win p={[0.3, 0.6, -0.52]} w={0.38} h={0.36} />
+    <Bush p={[-0.7, 0.05, 0.62]} s={1.2} />
+    <Bush p={[0.7, 0.05, 0.62]} s={1.0} />
+    <Bx p={[0.78, 0.45, 0.2]} s={[0.04, 0.34, 0.3]} c="#9ec7de" edge={false} />
   </group>
 );
 const Instalasi: React.FC<{t: number}> = ({t}) => (
   <group>
-    <Bx p={[-4.3, -0.55, 0]} s={[2.6, 1.1, 1.6]} c="#8b5e3c" edge={false} />
-    <Bx p={[-4.3, 0.04, 0]} s={[2.6, 0.08, 1.6]} c="#d7d9db" />
-    <Bx p={[-3.9, 0.6, -0.25]} s={[1.0, 1.0, 0.7]} c="#e6e6e8" />
-    {[-4.2, -3.9, -3.6].map((x, i) => <Bx key={i} p={[x, 1.2, -0.25]} s={[0.3, 0.16, 0.7]} c="#f08a3c" rot={[0, 0, -0.45]} />)}
-    <Cyl p={[-4.75, 0.9, -0.5]} r={0.1} h={1.7} c="#cfd3d6" />
-    <Cyl p={[-4.5, 0.9, -0.5]} r={0.1} h={1.7} c="#cfd3d6" />
-    <Cyl p={[-4.75, 1.8, -0.5]} r={0.11} h={0.1} c="#f08a3c" />
-    <Cyl p={[-4.5, 1.8, -0.5]} r={0.11} h={0.1} c="#f08a3c" />
-    <Cyl p={[-5.15, 0.75, 0.2]} r={0.3} h={1.4} c="#c4cbd0" />
-    <Ball p={[-5.15, 1.45, 0.2]} s={0.3} c="#c4cbd0" />
-    <Bx p={[-4.3, 0.14, 0.45]} s={[1.9, 0.12, 0.6]} c="#d7d9db" />
-    <Bx p={[-4.3, 0.2, 0.45]} s={[1.7, 0.05, 0.45]} c={P15.water} edge={false} />
-    <Bx p={[-5.85, 0.0, 0.3]} s={[0.8, 0.1, 0.9]} c={P15.water} edge={false} />
+    <Bx p={[-4.45, -0.55, 0]} s={[2.9, 1.1, 1.6]} c="#8b5e3c" edge={false} />
+    <Bx p={[-4.45, 0.04, 0]} s={[2.9, 0.08, 1.6]} c="#d7d9db" />
+    {/* gedung utama + atap gigi gergaji */}
+    <Bx p={[-4.1, 0.55, -0.3]} s={[1.3, 1.0, 0.8]} c="#e9e9eb" />
+    {[-4.5, -4.15, -3.8].map((x, i) => <Prism key={i} p={[x, 1.05, -0.3]} w={0.36} h={0.32} d={0.86} c="#f08a3c" apex={-1} />)}
+    {[-4.5, -4.15, -3.8].map((x, i) => <Bx key={i} p={[x + 0.0, 0.72, 0.12]} s={[0.22, 0.26, 0.03]} c="#9ec7de" edge={false} />)}
+    <Bx p={[-3.45, 0.38, -0.3]} s={[0.5, 0.64, 0.6]} c="#e9e9eb" />
+    <Bx p={[-3.45, 0.74, -0.3]} s={[0.58, 0.08, 0.68]} c="#f08a3c" />
+    {/* cerobong */}
+    {[-4.7, -4.5].map((x, i) => <group key={i}><Cyl p={[x, 1.05, -0.62]} r={0.09} h={2.0} c="#cfd3d6" /><Cyl p={[x, 1.95, -0.62]} r={0.095} h={0.14} c="#f08a3c" /><Cyl p={[x, 1.55, -0.62]} r={0.095} h={0.1} c="#f08a3c" /></group>)}
+    {/* tangki */}
+    {[-5.55, -5.2].map((x, i) => <group key={i}><Cyl p={[x, 0.78, -0.35]} r={0.26} h={1.5} c="#c8ced3" /><mesh position={[x, 1.53, -0.35]} scale={[1, 0.45, 1]}><sphereGeometry args={[0.26, 24, 16]} /><Mat c="#c8ced3" /></mesh><Bx p={[x + 0.27, 0.78, -0.35]} s={[0.03, 1.4, 0.06]} c="#8b949a" edge={false} /></group>)}
+    {/* kolam pengendap + jembatan */}
+    <Bx p={[-4.4, 0.13, 0.45]} s={[2.4, 0.14, 0.7]} c="#d9dbdd" />
+    <Bx p={[-4.4, 0.2, 0.45]} s={[2.2, 0.04, 0.55]} c={P15.water} edge={false} />
+    {[-5.1, -4.7, -4.3, -3.9, -3.5].map((x, i) => <Bx key={i} p={[x, 0.22, 0.45]} s={[0.03, 0.05, 0.55]} c="#eef3f6" edge={false} />)}
+    <Bx p={[-4.4, 0.3, 0.45]} s={[2.3, 0.04, 0.1]} c="#f4f2ec" />
+    {/* pompa + pipa biru */}
+    {[-3.5, -3.25].map((x, i) => <Cyl key={i} p={[x, 0.2, 0.9]} r={0.1} h={0.28} c="#3b82d6" rot={[0, 0, Math.PI / 2]} />)}
+    <Cyl p={[-3.1, -0.45, 0.86]} r={0.12} h={0.5} c="#cfd3d6" rot={[0, 0, Math.PI / 2]} />
+    <Cyl p={[-3.4, 0.1, 0.86]} r={0.05} h={0.25} c="#3b82d6" />
+    <Cyl p={[-5.55, 0.4, 0.2]} r={0.05} h={0.8} c="#3b82d6" />
+    {[0, 1, 2, 3].map((i) => { const k = (t * 0.6 + i / 4) % 1; return <Ball key={i} p={[-5.9 + k * 1.0, 0.04, 0.45]} s={0.05} c="#e8f6fc" />; })}
+    <Bx p={[-6.1, 0.0, 0.4]} s={[0.8, 0.1, 1.0]} c={P15.water} edge={false} />
   </group>
 );
 const Pipe3: React.FC<{a: number; b: number; y?: number; t?: number}> = ({a, b, y = -0.45, t = 0}) => (
@@ -345,8 +381,8 @@ export const Video15: React.FC = () => {
         <Stage cam={camAt(t, [[6.36, [-0.8, 1.2, 105]], [16.2, [-0.8, 1.2, 108]]])}><Jalur t={t} test={Math.max(r(t, 10.5, 11.2), 0.001)} /></Stage>
         <StatCard p={r(t, 7.3, 7.8) * (1 - r(t, 9.4, 9.7))} x={540} y={1040} big="0" small="E. coli per 100 ml" />
         <Chip x={190} y={1310} p={r(t, 10.8, 11.2)} text="instalasi" color={P15.water} size={38} />
-        <Chip x={560} y={1310} p={r(t, 12.4, 12.8)} text="jaringan pipa" color={P15.water} size={38} />
-        <Chip x={860} y={1310} p={r(t, 14.2, 14.6)} text="di luar titik uji" color={CORAL} size={38} />
+        <Chip x={500} y={1310} p={r(t, 12.4, 12.8)} text="jaringan pipa" color={P15.water} size={38} />
+        <Chip x={890} y={1310} p={r(t, 14.2, 14.6)} text="di luar titik uji" color={CORAL} size={38} />
       </Seg>
       {/* C. perbandingan: langsung dari keran (atas) vs direbus dulu (bawah) */}
       <Seg a={B.rebus} b={25.4}>
