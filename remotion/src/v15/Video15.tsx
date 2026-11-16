@@ -114,44 +114,79 @@ const Faucet: React.FC<{p: [number, number, number]; t: number; flow?: number}> 
     {[0, 1, 2].map((i) => { const k = ((t * 1.4 + i / 3) % 1); return flow > 0 ? <Ball key={i} p={[0.55, -0.1 - k * 0.7, 0]} s={0.055 * flow} c={P15.water} /> : null; })}
   </group>
 );
+const Tree: React.FC<{p: [number, number, number]; k?: number}> = ({p, k = 1}) => (
+  <group position={p} scale={k}>
+    <Cyl p={[0, 0.2, 0]} r={0.06} h={0.4} c="#8a5634" />
+    <mesh position={[0, 0.75, 0]} castShadow><coneGeometry args={[0.32, 0.7, 7]} /><Mat c="#4f8a4a" /></mesh>
+    <mesh position={[0, 1.15, 0]} castShadow><coneGeometry args={[0.24, 0.55, 7]} /><Mat c="#5a9a55" /></mesh>
+  </group>
+);
+const Fence: React.FC<{x0: number; x1: number; z: number}> = ({x0, x1, z}) => (
+  <group>
+    <Bx p={[(x0 + x1) / 2, 0.3, z]} s={[x1 - x0, 0.05, 0.04]} c="#3a3d42" edge={false} />
+    {Array.from({length: Math.round((x1 - x0) / 0.14)}).map((_, i) => <Bx key={i} p={[x0 + i * 0.14, 0.2, z]} s={[0.03, 0.4, 0.03]} c="#3a3d42" edge={false} />)}
+  </group>
+);
 const House: React.FC<{p: [number, number, number]}> = ({p}) => (
   <group position={p}>
-    <Bx p={[0, 0.6, 0]} s={[1.7, 1.2, 1.1]} c="#efe8da" />
-    <mesh position={[0, 1.55, 0]} rotation={[0, Math.PI / 4, 0]} scale={[1.3, 1, 0.9]} castShadow><coneGeometry args={[1.0, 0.75, 4]} /><Mat c={CORAL} /><Edges color="#1c1c1e" lineWidth={1.5} /></mesh>
-    <Cyl p={[0.35, 2.15, 0]} r={0.28} h={0.5} c="#b8c4cb" />
-    <Bx p={[-0.35, 0.55, 0.57]} s={[0.4, 0.6, 0.04]} c="#8a5634" />
+    <Bx p={[0, 0.5, 0]} s={[1.5, 1.0, 1.0]} c="#efe8da" />
+    <mesh position={[0, 1.3, 0]} rotation={[0, Math.PI / 4, 0]} scale={[1.2, 1, 0.82]} castShadow><coneGeometry args={[0.98, 0.7, 4]} /><Mat c="#f08a3c" /><Edges color="#1c1c1e" lineWidth={1.5} /></mesh>
+    <Bx p={[-0.35, 0.4, 0.52]} s={[0.32, 0.5, 0.03]} c="#a65a3a" />
+    <Bx p={[0.3, 0.55, 0.52]} s={[0.34, 0.3, 0.03]} c="#9ec3d6" />
   </group>
 );
-const Plant: React.FC<{p: [number, number, number]}> = ({p}) => (
-  <group position={p}>
-    <Bx p={[0, 0.55, 0]} s={[1.0, 1.1, 0.8]} c="#dfe5e8" />
-    <Cyl p={[-0.9, 0.55, 0.0]} r={0.38} h={1.1} c="#b8c4cb" />
-    <Cyl p={[0.9, 0.55, 0.0]} r={0.38} h={1.1} c="#b8c4cb" />
-    <Bx p={[0, 1.2, 0]} s={[1.3, 0.14, 0.9]} c={CORAL} />
-  </group>
-);
-const Pipe3: React.FC<{a: number; b: number; y?: number; flow?: number; t?: number}> = ({a, b, y = 0.32, flow = 0, t = 0}) => (
+const Instalasi: React.FC<{t: number}> = ({t}) => (
   <group>
-    <Cyl p={[(a + b) / 2, y, 0.3]} r={0.1} h={Math.abs(b - a)} c={PIPE} rot={[0, 0, Math.PI / 2]} />
-    {flow > 0 && [0, 1, 2, 3, 4, 5, 6].map((i) => { const k = (t * 0.5 + i / 7) % 1; return <Ball key={i} p={[a + (b - a) * k, y, 0.42]} s={0.05} c={P15.water} />; })}
+    <Bx p={[-4.3, -0.55, 0]} s={[2.6, 1.1, 1.6]} c="#8b5e3c" edge={false} />
+    <Bx p={[-4.3, 0.04, 0]} s={[2.6, 0.08, 1.6]} c="#d7d9db" />
+    <Bx p={[-3.9, 0.6, -0.25]} s={[1.0, 1.0, 0.7]} c="#e6e6e8" />
+    {[-4.2, -3.9, -3.6].map((x, i) => <Bx key={i} p={[x, 1.2, -0.25]} s={[0.3, 0.16, 0.7]} c="#f08a3c" rot={[0, 0, -0.45]} />)}
+    <Cyl p={[-4.75, 0.9, -0.5]} r={0.1} h={1.7} c="#cfd3d6" />
+    <Cyl p={[-4.5, 0.9, -0.5]} r={0.1} h={1.7} c="#cfd3d6" />
+    <Cyl p={[-4.75, 1.8, -0.5]} r={0.11} h={0.1} c="#f08a3c" />
+    <Cyl p={[-4.5, 1.8, -0.5]} r={0.11} h={0.1} c="#f08a3c" />
+    <Cyl p={[-5.15, 0.75, 0.2]} r={0.3} h={1.4} c="#c4cbd0" />
+    <Ball p={[-5.15, 1.45, 0.2]} s={0.3} c="#c4cbd0" />
+    <Bx p={[-4.3, 0.14, 0.45]} s={[1.9, 0.12, 0.6]} c="#d7d9db" />
+    <Bx p={[-4.3, 0.2, 0.45]} s={[1.7, 0.05, 0.45]} c={P15.water} edge={false} />
+    <Bx p={[-5.85, 0.0, 0.3]} s={[0.8, 0.1, 0.9]} c={P15.water} edge={false} />
+  </group>
+);
+const Pipe3: React.FC<{a: number; b: number; y?: number; t?: number}> = ({a, b, y = -0.45, t = 0}) => (
+  <group>
+    <Cyl p={[(a + b) / 2, y, 0.86]} r={0.2} h={Math.abs(b - a)} c="#cfd3d6" op={0.5} rot={[0, 0, Math.PI / 2]} />
+    <Cyl p={[(a + b) / 2, y, 0.86]} r={0.14} h={Math.abs(b - a)} c={P15.water} rot={[0, 0, Math.PI / 2]} />
+    {[-3.4, -1.9, -0.4, 1.1, 2.6].map((x, i) => <mesh key={i} position={[x, y, 0.86]} rotation={[0, Math.PI / 2, 0]}><torusGeometry args={[0.2, 0.05, 10, 28]} /><Mat c="#9aa3a9" /></mesh>)}
+    {Array.from({length: 12}).map((_, i) => { const k = (t * 0.45 + i / 12) % 1; return <Ball key={i} p={[a + (b - a) * k, y, 0.98]} s={0.05} c="#bfe3f6" />; })}
   </group>
 );
 const TestPoint: React.FC<{x: number; p: number; ok?: boolean}> = ({x, p, ok = true}) => (
-  <group position={[x, 0.32, 0.3]} scale={[0.5 + 0.5 * p, 0.5 + 0.5 * p, 0.5 + 0.5 * p]}>
-    <Cyl p={[0, 0.5, 0]} r={0.05} h={0.9} c="#7d868c" />
-    <Ball p={[0, 1.05, 0]} s={0.2} c={ok ? '#3f9a5a' : CORAL} />
-    <mesh position={[0, 1.05, 0]} rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[0.42, 0.035, 12, 40]} /><meshBasicMaterial color={CORAL} transparent opacity={p} /></mesh>
+  <group position={[x, -0.45, 0.86]}>
+    <Cyl p={[0, 0.52, 0]} r={0.07} h={1.0} c="#9aa3a9" />
+    <Cyl p={[0, 1.05, 0]} r={0.1} h={0.14} c="#f08a3c" />
+    <group scale={[0.5 + 0.5 * p, 0.5 + 0.5 * p, 0.5 + 0.5 * p]}>
+      <Ball p={[0, 1.4, 0]} s={0.17} c={ok ? '#3f9a5a' : CORAL} />
+      <mesh position={[0, 1.4, 0]} rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[0.38, 0.035, 12, 40]} /><meshBasicMaterial color={CORAL} transparent opacity={p} /></mesh>
+    </group>
   </group>
 );
-const Jalur: React.FC<{t: number; test: number; hose?: number}> = ({t, test}) => (
+const Jalur: React.FC<{t: number; test: number}> = ({t, test}) => (
   <group>
-    <Ground w={14} />
-    <Plant p={[-4.6, 0, 0]} />
-    <Pipe3 a={-3.5} b={2.1} flow={1} t={t} />
-    <TestPoint x={-3.1} p={test} />
-    <TestPoint x={-0.7} p={test} />
-    <House p={[3.0, 0, 0]} />
-    <Faucet p={[2.05, 0.55, 0.9]} t={t} flow={1} />
+    <Bx p={[0.6, -0.55, 0]} s={[7.0, 1.1, 1.6]} c="#8b5e3c" edge={false} />
+    <Bx p={[0.6, 0.05, 0]} s={[7.0, 0.1, 1.6]} c="#82b46c" edge={false} />
+    <Bx p={[0.6, 0.12, 0.35]} s={[7.0, 0.05, 0.55]} c="#4a4f55" edge={false} />
+    {Array.from({length: 11}).map((_, i) => <Bx key={i} p={[-2.7 + i * 0.65, 0.15, 0.35]} s={[0.3, 0.02, 0.05]} c="#f4f2ec" edge={false} />)}
+    <Instalasi t={t} />
+    <Tree p={[-1.0, 0.1, -0.5]} /><Tree p={[0.2, 0.1, -0.55]} k={1.2} /><Tree p={[1.2, 0.1, -0.45]} k={0.9} />
+    <Pipe3 a={-3.0} b={2.1} t={t} />
+    <Bx p={[-3.5, -0.45, 0.86]} s={[1.0, 0.3, 0.2]} c="#cfd3d6" edge={false} />
+    <Cyl p={[2.1, -0.1, 0.86]} r={0.08} h={0.75} c="#9aa3a9" />
+    <Cyl p={[2.1, 0.3, 0.86]} r={0.13} h={0.1} c="#f4f2ec" />
+    <TestPoint x={-2.6} p={test} />
+    <TestPoint x={-0.4} p={test} />
+    <House p={[3.2, 0.1, -0.1]} />
+    <Fence x0={2.3} x1={4.0} z={0.55} />
+    <Faucet p={[2.65, 0.55, 0.75]} t={t} flow={1} />
   </group>
 );
 
@@ -160,9 +195,14 @@ const MICROS: [number, number, number][] = [[-0.45, 0.35, 0], [0.1, 0.55, 0.1], 
 const Pot: React.FC<{t: number; dead: number; back?: number}> = ({t, dead, back = 0}) => (
   <group>
     <Ground w={8} />
-    <Bx p={[0, 0.35, 0]} s={[3.0, 0.7, 1.5]} c="#dfe3e6" />
-    <Bx p={[0, 0.72, 0.5]} s={[1.6, 0.05, 0.5]} c="#303338" edge={false} />
-    {[-0.5, -0.17, 0.17, 0.5].map((x, i) => <mesh key={i} position={[x, 0.82, 0.5]} scale={[1, 0.8 + 0.3 * Math.sin(t * 12 + i), 1]}><coneGeometry args={[0.1, 0.3, 12]} /><meshBasicMaterial color={CORAL} /></mesh>)}
+    <Bx p={[0, 0.3, 0]} s={[3.0, 0.6, 1.8]} c="#c5cacf" />
+    <Bx p={[0, 0.62, 0]} s={[2.9, 0.06, 1.7]} c="#aeb4b9" edge={false} />
+    <Bx p={[0, 0.3, 0.92]} s={[2.5, 0.36, 0.03]} c="#3b3f45" edge={false} />
+    <Cyl p={[-0.4, 0.3, 0.97]} r={0.15} h={0.1} c="#1c1c1e" rot={[Math.PI / 2, 0, 0]} />
+    <Bx p={[-0.4, 0.38, 1.03]} s={[0.04, 0.12, 0.02]} c="#f4f2ec" edge={false} />
+    <mesh position={[0, 0.7, 0]} rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[0.55, 0.1, 12, 36]} /><Mat c="#2c2f33" /></mesh>
+    {[0, 60, 120].map((d, i) => <Bx key={i} p={[0, 0.88, 0]} s={[1.7, 0.07, 0.1]} c="#2c2f33" edge={false} rot={[0, (d * Math.PI) / 180, 0]} />)}
+    {Array.from({length: 12}).map((_, i) => { const a = (i / 12) * Math.PI * 2, fl = 0.85 + 0.25 * Math.sin(t * 14 + i * 1.7); return <group key={i} position={[Math.cos(a) * 0.52, 0.8, Math.sin(a) * 0.52]} scale={[1, fl, 1]}><mesh position={[0, 0.1, 0]}><coneGeometry args={[0.065, 0.24, 10]} /><meshBasicMaterial color="#5aa7e8" /></mesh><mesh position={[0, 0.06, 0]}><coneGeometry args={[0.035, 0.13, 10]} /><meshBasicMaterial color="#f08a3c" /></mesh></group>; })}
     <Cyl p={[0, 1.65, 0]} r={1.0} h={1.5} c="#e8edf0" op={0.3} open />
     <Cyl p={[0, 1.55, 0]} r={0.93} h={1.2} c={P15.water} op={0.7} />
     <Bx p={[-1.22, 2.0, 0]} s={[0.35, 0.12, 0.12]} c="#303338" />
@@ -268,15 +308,15 @@ export const Video15: React.FC = () => {
 
       {/* A. hook: keran rumah, lalu mundur: titik uji jauh di jaringan pipa */}
       <Seg a={0} b={B.standar}>
-        <Stage cam={camAt(t, [[0, [2.6, 1.25, 240]], [3.6, [2.6, 1.25, 250]], [5.9, [-0.35, 1.1, 118]]])}><Jalur t={t} test={r(t, 4.6, 5.6)} /></Stage>
+        <Stage cam={camAt(t, [[0, [3.0, 1.2, 250]], [3.6, [3.0, 1.2, 260]], [5.9, [-0.8, 1.2, 105]]])}><Jalur t={t} test={r(t, 4.6, 5.6)} /></Stage>
       </Seg>
       {/* B. standar: wide, dua titik uji, rumah di luar titik */}
       <Seg a={B.standar} b={B.rebus}>
-        <Stage cam={camAt(t, [[6.36, [-0.35, 1.1, 118]], [16.2, [-0.35, 1.1, 122]]])}><Jalur t={t} test={Math.max(r(t, 10.5, 11.2), 0.001)} /></Stage>
+        <Stage cam={camAt(t, [[6.36, [-0.8, 1.2, 105]], [16.2, [-0.8, 1.2, 108]]])}><Jalur t={t} test={Math.max(r(t, 10.5, 11.2), 0.001)} /></Stage>
         <StatCard p={r(t, 7.3, 7.8) * (1 - r(t, 9.4, 9.7))} x={540} y={1040} big="0" small="E. coli per 100 ml" />
-        <Chip x={190} y={1110} p={r(t, 10.8, 11.2)} text="instalasi" color={P15.water} size={38} />
-        <Chip x={500} y={1110} p={r(t, 12.4, 12.8)} text="jaringan pipa" color={P15.water} size={38} />
-        <Chip x={880} y={1090} p={r(t, 14.2, 14.6)} text="di luar titik uji" color={CORAL} size={38} />
+        <Chip x={190} y={1310} p={r(t, 10.8, 11.2)} text="instalasi" color={P15.water} size={38} />
+        <Chip x={560} y={1310} p={r(t, 12.4, 12.8)} text="jaringan pipa" color={P15.water} size={38} />
+        <Chip x={860} y={1310} p={r(t, 14.2, 14.6)} text="di luar titik uji" color={CORAL} size={38} />
       </Seg>
       {/* C. rebus: panci, mikroba hilang */}
       <Seg a={B.rebus} b={25.4}>
