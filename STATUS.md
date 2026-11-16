@@ -5,9 +5,10 @@
 - **Aturan merge (user 16 Nov):** setiap video selesai → PR ke `main` → Claude langsung merge sendiri (semua channel). Rollback lewat Revert PR.
 - **Cek sebelum mulai video:** `git fetch` dan lihat nomor video terakhir di `main` (sesi lain bisa sedang membuat video juga) supaya nomor tidak bentrok.
 
-## Video #16 (16 Nov 2026, malam; nomor #15 dipakai video LED dari sesi lain)
+## Video #16 (16 Nov 2026, malam; nomor #15 dipakai video LED dari sesi lain) · DITUTUP user: dipakai apa adanya, tanpa render ulang
 - **Video #16 selesai:** "Air PDAM Direbus vs Galon Isi Ulang" (VS), 56,7 dtk, −14,5 LUFS, `remotion/src/v16/`. VO ElevenLabs Riri Rida 1 take (flow `Jz54PYCD0D5rHTinLwWx`). Tes sutradara 0 GAGAL (otomatis lewat `tools/produksi.sh final|bagian`). Drive #16 `19qBAVWJlgTJzWEYRYnFRF9PA7HmdwbjN` (cover, info, versi ringan 540p); MP4 penuh + SRT + cover dikirim ke user. Versi 720p (3,5 MB) gagal diunggah (batas 3,1 MB per panggilan).
 - **Cek isi yang tersisa (diterima user):** angka Permenkes 2/2023 (3 bulan, 10 detik, 1×24 jam) dari PDF berjudul "RANCANGAN"; salinan bertanda tangan belum terbaca. Catatan sumber sudah ada di deskripsi YouTube. Galon merek (SNI) = bahan video #16.
+- **Layar menampilkan "#15" (render awal), repo/Drive memakai #16; user menerima tanpa render ulang.** Palet tetap krem; aturan palet wajib dan gerbang tahap (`checklist/`, `tools/gerbang.mjs`) berlaku mulai video berikutnya (#17).
 - **Aturan baru:** referensi user = acuan penempatan, bukan render realistis; tanpa ornamen tegel sudut; tes sutradara otomatis sebelum render.
 
 ## Catatan teknis (16 Nov 2026)
