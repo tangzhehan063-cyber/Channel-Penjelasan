@@ -1,6 +1,11 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
-## Posisi terakhir (15 Nov 2026)
+## Posisi terakhir (16 Nov 2026)
+- **Video #15 selesai (render 14 Nov, nomor dipindah 16 Nov):** "LED Nggak Lebih Terang, Tapi Hemat" (lampu pijar vs LED, lumen vs watt), 67,0 dtk, −14,7 LUFS, `remotion/src/v15/` (palet krem, kamera 2,5D, objek lampu di `Lamp15.tsx`; prop `palet` untuk varian). VO Gemini TTS Achernar, timestamp `tools/align_teks.py`. Dibuat di sesi lain bersamaan dengan #14 "Air AC", jadi nomornya dipindah ke #15. MP4 sudah dikirim ke user; folder Drive berlabel #15.
+- **Aturan merge (user 16 Nov):** setiap video selesai → PR ke `main` → Claude langsung merge sendiri (semua channel). Rollback lewat Revert PR.
+- **Cek sebelum mulai video:** `git fetch` dan lihat nomor video terakhir di `main` (sesi lain bisa sedang membuat video juga) supaya nomor tidak bentrok.
+
+## Posisi sebelumnya (15 Nov 2026)
 - **Video #14 selesai (15 Nov):** "Air AC yang Menetes Itu Bukan Bocor" (Bongkar Barang), 60,9 dtk, −14,6 LUFS, `remotion/src/v14/` (kamera 2,5D, kasur ala referensi user: rangka kayu, headboard panel, meja melayang). VO ElevenLabs Riri Rida 1 take (flow `ToIeOERE8lrRsidYIvXS`). Drive #14 `1SoZyehAAFk8QOpTE0U6rpqbJdT9TXR3I` (cover + info); MP4 + versi ringan dikirim ke user. Bug baru di `style/cek-bug.md`.
 
 ## Posisi sebelumnya (13 Nov 2026)
