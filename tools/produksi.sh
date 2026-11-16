@@ -12,6 +12,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"; R="$ROOT/remotion"
 cmd="${1:-}"; NN="${2:-}"
 SC="${SCRATCH:-/tmp/produksi}"; mkdir -p "$SC"
 # Gerbang otomatis (perintah user 16 Nov): render penuh DIBATALKAN bila cek-sutradara ada GAGAL, supaya tidak boros waktu dan biaya.
+gerbang() { node "$ROOT/tools/gerbang.mjs" "$NN" "$1" || exit 1; }
 gate() { node "$ROOT/tools/cek-sutradara.mjs" "$NN" || { echo "!! RENDER DIBATALKAN: cek-sutradara ada GAGAL. Perbaiki dulu lalu jalankan ulang." >&2; exit 1; }; }
 case "$cmd" in
 setup) cd "$ROOT" && ./setup.sh ;;
@@ -31,6 +32,7 @@ if cur: print(f"{cur[0]['start']:6.2f}  {' '.join(x['word'] for x in cur)}")
 EOF
   ;;
 sheet)
+  gerbang 3
   node "$(dirname "$0")/cek-sutradara.mjs" "$NN" || echo "!! cek-sutradara: ada GAGAL, perbaiki dulu"
   d="$SC/sheet-v$NN"; mkdir -p "$d"; find "$d" -name 'f*.png' -delete
   cd "$R"; IFS=',' read -ra T <<< "$3"
@@ -39,6 +41,7 @@ sheet)
   ffmpeg -y -v error -pattern_type glob -i "$d/f*.png" -filter_complex "tile=${cols}x${rows}" -frames:v 1 "$d/sheet.jpg"
   echo "$d/sheet.jpg" ;;
 bagian)
+  gerbang 5
   gate
   # render per bagian 15 dtk (tanpa suara); bagian yang sudah ada dilewati -> revisi cukup hapus file bagian terkait
   slug="$3"; cd "$R"; P="out/parts-v$NN"; mkdir -p "$P"
@@ -69,6 +72,7 @@ open(sys.argv[2],'w').write('\n'.join(f"{i}\n{f(s[0]['start'])} --> {f(s[-1]['en
 EOF
   echo "SRT: video/$slug.srt" ;;
 final)
+  gerbang 5
   gate
   slug="$3"; cd "$R"; mkdir -p out
   npx remotion render "Video$NN" "out/$slug-raw.mp4" --concurrency=4 --log=error
@@ -78,6 +82,7 @@ final)
   ffmpeg -y -v error -i "$ROOT/video/$slug.mp4" -vf "fps=1/4.4,scale=270:-1,tile=6x2" -frames:v 1 "$SC/qc-v$NN.jpg"
   echo "QC sheet: $SC/qc-v$NN.jpg" ;;
 cover)
+  gerbang 5
   cd "$R"; timeout 300 npx remotion still "Cover$NN" "$ROOT/cover/$3.png" --scale=1 --log=error
   ffmpeg -y -v error -i "$ROOT/cover/$3.png" -vf scale=540:-1 "$SC/cover-v$NN.jpg"; echo "$SC/cover-v$NN.jpg" ;;
 *) sed -n 2,9p "$0" ;;
