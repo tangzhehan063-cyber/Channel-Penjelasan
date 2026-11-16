@@ -252,29 +252,121 @@ const Keran: React.FC<{t: number}> = ({t}) => (
 );
 
 
-// ---------- jalur PDAM dari gambar (potongan tanah) + animasi air/label dari kode ----------
+// ---------- jalur PDAM: ilustrasi datar potongan samping (SVG), gaya channel: bentuk membulat, warna datar, outline tinta ----------
+const INK2 = '#1c1c1e';
+const SK = {stroke: INK2, strokeWidth: 3, strokeLinejoin: 'round' as const};
+const GRN = '#86bf72', SOIL = '#b98c64', ORG = '#f08a3c', GREY = '#d7dadd', BLU = '#6bb8ea', CREAM = '#f3ecdd';
+const JalurArt: React.FC = () => (
+  <svg width={1280} height={720} viewBox="0 0 1280 720" style={{display: 'block', overflow: 'visible'}}>
+    <defs><filter id="shd" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="8" stdDeviation="7" floodColor="#1c1c1e" floodOpacity="0.18" /></filter></defs>
+    <g filter="url(#shd)">
+      {/* tanah + rumput */}
+      <rect x={20} y={322} width={1240} height={330} rx={28} fill={SOIL} {...SK} />
+      {[[80, 400], [190, 560], [300, 430], [420, 600], [560, 420], [640, 590], [760, 440], [850, 610], [940, 420], [1100, 580], [1190, 450], [330, 610], [500, 560], [1160, 380]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r={5 + (i % 3) * 2} fill="#a37650" />)}
+      <rect x={20} y={312} width={1240} height={26} rx={13} fill={GRN} {...SK} />
+      {/* jalan */}
+      <rect x={500} y={338} width={470} height={14} rx={6} fill="#4a4f55" stroke={INK2} strokeWidth={2} />
+      {[530, 600, 670, 740, 810, 880].map((x) => <rect key={x} x={x} y={343} width={34} height={3} rx={1.5} fill="#f4f2ec" />)}
+      {/* pohon */}
+      {[600, 770, 930].map((x, i) => <g key={x}><rect x={x - 6} y={276} width={12} height={40} fill="#8a5634" {...SK} /><circle cx={x} cy={252} r={i === 1 ? 40 : 33} fill="#6fae5c" {...SK} /></g>)}
+      {/* ===== instalasi PDAM ===== */}
+      <rect x={40} y={308} width={440} height={14} rx={5} fill={GREY} {...SK} />
+      <rect x={288} y={100} width={22} height={210} fill="#d3d6d9" {...SK} /><rect x={288} y={120} width={22} height={14} fill={ORG} {...SK} /><rect x={288} y={160} width={22} height={14} fill={ORG} {...SK} />
+      <rect x={318} y={140} width={22} height={170} fill="#d3d6d9" {...SK} /><rect x={318} y={156} width={22} height={14} fill={ORG} {...SK} />
+      <rect x={70} y={212} width={206} height={98} fill="#ecebe6" {...SK} />
+      {[70, 138, 206].map((x) => <polygon key={x} points={`${x},212 ${x + 68},212 ${x + 68},172`} fill={ORG} {...SK} />)}
+      {[86, 120, 154, 188, 222].map((x) => <rect key={x} x={x} y={238} width={22} height={22} rx={3} fill="#a9d2e8" {...SK} strokeWidth={2} />)}
+      {[352, 414].map((x) => <g key={x}><rect x={x} y={198} width={54} height={112} rx={6} fill="#c8ced3" {...SK} /><ellipse cx={x + 27} cy={198} rx={27} ry={14} fill="#dde2e6" {...SK} /><line x1={x + 12} y1={215} x2={x + 12} y2={300} stroke={INK2} strokeWidth={2} /><line x1={x + 42} y1={215} x2={x + 42} y2={300} stroke={INK2} strokeWidth={2} /></g>)}
+      <rect x={80} y={282} width={190} height={26} rx={5} fill="#e8eef1" {...SK} />
+      <rect x={90} y={290} width={170} height={12} rx={3} fill={BLU} />
+      <rect x={80} y={270} width={190} height={6} rx={3} fill="#f4f2ec" {...SK} strokeWidth={2} />
+      <rect x={282} y={286} width={30} height={22} rx={5} fill="#3b82d6" {...SK} /><rect x={318} y={286} width={30} height={22} rx={5} fill="#3b82d6" {...SK} />
+      <rect x={0} y={296} width={44} height={26} rx={4} fill={BLU} {...SK} />
+      {/* ===== pipa utama bawah tanah (luar dulu, lalu isi) ===== */}
+      {[[122, 472, 930, 56, 28], [122, 322, 34, 190, 10], [1024, 322, 34, 190, 10]].map(([x, y, w, h, rx], i) => <rect key={i} x={x} y={y} width={w} height={h} rx={rx} fill="#cfd5d9" {...SK} strokeWidth={6} />)}
+      {[[122, 472, 930, 56, 28], [122, 322, 34, 190, 10], [1024, 322, 34, 190, 10]].map(([x, y, w, h, rx], i) => <rect key={i} x={x} y={y} width={w} height={h} rx={rx} fill="#cfd5d9" />)}
+      {[[132, 482, 910, 36, 18], [132, 322, 14, 190, 6], [1034, 322, 14, 190, 6]].map(([x, y, w, h, rx], i) => <rect key={i} x={x} y={y} width={w} height={h} rx={rx} fill={BLU} />)}
+      {[330, 560, 790].map((x) => <rect key={x} x={x} y={466} width={16} height={68} rx={4} fill="#9aa3a9" {...SK} />)}
+      {/* standpipe titik uji */}
+      {[500, 690, 880].map((x) => <g key={x}><rect x={x - 10} y={330} width={20} height={146} fill="#cfd5d9" {...SK} /><rect x={x - 5} y={338} width={10} height={140} fill={BLU} /><rect x={x - 22} y={376} width={44} height={16} rx={6} fill={ORG} {...SK} /><rect x={x - 26} y={300} width={52} height={26} rx={7} fill="#9aa3a9" {...SK} /></g>)}
+      {/* meter air */}
+      <circle cx={1041} cy={410} r={32} fill="#f4f2ec" {...SK} /><circle cx={1041} cy={410} r={22} fill="#fff" stroke={BLU} strokeWidth={5} /><line x1={1041} y1={410} x2={1052} y2={400} stroke={INK2} strokeWidth={3} strokeLinecap="round" />
+      {/* ===== rumah ===== */}
+      <rect x={1164} y={150} width={24} height={46} fill="#c9bfae" {...SK} />
+      <rect x={1030} y={214} width={190} height={98} fill={CREAM} {...SK} />
+      <polygon points="1008,218 1125,146 1242,218" fill={ORG} {...SK} />
+      <rect x={1062} y={248} width={42} height={64} rx={4} fill="#a65a3a" {...SK} /><circle cx={1096} cy={282} r={3} fill="#e9b44c" />
+      <rect x={1126} y={242} width={54} height={46} rx={4} fill="#a9d2e8" {...SK} /><line x1={1153} y1={242} x2={1153} y2={288} stroke={INK2} strokeWidth={2} /><line x1={1126} y1={265} x2={1180} y2={265} stroke={INK2} strokeWidth={2} />
+      {[1190, 1206, 1222, 1238, 1254].map((x) => <rect key={x} x={x} y={284} width={5} height={30} rx={2} fill="#3a3d42" />)}
+      <rect x={1186} y={292} width={74} height={4} rx={2} fill="#3a3d42" />
+      <circle cx={1014} cy={302} r={17} fill="#5fa65a" {...SK} /><circle cx={1250} cy={296} r={20} fill="#5fa65a" {...SK} />
+    </g>
+  </svg>
+);
 const IMG_Y0 = 1080;
 const JalurImg: React.FC<{t: number; cam: Cam; labels?: boolean; rings?: [number, number]; lp?: [number, number, number]}> = ({t, cam, labels = false, rings = [0, 0], lp = [0, 0, 0]}) => {
   const [cx, , sc] = cam;
   const tf = `translate(${540 - cx * sc}px, ${IMG_Y0 - 400 * sc}px) scale(${sc})`;
   const box: React.CSSProperties = {position: 'absolute', left: 0, top: 0, width: 1280, height: 720, transformOrigin: '0 0', transform: tf};
-  const dots = Array.from({length: 14}).map((_, i) => { const k = (t * 0.32 + i / 14) % 1, x = 205 + k * 735; return {x, y: 415 + (x - 200) * 0.113}; });
+  const dots = Array.from({length: 18}).map((_, i) => { const k = (t * 0.28 + i / 18) % 1, L1 = 892, L2 = 150, d = k * (L1 + L2); return d < L1 ? {x: 140 + d, y: 500} : {x: 1041, y: 500 - (d - L1)}; });
   const lab = (x: number, y: number, text: string, color: string, p: number) => p > 0 ? <div style={{position: 'absolute', left: x, top: y, transform: `translate(-50%,-50%) scale(${0.7 + 0.3 * p})`, opacity: p, padding: '6px 16px', borderRadius: 12, background: 'rgba(250,249,246,0.97)', border: `3px solid ${color}`, fontFamily: 'Inter', fontWeight: 800, fontSize: 26, color, whiteSpace: 'nowrap', boxShadow: '0 6px 16px rgba(28,28,30,0.25)'}}>{text}</div> : null;
   const ring = (x: number, y: number, p: number) => p > 0 ? <div style={{position: 'absolute', left: x - 34, top: y - 34, width: 68, height: 68, borderRadius: '50%', border: `6px solid ${CORAL}`, opacity: p, transform: `scale(${1.5 - 0.5 * p})`}} /> : null;
   return (
-    <>
-      <div style={{...box, mixBlendMode: 'multiply'}}><Img src={staticFile('v15/jalur.png')} style={{width: 1280, height: 720, display: 'block'}} /></div>
-      <div style={box}>
-        {dots.map((d, i) => <div key={i} style={{position: 'absolute', left: d.x - 5, top: d.y - 5, width: 10, height: 10, borderRadius: '50%', background: '#f3fbff', boxShadow: '0 0 8px 2px rgba(120,200,245,0.9)'}} />)}
-        {ring(143, 300, rings[0])}{ring(690, 366, rings[1])}
-        {labels && <>
-          {lab(215, 585, 'instalasi', P15.water, lp[0])}
-          {lab(690, 585, 'jaringan pipa', P15.water, lp[1])}
-          {lab(1090, 600, 'di luar titik uji', CORAL, lp[2])}
-        </>}
-      </div>
-    </>
+    <div style={box}>
+      <JalurArt />
+      {dots.map((d, i) => <div key={i} style={{position: 'absolute', left: d.x - 6, top: d.y - 6, width: 12, height: 12, borderRadius: '50%', background: '#f3fbff', boxShadow: '0 0 8px 2px rgba(255,255,255,0.8)'}} />)}
+      {ring(139, 322, rings[0])}{ring(690, 330, rings[1])}
+      {labels && <>
+        {lab(215, 565, 'instalasi', P15.water, lp[0])}
+        {lab(690, 565, 'jaringan pipa', P15.water, lp[1])}
+        {lab(1120, 548, 'di luar titik uji', CORAL, lp[2])}
+      </>}
+    </div>
   );
+};
+
+
+// ---------- wastafel + keran leher angsa: ilustrasi datar gaya channel + aliran air dari kode ----------
+const KeranArt: React.FC = () => (
+  <svg width={1280} height={720} viewBox="0 0 1280 720" style={{display: 'block', overflow: 'visible'}}>
+    <defs><filter id="shk" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="8" stdDeviation="7" floodColor="#1c1c1e" floodOpacity="0.18" /></filter></defs>
+    <g filter="url(#shk)">
+      <rect x={320} y={470} width={640} height={230} rx={16} fill="#f6f3ec" {...SK} />
+      <line x1={640} y1={478} x2={640} y2={694} stroke={INK2} strokeWidth={3} />
+      <rect x={612} y={500} width={8} height={40} rx={4} fill="#9aa3a9" {...SK} strokeWidth={2} /><rect x={660} y={500} width={8} height={40} rx={4} fill="#9aa3a9" {...SK} strokeWidth={2} />
+      <polygon points="330,330 950,330 992,440 288,440" fill="#efe6d4" {...SK} />
+      <rect x={288} y={438} width={704} height={40} rx={12} fill="#e2d6bf" {...SK} />
+      <rect x={366} y={372} width={500} height={64} rx={30} fill="#4a4f55" {...SK} />
+      <rect x={392} y={384} width={448} height={40} rx={20} fill="#2f3338" />
+      <ellipse cx={620} cy={414} rx={24} ry={9} fill="#14161a" stroke="#6b7178" strokeWidth={3} />
+      <rect x={360} y={296} width={36} height={54} rx={9} fill={CORAL} {...SK} /><rect x={372} y={270} width={12} height={26} fill="#4a4f55" {...SK} strokeWidth={2} /><rect x={372} y={266} width={32} height={9} rx={4} fill="#4a4f55" {...SK} strokeWidth={2} />
+      <rect x={880} y={346} width={84} height={22} rx={8} fill="#2f3338" {...SK} /><circle cx={906} cy={357} r={7} fill="#9aa3a9" stroke={INK2} strokeWidth={2} /><circle cx={940} cy={357} r={7} fill="#9aa3a9" stroke={INK2} strokeWidth={2} />
+      <path d="M 780 336 L 780 232 Q 780 148 700 148 Q 620 148 620 232 L 620 266" fill="none" stroke={INK2} strokeWidth={30} strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M 780 336 L 780 232 Q 780 148 700 148 Q 620 148 620 232 L 620 266" fill="none" stroke="#8d949b" strokeWidth={22} strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M 770 300 L 770 232 Q 770 160 700 160" fill="none" stroke="#c4cad0" strokeWidth={5} strokeLinecap="round" />
+      <rect x={756} y={326} width={48} height={30} rx={8} fill="#6b7178" {...SK} />
+      <rect x={602} y={252} width={36} height={30} rx={10} fill="#4a4f55" {...SK} />
+      <rect x={790} y={294} width={52} height={13} rx={6} fill="#8d949b" {...SK} strokeWidth={2} transform="rotate(-22 790 300)" />
+    </g>
+  </svg>
+);
+const KeranFlat: React.FC<{t: number; flow: number; cx?: number; cy?: number; sc?: number; y0?: number; clip?: [number, number]}> = ({t, flow, cx = 640, cy = 330, sc = 1.45, y0 = 1130, clip}) => {
+  const off = clip ? clip[0] : 0;
+  const tf = `translate(${540 - cx * sc}px, ${y0 - off - cy * sc}px) scale(${sc})`;
+  const box: React.CSSProperties = {position: 'absolute', left: 0, top: 0, width: 1280, height: 720, transformOrigin: '0 0', transform: tf};
+  const h = 132 * Math.min(1, flow * 1.4);
+  const ph = (t * 1.25) % 1;
+  const body = (
+    <div style={box}>
+      <KeranArt />
+      {flow > 0 && <>
+        <div style={{position: 'absolute', left: 614, top: 280, width: 12, height: h, borderRadius: 6, opacity: 0.95, backgroundImage: 'repeating-linear-gradient(180deg, #7cc4f0 0px, #7cc4f0 14px, #f3fbff 14px, #f3fbff 22px)', backgroundPositionY: (t * 280) % 22, boxShadow: '0 0 8px 2px rgba(255,255,255,0.8)'}} />
+        {[0, 1, 2].map((i) => { const k = (ph + i / 3) % 1; return <div key={i} style={{position: 'absolute', left: 620 - (14 + 14 * k), top: 414 - 4 - 2 * k, width: 2 * (14 + 14 * k), height: 8 + 6 * k, borderRadius: '50%', border: '3px solid #f3fbff', opacity: flow * (1 - k)}} />; })}
+        {[0, 1, 2, 3, 4, 5].map((i) => { const k = (t * 1.6 + i / 6) % 1, dx = (i - 2.5) * 9; return <div key={i} style={{position: 'absolute', left: 620 + dx * k - 4, top: 412 - 4 * k * (1 - k) * 56, width: 8, height: 8, borderRadius: '50%', background: '#f3fbff', opacity: flow * (1 - 0.6 * k), boxShadow: '0 0 6px rgba(120,200,245,0.9)'}} />; })}
+      </>}
+    </div>
+  );
+  return clip ? <div style={{position: 'absolute', left: 0, top: clip[0], width: 1080, height: clip[1], overflow: 'hidden'}}>{body}</div> : body;
 };
 
 // ---------- panci rebus ----------
@@ -399,8 +491,8 @@ export const Video15: React.FC = () => {
       </Seg>
       {/* A2. hook 2: air mengalir dari keran (kata "keran rumahmu") */}
       <Seg a={3.9} b={B.standar}>
-        <Stage cam={camAt(t, [[3.9, [0.55, 0.85, 330]], [6.36, [0.55, 0.85, 355]]])}><Keran t={t} /></Stage>
-        <Mark x={540} y={1240} ok={false} p={r(t, 5.4, 5.8)} text="bukan diuji di sini" />
+        <KeranFlat t={t} flow={r(t, 4.0, 4.5)} cx={640} cy={330} sc={1.45} y0={1100} />
+        <Mark x={540} y={1250} ok={false} p={r(t, 5.4, 5.8)} text="bukan diuji di sini" />
       </Seg>
       {/* B. standar: gambar jalur, kamera mengikuti VO (instalasi, jaringan, rumah) */}
       <Seg a={B.standar} b={B.rebus}>
@@ -409,8 +501,8 @@ export const Video15: React.FC = () => {
       </Seg>
       {/* C. perbandingan: langsung dari keran (atas) vs direbus dulu (bawah) */}
       <Seg a={B.rebus} b={25.4}>
-        <Stage cam={camAt(t, [[16.26, [0, 1.5, 225]], [25.4, [0, 1.5, 232]]])}>
-          <group position={[0, 2.0, 0]} scale={0.8}><Keran t={t} /></group>
+        <KeranFlat t={t} flow={1} cx={640} cy={300} sc={0.66} y0={830} clip={[640, 330]} />
+        <Stage cam={camAt(t, [[16.26, [0, 1.78, 215]], [25.4, [0, 1.78, 222]]])}>
           <group position={[0, 0, 0.4]} scale={0.62}><Pot t={t} dead={r(t, 22.6, 25.0)} ground={false} /></group>
         </Stage>
         <Chip x={250} y={690} p={r(t, 17.0, 17.4)} text="langsung dari keran" color={P15.water} size={34} />
