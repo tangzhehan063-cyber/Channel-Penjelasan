@@ -18,6 +18,7 @@
 - Branding baru (10 Nov): logo `branding/logo-fakta-rumah.png` + bio 41 karakter di `branding/bio.md`, seragam 3 platform (nama sementara "Fakta Rumah"). Belum diputuskan: nama channel/handle, realisme objek 3D.
 
 ## Preferensi user
+- **Referensi dari user = acuan penempatan/komposisi, BUKAN untuk ditiru persis atau dirender realistis** (user 16 Nov, setelah 10+ putaran revisi #15). Terjemahkan ke gaya channel (2,5D prosedural, bentuk membulat, warna datar, outline tipis; contoh benar: kasur #14, jalur PDAM #15). Jangan pakai gambar AI/foto-realistis di video. Bila ragu, tanya satu kali, jangan menebak.
 - **Tanpa ornamen tegel hitam-putih di sudut kanan atas dan kiri bawah (yang user sebut "kipas"; komponen `Ornament` di `remotion/src/aset/Gabung.tsx`, dipakai v08–v14)** (user 16 Nov, berlaku untuk video #15 dan seterusnya). Video baru menyalin v14 tanpa `<Ornament .../>`; jangan pakai `Cutout kind="tegel"`.
 - **Kontrol lewat Panel Studio** (12 Nov): https://claude.ai/artifact/4Aiv5HDCLRRfVLdEapvt3s. Tombol ACC/revisi/topik mengirim komentar ke Claude; status video & ide disimpan di database panel (lihat WORKFLOW langkah 0.4–0.5). Status posting #1–#12 belum diisi user.
 - **Hasil jadi (video render, cover, info/caption) disimpan di Google Drive, bukan GitHub** (user 11 Nov). Folder induk "Fakta Rumah" `1Dx9nqhifWRbixFb_2u4XrHMIaHHJloAt`, satu subfolder per video (#11: `11PIHgG1XQ8QXw9FVGMLQaAJObItaWnSP`). Batas upload konektor dari cloud ±3 MB per panggilan: cover + info bisa, MP4 belum (cara upload MP4 menunggu keputusan user).

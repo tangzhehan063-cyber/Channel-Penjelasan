@@ -25,3 +25,4 @@ Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) s
 - **Objek kunci tertutup kotak judul** (#14 AC di bawah judul "SELANG MAMPET"): kamera 2,5D `Rig` → naikkan nilai y supaya objek turun di layar.
 - **Overlay 2D menimpa objek 3D (#15 timeline uji lab menimpa depot, label "KAMU" menimpa "uji lab")**: beri kartu latar semi-transparan pada overlay yang lewat di atas objek 3D, dan beri jarak tetap antar label.
 - **Objek kunci di tepi layar (#15 pot dan depot terpotong kiri/kanan di adegan dua objek)**: cek posisi x tiap objek terhadap lebar kamera (lebar dunia = 1080/zoom) sebelum render.
+- **Salah tafsir referensi (#15)**: referensi user dibaca sebagai target render (gambar AI realistis, lalu ilustrasi datar) padahal yang diminta hanya penempatan dalam gaya 2,5D channel. Sebelum membangun, tulis 1 kalimat tafsir ('saya tiru: penempatan X; saya ubah ke gaya channel') dan pastikan gaya mengikuti `style/identitas.md`.
