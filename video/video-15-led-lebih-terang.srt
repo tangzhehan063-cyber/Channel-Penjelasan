@@ -1,0 +1,83 @@
+1
+00:00:00,240 --> 00:00:04,021
+Lampu LED sembilan watt bisa seterang lampu biasa tujuh puluh lima watt.
+
+2
+00:00:04,660 --> 00:00:05,817
+Kok bisa sehemat itu?
+
+3
+00:00:06,399 --> 00:00:08,905
+Soalnya LED sebenarnya nggak lebih terang.
+
+4
+00:00:09,472 --> 00:00:11,210
+Terang itu diukur pakai lumen.
+
+5
+00:00:11,750 --> 00:00:14,345
+Watt cuma nunjukin seberapa banyak listrik yang disedot.
+
+6
+00:00:15,119 --> 00:00:18,828
+Lampu biasa bikin cahaya dengan memanaskan kawat kecil sampai membara.
+
+7
+00:00:19,377 --> 00:00:22,019
+Dari sepuluh bagian listrik, sembilan jadi panas.
+
+8
+00:00:22,440 --> 00:00:23,767
+Cuma satu yang jadi cahaya.
+
+9
+00:00:24,448 --> 00:00:26,528
+Pernah pegang lampu biasa yang baru dimatiin?
+
+10
+00:00:26,990 --> 00:00:28,094
+Panasnya bikin kaget.
+
+11
+00:00:28,521 --> 00:00:30,927
+Itu listrik yang kamu bayar tapi nggak jadi terang.
+
+12
+00:00:31,466 --> 00:00:32,175
+LED lain.
+
+13
+00:00:32,642 --> 00:00:36,796
+Cahayanya keluar langsung dari chip kecil, nggak perlu dipanaskan sampai membara.
+
+14
+00:00:37,256 --> 00:00:39,416
+Jadi panas yang kebuang jauh lebih sedikit.
+
+15
+00:00:39,944 --> 00:00:42,854
+Satu watt lampu biasa cuma ngasih sekitar lima belas lumen.
+
+16
+00:00:43,314 --> 00:00:47,110
+Satu watt LED bisa delapan puluh lumen lebih, sekitar lima kali lipat.
+
+17
+00:00:47,624 --> 00:00:51,141
+Jadi LED seterang lampu biasa dengan listrik yang jauh lebih sedikit.
+
+18
+00:00:51,824 --> 00:00:54,206
+Waktu beli lampu, lihat angka lumen di dusnya.
+
+19
+00:00:54,867 --> 00:00:59,571
+Sebelas ratus lumen kira-kira seterang lampu biasa tujuh puluh lima watt.
+
+20
+00:01:00,072 --> 00:01:04,210
+Lampu di rumahmu LED semua, atau masih ada yang kuning dan panas?
+
+21
+00:01:04,699 --> 00:01:06,486
+Follow buat fakta rumah berikutnya!
