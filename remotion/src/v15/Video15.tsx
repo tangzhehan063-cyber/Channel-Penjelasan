@@ -196,7 +196,7 @@ const Jalur: React.FC<{t: number; test: number}> = ({t, test}) => (
 
 
 // ---------- keran wastafel (adegan hook ke-2 dan payoff) ----------
-const Chrome: React.FC = () => <meshPhysicalMaterial color="#dfe4e8" metalness={0.35} roughness={0.22} clearcoat={1} clearcoatRoughness={0.08} />;
+const Chrome: React.FC = () => <meshPhysicalMaterial color="#f4f6f8" metalness={0.5} roughness={0.28} clearcoat={1} clearcoatRoughness={0.08} />;
 const Keran: React.FC<{t: number}> = ({t}) => (
   <group>
     <Bx p={[0, -0.1, 0]} s={[4.4, 0.2, 2.2]} c="#ecebe7" edge={false} />
@@ -217,9 +217,9 @@ const Keran: React.FC<{t: number}> = ({t}) => (
 
 // ---------- panci rebus ----------
 const MICROS: [number, number, number][] = [[-0.45, 0.35, 0], [0.1, 0.55, 0.1], [0.5, 0.3, -0.1], [-0.2, 0.7, 0.1], [0.4, 0.62, 0.1], [-0.55, 0.62, 0], [0.0, 0.25, 0.1]];
-const Pot: React.FC<{t: number; dead: number; back?: number}> = ({t, dead, back = 0}) => (
+const Pot: React.FC<{t: number; dead: number; back?: number; ground?: boolean}> = ({t, dead, back = 0, ground = true}) => (
   <group>
-    <Ground w={8} />
+    {ground && <Ground w={8} />}
     <Bx p={[0, 0.3, 0]} s={[3.0, 0.6, 1.8]} c="#c5cacf" />
     <Bx p={[0, 0.62, 0]} s={[2.9, 0.06, 1.7]} c="#aeb4b9" edge={false} />
     <Bx p={[0, 0.3, 0.92]} s={[2.5, 0.36, 0.03]} c="#3b3f45" edge={false} />
@@ -331,14 +331,14 @@ export const Video15: React.FC = () => {
     <AbsoluteFill>
       <PaperPlus />
 
-      {/* A. hook 1: sambungan air ke rumah (bawah tanah) */}
-      <Seg a={0} b={3.6}>
-        <Stage cam={camAt(t, [[0, [3.0, 1.2, 250]], [3.6, [3.0, 1.2, 264]]])}><Jalur t={t} test={0} /></Stage>
+      {/* A. hook 1: PDAM menyambung air ke rumah (pan dari instalasi ke rumah) */}
+      <Seg a={0} b={3.9}>
+        <Stage cam={camAt(t, [[0, [-2.7, 1.2, 168]], [3.9, [2.0, 1.2, 172]]])}><Jalur t={t} test={0} /></Stage>
       </Seg>
-      {/* A2. hook 2: keran wastafel (kata "keran rumahmu") */}
-      <Seg a={3.6} b={B.standar}>
-        <Stage cam={camAt(t, [[3.6, [0.55, 0.85, 330]], [6.36, [0.55, 0.85, 355]]])}><Keran t={t} /></Stage>
-        <Mark x={540} y={1240} ok={false} p={r(t, 5.3, 5.7)} text="bukan diuji di sini" />
+      {/* A2. hook 2: air mengalir dari keran (kata "keran rumahmu") */}
+      <Seg a={3.9} b={B.standar}>
+        <Stage cam={camAt(t, [[3.9, [0.55, 0.85, 330]], [6.36, [0.55, 0.85, 355]]])}><Keran t={t} /></Stage>
+        <Mark x={540} y={1240} ok={false} p={r(t, 5.4, 5.8)} text="bukan diuji di sini" />
       </Seg>
       {/* B. standar: wide, dua titik uji, rumah di luar titik */}
       <Seg a={B.standar} b={B.rebus}>
@@ -348,12 +348,16 @@ export const Video15: React.FC = () => {
         <Chip x={560} y={1310} p={r(t, 12.4, 12.8)} text="jaringan pipa" color={P15.water} size={38} />
         <Chip x={860} y={1310} p={r(t, 14.2, 14.6)} text="di luar titik uji" color={CORAL} size={38} />
       </Seg>
-      {/* C. rebus: panci, mikroba hilang */}
+      {/* C. perbandingan: langsung dari keran (atas) vs direbus dulu (bawah) */}
       <Seg a={B.rebus} b={25.4}>
-        <Stage cam={camAt(t, [[16.26, [0, 1.5, 240]], [25.4, [0, 1.5, 255]]])}><Pot t={t} dead={r(t, 22.6, 25.0)} /></Stage>
-        <Chip x={290} y={1090} p={r(t, 23.5, 23.8) * (1 - r(t, 25.0, 25.3))} text="bakteri" color={CORAL} size={36} />
-        <Chip x={540} y={1050} p={r(t, 24.0, 24.3) * (1 - r(t, 25.0, 25.3))} text="virus" color="#7a5bd1" size={36} />
-        <Chip x={790} y={1090} p={r(t, 24.5, 24.8) * (1 - r(t, 25.0, 25.3))} text="parasit" color={P15.moss} size={36} />
+        <Stage cam={camAt(t, [[16.26, [0, 1.5, 225]], [25.4, [0, 1.5, 232]]])}>
+          <group position={[0, 2.0, 0]} scale={0.8}><Keran t={t} /></group>
+          <group position={[0, 0, 0.4]} scale={0.62}><Pot t={t} dead={r(t, 22.6, 25.0)} ground={false} /></group>
+        </Stage>
+        <Chip x={250} y={690} p={r(t, 17.0, 17.4)} text="langsung dari keran" color={P15.water} size={34} />
+        <Chip x={250} y={1110} p={r(t, 17.4, 17.8)} text="direbus dulu" color={CORAL} size={34} />
+        <StatCard p={r(t, 18.6, 19.0) * (1 - r(t, 25.0, 25.3))} x={880} y={880} big="?" small="tidak diuji di titik ini" />
+        <Chip x={880} y={1130} p={r(t, 23.5, 23.9) * (1 - r(t, 25.0, 25.3))} text="kuman mati" color="#3f9a5a" size={36} />
       </Seg>
       {/* C2. gelas kotor, mikroba balik */}
       <Seg a={25.4} b={B.isi}>
