@@ -1,6 +1,10 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
-## Posisi terakhir (15 Nov 2026)
+## Posisi terakhir (16 Nov 2026)
+- **Video #15 (draf storyboard Tahap 2):** "Air PDAM direbus vs galon isi ulang vs galon merek" (VS), `naskah/video-15-air-pdam-rebus-vs-galon.md`, riset `riset/2026-11-16-air-pdam-rebus-vs-galon.md`. Menunggu ACC naskah + 1 [⚠ CEK] (SNI galon merek). Topik pajak jual rumah dihentikan user; riset tetap di `riset/2026-11-16-pajak-jual-rumah.md`.
+- **Akses sumber resmi dari container:** `curl -A "Mozilla/5.0"` ke pajak.go.id, setkab.go.id, jdih.kemenkeu.go.id (`/api/download/...`), jdih.kemkes.go.id (`/storage/documents/pdfs/...`), who.int/iris.who.int berhasil; bsn.go.id, peraturan.go.id (reset), peraturan.bpk.go.id (Cloudflare), cdc.gov (Akamai) menolak. `pdftotext -layout` tersedia.
+
+## Posisi sebelumnya (15 Nov 2026)
 - **Video #14 selesai (15 Nov):** "Air AC yang Menetes Itu Bukan Bocor" (Bongkar Barang), 60,9 dtk, −14,6 LUFS, `remotion/src/v14/` (kamera 2,5D, kasur ala referensi user: rangka kayu, headboard panel, meja melayang). VO ElevenLabs Riri Rida 1 take (flow `ToIeOERE8lrRsidYIvXS`). Drive #14 `1SoZyehAAFk8QOpTE0U6rpqbJdT9TXR3I` (cover + info); MP4 + versi ringan dikirim ke user. Bug baru di `style/cek-bug.md`.
 
 ## Posisi sebelumnya (13 Nov 2026)
