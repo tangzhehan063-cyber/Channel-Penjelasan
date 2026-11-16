@@ -180,19 +180,38 @@ const Jalur: React.FC<{t: number; test: number}> = ({t, test}) => (
     <Tree p={[-1.0, 0.1, -0.5]} /><Tree p={[0.2, 0.1, -0.55]} k={1.2} /><Tree p={[1.2, 0.1, -0.45]} k={0.9} />
     <Pipe3 a={-3.0} b={2.1} t={t} />
     <Bx p={[-3.5, -0.45, 0.86]} s={[1.0, 0.3, 0.2]} c="#cfd3d6" edge={false} />
-    <Cyl p={[2.1, -0.1, 0.86]} r={0.08} h={0.75} c="#9aa3a9" />
-    <Cyl p={[2.1, 0.3, 0.86]} r={0.13} h={0.1} c="#f4f2ec" />
     <TestPoint x={-2.6} p={test} />
     <TestPoint x={-0.4} p={test} />
     <House p={[3.2, 0.1, -0.1]} />
     <Fence x0={3.1} x1={4.0} z={0.55} />
-    {/* pipa air masuk rumah: meter -> pipa menyusuri dinding -> kran dinding */}
-    <Cyl p={[2.35, 0.25, 0.47]} r={0.06} h={0.5} c="#9aa3a9" rot={[0, 0, Math.PI / 2]} />
-    <Cyl p={[2.6, 0.42, 0.47]} r={0.06} h={0.34} c="#9aa3a9" />
-    <Cyl p={[2.6, 0.6, 0.55]} r={0.06} h={0.26} c="#9aa3a9" rot={[Math.PI / 2, 0, 0]} />
-    <Cyl p={[2.6, 0.5, 0.68]} r={0.06} h={0.2} c="#9aa3a9" />
-    <Cyl p={[2.6, 0.74, 0.55]} r={0.08} h={0.06} c={CORAL} />
-    {[0, 1, 2].map((i) => { const k = (t * 1.4 + i / 3) % 1; return <Ball key={i} p={[2.6, 0.4 - k * 0.4, 0.68]} s={0.05} c={P15.water} />; })}
+    {/* sambungan rumah: dari pipa utama naik ke meter, lanjut di bawah tanah menuju rumah */}
+    <Cyl p={[2.5, -0.25, 0.86]} r={0.075} h={0.4} c="#cfd3d6" />
+    <Cyl p={[2.5, -0.02, 0.86]} r={0.2} h={0.2} c="#f4f2ec" rot={[Math.PI / 2, 0, 0]} />
+    <mesh position={[2.5, -0.02, 0.97]}><torusGeometry args={[0.17, 0.03, 10, 28]} /><meshBasicMaterial color={P15.water} /></mesh>
+    <Cyl p={[2.95, -0.02, 0.86]} r={0.075} h={0.7} c="#cfd3d6" rot={[0, 0, Math.PI / 2]} />
+    <Cyl p={[2.95, -0.02, 0.86]} r={0.045} h={0.7} c={P15.water} rot={[0, 0, Math.PI / 2]} />
+    <Cyl p={[3.3, -0.02, 0.6]} r={0.075} h={0.6} c="#cfd3d6" rot={[Math.PI / 2, 0, 0]} />
+  </group>
+);
+
+
+// ---------- keran wastafel (adegan hook ke-2 dan payoff) ----------
+const Chrome: React.FC = () => <meshPhysicalMaterial color="#dfe4e8" metalness={0.35} roughness={0.22} clearcoat={1} clearcoatRoughness={0.08} />;
+const Keran: React.FC<{t: number}> = ({t}) => (
+  <group>
+    <Bx p={[0, -0.1, 0]} s={[4.4, 0.2, 2.2]} c="#ecebe7" edge={false} />
+    <Bx p={[0, 1.0, -1.0]} s={[4.4, 2.2, 0.12]} c="#e3e1db" edge={false} />
+    <Bx p={[0.1, 0.03, 0.05]} s={[2.5, 0.07, 1.5]} c="#f7f7f5" edge={false} />
+    <Bx p={[0.1, 0.075, 0.05]} s={[2.3, 0.02, 1.3]} c="#dfe9ee" edge={false} />
+    <mesh position={[0.2, 0.1, -0.45]} rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[0.14, 0.035, 12, 32]} /><Chrome /></mesh>
+    <mesh position={[1.1, 0.3, -0.45]} castShadow><cylinderGeometry args={[0.17, 0.2, 0.6, 28]} /><Chrome /></mesh>
+    <mesh position={[0.65, 0.78, -0.45]} rotation={[0, 0, Math.PI / 2]} castShadow><cylinderGeometry args={[0.09, 0.11, 0.95, 28]} /><Chrome /></mesh>
+    <mesh position={[0.2, 0.7, -0.45]} castShadow><cylinderGeometry args={[0.1, 0.09, 0.14, 24]} /><Chrome /></mesh>
+    <mesh position={[1.35, 0.78, -0.45]} rotation={[0, 0, 0.12]} castShadow><boxGeometry args={[0.55, 0.07, 0.12]} /><Chrome /></mesh>
+    <Cyl p={[0.2, 0.38, -0.45]} r={0.045} h={0.62} c="#c9e8f7" op={0.85} />
+    {[0, 1, 2, 3, 4].map((i) => { const k = (t * 1.8 + i / 5) % 1; return <Ball key={i} p={[0.2, 0.68 - k * 0.6, -0.45]} s={0.05} c="#f3fafd" />; })}
+    {[0, 1, 2, 3, 4, 5].map((i) => { const a = i * 1.05 + t * 6; return <Ball key={i} p={[0.2 + Math.cos(a) * 0.2, 0.12 + 0.07 * Math.abs(Math.sin(t * 9 + i)), -0.45 + Math.sin(a) * 0.2]} s={0.045} c="#e8f6fc" />; })}
+    <mesh position={[0.2, 0.085, -0.45]} rotation={[Math.PI / 2, 0, 0]} scale={1 + 0.15 * Math.sin(t * 8)}><torusGeometry args={[0.3, 0.015, 8, 36]} /><meshBasicMaterial color="#ffffff" transparent opacity={0.8} /></mesh>
   </group>
 );
 
@@ -312,9 +331,14 @@ export const Video15: React.FC = () => {
     <AbsoluteFill>
       <PaperPlus />
 
-      {/* A. hook: keran rumah, lalu mundur: titik uji jauh di jaringan pipa */}
-      <Seg a={0} b={B.standar}>
-        <Stage cam={camAt(t, [[0, [3.0, 1.2, 250]], [3.6, [3.0, 1.2, 260]], [5.9, [-0.8, 1.2, 105]]])}><Jalur t={t} test={r(t, 4.6, 5.6)} /></Stage>
+      {/* A. hook 1: sambungan air ke rumah (bawah tanah) */}
+      <Seg a={0} b={3.6}>
+        <Stage cam={camAt(t, [[0, [3.0, 1.2, 250]], [3.6, [3.0, 1.2, 264]]])}><Jalur t={t} test={0} /></Stage>
+      </Seg>
+      {/* A2. hook 2: keran wastafel (kata "keran rumahmu") */}
+      <Seg a={3.6} b={B.standar}>
+        <Stage cam={camAt(t, [[3.6, [0.55, 0.85, 330]], [6.36, [0.55, 0.85, 355]]])}><Keran t={t} /></Stage>
+        <Mark x={540} y={1240} ok={false} p={r(t, 5.3, 5.7)} text="bukan diuji di sini" />
       </Seg>
       {/* B. standar: wide, dua titik uji, rumah di luar titik */}
       <Seg a={B.standar} b={B.rebus}>
@@ -348,8 +372,7 @@ export const Video15: React.FC = () => {
       <Seg a={B.payoff} b={B.aksi}>
         <Stage cam={camAt(t, [[42.5, [0, 1.7, 190]], [46.37, [0, 1.7, 200]]])}>
           <Ground w={12} />
-          <Faucet p={[-1.5, 1.0, 0]} t={t} flow={1} />
-          <TestPoint x={-0.3} p={r(t, 43.0, 43.6)} />
+          <TestPoint x={-1.3} p={r(t, 43.0, 43.6)} />
           <Galon p={[1.7, 0, 0]} s={1.3} />
         </Stage>
         <Chip x={270} y={1180} p={r(t, 43.8, 44.2)} text="PDAM" color={P15.water} size={40} />
