@@ -56,7 +56,7 @@ Kosakata visual per beat (kode di `remotion/src/aset/Aset.tsx`, katalog di `styl
 | Mitos / twist | **PatternBreak**: layar koral penuh + grain + teks putih tebal (maks. 1× per video) |
 | Ajak cek | **PuzzleGrid** "cari yang beda" (ubin/bata/huruf) sebagai jeda interaktif (maks. 1× per video) |
 | Takeaway | **TwoTier** `kalimat kecil / KATA BESAR` abu gelap, kata kunci koral |
-| CTA | Kartu FOLLOW koral + ornamen **Cutout** (tegel/daun) dari sudut |
+| CTA | Kartu FOLLOW koral (tanpa ornamen tegel/Cutout di sudut, perintah user 16 Nov) |
 | Semua | **Grain** halus (opacity ±0,05) di atas semua lapisan |
 SFX: klik, whoosh lembut, pop kecil, tick, chime; tanpa SFX kertas.
 
