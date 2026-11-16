@@ -7,7 +7,7 @@ import {AbsoluteFill, Easing, Img, interpolate, Sequence, staticFile, useCurrent
 import {Grain, TikTokBox, PatternBreak, C} from '../aset/Aset';
 import {PaperPlus, Kicker, FollowButton} from '../aset/Gabung';
 import {Env} from '../pengetahuan/Scene';
-import {Rig, House as House13} from '../v13/Mood13';
+import {Rig} from '../v13/Mood13';
 import words from '../../public/v15/words.json';
 import {Edges, RoundedBox} from '@react-three/drei';
 import {useMemo} from 'react';
@@ -144,26 +144,26 @@ const Win: React.FC<{p: [number, number, number]; w?: number; h?: number}> = ({p
 const Bush: React.FC<{p: [number, number, number]; s?: number}> = ({p, s = 1}) => <group position={p} scale={s}><Ball p={[0, 0.12, 0]} s={0.14} c="#5a9a55" /><Ball p={[0.12, 0.09, 0.03]} s={0.1} c="#6aab63" /></group>;
 const House: React.FC<{p: [number, number, number]}> = ({p}) => (
   <group position={p}>
-    <Bx p={[0, 0.5, 0]} s={[1.5, 1.0, 1.0]} c="#f1eadb" />
-    <Bx p={[0, 0.03, 0]} s={[1.6, 0.06, 1.1]} c="#cfc7b6" edge={false} />
-    <Prism p={[0, 1.0, 0]} w={1.2} h={0.62} d={1.78} c="#f08a3c" rot={[0, Math.PI / 2, 0]} />
-    <Bx p={[0, 1.07, 0.0]} s={[1.8, 0.03, 1.1]} c="#d9742c" edge={false} rot={[0, 0, 0]} />
-    <Bx p={[0.45, 1.55, -0.1]} s={[0.18, 0.4, 0.18]} c="#c9bfae" />
-    <Bx p={[-0.35, 0.4, 0.52]} s={[0.36, 0.62, 0.04]} c="#a65a3a" />
-    <Bx p={[-0.35, 0.4, 0.505]} s={[0.44, 0.7, 0.02]} c="#f6f2ea" edge={false} />
-    <Bx p={[-0.35, 0.06, 0.62]} s={[0.5, 0.06, 0.2]} c="#d9d2c3" />
-    <Ball p={[-0.2, 0.45, 0.56]} s={0.025} c="#e9b44c" />
-    <Win p={[0.3, 0.6, 0.52]} w={0.38} h={0.36} />
-    <Win p={[0.3, 0.6, -0.52]} w={0.38} h={0.36} />
-    <Bush p={[-0.7, 0.05, 0.62]} s={1.2} />
-    <Bush p={[0.7, 0.05, 0.62]} s={1.0} />
-    <Bx p={[0.78, 0.45, 0.2]} s={[0.04, 0.34, 0.3]} c="#9ec7de" edge={false} />
+    {/* badan utama + atap pelana */}
+    <Bx p={[0, 0.55, 0]} s={[1.7, 1.1, 1.2]} c="#f6efe0" />
+    <Prism p={[0, 1.1, 0]} w={1.5} h={0.62} d={1.95} c="#f08a3c" rot={[0, Math.PI / 2, 0]} />
+    <Bx p={[0.5, 1.7, -0.2]} s={[0.2, 0.42, 0.2]} c="#c9bfae" />
+    {/* teras depan dengan atap pelana kecil menghadap depan */}
+    <Bx p={[-0.45, 0.4, 0.78]} s={[0.8, 0.8, 0.5]} c="#f6efe0" />
+    <Prism p={[-0.45, 0.8, 0.78]} w={1.0} h={0.42} d={0.62} c="#f08a3c" />
+    <Bx p={[-0.45, 0.33, 1.04]} s={[0.3, 0.62, 0.03]} c="#a65a3a" />
+    <Bx p={[-0.45, 0.04, 1.2]} s={[0.55, 0.08, 0.26]} c="#d9d2c3" />
+    {/* jendela */}
+    <Win p={[0.5, 0.62, 0.62]} w={0.42} h={0.4} />
+    <Win p={[0.86, 0.62, 0.0]} w={0.4} h={0.4} />
+    <Bx p={[0.86, 0.62, 0.0]} s={[0.02, 0.4, 0.4]} c="#9ec7de" edge={false} />
+    <Bush p={[-0.95, 0.05, 1.05]} s={1.3} /><Bush p={[0.2, 0.05, 0.75]} s={1.1} />
   </group>
 );
 const Instalasi: React.FC<{t: number}> = ({t}) => (
   <group>
-    <Bx p={[-4.45, -0.55, 0]} s={[2.9, 1.1, 1.6]} c="#8b5e3c" edge={false} />
-    <Bx p={[-4.45, 0.04, 0]} s={[2.9, 0.08, 1.6]} c="#d7d9db" />
+    <Bx p={[-4.45, -0.55, 0]} s={[2.9, 1.1, 2.4]} c="#8b5e3c" edge={false} />
+    <Bx p={[-4.45, 0.04, 0]} s={[2.9, 0.08, 2.4]} c="#d7d9db" />
     {/* gedung utama + atap gigi gergaji */}
     <Bx p={[-4.1, 0.55, -0.3]} s={[1.3, 1.0, 0.8]} c="#e9e9eb" />
     {[-4.5, -4.15, -3.8].map((x, i) => <Prism key={i} p={[x, 1.05, -0.3]} w={0.36} h={0.32} d={0.86} c="#f08a3c" apex={-1} />)}
@@ -188,48 +188,58 @@ const Instalasi: React.FC<{t: number}> = ({t}) => (
     <Bx p={[-6.1, 0.0, 0.4]} s={[0.8, 0.1, 1.0]} c={P15.water} edge={false} />
   </group>
 );
+const FZ = 1.26;
 const Pipe3: React.FC<{a: number; b: number; y?: number; t?: number}> = ({a, b, y = -0.45, t = 0}) => (
   <group>
-    <Cyl p={[(a + b) / 2, y, 0.86]} r={0.2} h={Math.abs(b - a)} c="#cfd3d6" op={0.5} rot={[0, 0, Math.PI / 2]} />
-    <Cyl p={[(a + b) / 2, y, 0.86]} r={0.14} h={Math.abs(b - a)} c={P15.water} rot={[0, 0, Math.PI / 2]} />
-    {[-3.4, -1.9, -0.4, 1.1, 2.6].map((x, i) => <mesh key={i} position={[x, y, 0.86]} rotation={[0, Math.PI / 2, 0]}><torusGeometry args={[0.2, 0.05, 10, 28]} /><Mat c="#9aa3a9" /></mesh>)}
-    {Array.from({length: 12}).map((_, i) => { const k = (t * 0.45 + i / 12) % 1; return <Ball key={i} p={[a + (b - a) * k, y, 0.98]} s={0.05} c="#bfe3f6" />; })}
+    <Cyl p={[(a + b) / 2, y, FZ]} r={0.2} h={Math.abs(b - a)} c="#cfd3d6" op={0.5} rot={[0, 0, Math.PI / 2]} />
+    <Cyl p={[(a + b) / 2, y, FZ]} r={0.14} h={Math.abs(b - a)} c={P15.water} rot={[0, 0, Math.PI / 2]} />
+    {[-2.4, -0.9, 0.6, 2.1].map((x, i) => <mesh key={i} position={[x, y, FZ]} rotation={[0, Math.PI / 2, 0]}><torusGeometry args={[0.2, 0.05, 10, 28]} /><Mat c="#9aa3a9" /></mesh>)}
+    {Array.from({length: 14}).map((_, i) => { const k = (t * 0.4 + i / 14) % 1; return <Ball key={i} p={[a + (b - a) * k, y, FZ + 0.12]} s={0.05} c="#e8f6fc" />; })}
   </group>
 );
 const TestPoint: React.FC<{x: number; p: number; ok?: boolean}> = ({x, p, ok = true}) => (
-  <group position={[x, -0.45, 0.86]}>
+  <group position={[x, -0.45, FZ - 0.05]}>
     <Cyl p={[0, 0.52, 0]} r={0.07} h={1.0} c="#9aa3a9" />
     <Cyl p={[0, 1.05, 0]} r={0.1} h={0.14} c="#f08a3c" />
-    <group scale={[0.5 + 0.5 * p, 0.5 + 0.5 * p, 0.5 + 0.5 * p]}>
+    <Bx p={[0, 0.6, 0.1]} s={[0.26, 0.16, 0.1]} c="#7d868c" edge={false} />
+    {p > 0 && <group scale={[0.5 + 0.5 * p, 0.5 + 0.5 * p, 0.5 + 0.5 * p]}>
       <Ball p={[0, 1.4, 0]} s={0.17} c={ok ? '#3f9a5a' : CORAL} />
       <mesh position={[0, 1.4, 0]} rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[0.38, 0.035, 12, 40]} /><meshBasicMaterial color={CORAL} transparent opacity={p} /></mesh>
-    </group>
+    </group>}
+  </group>
+);
+const FenceZ: React.FC<{x: number; z0: number; z1: number}> = ({x, z0, z1}) => (
+  <group>
+    <Bx p={[x, 0.3, (z0 + z1) / 2]} s={[0.04, 0.05, Math.abs(z1 - z0)]} c="#3a3d42" edge={false} />
+    {Array.from({length: Math.round(Math.abs(z1 - z0) / 0.14)}).map((_, i) => <Bx key={i} p={[x, 0.2, Math.min(z0, z1) + i * 0.14]} s={[0.03, 0.4, 0.03]} c="#3a3d42" edge={false} />)}
   </group>
 );
 const Jalur: React.FC<{t: number; test: number}> = ({t, test}) => (
   <group>
-    <Bx p={[0.6, -0.55, 0]} s={[7.0, 1.1, 1.6]} c="#8b5e3c" edge={false} />
-    <Bx p={[0.6, 0.05, 0]} s={[7.0, 0.1, 1.6]} c="#82b46c" edge={false} />
-    <Bx p={[0.6, 0.12, 0.35]} s={[7.0, 0.05, 0.55]} c="#4a4f55" edge={false} />
-    {Array.from({length: 11}).map((_, i) => <Bx key={i} p={[-2.7 + i * 0.65, 0.15, 0.35]} s={[0.3, 0.02, 0.05]} c="#f4f2ec" edge={false} />)}
+    <Bx p={[0.55, -0.55, 0]} s={[7.1, 1.1, 2.4]} c="#8b5e3c" edge={false} />
+    <Bx p={[0.55, 0.05, 0]} s={[7.1, 0.1, 2.4]} c="#82b46c" edge={false} />
+    <Bx p={[0.1, 0.11, 0.78]} s={[6.2, 0.04, 0.46]} c="#4a4f55" edge={false} />
+    {Array.from({length: 10}).map((_, i) => <Bx key={i} p={[-2.7 + i * 0.62, 0.14, 0.78]} s={[0.3, 0.02, 0.05]} c="#f4f2ec" edge={false} />)}
+    <Bx p={[3.15, 0.11, 0.45]} s={[0.42, 0.04, 0.32]} c="#bfc3c6" edge={false} />
+    <Bx p={[3.05, 0.11, -0.05]} s={[0.3, 0.04, 0.9]} c="#d9d2c3" edge={false} />
     <Instalasi t={t} />
-    <Tree p={[-1.0, 0.1, -0.5]} /><Tree p={[0.2, 0.1, -0.55]} k={1.2} /><Tree p={[1.2, 0.1, -0.45]} k={0.9} />
-    <Pipe3 a={-3.0} b={2.1} t={t} />
-    <Bx p={[-3.5, -0.45, 0.86]} s={[1.0, 0.3, 0.2]} c="#cfd3d6" edge={false} />
+    <Tree p={[-1.3, 0.1, -0.25]} /><Tree p={[-0.2, 0.1, -0.35]} k={1.25} /><Tree p={[0.9, 0.1, -0.2]} k={0.95} /><Tree p={[-0.7, 0.1, -0.95]} k={1.1} /><Tree p={[0.5, 0.1, -0.9]} />
+    <Pipe3 a={-5.3} b={2.9} t={t} />
+    <Cyl p={[-5.3, -0.12, FZ]} r={0.2} h={0.66} c="#cfd3d6" op={0.55} />
+    <Cyl p={[-5.3, -0.12, FZ]} r={0.14} h={0.66} c={P15.water} />
+    <Ball p={[-5.3, -0.45, FZ]} s={0.2} c="#cfd3d6" />
     <TestPoint x={-2.6} p={test} />
     <TestPoint x={-0.4} p={test} />
-    <House p={[3.2, 0.1, -0.1]} />
-    <Fence x0={3.1} x1={4.0} z={0.55} />
-    {/* sambungan rumah: dari pipa utama naik ke meter, lanjut di bawah tanah menuju rumah */}
-    <Cyl p={[2.5, -0.25, 0.86]} r={0.075} h={0.4} c="#cfd3d6" />
-    <Cyl p={[2.5, -0.02, 0.86]} r={0.2} h={0.2} c="#f4f2ec" rot={[Math.PI / 2, 0, 0]} />
-    <mesh position={[2.5, -0.02, 0.97]}><torusGeometry args={[0.17, 0.03, 10, 28]} /><meshBasicMaterial color={P15.water} /></mesh>
-    <Cyl p={[2.95, -0.02, 0.86]} r={0.075} h={0.7} c="#cfd3d6" rot={[0, 0, Math.PI / 2]} />
-    <Cyl p={[2.95, -0.02, 0.86]} r={0.045} h={0.7} c={P15.water} rot={[0, 0, Math.PI / 2]} />
-    <Cyl p={[3.3, -0.02, 0.6]} r={0.075} h={0.6} c="#cfd3d6" rot={[Math.PI / 2, 0, 0]} />
+    <TestPoint x={1.3} p={0} />
+    {/* sambungan rumah: dari pipa utama naik ke meter, lalu pipa menuju rumah */}
+    <Cyl p={[2.9, -0.2, FZ]} r={0.075} h={0.5} c="#cfd3d6" />
+    <Cyl p={[2.9, 0.12, FZ]} r={0.2} h={0.2} c="#f4f2ec" rot={[Math.PI / 2, 0, 0]} />
+    <mesh position={[2.9, 0.12, FZ + 0.11]}><torusGeometry args={[0.17, 0.03, 10, 28]} /><meshBasicMaterial color={P15.water} /></mesh>
+    <Cyl p={[3.2, -0.0, FZ - 0.5]} r={0.07} h={1.0} c="#cfd3d6" rot={[Math.PI / 2, 0, 0]} />
+    <House p={[3.2, 0.1, -0.45]} />
+    <Fence x0={2.3} x1={2.95} z={0.3} /><Fence x0={3.35} x1={4.05} z={0.3} /><FenceZ x={2.3} z0={-1.1} z1={0.3} /><FenceZ x={4.05} z0={-1.1} z1={0.3} />
   </group>
 );
-
 
 // ---------- keran wastafel (adegan hook ke-2 dan payoff) ----------
 const Chrome: React.FC = () => <meshPhysicalMaterial color="#f4f6f8" metalness={0.5} roughness={0.28} clearcoat={1} clearcoatRoughness={0.08} />;
@@ -252,86 +262,8 @@ const Keran: React.FC<{t: number}> = ({t}) => (
 );
 
 
-// ---------- jalur PDAM: ilustrasi datar potongan samping (SVG), gaya channel: bentuk membulat, warna datar, outline tinta ----------
 const INK2 = '#1c1c1e';
 const SK = {stroke: INK2, strokeWidth: 3, strokeLinejoin: 'round' as const};
-const GRN = '#86bf72', SOIL = '#b98c64', ORG = '#f08a3c', GREY = '#d7dadd', BLU = '#6bb8ea', CREAM = '#f3ecdd';
-const JalurArt: React.FC = () => (
-  <svg width={1280} height={720} viewBox="0 0 1280 720" style={{display: 'block', overflow: 'visible'}}>
-    <defs><filter id="shd" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="8" stdDeviation="7" floodColor="#1c1c1e" floodOpacity="0.18" /></filter></defs>
-    <g filter="url(#shd)">
-      {/* tanah + rumput */}
-      <rect x={20} y={322} width={1240} height={330} rx={28} fill={SOIL} {...SK} />
-      {[[80, 400], [190, 560], [300, 430], [420, 600], [560, 420], [640, 590], [760, 440], [850, 610], [940, 420], [1100, 580], [1190, 450], [330, 610], [500, 560], [1160, 380]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r={5 + (i % 3) * 2} fill="#a37650" />)}
-      <rect x={20} y={312} width={1240} height={26} rx={13} fill={GRN} {...SK} />
-      {/* jalan */}
-      <rect x={500} y={338} width={470} height={14} rx={6} fill="#4a4f55" stroke={INK2} strokeWidth={2} />
-      {[530, 600, 670, 740, 810, 880].map((x) => <rect key={x} x={x} y={343} width={34} height={3} rx={1.5} fill="#f4f2ec" />)}
-      {/* pohon */}
-      {[600, 770, 930].map((x, i) => <g key={x}><rect x={x - 6} y={276} width={12} height={40} fill="#8a5634" {...SK} /><circle cx={x} cy={252} r={i === 1 ? 40 : 33} fill="#6fae5c" {...SK} /></g>)}
-      {/* ===== instalasi PDAM ===== */}
-      <rect x={40} y={308} width={440} height={14} rx={5} fill={GREY} {...SK} />
-      <rect x={288} y={100} width={22} height={210} fill="#d3d6d9" {...SK} /><rect x={288} y={120} width={22} height={14} fill={ORG} {...SK} /><rect x={288} y={160} width={22} height={14} fill={ORG} {...SK} />
-      <rect x={318} y={140} width={22} height={170} fill="#d3d6d9" {...SK} /><rect x={318} y={156} width={22} height={14} fill={ORG} {...SK} />
-      <rect x={70} y={212} width={206} height={98} fill="#ecebe6" {...SK} />
-      {[70, 138, 206].map((x) => <polygon key={x} points={`${x},212 ${x + 68},212 ${x + 68},172`} fill={ORG} {...SK} />)}
-      {[86, 120, 154, 188, 222].map((x) => <rect key={x} x={x} y={238} width={22} height={22} rx={3} fill="#a9d2e8" {...SK} strokeWidth={2} />)}
-      {[352, 414].map((x) => <g key={x}><rect x={x} y={198} width={54} height={112} rx={6} fill="#c8ced3" {...SK} /><ellipse cx={x + 27} cy={198} rx={27} ry={14} fill="#dde2e6" {...SK} /><line x1={x + 12} y1={215} x2={x + 12} y2={300} stroke={INK2} strokeWidth={2} /><line x1={x + 42} y1={215} x2={x + 42} y2={300} stroke={INK2} strokeWidth={2} /></g>)}
-      <rect x={80} y={282} width={190} height={26} rx={5} fill="#e8eef1" {...SK} />
-      <rect x={90} y={290} width={170} height={12} rx={3} fill={BLU} />
-      <rect x={80} y={270} width={190} height={6} rx={3} fill="#f4f2ec" {...SK} strokeWidth={2} />
-      <rect x={282} y={286} width={30} height={22} rx={5} fill="#3b82d6" {...SK} /><rect x={318} y={286} width={30} height={22} rx={5} fill="#3b82d6" {...SK} />
-      <rect x={0} y={296} width={44} height={26} rx={4} fill={BLU} {...SK} />
-      {/* ===== pipa utama bawah tanah (luar dulu, lalu isi) ===== */}
-      {[[122, 472, 930, 56, 28], [122, 322, 34, 190, 10], [1024, 322, 34, 190, 10]].map(([x, y, w, h, rx], i) => <rect key={i} x={x} y={y} width={w} height={h} rx={rx} fill="#cfd5d9" {...SK} strokeWidth={6} />)}
-      {[[122, 472, 930, 56, 28], [122, 322, 34, 190, 10], [1024, 322, 34, 190, 10]].map(([x, y, w, h, rx], i) => <rect key={i} x={x} y={y} width={w} height={h} rx={rx} fill="#cfd5d9" />)}
-      {[[132, 482, 910, 36, 18], [132, 322, 14, 190, 6], [1034, 322, 14, 190, 6]].map(([x, y, w, h, rx], i) => <rect key={i} x={x} y={y} width={w} height={h} rx={rx} fill={BLU} />)}
-      {[330, 560, 790].map((x) => <rect key={x} x={x} y={466} width={16} height={68} rx={4} fill="#9aa3a9" {...SK} />)}
-      {/* standpipe titik uji */}
-      {[500, 690, 880].map((x) => <g key={x}><rect x={x - 10} y={330} width={20} height={146} fill="#cfd5d9" {...SK} /><rect x={x - 5} y={338} width={10} height={140} fill={BLU} /><rect x={x - 22} y={376} width={44} height={16} rx={6} fill={ORG} {...SK} /><rect x={x - 26} y={300} width={52} height={26} rx={7} fill="#9aa3a9" {...SK} /></g>)}
-      {/* meter air */}
-      <circle cx={1041} cy={410} r={32} fill="#f4f2ec" {...SK} /><circle cx={1041} cy={410} r={22} fill="#fff" stroke={BLU} strokeWidth={5} /><line x1={1041} y1={410} x2={1052} y2={400} stroke={INK2} strokeWidth={3} strokeLinecap="round" />
-    </g>
-  </svg>
-);
-const House3D: React.FC = () => (
-  <div style={{position: 'absolute', left: 1128 - 640, top: 248 - 360, width: 1280, height: 720, pointerEvents: 'none'}}>
-    <div style={{transform: 'scale(0.5)', transformOrigin: '0 0', width: 2560, height: 1440}}>
-      <ThreeCanvas width={2560} height={1440} shadows orthographic camera={{position: [0, 4, 30], zoom: 190, near: 0.1, far: 100}} gl={{alpha: true, antialias: true}}>
-        <Rig x={0} y={0.55} zoom={190} />
-        <Env intensity={0.35} /><hemisphereLight args={['#fffaf0', '#cfc6b4', 0.6]} />
-        <directionalLight position={[2.5, 4.5, 3.0]} intensity={2.2} color="#fff4e6" castShadow shadow-mapSize={[1024, 1024]} shadow-camera-left={-4} shadow-camera-right={4} shadow-camera-top={4} shadow-camera-bottom={-4} shadow-radius={6} shadow-bias={-0.0004} />
-        <directionalLight position={[-3, 1.5, 2]} intensity={0.35} color="#ffe2da" />
-        <House13 x={0} wall="#f08a3c" roof="#a65a3a" />
-        <Ball p={[-1.0, 0.16, 0.7]} s={0.22} c="#5fa65a" /><Ball p={[1.0, 0.14, 0.7]} s={0.19} c="#6fae5c" />
-      </ThreeCanvas>
-    </div>
-  </div>
-);
-const IMG_Y0 = 1080;
-const JalurImg: React.FC<{t: number; cam: Cam; labels?: boolean; rings?: [number, number]; lp?: [number, number, number]}> = ({t, cam, labels = false, rings = [0, 0], lp = [0, 0, 0]}) => {
-  const [cx, , sc] = cam;
-  const tf = `translate(${540 - cx * sc}px, ${IMG_Y0 - 400 * sc}px) scale(${sc})`;
-  const box: React.CSSProperties = {position: 'absolute', left: 0, top: 0, width: 1280, height: 720, transformOrigin: '0 0', transform: tf};
-  const dots = Array.from({length: 18}).map((_, i) => { const k = (t * 0.28 + i / 18) % 1, L1 = 892, L2 = 150, d = k * (L1 + L2); return d < L1 ? {x: 140 + d, y: 500} : {x: 1041, y: 500 - (d - L1)}; });
-  const lab = (x: number, y: number, text: string, color: string, p: number) => p > 0 ? <div style={{position: 'absolute', left: x, top: y, transform: `translate(-50%,-50%) scale(${0.7 + 0.3 * p})`, opacity: p, padding: '6px 16px', borderRadius: 12, background: 'rgba(250,249,246,0.97)', border: `3px solid ${color}`, fontFamily: 'Inter', fontWeight: 800, fontSize: 26, color, whiteSpace: 'nowrap', boxShadow: '0 6px 16px rgba(28,28,30,0.25)'}}>{text}</div> : null;
-  const ring = (x: number, y: number, p: number) => p > 0 ? <div style={{position: 'absolute', left: x - 34, top: y - 34, width: 68, height: 68, borderRadius: '50%', border: `6px solid ${CORAL}`, opacity: p, transform: `scale(${1.5 - 0.5 * p})`}} /> : null;
-  return (
-    <div style={box}>
-      <JalurArt />
-      <House3D />
-      {dots.map((d, i) => <div key={i} style={{position: 'absolute', left: d.x - 6, top: d.y - 6, width: 12, height: 12, borderRadius: '50%', background: '#f3fbff', boxShadow: '0 0 8px 2px rgba(255,255,255,0.8)'}} />)}
-      {ring(139, 322, rings[0])}{ring(690, 330, rings[1])}
-      {labels && <>
-        {lab(215, 565, 'instalasi', P15.water, lp[0])}
-        {lab(690, 565, 'jaringan pipa', P15.water, lp[1])}
-        {lab(1120, 548, 'di luar titik uji', CORAL, lp[2])}
-      </>}
-    </div>
-  );
-};
-
-
 // ---------- wastafel + keran leher angsa: ilustrasi datar gaya channel + aliran air dari kode ----------
 const KeranArt: React.FC = () => (
   <svg width={1280} height={720} viewBox="0 0 1280 720" style={{display: 'block', overflow: 'visible'}}>
@@ -496,19 +428,22 @@ export const Video15: React.FC = () => {
     <AbsoluteFill>
       <PaperPlus />
 
-      {/* A. hook 1: PDAM menyambung air ke rumah (gambar + pan dari instalasi ke rumah) */}
+      {/* A. hook 1: PDAM menyambung air ke rumah (pan dari instalasi ke rumah) */}
       <Seg a={0} b={3.9}>
-        <JalurImg t={t} cam={camAt(t, [[0, [330, 0, 1.55]], [3.9, [1020, 0, 1.6]]])} />
+        <Stage cam={camAt(t, [[0, [-3.0, 1.25, 150]], [3.9, [2.2, 1.25, 156]]])}><Jalur t={t} test={0} /></Stage>
       </Seg>
       {/* A2. hook 2: air mengalir dari keran (kata "keran rumahmu") */}
       <Seg a={3.9} b={B.standar}>
         <KeranFlat t={t} flow={r(t, 4.0, 4.5)} cx={640} cy={330} sc={1.45} y0={1100} />
         <Mark x={540} y={1250} ok={false} p={r(t, 5.4, 5.8)} text="bukan diuji di sini" />
       </Seg>
-      {/* B. standar: gambar jalur, kamera mengikuti VO (instalasi, jaringan, rumah) */}
+      {/* B. standar: jalur lebar, dua titik uji, rumah di luar titik uji */}
       <Seg a={B.standar} b={B.rebus}>
-        <JalurImg t={t} labels rings={[r(t, 10.8, 11.2), r(t, 12.4, 12.8)]} lp={[r(t, 10.8, 11.2) * (1 - r(t, 12.2, 12.5)), r(t, 12.4, 12.8) * (1 - r(t, 13.6, 13.9)), r(t, 14.2, 14.6)]} cam={camAt(t, [[6.36, [640, 0, 1.0]], [10.2, [640, 0, 1.0]], [10.9, [330, 0, 1.5]], [12.2, [650, 0, 1.5]], [13.6, [1040, 0, 1.55]], [16.2, [1040, 0, 1.6]]])} />
-        <StatCard p={r(t, 7.3, 7.8) * (1 - r(t, 9.4, 9.7))} x={540} y={1100} big="0" small="E. coli per 100 ml" />
+        <Stage cam={camAt(t, [[6.36, [-0.8, 1.3, 104]], [16.2, [-0.8, 1.3, 108]]])}><Jalur t={t} test={Math.max(r(t, 10.5, 11.2), 0.001)} /></Stage>
+        <StatCard p={r(t, 7.3, 7.8) * (1 - r(t, 9.4, 9.7))} x={540} y={745} big="0" small="E. coli per 100 ml" />
+        <Chip x={190} y={1330} p={r(t, 10.8, 11.2)} text="instalasi" color={P15.water} size={36} />
+        <Chip x={540} y={1330} p={r(t, 12.4, 12.8)} text="jaringan pipa" color={P15.water} size={36} />
+        <Chip x={880} y={1330} p={r(t, 14.2, 14.6)} text="di luar titik uji" color={CORAL} size={36} />
       </Seg>
       {/* C. perbandingan: langsung dari keran (atas) vs direbus dulu (bawah) */}
       <Seg a={B.rebus} b={25.4}>
