@@ -1,6 +1,11 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
-## Posisi terakhir (16 Nov 2026)
+## Posisi terakhir (16 Nov 2026, malam)
+- **Video #15 selesai:** "Air PDAM Direbus vs Galon Isi Ulang" (VS), 56,7 dtk, −14,5 LUFS, `remotion/src/v15/`. VO ElevenLabs Riri Rida 1 take (flow `Jz54PYCD0D5rHTinLwWx`). Tes sutradara 0 GAGAL (otomatis lewat `tools/produksi.sh final|bagian`). Drive #15 `19qBAVWJlgTJzWEYRYnFRF9PA7HmdwbjN` (cover, info, versi ringan 540p); MP4 penuh + SRT + cover dikirim ke user. Versi 720p (3,5 MB) gagal diunggah (batas 3,1 MB per panggilan).
+- **Cek isi yang tersisa (diterima user):** angka Permenkes 2/2023 (3 bulan, 10 detik, 1×24 jam) dari PDF berjudul "RANCANGAN"; salinan bertanda tangan belum terbaca. Catatan sumber sudah ada di deskripsi YouTube. Galon merek (SNI) = bahan video #16.
+- **Aturan baru:** referensi user = acuan penempatan, bukan render realistis; tanpa ornamen tegel sudut; tes sutradara otomatis sebelum render.
+
+## Posisi sebelumnya (16 Nov 2026)
 - **Video #15 (draf storyboard Tahap 2):** "Air PDAM direbus vs galon isi ulang vs galon merek" (VS), `naskah/video-15-air-pdam-rebus-vs-galon.md`, riset `riset/2026-11-16-air-pdam-rebus-vs-galon.md`. Beat galon merek dihapus (jadi video #16). **Naskah ACC 16 Nov; VO ElevenLabs Riri Rida 1 take selesai** (56,6 dtk, flow `Jz54PYCD0D5rHTinLwWx`, `remotion/public/v15/vo.mp3`, timestamp `align_teks.py` → `words.json`). Caption `caption/video-15-air-pdam-rebus-vs-isi-ulang.md`. Berikutnya: Tahap 4 animasi (salin `remotion/src/v14/`, TANPA Ornament), contact sheet untuk ACC. Sisa cek: salinan Permenkes 2/2023 bertanda tangan, kalimat inferensi titik uji. Topik pajak jual rumah dihentikan user; riset tetap di `riset/2026-11-16-pajak-jual-rumah.md`.
 - **Akses sumber resmi dari container:** `curl -A "Mozilla/5.0"` ke pajak.go.id, setkab.go.id, jdih.kemenkeu.go.id (`/api/download/...`), jdih.kemkes.go.id (`/storage/documents/pdfs/...`), who.int/iris.who.int berhasil; bsn.go.id, peraturan.go.id (reset), peraturan.bpk.go.id (Cloudflare), cdc.gov (Akamai) menolak. `pdftotext -layout` tersedia.
 

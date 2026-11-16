@@ -288,7 +288,7 @@ const KeranArt: React.FC = () => (
     </g>
   </svg>
 );
-const KeranFlat: React.FC<{t: number; flow: number; cx?: number; cy?: number; sc?: number; y0?: number; clip?: [number, number]}> = ({t, flow, cx = 640, cy = 330, sc = 1.45, y0 = 1130, clip}) => {
+export const KeranFlat: React.FC<{t: number; flow: number; cx?: number; cy?: number; sc?: number; y0?: number; clip?: [number, number]}> = ({t, flow, cx = 640, cy = 330, sc = 1.45, y0 = 1130, clip}) => {
   const off = clip ? clip[0] : 0;
   const tf = `translate(${540 - cx * sc}px, ${y0 - off - cy * sc}px) scale(${sc})`;
   const box: React.CSSProperties = {position: 'absolute', left: 0, top: 0, width: 1280, height: 720, transformOrigin: '0 0', transform: tf};
