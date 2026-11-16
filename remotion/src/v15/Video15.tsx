@@ -185,8 +185,14 @@ const Jalur: React.FC<{t: number; test: number}> = ({t, test}) => (
     <TestPoint x={-2.6} p={test} />
     <TestPoint x={-0.4} p={test} />
     <House p={[3.2, 0.1, -0.1]} />
-    <Fence x0={2.3} x1={4.0} z={0.55} />
-    <Faucet p={[2.65, 0.55, 0.75]} t={t} flow={1} />
+    <Fence x0={3.1} x1={4.0} z={0.55} />
+    {/* pipa air masuk rumah: meter -> pipa menyusuri dinding -> kran dinding */}
+    <Cyl p={[2.35, 0.25, 0.47]} r={0.06} h={0.5} c="#9aa3a9" rot={[0, 0, Math.PI / 2]} />
+    <Cyl p={[2.6, 0.42, 0.47]} r={0.06} h={0.34} c="#9aa3a9" />
+    <Cyl p={[2.6, 0.6, 0.55]} r={0.06} h={0.26} c="#9aa3a9" rot={[Math.PI / 2, 0, 0]} />
+    <Cyl p={[2.6, 0.5, 0.68]} r={0.06} h={0.2} c="#9aa3a9" />
+    <Cyl p={[2.6, 0.74, 0.55]} r={0.08} h={0.06} c={CORAL} />
+    {[0, 1, 2].map((i) => { const k = (t * 1.4 + i / 3) % 1; return <Ball key={i} p={[2.6, 0.4 - k * 0.4, 0.68]} s={0.05} c={P15.water} />; })}
   </group>
 );
 
