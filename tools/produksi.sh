@@ -4,13 +4,15 @@
 #   tools/produksi.sh vo     <NN> "<url_mp3>"       # unduh VO terpilih -> remotion/public/vNN/vo.mp3
 #   tools/produksi.sh words  <NN> "<words_url>"     # unduh timestamp Scribe -> public/vNN/words.json + cetak kalimat & detik
 #   tools/produksi.sh sheet  <NN> 1.2,8.5,20 ...    # still 0.5x di detik tertentu -> satu contact sheet (cek pakai style/cek-bug.md)
-#   tools/produksi.sh final  <NN> <slug>            # render penuh + −14 LUFS + SRT + sheet QC -> video/<slug>.mp4 (jalankan di background)
-#   tools/produksi.sh bagian <NN> <slug>            # render per bagian 15 dtk (lewati yg sudah ada) + gabung + audio; revisi = hapus out/parts-vNN/pXX.mp4
+#   tools/produksi.sh final  <NN> <slug>            # (otomatis cek-sutradara dulu; GAGAL = batal) render penuh + −14 LUFS + SRT + sheet QC -> video/<slug>.mp4 (jalankan di background)
+#   tools/produksi.sh bagian <NN> <slug>            # (otomatis cek-sutradara dulu; GAGAL = batal) render per bagian 15 dtk (lewati yg sudah ada) + gabung + audio; revisi = hapus out/parts-vNN/pXX.mp4
 #   tools/produksi.sh cover  <NN> <slug>            # komposisi CoverNN -> cover/<slug>.png
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"; R="$ROOT/remotion"
 cmd="${1:-}"; NN="${2:-}"
 SC="${SCRATCH:-/tmp/produksi}"; mkdir -p "$SC"
+# Gerbang otomatis (perintah user 16 Nov): render penuh DIBATALKAN bila cek-sutradara ada GAGAL, supaya tidak boros waktu dan biaya.
+gate() { node "$ROOT/tools/cek-sutradara.mjs" "$NN" || { echo "!! RENDER DIBATALKAN: cek-sutradara ada GAGAL. Perbaiki dulu lalu jalankan ulang." >&2; exit 1; }; }
 case "$cmd" in
 setup) cd "$ROOT" && ./setup.sh ;;
 vo)
@@ -37,6 +39,7 @@ sheet)
   ffmpeg -y -v error -pattern_type glob -i "$d/f*.png" -filter_complex "tile=${cols}x${rows}" -frames:v 1 "$d/sheet.jpg"
   echo "$d/sheet.jpg" ;;
 bagian)
+  gate
   # render per bagian 15 dtk (tanpa suara); bagian yang sudah ada dilewati -> revisi cukup hapus file bagian terkait
   slug="$3"; cd "$R"; P="out/parts-v$NN"; mkdir -p "$P"
   total=$(npx remotion compositions 2>&1 | awk -v id="Video$NN" '$1==id{print $4}')
@@ -66,6 +69,7 @@ open(sys.argv[2],'w').write('\n'.join(f"{i}\n{f(s[0]['start'])} --> {f(s[-1]['en
 EOF
   echo "SRT: video/$slug.srt" ;;
 final)
+  gate
   slug="$3"; cd "$R"; mkdir -p out
   npx remotion render "Video$NN" "out/$slug-raw.mp4" --concurrency=4 --log=error
   ffmpeg -y -v error -i "out/$slug-raw.mp4" -c:v copy -af loudnorm=I=-14:TP=-1.5:LRA=11 -ar 48000 -c:a aac -b:a 192k "$ROOT/video/$slug.mp4"

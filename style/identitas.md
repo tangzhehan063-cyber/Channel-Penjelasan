@@ -10,7 +10,7 @@ Palet: `style/palet.json`. Komponen: `remotion/src/aset/PaperPalet.tsx`. Cek: `p
 | Kartu judul dua tingkat | Kartu **selalu terang** `#faf9f6` (`KARTU`), kalimat kecil 50 px + KATA BESAR Inter Black, y≈450. Kartu terang inilah yang menjaga keterbacaan dan "wajah" channel di latar apa pun. |
 | Subtitle | Kotak terang, top 1400, kata aktif berwarna aksen. |
 | Chip, stiker, callout | Selalu di kartu terang berbingkai warna peran. |
-| Ornamen tegel + grain | Dua tegel di sudut berlawanan (di palet gelap: `filter: invert(1)`), grain 0,05–0,08. |
+| Grain | Grain 0,05–0,08. **Tanpa ornamen tegel di sudut** (dihapus atas perintah user 16 Nov 2026; jangan pakai `Ornament`/`Cutout` tegel di video baru). |
 | Tipografi | Inter (judul/label), IBM Plex Mono (kicker), Space Mono (catatan kecil). |
 | Bentuk | Membulat (kotak 2D radius ≥ 14; objek 3D dari lengkung + outline tinta tipis). Satu objek hero prosedural per adegan. |
 | Bahasa gerak | Aturan sutradara B.8–B.10 (ease-out masuk, hierarki gerak, antisipasi → aksi → follow-through). |

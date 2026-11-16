@@ -1,0 +1,659 @@
+{
+"words": [
+{
+"word": "Air",
+"start": 0.0,
+"end": 0.264
+},
+{
+"word": "PDAM",
+"start": 0.264,
+"end": 0.617
+},
+{
+"word": "menurut",
+"start": 0.617,
+"end": 1.233
+},
+{
+"word": "aturan",
+"start": 1.233,
+"end": 1.762
+},
+{
+"word": "boleh",
+"start": 1.762,
+"end": 2.202
+},
+{
+"word": "langsung",
+"start": 2.202,
+"end": 2.907
+},
+{
+"word": "diminum.",
+"start": 2.907,
+"end": 3.523
+},
+{
+"word": "Tapi",
+"start": 3.86,
+"end": 4.164
+},
+{
+"word": "ujinya",
+"start": 4.164,
+"end": 4.62
+},
+{
+"word": "bukan",
+"start": 4.62,
+"end": 5.0
+},
+{
+"word": "di",
+"start": 5.0,
+"end": 5.152
+},
+{
+"word": "keran",
+"start": 5.152,
+"end": 5.532
+},
+{
+"word": "rumahmu.",
+"start": 5.532,
+"end": 6.065
+},
+{
+"word": "Standarnya",
+"start": 6.361,
+"end": 7.176
+},
+{
+"word": "nol",
+"start": 7.176,
+"end": 7.42
+},
+{
+"word": "E.",
+"start": 7.42,
+"end": 7.502
+},
+{
+"word": "coli",
+"start": 7.502,
+"end": 7.828
+},
+{
+"word": "per",
+"start": 7.828,
+"end": 8.072
+},
+{
+"word": "seratus",
+"start": 8.072,
+"end": 8.643
+},
+{
+"word": "mililiter,",
+"start": 8.643,
+"end": 9.376
+},
+{
+"word": "dengan",
+"start": 9.596,
+"end": 10.057
+},
+{
+"word": "sampel",
+"start": 10.057,
+"end": 10.519
+},
+{
+"word": "dari",
+"start": 10.519,
+"end": 10.827
+},
+{
+"word": "instalasi",
+"start": 10.827,
+"end": 11.519
+},
+{
+"word": "dan",
+"start": 11.519,
+"end": 11.75
+},
+{
+"word": "jaringan",
+"start": 11.75,
+"end": 12.366
+},
+{
+"word": "distribusi",
+"start": 12.366,
+"end": 13.135
+},
+{
+"word": "PDAM.",
+"start": 13.135,
+"end": 13.443
+},
+{
+"word": "Pipa",
+"start": 13.691,
+"end": 13.962
+},
+{
+"word": "dan",
+"start": 13.962,
+"end": 14.165
+},
+{
+"word": "tandon",
+"start": 14.165,
+"end": 14.571
+},
+{
+"word": "rumahmu",
+"start": 14.571,
+"end": 15.045
+},
+{
+"word": "tidak",
+"start": 15.045,
+"end": 15.384
+},
+{
+"word": "termasuk.",
+"start": 15.384,
+"end": 15.926
+},
+{
+"word": "Makanya",
+"start": 16.259,
+"end": 16.904
+},
+{
+"word": "direbus",
+"start": 16.904,
+"end": 17.548
+},
+{
+"word": "itu",
+"start": 17.548,
+"end": 17.825
+},
+{
+"word": "masuk",
+"start": 17.825,
+"end": 18.285
+},
+{
+"word": "akal.",
+"start": 18.285,
+"end": 18.653
+},
+{
+"word": "Menurut",
+"start": 19.034,
+"end": 19.542
+},
+{
+"word": "WHO,",
+"start": 19.542,
+"end": 19.759
+},
+{
+"word": "air",
+"start": 19.759,
+"end": 19.977
+},
+{
+"word": "yang",
+"start": 19.977,
+"end": 20.267
+},
+{
+"word": "mendidih",
+"start": 20.267,
+"end": 20.847
+},
+{
+"word": "bergelembung",
+"start": 20.847,
+"end": 21.718
+},
+{
+"word": "besar",
+"start": 21.718,
+"end": 22.08
+},
+{
+"word": "sudah",
+"start": 22.08,
+"end": 22.443
+},
+{
+"word": "cukup",
+"start": 22.443,
+"end": 22.806
+},
+{
+"word": "mematikan",
+"start": 22.806,
+"end": 23.458
+},
+{
+"word": "bakteri,",
+"start": 23.458,
+"end": 23.966
+},
+{
+"word": "virus,",
+"start": 23.966,
+"end": 24.329
+},
+{
+"word": "dan",
+"start": 24.329,
+"end": 24.546
+},
+{
+"word": "parasit.",
+"start": 24.546,
+"end": 25.054
+},
+{
+"word": "Tapi",
+"start": 25.38,
+"end": 25.678
+},
+{
+"word": "air",
+"start": 25.678,
+"end": 25.901
+},
+{
+"word": "dingin",
+"start": 25.901,
+"end": 26.348
+},
+{
+"word": "di",
+"start": 26.348,
+"end": 26.497
+},
+{
+"word": "wadah",
+"start": 26.497,
+"end": 26.869
+},
+{
+"word": "kotor",
+"start": 26.869,
+"end": 27.241
+},
+{
+"word": "bisa",
+"start": 27.241,
+"end": 27.539
+},
+{
+"word": "tercemar",
+"start": 27.539,
+"end": 28.135
+},
+{
+"word": "lagi.",
+"start": 28.135,
+"end": 28.433
+},
+{
+"word": "Depot",
+"start": 28.766,
+"end": 29.146
+},
+{
+"word": "isi",
+"start": 29.146,
+"end": 29.374
+},
+{
+"word": "ulang",
+"start": 29.374,
+"end": 29.753
+},
+{
+"word": "wajib",
+"start": 29.753,
+"end": 30.133
+},
+{
+"word": "uji",
+"start": 30.133,
+"end": 30.361
+},
+{
+"word": "E.",
+"start": 30.361,
+"end": 30.436
+},
+{
+"word": "coli",
+"start": 30.436,
+"end": 30.74
+},
+{
+"word": "di",
+"start": 30.74,
+"end": 30.892
+},
+{
+"word": "laboratorium",
+"start": 30.892,
+"end": 31.803
+},
+{
+"word": "tiga",
+"start": 31.803,
+"end": 32.107
+},
+{
+"word": "bulan",
+"start": 32.107,
+"end": 32.486
+},
+{
+"word": "sekali.",
+"start": 32.486,
+"end": 32.942
+},
+{
+"word": "Galon",
+"start": 33.236,
+"end": 33.577
+},
+{
+"word": "dibilas",
+"start": 33.577,
+"end": 34.055
+},
+{
+"word": "minimal",
+"start": 34.055,
+"end": 34.533
+},
+{
+"word": "sepuluh",
+"start": 34.533,
+"end": 35.011
+},
+{
+"word": "detik,",
+"start": 35.011,
+"end": 35.353
+},
+{
+"word": "dan",
+"start": 35.353,
+"end": 35.558
+},
+{
+"word": "tidak",
+"start": 35.558,
+"end": 35.899
+},
+{
+"word": "boleh",
+"start": 35.899,
+"end": 36.241
+},
+{
+"word": "disimpan",
+"start": 36.241,
+"end": 36.787
+},
+{
+"word": "di",
+"start": 36.787,
+"end": 36.924
+},
+{
+"word": "depot",
+"start": 36.924,
+"end": 37.266
+},
+{
+"word": "lebih",
+"start": 37.266,
+"end": 37.607
+},
+{
+"word": "dari",
+"start": 37.607,
+"end": 37.88
+},
+{
+"word": "sehari",
+"start": 37.88,
+"end": 38.29
+},
+{
+"word": "semalam.",
+"start": 38.29,
+"end": 38.768
+},
+{
+"word": "Di",
+"start": 39.045,
+"end": 39.202
+},
+{
+"word": "antara",
+"start": 39.202,
+"end": 39.671
+},
+{
+"word": "dua",
+"start": 39.671,
+"end": 39.905
+},
+{
+"word": "kali",
+"start": 39.905,
+"end": 40.218
+},
+{
+"word": "uji,",
+"start": 40.218,
+"end": 40.452
+},
+{
+"word": "kamu",
+"start": 40.655,
+"end": 40.911
+},
+{
+"word": "mengandalkan",
+"start": 40.911,
+"end": 41.68
+},
+{
+"word": "depotnya.",
+"start": 41.68,
+"end": 42.193
+},
+{
+"word": "Air",
+"start": 42.501,
+"end": 42.727
+},
+{
+"word": "aman",
+"start": 42.727,
+"end": 43.029
+},
+{
+"word": "itu",
+"start": 43.029,
+"end": 43.255
+},
+{
+"word": "soal",
+"start": 43.255,
+"end": 43.556
+},
+{
+"word": "siapa",
+"start": 43.556,
+"end": 43.933
+},
+{
+"word": "yang",
+"start": 43.933,
+"end": 44.234
+},
+{
+"word": "menguji",
+"start": 44.234,
+"end": 44.762
+},
+{
+"word": "dan",
+"start": 44.762,
+"end": 44.988
+},
+{
+"word": "seberapa",
+"start": 44.988,
+"end": 45.591
+},
+{
+"word": "sering.",
+"start": 45.591,
+"end": 46.043
+},
+{
+"word": "Minum",
+"start": 46.371,
+"end": 46.809
+},
+{
+"word": "air",
+"start": 46.809,
+"end": 47.072
+},
+{
+"word": "PDAM?",
+"start": 47.072,
+"end": 47.422
+},
+{
+"word": "Rebus",
+"start": 47.722,
+"end": 48.228
+},
+{
+"word": "dulu.",
+"start": 48.228,
+"end": 48.633
+},
+{
+"word": "Beli",
+"start": 48.882,
+"end": 49.141
+},
+{
+"word": "isi",
+"start": 49.141,
+"end": 49.335
+},
+{
+"word": "ulang?",
+"start": 49.335,
+"end": 49.659
+},
+{
+"word": "Tanya",
+"start": 49.931,
+"end": 50.277
+},
+{
+"word": "kapan",
+"start": 50.277,
+"end": 50.623
+},
+{
+"word": "terakhir",
+"start": 50.623,
+"end": 51.176
+},
+{
+"word": "uji",
+"start": 51.176,
+"end": 51.384
+},
+{
+"word": "laboratorium.",
+"start": 51.384,
+"end": 52.214
+},
+{
+"word": "Kamu",
+"start": 52.5,
+"end": 52.732
+},
+{
+"word": "biasa",
+"start": 52.732,
+"end": 53.023
+},
+{
+"word": "minum",
+"start": 53.023,
+"end": 53.314
+},
+{
+"word": "air",
+"start": 53.314,
+"end": 53.489
+},
+{
+"word": "yang",
+"start": 53.489,
+"end": 53.721
+},
+{
+"word": "mana?",
+"start": 53.721,
+"end": 53.954
+},
+{
+"word": "Follow",
+"start": 54.26,
+"end": 54.73
+},
+{
+"word": "buat",
+"start": 54.73,
+"end": 55.043
+},
+{
+"word": "fakta",
+"start": 55.043,
+"end": 55.435
+},
+{
+"word": "rumah",
+"start": 55.435,
+"end": 55.827
+},
+{
+"word": "berikutnya!",
+"start": 55.827,
+"end": 56.61
+}
+]
+}

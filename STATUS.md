@@ -5,6 +5,14 @@
 - **Aturan merge (user 16 Nov):** setiap video selesai → PR ke `main` → Claude langsung merge sendiri (semua channel). Rollback lewat Revert PR.
 - **Cek sebelum mulai video:** `git fetch` dan lihat nomor video terakhir di `main` (sesi lain bisa sedang membuat video juga) supaya nomor tidak bentrok.
 
+## Video #16 (16 Nov 2026, malam; nomor #15 dipakai video LED dari sesi lain)
+- **Video #16 selesai:** "Air PDAM Direbus vs Galon Isi Ulang" (VS), 56,7 dtk, −14,5 LUFS, `remotion/src/v16/`. VO ElevenLabs Riri Rida 1 take (flow `Jz54PYCD0D5rHTinLwWx`). Tes sutradara 0 GAGAL (otomatis lewat `tools/produksi.sh final|bagian`). Drive #16 `19qBAVWJlgTJzWEYRYnFRF9PA7HmdwbjN` (cover, info, versi ringan 540p); MP4 penuh + SRT + cover dikirim ke user. Versi 720p (3,5 MB) gagal diunggah (batas 3,1 MB per panggilan).
+- **Cek isi yang tersisa (diterima user):** angka Permenkes 2/2023 (3 bulan, 10 detik, 1×24 jam) dari PDF berjudul "RANCANGAN"; salinan bertanda tangan belum terbaca. Catatan sumber sudah ada di deskripsi YouTube. Galon merek (SNI) = bahan video #16.
+- **Aturan baru:** referensi user = acuan penempatan, bukan render realistis; tanpa ornamen tegel sudut; tes sutradara otomatis sebelum render.
+
+## Catatan teknis (16 Nov 2026)
+- **Akses sumber resmi dari container:** `curl -A "Mozilla/5.0"` ke pajak.go.id, setkab.go.id, jdih.kemenkeu.go.id (`/api/download/...`), jdih.kemkes.go.id (`/storage/documents/pdfs/...`), who.int/iris.who.int berhasil; bsn.go.id, peraturan.go.id (reset), peraturan.bpk.go.id (Cloudflare), cdc.gov (Akamai) menolak. `pdftotext -layout` tersedia.
+
 ## Posisi sebelumnya (15 Nov 2026)
 - **Video #14 selesai (15 Nov):** "Air AC yang Menetes Itu Bukan Bocor" (Bongkar Barang), 60,9 dtk, −14,6 LUFS, `remotion/src/v14/` (kamera 2,5D, kasur ala referensi user: rangka kayu, headboard panel, meja melayang). VO ElevenLabs Riri Rida 1 take (flow `ToIeOERE8lrRsidYIvXS`). Drive #14 `1SoZyehAAFk8QOpTE0U6rpqbJdT9TXR3I` (cover + info); MP4 + versi ringan dikirim ke user. Bug baru di `style/cek-bug.md`.
 
@@ -19,6 +27,8 @@
 - Branding baru (10 Nov): logo `branding/logo-fakta-rumah.png` + bio 41 karakter di `branding/bio.md`, seragam 3 platform (nama sementara "Fakta Rumah"). Belum diputuskan: nama channel/handle, realisme objek 3D.
 
 ## Preferensi user
+- **Referensi dari user = acuan penempatan/komposisi, BUKAN untuk ditiru persis atau dirender realistis** (user 16 Nov, setelah 10+ putaran revisi #15). Terjemahkan ke gaya channel (2,5D prosedural, bentuk membulat, warna datar, outline tipis; contoh benar: kasur #14, jalur PDAM #15). Jangan pakai gambar AI/foto-realistis di video. Bila ragu, tanya satu kali, jangan menebak.
+- **Tanpa ornamen tegel hitam-putih di sudut kanan atas dan kiri bawah (yang user sebut "kipas"; komponen `Ornament` di `remotion/src/aset/Gabung.tsx`, dipakai v08–v14)** (user 16 Nov, berlaku untuk video #16 dan seterusnya). Video baru menyalin v14 tanpa `<Ornament .../>`; jangan pakai `Cutout kind="tegel"`.
 - **Kontrol lewat Panel Studio** (12 Nov): https://claude.ai/artifact/4Aiv5HDCLRRfVLdEapvt3s. Tombol ACC/revisi/topik mengirim komentar ke Claude; status video & ide disimpan di database panel (lihat WORKFLOW langkah 0.4–0.5). Status posting #1–#12 belum diisi user.
 - **Hasil jadi (video render, cover, info/caption) disimpan di Google Drive, bukan GitHub** (user 11 Nov). Folder induk "Fakta Rumah" `1Dx9nqhifWRbixFb_2u4XrHMIaHHJloAt`, satu subfolder per video (#11: `11PIHgG1XQ8QXw9FVGMLQaAJObItaWnSP`). Batas upload konektor dari cloud ±3 MB per panggilan: cover + info bisa, MP4 belum (cara upload MP4 menunggu keputusan user).
 - **Gaya animasi baku = video #7 & #8** (`remotion/src/v07/`, `remotion/src/v08/`): disukai user, sudah sesuai. Video baru menyalin gaya ini; tweak hanya bila user minta.
