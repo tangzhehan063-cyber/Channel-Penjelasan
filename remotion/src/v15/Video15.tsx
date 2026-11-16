@@ -3,7 +3,7 @@
 import {Audio} from '@remotion/media';
 import {createTikTokStyleCaptions, type Caption} from '@remotion/captions';
 import {ThreeCanvas} from '@remotion/three';
-import {AbsoluteFill, Easing, interpolate, Sequence, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Easing, Img, interpolate, Sequence, staticFile, useCurrentFrame} from 'remotion';
 import {Grain, TikTokBox, PatternBreak, C} from '../aset/Aset';
 import {PaperPlus, Kicker, FollowButton} from '../aset/Gabung';
 import {Env} from '../pengetahuan/Scene';
@@ -251,6 +251,32 @@ const Keran: React.FC<{t: number}> = ({t}) => (
   </group>
 );
 
+
+// ---------- jalur PDAM dari gambar (potongan tanah) + animasi air/label dari kode ----------
+const IMG_Y0 = 1080;
+const JalurImg: React.FC<{t: number; cam: Cam; labels?: boolean; rings?: [number, number]; lp?: [number, number, number]}> = ({t, cam, labels = false, rings = [0, 0], lp = [0, 0, 0]}) => {
+  const [cx, , sc] = cam;
+  const tf = `translate(${540 - cx * sc}px, ${IMG_Y0 - 400 * sc}px) scale(${sc})`;
+  const box: React.CSSProperties = {position: 'absolute', left: 0, top: 0, width: 1280, height: 720, transformOrigin: '0 0', transform: tf};
+  const dots = Array.from({length: 14}).map((_, i) => { const k = (t * 0.32 + i / 14) % 1, x = 205 + k * 735; return {x, y: 415 + (x - 200) * 0.113}; });
+  const lab = (x: number, y: number, text: string, color: string, p: number) => p > 0 ? <div style={{position: 'absolute', left: x, top: y, transform: `translate(-50%,-50%) scale(${0.7 + 0.3 * p})`, opacity: p, padding: '6px 16px', borderRadius: 12, background: 'rgba(250,249,246,0.97)', border: `3px solid ${color}`, fontFamily: 'Inter', fontWeight: 800, fontSize: 26, color, whiteSpace: 'nowrap', boxShadow: '0 6px 16px rgba(28,28,30,0.25)'}}>{text}</div> : null;
+  const ring = (x: number, y: number, p: number) => p > 0 ? <div style={{position: 'absolute', left: x - 34, top: y - 34, width: 68, height: 68, borderRadius: '50%', border: `6px solid ${CORAL}`, opacity: p, transform: `scale(${1.5 - 0.5 * p})`}} /> : null;
+  return (
+    <>
+      <div style={{...box, mixBlendMode: 'multiply'}}><Img src={staticFile('v15/jalur.png')} style={{width: 1280, height: 720, display: 'block'}} /></div>
+      <div style={box}>
+        {dots.map((d, i) => <div key={i} style={{position: 'absolute', left: d.x - 5, top: d.y - 5, width: 10, height: 10, borderRadius: '50%', background: '#f3fbff', boxShadow: '0 0 8px 2px rgba(120,200,245,0.9)'}} />)}
+        {ring(143, 300, rings[0])}{ring(690, 366, rings[1])}
+        {labels && <>
+          {lab(215, 585, 'instalasi', P15.water, lp[0])}
+          {lab(690, 585, 'jaringan pipa', P15.water, lp[1])}
+          {lab(1090, 600, 'di luar titik uji', CORAL, lp[2])}
+        </>}
+      </div>
+    </>
+  );
+};
+
 // ---------- panci rebus ----------
 const MICROS: [number, number, number][] = [[-0.45, 0.35, 0], [0.1, 0.55, 0.1], [0.5, 0.3, -0.1], [-0.2, 0.7, 0.1], [0.4, 0.62, 0.1], [-0.55, 0.62, 0], [0.0, 0.25, 0.1]];
 const Pot: React.FC<{t: number; dead: number; back?: number; ground?: boolean}> = ({t, dead, back = 0, ground = true}) => (
@@ -367,22 +393,19 @@ export const Video15: React.FC = () => {
     <AbsoluteFill>
       <PaperPlus />
 
-      {/* A. hook 1: PDAM menyambung air ke rumah (pan dari instalasi ke rumah) */}
+      {/* A. hook 1: PDAM menyambung air ke rumah (gambar + pan dari instalasi ke rumah) */}
       <Seg a={0} b={3.9}>
-        <Stage cam={camAt(t, [[0, [-2.7, 1.2, 168]], [3.9, [2.0, 1.2, 172]]])}><Jalur t={t} test={0} /></Stage>
+        <JalurImg t={t} cam={camAt(t, [[0, [330, 0, 1.55]], [3.9, [1020, 0, 1.6]]])} />
       </Seg>
       {/* A2. hook 2: air mengalir dari keran (kata "keran rumahmu") */}
       <Seg a={3.9} b={B.standar}>
         <Stage cam={camAt(t, [[3.9, [0.55, 0.85, 330]], [6.36, [0.55, 0.85, 355]]])}><Keran t={t} /></Stage>
         <Mark x={540} y={1240} ok={false} p={r(t, 5.4, 5.8)} text="bukan diuji di sini" />
       </Seg>
-      {/* B. standar: wide, dua titik uji, rumah di luar titik */}
+      {/* B. standar: gambar jalur, kamera mengikuti VO (instalasi, jaringan, rumah) */}
       <Seg a={B.standar} b={B.rebus}>
-        <Stage cam={camAt(t, [[6.36, [-0.8, 1.2, 105]], [16.2, [-0.8, 1.2, 108]]])}><Jalur t={t} test={Math.max(r(t, 10.5, 11.2), 0.001)} /></Stage>
-        <StatCard p={r(t, 7.3, 7.8) * (1 - r(t, 9.4, 9.7))} x={540} y={1040} big="0" small="E. coli per 100 ml" />
-        <Chip x={190} y={1310} p={r(t, 10.8, 11.2)} text="instalasi" color={P15.water} size={38} />
-        <Chip x={500} y={1310} p={r(t, 12.4, 12.8)} text="jaringan pipa" color={P15.water} size={38} />
-        <Chip x={890} y={1310} p={r(t, 14.2, 14.6)} text="di luar titik uji" color={CORAL} size={38} />
+        <JalurImg t={t} labels rings={[r(t, 10.8, 11.2), r(t, 12.4, 12.8)]} lp={[r(t, 10.8, 11.2) * (1 - r(t, 12.2, 12.5)), r(t, 12.4, 12.8) * (1 - r(t, 13.6, 13.9)), r(t, 14.2, 14.6)]} cam={camAt(t, [[6.36, [640, 0, 1.0]], [10.2, [640, 0, 1.0]], [10.9, [330, 0, 1.5]], [12.2, [650, 0, 1.5]], [13.6, [1040, 0, 1.55]], [16.2, [1040, 0, 1.6]]])} />
+        <StatCard p={r(t, 7.3, 7.8) * (1 - r(t, 9.4, 9.7))} x={540} y={1100} big="0" small="E. coli per 100 ml" />
       </Seg>
       {/* C. perbandingan: langsung dari keran (atas) vs direbus dulu (bawah) */}
       <Seg a={B.rebus} b={25.4}>
