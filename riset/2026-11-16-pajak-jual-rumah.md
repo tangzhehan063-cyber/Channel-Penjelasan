@@ -1,6 +1,6 @@
 # Riset: Pajak jual rumah (PPh final 2,5% & siapa bayar), 16 Nov 2026
 
-**Status bukti:** hasil WebSearch (sumber sekunder). Teks asli pasal BELUM terbaca: setkab.go.id, pasal.id, peraturan.go.id, news.ddtc.co.id, pajak.go.id diblokir jaringan cloud. Tandai "(perlu cek pasal)" sebelum naskah final.
+**Status bukti:** WebSearch + ringkasan resmi Setkab (lihat bagian terverifikasi). PDF PP 34/2016 dan UU 1/2022 belum terbaca. Tandai "(perlu cek pasal)" sebelum naskah final.
 
 ## Dasar hukum
 | Hal | Aturan | Isi (dari sumber sekunder) | Status |
@@ -21,6 +21,18 @@
 - Contoh hitung: jual Rp1 miliar × 2,5% = Rp25 juta (rumus sederhana, bukan angka dari sumber).
 - Hindari menyebut biaya notaris/PPN karena belum diriset. PPN rumah bekas orang pribadi: belum terverifikasi.
 - Jangan sebut angka pemda tertentu; BPHTB beda per daerah.
+
+## Terverifikasi dari setkab.go.id (ringkasan resmi PP 34/2016, 23 Agu 2016)
+Dibaca langsung via curl; PDF peraturan.go.id masih gagal (connection reset). Ini ringkasan berita Setkab, bukan PDF PP.
+- PP ditandatangani Presiden Jokowi **8 Agu 2016**. Penghasilan dari pengalihan tanah/bangunan dan dari PPJB (beserta perubahannya) terutang PPh **final** (Pasal 2 ayat 1).
+- **Pengalihan** = penjualan, tukar-menukar, pelepasan hak, penyerahan hak, lelang, hibah, waris, atau cara lain yang disepakati (Pasal 1 ayat 2). Yang kena pajak = **pihak yang mengalihkan** (penjual).
+- Tarif Pasal 2 ayat 2: **2,5%** dari jumlah bruto nilai pengalihan (selain rumah sederhana/rusun sederhana); **1%** untuk rumah sederhana/rusun sederhana; **0%** bila dialihkan ke pemerintah, BUMN/BUMD penugasan khusus untuk pengadaan tanah kepentingan umum. Kriteria rumah sederhana mengikuti kriteria yang dibebaskan dari PPN.
+- Dasar pengenaan: nilai **sesungguhnya** diterima/diperoleh (tanpa hubungan istimewa); nilai yang **seharusnya** diterima bila ada hubungan istimewa (Pasal 2 ayat 3).
+- **Dikecualikan**: orang pribadi berpenghasilan di bawah PTKP dengan bruto pengalihan **< Rp60 juta** dan tidak dipecah-pecah; hibah ke keluarga sedarah garis lurus satu derajat, badan keagamaan/pendidikan/sosial, koperasi, UMK (tanpa hubungan usaha/pekerjaan/kepemilikan); **waris**; penggabungan/peleburan/pemekaran usaha dengan nilai buku; BGS/BSG/pemanfaatan BMN; pihak bukan subjek pajak.
+- **Pasal 7**: Kementerian ATR/BPN hanya menerbitkan SK pemberian/pengakuan/peralihan hak bila permohonan dilengkapi SSP (bukti setor pajak).
+
+### Catatan ketidakjelasan (WAJIB dicek di PDF)
+Kalimat Setkab menempelkan frasa "yang dilakukan oleh Wajib Pajak yang usaha pokoknya melakukan pengalihan" pada tarif 2,5% **dan** 1%. Tidak jelas apakah frasa itu hanya membatasi tarif 1% (pengembang). **Jangan tulis di naskah bahwa 1% berlaku untuk semua penjual rumah murah sebelum PDF dicek.**
 
 ## Sumber (sekunder)
 setkab.go.id (PP 34/2016), perpajakan.ddtc.co.id (PP 34/2016, PMK 261/2016), hukumonline "Perubahan Tarif PPh", news.ddtc.co.id (BPHTB, UU HKPD NPOPTKP), ortax.org, pajak.go.id/en/node/102077.
