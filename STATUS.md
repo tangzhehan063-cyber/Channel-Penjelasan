@@ -1,6 +1,13 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
-## Posisi terakhir (16 Nov 2026)
+## Posisi terakhir (17 Nov 2026)
+- **Video #17 selesai:** "Rumah Lebih Rendah dari Jalan Itu Sial?" (Bukan Sial #03), 53,4 dtk, −14,6 LUFS, `remotion/src/v17/`, palet **`langit`** (pilihan user, pertama non-krem yang dirender penuh). VO ElevenLabs Riri Rida 1 take + 1 kalimat sambungan "selokan" (flow `1rtisfRaRpSMv2jMNDmF`); timestamp `tools/align_teks.py`. Drive #17 `1yYRyM6a8naln4CdyJrqvs2TXa1sbFr_8` (cover, info, versi ringan 540p); MP4 penuh + SRT + cover dikirim ke user.
+- **Tata letak (R1–R3 user):** irisan tanah utuh ala #16 → blok isometrik diagonal ala referensi user → **jalan vertikal, mobil dari atas ke bawah, rumah di samping jalan sedikit lebih rendah (±0,4)**, rumah tetangga berjajar, label "Level Jalan/Level Rumah" di hook. Stage 2,5D diputar `ROT` (Video17.tsx).
+- **Angka tidak dipakai di video:** peil 20 cm (PP 12/2021), lantai 40–50 cm, biaya Rp10–12 jt belum terverifikasi (sumber diblokir jaringan 17 Nov); isi mitos feng shui dibaca dari cuplikan (ditulis "katanya"). Host jdih.pkp.go.id, detik, kontan, kompas sudah ditambahkan ke environment tapi agen pembaca halaman tetap gagal pada sesi itu.
+- **Bug baru** di `style/cek-bug.md`: awan menutupi kicker, z-fighting tanah/rumput, celah tanah, mobil di luar jalan.
+- Video berikutnya: nomor #18. Ide mitos lanjutan di `riset/2026-11-17-ide-video-17-mitos.md` (tiang listrik depan pagar, pintu depan sejajar belakang, rumah hadap barat, rumah hook).
+
+## Posisi sebelumnya (16 Nov 2026)
 - **Video #15 selesai (render 14 Nov, nomor dipindah 16 Nov):** "LED Nggak Lebih Terang, Tapi Hemat" (lampu pijar vs LED, lumen vs watt), 67,0 dtk, −14,7 LUFS, `remotion/src/v15/` (palet krem, kamera 2,5D, objek lampu di `Lamp15.tsx`; prop `palet` untuk varian). VO Gemini TTS Achernar, timestamp `tools/align_teks.py`. Dibuat di sesi lain bersamaan dengan #14 "Air AC", jadi nomornya dipindah ke #15. MP4 sudah dikirim ke user; folder Drive berlabel #15.
 - **Aturan merge (user 16 Nov):** setiap video selesai → PR ke `main` → Claude langsung merge sendiri (semua channel). Rollback lewat Revert PR.
 - **Cek sebelum mulai video:** `git fetch` dan lihat nomor video terakhir di `main` (sesi lain bisa sedang membuat video juga) supaya nomor tidak bentrok.

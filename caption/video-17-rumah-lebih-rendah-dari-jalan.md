@@ -18,7 +18,7 @@ Yg rumahnya lebih rendah dari jalan, tiap hujan deras airnya sampai ke pintu gak
 
 ## Judul alternatif
 1. Kenapa Rumah Lebih Rendah dari Jalan Dibilang Sial?
-2. Yang Mengendap di Rumahmu Bukan Energi
+2. Yang Mengendap di Rumah Rendah Itu Air Hujan
 3. Tiap Hujan Air Jalan Ngarah ke Pintumu
 
 ## Tag
@@ -26,4 +26,4 @@ rumah lebih rendah dari jalan, mitos rumah, bukan sial, banjir rumah, fakta ruma
 
 ## Catatan
 - Sumber anggapan dibaca dari cuplikan pencarian (halaman penuh diblokir jaringan 17 Nov). Humanizer: tanpa "bukan X tapi Y", tanpa "—", tanpa triad.
-- Judul alt 2 memakai kontras ringan; ganti bila terasa AI.
+- Judul alt 2 sudah diganti tanpa pola "bukan X".
