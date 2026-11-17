@@ -13,3 +13,5 @@ Mitos aslinya (feng shui): rumah lebih rendah dari jalan = energi/Qi "mengendap,
 Semua artikel feng shui menyuruh "tinggikan/jangan beli"; tidak ada yang menunjukkan secara visual jalur air dan apa yang bisa dilakukan murah (lantai saja Rp10–12 jt vs seluruh rumah). Tidak ada data statistik banjir per rumah; jangan klaim.
 ## Belum terjawab
 Kutipan/isi Kompas 2013 belum dibaca; PP 12/2021 belum diverifikasi; sumber banjir 40–50 cm hanya satu.
+## Upaya verifikasi 17 Nov (GAGAL, angka tetap belum terverifikasi)
+Dicoba baca langsung: jdih.pkp.go.id (PP 12/2021), detik (biaya), momsmoney.kontan (lantai 40–50 cm), properti.kompas (mitos 2013). Semua diblokir jaringan sesi (DNS/CONNECT 403). Host ditambahkan ke environment 17 Nov atas persetujuan user, tapi agen pembaca halaman masih gagal; curl ke host itu ditolak pemeriksa izin dan tidak diulang. Status: PP 12/2021 20 cm, 40–50 cm, Rp10–12 jt tetap [⚠ CEK].
