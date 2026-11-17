@@ -32,7 +32,7 @@ Alasan: (a) paling dekat dengan yang dicari orang; (b) jadi isi beat 3.
 | 4 | 17–24 | Dinding | Dinding nyimpan / PANAS | Dindingnya nyimpan panas, jadi sampai malam kamar di baliknya masih hangat. | potongan dinding bata, titik panas merambat ke kamar | crane |
 | 5 | 24–30 | Payoff | Yang panas itu / DINDING BARAT | Jadi yang bikin panas itu dinding yang menghadap barat, apa pun arah pintunya. Rumah hadap utara pun punya dinding barat. | denah atas rumah, dinding barat memerah; PatternBreak | orbit/pull |
 | 6 | 30–39 | Solusi | Hentikan sinar / SEBELUM DINDING | Solusinya murah. Tanam pohon rindang di sisi barat, atau bikin teritis dan teras. Sinar sore berhenti sebelum kena dinding. | pohon besar membayangi dinding; teritis | push |
-| 7 | 39–45 | Aksi+share | Mau beli? Cek / SISI BARAT | Yang lagi cari rumah, cek dulu sisi baratnya ada apa. Kalau kosong, itu yang perlu kamu bayangkan nanti. | HP dengan kompas besar menunjuk barat | tahan |
+| 7 | 39–45 | Aksi+share | Mau beli? Cek / SISI BARAT | Yang lagi cari rumah, cek dulu sisi baratnya ada apa. Kalau kosong, siapin dana buat pohon atau teritis. | HP dengan kompas besar menunjuk barat | tahan |
 | 8 | 45–49 | Gema+CTA | Sisi mana / KENA SORE? | Rumahmu, sisi mana yang kena matahari sore? | rumah + bayangan pohon, sinar tertahan | pull |
 | 9 | 49–52 | Follow | | Follow buat fakta rumah berikutnya! | FollowButton | tahan |
 
