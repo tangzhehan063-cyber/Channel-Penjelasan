@@ -36,3 +36,8 @@ Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) s
 - Kartu judul dengan baris kedua kosong; subtitle terpotong di tengah frasa; pil judul + kartu + subtitle saling mengulang.
 - Beda tinggi jalan-rumah dikecilkan demi referensi sampai inti pesan (rumah lebih rendah) tidak terlihat.
 - Revisi R1–R3 ditumpuk jadi tambal-sulam. Aturan: lihat "KUNCI KARAKTER" di `CLAUDE.md` (menyimpang = mulai dari awal).
+
+## Bug #19 (17 Nov 2026)
+- Kicker/pil hook tertutup 3D: komponen 3D (Seg) harus dirender SEBELUM Kicker dan TikTokBox di DOM, bila ada dinding/objek putih besar.
+- Bidang halaman (lantai luar) berujung terlihat sebagai tepi terang/gelap: buat bidang luar sangat besar (60 m).
+- Daun pintu membuka ke arah kamera menutup objek kunci: buka ke dalam.
