@@ -11,14 +11,15 @@ import {AbsoluteFill, Easing, interpolate, Sequence, staticFile, useCurrentFrame
 import {Env} from '../pengetahuan/Scene';
 import {Grain, TikTokBox, PatternBreak, C} from '../aset/Aset';
 import {Kicker, FollowButton, CommentBubble} from '../aset/Gabung';
-import {PaperPalet, PALET} from '../aset/PaperPalet';
+import {PALET} from '../aset/PaperPalet';
+import {PaperPlus, Ornament} from '../aset/Gabung';
 import {Box, M as M7} from '../v07/Atap';
 import {House} from '../v08/Rumah';
 import words from '../../public/v18/words.json';
 
-const PNAME = 'terakota' as 'terakota'|'batu'|'mint'|'malam';
+const PNAME = 'krem' as 'krem'|'terakota'|'batu'|'mint'|'malam';
 const PL = PALET[PNAME];
-const EARTH = '#8fb26a';
+const EARTH = '#e4e2dd';
 export const P18 = {coral: PL.accent, good: PL.good, hot: '#d9482b', sun: '#f0a830', ink: '#1c1c1e', wall: '#f3ead9', roof: PL.accent, earth: EARTH, green: '#4f8a4a', leaf: '#5fa055', trunk: '#6b4630', navy: '#1b2640'};
 export const FPS = 30;
 export const V18_END = 51.6;
@@ -235,8 +236,11 @@ export const Video18: React.FC = () => {
   const doorXZ: V3 = t >= 28.3 ? [0, 0.18, -1.5] : cyc === 0 ? [0, 0.18, -1.5] : cyc === 1 ? [1.2, 0.18, 0] : [0, 0.18, 1.5];
   return (
     <AbsoluteFill>
-      <PaperPalet palet={PNAME} />
+      <PaperPlus />
       <AbsoluteFill style={{background: `linear-gradient(180deg, ${P18.navy} 0%, #2b3a5e 100%)`, opacity: 0.95 * night}} />
+
+      <Ornament cx={1030} cy={150} size={360} start={0} accent={r(t, 23.45, 24.5) * (1 - r(t, 25.5, 25.9))} />
+      <Ornament cx={40} cy={1800} size={360} start={6} accent={r(t, 23.45, 24.5) * (1 - r(t, 25.5, 25.9))} />
 
       {/* 1. hook: matahari sore besar, atap rumah memanas */}
       <Seg a={0} b={B.takut} f={f} first>
