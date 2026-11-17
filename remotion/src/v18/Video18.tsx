@@ -127,10 +127,11 @@ const Mark: React.FC<{x: number; y: number; ok: boolean; p: number; text: string
 // ---------- objek 3D ----------
 const phys = (color: string, o: Partial<THREE.MeshPhysicalMaterialParameters> = {}) => new THREE.MeshPhysicalMaterial({color, roughness: 0.6, clearcoat: 0.3, clearcoatRoughness: 0.35, ...o});
 const cx3 = (a: string, b: string, k: number) => new THREE.Color(a).lerp(new THREE.Color(b), Math.max(0, Math.min(1, k)));
-const MG = {ground: phys(P18.earth, {roughness: 0.95, clearcoat: 0}), trunk: phys(P18.trunk), leaf: phys(P18.leaf), leaf2: phys(P18.green), sun: new THREE.MeshBasicMaterial({color: P18.sun}), hot: new THREE.MeshBasicMaterial({color: P18.hot}), roof: phys(P18.roof), post: phys('#6b4630'), white: phys('#fbfaf6'), glass: phys('#9ec7de'), green: phys(P18.green)};
+const MG = {slab: phys('#d2cec4', {roughness: 0.95, clearcoat: 0}), ground: phys(P18.earth, {roughness: 0.95, clearcoat: 0}), trunk: phys(P18.trunk), leaf: phys(P18.leaf), leaf2: phys(P18.green), sun: new THREE.MeshBasicMaterial({color: P18.sun}), hot: new THREE.MeshBasicMaterial({color: P18.hot}), roof: phys(P18.roof), post: phys('#6b4630'), white: phys('#fbfaf6'), glass: phys('#9ec7de'), green: phys(P18.green)};
 export const Tanah3: React.FC<{night?: number}> = ({night = 0}) => {
   MG.ground.color.set(P18.earth).lerp(new THREE.Color('#2a3350'), night * 0.9);
-  return <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 6]} material={MG.ground}><planeGeometry args={[40, 40]} /></mesh>;
+  MG.slab.color.set('#d2cec4').lerp(new THREE.Color('#3a4566'), night * 0.9);
+  return <><mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.13, 6]} material={MG.ground}><planeGeometry args={[40, 40]} /></mesh><Box p={[0, -0.065, 0.3]} s={[9, 0.13, 8]} m={MG.slab} ink={0.04} /></>;
 };
 export const Sun3: React.FC<{p: V3; s: number; t: number}> = ({p, s, t}) => (
   <group position={p}>
