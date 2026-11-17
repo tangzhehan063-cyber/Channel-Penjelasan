@@ -1,10 +1,10 @@
-# STORYBOARD · VIDEO #18 · TAHAP 2 · DRAF v1 (17 Nov 2026), menunggu pilihan hook, palet, ACC user
+# STORYBOARD · VIDEO #18 · TAHAP 2 · DRAF v1 (17 Nov 2026), hook A dipilih; menunggu palet + ACC user
 ## Rumah Hadap Barat, Panasnya dari Mana? (Bukan Sial #04 / seri mitos)
 Mode HYBRID. 1080×1920 · ±52 dtk · kicker `FAKTA RUMAH · #18` + TikTokBox. Tanpa ornamen sudut. Skill `naskah-viral` + `sutradara`.
 **Aturan visual dari pelajaran #17 (user):** TIAP BEAT objek hero sendiri, BESAR memenuhi bingkai (seperti #7/#13), kamera dekat, garis tinta tegas; diorama lebar hanya untuk pembuka/penutup. Jangan memperlebar bingkai demi "semua terlihat".
 
 ## Hook (3 alternatif)
-- (a) Bantahan/ketakutan: "Rumahmu hadap barat? Orang bilang itu rumah panas." ← **usul** (kalimat orang bicara, sapaan "-mu", tanpa "bukan X")
+- (a) Bantahan/ketakutan: "Rumahmu hadap barat? Orang bilang itu rumah panas." ← **DIPILIH user 17 Nov** (kalimat orang bicara, sapaan "-mu", tanpa "bukan X")
 - (b) Kontras: "Pagi rumah ini adem. Jam dua siang, dindingnya mulai dipanggang."
 - (c) Personal: "Rumah hadap barat katanya kamu bakal kepanasan tiap sore."
 Alasan: (a) paling dekat dengan yang dicari orang; (b) jadi isi beat 3.
