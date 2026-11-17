@@ -20,7 +20,7 @@ export const P17 = {coral: PL.accent, cool: PL.cool, good: PL.good, water: '#4f8
 export const FPS = 30;
 export const V17_END = 53.4;
 export const V17_FRAMES = Math.ceil(V17_END * FPS);
-export const ROT = -0.5;
+export const ROT = 0.4;
 const CC_TOP = 1400, CORAL = P17.coral, INK = C.ink;
 const ease = Easing.inOut(Easing.cubic);
 const r = (t: number, a: number, b: number, e = ease) => interpolate(t, [a, b], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: e});
@@ -121,32 +121,32 @@ const Prism: React.FC<{p: V3; w: number; h: number; d: number; c: string; rot?: 
 };
 
 // ---------- dunia: jalan, cekungan, rumah ----------
-const ROAD_TOP = 0, YARD0 = -0.55, WALL_X = 0.4;
+const ROAD_TOP = 0, YARD0 = -0.4, WALL_X = 0.4;
 const yardTopAt = (k: number) => lerp(YARD0, 0.16, k);
 export const Dunia: React.FC<{k: number}> = ({k}) => {
   const yt = yardTopAt(k), h = Math.max(0.0001, ROAD_TOP - yt);
   return (
     <group>
       {/* jalan */}
-      <Bx p={[-3.15, -0.55, 0]} s={[3.5, 1.1, 3.0]} c={P17.soil} edge={false} />
-      <Bx p={[-3.15, 0.02, 0]} s={[3.5, 0.06, 3.0]} c={P17.asphalt} edge={false} />
-      {Array.from({length: 5}).map((_, i) => <Bx key={i} p={[-4.6 + i * 0.7, 0.06, 0]} s={[0.34, 0.015, 0.06]} c="#f4f2ec" edge={false} />)}
+      <Bx p={[-2.6, -0.55, 0]} s={[2.4, 1.1, 8.0]} c={P17.soil} edge={false} />
+      <Bx p={[-2.6, 0.02, 0]} s={[2.4, 0.06, 8.0]} c={P17.asphalt} edge={false} />
+      {Array.from({length: 11}).map((_, i) => <Bx key={i} p={[-2.6, 0.06, -3.5 + i * 0.7]} s={[0.06, 0.015, 0.34]} c="#f4f2ec" edge={false} />)}
       {/* lereng penghubung jalan ke halaman */}
-      {h > 0.002 && <Prism p={[-1.0, yt, 0]} w={0.8} h={h} d={3.0} c={P17.soil} apex={-1} />}
+      {h > 0.002 && <Prism p={[-1.0, yt, 0]} w={0.8} h={h} d={8.0} c={P17.soil} apex={-1} />}
       {/* halaman: balok tanah naik saat diurug */}
-      <Bx p={[1.95, (yt - 1.1) / 2, 0]} s={[5.1, yt + 1.1, 3.0]} c={P17.soil} edge={false} />
-      <Bx p={[1.95, yt - 0.02, 0]} s={[5.1, 0.04, 3.0]} c={P17.grass} edge={false} />
-      <Tetangga k={k} p={[3.35, -0.95]} sc={0.8} /><Tetangga k={k} p={[3.5, 0.95]} sc={0.7} /><Tetangga k={k} p={[0.2, -1.05]} sc={0.65} />
+      <Bx p={[1.95, (yt - 1.1) / 2, 0]} s={[5.1, yt + 1.1, 8.0]} c={P17.soil} edge={false} />
+      <Bx p={[1.95, yt - 0.02, 0]} s={[5.1, 0.04, 8.0]} c={P17.grass} edge={false} />
+      <Tetangga k={k} p={[1.5, -2.5]} sc={0.85} /><Tetangga k={k} p={[1.5, 2.5]} sc={0.85} /><Tetangga k={k} p={[3.6, -1.6]} sc={0.7} /><Tetangga k={k} p={[3.6, 1.7]} sc={0.7} />
       <Tanam k={k} />
     </group>
   );
 };
 const Selokan: React.FC<{t: number; p: number}> = ({t, p}) => p <= 0 ? null : (
   <group scale={[1, p, 1]} position={[-1.65, 0, 0]}>
-    <Bx p={[-0.2, 0.05, 0]} s={[0.1, 0.1, 3.0]} c={P17.gutter} edge={false} />
-    <Bx p={[0.2, 0.05, 0]} s={[0.1, 0.1, 3.0]} c={P17.gutter} edge={false} />
-    <Bx p={[0, 0.0, 0]} s={[0.3, 0.06, 3.0]} c="#2a2c30" edge={false} />
-    {Array.from({length: 6}).map((_, i) => { const k = (t * 0.7 + i / 6) % 1; return <Ball key={i} p={[0, 0.045, -1.4 + k * 2.8]} s={0.07} c={P17.waterLt} sx={1} sy={0.6} />; })}
+    <Bx p={[-0.2, 0.05, 0]} s={[0.1, 0.1, 8.0]} c={P17.gutter} edge={false} />
+    <Bx p={[0.2, 0.05, 0]} s={[0.1, 0.1, 8.0]} c={P17.gutter} edge={false} />
+    <Bx p={[0, 0.0, 0]} s={[0.3, 0.06, 8.0]} c="#2a2c30" edge={false} />
+    {Array.from({length: 6}).map((_, i) => { const k = (t * 0.7 + i / 6) % 1; return <Ball key={i} p={[0, 0.045, -3.6 + k * 7.2]} s={0.07} c={P17.waterLt} sx={1} sy={0.6} />; })}
   </group>
 );
 export const Rumah: React.FC<{k: number; wet: number; glow: number; t: number}> = ({k, wet, glow, t}) => {
@@ -179,10 +179,10 @@ const Awan: React.FC<{p: number}> = ({p}) => p <= 0 ? null : (
 );
 export const Hujan: React.FC<{t: number; o: number; k: number}> = ({t, o, k}) => o <= 0 ? null : (
   <group>
-    {Array.from({length: 26}).map((_, i) => {
-      const x = -4.8 + hash(i) * 9.2, f = (t * 1.5 + hash(i + 50)) % 1, y = 3.4 - f * 3.5;
+    {Array.from({length: 34}).map((_, i) => {
+      const x = -3.8 + hash(i) * 8.4, f = (t * 1.5 + hash(i + 50)) % 1, y = 3.4 - f * 3.5;
       const floor = x < -1.4 ? 0.06 : yardTopAt(k) + 0.04;
-      return y > floor ? <Ball key={i} p={[x, y, 0.6 - hash(i + 20) * 1.2]} s={0.035} c={P17.water} sy={2.6} /> : null;
+      return y > floor ? <Ball key={i} p={[x, y, (hash(i + 20) - 0.5) * 7]} s={0.035} c={P17.water} sy={2.6} /> : null;
     })}
   </group>
 );
@@ -193,16 +193,16 @@ const Aliran: React.FC<{t: number; o: number; k: number}> = ({t, o, k}) => {
   return (
     <group>
       {Array.from({length: 11}).map((_, i) => {
-        const s = (t * 0.35 + i / 11) % 1, x = lerp(-4.8, xEnd, s);
+        const s = (t * 0.35 + i / 11) % 1, x = lerp(-3.7, xEnd, s);
         const y = x < -1.4 || raised ? 0.07 : 0.07 - ((x + 1.4) / 0.8) * 0.55;
-        return <Ball key={i} p={[x, y, 0.3 - hash(i + 5) * 0.6]} s={0.07 * o} c={P17.waterLt} sx={1.4} sy={0.7} />;
+        return <Ball key={i} p={[x, y, (hash(i + 5) - 0.5) * 2.4]} s={0.07 * o} c={P17.waterLt} sx={1.4} sy={0.7} />;
       })}
     </group>
   );
 };
 export const Genangan: React.FC<{lvl: number}> = ({lvl}) => lvl <= 0.001 ? null : <Bx p={[-0.12, YARD0 + lvl / 2, 0]} s={[1.0, lvl, 2.0]} c={P17.water} op={0.75} edge={false} />;
-const Mobil: React.FC<{x: number}> = ({x}) => (
-  <group position={[x, 0.05, 0.45]}>
+const Mobil: React.FC<{lx: number; z: number}> = ({lx, z}) => (
+  <group position={[lx, 0.05, z]} rotation={[0, -Math.PI / 2, 0]}>
     <Bx p={[0, 0.2, 0]} s={[0.85, 0.24, 0.45]} c="#e8e3d8" />
     <Bx p={[-0.05, 0.4, 0]} s={[0.46, 0.2, 0.4]} c="#cfe6f7" />
     <Cyl p={[-0.27, 0.1, 0.22]} r={0.1} h={0.08} c="#2c2f33" rot={[Math.PI / 2, 0, 0]} /><Cyl p={[0.27, 0.1, 0.22]} r={0.1} h={0.08} c="#2c2f33" rot={[Math.PI / 2, 0, 0]} />
@@ -214,7 +214,7 @@ const Debu: React.FC<{t: number; k: number; pile: number}> = ({t, k, pile}) => {
     <group>
       {Array.from({length: 18}).map((_, i) => {
         const f = (t * 0.5 + hash(i)) % 1, x = lerp(-1.6, 0.2, hash(i + 4)) + f * 0.4, y = lerp(1.3, yt + 0.06, f);
-        return <Ball key={i} p={[x, y, 0.8 - hash(i + 30) * 1.4]} s={0.05} c={P17.dust} />;
+        return <Ball key={i} p={[x, y, (hash(i + 30) - 0.5) * 3.2]} s={0.05} c={P17.dust} />;
       })}
       {pile > 0.01 && <Prism p={[-0.12, yt, 0.0]} w={0.9} h={0.18 * pile} d={1.9} c={P17.dust} apex={0.2} />}
     </group>
@@ -278,7 +278,7 @@ export const Video17: React.FC = () => {
 
       {/* A. hook: potongan jalan, rumah di cekungan */}
       <Seg a={0} b={B.mitos}>
-        <Stage cam={camAt(t, [[0, [0.3, 0.75, 100]], [4.6, [0.3, 0.75, 107]]])}>
+        <Stage cam={camAt(t, [[0, [1.0, 0.75, 93]], [4.6, [1.0, 0.75, 100]]])}>
           <Dunia k={0} /><Rumah k={0} wet={0} glow={0} t={t} />
         </Stage>
         <Callout x={250} y={790} ax={250} ay={905} p={r(t, 0.9, 1.4)} text="Level Jalan" color={P17.asphalt} />
@@ -286,7 +286,7 @@ export const Video17: React.FC = () => {
       </Seg>
       {/* B. mitos: "energi" mengendap di dalam rumah */}
       <Seg a={B.mitos} b={B.air}>
-        <Stage cam={camAt(t, [[4.6, [0.9, 0.75, 112]], [8.8, [1.0, 0.7, 122]]])}>
+        <Stage cam={camAt(t, [[4.6, [1.6, 0.75, 104]], [8.8, [1.7, 0.7, 113]]])}>
           <Dunia k={0} /><Rumah k={0} wet={0} glow={glow} t={t} />
         </Stage>
         <Chip x={540} y={1140} p={r(t, 5.9, 6.3)} text="energi mengendap" color="#b8860b" size={40} />
@@ -294,7 +294,7 @@ export const Video17: React.FC = () => {
       </Seg>
       {/* C. air hujan: dive dari awan ke bawah pintu */}
       <Seg a={B.air} b={B.debu}>
-        <Stage cam={camAt(t, [[8.8, [0.2, 1.0, 100]], [11.0, [0.2, 1.0, 100]], [13.0, [0.0, 0.8, 112]], [16.5, [0.4, 0.55, 128]]])}>
+        <Stage cam={camAt(t, [[8.8, [0.9, 1.0, 93]], [11.0, [0.9, 1.0, 93]], [13.0, [0.7, 0.8, 104]], [16.5, [1.1, 0.55, 119]]])}>
           <Dunia k={0} /><Rumah k={0} wet={wet} glow={0} t={t} /><Awan p={r(t, 10.5, 11.2) * (1 - r(t, 12.0, 12.6))} /><Hujan t={t} o={rain} k={0} /><Aliran t={t} o={rain} k={0} /><Genangan lvl={genangan} />
         </Stage>
         <Chip x={300} y={1150} p={r(t, 12.6, 13.0)} text="air dari jalan" color={P17.water} size={38} />
@@ -302,9 +302,9 @@ export const Video17: React.FC = () => {
       </Seg>
       {/* D. debu & asap kendaraan, angin susah masuk */}
       <Seg a={B.debu} b={B.payoff}>
-        <Stage cam={camAt(t, [[16.53, [-0.2, 0.8, 104]], [19.9, [0.2, 0.7, 110]], [22.4, [0.5, 0.7, 114]]])}>
+        <Stage cam={camAt(t, [[16.53, [0.5, 0.8, 97]], [19.9, [0.9, 0.7, 102]], [22.4, [1.2, 0.7, 106]]])}>
           <Dunia k={0} /><Rumah k={0} wet={1} glow={0} t={t} />
-          <Mobil x={-5.2 + (t - 16.9) * 1.05} /><Mobil x={-5.2 + (t - 18.6) * 1.05} />
+          <Mobil lx={-2.0} z={-4.8 + (t - 16.9) * 1.5} /><Mobil lx={-3.1} z={-4.8 + (t - 18.6) * 1.5} />
           <Debu t={t} k={0} pile={pile} /><Angin t={t} o={r(t, 19.9, 20.4)} k={0} />
         </Stage>
         <Chip x={300} y={1110} p={r(t, 17.4, 17.8)} text="debu & asap" color="#8a7358" size={38} />
@@ -312,7 +312,7 @@ export const Video17: React.FC = () => {
       </Seg>
       {/* E. payoff: dua penyebab asli */}
       <Seg a={B.payoff} b={B.solusi}>
-        <Stage cam={camAt(t, [[22.38, [0.3, 0.75, 104]], [27.64, [0.3, 0.75, 110]]])}>
+        <Stage cam={camAt(t, [[22.38, [1.0, 0.75, 97]], [27.64, [1.0, 0.75, 102]]])}>
           <Dunia k={0} /><Rumah k={0} wet={1} glow={0} t={t} /><Hujan t={t} o={1} k={0} /><Genangan lvl={0.17} /><Debu t={t} k={0} pile={1} />
         </Stage>
         <Chip x={290} y={1130} p={r(t, 25.6, 26.0)} text="air hujan" color={P17.water} size={42} />
@@ -320,7 +320,7 @@ export const Video17: React.FC = () => {
       </Seg>
       {/* F. solusi: lantai & ambang diurug sampai lebih tinggi dari jalan */}
       <Seg a={B.solusi} b={B.selokan}>
-        <Stage cam={camAt(t, [[27.64, [0.3, 0.75, 106]], [30.3, [0.3, 0.75, 106]], [36.97, [0.4, 0.95, 112]]])}>
+        <Stage cam={camAt(t, [[27.64, [1.0, 0.75, 99]], [30.3, [1.0, 0.75, 99]], [36.97, [1.1, 0.95, 104]]])}>
           <Dunia k={k} /><Rumah k={k} wet={wet} glow={0} t={t} /><Hujan t={t} o={1} k={k} /><Aliran t={t} o={1} k={k} /><Genangan lvl={genangan} />
           <Debu t={t} k={k} pile={pile} /><GarisJalan p={r(t, 32.5, 34.0)} />
           {Array.from({length: 8}).map((_, i) => { const f2 = (t * 0.8 + i / 8) % 1; return k > 0.02 && k < 0.98 ? <Ball key={i} p={[-0.2 + hash(i) * 3.6, 2.2 - f2 * 1.8, 0.2 + hash(i + 9) * 0.8]} s={0.06} c={P17.soilDk} /> : null; })}
@@ -329,7 +329,7 @@ export const Video17: React.FC = () => {
       </Seg>
       {/* G. selokan: air punya jalan keluar */}
       <Seg a={B.selokan} b={B.aksi}>
-        <Stage cam={camAt(t, [[37.19, [-0.5, 0.7, 112]], [42.8, [-0.8, 0.65, 122]]])}>
+        <Stage cam={camAt(t, [[37.19, [0.2, 0.7, 104]], [42.8, [-0.1, 0.65, 113]]])}>
           <Dunia k={1} /><Rumah k={1} wet={0} glow={0} t={t} />
           <Hujan t={t} o={1} k={1} /><Aliran t={t} o={1} k={1} />
           <Selokan t={t} p={r(t, 37.6, 38.4)} />
@@ -339,14 +339,14 @@ export const Video17: React.FC = () => {
       </Seg>
       {/* H. aksi: cek lantai terhadap jalan sebelum beli */}
       <Seg a={B.aksi} b={B.gema}>
-        <Stage cam={camAt(t, [[43.06, [0.4, 0.7, 118]], [47.67, [0.3, 0.85, 104]]])}>
+        <Stage cam={camAt(t, [[43.06, [1.1, 0.7, 110]], [47.67, [1.0, 0.85, 97]]])}>
           <Dunia k={1} /><Rumah k={1} wet={0} glow={0} t={t} /><GarisJalan p={r(t, 43.5, 45.0)} />
         </Stage>
         <Mark x={540} y={1260} ok p={r(t, 45.2, 45.6)} text="lantai > jalan" />
       </Seg>
       {/* I. gema + CTA + follow: rumah kering, tetes berhenti di ambang */}
       <Seg a={B.gema} b={B.end}>
-        <Stage cam={camAt(t, [[47.67, [0.3, 0.75, 104]], [53.4, [0.3, 0.75, 112]]])}>
+        <Stage cam={camAt(t, [[47.67, [1.0, 0.75, 97]], [53.4, [1.0, 0.75, 104]]])}>
           <Dunia k={1} /><Rumah k={1} wet={0} glow={0} t={t} /><Hujan t={t} o={1} k={1} /><Aliran t={t} o={1} k={1} /><Selokan t={t} p={1} />
         </Stage>
         <CommentBubble word="tinggi atau rendah?" start={Math.round(48.6 * FPS)} y={1000} />
