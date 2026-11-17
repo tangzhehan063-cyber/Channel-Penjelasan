@@ -369,7 +369,7 @@ export const Video17: React.FC = () => {
       <Title t={t} a={B.aksi} b={B.gema} small="Mau beli? Cek" big="LANTAI vs JALAN" bigAt={44.2} size={84} />
       <Title t={t} a={B.gema} b={B.follow} small="Rumahmu" big="TINGGI / RENDAH?" bigAt={48.2} size={82} />
 
-      <Kicker text="FAKTA RUMAH · #17" y={292} start={0} color={CORAL} />
+      <Kicker text="FAKTA RUMAH · #17" y={292} start={0} color={t >= 24.6 && t < 27.5 ? '#ffffff' : CORAL} />
       <TikTokBox text="Rumah lebih rendah dari jalan itu sial?" p={r(t, 0.2, 1.0, Easing.linear)} y={338} size={40} />
       <FollowButton start={Math.round(51.0 * FPS)} click={Math.round(52.3 * FPS)} y={760} />
       <Captions ms={ms} />
