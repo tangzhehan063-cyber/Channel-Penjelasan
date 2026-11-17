@@ -16,8 +16,10 @@ import {Box, M as M7} from '../v07/Atap';
 import {House} from '../v08/Rumah';
 import words from '../../public/v18/words.json';
 
-const PL = PALET.terakota;
-export const P18 = {coral: PL.accent, good: PL.good, hot: '#d9482b', sun: '#f0a830', ink: '#1c1c1e', wall: '#f3ead9', roof: PL.accent, earth: '#9a6a45', green: '#4f8a4a', leaf: '#5fa055', trunk: '#6b4630', navy: '#1b2640'};
+const PNAME = 'malam' as 'terakota'|'batu'|'mint'|'malam';
+const PL = PALET[PNAME];
+const EARTH = {terakota: '#9a6a45', batu: '#6f5a48', mint: '#7b6a4c', malam: '#4a3a33'}[PNAME];
+export const P18 = {coral: PL.accent, good: PL.good, hot: '#d9482b', sun: '#f0a830', ink: '#1c1c1e', wall: '#f3ead9', roof: PL.accent, earth: EARTH, green: '#4f8a4a', leaf: '#5fa055', trunk: '#6b4630', navy: '#1b2640'};
 export const FPS = 30;
 export const V18_END = 51.6;
 export const V18_FRAMES = Math.ceil(V18_END * FPS);
@@ -233,7 +235,7 @@ export const Video18: React.FC = () => {
   const doorXZ: V3 = t >= 28.3 ? [0, 0.18, -1.5] : cyc === 0 ? [0, 0.18, -1.5] : cyc === 1 ? [1.2, 0.18, 0] : [0, 0.18, 1.5];
   return (
     <AbsoluteFill>
-      <PaperPalet palet="terakota" />
+      <PaperPalet palet={PNAME} />
       <AbsoluteFill style={{background: `linear-gradient(180deg, ${P18.navy} 0%, #2b3a5e 100%)`, opacity: 0.95 * night}} />
 
       {/* 1. hook: matahari sore besar, atap rumah memanas */}
