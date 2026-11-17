@@ -1,10 +1,10 @@
-# STORYBOARD · VIDEO #17 · TAHAP 2 · DRAF v2 (17 Nov 2026), palet `langit`, tanpa angka biaya; menunggu ACC user
+# STORYBOARD · VIDEO #17 · TAHAP 2 · DRAF v3 (17 Nov 2026), palet `langit`, tanpa angka biaya; menunggu ACC user
 ## Rumah Lebih Rendah dari Jalan Bukan Pembawa Sial
 **Bukan Sial #03** (format #9: kutip anggapan → cap BUKAN SIAL → alasan nyata → orang tua ada benarnya → cek sendiri). Mode **HYBRID**. 1080×1920 · ±50 dtk · jangkar kicker `FAKTA RUMAH · #17` + TikTokBox. Tanpa ornamen sudut.
 
 ## Hook (3 alternatif)
-- (a) Bantahan: "Rumah lebih rendah dari jalan katanya bawa sial? Yang mengendap itu air." ← **dipilih** (menjawab kata yang dicari orang + janji twist)
-- (b) Ketakutan personal: "Rumahmu lebih rendah dari jalan? Tiap hujan, jalan itu ngarah ke pintumu."
+- (a) Bantahan: "Rumah lebih rendah dari jalan katanya bawa sial? Yang mengendap itu air." (menjawab kata yang dicari orang + janji twist)
+- (b) Ketakutan personal: "Rumahmu lebih rendah dari jalan? Orang tua bilang itu rumah sial." ← **dipilih v3** (user: versi lama terasa AI; ini kalimat orang bicara, tanpa "bukan X")
 - (c) Kontras: "Orang bilang energinya mengendap. Tukang bilang airnya."
 Alasan: (a) paling dekat dengan pencarian; (b) jadi isi beat 3.
 
@@ -23,8 +23,8 @@ Alasan: (a) paling dekat dengan pencarian; (b) jadi isi beat 3.
 ## Beat (VO ±115 kata, ±2,3 kata/dtk)
 | # | Detik | Judul | Teks layar | VO | Visual | Shot |
 |---|---|---|---|---|---|---|
-| 1 | 0–3 | Hook | Lebih rendah dari jalan? / BUKAN SIAL | Rumah lebih rendah dari jalan katanya bawa sial? Bukan sial. | Potongan jalan miring, rumah di cekungan, cap koral | lebar, push 4% |
-| 2 | 3–9 | Mitos | Katanya energi mengendap | Katanya energi mengendap di situ, terus keuanganmu ikut seret. | Awan titik cahaya kuning menumpuk di dalam rumah | crane turun |
+| 1 | 0–3 | Hook | Lebih rendah dari jalan? / KATANYA SIAL | Rumahmu lebih rendah dari jalan? Orang tua bilang itu rumah sial. | Potongan jalan miring, rumah di cekungan; cap koral "BUKAN SIAL" baru muncul di beat 5 | lebar, push 4% |
+| 2 | 3–9 | Mitos | Katanya energi mengendap | Katanya energinya mengendap, terus keuanganmu ikut seret. | Awan titik cahaya kuning menumpuk di dalam rumah | crane turun |
 | 3 | 9–18 | Air (momen khas) | Hujan deras / AIR NGARAH KE PINTUMU | Yang mengendap itu air. Hujan deras, air dari jalan mengalir turun, lewat pagar, masuk ke bawah pintumu. | POV tetes air mengikuti jalur koral ke ambang pintu | POV dive, hening 0,8 dtk lalu tetes |
 | 4 | 18–25 | Debu | Debu & asap / NUMPUK DI TEMPAT RENDAH | Debu dan asap kendaraan juga ngumpul di tempat rendah. Anginnya susah masuk, udaranya pengap. | Partikel jatuh ke cekungan, panah angin terhalang | orbit 30° |
 | 5 | 25–31 | Payoff | Bukan energi, tapi / AIR & DEBU | Jadi yang orang tua sebut energi buruk, aslinya air hujan dan debu. | PatternBreak koral; kata "ENERGI" disobek jadi ikon tetes | pull lebar, tahan |
@@ -42,4 +42,4 @@ Alasan: (a) paling dekat dengan pencarian; (b) jadi isi beat 3.
 - **2 judul lanjutan Bukan Sial:** "Pintu Depan Sejajar Pintu Belakang", "Tiang Listrik di Depan Pagar".
 
 ## Status humanizer
-Naskah sudah dilewatkan humanizer (tanpa "bukan X tapi Y" di VO selain cap seri, tanpa tanda "—", tanpa triad paksa). Beat 1 ("Bukan sial.") mengikuti format seri #9.
+Naskah sudah dilewatkan humanizer (tanpa "bukan X tapi Y" di VO selain cap seri, tanpa tanda "—", tanpa triad paksa). Beat 1 v3 tanpa pola "bukan X"; cap BUKAN SIAL pindah ke payoff (beat 5).
