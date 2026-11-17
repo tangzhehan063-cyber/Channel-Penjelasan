@@ -5,6 +5,7 @@
 - **Tata letak (R1–R3 user):** irisan tanah utuh ala #16 → blok isometrik diagonal ala referensi user → **jalan vertikal, mobil dari atas ke bawah, rumah di samping jalan sedikit lebih rendah (±0,4)**, rumah tetangga berjajar, label "Level Jalan/Level Rumah" di hook. Stage 2,5D diputar `ROT` (Video17.tsx).
 - **Angka tidak dipakai di video:** peil 20 cm (PP 12/2021), lantai 40–50 cm, biaya Rp10–12 jt belum terverifikasi (sumber diblokir jaringan 17 Nov); isi mitos feng shui dibaca dari cuplikan (ditulis "katanya"). Host jdih.pkp.go.id, detik, kontan, kompas sudah ditambahkan ke environment tapi agen pembaca halaman tetap gagal pada sesi itu.
 - **Bug baru** di `style/cek-bug.md`: awan menutupi kicker, z-fighting tanah/rumput, celah tanah, mobil di luar jalan.
+- **Pelajaran dari user (17 Nov, setelah #17 dirilis):** #17 terasa lebih jelek dari #7 dan #13 karena satu diorama dipakai 53 dtk, objek kecil (≈⅓ tinggi layar), tanpa close-up. Video baru: **tiap beat objek hero sendiri yang besar memenuhi bingkai** (seperti #7/#13), diorama lebar hanya untuk pembuka/penutup, jangan perlebar bingkai demi 'semua terlihat'. Peringatkan user bila revisi tata letak membuat objek mengecil/monoton. #17 dipakai apa adanya (user tidak minta v2).
 - Video berikutnya: nomor #18. Ide mitos lanjutan di `riset/2026-11-17-ide-video-17-mitos.md` (tiang listrik depan pagar, pintu depan sejajar belakang, rumah hadap barat, rumah hook).
 
 ## Posisi sebelumnya (16 Nov 2026)
