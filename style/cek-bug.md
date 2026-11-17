@@ -41,3 +41,4 @@ Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) s
 - Kicker/pil hook tertutup 3D: komponen 3D (Seg) harus dirender SEBELUM Kicker dan TikTokBox di DOM, bila ada dinding/objek putih besar.
 - Bidang halaman (lantai luar) berujung terlihat sebagai tepi terang/gelap: buat bidang luar sangat besar (60 m).
 - Daun pintu membuka ke arah kamera menutup objek kunci: buka ke dalam.
+- Judul yang masih tampil saat gelembung komentar/tombol follow masuk menimpa (#19: Title denah sampai 50,0). Akhiri judul sebelum overlay penutup muncul.

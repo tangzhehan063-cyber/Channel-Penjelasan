@@ -84,7 +84,7 @@ const DoorLeaf: React.FC<{z: number; open: number; side?: 1 | -1}> = ({z, open, 
 );
 
 type HallP = {wl?: number; wr?: number; open?: number; coin?: number; wind?: number; sight?: number; shelf?: number; curtain?: number; plant?: number; t: number; fade?: number};
-const Hall: React.FC<HallP> = ({wl = 1, wr, open = 1, coin = -1, wind = 0, sight = 0, shelf = 0, curtain = 0, plant = 0, t}) => {
+export const Hall: React.FC<HallP> = ({wl = 1, wr, open = 1, coin = -1, wind = 0, sight = 0, shelf = 0, curtain = 0, plant = 0, t}) => {
   const streaks = Array.from({length: 15}, (_, i) => {
     const spd = 2.2 + hash(i) * 1.2, len = 10.5;
     const z = 5.2 - ((t * spd + hash(i + 9) * len) % len);
@@ -144,7 +144,7 @@ const Rig: React.FC<{k: Key}> = ({k}) => {
   return null;
 };
 const Lights: React.FC = () => (<><Env /><ambientLight intensity={0.35} /><directionalLight position={[4, 7, 5]} intensity={2.6} color="#ffffff" /><directionalLight position={[-4, 2, 3]} intensity={0.5} color="#e6fff3" /></>);
-const Canvas3D: React.FC<{k: Key; children: React.ReactNode}> = ({k, children}) => (
+export const Canvas3D: React.FC<{k: Key; children: React.ReactNode}> = ({k, children}) => (
   <ThreeCanvas width={1080} height={1920} camera={{position: k.pos, fov: FOV}} gl={{alpha: true, antialias: true}}>
     <Lights /><Rig k={k} />{children}
   </ThreeCanvas>
@@ -255,7 +255,7 @@ export const Video19: React.FC = () => {
       <Title t={t} a={B.privasi} b={B.rak} small="Harganya ada di" big="PRIVASI" size={140} />
       <Title t={t} a={B.rak} b={B.feng} small="Rak, sekat, atau" big="GORDEN" bigColor={GOOD} size={140} />
       <Title t={t} a={B.feng} b={B.denah} small="Solusi feng shui" big="SAMA SAJA" bigColor={GOOD} size={118} />
-      <Title t={t} a={B.denah} b={B.follow} small="Cek denahnya" big="SEGARIS?" size={140} />
+      <Title t={t} a={B.denah} b={B.tanya} small="Cek denahnya" big="SEGARIS?" size={140} />
 
       {/* ---------- stiker ---------- */}
       <Chip x={540} y={1230} p={r(t, 28.7, 29.1) * (1 - r(t, 31.6, 31.95))} text="terlihat sampai dapur" color={CORAL} size={46} />
