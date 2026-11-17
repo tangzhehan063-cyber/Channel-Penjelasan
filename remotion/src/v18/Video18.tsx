@@ -1,33 +1,73 @@
-// Video #18 "Rumah hadap barat itu panas?" DNA v8–17, palet `terakota`, TANPA Ornament. Pelajaran #17: tiap beat objek hero sendiri, BESAR, kamera dekat.
-// VO ElevenLabs Riri Rida (flow 0Rn9dQNRXEMcHS1Ng1Cs), timestamp public/v18/words.json (align_teks). Naskah: naskah/video-18-rumah-hadap-barat.md
-// Warna tambahan sengaja: kuning matahari (benda bercahaya).
+// Video #18 "Rumah hadap barat itu panas?" Gaya #8/#9: kamera PERSPEKTIF 3D dekat, objek hero memenuhi bingkai, outline tinta, latar bergantian (siang / malam navy / pemutus koral).
+// Palet `terakota`, TANPA Ornament. VO ElevenLabs Riri Rida (flow 0Rn9dQNRXEMcHS1Ng1Cs), timestamp public/v18/words.json (align_teks). Naskah: naskah/video-18-rumah-hadap-barat.md
+// Warna tambahan sengaja: kuning matahari (benda bercahaya), navy malam (suasana).
 import {Audio} from '@remotion/media';
 import {createTikTokStyleCaptions, type Caption} from '@remotion/captions';
 import {ThreeCanvas} from '@remotion/three';
+import {useThree} from '@react-three/fiber';
+import {useMemo} from 'react';
+import * as THREE from 'three';
 import {AbsoluteFill, Easing, interpolate, Sequence, staticFile, useCurrentFrame} from 'remotion';
+import {Env} from '../pengetahuan/Scene';
 import {Grain, TikTokBox, PatternBreak, C} from '../aset/Aset';
 import {Kicker, FollowButton, CommentBubble} from '../aset/Gabung';
 import {PaperPalet, PALET} from '../aset/PaperPalet';
-import {Env} from '../pengetahuan/Scene';
-import {Rig} from '../v13/Mood13';
+import {Box, M as M7} from '../v07/Atap';
+import {House} from '../v08/Rumah';
 import words from '../../public/v18/words.json';
-import {Edges} from '@react-three/drei';
-import {useMemo} from 'react';
-import {Shape, ExtrudeGeometry} from 'three';
 
 const PL = PALET.terakota;
-export const P18 = {coral: PL.accent, good: PL.good, hot: '#d9482b', sun: '#f0a830', ink: '#1c1c1e', wall: '#f6efe0', wallHot: '#d9482b', roof: PL.accent, soil: '#8a5a3c', earth: '#b07a50', green: '#4f8a4a', leaf: '#5fa055', trunk: '#6b4630', glass: '#9ec7de'};
+export const P18 = {coral: PL.accent, good: PL.good, hot: '#d9482b', sun: '#f0a830', ink: '#1c1c1e', wall: '#f3ead9', roof: PL.accent, earth: '#cfa57f', green: '#4f8a4a', leaf: '#5fa055', trunk: '#6b4630', navy: '#1b2640'};
 export const FPS = 30;
 export const V18_END = 51.6;
 export const V18_FRAMES = Math.ceil(V18_END * FPS);
+const FOV = 34;
 const CC_TOP = 1400, CORAL = P18.coral, INK = C.ink;
 const ease = Easing.inOut(Easing.cubic);
 const r = (t: number, a: number, b: number, e = ease) => interpolate(t, [a, b], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: e});
 const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
 const hash = (i: number) => { const x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+type V3 = [number, number, number];
 
 // ---------- beat (detik dari words.json) ----------
 const B = {hook: 0, hook2: 1.55, takut: 3.8, pagi: 8.26, sore: 10.51, siang: 14.75, simpan: 18.47, payoff: 23.36, denah: 25.6, utara: 28.39, solusi: 30.97, pohon: 32.39, teritis: 36.54, aksi: 39.2, kosong: 42.6, gema: 46.38, follow: 49.19, end: V18_END};
+
+// ---------- kamera perspektif (gaya #8/#9) ----------
+type Key = {t: number; pos: V3; look: V3; fov?: number};
+const lerp3 = (a: V3, b: V3, k: number): V3 => [lerp(a[0], b[0], k), lerp(a[1], b[1], k), lerp(a[2], b[2], k)];
+function camAt(keys: Key[], t: number): Key {
+  if (t <= keys[0].t) return keys[0];
+  for (let i = 0; i < keys.length - 1; i++) {
+    const a = keys[i], b = keys[i + 1];
+    if (t <= b.t) { const k = ease((t - a.t) / (b.t - a.t)); return {t, pos: lerp3(a.pos, b.pos, k), look: lerp3(a.look, b.look, k), fov: a.fov}; }
+  }
+  return keys[keys.length - 1];
+}
+const CAM_HOOK: Key[] = [{t: 0, pos: [0.3, 2.0, 9.6], look: [0, 1.7, 0]}, {t: 3.8, pos: [0.2, 1.9, 8.0], look: [0, 1.7, 0]}];
+const CAM_TAKUT: Key[] = [{t: 3.8, pos: [0.3, 2.0, 12.5], look: [0, 3.3, 0]}, {t: 8.3, pos: [0.1, 2.0, 11.5], look: [0, 3.3, 0]}];
+const CAM_PAGI: Key[] = [{t: 8.26, pos: [0.3, 1.9, 9.2], look: [0.1, 1.8, 0]}, {t: 14.7, pos: [0.45, 1.8, 8.2], look: [0.1, 1.7, 0]}, {t: 18.4, pos: [0.55, 1.8, 5.0], look: [0.4, 1.7, 0]}];
+const CAM_SIMPAN: Key[] = [{t: 18.47, pos: [1.3, 1.6, 8.2], look: [1.0, 1.3, 0]}, {t: 23.3, pos: [1.6, 1.7, 7.0], look: [1.2, 1.3, 0]}];
+const CAM_DENAH: Key[] = [{t: 25.6, pos: [0, 13.4, 1.4], look: [0, 0, 0]}, {t: 31.0, pos: [0, 11.4, 1.2], look: [0, 0, 0]}];
+const CAM_SOLUSI: Key[] = [{t: 30.97, pos: [0.2, 1.9, 8.6], look: [0.1, 1.7, 0]}, {t: 39.2, pos: [0.3, 2.1, 9.8], look: [0.2, 1.8, 0]}];
+const CAM_END: Key[] = [{t: 46.38, pos: [0.6, 2.2, 10.0], look: [0.4, 1.7, 0]}, {t: 51.6, pos: [0.9, 2.5, 12.0], look: [0.4, 1.7, 0]}];
+
+const Rig: React.FC<{k: Key}> = ({k}) => {
+  const cam = useThree((s) => s.camera) as THREE.PerspectiveCamera;
+  cam.position.set(...k.pos); cam.fov = k.fov ?? FOV; cam.updateProjectionMatrix(); cam.lookAt(...k.look);
+  return null;
+};
+const Lights: React.FC<{night?: number}> = ({night = 0}) => (<><Env intensity={0.35} /><ambientLight intensity={0.35} /><directionalLight position={[-3, 6, 6]} intensity={2.6 - 1.4 * night} color={night > 0.5 ? '#cfe0ff' : '#fff1df'} /><directionalLight position={[4, 2, 3]} intensity={0.5} color="#ffd9c2" /></>);
+export const Canvas3D: React.FC<{k: Key; night?: number; children: React.ReactNode}> = ({k, night, children}) => (
+  <ThreeCanvas width={1080} height={1920} camera={{position: k.pos, fov: k.fov ?? FOV}} gl={{alpha: true, antialias: true}}>
+    <Lights night={night} /><Rig k={k} />{children}
+  </ThreeCanvas>
+);
+const OV = 8;
+const Seg: React.FC<{a: number; b: number; f: number; first?: boolean; children: React.ReactNode}> = ({a, b, f, first, children}) => {
+  const fa = Math.max(0, Math.round(a * FPS) - (first ? 0 : OV)), fb = Math.round(b * FPS) + OV;
+  const o = interpolate(f, [fa, fa + 2 * OV, fb - 2 * OV, fb], [first ? 1 : 0, 1, 1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  return <Sequence from={fa} durationInFrames={fb - fa} layout="none"><AbsoluteFill style={{opacity: o}}>{children}</AbsoluteFill></Sequence>;
+};
 
 // ---------- subtitle ----------
 const caps: Caption[] = (words as {words: {word: string; start: number; end: number}[]}).words.map((w, i) => ({text: (i ? ' ' : '') + w.word, startMs: w.start * 1000, endMs: w.end * 1000, timestampMs: w.start * 1000, confidence: 1}));
@@ -81,106 +121,60 @@ const Mark: React.FC<{x: number; y: number; ok: boolean; p: number; text: string
   </div>
 ) : null;
 
-// ---------- panggung 3D 2,5D ----------
-type Cam = [number, number, number];
-const camAt = (t: number, keys: [number, Cam][]): Cam => {
-  if (t <= keys[0][0]) return keys[0][1];
-  for (let i = 0; i < keys.length - 1; i++) { const [ta, a] = keys[i], [tb, b] = keys[i + 1]; if (t <= tb) { const k = ease((t - ta) / (tb - ta)); return [lerp(a[0], b[0], k), lerp(a[1], b[1], k), lerp(a[2], b[2], k)]; } }
-  return keys[keys.length - 1][1];
-};
-export const Stage: React.FC<{cam: Cam; children: React.ReactNode}> = ({cam, children}) => (
-  <ThreeCanvas width={1080} height={1920} shadows orthographic camera={{position: [0, 4, 30], zoom: 200, near: 0.1, far: 100}} gl={{alpha: true, antialias: true}}>
-    <Rig x={cam[0]} y={cam[1]} zoom={cam[2]} />
-    <Env intensity={0.35} /><hemisphereLight args={['#fffaf0', '#cfc6b4', 0.6]} />
-    <directionalLight position={[2.5, 4.5, 3.0]} intensity={2.2} color="#fff4e6" castShadow shadow-mapSize={[1024, 1024]} shadow-camera-left={-6} shadow-camera-right={6} shadow-camera-top={6} shadow-camera-bottom={-6} shadow-radius={6} shadow-bias={-0.0004} />
-    <directionalLight position={[-3, 1.5, 2]} intensity={0.35} color="#ffe2da" />
-    {children}
-  </ThreeCanvas>
-);
-const Seg: React.FC<{a: number; b: number; children: React.ReactNode}> = ({a, b, children}) => {
-  const fa = Math.round(a * FPS), fb = Math.round(b * FPS);
-  return <Sequence from={fa} durationInFrames={fb - fa} layout="none">{children}</Sequence>;
-};
-
-// ---------- primitif 3D ----------
-const Mat: React.FC<{c: string; cc?: number; r?: number}> = ({c, cc = 0.3, r: rough = 0.8}) => <meshPhysicalMaterial color={c} roughness={rough} clearcoat={cc} clearcoatRoughness={0.4} />;
-type V3 = [number, number, number];
-const Bx: React.FC<{p: V3; s: V3; c: string; edge?: boolean; rot?: V3; op?: number}> = ({p, s, c, edge = true, rot, op = 1}) => (
-  <mesh position={p} rotation={rot} castShadow receiveShadow><boxGeometry args={s} />{op < 1 ? <meshPhysicalMaterial color={c} roughness={0.2} clearcoat={0.8} transparent opacity={op} /> : <Mat c={c} />}{edge && op >= 1 && <Edges color="#1c1c1e" lineWidth={1.5} />}</mesh>
-);
-const Cyl: React.FC<{p: V3; r: number; h: number; c: string; rot?: V3}> = ({p, r: rad, h, c, rot}) => (
-  <mesh position={p} rotation={rot} castShadow receiveShadow><cylinderGeometry args={[rad, rad, h, 28]} /><Mat c={c} /><Edges color="#1c1c1e" lineWidth={1.2} /></mesh>
-);
-const Ball: React.FC<{p: V3; s: number; c: string; sx?: number; sy?: number; basic?: boolean}> = ({p, s, c, sx = 1, sy = 1, basic}) => (
-  <mesh position={p} scale={[s * sx, s * sy, s]} castShadow={!basic}><sphereGeometry args={[1, 18, 14]} />{basic ? <meshBasicMaterial color={c} /> : <meshPhysicalMaterial color={c} roughness={0.35} clearcoat={0.6} />}</mesh>
-);
-const Prism: React.FC<{p: V3; w: number; h: number; d: number; c: string; rot?: V3; apex?: number}> = ({p, w, h, d, c, rot, apex = 0}) => {
-  const geo = useMemo(() => { const sh = new Shape(); sh.moveTo(-w / 2, 0); sh.lineTo(w / 2, 0); sh.lineTo((apex * w) / 2, h); sh.closePath(); const g = new ExtrudeGeometry(sh, {depth: d, bevelEnabled: false}); g.translate(0, 0, -d / 2); return g; }, [w, h, d, apex]);
-  return <mesh position={p} rotation={rot} geometry={geo} castShadow receiveShadow><Mat c={c} /><Edges color="#1c1c1e" lineWidth={1.5} /></mesh>;
-};
-
-// ---------- helper warna ----------
-const hex2 = (h: string) => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
-const mix = (a: string, b: string, k: number) => { const x = hex2(a), y = hex2(b); return '#' + [0, 1, 2].map((i) => Math.round(lerp(x[i], y[i], k)).toString(16).padStart(2, '0')).join(''); };
-
 // ---------- objek 3D ----------
-const Tanah: React.FC<{w?: number}> = ({w = 9}) => (
-  <group>
-    <Bx p={[0, -0.35, 0]} s={[w, 0.7, 3.2]} c={P18.soil} edge={false} />
-    <Bx p={[0, 0.0, 0]} s={[w, 0.06, 3.2]} c={P18.earth} edge={false} />
-  </group>
-);
-const Matahari: React.FC<{p: V3; s: number; t: number}> = ({p, s, t}) => (
+const phys = (color: string, o: Partial<THREE.MeshPhysicalMaterialParameters> = {}) => new THREE.MeshPhysicalMaterial({color, roughness: 0.6, clearcoat: 0.3, clearcoatRoughness: 0.35, ...o});
+const cx3 = (a: string, b: string, k: number) => new THREE.Color(a).lerp(new THREE.Color(b), Math.max(0, Math.min(1, k)));
+const MG = {ground: phys(P18.earth, {roughness: 0.95, clearcoat: 0}), trunk: phys(P18.trunk), leaf: phys(P18.leaf), leaf2: phys(P18.green), sun: new THREE.MeshBasicMaterial({color: P18.sun}), hot: new THREE.MeshBasicMaterial({color: P18.hot}), roof: phys(P18.roof), post: phys('#6b4630'), white: phys('#fbfaf6'), green: phys(P18.green)};
+export const Tanah3: React.FC<{night?: number}> = ({night = 0}) => {
+  MG.ground.color.set(P18.earth).lerp(new THREE.Color('#2a3350'), night * 0.9);
+  return <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 6]} material={MG.ground}><planeGeometry args={[40, 40]} /></mesh>;
+};
+export const Sun3: React.FC<{p: V3; s: number; t: number}> = ({p, s, t}) => (
   <group position={p}>
-    <Ball p={[0, 0, 0]} s={s} c={P18.sun} basic />
-    <mesh rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[s * 1.28 + 0.03 * Math.sin(t * 3), 0.035, 10, 48]} /><meshBasicMaterial color={P18.sun} transparent opacity={0.55} /></mesh>
-    <mesh rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[s * 1.6 + 0.04 * Math.sin(t * 3 + 1), 0.025, 10, 48]} /><meshBasicMaterial color={P18.sun} transparent opacity={0.3} /></mesh>
+    <mesh material={MG.sun}><sphereGeometry args={[s, 28, 20]} /></mesh>
+    {Array.from({length: 12}).map((_, i) => { const a = (i / 12) * Math.PI * 2 + t * 0.15, rr = s * 1.55 + 0.04 * Math.sin(t * 4 + i); return <group key={i} position={[Math.cos(a) * rr, Math.sin(a) * rr, 0]} rotation={[0, 0, a]}><Box s={[s * 0.5, 0.045, 0.045]} m={MG.sun} ink={0} /></group>; })}
   </group>
 );
-// sinar: butiran bergerak dari matahari ke titik tujuan
-const Sinar: React.FC<{from: V3; to: V3; t: number; n?: number; o?: number}> = ({from, to, t, n = 9, o = 1}) => o <= 0 ? null : (
-  <group>
-    {Array.from({length: n}).map((_, i) => { const f = (t * 0.55 + i / n) % 1; return <Ball key={i} p={[lerp(from[0], to[0], f), lerp(from[1], to[1], f), lerp(from[2], to[2], f)]} s={0.06 * o} c={P18.sun} sx={1.8} basic />; })}
-  </group>
-);
-const Dinding: React.FC<{p: V3; h: number; k: number; hot?: number}> = ({p, h, k, hot = 0}) => {
-  const c = mix(P18.wall, P18.wallHot, hot);
+export const Beam3: React.FC<{a: V3; b: V3; t: number; o?: number; n?: number}> = ({a, b, t, o = 1, n = 8}) => {
+  if (o <= 0) return null;
+  const dx = b[0] - a[0], dy = b[1] - a[1], len = Math.hypot(dx, dy), ang = Math.atan2(dy, dx);
   return (
-    <group position={p}>
-      <Bx p={[0, h / 2, 0]} s={[0.7, h, 2.2]} c={c} />
-      {Array.from({length: Math.floor(h / 0.3)}).map((_, i) => <Bx key={i} p={[-0.355, 0.15 + i * 0.3, 0]} s={[0.025, 0.03, 2.2]} c="#4a3626" edge={false} />)}
-      {Array.from({length: 5}).map((_, i) => <Bx key={i} p={[-0.358, h / 2, -0.88 + i * 0.44]} s={[0.025, h, 0.03]} c="#4a3626" edge={false} />)}
-      <Bx p={[0.0, 0.05, 0]} s={[0.9, 0.1, 2.5]} c="#8d7a68" edge={false} />
-      {k > 0 && Array.from({length: 10}).map((_, i) => { const f = (k * 3 + i * 0.37 + hash(i)) % 1; return <Ball key={i} p={[-0.45 - f * 0.25, 0.4 + hash(i + 5) * (h - 0.5) + f * 0.9, -0.9 + hash(i + 11) * 1.8]} s={0.05 * hot} c={P18.hot} sy={1.6} basic />; })}
+    <group>
+      <group position={[(a[0] + b[0]) / 2, (a[1] + b[1]) / 2, (a[2] + b[2]) / 2]} rotation={[0, 0, ang]}><mesh><boxGeometry args={[len, 0.1, 0.1]} /><meshBasicMaterial color={P18.sun} transparent opacity={0.3 * o} /></mesh></group>
+      {Array.from({length: n}).map((_, i) => { const f = (t * 0.6 + i / n) % 1; return <mesh key={i} position={[lerp(a[0], b[0], f), lerp(a[1], b[1], f), lerp(a[2], b[2], f)]} material={MG.sun} scale={[0.09 * o, 0.05 * o, 0.05 * o]}><sphereGeometry args={[1, 10, 8]} /></mesh>; })}
     </group>
   );
 };
-const Rumah18: React.FC<{p: V3; hot?: number}> = ({p, hot = 0}) => (
-  <group position={p}>
-    <Bx p={[0, 0.55, 0]} s={[1.9, 1.1, 1.4]} c={mix(P18.wall, '#e8b8a0', hot)} />
-    <Bx p={[-0.96, 0.55, 0]} s={[0.04, 1.1, 1.4]} c={mix(P18.wall, P18.wallHot, hot)} edge={false} />
-    <Prism p={[0, 1.1, 0]} w={1.6} h={0.62} d={2.15} c={P18.roof} rot={[0, Math.PI / 2, 0]} />
-    <Bx p={[0.2, 0.4, 0.72]} s={[0.36, 0.7, 0.03]} c="#6b3b24" />
-    <Bx p={[-0.45, 0.62, 0.72]} s={[0.4, 0.34, 0.03]} c={P18.glass} edge={false} />
-    <Bx p={[0.65, 0.62, 0.72]} s={[0.36, 0.34, 0.03]} c={P18.glass} edge={false} />
+// dinding bata besar, memanas (hot 0..1)
+export const Wall3: React.FC<{p: V3; hot: number; t: number}> = ({p, hot, t}) => {
+  const rows = 9, bh = 0.333, mats = useMemo(() => Array.from({length: rows * 5}, () => phys(P18.wall, {roughness: 0.9, clearcoat: 0})), []);
+  const bricks: {x: number; y: number; w: number; i: number}[] = [];
+  for (let row = 0; row < rows; row++) {
+    const odd = row % 2 === 1;
+    const xs: [number, number][] = odd ? [[-1.1375, 0.325], [-0.65, 0.65], [0, 0.65], [0.65, 0.65], [1.1375, 0.325]] : [[-0.975, 0.65], [-0.325, 0.65], [0.325, 0.65], [0.975, 0.65]];
+    xs.forEach(([x, w], j) => bricks.push({x, y: bh / 2 + row * bh, w, i: row * 5 + j}));
+  }
+  return (
+    <group position={p}>
+      {bricks.map((b) => { const h = Math.max(0, Math.min(1, hot * (0.8 + 0.4 * hash(b.i)))); mats[b.i].color.copy(cx3(P18.wall, P18.hot, h)); return <Box key={b.i} p={[b.x, b.y, 0]} s={[b.w - 0.02, bh - 0.02, 0.5]} m={mats[b.i]} ink={0.03} />; })}
+      <Box p={[0, -0.04, 0.1]} s={[3.0, 0.08, 1.0]} m={MG.white} ink={0.03} />
+      {hot > 0.05 && Array.from({length: 12}).map((_, i) => { const f = (t * 0.5 + hash(i) + i * 0.17) % 1; return <mesh key={i} position={[-1.2 + hash(i + 4) * 2.4, 0.4 + f * 2.8, 0.45]} material={MG.hot} scale={[0.07 * hot, 0.1 * hot, 0.07 * hot]}><sphereGeometry args={[1, 10, 8]} /></mesh>; })}
+    </group>
+  );
+};
+const Pohon3: React.FC<{p: V3; s: number; grow: number}> = ({p, s, grow}) => grow <= 0 ? null : (
+  <group position={p} scale={s * (0.25 + 0.75 * grow)}>
+    <mesh position={[0, 0.9, 0]} material={MG.trunk}><cylinderGeometry args={[0.16, 0.22, 1.8, 16]} /></mesh>
+    {([[0, 2.3, 0, 0.95, 0], [-0.6, 1.95, 0.1, 0.66, 1], [0.6, 2.05, -0.1, 0.7, 1], [0.0, 2.85, 0, 0.55, 0]] as number[][]).map(([x, y, z, rr, m], i) => <mesh key={i} position={[x, y, z]} material={m ? MG.leaf2 : MG.leaf}><sphereGeometry args={[rr, 20, 16]} /></mesh>)}
   </group>
 );
-const Pohon: React.FC<{p: V3; s: number; grow: number}> = ({p, s, grow}) => grow <= 0 ? null : (
-  <group position={p} scale={s * (0.3 + 0.7 * grow)}>
-    <Cyl p={[0, 0.9, 0]} r={0.16} h={1.8} c={P18.trunk} />
-    <Ball p={[0, 2.2, 0]} s={0.9} c={P18.leaf} />
-    <Ball p={[-0.55, 1.9, 0.1]} s={0.65} c={P18.green} />
-    <Ball p={[0.55, 2.0, -0.1]} s={0.7} c={P18.green} />
-    <Ball p={[0.0, 2.7, 0.0]} s={0.55} c={P18.leaf} />
-  </group>
-);
-const Teritis: React.FC<{p: V3; grow: number}> = ({p, grow}) => grow <= 0 ? null : (
+const Teritis3: React.FC<{p: V3; grow: number}> = ({p, grow}) => grow <= 0 ? null : (
   <group position={p} scale={[grow, 1, 1]}>
-    <Bx p={[-0.6, 0, 0]} s={[1.5, 0.1, 2.5]} c={P18.roof} rot={[0, 0, 0.12]} />
-    <Cyl p={[-1.25, -0.55, 1.1]} r={0.05} h={1.1} c="#6b4630" /><Cyl p={[-1.25, -0.55, -1.1]} r={0.05} h={1.1} c="#6b4630" />
+    <Box p={[-0.5, 0, 0.1]} s={[1.5, 0.1, 1.2]} m={MG.roof} ink={0.03} r={[0, 0, 0.14]} />
+    <Box p={[-1.15, -0.62, 0.55]} s={[0.07, 1.25, 0.07]} m={MG.post} ink={0.02} />
   </group>
 );
-
+const Slab: React.FC<{x: number; c: string; w?: number}> = ({x, c, w = 0.55}) => { const m = useMemo(() => phys('#fff', {roughness: 0.8, clearcoat: 0}), []); m.color.set(c); return <Box p={[x, 1.2, 0]} s={[w, 2.4, 1.8]} m={m} ink={0.03} />; };
 // ---------- hero 2D ----------
 const Papan: React.FC<{t: number; p: number}> = ({t, p}) => p <= 0 ? null : (
   <div style={{position: 'absolute', left: 0, top: 0, width: 1080, height: 1920, opacity: p}}>
@@ -198,26 +192,6 @@ const Termometer: React.FC<{x: number; y: number; k: number}> = ({x, y, k}) => k
     <div style={{position: 'absolute', left: 0, bottom: 0, width: 70, height: 70, borderRadius: '50%', background: P18.hot, border: `6px solid ${INK}`}} />
   </div>
 );
-const Denah: React.FC<{t: number; p: number}> = ({t, p}) => {
-  if (p <= 0) return null;
-  const cyc = t < 28.3 ? Math.floor(Math.max(0, t - 25.9) / 0.7) % 3 : 0; // utara, timur, selatan, ...
-  const door = [{x: 540, y: 780, w: 90, h: 16, l: 'utara'}, {x: 755, y: 1040, w: 16, h: 90, l: 'timur'}, {x: 540, y: 1298, w: 90, h: 16, l: 'selatan'}][cyc];
-  return (
-    <div style={{position: 'absolute', left: 0, top: 0, width: 1080, height: 1920, opacity: p}}>
-      <div style={{position: 'absolute', left: 325, top: 790, width: 430, height: 510, background: '#faf9f6', border: `10px solid ${INK}`, borderRadius: 18, boxShadow: '0 16px 40px rgba(28,28,30,0.22)'}} />
-      <div style={{position: 'absolute', left: 316, top: 786, width: 22, height: 520, borderRadius: 10, background: P18.hot, border: `4px solid ${INK}`, boxShadow: `0 0 0 ${6 + 4 * Math.sin(t * 6)}px rgba(217,72,43,0.25)`}} />
-      <div style={{position: 'absolute', left: door.x - door.w / 2, top: door.y - door.h / 2, width: door.w, height: door.h, background: P18.green, border: `4px solid ${INK}`, borderRadius: 6}} />
-      <div style={{position: 'absolute', left: 340, top: 1030, width: 400, textAlign: 'center', fontFamily: 'Inter', fontWeight: 900, fontSize: 56, color: INK}}>rumah</div>
-      <div style={{position: 'absolute', left: 64, top: 1010, fontFamily: 'Inter', fontWeight: 900, fontSize: 52, color: INK}}>BARAT</div>
-      <div style={{position: 'absolute', left: 120, top: 905, width: 150, height: 150, borderRadius: '50%', background: P18.sun, border: `6px solid ${INK}`, display: 'none'}} />
-      <div style={{position: 'absolute', left: 60, top: 840, width: 150, height: 150, borderRadius: '50%', background: P18.sun, border: `6px solid ${INK}`, boxShadow: '0 0 0 14px rgba(246,185,59,0.35)'}} />
-      <div style={{position: 'absolute', left: 790, top: 1015, fontFamily: 'Inter', fontWeight: 900, fontSize: 48, color: INK}}>TIMUR</div>
-      <div style={{position: 'absolute', left: 470, top: 700, fontFamily: 'Inter', fontWeight: 900, fontSize: 50, color: INK, opacity: 0.0}}>UTARA</div>
-      <div style={{position: 'absolute', left: 0, right: 0, top: 1335, textAlign: 'center', fontFamily: 'Inter', fontWeight: 800, fontSize: 38, color: P18.green, opacity: t < 28.3 ? 1 : 0}}>pintu hadap {door.l}</div>
-      <div style={{position: 'absolute', left: 0, right: 0, top: 1335, textAlign: 'center', fontFamily: 'Inter', fontWeight: 800, fontSize: 38, color: P18.green, opacity: t >= 28.3 ? 1 : 0}}>hadap utara, dinding barat tetap kena</div>
-    </div>
-  );
-};
 const HP: React.FC<{t: number; p: number}> = ({t, p}) => {
   if (p <= 0) return null;
   const k = r(t, 39.6, 40.8, Easing.out(Easing.back(1.8))), ang = lerp(-35, 90, k) + (k >= 1 ? Math.sin(t * 3) * 3 : 0);
@@ -246,86 +220,101 @@ const SFX: [string, number, number][] = [
   ['whoosh', 46.3, 0.3], ['pop', 47.6, 0.4], ['chime', 50.3, 0.4],
 ];
 
+
 // ---------- komposisi ----------
 export const Video18: React.FC = () => {
   const f = useCurrentFrame(), t = f / FPS, ms = t * 1000;
-  // matahari: pagi tinggi, sore rendah
+  const k1 = camAt(CAM_HOOK, t), k2 = camAt(CAM_TAKUT, t), k3 = camAt(CAM_PAGI, t), k4 = camAt(CAM_SIMPAN, t), k6 = camAt(CAM_DENAH, t), k7 = camAt(CAM_SOLUSI, t), k9 = camAt(CAM_END, t);
   const morning = t < B.sore - 0.15;
-  const sunP: V3 = morning ? [lerp(-2.6, -2.2, r(t, 8.3, 10.4)), lerp(3.1, 2.8, r(t, 8.3, 10.4)), -0.4] : [lerp(-2.9, -2.7, r(t, 10.5, 14.7)), lerp(1.5, 1.0, r(t, 10.5, 14.7)), -0.4];
+  const sunP: V3 = morning ? [lerp(-1.1, -1.0, r(t, 8.3, 10.4)), lerp(3.7, 3.4, r(t, 8.3, 10.4)), 0.8] : [lerp(-1.25, -1.15, r(t, 10.5, 14.7)), lerp(1.9, 1.35, r(t, 10.5, 14.7)), 0.8];
   const heat = r(t, 14.9, 17.6);
+  const night = r(t, 18.2, 18.8) * (1 - r(t, 23.0, 23.4));
+  const cyc = Math.floor(Math.max(0, t - 25.9) / 0.7) % 3;
+  const doorXZ: V3 = t >= 28.3 ? [0, 0.18, -1.5] : cyc === 0 ? [0, 0.18, -1.5] : cyc === 1 ? [1.2, 0.18, 0] : [0, 0.18, 1.5];
   return (
     <AbsoluteFill>
       <PaperPalet palet="terakota" />
+      <AbsoluteFill style={{background: `linear-gradient(180deg, ${P18.navy} 0%, #2b3a5e 100%)`, opacity: 0.95 * night}} />
 
-      {/* 1. hook: matahari sore raksasa di atas rumah */}
-      <Seg a={0} b={B.takut}>
-        <Stage cam={camAt(t, [[0, [0.2, 1.1, 128]], [3.8, [0.2, 1.1, 142]]])}>
-          <Tanah /><Rumah18 p={[0.9, 0, 0]} hot={r(t, 1.5, 3.3) * 0.5} /><Matahari p={[-2.6, 1.5, -0.6]} s={0.8} t={t} /><Sinar from={[-2.2, 1.4, -0.3]} to={[-0.2, 0.7, 0.3]} t={t} n={7} o={r(t, 0.6, 1.2)} />
-        </Stage>
-        <Chip x={800} y={1180} p={r(t, 2.3, 2.7)} text="rumah panas?" color={P18.hot} size={44} />
+      {/* 1. hook: matahari sore besar, atap rumah memanas */}
+      <Seg a={0} b={B.takut} f={f} first>
+        <Canvas3D k={k1}><Tanah3 /><House heat={r(t, 1.4, 3.5) * 0.7} /><Sun3 p={[-0.95, 3.95, -0.6]} s={0.5} t={t} /><Beam3 a={[-0.7, 3.6, -0.3]} b={[0.4, 2.55, 0.3]} t={t} o={r(t, 0.6, 1.2)} n={6} /></Canvas3D>
+        <Chip x={780} y={1180} p={r(t, 2.3, 2.7)} text="rumah panas?" color={P18.hot} size={44} />
       </Seg>
       {/* 2. orang jadi takut beli: papan DIJUAL besar */}
-      <Seg a={B.takut} b={B.pagi}>
-        <Papan t={t} p={r(t, B.takut, B.takut + 0.4)} />
-        <Chip x={230} y={1200} p={r(t, 5.2, 5.6)} text="panas?" color={P18.hot} size={48} />
-        <Chip x={850} y={1260} p={r(t, 6.0, 6.4)} text="ragu beli" color={INK} size={48} />
+      <Seg a={B.takut} b={B.pagi} f={f}>
+        <Canvas3D k={k2}><Tanah3 /><group position={[0.4, 0, -1]}><House heat={0.3} /></group></Canvas3D>
+        <Papan t={t} p={r(t, B.takut + 0.1, B.takut + 0.5)} />
+        <Chip x={200} y={1230} p={r(t, 5.2, 5.6)} text="panas?" color={P18.hot} size={48} />
+        <Chip x={860} y={1290} p={r(t, 6.0, 6.4)} text="ragu beli" color={INK} size={48} />
       </Seg>
-      {/* 3. matahari pagi tinggi vs sore rendah, sinar ke dinding barat */}
-      <Seg a={B.pagi} b={B.simpan}>
-        <Stage cam={camAt(t, [[8.26, [-0.2, 1.7, 118]], [10.5, [-0.2, 1.4, 118]], [14.7, [0.9, 1.2, 128]], [18.4, [1.1, 1.3, 168]]])}>
-          <Tanah w={10} />
-          <Dinding p={[1.7, 0, 0]} h={2.4} k={r(t, 14.9, 17.6)} hot={heat} />
-          <Matahari p={sunP} s={morning ? 0.55 : 0.7} t={t} />
-          <Sinar from={[sunP[0] + 0.3, sunP[1] - 0.2, -0.2]} to={[1.3, morning ? 0.2 : 1.1, 0.1]} t={t} n={11} />
-          {morning && <Bx p={[1.7, 0.02, 0.2]} s={[0.4, 0.02, 1.8]} c="#6b4630" edge={false} op={0.5} />}
-        </Stage>
-        <Chip x={330} y={1040} p={r(t, B.pagi + 0.6, B.pagi + 1.0) * (1 - r(t, 10.3, 10.5))} text="pagi: tinggi" color={P18.sun === '' ? INK : '#b07a14'} size={42} />
-        <Chip x={300} y={1190} p={r(t, 11.2, 11.6)} text="sore: rendah" color={P18.hot} size={42} />
-        <Termometer x={900} y={760} k={r(t, 15.4, 18.2)} />
+      {/* 3. pagi tinggi vs sore rendah: sinar menghantam dinding bata besar (dive) */}
+      <Seg a={B.pagi} b={B.simpan} f={f}>
+        <Canvas3D k={k3}>
+          <Tanah3 /><Wall3 p={[0.55, 0, 0]} hot={heat} t={t} /><Sun3 p={sunP} s={morning ? 0.38 : 0.45} t={t} />
+          <Beam3 a={[sunP[0] + 0.3, sunP[1] - 0.15, 0.7]} b={[morning ? 0.3 : -0.8, morning ? 0.4 : 1.55, 0.8]} t={t} n={9} />
+        </Canvas3D>
+        <Chip x={300} y={1040} p={r(t, B.pagi + 0.6, B.pagi + 1.0) * (1 - r(t, 10.3, 10.5))} text="pagi: tinggi" color="#b07a14" size={42} />
+        <Chip x={300} y={1200} p={r(t, 11.2, 11.6)} text="sore: rendah" color={P18.hot} size={42} />
+        <Termometer x={920} y={760} k={r(t, 15.4, 18.2)} />
         <Chip x={540} y={1290} p={r(t, 15.0, 15.4)} text="± jam 14.00" color={P18.hot} size={40} />
       </Seg>
-      {/* 4. dinding bata menyimpan panas sampai kamar */}
-      <Seg a={B.simpan} b={B.payoff}>
-        <Stage cam={camAt(t, [[18.47, [1.0, 1.3, 120]], [23.3, [1.2, 1.5, 128]]])}>
-          <Tanah w={9} />
-          <Bx p={[0.2, 1.1, 0]} s={[0.55, 2.2, 1.8]} c="#d9482b" /><Bx p={[0.75, 1.1, 0]} s={[0.55, 2.2, 1.8]} c="#e88a4e" /><Bx p={[1.3, 1.1, 0]} s={[0.55, 2.2, 1.8]} c="#f2cfa8" />
-          <Bx p={[2.55, 0.55, 0]} s={[1.6, 1.1, 1.6]} c={mix(P18.wall, '#e8956a', r(t, 20.2, 22.6))} />
-          <Bx p={[2.6, 0.2, 0.2]} s={[0.9, 0.24, 0.5]} c="#faf9f6" />
-          {Array.from({length: 12}).map((_, i) => { const f2 = ((t - 18.8) * 0.28 + i / 12 + hash(i) * 0.1); const g = Math.max(0, Math.min(1, f2 % 1)); return t > 18.8 ? <Ball key={i} p={[lerp(-0.1, 1.6, g), 0.3 + hash(i + 3) * 1.8, -0.7 + hash(i + 8) * 1.4]} s={0.06} c={mix('#d9482b', '#f6b93b', g)} basic /> : null; })}
-        </Stage>
-        <Termometer x={860} y={770} k={r(t, 18.7, 22.2)} />
+      {/* 4. malam: dinding menyimpan panas, kamar hangat */}
+      <Seg a={B.simpan} b={B.payoff} f={f}>
+        <Canvas3D k={k4} night={1}>
+          <Tanah3 night={1} />
+          <Slab x={0.2} c="#d9482b" /><Slab x={0.78} c="#e88a4e" /><Slab x={1.36} c="#f2cfa8" />
+          <Box p={[2.75, 0.6, 0]} s={[1.6, 1.2, 1.6]} m={MG.white} ink={0.03} />
+          <Box p={[2.8, 0.3, 0.15]} s={[1.0, 0.3, 0.6]} m={MG.hot} ink={0.03} />
+          {Array.from({length: 14}).map((_, i) => { const g = Math.max(0, Math.min(1, ((t - 18.8) * 0.28 + i / 14 + hash(i) * 0.1) % 1)); return t > 18.8 ? <mesh key={i} position={[lerp(-0.2, 1.7, g), 0.3 + hash(i + 3) * 1.9, 0.95]} material={MG.hot} scale={[0.07, 0.07, 0.07]}><sphereGeometry args={[1, 10, 8]} /></mesh> : null; })}
+        </Canvas3D>
+        <Termometer x={880} y={770} k={r(t, 18.7, 22.2)} />
         <Chip x={300} y={1010} p={r(t, 19.4, 19.8)} text="dinding bata" color={P18.hot} size={40} />
         <Chip x={780} y={1300} p={r(t, 21.2, 21.6)} text="kamar hangat" color={INK} size={40} />
       </Seg>
-      {/* 5. payoff: denah, dinding barat yang panas apa pun arah pintu */}
-      <Seg a={B.denah} b={B.solusi}><Denah t={t} p={r(t, B.denah, B.denah + 0.4)} /></Seg>
-      {/* 6. solusi: pohon rindang dan teritis menahan sinar */}
-      <Seg a={B.solusi} b={B.aksi}>
-        <Stage cam={camAt(t, [[30.97, [0.4, 1.4, 112]], [36.5, [0.7, 1.3, 128]], [39.2, [0.9, 1.4, 135]]])}>
-          <Tanah w={10} />
-          <Dinding p={[1.9, 0, 0]} h={2.4} k={0} hot={0} />
-          <Matahari p={[-3.0, 1.1, -0.4]} s={0.7} t={t} />
-          <Pohon p={[-0.9, 0, 0.2]} s={1.15} grow={r(t, 32.4, 34.0, Easing.out(Easing.back(1.4)))} />
-          <Sinar from={[-2.6, 1.0, -0.2]} to={[r(t, 33.9, 34.3) > 0 ? -1.2 : 1.4, 1.1, 0.1]} t={t} n={9} />
-          <Teritis p={[1.0, 2.5, 0]} grow={r(t, 36.6, 37.6)} />
-        </Stage>
-        <Chip x={290} y={1050} p={r(t, 34.2, 34.6)} text="pohon rindang" color={P18.green} size={42} />
-        <Chip x={800} y={1160} p={r(t, 37.4, 37.8)} text="teritis" color={P18.green} size={44} />
-        <Chip x={540} y={1300} p={r(t, 37.9, 38.3)} text="dinding tetap adem" color={P18.green} size={38} />
+      {/* 6. denah dari atas: dinding barat panas, pintu ganti arah */}
+      <Seg a={B.denah} b={B.solusi} f={f}>
+        <Canvas3D k={k6}>
+          <Tanah3 />
+          <Box p={[0, 0.04, 0]} s={[2.4, 0.08, 3.0]} m={MG.white} ink={0.03} />
+          <Box p={[-1.2, 0.2, 0]} s={[0.16, 0.34, 3.08]} m={MG.hot} ink={0.03} />
+          <Box p={[1.2, 0.2, 0]} s={[0.16, 0.34, 3.08]} m={MG.white} ink={0.03} />
+          <Box p={[0, 0.2, -1.5]} s={[2.4, 0.34, 0.16]} m={MG.white} ink={0.03} />
+          <Box p={[0, 0.2, 1.5]} s={[2.4, 0.34, 0.16]} m={MG.white} ink={0.03} />
+          <Box p={doorXZ} s={doorXZ[0] === 0 ? [0.7, 0.4, 0.2] : [0.2, 0.4, 0.7]} m={MG.green} ink={0.03} />
+          <Sun3 p={[-2.0, 0.3, 0]} s={0.3} t={t} />
+          <Beam3 a={[-1.7, 0.4, 0]} b={[-1.3, 0.4, 0]} t={t} n={4} />
+        </Canvas3D>
+        <Chip x={190} y={1080} p={r(t, 26.0, 26.4)} text="BARAT" color={P18.hot} size={46} />
+        <Chip x={890} y={1080} p={r(t, 26.3, 26.7)} text="TIMUR" color={INK} size={46} />
+        <Chip x={540} y={1330} p={r(t, 27.0, 27.4) * (t < 28.3 ? 1 : 0)} text="pintu ganti arah, dinding barat tetap kena" color={P18.good} size={34} />
+        <Chip x={540} y={1330} p={r(t, 28.6, 29.0)} text="hadap utara pun kena" color={P18.good} size={38} />
       </Seg>
-      {/* 7. aksi: kompas HP, cek sisi barat */}
-      <Seg a={B.aksi} b={B.gema}>
+      {/* 7. solusi: pohon rindang + teritis menahan sinar */}
+      <Seg a={B.solusi} b={B.aksi} f={f}>
+        <Canvas3D k={k7}>
+          <Tanah3 /><Wall3 p={[0.9, 0, 0]} hot={0} t={t} /><Sun3 p={[-1.3, 1.6, 0.9]} s={0.4} t={t} />
+          <Pohon3 p={[-0.3, 0, 0.9]} s={1.0} grow={r(t, 32.4, 34.0, Easing.out(Easing.back(1.4)))} />
+          <Beam3 a={[-1.0, 1.55, 0.9]} b={[r(t, 33.9, 34.3) > 0 ? -0.55 : 0.2, 1.7, 0.9]} t={t} n={6} />
+          <Teritis3 p={[1.6, 3.25, 0.2]} grow={r(t, 36.6, 37.6)} />
+        </Canvas3D>
+        <Chip x={290} y={1060} p={r(t, 34.2, 34.6)} text="pohon rindang" color={P18.good} size={42} />
+        <Chip x={820} y={1000} p={r(t, 37.4, 37.8)} text="teritis" color={P18.good} size={44} />
+        <Chip x={540} y={1300} p={r(t, 37.9, 38.3)} text="dinding tetap adem" color={P18.good} size={38} />
+      </Seg>
+      {/* 8. aksi: kompas HP */}
+      <Seg a={B.aksi} b={B.gema} f={f}>
         <HP t={t} p={r(t, B.aksi, B.aksi + 0.4)} />
-        <Chip x={250} y={1250} p={r(t, 42.7, 43.1)} text="pohon?" color={P18.green} size={44} />
-        <Chip x={540} y={1330} p={r(t, 43.5, 43.9)} text="teritis?" color={P18.green} size={44} />
+        <Chip x={250} y={1250} p={r(t, 42.7, 43.1)} text="pohon?" color={P18.good} size={44} />
+        <Chip x={540} y={1330} p={r(t, 43.5, 43.9)} text="teritis?" color={P18.good} size={44} />
         <Chip x={830} y={1250} p={r(t, 44.3, 44.7)} text="kosong?" color={P18.hot} size={44} />
       </Seg>
-      {/* 8. gema + CTA: rumah dengan sinar tertahan pohon */}
-      <Seg a={B.gema} b={B.end}>
-        <Stage cam={camAt(t, [[46.38, [0.3, 1.2, 128]], [51.6, [0.3, 1.1, 120]]])}>
-          <Tanah w={10} /><Rumah18 p={[1.2, 0, 0]} hot={0} /><Matahari p={[-3.0, 1.3, -0.5]} s={0.7} t={t} /><Pohon p={[-0.8, 0, 0.3]} s={1.0} grow={1} />
-          <Sinar from={[-2.6, 1.2, -0.2]} to={[-1.0, 1.4, 0.2]} t={t} n={7} />
-        </Stage>
+      {/* 9. gema + CTA */}
+      <Seg a={B.gema} b={B.end} f={f}>
+        <Canvas3D k={k9}>
+          <Tanah3 /><House heat={0} /><Sun3 p={[-1.5, 2.3, 0.2]} s={0.4} t={t} /><Pohon3 p={[-0.6, 0, 1.5]} s={0.9} grow={1} />
+          <Beam3 a={[-1.2, 2.25, 0.2]} b={[-0.7, 2.1, 0.8]} t={t} n={4} />
+        </Canvas3D>
         <CommentBubble word="sisi mana?" start={Math.round(47.6 * FPS)} y={1000} />
       </Seg>
 
@@ -347,7 +336,7 @@ export const Video18: React.FC = () => {
       <Title t={t} a={B.kosong} b={B.gema} small="Kalau kosong" big="SIAPIN DANA" bigAt={43.4} size={104} />
       <Title t={t} a={B.gema} b={B.follow} small="Sisi mana kena" big="SORE?" bigAt={47.0} size={120} />
 
-      <Kicker text="FAKTA RUMAH · #18" y={292} start={0} color={t >= 23.5 && t < 25.9 ? '#ffffff' : CORAL} />
+      <Kicker text="FAKTA RUMAH · #18" y={292} start={0} color={t >= 23.5 && t < 25.9 ? '#ffffff' : night > 0.5 ? '#f4a58f' : CORAL} />
       <TikTokBox text="Rumah hadap barat itu panas?" p={r(t, 0.2, 1.0, Easing.linear)} y={338} size={40} />
       <FollowButton start={Math.round(49.4 * FPS)} click={Math.round(50.8 * FPS)} y={760} />
       <Captions ms={ms} />
@@ -355,7 +344,7 @@ export const Video18: React.FC = () => {
       <Audio src={staticFile('v18/vo.mp3')} />
       <Audio src={staticFile('sfx/ambient.wav')} volume={0.08} />
       {SFX.map(([n, s2, v], i) => <Sequence key={i} from={Math.round(s2 * FPS)} layout="none"><Audio src={staticFile(`sfx/${n}.wav`)} volume={v} /></Sequence>)}
-      <Grain o={0.08} />
+      <Grain o={0.06} />
     </AbsoluteFill>
   );
 };
