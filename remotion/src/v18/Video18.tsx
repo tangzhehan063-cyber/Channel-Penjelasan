@@ -16,9 +16,9 @@ import {Box, M as M7} from '../v07/Atap';
 import {House} from '../v08/Rumah';
 import words from '../../public/v18/words.json';
 
-const PNAME = 'malam' as 'terakota'|'batu'|'mint'|'malam';
+const PNAME = 'terakota' as 'terakota'|'batu'|'mint'|'malam';
 const PL = PALET[PNAME];
-const EARTH = {terakota: '#9a6a45', batu: '#6f5a48', mint: '#7b6a4c', malam: '#4a3a33'}[PNAME];
+const EARTH = '#8fb26a';
 export const P18 = {coral: PL.accent, good: PL.good, hot: '#d9482b', sun: '#f0a830', ink: '#1c1c1e', wall: '#f3ead9', roof: PL.accent, earth: EARTH, green: '#4f8a4a', leaf: '#5fa055', trunk: '#6b4630', navy: '#1b2640'};
 export const FPS = 30;
 export const V18_END = 51.6;
