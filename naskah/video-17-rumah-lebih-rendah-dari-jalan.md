@@ -1,4 +1,4 @@
-# STORYBOARD · VIDEO #17 · TAHAP 2 · DRAF v3 (17 Nov 2026), palet `langit`, tanpa angka biaya; menunggu ACC user
+# STORYBOARD · VIDEO #17 · TAHAP 2 · DRAF v4 (kalimat selokan ditambah 17 Nov agar VO ≥50 dtk) (17 Nov 2026), palet `langit`, tanpa angka biaya; menunggu ACC user
 ## Rumah Lebih Rendah dari Jalan Bukan Pembawa Sial
 **Bukan Sial #03** (format #9: kutip anggapan → cap BUKAN SIAL → alasan nyata → orang tua ada benarnya → cek sendiri). Mode **HYBRID**. 1080×1920 · ±50 dtk · jangkar kicker `FAKTA RUMAH · #17` + TikTokBox. Tanpa ornamen sudut.
 
@@ -28,7 +28,7 @@ Alasan: (a) paling dekat dengan pencarian; (b) jadi isi beat 3.
 | 3 | 9–18 | Air (momen khas) | Hujan deras / AIR NGARAH KE PINTUMU | Yang mengendap itu air. Hujan deras, air dari jalan mengalir turun, lewat pagar, masuk ke bawah pintumu. | POV tetes air mengikuti jalur koral ke ambang pintu | POV dive, hening 0,8 dtk lalu tetes |
 | 4 | 18–25 | Debu | Debu & asap / NUMPUK DI TEMPAT RENDAH | Debu dan asap kendaraan juga ngumpul di tempat rendah. Anginnya susah masuk, udaranya pengap. | Partikel jatuh ke cekungan, panah angin terhalang | orbit 30° |
 | 5 | 25–31 | Payoff | Bukan energi, tapi / AIR & DEBU | Jadi yang orang tua sebut energi buruk, aslinya air hujan dan debu. | PatternBreak koral; kata "ENERGI" disobek jadi ikon tetes | pull lebar, tahan |
-| 6 | 31–39 | Solusi | Tinggikan lantainya / SEBELUM HUJAN | Solusinya nggak harus pindah. Tinggikan lantai dan ambang pintunya sampai lebih tinggi dari jalan. Lantainya saja yang diurug, rumahnya nggak perlu dibongkar. | Urugan naik, lantai terangkat; ambang pintu lebih tinggi dari jalan | push ke ambang |
+| 6 | 31–39 | Solusi | Tinggikan lantainya / SEBELUM HUJAN | Solusinya nggak harus pindah. Tinggikan lantai dan ambang pintunya sampai lebih tinggi dari jalan. Lantainya saja yang diurug, rumahnya nggak perlu dibongkar. Pastikan juga air dari jalan punya jalan keluar, misalnya selokan di depan pagar. | Urugan naik, lantai terangkat; ambang pintu lebih tinggi dari jalan; lalu selokan di depan pagar menampung air | push ke ambang |
 | 7 | 39–44 | Aksi + share | Cek hari ini / LANTAI vs JALAN | Yang lagi cari rumah, cek dulu lantainya lebih tinggi dari jalan atau enggak. | Penggaris vertikal di pagar, lantai di atas garis jalan | tahan + push 2% |
 | 8 | 44–47 | Gema | | (hening, tetes berhenti di ambang) | Tetes beat 3 berhenti di ambang tinggi, jalur terbelokkan ke selokan | POV dive pelan |
 | 9 | 47–50 | CTA | Rumahmu lebih tinggi / ATAU RENDAH? | Rumahmu lebih tinggi atau lebih rendah dari jalan? | CommentBubble | lebar, orbit lambat |
