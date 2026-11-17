@@ -24,6 +24,13 @@ Selalu uji dengan still/contact sheet dulu; render penuh di container ini lambat
 5. **Motion blur** — `<CameraMotionBlur samples shutterAngle>` merender anak **N kali per frame** → waktu render ×N. Hanya untuk potongan pendek bergerak cepat (mis. sekrup "lepas", kamera menukik), samples 4–6. `<HtmlInCanvasMotionBlur>` butuh dukungan HTML-in-canvas Chromium; uji still dulu dengan Chromium `/opt/pw-browsers/chromium`, kalau gagal pakai `CameraMotionBlur`.
 6. **Gerak mengikuti suara VO** — `useWindowedAudioData()` + `visualizeAudio()` dari `@remotion/media-utils` (pakai `.wav`). Contoh: label/objek "berdenyut" mengikuti volume narator, atau burst "TEK" mengikuti SFX.
 
+## Teknik isometrik untuk video "bongkar lapisan" (diuji 17 Nov 2026, dari skill isometric-animation)
+Pakai HANYA untuk satu tumpukan/objek besar yang mengisi layar (keramik, lantai, dinding berlapis, exploded view). DILARANG untuk diorama lebar, kota, atau denah kecil (aturan KUNCI KARAKTER di `CLAUDE.md`). Tiga aturan:
+1. **Kamera ortografis, posisi X=Y=Z**: `<ThreeCanvas orthographic camera={{position: [10, 10, 10], zoom: ..., near: 0.1, far: 100}} onCreated={({camera}) => camera.lookAt(0, y, 0)}>`. Perspektif BUKAN isometrik. Atur `zoom` supaya objek tidak terpotong sisi layar (uji: zoom 190 terlalu besar untuk balok 4,2 m, turunkan sampai tepi terlihat).
+2. **Shading per sisi dari satu arah cahaya**: atas paling terang, kiri sedang, kanan paling gelap (mis. `directionalLight position={[-5, 9, 4]}` + ambient ±0,55) dan garis tepi tipis `<Edges color="#1c1c1e" lineWidth={1.5} />`. Arah cahaya tidak boleh berubah antar-adegan. Inilah yang membuat volume terbaca.
+3. **Naikkan lewat posisi Z/Y, jangan di-scale**; build/explode di-stagger menurut posisi fisik (lapisan bawah dulu), jarak antar-lapisan dari satu variabel `gap` bersama (`gap = r(t, a, b) - r(t, c, d)` untuk explode lalu rakit). Skala hanya untuk muncul (0→1) pada tahap awal.
+Verifikasi: `remotion still` di awal, tengah, akhir; periksa sudut sumbu, urutan Z, tidak ada z-fighting, lapisan terakhir duduk tepat.
+
 ## Setelah memakai fitur baru
 - Catat bug yang muncul di `style/cek-bug.md`.
 - Bila user suka, jadikan baku di template video berikutnya dan catat di `STATUS.md` (Preferensi user).
