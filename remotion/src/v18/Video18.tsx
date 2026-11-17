@@ -226,7 +226,7 @@ export const Video18: React.FC = () => {
   const f = useCurrentFrame(), t = f / FPS, ms = t * 1000;
   const k1 = camAt(CAM_HOOK, t), k2 = camAt(CAM_TAKUT, t), k3 = camAt(CAM_PAGI, t), k4 = camAt(CAM_SIMPAN, t), k6 = camAt(CAM_DENAH, t), k7 = camAt(CAM_SOLUSI, t), k9 = camAt(CAM_END, t);
   const morning = t < B.sore - 0.15;
-  const sunP: V3 = morning ? [lerp(-0.55, -0.5, r(t, 8.3, 10.4)), lerp(3.7, 3.4, r(t, 8.3, 10.4)), 0.8] : [lerp(-0.7, -0.6, r(t, 10.5, 14.7)), lerp(2.0, 1.45, r(t, 10.5, 14.7)), 0.8];
+  const sunP: V3 = morning ? [lerp(-0.45, -0.4, r(t, 8.3, 10.4)), lerp(2.75, 2.5, r(t, 8.3, 10.4)), 0.8] : [lerp(-0.7, -0.6, r(t, 10.5, 14.7)), lerp(2.0, 1.45, r(t, 10.5, 14.7)), 0.8];
   const heat = r(t, 14.9, 17.6);
   const night = r(t, 18.2, 18.8) * (1 - r(t, 23.0, 23.4));
   const cyc = Math.floor(Math.max(0, t - 25.9) / 0.7) % 3;
@@ -238,7 +238,7 @@ export const Video18: React.FC = () => {
 
       {/* 1. hook: matahari sore besar, atap rumah memanas */}
       <Seg a={0} b={B.takut} f={f} first>
-        <Canvas3D k={k1}><Tanah3 /><House heat={r(t, 1.4, 3.5) * 0.7} /><Sun3 p={[-0.9, 3.0, -0.8]} s={0.42} t={t} /><Beam3 a={[-0.7, 2.75, -0.4]} b={[-0.2, 2.2, 0.4]} t={t} o={r(t, 0.6, 1.2)} n={6} /></Canvas3D>
+        <Canvas3D k={k1}><Tanah3 /><House heat={r(t, 1.4, 3.5) * 0.7} /><Sun3 p={[1.35, 2.5, -1.0]} s={0.4} t={t} /><Beam3 a={[1.1, 2.3, -0.4]} b={[0.5, 2.0, 0.4]} t={t} o={r(t, 0.6, 1.2)} n={6} /></Canvas3D>
         <Chip x={780} y={1180} p={r(t, 2.3, 2.7)} text="rumah panas?" color={P18.hot} size={44} />
       </Seg>
       {/* 2. orang jadi takut beli: papan DIJUAL besar */}
