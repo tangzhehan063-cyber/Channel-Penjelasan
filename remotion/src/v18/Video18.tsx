@@ -43,13 +43,13 @@ function camAt(keys: Key[], t: number): Key {
   }
   return keys[keys.length - 1];
 }
-const CAM_HOOK: Key[] = [{t: 0, pos: [0.3, 2.0, 9.6], look: [0, 1.7, 0]}, {t: 3.8, pos: [0.2, 1.9, 8.0], look: [0, 1.7, 0]}];
-const CAM_TAKUT: Key[] = [{t: 3.8, pos: [0.3, 2.0, 12.5], look: [0, 3.3, 0]}, {t: 8.3, pos: [0.1, 2.0, 11.5], look: [0, 3.3, 0]}];
-const CAM_PAGI: Key[] = [{t: 8.26, pos: [0.3, 1.9, 9.2], look: [0.1, 1.8, 0]}, {t: 14.7, pos: [0.45, 1.8, 8.2], look: [0.1, 1.7, 0]}, {t: 18.4, pos: [0.55, 1.8, 5.0], look: [0.4, 1.7, 0]}];
+const CAM_HOOK: Key[] = [{t: 0, pos: [0.3, 2.1, 12.8], look: [0, 1.7, 0]}, {t: 3.8, pos: [0.2, 2.0, 11.0], look: [0, 1.7, 0]}];
+const CAM_TAKUT: Key[] = [{t: 3.8, pos: [0.3, 2.0, 15.0], look: [0, 3.0, 0]}, {t: 8.3, pos: [0.1, 2.0, 13.6], look: [0, 3.0, 0]}];
+const CAM_PAGI: Key[] = [{t: 8.26, pos: [0.3, 1.9, 11.2], look: [0.1, 1.8, 0]}, {t: 14.7, pos: [0.45, 1.8, 10.0], look: [0.1, 1.7, 0]}, {t: 18.4, pos: [0.55, 1.8, 6.0], look: [0.4, 1.7, 0]}];
 const CAM_SIMPAN: Key[] = [{t: 18.47, pos: [1.3, 1.6, 8.2], look: [1.0, 1.3, 0]}, {t: 23.3, pos: [1.6, 1.7, 7.0], look: [1.2, 1.3, 0]}];
 const CAM_DENAH: Key[] = [{t: 25.6, pos: [0, 13.4, 1.4], look: [0, 0, 0]}, {t: 31.0, pos: [0, 11.4, 1.2], look: [0, 0, 0]}];
-const CAM_SOLUSI: Key[] = [{t: 30.97, pos: [0.2, 1.9, 8.6], look: [0.1, 1.7, 0]}, {t: 39.2, pos: [0.3, 2.1, 9.8], look: [0.2, 1.8, 0]}];
-const CAM_END: Key[] = [{t: 46.38, pos: [0.6, 2.2, 10.0], look: [0.4, 1.7, 0]}, {t: 51.6, pos: [0.9, 2.5, 12.0], look: [0.4, 1.7, 0]}];
+const CAM_SOLUSI: Key[] = [{t: 30.97, pos: [0.2, 1.9, 10.6], look: [0.1, 1.7, 0]}, {t: 39.2, pos: [0.3, 2.1, 11.8], look: [0.2, 1.8, 0]}];
+const CAM_END: Key[] = [{t: 46.38, pos: [0.6, 2.2, 13.0], look: [0.4, 1.7, 0]}, {t: 51.6, pos: [0.9, 2.5, 14.8], look: [0.4, 1.7, 0]}];
 
 const Rig: React.FC<{k: Key}> = ({k}) => {
   const cam = useThree((s) => s.camera) as THREE.PerspectiveCamera;
@@ -238,7 +238,7 @@ export const Video18: React.FC = () => {
 
       {/* 1. hook: matahari sore besar, atap rumah memanas */}
       <Seg a={0} b={B.takut} f={f} first>
-        <Canvas3D k={k1}><Tanah3 /><House heat={r(t, 1.4, 3.5) * 0.7} /><Sun3 p={[-0.95, 3.95, -0.6]} s={0.5} t={t} /><Beam3 a={[-0.7, 3.6, -0.3]} b={[0.4, 2.55, 0.3]} t={t} o={r(t, 0.6, 1.2)} n={6} /></Canvas3D>
+        <Canvas3D k={k1}><Tanah3 /><House heat={r(t, 1.4, 3.5) * 0.7} /><Sun3 p={[-1.5, 2.9, -0.8]} s={0.5} t={t} /><Beam3 a={[-1.2, 2.6, -0.4]} b={[-0.5, 2.1, 0.4]} t={t} o={r(t, 0.6, 1.2)} n={6} /></Canvas3D>
         <Chip x={780} y={1180} p={r(t, 2.3, 2.7)} text="rumah panas?" color={P18.hot} size={44} />
       </Seg>
       {/* 2. orang jadi takut beli: papan DIJUAL besar */}
@@ -281,6 +281,7 @@ export const Video18: React.FC = () => {
           <Box p={[1.2, 0.2, 0]} s={[0.16, 0.34, 3.08]} m={MG.white} ink={0.03} />
           <Box p={[0, 0.2, -1.5]} s={[2.4, 0.34, 0.16]} m={MG.white} ink={0.03} />
           <Box p={[0, 0.2, 1.5]} s={[2.4, 0.34, 0.16]} m={MG.white} ink={0.03} />
+          <Box p={[0.45, 0.14, -0.7]} s={[0.9, 0.2, 0.6]} m={MG.trunk} ink={0.03} /><Box p={[-0.1, 0.12, 0.6]} s={[1.1, 0.16, 0.7]} m={MG.leaf} ink={0.03} />
           <Box p={doorXZ} s={doorXZ[0] === 0 ? [0.7, 0.4, 0.2] : [0.2, 0.4, 0.7]} m={MG.green} ink={0.03} />
           <Sun3 p={[-2.0, 0.3, 0]} s={0.3} t={t} />
           <Beam3 a={[-1.7, 0.4, 0]} b={[-1.3, 0.4, 0]} t={t} n={4} />
@@ -312,8 +313,8 @@ export const Video18: React.FC = () => {
       {/* 9. gema + CTA */}
       <Seg a={B.gema} b={B.end} f={f}>
         <Canvas3D k={k9}>
-          <Tanah3 /><House heat={0} /><Sun3 p={[-1.5, 2.3, 0.2]} s={0.4} t={t} /><Pohon3 p={[-0.6, 0, 1.5]} s={0.9} grow={1} />
-          <Beam3 a={[-1.2, 2.25, 0.2]} b={[-0.7, 2.1, 0.8]} t={t} n={4} />
+          <Tanah3 /><House heat={0} /><Sun3 p={[-2.0, 2.4, 0.2]} s={0.45} t={t} /><Pohon3 p={[-1.2, 0, 1.6]} s={0.9} grow={1} />
+          <Beam3 a={[-1.6, 2.3, 0.2]} b={[-1.2, 2.2, 0.8]} t={t} n={4} />
         </Canvas3D>
         <CommentBubble word="sisi mana?" start={Math.round(47.6 * FPS)} y={1000} />
       </Seg>
