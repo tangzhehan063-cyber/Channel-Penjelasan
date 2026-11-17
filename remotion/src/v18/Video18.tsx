@@ -16,7 +16,7 @@ import {useMemo} from 'react';
 import {Shape, ExtrudeGeometry} from 'three';
 
 const PL = PALET.terakota;
-export const P18 = {coral: PL.accent, good: PL.good, hot: '#d9482b', sun: '#f6b93b', ink: '#1c1c1e', wall: '#f6efe0', wallHot: '#d9482b', roof: PL.accent, soil: '#8a5a3c', earth: '#b07a50', green: '#4f8a4a', leaf: '#5fa055', trunk: '#6b4630', glass: '#9ec7de'};
+export const P18 = {coral: PL.accent, good: PL.good, hot: '#d9482b', sun: '#f0a830', ink: '#1c1c1e', wall: '#f6efe0', wallHot: '#d9482b', roof: PL.accent, soil: '#8a5a3c', earth: '#b07a50', green: '#4f8a4a', leaf: '#5fa055', trunk: '#6b4630', glass: '#9ec7de'};
 export const FPS = 30;
 export const V18_END = 51.6;
 export const V18_FRAMES = Math.ceil(V18_END * FPS);
@@ -148,8 +148,8 @@ const Dinding: React.FC<{p: V3; h: number; k: number; hot?: number}> = ({p, h, k
   return (
     <group position={p}>
       <Bx p={[0, h / 2, 0]} s={[0.7, h, 2.2]} c={c} />
-      {Array.from({length: Math.floor(h / 0.3)}).map((_, i) => <Bx key={i} p={[-0.355, 0.15 + i * 0.3, 0]} s={[0.012, 0.012, 2.2]} c="#5a4636" edge={false} />)}
-      {Array.from({length: 5}).map((_, i) => <Bx key={i} p={[-0.358, h / 2, -0.88 + i * 0.44]} s={[0.012, h, 0.012]} c="#5a4636" edge={false} />)}
+      {Array.from({length: Math.floor(h / 0.3)}).map((_, i) => <Bx key={i} p={[-0.355, 0.15 + i * 0.3, 0]} s={[0.025, 0.03, 2.2]} c="#4a3626" edge={false} />)}
+      {Array.from({length: 5}).map((_, i) => <Bx key={i} p={[-0.358, h / 2, -0.88 + i * 0.44]} s={[0.025, h, 0.03]} c="#4a3626" edge={false} />)}
       <Bx p={[0.0, 0.05, 0]} s={[0.9, 0.1, 2.5]} c="#8d7a68" edge={false} />
       {k > 0 && Array.from({length: 10}).map((_, i) => { const f = (k * 3 + i * 0.37 + hash(i)) % 1; return <Ball key={i} p={[-0.45 - f * 0.25, 0.4 + hash(i + 5) * (h - 0.5) + f * 0.9, -0.9 + hash(i + 11) * 1.8]} s={0.05 * hot} c={P18.hot} sy={1.6} basic />; })}
     </group>
@@ -211,23 +211,23 @@ const Denah: React.FC<{t: number; p: number}> = ({t, p}) => {
       <div style={{position: 'absolute', left: 64, top: 1010, fontFamily: 'Inter', fontWeight: 900, fontSize: 52, color: INK}}>BARAT</div>
       <div style={{position: 'absolute', left: 120, top: 905, width: 150, height: 150, borderRadius: '50%', background: P18.sun, border: `6px solid ${INK}`, display: 'none'}} />
       <div style={{position: 'absolute', left: 60, top: 840, width: 150, height: 150, borderRadius: '50%', background: P18.sun, border: `6px solid ${INK}`, boxShadow: '0 0 0 14px rgba(246,185,59,0.35)'}} />
-      <div style={{position: 'absolute', left: 770, top: 1330, fontFamily: 'Inter', fontWeight: 900, fontSize: 56, color: INK}}>TIMUR</div>
+      <div style={{position: 'absolute', left: 790, top: 1015, fontFamily: 'Inter', fontWeight: 900, fontSize: 48, color: INK}}>TIMUR</div>
       <div style={{position: 'absolute', left: 470, top: 700, fontFamily: 'Inter', fontWeight: 900, fontSize: 50, color: INK, opacity: 0.0}}>UTARA</div>
-      <div style={{position: 'absolute', left: 0, right: 0, top: 1318, textAlign: 'center', fontFamily: 'Inter', fontWeight: 800, fontSize: 40, color: P18.green, opacity: t < 28.3 ? 1 : 0}}>pintu hadap {door.l}</div>
-      <div style={{position: 'absolute', left: 0, right: 0, top: 1318, textAlign: 'center', fontFamily: 'Inter', fontWeight: 800, fontSize: 40, color: P18.green, opacity: t >= 28.3 ? 1 : 0}}>pintu hadap utara, dinding barat tetap kena</div>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 1335, textAlign: 'center', fontFamily: 'Inter', fontWeight: 800, fontSize: 38, color: P18.green, opacity: t < 28.3 ? 1 : 0}}>pintu hadap {door.l}</div>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 1335, textAlign: 'center', fontFamily: 'Inter', fontWeight: 800, fontSize: 38, color: P18.green, opacity: t >= 28.3 ? 1 : 0}}>hadap utara, dinding barat tetap kena</div>
     </div>
   );
 };
 const HP: React.FC<{t: number; p: number}> = ({t, p}) => {
   if (p <= 0) return null;
-  const k = r(t, 39.6, 40.6, Easing.out(Easing.back(1.8))), ang = lerp(-40, -90, k) + (k >= 1 ? Math.sin(t * 3) * 3 : 0);
+  const k = r(t, 39.6, 40.8, Easing.out(Easing.back(1.8))), ang = lerp(-35, 90, k) + (k >= 1 ? Math.sin(t * 3) * 3 : 0);
   return (
     <div style={{position: 'absolute', left: 0, top: 0, width: 1080, height: 1920, opacity: p}}>
       <div style={{position: 'absolute', left: 300, top: 735, width: 480, height: 640, borderRadius: 54, background: '#2a2a2d', border: `10px solid ${INK}`, boxShadow: '0 24px 56px rgba(28,28,30,0.3)'}} />
       <div style={{position: 'absolute', left: 322, top: 780, width: 436, height: 560, borderRadius: 34, background: '#faf9f6'}} />
       <div style={{position: 'absolute', left: 352, top: 850, width: 376, height: 376, borderRadius: '50%', border: `8px solid ${INK}`, background: '#fff'}} />
       {[['U', 540, 872], ['T', 704, 1038], ['S', 540, 1204], ['B', 376, 1038]].map(([l, x, y]) => <div key={String(l)} style={{position: 'absolute', left: Number(x) - 30, top: Number(y) - 30, width: 60, textAlign: 'center', fontFamily: 'Inter', fontWeight: 900, fontSize: 44, color: l === 'B' ? CORAL : INK}}>{l}</div>)}
-      <div style={{position: 'absolute', left: 536, top: 1030, width: 8, height: 120, background: CORAL, borderRadius: 4, transformOrigin: '4px 8px', transform: `rotate(${ang + 90}deg) translateY(-8px)`}} />
+      <div style={{position: 'absolute', left: 536, top: 1030, width: 8, height: 120, background: CORAL, borderRadius: 4, transformOrigin: '4px 8px', transform: `rotate(${ang}deg)`}} />
       <div style={{position: 'absolute', left: 520, top: 1022, width: 40, height: 40, borderRadius: '50%', background: INK}} />
       <div style={{position: 'absolute', left: 300, right: 300, top: 1262, textAlign: 'center', fontFamily: 'Inter', fontWeight: 900, fontSize: 46, color: CORAL, opacity: k}}>BARAT</div>
     </div>
