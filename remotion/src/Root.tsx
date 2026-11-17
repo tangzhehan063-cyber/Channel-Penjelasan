@@ -27,6 +27,8 @@ import {Video16, V16_FRAMES} from './v16/Video16';
 import {Cover16} from './v16/Cover16';
 import {Video17, V17_FRAMES} from './v17/Video17';
 import {Cover17} from './v17/Cover17';
+import {Video18, V18_FRAMES} from './v18/Video18';
+import {Cover18} from './v18/Cover18';
 import {PaletDemo} from './aset/PaletDemo';
 import {Cover12} from './v12/Cover12';
 import {AsetDemo} from './aset/AsetDemo';
@@ -40,11 +42,13 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="Cover14" component={Cover14} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Cover16" component={Cover16} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Cover17" component={Cover17} durationInFrames={1} fps={30} width={1080} height={1920} />
+  <Composition id="Cover18" component={Cover18} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Video14" component={Video14} durationInFrames={V14_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Video15" component={Video15} durationInFrames={V15_FRAMES} fps={30} width={1080} height={1920} defaultProps={{palet: 'krem' as const}} />
   <Composition id="Cover15" component={Cover15} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Video16" component={Video16} durationInFrames={V16_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Video17" component={Video17} durationInFrames={V17_FRAMES} fps={30} width={1080} height={1920} />
+  <Composition id="Video18" component={Video18} durationInFrames={V18_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="PaletDemo" component={PaletDemo} durationInFrames={60} fps={30} width={1080} height={1920} defaultProps={{palet: 'krem' as const}} />
   <Composition id="Mood13" component={Mood13} durationInFrames={M13_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Tes13" component={Tes13} durationInFrames={T13_FRAMES} fps={30} width={1080} height={1920} />
