@@ -1,4 +1,4 @@
-# STORYBOARD · VIDEO #18 · TAHAP 2 · DRAF v1 (17 Nov 2026), hook A dipilih; menunggu palet + ACC user
+# STORYBOARD · VIDEO #18 · TAHAP 2 · ACC FINAL v1 (17 Nov 2026), hook A, palet `terakota`
 ## Rumah Hadap Barat, Panasnya dari Mana? (Bukan Sial #04 / seri mitos)
 Mode HYBRID. 1080×1920 · ±52 dtk · kicker `FAKTA RUMAH · #18` + TikTokBox. Tanpa ornamen sudut. Skill `naskah-viral` + `sutradara`.
 **Aturan visual dari pelajaran #17 (user):** TIAP BEAT objek hero sendiri, BESAR memenuhi bingkai (seperti #7/#13), kamera dekat, garis tinta tegas; diorama lebar hanya untuk pembuka/penutup. Jangan memperlebar bingkai demi "semua terlihat".
