@@ -150,7 +150,7 @@ export const Rumah: React.FC<{k: number; wet: number; glow: number; t: number}> 
       {/* air masuk lewat bawah pintu */}
       {wet > 0 && <Bx p={[-0.4, 0.085, 0]} s={[1.5 * wet, 0.03, 1.2]} c={P17.water} op={0.75} edge={false} />}
       {/* titik "energi" yang katanya mengendap */}
-      {glow > 0 && Array.from({length: 14}).map((_, i) => { const base = 0.35 + hash(i) * 0.7, sink = glow, y = lerp(base, 0.13 + 0.03 * (i % 3), sink) + 0.03 * Math.sin(t * 2.2 + i * 1.7); return <Ball key={i} p={[-0.8 + hash(i + 9) * 1.7, y, -0.5 + hash(i + 3) * 0.95]} s={0.07 * Math.min(1, glow * 5)} c={P17.glow} basic />; })}
+      {glow > 0 && Array.from({length: 14}).map((_, i) => { const base = 0.35 + hash(i) * 0.7, sink = glow, y = lerp(base, 0.13 + 0.03 * (i % 3), sink) + 0.03 * Math.sin(t * 2.2 + i * 1.7); return <Ball key={i} p={[-0.8 + hash(i + 9) * 1.7, y, -0.5 + hash(i + 3) * 0.95]} s={0.1 * Math.min(1, glow * 5)} c={P17.glow} basic />; })}
     </group>
   );
 };
@@ -252,7 +252,7 @@ export const Video17: React.FC = () => {
 
       {/* A. hook: potongan jalan, rumah di cekungan */}
       <Seg a={0} b={B.mitos}>
-        <Stage cam={camAt(t, [[0, [1.1, 0.75, 118]], [4.6, [1.2, 0.7, 128]]])}>
+        <Stage cam={camAt(t, [[0, [1.1, 0.75, 135]], [4.6, [1.2, 0.7, 146]]])}>
           <Dunia k={0} /><Rumah k={0} wet={0} glow={0} t={t} /><Tanam k={0} />
         </Stage>
         <Chip x={200} y={1030} p={r(t, 3.0, 3.4)} text="jalan" color={P17.asphalt} size={36} />
@@ -269,7 +269,7 @@ export const Video17: React.FC = () => {
       {/* C. air hujan: dive dari awan ke bawah pintu */}
       <Seg a={B.air} b={B.debu}>
         <Stage cam={camAt(t, [[8.8, [-1.6, 1.9, 150]], [11.0, [-1.6, 1.9, 150]], [13.0, [-1.1, 0.5, 215]], [16.5, [0.5, 0.05, 250]]])}>
-          <Dunia k={0} /><Rumah k={0} wet={wet} glow={0} t={t} /><Awan p={r(t, 10.5, 11.2)} /><Hujan t={t} o={rain} k={0} /><Aliran t={t} o={rain} k={0} /><Genangan lvl={genangan} />
+          <Dunia k={0} /><Rumah k={0} wet={wet} glow={0} t={t} /><Awan p={r(t, 10.5, 11.2) * (1 - r(t, 12.0, 12.6))} /><Hujan t={t} o={rain} k={0} /><Aliran t={t} o={rain} k={0} /><Genangan lvl={genangan} />
         </Stage>
         <Chip x={300} y={1150} p={r(t, 12.6, 13.0)} text="air dari jalan" color={P17.water} size={38} />
         <Chip x={800} y={1270} p={r(t, 14.8, 15.2)} text="masuk bawah pintu" color={CORAL} size={38} />
@@ -344,7 +344,7 @@ export const Video17: React.FC = () => {
       <Title t={t} a={B.aksi} b={B.gema} small="Mau beli? Cek" big="LANTAI vs JALAN" bigAt={44.2} size={84} />
       <Title t={t} a={B.gema} b={B.follow} small="Rumahmu" big="TINGGI / RENDAH?" bigAt={48.2} size={82} />
 
-      <Kicker text="FAKTA RUMAH · #17" y={292} start={0} />
+      <Kicker text="FAKTA RUMAH · #17" y={292} start={0} color={CORAL} />
       <TikTokBox text="Rumah lebih rendah dari jalan itu sial?" p={r(t, 0.2, 1.0, Easing.linear)} y={338} size={40} />
       <FollowButton start={Math.round(51.0 * FPS)} click={Math.round(52.3 * FPS)} y={760} />
       <Captions ms={ms} />
