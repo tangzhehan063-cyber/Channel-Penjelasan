@@ -30,3 +30,9 @@ Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) s
 - **Awan 3D menutupi kicker/TikTokBox (#17)**: objek di atas rumah (awan, hujan) naik ke y < 420 saat kamera tinggi. Awan harus memudar sebelum kamera turun, atau diletakkan di bawah zona kicker. Kicker di palet terang pakai warna aksen (bukan koral pucat) supaya terbaca.
 - **Z-fighting tanah/rumput (#17)**: dua balok dengan permukaan atas sebidang (balok tanah dan lapisan rumput tipis) berkedip garis-garis di sudut kamera tertentu. Turunkan balok bawah 0,04 dari permukaan lapisan atas. Saat dua blok terpisah (jalan vs halaman) naik-turun, isi celahnya dengan balok tanah penghubung supaya tidak terlihat melayang.
 - **Kendaraan muncul di luar ujung jalan (#17)**: posisi awal mobil harus di dalam panjang jalan (z mulai ≥ batas balok jalan + margin).
+
+## Bug karakter (17 Nov 2026): #16 dan #17 menyimpang dari gaya channel, dinilai user "sangat jelek"
+- Diorama/irisan tanah lebar membuat objek hanya ±1/3 lebar layar dan seperempat bawah layar kosong; label kecil tak terbaca di HP.
+- Kartu judul dengan baris kedua kosong; subtitle terpotong di tengah frasa; pil judul + kartu + subtitle saling mengulang.
+- Beda tinggi jalan-rumah dikecilkan demi referensi sampai inti pesan (rumah lebih rendah) tidak terlihat.
+- Revisi R1–R3 ditumpuk jadi tambal-sulam. Aturan: lihat "KUNCI KARAKTER" di `CLAUDE.md` (menyimpang = mulai dari awal).

@@ -24,10 +24,12 @@
 - [ ] Setiap referensi/revisi user ditulis di daftar `R` bawah, ditafsir 1 kalimat, lalu SEMUA selesai sebelum lanjut
 - [ ] Semua beat punya visual sesuai gaya channel (`style/identitas.md`: 2,5D prosedural, tanpa ornamen sudut, bukan realistis)
 - [ ] Palet T2 diterapkan di kode
+- [ ] **KUNCI KARAKTER** (`CLAUDE.md`): kode disalin dari `v08`/`v14`, bukan tata letak baru; tidak ada diorama lebar
 
 ## T5 Cek sebelum render
 - [ ] `node tools/cek-sutradara.mjs NN`: 0 GAGAL
 - [ ] Contact sheet dicek terhadap `style/cek-bug.md` (bug baru dicatat)
+- [ ] **Sheet berdampingan dengan still referensi #8 dan #14**; tulis di sini lolos/tidaknya: objek ≥ 1/3 tinggi layar · teks ≤ 2 lapis tanpa kartu kosong · kontras tegas · pesan terbaca 1 detik
 - [ ] **Contact sheet di-ACC user**
 - [ ] Nomor di layar (kicker) = nomor video
 
