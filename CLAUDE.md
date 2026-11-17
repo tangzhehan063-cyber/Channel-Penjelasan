@@ -12,6 +12,16 @@ Channel pengetahuan, seri utama **"fakta rumah"**, Bahasa Indonesia santai, audi
 - **Revisi/referensi user:** tulis semuanya di daftar R pada checklist, tafsirkan 1 kalimat (referensi = acuan penempatan, bukan render realistis), kerjakan SEMUA butir, lalu lapor. Dilarang loncat ke tahap lain (cek, render, caption, distribusi) sebelum semua butir R selesai dan dilaporkan.
 - Awal video: `git fetch`, cek nomor di `main` dan cabang `claude/*` sebelum menamai video.
 
+## ATURAN KAKU: KUNCI KARAKTER (perintah user 17 Nov 2026, setelah #16 dan #17 dinilai sangat jelek)
+Video baru HARUS terlihat seperti keluarga **#7, #8, #10, #13, #14**. Bukan eksperimen, bukan tata letak baru. Yang dikunci:
+1. **Mulai dari salinan `remotion/src/v08/` (atau v14)**; yang diganti hanya data (beat, judul, kamera, objek). Dilarang mengganti struktur adegan, tipografi, kartu, kicker, atau subtitle.
+2. **Satu objek 3D besar per adegan, close-up**: objek kunci ≥ 1/3 tinggi layar (idealnya mengisi lebar layar), terpotong tepi layar boleh. **DILARANG diorama/irisan tanah lebar yang membuat objek kecil** (ciri gagal #16/#17), dan dilarang label kecil sebagai pembawa pesan; pesan dibawa kartu judul + objek.
+3. **Teks maksimal dua lapis** di atas (kicker + kartu judul dua baris); kartu dengan baris kosong dilarang; subtitle dipecah per frasa utuh.
+4. **Kontras tegas, warna datar, bentuk membulat**, pola pemutus (panel 2D / banjir koral) di titik balik. Sudut tegas: beda tinggi, ukuran, atau perubahan harus terbaca dalam 1 detik di layar HP.
+5. **Pengecualian yang diizinkan hanya yang sudah diputuskan user**: palet latar (Tahap 2) dan tanpa ornamen sudut (16 Nov). Referensi user hanya mengubah penempatan di dalam gaya ini, tidak mengganti gaya.
+6. **Bukti wajib sebelum minta ACC sheet:** buat contact sheet 6 still video baru **berdampingan dengan 2 still referensi (#8 dan #14)** dan tulis di checklist satu kalimat per poin 2–4 bahwa lolos. Ukuran objek diperiksa dengan mata terhadap referensi, bukan dengan skrip.
+7. **Bila video dinilai user menyimpang dari karakter ini, TIDAK ADA perbaikan tambal-sulam: video dibuang dan dimulai dari awal** (salin ulang v08/v14, naskah dan VO yang sudah di-ACC dipakai lagi). Catat penyebabnya di `style/cek-bug.md`.
+
 ## Hemat token (wajib)
 - Baca sesuai tahap: Tahap 1–2 → `naskah/alur-naskah.md` + skill `naskah-viral`; Tahap 4–5 → `style/style.md` + `style/aset.md` (Gaya A) atau `style/diorama-kertas/README.md` (Gaya B, diorama kertas); caption → bagian caption di file ini. Jangan membaca ulang file yang tidak berubah.
 - Pakai `grep`/`sed -n` untuk bagian tertentu, bukan membaca file utuh. Gambar dibaca hanya untuk cek visual: still `--scale=0.5`, gabung jadi satu contact sheet, maks. 1–2 sheet per putaran.

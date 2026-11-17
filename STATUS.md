@@ -1,6 +1,12 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
-## Posisi terakhir (17 Nov 2026)
+## Posisi terakhir (17 Nov 2026, siang)
+- **Video #19 selesai:** "Pintu Depan Sejajar Pintu Belakang: Rezeki Lewat?" (Bukan Sial #04), 52,5 dtk, −14,5 LUFS, `remotion/src/v19/`, palet **`mint`** (user ACC rekomendasi). VO ElevenLabs Riri Rida 1 take (flow `KPqcwGVUrgFEA0rp4pee`); timestamp `tools/align_teks.py`. Drive #19 `1rnxaURKj5cWoth1y8_R2U_3fGYD4yyeJ` (cover + info); MP4 + SRT + cover + versi ringan dikirim ke user. Tanpa angka; klaim "maling" dibuang (tanpa sumber). Sumber = artikel populer, bukan kajian akademik.
+- **Aturan baru KUNCI KARAKTER** (`CLAUDE.md`, perintah user 17 Nov setelah #16/#17 dinilai sangat jelek): video baru wajib kerangka v08/v14, objek besar satu per adegan, teks ≤2 lapis, sheet berdampingan dengan #8/#14 sebelum ACC; menyimpang = buang dan mulai dari awal. #19 lolos dan di-ACC user ("nah ini mantap").
+- **#18 "rumah hadap barat"** dikerjakan sesi lain (cabang `happy-mendel-0268t4`), belum di-merge saat #19 dibuat. Video berikutnya: cek nomor lagi (kemungkinan #20). Ide mitos lanjutan: tiang listrik depan pagar, cermin/tangga di depan pintu, rumah hook (`riset/2026-11-17-ide-video-17-mitos.md`).
+- Catatan jujur #19: detail material objek lebih polos dari #8/#14 (kotak putih); bug judul menimpa gelembung komentar ditemukan lewat QC sheet dan diperbaiki sebelum final.
+
+## Posisi sebelumnya (17 Nov 2026, pagi)
 - **Video #17 selesai:** "Rumah Lebih Rendah dari Jalan Itu Sial?" (Bukan Sial #03), 53,4 dtk, −14,6 LUFS, `remotion/src/v17/`, palet **`langit`** (pilihan user, pertama non-krem yang dirender penuh). VO ElevenLabs Riri Rida 1 take + 1 kalimat sambungan "selokan" (flow `1rtisfRaRpSMv2jMNDmF`); timestamp `tools/align_teks.py`. Drive #17 `1yYRyM6a8naln4CdyJrqvs2TXa1sbFr_8` (cover, info, versi ringan 540p); MP4 penuh + SRT + cover dikirim ke user.
 - **Tata letak (R1–R3 user):** irisan tanah utuh ala #16 → blok isometrik diagonal ala referensi user → **jalan vertikal, mobil dari atas ke bawah, rumah di samping jalan sedikit lebih rendah (±0,4)**, rumah tetangga berjajar, label "Level Jalan/Level Rumah" di hook. Stage 2,5D diputar `ROT` (Video17.tsx).
 - **Angka tidak dipakai di video:** peil 20 cm (PP 12/2021), lantai 40–50 cm, biaya Rp10–12 jt belum terverifikasi (sumber diblokir jaringan 17 Nov); isi mitos feng shui dibaca dari cuplikan (ditulis "katanya"). Host jdih.pkp.go.id, detik, kontan, kompas sudah ditambahkan ke environment tapi agen pembaca halaman tetap gagal pada sesi itu.

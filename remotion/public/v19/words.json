@@ -1,0 +1,609 @@
+{
+"words": [
+{
+"word": "Pintu",
+"start": 0.0,
+"end": 0.323
+},
+{
+"word": "depan",
+"start": 0.323,
+"end": 0.647
+},
+{
+"word": "sejajar",
+"start": 0.647,
+"end": 1.1
+},
+{
+"word": "pintu",
+"start": 1.1,
+"end": 1.423
+},
+{
+"word": "belakang?",
+"start": 1.423,
+"end": 1.94
+},
+{
+"word": "Katanya",
+"start": 2.493,
+"end": 2.988
+},
+{
+"word": "rezekimu",
+"start": 2.988,
+"end": 3.554
+},
+{
+"word": "masuk,",
+"start": 3.554,
+"end": 3.908
+},
+{
+"word": "lalu",
+"start": 4.123,
+"end": 4.35
+},
+{
+"word": "langsung",
+"start": 4.35,
+"end": 4.805
+},
+{
+"word": "lewat.",
+"start": 4.805,
+"end": 5.09
+},
+{
+"word": "Orang",
+"start": 5.546,
+"end": 5.903
+},
+{
+"word": "tua",
+"start": 5.903,
+"end": 6.117
+},
+{
+"word": "percaya",
+"start": 6.117,
+"end": 6.616
+},
+{
+"word": "energi",
+"start": 6.616,
+"end": 7.044
+},
+{
+"word": "baiknya",
+"start": 7.044,
+"end": 7.543
+},
+{
+"word": "nggak",
+"start": 7.543,
+"end": 7.9
+},
+{
+"word": "sempat",
+"start": 7.9,
+"end": 8.328
+},
+{
+"word": "mampir.",
+"start": 8.328,
+"end": 8.756
+},
+{
+"word": "Itu",
+"start": 9.089,
+"end": 9.314
+},
+{
+"word": "belum",
+"start": 9.314,
+"end": 9.69
+},
+{
+"word": "terbukti",
+"start": 9.69,
+"end": 10.291
+},
+{
+"word": "secara",
+"start": 10.291,
+"end": 10.742
+},
+{
+"word": "ilmiah.",
+"start": 10.742,
+"end": 11.193
+},
+{
+"word": "Yang",
+"start": 11.426,
+"end": 11.749
+},
+{
+"word": "pasti",
+"start": 11.749,
+"end": 12.152
+},
+{
+"word": "lewat",
+"start": 12.152,
+"end": 12.556
+},
+{
+"word": "lurus",
+"start": 12.556,
+"end": 12.96
+},
+{
+"word": "di",
+"start": 12.96,
+"end": 13.121
+},
+{
+"word": "rumah",
+"start": 13.121,
+"end": 13.525
+},
+{
+"word": "seperti",
+"start": 13.525,
+"end": 14.09
+},
+{
+"word": "ini",
+"start": 14.09,
+"end": 14.332
+},
+{
+"word": "adalah",
+"start": 14.332,
+"end": 14.817
+},
+{
+"word": "angin.",
+"start": 14.817,
+"end": 15.22
+},
+{
+"word": "Dua",
+"start": 15.568,
+"end": 15.769
+},
+{
+"word": "pintu",
+"start": 15.769,
+"end": 16.106
+},
+{
+"word": "segaris",
+"start": 16.106,
+"end": 16.577
+},
+{
+"word": "bikin",
+"start": 16.577,
+"end": 16.913
+},
+{
+"word": "angin",
+"start": 16.913,
+"end": 17.25
+},
+{
+"word": "masuk",
+"start": 17.25,
+"end": 17.586
+},
+{
+"word": "dari",
+"start": 17.586,
+"end": 17.855
+},
+{
+"word": "depan",
+"start": 17.855,
+"end": 18.192
+},
+{
+"word": "dan",
+"start": 18.192,
+"end": 18.394
+},
+{
+"word": "keluar",
+"start": 18.394,
+"end": 18.797
+},
+{
+"word": "lewat",
+"start": 18.797,
+"end": 19.134
+},
+{
+"word": "belakang.",
+"start": 19.134,
+"end": 19.672
+},
+{
+"word": "Namanya",
+"start": 19.865,
+"end": 20.473
+},
+{
+"word": "ventilasi",
+"start": 20.473,
+"end": 21.254
+},
+{
+"word": "silang.",
+"start": 21.254,
+"end": 21.775
+},
+{
+"word": "Udara",
+"start": 22.065,
+"end": 22.427
+},
+{
+"word": "pengap",
+"start": 22.427,
+"end": 22.863
+},
+{
+"word": "ikut",
+"start": 22.863,
+"end": 23.153
+},
+{
+"word": "terbawa",
+"start": 23.153,
+"end": 23.661
+},
+{
+"word": "keluar,",
+"start": 23.661,
+"end": 24.096
+},
+{
+"word": "dan",
+"start": 24.331,
+"end": 24.559
+},
+{
+"word": "jamur",
+"start": 24.559,
+"end": 24.939
+},
+{
+"word": "lebih",
+"start": 24.939,
+"end": 25.32
+},
+{
+"word": "susah",
+"start": 25.32,
+"end": 25.7
+},
+{
+"word": "tumbuh.",
+"start": 25.7,
+"end": 26.157
+},
+{
+"word": "Harganya",
+"start": 26.463,
+"end": 27.164
+},
+{
+"word": "ada",
+"start": 27.164,
+"end": 27.427
+},
+{
+"word": "di",
+"start": 27.427,
+"end": 27.602
+},
+{
+"word": "privasi.",
+"start": 27.602,
+"end": 28.215
+},
+{
+"word": "Orang",
+"start": 28.552,
+"end": 28.864
+},
+{
+"word": "di",
+"start": 28.864,
+"end": 28.988
+},
+{
+"word": "depan",
+"start": 28.988,
+"end": 29.3
+},
+{
+"word": "pintu",
+"start": 29.3,
+"end": 29.612
+},
+{
+"word": "bisa",
+"start": 29.612,
+"end": 29.861
+},
+{
+"word": "melihat",
+"start": 29.861,
+"end": 30.298
+},
+{
+"word": "sampai",
+"start": 30.298,
+"end": 30.672
+},
+{
+"word": "dapur",
+"start": 30.672,
+"end": 30.984
+},
+{
+"word": "dan",
+"start": 30.984,
+"end": 31.171
+},
+{
+"word": "halaman",
+"start": 31.171,
+"end": 31.607
+},
+{
+"word": "belakang.",
+"start": 31.607,
+"end": 32.106
+},
+{
+"word": "Taruh",
+"start": 32.322,
+"end": 32.742
+},
+{
+"word": "rak,",
+"start": 32.742,
+"end": 32.994
+},
+{
+"word": "sekat,",
+"start": 32.994,
+"end": 33.415
+},
+{
+"word": "atau",
+"start": 33.415,
+"end": 33.751
+},
+{
+"word": "gorden",
+"start": 33.751,
+"end": 34.256
+},
+{
+"word": "di",
+"start": 34.256,
+"end": 34.424
+},
+{
+"word": "jalur",
+"start": 34.424,
+"end": 34.844
+},
+{
+"word": "pandang",
+"start": 34.844,
+"end": 35.433
+},
+{
+"word": "itu.",
+"start": 35.433,
+"end": 35.685
+},
+{
+"word": "Angin",
+"start": 35.925,
+"end": 36.293
+},
+{
+"word": "masih",
+"start": 36.293,
+"end": 36.66
+},
+{
+"word": "bisa",
+"start": 36.66,
+"end": 36.954
+},
+{
+"word": "lewat,",
+"start": 36.954,
+"end": 37.321
+},
+{
+"word": "pandangan",
+"start": 37.632,
+"end": 38.194
+},
+{
+"word": "orang",
+"start": 38.194,
+"end": 38.506
+},
+{
+"word": "terhalang.",
+"start": 38.506,
+"end": 39.068
+},
+{
+"word": "Penyekat",
+"start": 39.395,
+"end": 39.951
+},
+{
+"word": "dan",
+"start": 39.951,
+"end": 40.16
+},
+{
+"word": "tanaman",
+"start": 40.16,
+"end": 40.647
+},
+{
+"word": "itu",
+"start": 40.647,
+"end": 40.855
+},
+{
+"word": "juga",
+"start": 40.855,
+"end": 41.133
+},
+{
+"word": "solusi",
+"start": 41.133,
+"end": 41.55
+},
+{
+"word": "versi",
+"start": 41.55,
+"end": 41.898
+},
+{
+"word": "feng",
+"start": 41.898,
+"end": 42.176
+},
+{
+"word": "shui-nya.",
+"start": 42.176,
+"end": 42.663
+},
+{
+"word": "Yang",
+"start": 43.024,
+"end": 43.271
+},
+{
+"word": "lagi",
+"start": 43.271,
+"end": 43.517
+},
+{
+"word": "cari",
+"start": 43.517,
+"end": 43.763
+},
+{
+"word": "rumah,",
+"start": 43.763,
+"end": 44.071
+},
+{
+"word": "cek",
+"start": 44.275,
+"end": 44.492
+},
+{
+"word": "dulu",
+"start": 44.492,
+"end": 44.781
+},
+{
+"word": "denahnya,",
+"start": 44.781,
+"end": 45.359
+},
+{
+"word": "pintu",
+"start": 45.579,
+"end": 45.898
+},
+{
+"word": "depan",
+"start": 45.898,
+"end": 46.217
+},
+{
+"word": "dan",
+"start": 46.217,
+"end": 46.408
+},
+{
+"word": "belakang",
+"start": 46.408,
+"end": 46.918
+},
+{
+"word": "segaris",
+"start": 46.918,
+"end": 47.365
+},
+{
+"word": "atau",
+"start": 47.365,
+"end": 47.62
+},
+{
+"word": "enggak.",
+"start": 47.62,
+"end": 48.003
+},
+{
+"word": "Rumahmu",
+"start": 48.383,
+"end": 48.833
+},
+{
+"word": "pintunya",
+"start": 48.833,
+"end": 49.348
+},
+{
+"word": "segaris?",
+"start": 49.348,
+"end": 49.799
+},
+{
+"word": "Follow",
+"start": 50.124,
+"end": 50.54
+},
+{
+"word": "buat",
+"start": 50.54,
+"end": 50.818
+},
+{
+"word": "fakta",
+"start": 50.818,
+"end": 51.166
+},
+{
+"word": "rumah",
+"start": 51.166,
+"end": 51.513
+},
+{
+"word": "berikutnya!",
+"start": 51.513,
+"end": 52.208
+}
+]
+}
