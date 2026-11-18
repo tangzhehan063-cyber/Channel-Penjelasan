@@ -32,8 +32,8 @@ export const Gambar: React.FC<{onSiap: () => void}> = ({onSiap}) => {
   return null;
 };
 
-/** Pasang model: fit = sisi terpanjang (x/z) dalam satuan dunia, alas di y=0, dipusatkan. warna = {namaNode: hex} mengganti warna bagian itu saja; flat = satu warna untuk semua; garis = outline tinta tipis. */
-export const Model3D: React.FC<{scene: THREE.Group; p?: V3; fit?: number; rot?: number; warna?: Record<string, string>; flat?: string; garis?: boolean}> = ({scene, p = [0, 0, 0], fit = 1.5, rot = 0, warna, flat, garis}) => {
+/** Pasang model: fit = sisi terpanjang (x/z) dalam satuan dunia, alas di y=0, dipusatkan. redup = pengali kecerahan (0,7 = lebih gelap). warna = {namaNode atau namaMaterial: hex} mengganti warna bagian itu saja; flat = satu warna untuk semua; garis = outline tinta tipis. */
+export const Model3D: React.FC<{scene: THREE.Group; p?: V3; fit?: number; rot?: number; warna?: Record<string, string>; flat?: string; garis?: boolean; redup?: number}> = ({scene, p = [0, 0, 0], fit = 1.5, rot = 0, warna, flat, garis, redup = 1}) => {
   const {obj, k} = useMemo(() => {
     const o = scene.clone(true);
     const box = new THREE.Box3().setFromObject(o), size = new THREE.Vector3(), c = new THREE.Vector3();
@@ -46,10 +46,19 @@ export const Model3D: React.FC<{scene: THREE.Group; p?: V3; fit?: number; rot?: 
       const m = n as THREE.Mesh;
       if (!m.isMesh) return;
       if (flat) { m.material = get(flat); return; }
-      if (warna) { let q: THREE.Object3D | null = n; while (q) { if (warna[q.name]) { m.material = get(warna[q.name]); break; } q = q.parent; } }
+      if (redup !== 1 && !warna) { // gelapkan albedo (model berwarna putih terlalu terang di bawah lampu adegan); bahan dikloning agar tidak mengubah model asli
+        const arr = Array.isArray(m.material) ? m.material : [m.material];
+        const baru = arr.map((q) => { const c = (q as THREE.MeshStandardMaterial).clone(); if (c.color) c.color.multiplyScalar(redup); return c; });
+        m.material = Array.isArray(m.material) ? baru : baru[0];
+      }
+      if (warna) {
+        const mm = m.material as THREE.Material; // kunci boleh nama material (mis. 'metalLight') atau nama node
+        if (!Array.isArray(mm) && warna[mm.name]) { m.material = get(warna[mm.name]); return; }
+        let q: THREE.Object3D | null = n; while (q) { if (warna[q.name]) { m.material = get(warna[q.name]); break; } q = q.parent; }
+      }
     });
     return {obj: o, k: kk};
-  }, [scene, fit, warna, flat]);
+  }, [scene, fit, warna, flat, redup]);
   return (
     <group position={p} rotation={[0, rot, 0]} scale={k}>
       <primitive object={obj} />

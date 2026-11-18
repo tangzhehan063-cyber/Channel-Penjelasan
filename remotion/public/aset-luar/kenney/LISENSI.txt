@@ -3,3 +3,13 @@ Model 3D (glb) dan tekstur colormap berasal dari paket Kenney (https://kenney.nl
 - arena/ : KenneyNL/Starter-Kit-Basic-Scene, paket Mini Arena (tangga, dinding, bata, kolom, lantai)
 - racing/ (public/models/kenney): KenneyNL/Starter-Kit-Racing (kendaraan)
 Kode paket starter berlisensi MIT; yang dipakai di sini hanya model dan tekstur CC0. Diambil 18 Nov 2026.
+
+Tambahan (18 Nov 2026), diunduh dari repo agregat https://github.com/series-ai/jam-ready-assets (tiap paket membawa License.txt, semua Kenney = CC0):
+- furnitur/        : Kenney Furniture Kit 2.1 (kamar mandi, dapur, mesin cuci, kasur, sofa, meja, tangga, pintu, dinding, lampu)
+- mobil/           : Kenney Car Kit (sedan, SUV, van, taksi, truk, pemadam, ambulans)
+- rumah-suburban/  : Kenney City Kit Suburban (rumah, pagar, jalan masuk, jalan setapak, pohon)
+- bangunan-modular/: Kenney Building Kit (dinding, lantai, pintu, atap, tangga, pipa, talang)
+- properti-jalan/  : Kenney Retro Urban Kit (tiang lampu, jalan, tembok, perancah, truk)
+- alat-survival/   : Kenney Survival Kit (palu, kapak, ember, tong, peti, tenda)
+- jalan-raya/      : Kenney Road Pack (ubin jalan)
+Lisensi CC0: https://creativecommons.org/publicdomain/zero/1.0/ ; kredit ke Kenney (www.kenney.nl) tidak wajib.

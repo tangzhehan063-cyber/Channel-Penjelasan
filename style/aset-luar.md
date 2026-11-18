@@ -18,6 +18,22 @@ Kit: `remotion/src/kit/model.tsx` (`useModels`, `Model3D`, `Siluet`, `Gambar`), 
 | 15 | `kit/objek/SedanSiluet.tsx` (siluet SVG) | sedan kecil, bodi membulat | mobil; contoh lapis 2 |
 Tidak ada di katalog (harus lapis 2 atau 3): perabot dapur/kamar mandi, kran, pipa, saklar, MCB, genteng, kasur, jendela, pintu rumah. Situs unduhan besar (kenney.nl, poly.pizza) diblokir; sumber baru hanya repo GitHub publik berlisensi CC0 yang bisa di-clone (`add_repo`, read).
 
+
+## Paket tambahan (perabot, mobil, rumah, alat): Kenney lewat repo agregat
+Sumber: `series-ai/jam-ready-assets` (repo publik berisi 383 paket, tiap paket punya `License.txt`; Kenney = CC0). Berkas besar disimpan lewat Git LFS: unduh dari `media.githubusercontent.com/media/series-ai/jam-ready-assets/main/<path>` (raw hanya memberi penunjuk). Skrip: `tools/ambil-aset.sh <paket> <folder>`; cari paket lain dengan `gh api -X GET search/code -f q='repo:series-ai/jam-ready-assets filename:License.txt'`.
+Katalog visual: komposisi `KatalogRumah1` (perabot) dan `KatalogRumah2` (struktur, mobil, rumah, alat). Ukuran total aset ±15 MB.
+| Folder `kenney/` | Jumlah | Isi penting |
+|---|---|---|
+| `furnitur/` | 140 | toilet(+Square), bathroomSink(+Square), bathtub, shower(+Round), bathroomMirror/Cabinet, kitchenSink/Stove(+Electric)/Fridge(4)/Microwave/Cabinet(banyak)/Blender/Toaster/hood, washer, dryer, washerDryerStacked, bedSingle/Double/Bunk, lounge sofa/kursi, table*, chair*, stool, lamp*, ceilingFan, television*, doorway*, wall*(Window, Doorway), floor*, stairs*, pottedPlant, trashcan |
+| `mobil/` | 50 | sedan, sedan-sports, hatchback-sports, suv, suv-luxury, van, taxi, police, ambulance, firetruck, garbage-truck, delivery, truck, tractor, kart-*, roda, pecahan (debris) |
+| `rumah-suburban/` | 40 | building-type-a…u (rumah), fence*, driveway*, path*, planter, tree* |
+| `bangunan-modular/` | 79 | dinding/border, lantai, pintu (door-rotate-*), roda atap (roof-flat-*), tangga, detail-pipe, gutter-vertical, column |
+| `properti-jalan/` | 100 | detail-light-* (tiang lampu), road-asphalt/dirt, wall-a/b, scaffolding, detail-dumpster, bench, cables, truk, pohon |
+| `alat-survival/` | 80 | tool-hammer/axe/pickaxe/hoe, bucket, barrel, box, chest, tent, fence, rock, resource-planks/stone |
+| `jalan-raya/` | 100 | ubin jalan `tileNNN` (aspal, trotoar) |
+Warna: perabot memakai material berwarna (nama seperti `metal`, `wood`, `carpetWhite`, `metalDark`); ganti per bahan lewat `warna={{wood: '#c9402a'}}`. Paket lain memakai tekstur `Textures/colormap.png` (sudah diunduh); `redup` (0,3–1) menggelapkan model putih yang terlalu terang di bawah lampu adegan.
+Tidak ada: kran/keran, pipa U, saklar, MCB, stop kontak, genteng, kunci. Itu tetap lapis 2 (siluet) atau 3 (kode). Catatan: perabot Kenney sangat putih; pakai `warna`/`redup` agar sesuai palet video.
+
 ## Pakai di adegan
 ```tsx
 const {m, siap} = useModels(['kenney/kota/building-garage.glb']);   // di komponen DOM (komposisi), BUKAN di dalam kanvas
