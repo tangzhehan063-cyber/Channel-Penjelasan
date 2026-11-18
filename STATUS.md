@@ -1,5 +1,14 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
+## Rencana berikutnya (18 Nov 2026, dari sesi RAKA): kit + panduan gaya ala GrowKaz
+User ingin Channel Penjelasan punya panduan gaya, library, dan template seperti GrowKaz (di repo RAKA: `studio/engine`, `brand/gaya-growkaz.md`, skill `growkaz-style`). Masalah: tiap video menyalin `remotion/src/vNN/` dan menulis ulang objek 3D, hasil tidak konsisten (#16/#17 jelek). Urutan usulan (belum dikerjakan, tunggu user):
+1. `remotion/src/kit/`: objek 3D dari #8/#14/#19/#20 (Rumah, Lamp, Kasur, Pipa, Klip, dll, berparameter), primitif (material datar membulat, bayangan, label garis, kartu judul 2 lapis, subtitle per frasa), kamera (push-in, orbit, whip), transisi (panel 2D, banjir koral). Ekstrak tanpa mengubah tampilan.
+2. Template berbasis data: `beats.json` (beat, objek, kamera, teks) lalu komposisi dirakit dari kit; uji dengan video #21.
+3. `style/gaya-penjelasan.md`: skala objek (>=1/3 tinggi layar), kosakata shot, tempo, palet (`style/palet.json`), checklist sebelum contact sheet.
+4. Perluas `tools/cek-sutradara.mjs`: ukuran objek, jumlah lapis teks, objek terpotong tepi (bug di `style/cek-bug.md`).
+5. Isi `referensi/moodboard/` dengan still video yang di-ACC user.
+Cabang kerja: `claude/kit-gaya-growkaz`. Video berikutnya setelah itu: #21 (cek nomor di `main`).
+
 ## Posisi terakhir (18 Nov 2026)
 - **Video #20 selesai:** "Kenapa Stop Kontak Mirip Hidung Babi?" (cara kerja bagian rumah: klip ground Schuko), 55,0 dtk, −14,7 LUFS, `remotion/src/v20/`, palet **`madu`** (user pilih). VO ElevenLabs Riri Rida 1 take (flow `a18yToEDaW4diMDMP8p7`); TTS memakai "Syuko" untuk "Schuko" (belum didengar user, cek bagian detik ±17 dan ±38). Timestamp `tools/align_teks.py`. Drive #20 `1LMumppD0iiNKEmpEU-pmFqz0EzoR5Esx` (cover, info, versi ringan 540p); MP4 penuh + SRT + cover dikirim ke user.
 - **Alur topik #20 (pelajaran):** "cara kerja seperti biasa" ternyata berarti video CARA KERJA alat/bagian rumah (bukan mitos). Draf mitos "kasur lurus ke pintu" ditunda di `naskah/video-20-kasur-lurus-pintu.*` dan `riset/2026-11-18-kasur-lurus-pintu.md`. Tanyakan arti bila instruksi user ambigu.
