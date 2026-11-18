@@ -1,28 +1,29 @@
-// Adegan #22 (KPR): objek diorama kertas dari v11 (bank, rumah bata, uang berikat, kalender, amplop, map kontrak), dipakai satu per adegan dan dibesarkan.
-// Jendela waktu animasi dari beats.json (`w`, detik absolut). mode: bank | rumah | naik | tetap | mengambang | simulasi | loncat | kontrak | tanya | cta
-import {Bank, Bills, Calendar, Folders, House} from '../../v11/Kpr';
+// Adegan #22 (KPR) bergaya #21: objek putih kapur beroutline + warna peran. Jendela waktu animasi dari beats.json (`w`).
+// mode: bank | rumah | naik | tetap | mengambang | simulasi | loncat | kontrak | tanya | cta
 import {r} from '../waktu';
+import {BankB, Gembok, JamBunga, KalenderB, MapKontrak, RumahB, UangB} from './Kpr21';
 import type {AdeganP} from './AdeganStopkontak';
 
 const W = (w: AdeganP['w'], k: string, d: [number, number]): [number, number] => (w && w[k]) || d;
 
-export const AdeganKpr: React.FC<AdeganP> = ({t, mode, w}) => {
+export const AdeganKpr: React.FC<AdeganP> = ({t, mode, w, warna}) => {
+  const c = {accent: warna.accent, good: warna.good, cool: warna.cool ?? '#2f6aa8'};
   switch (mode) {
-    case 'bank': return <group position={[0, 0, 0]}><Bank p={[0, 0, 0]} /></group>;
-    case 'rumah': return <House fill={54} build={1} />;
-    case 'naik': { // 12 ikat bunga + 1 ikat tambahan jatuh di atas (seperempat persen)
-      const a = 12 / 13 + (1 / 13) * r(t, ...W(w, 'tambah', [9.6, 10.4]));
-      return <group scale={[2.6, 2.6, 2.6]}><Bills p={[0, 0, 0]} gray={12} coral={1} appear={a} /></group>;
+    case 'bank': return <BankB warna={c} />;
+    case 'rumah': return <RumahB warna={c} />;
+    case 'naik': { // 12 ikat bunga; ikat ke-13 (seperempat persen) jatuh ke atas tumpukan
+      const k = r(t, ...W(w, 'tambah', [9.6, 10.4]));
+      return <group scale={[1.5, 1.5, 1.5]}><UangB n={12} warna={c} />{k > 0 && <group position={[0, (1 - k) * 0.6, 0]}><UangB n={0} extra={0} warna={c} /><group position={[0, 12 * 0.058, 0]}><UangB n={0} extra={1} warna={c} /></group></group>}</group>;
     }
-    case 'tetap': return <group scale={[3, 3, 3]}><Calendar p={[0, 0, 0]} text="TETAP" sub="aman sampai habis" done /></group>;
-    case 'mengambang': return <group scale={[3, 3, 3]} rotation={[0, 0, 0.05 * Math.sin(t * 2.2)]}><Calendar p={[0, 0, 0]} text="MENGAMBANG" sub="ikut pasar" /></group>;
-    case 'simulasi': return <group scale={[2.6, 2.6, 2.6]}><Bills p={[0, 0, 0]} gray={14} coral={1} appear={1} /></group>; // satu tumpukan uang (14 ikat bunga + 1 ikat tambahan)
-    case 'loncat': { // ikat bertambah dari 12 jadi 24: cicilan melonjak
-      const a = 0.5 + 0.5 * r(t, ...W(w, 'naik', [37.8, 41.6]));
-      return <group scale={[2.2, 2.2, 2.2]}><Bills p={[0, 0, 0]} gray={12} coral={12} appear={a} /></group>;
+    case 'tetap': return <group scale={[1.6, 1.6, 1.6]}><Gembok warna={c} /></group>;
+    case 'mengambang': return <group scale={[1.2, 1.2, 1.2]}><JamBunga t={t} warna={c} /></group>;
+    case 'simulasi': return <group scale={[1.5, 1.5, 1.5]}><UangB n={14} extra={1} warna={c} /></group>;
+    case 'loncat': { // tumpukan melonjak dari 12 jadi 24 ikat; ikat tambahan berwarna aksen
+      const k = r(t, ...W(w, 'naik', [37.8, 41.6])), tambah = Math.round(12 * k);
+      return <group scale={[1.2, 1.2, 1.2]}><UangB n={12} extra={tambah} warna={c} /></group>;
     }
-    case 'kontrak': return <group scale={[3, 3, 3]}><Folders p={[0, 0, 0]} h={0.5} s={1} /></group>;
-    case 'tanya': return <group scale={[3, 3, 3]}><Calendar p={[0, 0, 0]} text="?" sub="masa tetapmu" /></group>;
-    default: return <House fill={90} build={1} />; // cta
+    case 'kontrak': return <group scale={[1.5, 1.5, 1.5]}><MapKontrak warna={c} /></group>;
+    case 'tanya': return <group scale={[1.5, 1.5, 1.5]}><KalenderB warna={c} /></group>;
+    default: return <RumahB warna={c} />; // cta
   }
 };
