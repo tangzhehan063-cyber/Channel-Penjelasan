@@ -46,7 +46,7 @@ export const UangB: React.FC<{n: number; extra?: number; warna: Warna}> = ({n, e
       const e = i >= n, y = 0.03 + i * 0.058, j = Math.sin(i * 12.9898) * 0.03;
       return (
         <group key={i} position={[j, y, j * 0.7]} rotation={[0, j * 1.6, 0]}>
-          <Bx p={[0, 0, 0]} s={[0.95, 0.052, 0.5]} c={e ? warna.accent : BIRU_MUDA} />
+          <Bx p={[0, 0, 0]} s={[0.95, 0.052, 0.5]} c={e ? warna.accent : warna.cool} />
           <Bx p={[0, 0, 0]} s={[0.14, 0.056, 0.51]} c={KAPUR} edge={false} />
         </group>
       );
@@ -79,17 +79,22 @@ export const JamBunga: React.FC<{t: number; warna: Warna}> = ({t, warna}) => {
   );
 };
 
+export const COKLAT = '#b0804e', COKLAT_TUA = '#8c6238';
+/** map coklat (kraft) bertumpuk: tab di sisi, tali pengikat putih, satu lembar kertas menyembul dari map teratas */
 export const MapKontrak: React.FC<{warna: Warna}> = ({warna}) => (
   <group>
-    {Array.from({length: 8}, (_, i) => {
+    {Array.from({length: 5}, (_, i) => {
       const j = Math.sin(i * 4.1) * 0.05;
       return (
-        <group key={i} position={[j, 0.04 + i * 0.085, j * 0.6]} rotation={[0, j * 1.2, 0]}>
-          <Bx p={[0, 0, 0]} s={[1.0, 0.075, 0.72]} c={KAPUR} />
-          <Bx p={[0.38, 0, 0.372]} s={[0.24, 0.078, 0.03]} c={i % 3 === 0 ? warna.cool : BIRU_MUDA} edge={false} />
+        <group key={i} position={[j, 0.07 + i * 0.13, j * 0.6]} rotation={[0, j * 1.2, 0]}>
+          <Bx p={[0, 0, 0]} s={[1.0, 0.12, 0.74]} c={COKLAT} />
+          <Bx p={[0.26, 0, 0.375]} s={[0.34, 0.125, 0.03]} c={COKLAT_TUA} edge={false} />
+          <Bx p={[0, 0.062, 0]} s={[1.0, 0.004, 0.06]} c={KAPUR} edge={false} />
         </group>
       );
     })}
+    <Bx p={[-0.1, 0.72, -0.02]} s={[0.78, 0.012, 0.56]} c={KAPUR} rot={[0, 0.08, 0]} />
+    <Bx p={[0.26, 0.58, 0.39]} s={[0.26, 0.03, 0.02]} c={warna.accent} edge={false} />
   </group>
 );
 

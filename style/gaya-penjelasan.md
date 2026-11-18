@@ -65,3 +65,6 @@ Hook ≤ 4 dtk; beat rata-rata 3–5 dtk dengan variasi (CV ≥ 0,25: satu beat 
 3. `style/cek-bug.md` dibaca; kicker tidak tertutup 3D, judul berakhir sebelum gelembung komentar, tidak ada z-fighting.
 4. Teks maksimal dua lapis; subtitle per frasa utuh; kontras tegas, warna datar, bentuk membulat.
 5. Penyimpangan dari karakter = buang dan mulai dari awal (bukan tambal-sulam).
+
+## 8. Kamera isometrik di kit (19 Nov 2026, dipakai di #22)
+Per adegan di `beats.json`: tambahkan `"iso": {"zoom": N}`; kamera memakai `CanvasIso` (ortografis, arah X=Y=Z, cahaya satu arah `LightsIso`). Gerak lewat `pos` dan `look` dalam `kamera`: jarak `pos.z - look.z` hanya mengatur zoom (`zoom = N × d0 / d`: kecil = push, besar = pull), perubahan `look` = pan atau crane. Zoom awal yang dipakai #22: bank 330, rumah 360, tumpukan uang 430, gembok 420, jam 400, map 420, kalender 330 (objek ±1,5–2 satuan, satuan dunia = piksel per zoom). `cek-sutradara` bagian 9 mengukur ukuran objek isometrik dari `zoom` dan `ukuran: [lebar, tinggi]`. Pakai untuk SATU objek besar per adegan; dilarang untuk diorama lebar. Uang gepokan: ikat biru (Rp50 ribu, dasar) + merah (Rp100 ribu, tambahan); map kontrak coklat (kraft).

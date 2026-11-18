@@ -59,3 +59,4 @@ Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) s
 - Kalender/objek ber-sub-teks di bawah: sub-teks tertutup subtitle (y 1400+); naikkan objek (turunkan look.y dan pos.y bersama).
 - Objek diorama kertas #11 (bank, uang, kalender, map) berukuran kecil: besarkan dengan `scale` grup 2,2 sampai 3 dan atur kamera jarak ±3,5–5.
 - Objek gaya #21 (Kpr21) terpotong tepi bila jarak kamera < ±5,5 untuk objek ±1,5 satuan; pakai jarak 5,6–7 dan cek `cek-sutradara` (ukuran ≥ 1/3 tinggi atau ≥ 60% lebar).
+- Kamera isometrik: `cek-sutradara` versi lama menghitung jarak perspektif (pos-look) dan menandai semua adegan isometrik GAGAL; kini adegan ber-`iso` diukur dari `zoom`. Objek ±1,5 satuan butuh zoom ≥ ±330 agar ≥60% lebar layar.
