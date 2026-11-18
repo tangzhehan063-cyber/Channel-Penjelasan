@@ -1,5 +1,9 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
+## Video #21 SEDANG DIKERJAKAN (18 Nov 2026): "Cor garasi pakai besi, kok masih retak?" (cara kerja)
+- T1–T3 selesai: topik user, riset `riset/2026-11-18-tulangan-cor-garasi.md`, naskah ACC (klaim CEK diterima), palet `batu`, caption `caption/video-21-tulangan-cor-garasi.md`. VO **Gemini TTS Achernar** 63,7 dtk (ElevenLabs gagal: kredit 673/844, flow `bcxCKSLbvpSoOkBklKLC`, 0 terpakai); durasi diterima user.
+- T4: moodboard `referensi/moodboard/v21-moodboard.jpg` (menunggu ACC user). Kode: `remotion/src/v21/` (beats.json + Video21 + Cover21), objek baru `kit/objek/Pelat.tsx` + `AdeganPelat.tsx`. `cek-sutradara 21`: 0 GAGAL. Berikutnya: ACC moodboard, sheet 6 still, render (`produksi.sh final 21 <slug>`), cover, Drive.
+
 ## Kit gaya "Penjelasan" SELESAI (18 Nov 2026, cabang `claude/bold-gates-d1kdbi`; dari rencana sesi RAKA)
 - **Langkah 1:** `remotion/src/kit/` (waktu/kamera/proj, stage, primitif, teks, objek stop kontak, template). v20 dipindah memakai kit; **still identik piksel** dengan sebelum refactor.
 - **Langkah 2:** template `<Penjelasan data words ekstra>` + `v20/beats.json` + `Video20Data` (komposisi `Video20Data`); 5 still identik dengan `Video20`. Belum diuji dengan video baru (#21 butuh topik + palet dari user, gerbang T1–T3).

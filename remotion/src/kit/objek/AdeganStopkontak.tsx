@@ -5,7 +5,7 @@ import {Bx, Cy, Sp} from '../prim';
 import {lerp3, r, type V3} from '../waktu';
 import {Iron, Outlet, Plug} from './Stopkontak';
 
-export type Warna = {accent: string; good: string};
+export type Warna = {accent: string; good: string; cool?: string};
 export type AdeganP = {t: number; mode: string; w?: Record<string, [number, number]>; warna: Warna};
 const W = (w: AdeganP['w'], k: string, d: [number, number]) => (w && w[k]) || d;
 

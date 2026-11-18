@@ -9,3 +9,5 @@ export {House, Seng, RoofCut} from '../v08/Rumah';
 export {Penjelasan, type DataVideo} from './Penjelasan';
 export {OBJEK} from './objek/registry';
 export {AdeganStopkontak} from './objek/AdeganStopkontak';
+export {AdeganPelat} from './objek/AdeganPelat';
+export {Pelat} from './objek/Pelat';

@@ -31,6 +31,8 @@ import {Cover19} from './v19/Cover19';
 import {Video20, V20_FRAMES} from './v20/Video20';
 import {Cover20} from './v20/Cover20';
 import {Video20Data} from './v20/Video20Data';
+import {Video21, V21_FRAMES} from './v21/Video21';
+import {Cover21} from './v21/Cover21';
 import {Cover17} from './v17/Cover17';
 import {PaletDemo} from './aset/PaletDemo';
 import {Cover12} from './v12/Cover12';
@@ -45,6 +47,8 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="Cover14" component={Cover14} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Cover16" component={Cover16} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Video20" component={Video20} durationInFrames={V20_FRAMES} fps={30} width={1080} height={1920} />
+  <Composition id="Video21" component={Video21} durationInFrames={V21_FRAMES} fps={30} width={1080} height={1920} />
+  <Composition id="Cover21" component={Cover21} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Video20Data" component={Video20Data} durationInFrames={V20_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Cover20" component={Cover20} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Cover19" component={Cover19} durationInFrames={1} fps={30} width={1080} height={1920} />
