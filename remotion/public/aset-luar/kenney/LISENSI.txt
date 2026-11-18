@@ -1,0 +1,5 @@
+Model 3D (glb) dan tekstur colormap berasal dari paket Kenney (https://kenney.nl), berlisensi CC0 (domain publik):
+- kota/  : KenneyNL/Starter-Kit-City-Builder (rumah, garasi, jalan, trotoar, tiang lampu, pohon)
+- arena/ : KenneyNL/Starter-Kit-Basic-Scene, paket Mini Arena (tangga, dinding, bata, kolom, lantai)
+- racing/ (public/models/kenney): KenneyNL/Starter-Kit-Racing (kendaraan)
+Kode paket starter berlisensi MIT; yang dipakai di sini hanya model dan tekstur CC0. Diambil 18 Nov 2026.
