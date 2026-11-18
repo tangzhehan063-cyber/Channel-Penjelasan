@@ -163,7 +163,7 @@ export const Envelope: React.FC<{p: V3; s?: number; label?: string}> = ({p, s = 
 
 // ---------- kalender meja ----------
 export const Calendar: React.FC<{p: V3; text: string; sub?: string; s?: number; done?: boolean}> = ({p, text, sub, s = 1, done}) => {
-  const tex = useTextTex(text, 512, 400, done ? '#6fae6a' : '#fbfaf6', done ? '#ffffff' : '#1c1c1e', `900 ${text.length > 7 ? 92 : 120}px Inter, sans-serif`, sub);
+  const tex = useTextTex(text, 512, 400, done ? '#6fae6a' : '#fbfaf6', done ? '#ffffff' : '#1c1c1e', `900 ${text.length > 9 ? 64 : text.length > 7 ? 92 : 120}px Inter, sans-serif`, sub);
   if (s <= 0.001) return null;
   const tilt = -0.32;
   return (

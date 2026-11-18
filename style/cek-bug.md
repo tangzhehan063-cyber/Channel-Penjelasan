@@ -52,3 +52,9 @@ Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) s
 - Properti di belakang pelat (motor) tertutup kartu judul: turunkan seluruh adegan di layar (naikkan pos.y dan look.y bersama +0,5) supaya properti di bawah zona judul (y > 700).
 - Saat dive dekat ke objek, tepi atas objek dan retak masuk zona kicker/pil hook (y < 420): kicker tetap terbaca karena dirender di atas 3D, tapi batasi dive agar tepi atas objek tidak melewati y ≈ 200.
 - Retak realistis: gunakan poligon bergerigi deterministik (`kit/objek/Retak.tsx`), jangan `Math.random()` (flicker antar frame).
+
+## Bug #22 (18 Nov 2026)
+- Teks kalender `Calendar` (v11) terpotong tepi tekstur bila >9 huruf (MENGAMBANG): font otomatis 64 px untuk teks >9 huruf.
+- Dua objek kecil dalam satu adegan (tumpukan uang + amplop) terpotong tepi kiri/kanan walau diperbesar: pakai SATU objek per adegan (KUNCI KARAKTER 2).
+- Kalender/objek ber-sub-teks di bawah: sub-teks tertutup subtitle (y 1400+); naikkan objek (turunkan look.y dan pos.y bersama).
+- Objek diorama kertas #11 (bank, uang, kalender, map) berukuran kecil: besarkan dengan `scale` grup 2,2 sampai 3 dan atur kamera jarak ±3,5–5.
