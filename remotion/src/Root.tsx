@@ -33,6 +33,7 @@ import {Cover20} from './v20/Cover20';
 import {Video20Data} from './v20/Video20Data';
 import {Video21, V21_FRAMES} from './v21/Video21';
 import {KatalogAset, KatalogRumah1, KatalogRumah2} from './kit/KatalogAset';
+import {UjiGayaAset} from './kit/UjiGayaAset';
 import {Cover21} from './v21/Cover21';
 import {Cover17} from './v17/Cover17';
 import {PaletDemo} from './aset/PaletDemo';
@@ -48,6 +49,7 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="Cover14" component={Cover14} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Cover16" component={Cover16} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Video20" component={Video20} durationInFrames={V20_FRAMES} fps={30} width={1080} height={1920} />
+  <Composition id="UjiGayaAset" component={UjiGayaAset} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="KatalogRumah1" component={KatalogRumah1} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="KatalogRumah2" component={KatalogRumah2} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="KatalogAset" component={KatalogAset} durationInFrames={1} fps={30} width={1080} height={1920} />

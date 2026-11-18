@@ -2,7 +2,6 @@
 // PENTING: glTF dimuat di komponen DOM (bukan di dalam kanvas R3F) lalu dilempar sebagai prop. Konteks React tidak menyeberang ke kanvas.
 import {useEffect, useMemo, useState} from 'react';
 import * as THREE from 'three';
-import {Edges} from '@react-three/drei';
 import {useThree} from '@react-three/fiber';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {SVGLoader} from 'three/examples/jsm/loaders/SVGLoader.js';
@@ -45,32 +44,31 @@ export const Model3D: React.FC<{scene: THREE.Group; p?: V3; fit?: number; rot?: 
     o.traverse((n) => {
       const m = n as THREE.Mesh;
       if (!m.isMesh) return;
+      if (garis && !(m as any).userData.sudahGaris) { // outline tinta tipis pada sudut tajam (≥35°)
+        (m as any).userData.sudahGaris = true;
+        m.add(new THREE.LineSegments(new THREE.EdgesGeometry(m.geometry, 35), new THREE.LineBasicMaterial({color: INK})));
+      }
       if (flat) { m.material = get(flat); return; }
       if (redup !== 1 && !warna) { // gelapkan albedo (model berwarna putih terlalu terang di bawah lampu adegan); bahan dikloning agar tidak mengubah model asli
         const arr = Array.isArray(m.material) ? m.material : [m.material];
         const baru = arr.map((q) => { const c = (q as THREE.MeshStandardMaterial).clone(); if (c.color) c.color.multiplyScalar(redup); return c; });
         m.material = Array.isArray(m.material) ? baru : baru[0];
       }
-      if (warna) {
-        const mm = m.material as THREE.Material; // kunci boleh nama material (mis. 'metalLight') atau nama node
-        if (!Array.isArray(mm) && warna[mm.name]) { m.material = get(warna[mm.name]); return; }
-        let q: THREE.Object3D | null = n; while (q) { if (warna[q.name]) { m.material = get(warna[q.name]); break; } q = q.parent; }
+      if (warna) { // prioritas: nama node (bagian spesifik, mis. 'doorFreezer'), baru nama material (mis. 'metalLight')
+        let q: THREE.Object3D | null = n;
+        while (q) { if (warna[q.name]) { m.material = get(warna[q.name]); return; } q = q.parent; }
+        const mm = m.material as THREE.Material;
+        if (!Array.isArray(mm) && warna[mm.name]) m.material = get(warna[mm.name]);
       }
     });
     return {obj: o, k: kk};
-  }, [scene, fit, warna, flat, redup]);
+  }, [scene, fit, warna, flat, redup, garis]);
   return (
     <group position={p} rotation={[0, rot, 0]} scale={k}>
       <primitive object={obj} />
-      {garis && <Outline obj={obj} />}
     </group>
   );
 };
-const Outline: React.FC<{obj: THREE.Object3D}> = ({obj}) => {
-  const meshes: THREE.Mesh[] = []; obj.traverse((n) => { if ((n as THREE.Mesh).isMesh) meshes.push(n as THREE.Mesh); });
-  return <>{meshes.map((m, i) => <mesh key={i} geometry={m.geometry} position={m.getWorldPosition(new THREE.Vector3())} quaternion={m.getWorldQuaternion(new THREE.Quaternion())} scale={m.getWorldScale(new THREE.Vector3())}><meshBasicMaterial visible={false} /><Edges color={INK} threshold={35} lineWidth={1} /></mesh>)}</>;
-};
-
 export type Lapis = {d: string; warna: string; depth: number; z?: number; bevel?: number};
 /** Siluet SVG berlapis -> 3D membulat. d = jalur SVG (y ke bawah), 1 satuan dunia = 100 px SVG bila skala 0.01. pusat = titik SVG yang jadi (0,0). */
 export const Siluet: React.FC<{lapis: Lapis[]; pusat: [number, number]; skala?: number; p?: V3; rot?: number}> = ({lapis, pusat, skala = 0.01, p = [0, 0, 0], rot = 0}) => {
