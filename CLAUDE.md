@@ -20,8 +20,8 @@ Video baru HARUS terlihat seperti keluarga **#7, #8, #10, #13, #14**. Bukan eksp
 4. **Kontras tegas, warna datar, bentuk membulat**, pola pemutus (panel 2D / banjir koral) di titik balik. Sudut tegas: beda tinggi, ukuran, atau perubahan harus terbaca dalam 1 detik di layar HP.
 5. **Pengecualian yang diizinkan hanya yang sudah diputuskan user**: palet latar (Tahap 2) dan tanpa ornamen sudut (16 Nov). Referensi user hanya mengubah penempatan di dalam gaya ini, tidak mengganti gaya.
 6. **Bukti wajib sebelum minta ACC sheet:** buat contact sheet 6 still video baru **berdampingan dengan 2 still referensi (#8 dan #14)** dan tulis di checklist satu kalimat per poin 2–4 bahwa lolos. Ukuran objek diperiksa dengan mata terhadap referensi, bukan dengan skrip.
-8. **Tahap 4 wajib baca `style/gaya-penjelasan.md`** (kit, format `beats.json`, skala objek, kosakata kamera bagian 4, tempo, daftar cek) dan skill `sutradara` sebelum menulis kamera; kamera dari kosakata itu (≥4 jenis gerak, satu signature shot), bukan karangan baru. Tulis di `checklist/vNN.md` bahwa panduan sudah dibaca.
 7. **Bila video dinilai user menyimpang dari karakter ini, TIDAK ADA perbaikan tambal-sulam: video dibuang dan dimulai dari awal** (salin ulang v08/v14, naskah dan VO yang sudah di-ACC dipakai lagi). Catat penyebabnya di `style/cek-bug.md`.
+8. **Tahap 4 wajib baca `style/gaya-penjelasan.md`** (kit, format `beats.json`, skala objek, kosakata kamera bagian 4, tempo, daftar cek) dan skill `sutradara` sebelum menulis kamera; kamera dari kosakata itu (≥4 jenis gerak, satu signature shot), bukan karangan baru. Tulis di `checklist/vNN.md` bahwa panduan sudah dibaca.
 
 ## Hemat token (wajib)
 - Baca sesuai tahap: Tahap 1–2 → `naskah/alur-naskah.md` + skill `naskah-viral`; Tahap 4–5 → `style/style.md` + `style/aset.md` (Gaya A) atau `style/diorama-kertas/README.md` (Gaya B, diorama kertas); caption → bagian caption di file ini. Jangan membaca ulang file yang tidak berubah.
