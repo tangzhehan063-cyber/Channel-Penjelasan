@@ -26,7 +26,7 @@ Video baru HARUS terlihat seperti keluarga **#7, #8, #10, #13, #14**. Bukan eksp
 ## ATURAN HEMAT TOKEN (perintah user 18 Nov 2026, setelah #21; menang atas aturan lain yang lebih boros)
 1. **Revisi ditampung semua dulu.** Setiap permintaan revisi user dicatat di daftar R `checklist/vNN.md` dan TIDAK langsung dikerjakan/dirender satu per satu. Setelah user menyatakan revisi cukup (atau menyuruh lanjut), kerjakan SEMUA butir R sekaligus.
 2. **Urutan sesudahnya:** render moodboard akhir (1 sheet) → render video penuh. Tidak ada putaran moodboard/sheet per revisi.
-3. **Gambar hanya bila user minta.** Jangan mengirim moodboard, contact sheet, atau still ke user secara otomatis; kirim still (file gambar apa adanya, bukan sheet berulang) hanya ketika user meminta gambarnya. Laporan teks cukup menyebut apa yang berubah.
+3. **Gambar ke user: 1 still per bagian besar, tanpa sheet.** Pada moodboard akhir (sebelum render), kirim ke user 1 still per bagian besar video (5 bagian framework: hook, masalah, penjelasan, demonstrasi/titik balik, aksi+CTA) sebagai file gambar terpisah lewat SendUserFile, supaya user tetap melihat gambaran kasar. Pilih still paling mewakili tiap bagian; tidak perlu dibuka lagi oleh Claude bila sudah lolos cek skrip. Di luar itu (revisi per putaran, contact sheet, QC sheet) gambar dikirim hanya bila user meminta.
 4. **Cek gambar oleh Claude sendiri dibatasi 1 sheet per putaran**, hanya sebelum render, tidak sesudah setiap perubahan kecil. Cek yang bisa dilakukan lewat skrip (`cek-sutradara`, selisih piksel, `tsc`) didahulukan daripada melihat gambar.
 5. Render berjalan di latar belakang dan tidak memakai token; satu notifikasi selesai, tanpa laporan progres.
 
