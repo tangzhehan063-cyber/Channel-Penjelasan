@@ -46,3 +46,4 @@ Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) s
 ## Bug #20 (18 Nov 2026)
 - Adegan majemuk (setrika + stop kontak + tanah) dengan kamera terlalu dekat: objek tertutup kartu judul dan keluar layar. Atur kamera dari jarak ±10 dan geser look.x supaya semua objek utama masuk lebar layar.
 - Steker dekat kamera menutupi stop kontak: kamera dari samping, look.x digeser ke arah stop kontak.
+- Stiker yang diposisikan dengan proj() terpotong tepi layar: selalu clamp x ke 250..900 (#20 'ada klip logam?').

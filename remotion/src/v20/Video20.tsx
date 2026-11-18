@@ -93,7 +93,7 @@ const Iron: React.FC<{p: V3; spark?: number}> = ({p, spark = 0}) => (
 );
 
 type SceneP = {t: number; mode: 'hook' | 'klip' | 'colok' | 'bocor' | 'tanpa' | 'cek'; k?: number};
-const Scene: React.FC<SceneP> = ({t, mode, k = 0}) => {
+export const Scene: React.FC<SceneP> = ({t, mode, k = 0}) => {
   if (mode === 'hook') return <Outlet />;
   if (mode === 'klip') return <Outlet glow={r(t, 17.8, 18.4)} ring={r(t, 18.6, 19.2)} />;
   if (mode === 'cek') return <Outlet ring={r(t, 45.2, 46.0)} glow={0} />;
@@ -245,7 +245,7 @@ export const Video20: React.FC = () => {
       <Chip x={540} y={1210} p={r(t, 26.9, 27.3) * (1 - r(t, 28.0, 28.3))} text="baru pin berarus" color={CORAL} size={46} />
       <Chip x={540} y={1210} p={r(t, 30.0, 30.4) * (1 - r(t, 36.8, 37.2))} text="arus bocor ke tanah" color={CORAL} size={46} />
       <Chip x={Math.max(300, Math.min(780, tPt[0]))} y={Math.max(900, Math.min(1260, tPt[1] + 260))} p={r(t, 41.3, 41.7) * (1 - r(t, 44.2, 44.5))} text="nggak ada kontak ground" color={COOL} size={44} />
-      <Chip x={Math.min(900, clipPt2[0])} y={Math.max(900, Math.min(1250, clipPt2[1] + 180))} p={r(t, 46.2, 46.6) * (1 - r(t, 50.0, 50.3))} text="ada klip logam?" color={GOOD} size={46} />
+      <Chip x={Math.max(250, Math.min(900, clipPt2[0] + 130))} y={Math.max(900, Math.min(1250, clipPt2[1] + 180))} p={r(t, 46.2, 46.6) * (1 - r(t, 50.0, 50.3))} text="ada klip logam?" color={GOOD} size={46} />
       <CommentBubble word="ada klipnya?" start={Math.round(50.3 * FPS)} y={600} out={Math.round(54.7 * FPS)} />
       <FollowButton start={Math.round(52.7 * FPS)} click={Math.round(53.8 * FPS)} y={1250} />
       <Captions ms={t * 1000} />
