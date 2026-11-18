@@ -32,8 +32,15 @@ export type KataVO = {word: string; start: number; end: number};
 export const Captions: React.FC<{ms: number; words: KataVO[]}> = ({ms, words}) => {
   const tema = useTema();
   const pages = useMemo(() => {
-    const caps: Caption[] = words.map((w, i) => ({text: (i ? ' ' : '') + w.word, startMs: w.start * 1000, endMs: w.end * 1000, timestampMs: w.start * 1000, confidence: 1}));
-    return createTikTokStyleCaptions({captions: caps, combineTokensWithinMilliseconds: 950}).pages;
+    // frasa utuh: halaman subtitle tidak boleh menyeberang batas kalimat (. ? !)
+    const kal: KataVO[][] = []; let cur: KataVO[] = [];
+    words.forEach((w) => { cur.push(w); if (/[.?!]$/.test(w.word)) { kal.push(cur); cur = []; } });
+    if (cur.length) kal.push(cur);
+    let i = 0;
+    return kal.flatMap((seg) => {
+      const caps: Caption[] = seg.map((w) => ({text: (i++ ? ' ' : '') + w.word, startMs: w.start * 1000, endMs: w.end * 1000, timestampMs: w.start * 1000, confidence: 1}));
+      return createTikTokStyleCaptions({captions: caps, combineTokensWithinMilliseconds: 950}).pages;
+    });
   }, [words]);
   const pg = pages.find((p, i) => ms >= p.startMs && ms < (pages[i + 1]?.startMs ?? p.startMs + p.durationMs + 400));
   if (!pg) return null;
