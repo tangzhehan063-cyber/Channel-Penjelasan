@@ -1,5 +1,14 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
+## Posisi terakhir (18 Nov 2026, malam): Video #21 selesai
+- **Video #21 selesai:** "Cor Garasi Pakai Besi, Kok Masih Retak?" (cara kerja), 63,7 dtk, −14,2 LUFS, `remotion/src/v21/` (beats.json + Video21 + Cover21), palet **`batu`** (user "oke"), dirakit dari kit `<Penjelasan>` dengan objek baru `kit/objek/Pelat.tsx`, `Kendaraan.tsx` (motor kuning-jingga, mobil biru), `Retak.tsx` (retak bergerigi). VO **Gemini TTS Achernar** (ElevenLabs gagal: kredit 673/844, flow `bcxCKSLbvpSoOkBklKLC`, 0 terpakai); durasi 63,7 di atas 50–60 diterima user. Drive #21 `1dDMejml7sLOXX5L-T-g8dSHqOefoO2s1` (cover, info, versi ringan 480p); MP4 penuh + SRT + cover dikirim ke user.
+- **Revisi user (R1–R4, semua selesai):** kendaraan di atas beton, bentuk motor/mobil diperbaiki, warna dibedakan, retak bergerigi ala retak tembok. Moodboard di-ACC (`referensi/moodboard/v21-moodboard.jpg`).
+- **Klaim [⚠ CEK] diterima apa adanya:** "besi di bagian atas" dan "tanah dipadatkan" (praktik AS, tanpa sumber Indonesia). Tebal pelat dan ukuran besi sengaja tidak disebut.
+- **Perbaikan kit saat #21:** subtitle tidak menyeberang batas kalimat (render pertama dibuang dan diulang), `tools/mix-audio.mjs` dan `cek-sutradara` mendukung `beats.json`. Bug baru di `style/cek-bug.md`.
+- **Kelemahan #21:** tanpa beat cepat ≤2,5 dtk; beton putih polos; mobil sederhana dilihat dari depan; gelembung komentar penutup menimpa motor.
+- **Pelajaran biaya:** moodboard/sheet berulang paling banyak memakai token; kumpulkan revisi dulu. Render sendiri tidak memakai token.
+- Video berikutnya: #22, cek nomor di `main`. Mulai dari `beats.json` kit; objek baru dibuat di `kit/objek/` lalu didaftarkan di `registry.tsx`.
+
 ## Kit gaya "Penjelasan" SELESAI (18 Nov 2026, cabang `claude/bold-gates-d1kdbi`; dari rencana sesi RAKA)
 - **Langkah 1:** `remotion/src/kit/` (waktu/kamera/proj, stage, primitif, teks, objek stop kontak, template). v20 dipindah memakai kit; **still identik piksel** dengan sebelum refactor.
 - **Langkah 2:** template `<Penjelasan data words ekstra>` + `v20/beats.json` + `Video20Data` (komposisi `Video20Data`); 5 still identik dengan `Video20`. Belum diuji dengan video baru (#21 butuh topik + palet dari user, gerbang T1–T3).

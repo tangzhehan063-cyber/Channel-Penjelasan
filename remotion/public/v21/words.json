@@ -1,0 +1,639 @@
+{
+"words": [
+{
+"word": "Garasimu",
+"start": 0.246,
+"end": 0.999
+},
+{
+"word": "dicor",
+"start": 0.999,
+"end": 1.47
+},
+{
+"word": "pakai",
+"start": 1.47,
+"end": 1.941
+},
+{
+"word": "besi.",
+"start": 1.941,
+"end": 2.318
+},
+{
+"word": "Kok",
+"start": 2.738,
+"end": 2.907
+},
+{
+"word": "masih",
+"start": 2.907,
+"end": 3.189
+},
+{
+"word": "retak?",
+"start": 3.189,
+"end": 3.471
+},
+{
+"word": "Banyak",
+"start": 4.22,
+"end": 4.632
+},
+{
+"word": "yang",
+"start": 4.632,
+"end": 4.907
+},
+{
+"word": "kira",
+"start": 4.907,
+"end": 5.182
+},
+{
+"word": "besi",
+"start": 5.182,
+"end": 5.457
+},
+{
+"word": "bikin",
+"start": 5.457,
+"end": 5.8
+},
+{
+"word": "lantai",
+"start": 5.8,
+"end": 6.213
+},
+{
+"word": "anti",
+"start": 6.213,
+"end": 6.488
+},
+{
+"word": "retak.",
+"start": 6.488,
+"end": 6.831
+},
+{
+"word": "Faktanya,",
+"start": 7.607,
+"end": 8.409
+},
+{
+"word": "lantai",
+"start": 8.637,
+"end": 9.038
+},
+{
+"word": "di",
+"start": 9.038,
+"end": 9.172
+},
+{
+"word": "atas",
+"start": 9.172,
+"end": 9.44
+},
+{
+"word": "tanah",
+"start": 9.44,
+"end": 9.774
+},
+{
+"word": "sering",
+"start": 9.774,
+"end": 10.176
+},
+{
+"word": "retak.",
+"start": 10.176,
+"end": 10.51
+},
+{
+"word": "Beton",
+"start": 11.258,
+"end": 11.626
+},
+{
+"word": "kuat",
+"start": 11.626,
+"end": 11.92
+},
+{
+"word": "kalau",
+"start": 11.92,
+"end": 12.288
+},
+{
+"word": "ditekan,",
+"start": 12.288,
+"end": 12.803
+},
+{
+"word": "tapi",
+"start": 13.166,
+"end": 13.407
+},
+{
+"word": "gampang",
+"start": 13.407,
+"end": 13.829
+},
+{
+"word": "pecah",
+"start": 13.829,
+"end": 14.131
+},
+{
+"word": "kalau",
+"start": 14.131,
+"end": 14.433
+},
+{
+"word": "ditarik.",
+"start": 14.433,
+"end": 14.855
+},
+{
+"word": "Lantai",
+"start": 15.635,
+"end": 16.067
+},
+{
+"word": "garasi",
+"start": 16.067,
+"end": 16.498
+},
+{
+"word": "ditarik",
+"start": 16.498,
+"end": 17.001
+},
+{
+"word": "dari",
+"start": 17.001,
+"end": 17.289
+},
+{
+"word": "mana-mana.",
+"start": 17.289,
+"end": 17.864
+},
+{
+"word": "Waktu",
+"start": 18.574,
+"end": 18.885
+},
+{
+"word": "mengering,",
+"start": 18.885,
+"end": 19.445
+},
+{
+"word": "beton",
+"start": 19.707,
+"end": 20.01
+},
+{
+"word": "menyusut,",
+"start": 20.01,
+"end": 20.493
+},
+{
+"word": "tapi",
+"start": 20.932,
+"end": 21.189
+},
+{
+"word": "tertahan",
+"start": 21.189,
+"end": 21.703
+},
+{
+"word": "tanah",
+"start": 21.703,
+"end": 22.024
+},
+{
+"word": "di",
+"start": 22.024,
+"end": 22.153
+},
+{
+"word": "bawahnya.",
+"start": 22.153,
+"end": 22.667
+},
+{
+"word": "Mobil",
+"start": 23.381,
+"end": 23.694
+},
+{
+"word": "yang",
+"start": 23.694,
+"end": 23.944
+},
+{
+"word": "lewat",
+"start": 23.944,
+"end": 24.256
+},
+{
+"word": "dan",
+"start": 24.256,
+"end": 24.862
+},
+{
+"word": "tanah",
+"start": 24.862,
+"end": 25.174
+},
+{
+"word": "yang",
+"start": 25.174,
+"end": 25.424
+},
+{
+"word": "turun",
+"start": 25.424,
+"end": 25.737
+},
+{
+"word": "sedikit",
+"start": 25.737,
+"end": 26.53
+},
+{
+"word": "menambah",
+"start": 26.53,
+"end": 27.03
+},
+{
+"word": "tarikan",
+"start": 27.03,
+"end": 27.468
+},
+{
+"word": "itu.",
+"start": 27.468,
+"end": 27.655
+},
+{
+"word": "Begitu",
+"start": 28.415,
+"end": 28.766
+},
+{
+"word": "tarikannya",
+"start": 28.766,
+"end": 29.352
+},
+{
+"word": "melebihi",
+"start": 29.352,
+"end": 29.821
+},
+{
+"word": "kekuatan",
+"start": 29.821,
+"end": 30.29
+},
+{
+"word": "beton,",
+"start": 30.29,
+"end": 30.583
+},
+{
+"word": "betonnya",
+"start": 30.948,
+"end": 31.382
+},
+{
+"word": "retak.",
+"start": 31.382,
+"end": 31.653
+},
+{
+"word": "Di",
+"start": 32.4,
+"end": 32.534
+},
+{
+"word": "sinilah",
+"start": 32.534,
+"end": 33.006
+},
+{
+"word": "besi",
+"start": 33.006,
+"end": 33.275
+},
+{
+"word": "bekerja.",
+"start": 33.275,
+"end": 33.747
+},
+{
+"word": "Selama",
+"start": 34.377,
+"end": 34.828
+},
+{
+"word": "beton",
+"start": 34.828,
+"end": 35.204
+},
+{
+"word": "utuh,",
+"start": 35.204,
+"end": 35.504
+},
+{
+"word": "besi",
+"start": 35.826,
+"end": 36.142
+},
+{
+"word": "diam",
+"start": 36.142,
+"end": 36.458
+},
+{
+"word": "saja.",
+"start": 36.458,
+"end": 36.775
+},
+{
+"word": "Begitu",
+"start": 37.365,
+"end": 37.752
+},
+{
+"word": "retak,",
+"start": 37.752,
+"end": 38.074
+},
+{
+"word": "besi",
+"start": 38.386,
+"end": 38.624
+},
+{
+"word": "langsung",
+"start": 38.624,
+"end": 39.099
+},
+{
+"word": "menahan,",
+"start": 39.099,
+"end": 39.515
+},
+{
+"word": "jadi",
+"start": 39.872,
+"end": 40.146
+},
+{
+"word": "retaknya",
+"start": 40.146,
+"end": 40.694
+},
+{
+"word": "tetap",
+"start": 40.694,
+"end": 41.036
+},
+{
+"word": "halus",
+"start": 41.036,
+"end": 41.379
+},
+{
+"word": "dan",
+"start": 41.379,
+"end": 41.584
+},
+{
+"word": "rapat.",
+"start": 41.584,
+"end": 41.927
+},
+{
+"word": "Tanpa",
+"start": 42.632,
+"end": 43.027
+},
+{
+"word": "besi,",
+"start": 43.027,
+"end": 43.343
+},
+{
+"word": "retaknya",
+"start": 43.665,
+"end": 44.133
+},
+{
+"word": "terus",
+"start": 44.133,
+"end": 44.426
+},
+{
+"word": "melebar.",
+"start": 44.426,
+"end": 44.836
+},
+{
+"word": "Dengan",
+"start": 45.548,
+"end": 45.968
+},
+{
+"word": "besi,",
+"start": 45.968,
+"end": 46.247
+},
+{
+"word": "lantai",
+"start": 46.562,
+"end": 46.949
+},
+{
+"word": "tetap",
+"start": 46.949,
+"end": 47.272
+},
+{
+"word": "satu",
+"start": 47.272,
+"end": 47.53
+},
+{
+"word": "kesatuan.",
+"start": 47.53,
+"end": 48.047
+},
+{
+"word": "Yang",
+"start": 48.768,
+"end": 49.068
+},
+{
+"word": "mau",
+"start": 49.068,
+"end": 49.292
+},
+{
+"word": "cor",
+"start": 49.292,
+"end": 49.517
+},
+{
+"word": "garasi,",
+"start": 49.517,
+"end": 49.966
+},
+{
+"word": "minta",
+"start": 50.29,
+"end": 50.604
+},
+{
+"word": "besinya",
+"start": 50.604,
+"end": 51.042
+},
+{
+"word": "dipasang",
+"start": 51.042,
+"end": 51.543
+},
+{
+"word": "di",
+"start": 51.543,
+"end": 51.668
+},
+{
+"word": "bagian",
+"start": 51.668,
+"end": 52.044
+},
+{
+"word": "atas,",
+"start": 52.044,
+"end": 52.295
+},
+{
+"word": "bukan",
+"start": 52.618,
+"end": 52.922
+},
+{
+"word": "tergeletak",
+"start": 52.922,
+"end": 53.53
+},
+{
+"word": "di",
+"start": 53.53,
+"end": 53.651
+},
+{
+"word": "tanah.",
+"start": 53.651,
+"end": 53.955
+},
+{
+"word": "Padatkan",
+"start": 54.657,
+"end": 55.127
+},
+{
+"word": "juga",
+"start": 55.127,
+"end": 55.362
+},
+{
+"word": "tanahnya",
+"start": 55.362,
+"end": 55.833
+},
+{
+"word": "dulu.",
+"start": 55.833,
+"end": 56.068
+},
+{
+"word": "Retak",
+"start": 56.751,
+"end": 57.108
+},
+{
+"word": "di",
+"start": 57.108,
+"end": 57.251
+},
+{
+"word": "garasimu",
+"start": 57.251,
+"end": 57.822
+},
+{
+"word": "halus",
+"start": 57.822,
+"end": 58.534
+},
+{
+"word": "atau",
+"start": 58.534,
+"end": 58.82
+},
+{
+"word": "lebar?",
+"start": 58.82,
+"end": 59.177
+},
+{
+"word": "Tulis",
+"start": 59.898,
+"end": 60.192
+},
+{
+"word": "di",
+"start": 60.192,
+"end": 60.31
+},
+{
+"word": "komentar.",
+"start": 60.31,
+"end": 60.781
+},
+{
+"word": "Follow",
+"start": 61.449,
+"end": 61.787
+},
+{
+"word": "buat",
+"start": 61.787,
+"end": 62.013
+},
+{
+"word": "fakta",
+"start": 62.013,
+"end": 62.295
+},
+{
+"word": "rumah",
+"start": 62.295,
+"end": 62.577
+},
+{
+"word": "berikutnya!",
+"start": 62.577,
+"end": 63.142
+}
+]
+}

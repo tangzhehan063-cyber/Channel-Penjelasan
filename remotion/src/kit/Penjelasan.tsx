@@ -31,7 +31,7 @@ export const Penjelasan: React.FC<{data: DataVideo; words: KataVO[]; ekstra?: Re
   const f = useCurrentFrame(), t = f / FPS;
   const PL = PALET[data.palet];
   const tema = {accent: PL.accent, cool: PL.cool, good: PL.good};
-  const warna = {accent: PL.accent, good: PL.good};
+  const warna = {accent: PL.accent, good: PL.good, cool: PL.cool};
   const B = data.beats;
   const T = (x: T) => (typeof x === 'number' ? x : B[x]);
   const cams = data.adegan.map((a) => camAt(a.kamera, t));
