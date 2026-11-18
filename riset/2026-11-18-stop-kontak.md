@@ -9,4 +9,4 @@ Tanpa scrape (kredit 0). Sumber = pencarian web: artikel populer, ensiklopedia, 
 | Pembumian: arus bocor ke badan alat dialirkan ke tanah sehingga tidak mengenai pengguna | [✓ sumber, jurnal] | journal.untar.ac.id (tesla/13265), jurnal.uisu.ac.id |
 | Steker Schuko dapat masuk ke stop kontak dua lubang tanpa ground; kontak ground tidak terjadi | [✓ sumber] | en.wikipedia.org/wiki/Schuko |
 | "Mirip hidung babi" | gurauan visual, tidak diklaim sebagai fakta | - |
-Sengaja tidak dibahas: asal-usul sejarah kolonial (tidak bersumber), nilai tahanan 5 ohm, RCBO 30 mA, harga, cara memasang ground (rujuk tukang listrik/PUIL).
+Sengaja tidak dibahas: lubang tertanam (jari sulit menyentuh pin, ada di sumber tapi dipangkas demi durasi), asal-usul sejarah kolonial (tidak bersumber), nilai tahanan 5 ohm, RCBO 30 mA, harga, cara memasang ground (rujuk tukang listrik/PUIL).

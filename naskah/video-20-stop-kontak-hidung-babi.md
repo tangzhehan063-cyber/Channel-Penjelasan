@@ -1,5 +1,5 @@
 # STORYBOARD · VIDEO #20 · TAHAP 2 · DRAFT
-**Kenapa stop kontak mirip hidung babi? (dan fungsi klip ground)** · Cara kerja bagian rumah (Bongkar Barang) · 1080×1920 · ±52 dtk · VO santai · audiens 35+ · CTA follow · safe zone 15% atas, 20% bawah.
+**Kenapa stop kontak mirip hidung babi? (dan fungsi klip ground)** · Cara kerja bagian rumah (Bongkar Barang) · 1080×1920 · ±57 dtk (±137 kata; waktu beat final dari timestamp VO) · VO santai · audiens 35+ · CTA follow · safe zone 15% atas, 20% bawah.
 Riset: `riset/2026-11-18-stop-kontak.md`. Kode: salinan v08/v19 (KUNCI KARAKTER): satu objek besar per adegan, kartu 2 baris, tanpa diorama.
 ## Hook (pilih a)
 - (a) **Keanehan visual**: "Stop kontak di rumahmu mirip hidung babi?" ← dipilih: pertanyaan pendek, memancing komentar, objek ada di setiap rumah.
@@ -16,12 +16,12 @@ Semua [✓ sumber] (lihat riset). Bagian "kenapa bulat" ditulis jujur sebagai ke
 | # | Detik | Teks layar | VO | Visual (satu objek besar) / kamera |
 |---|---|---|---|---|
 | 1 | 0–2,5 | Stop kontakmu / **MIRIP HIDUNG BABI?** | hook | Stop kontak close-up memenuhi layar, dua lubang bulat jadi "wajah". Push |
-| 2 | 2,5–11 | Bulat itu / **KEBIASAAN LAMA** | Dua lubang… kebiasaan lama | Panel 2D krem: kalender "±1900", dua colokan sama bentuk, cap "BELUM TERBUKTI LEBIH AMAN". Pull |
+| 2 | 2,5–11 | Bulat itu / **KEBIASAAN LAMA** | Dua lubang… pipih | Panel 2D krem: kalender "±1900", dua colokan sama bentuk, cap "BELUM TERBUKTI LEBIH AMAN". Pull |
 | 3 | 11–17 | Dua klip logam / **PEMBUMIAN** | Di Schuko… ground | 3D potongan stop kontak, dua klip hijau menyala di tepi. Orbit pendek |
-| 4 | 17–26 | Klip menyentuh / **DULUAN** | Waktu steker dicolok… pin | Steker bergerak masuk, klip menyala dulu lalu pin. Dive |
+| 4 | 17–26 | Klip menyentuh / **DULUAN** | Waktu steker dicolok… berarus | Steker bergerak masuk, klip menyala dulu lalu pin. Dive |
 | 5 | 26–35 | Badan setrika bocor? / **LARI KE TANAH** | Kalau kabel… badanmu | Setrika/mesin cuci close-up, garis koral lari lewat kabel hijau ke tanah. Crane |
 | 6 | 35–41 | Tanpa ground, / **TIDAK BEKERJA** | Steker Schuko juga bisa masuk… | Steker masuk ke stop kontak dua lubang, klip tak menyala. Pull |
-| 7 | 41–48 | Cek stop kontakmu / **ADA KLIPNYA?** | Cek… tersambung | Stop kontak close-up dengan cincin di tepi. Push |
+| 7 | 41–48 | Cek stop kontakmu / **ADA KLIPNYA?** | Cek… tukang listrik | Stop kontak close-up dengan cincin di tepi. Push |
 | 8 | 48–53 | Ada klip logamnya? / **FOLLOW** | pertanyaan + CTA | CommentBubble + FOLLOW |
 Payoff (kutipan): "Dua lubang bulat itu kebiasaan lama. Yang melindungimu klip logam di tepinya."
 Pertanyaan komentar: "Stop kontakmu ada klip logamnya?"
