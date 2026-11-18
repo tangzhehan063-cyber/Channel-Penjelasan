@@ -47,3 +47,8 @@ Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) s
 - Adegan majemuk (setrika + stop kontak + tanah) dengan kamera terlalu dekat: objek tertutup kartu judul dan keluar layar. Atur kamera dari jarak ±10 dan geser look.x supaya semua objek utama masuk lebar layar.
 - Steker dekat kamera menutupi stop kontak: kamera dari samping, look.x digeser ke arah stop kontak.
 - Stiker yang diposisikan dengan proj() terpotong tepi layar: selalu clamp x ke 250..900 (#20 'ada klip logam?').
+
+## Bug #21 (18 Nov 2026)
+- Properti di belakang pelat (motor) tertutup kartu judul: turunkan seluruh adegan di layar (naikkan pos.y dan look.y bersama +0,5) supaya properti di bawah zona judul (y > 700).
+- Saat dive dekat ke objek, tepi atas objek dan retak masuk zona kicker/pil hook (y < 420): kicker tetap terbaca karena dirender di atas 3D, tapi batasi dive agar tepi atas objek tidak melewati y ≈ 200.
+- Retak realistis: gunakan poligon bergerigi deterministik (`kit/objek/Retak.tsx`), jangan `Math.random()` (flicker antar frame).
