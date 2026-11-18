@@ -45,6 +45,7 @@ Video baru HARUS terlihat seperti keluarga **#7, #8, #10, #13, #14**. Bukan eksp
 - Penutup video: "Follow buat fakta rumah berikutnya!"
 
 ## Produksi
+- **Kit gaya (18 Nov 2026):** `remotion/src/kit/` + `style/gaya-penjelasan.md` (template `beats.json`, objek, kamera, skala, daftar cek) dan `referensi/moodboard/`; untuk video baru, kit ini cara cepat memenuhi KUNCI KARAKTER. `cek-sutradara` bagian 9 memeriksanya.
 - Engine: Remotion + three.js di `remotion/` (`npx remotion studio`, `npx remotion render <Komposisi> out/<slug>.mp4`). `remotion.config.ts` memakai `swangle` + Chromium `/opt/pw-browsers/chromium` untuk container cloud tanpa GPU.
 - Objek 3D dibuat prosedural (contoh: `remotion/src/pengetahuan/Brain.tsx`), warna koral `#f27a63`, latar kertas, label garis tipis (`Scene.tsx`: `Paper`, `Ghost`, `Callout`).
 - Suara: ElevenLabs `eleven_v4` (default voice Riri Rida `tCKeP99grYL9wZRg6sQ9`) atau Google AI Studio bila user memilih; angka di teks TTS ditulis sebagai kata. Unduh dari `elevenlabsusercontent.com`.

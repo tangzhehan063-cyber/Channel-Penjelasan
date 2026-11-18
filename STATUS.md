@@ -1,13 +1,13 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
-## Rencana berikutnya (18 Nov 2026, dari sesi RAKA): kit + panduan gaya ala GrowKaz
-User ingin Channel Penjelasan punya panduan gaya, library, dan template seperti GrowKaz (di repo RAKA: `studio/engine`, `brand/gaya-growkaz.md`, skill `growkaz-style`). Masalah: tiap video menyalin `remotion/src/vNN/` dan menulis ulang objek 3D, hasil tidak konsisten (#16/#17 jelek). Urutan usulan (belum dikerjakan, tunggu user):
-1. `remotion/src/kit/`: objek 3D dari #8/#14/#19/#20 (Rumah, Lamp, Kasur, Pipa, Klip, dll, berparameter), primitif (material datar membulat, bayangan, label garis, kartu judul 2 lapis, subtitle per frasa), kamera (push-in, orbit, whip), transisi (panel 2D, banjir koral). Ekstrak tanpa mengubah tampilan.
-2. Template berbasis data: `beats.json` (beat, objek, kamera, teks) lalu komposisi dirakit dari kit; uji dengan video #21.
-3. `style/gaya-penjelasan.md`: skala objek (>=1/3 tinggi layar), kosakata shot, tempo, palet (`style/palet.json`), checklist sebelum contact sheet.
-4. Perluas `tools/cek-sutradara.mjs`: ukuran objek, jumlah lapis teks, objek terpotong tepi (bug di `style/cek-bug.md`).
-5. Isi `referensi/moodboard/` dengan still video yang di-ACC user.
-Cabang kerja: `claude/kit-gaya-growkaz`. Video berikutnya setelah itu: #21 (cek nomor di `main`).
+## Kit gaya "Penjelasan" SELESAI (18 Nov 2026, cabang `claude/bold-gates-d1kdbi`; dari rencana sesi RAKA)
+- **Langkah 1:** `remotion/src/kit/` (waktu/kamera/proj, stage, primitif, teks, objek stop kontak, template). v20 dipindah memakai kit; **still identik piksel** dengan sebelum refactor.
+- **Langkah 2:** template `<Penjelasan data words ekstra>` + `v20/beats.json` + `Video20Data` (komposisi `Video20Data`); 5 still identik dengan `Video20`. Belum diuji dengan video baru (#21 butuh topik + palet dari user, gerbang T1–T3).
+- **Langkah 3:** `style/gaya-penjelasan.md` (isi kit, alur, format beats.json, skala objek, kosakata shot, tempo, palet, daftar cek).
+- **Langkah 4:** `tools/cek-sutradara.mjs` bagian 9 (judul 2 baris, tumpang-tindih, judul vs gelembung komentar, zona aman stiker, ukuran objek ≥1/3 layar dari `ukuran` di beats.json). Video lama tanpa beats.json hanya dapat SARAN. Efek: `cek-sutradara 20` kini **1 GAGAL** (adegan "tanpa" akhir 44,6 dtk, objek 31% tinggi/56% lebar); ini temuan benar, #20 sudah dirender dan diterima user, tapi render ulang #20 akan terhenti di gerbang ini.
+- **Langkah 5:** `referensi/moodboard/` berisi 16 still #8, #14, #19, #20 + README.
+- Belum diekstrak ke kit: kasur/AC (v14), lorong pintu (v19), lampu (v15). Tidak ada PR dibuat; menunggu perintah user.
+- Video berikutnya: #21, cek nomor di `main`, mulai dari `beats.json` kit.
 
 ## Posisi terakhir (18 Nov 2026)
 - **Video #20 selesai:** "Kenapa Stop Kontak Mirip Hidung Babi?" (cara kerja bagian rumah: klip ground Schuko), 55,0 dtk, −14,7 LUFS, `remotion/src/v20/`, palet **`madu`** (user pilih). VO ElevenLabs Riri Rida 1 take (flow `a18yToEDaW4diMDMP8p7`); TTS memakai "Syuko" untuk "Schuko" (belum didengar user, cek bagian detik ±17 dan ±38). Timestamp `tools/align_teks.py`. Drive #20 `1LMumppD0iiNKEmpEU-pmFqz0EzoR5Esx` (cover, info, versi ringan 540p); MP4 penuh + SRT + cover dikirim ke user.
