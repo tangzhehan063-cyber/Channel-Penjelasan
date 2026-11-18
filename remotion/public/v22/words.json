@@ -1,0 +1,584 @@
+{
+"words": [
+{
+"word": "Hari",
+"start": 0.232,
+"end": 0.554
+},
+{
+"word": "ini",
+"start": 0.554,
+"end": 0.796
+},
+{
+"word": "Bank",
+"start": 0.796,
+"end": 1.118
+},
+{
+"word": "Indonesia",
+"start": 1.118,
+"end": 1.844
+},
+{
+"word": "menaikkan",
+"start": 1.844,
+"end": 2.569
+},
+{
+"word": "suku",
+"start": 2.569,
+"end": 2.891
+},
+{
+"word": "bunga",
+"start": 2.891,
+"end": 3.294
+},
+{
+"word": "jadi",
+"start": 3.294,
+"end": 3.617
+},
+{
+"word": "enam",
+"start": 3.617,
+"end": 3.939
+},
+{
+"word": "persen.",
+"start": 3.939,
+"end": 4.422
+},
+{
+"word": "Apa",
+"start": 4.919,
+"end": 5.17
+},
+{
+"word": "dampaknya",
+"start": 5.17,
+"end": 5.923
+},
+{
+"word": "buat",
+"start": 5.923,
+"end": 6.257
+},
+{
+"word": "KPR",
+"start": 6.257,
+"end": 6.508
+},
+{
+"word": "rumahmu?",
+"start": 6.508,
+"end": 7.093
+},
+{
+"word": "Naiknya",
+"start": 7.785,
+"end": 8.265
+},
+{
+"word": "seperempat",
+"start": 8.265,
+"end": 8.952
+},
+{
+"word": "persen,",
+"start": 8.952,
+"end": 9.364
+},
+{
+"word": "untuk",
+"start": 9.771,
+"end": 10.136
+},
+{
+"word": "menjaga",
+"start": 10.136,
+"end": 10.647
+},
+{
+"word": "rupiah",
+"start": 10.647,
+"end": 11.085
+},
+{
+"word": "dan",
+"start": 11.085,
+"end": 11.305
+},
+{
+"word": "inflasi.",
+"start": 11.305,
+"end": 11.816
+},
+{
+"word": "Kalau",
+"start": 12.736,
+"end": 13.129
+},
+{
+"word": "bunga",
+"start": 13.129,
+"end": 13.523
+},
+{
+"word": "KPR-mu",
+"start": 13.523,
+"end": 13.917
+},
+{
+"word": "tetap,",
+"start": 13.917,
+"end": 14.31
+},
+{
+"word": "cicilanmu",
+"start": 14.69,
+"end": 15.356
+},
+{
+"word": "aman",
+"start": 15.356,
+"end": 15.651
+},
+{
+"word": "sampai",
+"start": 15.651,
+"end": 16.095
+},
+{
+"word": "masa",
+"start": 16.095,
+"end": 16.391
+},
+{
+"word": "tetapnya",
+"start": 16.391,
+"end": 16.982
+},
+{
+"word": "habis.",
+"start": 16.982,
+"end": 17.352
+},
+{
+"word": "Kalau",
+"start": 18.178,
+"end": 18.466
+},
+{
+"word": "bunganya",
+"start": 18.466,
+"end": 18.926
+},
+{
+"word": "mengambang,",
+"start": 18.926,
+"end": 19.501
+},
+{
+"word": "bank",
+"start": 19.831,
+"end": 20.073
+},
+{
+"word": "bisa",
+"start": 20.073,
+"end": 20.315
+},
+{
+"word": "ikut",
+"start": 20.315,
+"end": 20.557
+},
+{
+"word": "menaikkan,",
+"start": 20.557,
+"end": 21.102
+},
+{
+"word": "tapi",
+"start": 21.518,
+"end": 21.773
+},
+{
+"word": "tidak",
+"start": 21.773,
+"end": 22.091
+},
+{
+"word": "langsung",
+"start": 22.091,
+"end": 22.599
+},
+{
+"word": "dan",
+"start": 22.599,
+"end": 22.79
+},
+{
+"word": "tidak",
+"start": 22.79,
+"end": 23.108
+},
+{
+"word": "otomatis.",
+"start": 23.108,
+"end": 23.617
+},
+{
+"word": "Contoh",
+"start": 24.52,
+"end": 24.918
+},
+{
+"word": "pinjaman",
+"start": 24.918,
+"end": 25.45
+},
+{
+"word": "lima",
+"start": 25.45,
+"end": 25.715
+},
+{
+"word": "ratus",
+"start": 25.715,
+"end": 26.048
+},
+{
+"word": "juta,",
+"start": 26.048,
+"end": 26.313
+},
+{
+"word": "dua",
+"start": 26.677,
+"end": 26.87
+},
+{
+"word": "puluh",
+"start": 26.87,
+"end": 27.19
+},
+{
+"word": "tahun:",
+"start": 27.19,
+"end": 27.51
+},
+{
+"word": "naik",
+"start": 28.012,
+"end": 28.273
+},
+{
+"word": "seperempat",
+"start": 28.273,
+"end": 28.926
+},
+{
+"word": "persen,",
+"start": 28.926,
+"end": 29.317
+},
+{
+"word": "cicilan",
+"start": 29.577,
+"end": 29.978
+},
+{
+"word": "naik",
+"start": 29.978,
+"end": 30.207
+},
+{
+"word": "sekitar",
+"start": 30.207,
+"end": 30.608
+},
+{
+"word": "delapan",
+"start": 30.608,
+"end": 31.01
+},
+{
+"word": "puluh",
+"start": 31.01,
+"end": 31.296
+},
+{
+"word": "tiga",
+"start": 31.296,
+"end": 31.525
+},
+{
+"word": "ribu",
+"start": 31.525,
+"end": 31.755
+},
+{
+"word": "sebulan.",
+"start": 31.755,
+"end": 32.156
+},
+{
+"word": "Yang",
+"start": 33.198,
+"end": 33.458
+},
+{
+"word": "lebih",
+"start": 33.458,
+"end": 33.782
+},
+{
+"word": "terasa",
+"start": 33.782,
+"end": 34.171
+},
+{
+"word": "justru",
+"start": 34.171,
+"end": 34.561
+},
+{
+"word": "saat",
+"start": 34.561,
+"end": 34.82
+},
+{
+"word": "masa",
+"start": 34.82,
+"end": 35.08
+},
+{
+"word": "bunga",
+"start": 35.08,
+"end": 35.404
+},
+{
+"word": "tetap",
+"start": 35.404,
+"end": 35.728
+},
+{
+"word": "habis.",
+"start": 35.728,
+"end": 36.053
+},
+{
+"word": "Bunga",
+"start": 36.637,
+"end": 36.929
+},
+{
+"word": "promo",
+"start": 36.929,
+"end": 37.221
+},
+{
+"word": "tiga",
+"start": 37.221,
+"end": 37.455
+},
+{
+"word": "persen",
+"start": 37.455,
+"end": 37.806
+},
+{
+"word": "bisa",
+"start": 37.806,
+"end": 38.04
+},
+{
+"word": "melompat",
+"start": 38.04,
+"end": 38.507
+},
+{
+"word": "jadi",
+"start": 38.507,
+"end": 38.741
+},
+{
+"word": "tiga",
+"start": 38.741,
+"end": 38.975
+},
+{
+"word": "belas",
+"start": 38.975,
+"end": 39.267
+},
+{
+"word": "persen,",
+"start": 39.267,
+"end": 39.618
+},
+{
+"word": "dan",
+"start": 39.984,
+"end": 40.158
+},
+{
+"word": "cicilan",
+"start": 40.158,
+"end": 40.565
+},
+{
+"word": "hampir",
+"start": 40.565,
+"end": 40.914
+},
+{
+"word": "dua",
+"start": 40.914,
+"end": 41.088
+},
+{
+"word": "kali",
+"start": 41.088,
+"end": 41.321
+},
+{
+"word": "lipat.",
+"start": 41.321,
+"end": 41.611
+},
+{
+"word": "Cek",
+"start": 42.636,
+"end": 42.873
+},
+{
+"word": "kontrak",
+"start": 42.873,
+"end": 43.425
+},
+{
+"word": "KPR-mu:",
+"start": 43.425,
+"end": 43.819
+},
+{
+"word": "bunganya",
+"start": 44.288,
+"end": 44.731
+},
+{
+"word": "tetap",
+"start": 44.731,
+"end": 45.008
+},
+{
+"word": "atau",
+"start": 45.008,
+"end": 45.23
+},
+{
+"word": "mengambang,",
+"start": 45.23,
+"end": 45.783
+},
+{
+"word": "dan",
+"start": 46.1,
+"end": 46.29
+},
+{
+"word": "kapan",
+"start": 46.29,
+"end": 46.608
+},
+{
+"word": "masa",
+"start": 46.608,
+"end": 46.862
+},
+{
+"word": "tetapnya",
+"start": 46.862,
+"end": 47.37
+},
+{
+"word": "habis.",
+"start": 47.37,
+"end": 47.688
+},
+{
+"word": "Masa",
+"start": 48.513,
+"end": 48.774
+},
+{
+"word": "bunga",
+"start": 48.774,
+"end": 49.101
+},
+{
+"word": "tetap",
+"start": 49.101,
+"end": 49.428
+},
+{
+"word": "KPR-mu",
+"start": 49.428,
+"end": 49.755
+},
+{
+"word": "sampai",
+"start": 49.755,
+"end": 50.147
+},
+{
+"word": "kapan?",
+"start": 50.147,
+"end": 50.474
+},
+{
+"word": "Tulis",
+"start": 50.822,
+"end": 51.092
+},
+{
+"word": "di",
+"start": 51.092,
+"end": 51.2
+},
+{
+"word": "komentar.",
+"start": 51.2,
+"end": 51.632
+},
+{
+"word": "Follow",
+"start": 52.081,
+"end": 52.401
+},
+{
+"word": "buat",
+"start": 52.401,
+"end": 52.613
+},
+{
+"word": "fakta",
+"start": 52.613,
+"end": 52.88
+},
+{
+"word": "rumah",
+"start": 52.88,
+"end": 53.146
+},
+{
+"word": "berikutnya!",
+"start": 53.146,
+"end": 53.678
+}
+]
+}
