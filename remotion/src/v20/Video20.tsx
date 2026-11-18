@@ -65,7 +65,7 @@ export const Scene: React.FC<SceneP> = ({t, mode, k = 0}) => {
 };
 
 /* panel 2D pemutus pola: sejarah colokan bulat */
-const Sejarah: React.FC<{t: number}> = ({t}) => {
+export const Sejarah: React.FC<{t: number}> = ({t}) => {
   const a = r(t, 2.75, 3.2, Easing.out(Easing.cubic)), o = 1 - r(t, 16.6, 16.9);
   const yr = r(t, 3.4, 4.0, Easing.out(Easing.back(2))), pl = r(t, 8.3, 9.0, Easing.out(Easing.cubic)), st = r(t, 13.2, 13.7, Easing.out(Easing.back(2.2)));
   return (

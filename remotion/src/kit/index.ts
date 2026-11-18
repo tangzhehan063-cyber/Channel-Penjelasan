@@ -6,3 +6,6 @@ export * from './teks';
 export * from './objek/Stopkontak';
 // objek lama (tetap di tempat asal, tampilan tidak diubah): rumah atap seng dari #8, ruang AC dari #14
 export {House, Seng, RoofCut} from '../v08/Rumah';
+export {Penjelasan, type DataVideo} from './Penjelasan';
+export {OBJEK} from './objek/registry';
+export {AdeganStopkontak} from './objek/AdeganStopkontak';
