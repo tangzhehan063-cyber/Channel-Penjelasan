@@ -8,19 +8,24 @@ import path from 'node:path';
 const NN = (process.argv[2] || '').padStart(2, '0');
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const src = path.join(root, `remotion/src/v${NN}/Video${NN}.tsx`);
-if (!fs.existsSync(src)) { console.error(`tidak ada ${src}`); process.exit(2); }
-const code = fs.readFileSync(src, 'utf8');
+const jsonP = path.join(root, `remotion/src/v${NN}/beats.json`);
+const J = fs.existsSync(jsonP) ? JSON.parse(fs.readFileSync(jsonP, 'utf8')) : null; // video berbasis kit/template (style/gaya-penjelasan.md)
+if (!fs.existsSync(src) && !J) { console.error(`tidak ada ${src} atau ${jsonP}`); process.exit(2); }
+const code = fs.existsSync(src) ? fs.readFileSync(src, 'utf8') : '';
 const ev = (s, scope = {}) => new Function(...Object.keys(scope), `return (${s});`)(...Object.values(scope));
 
 // --- data ---
-const END = Number((code.match(/export const V\d+_END\s*=\s*([\d.]+)/) || [])[1]);
-const B = ev(code.match(/const B\s*=\s*(\{[^;]*\});/)[1].replace(/V\d+_END/g, String(END)));
+const END = J ? J.durasi : Number((code.match(/export const V\d+_END\s*=\s*([\d.]+)/) || [])[1]);
+const B = J ? {...J.beats} : ev(code.match(/const B\s*=\s*(\{[^;]*\});/)[1].replace(/V\d+_END/g, String(END)));
 const cams = {};
-for (const m of code.matchAll(/const (CAM_\w+)\s*:\s*Key\[\]\s*=\s*(\[[^;]*\]);/g)) cams[m[1]] = ev(m[2]);
-const titles = [...code.matchAll(/<Title t=\{t\} a=\{([^}]*)\} b=\{([^}]*)\} small="([^"]*)" big="([^"]*)"/g)]
-  .map((m) => ({a: ev(m[1], {B}), b: ev(m[2], {B}), text: `${m[3]} / ${m[4]}`, n: (m[3] + m[4]).replace(/\s/g, '').length}));
+if (J) J.adegan.forEach((a, i) => { cams[`ADEGAN_${i}`] = a.kamera; });
+else for (const m of code.matchAll(/const (CAM_\w+)\s*:\s*Key\[\]\s*=\s*(\[[^;]*\]);/g)) cams[m[1]] = ev(m[2]);
+const tj = (x) => (typeof x === 'number' ? x : B[x]);
+const titles = J ? J.judul.map((j) => ({a: tj(j.dari), b: tj(j.sampai), text: `${j.kecil} / ${j.besar}`, small: j.kecil, big: j.besar, n: (j.kecil + j.besar).replace(/\s/g, '').length}))
+  : [...code.matchAll(/<Title t=\{t\} a=\{([^}]*)\} b=\{([^}]*)\} small="([^"]*)" big="([^"]*)"/g)]
+  .map((m) => ({a: ev(m[1], {B}), b: ev(m[2], {B}), text: `${m[3]} / ${m[4]}`, small: m[3], big: m[4], n: (m[3] + m[4]).replace(/\s/g, '').length}));
 const sfxM = code.match(/const SFX[^=]*=\s*(\[[\s\S]*?\]);\s*\n/);
-const sfx = sfxM ? ev(sfxM[1]).map((x) => x[1]).sort((a, b) => a - b) : [];
+const sfx = J ? J.sfx.map((x) => x[1]).sort((a, b) => a - b) : sfxM ? ev(sfxM[1]).map((x) => x[1]).sort((a, b) => a - b) : [];
 const wPath = path.join(root, `remotion/public/v${NN}/words.json`);
 const words = fs.existsSync(wPath) ? JSON.parse(fs.readFileSync(wPath, 'utf8')).words : [];
 
@@ -108,7 +113,8 @@ if (words.length) {
 // --- 6–8. animasi, bentuk, warna (dibaca dari kode video + berkas yang diimpornya) ---
 const dir = path.dirname(src);
 const extra = [...code.matchAll(/from '(\.\/\w+|\.\.\/v\d+\/\w+)'/g)].map((m) => path.resolve(dir, m[1] + '.tsx')).filter((f) => fs.existsSync(f) && !/Tes\d+|Cover\d+/.test(f));
-const srcAll = [code, ...extra.map((f) => fs.readFileSync(f, 'utf8'))].join('\n');
+const kitSrc = J ? ['teks.tsx', 'objek/Stopkontak.tsx', 'objek/AdeganStopkontak.tsx'].map((f) => path.join(root, 'remotion/src/kit', f)).filter((f) => fs.existsSync(f)) : [];
+const srcAll = [code, ...kitSrc.map((f) => fs.readFileSync(f, 'utf8')), ...extra.map((f) => fs.readFileSync(f, 'utf8'))].join('\n');
 const palJson = JSON.parse(fs.readFileSync(path.join(root, 'style/palet.json'), 'utf8'));
 const rl = (h) => { const c = [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255).map((x) => (x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4)); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
 const contrast = (a, b) => { const x = rl(a), y = rl(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
@@ -161,6 +167,35 @@ const titleCols = [...srcAll.matchAll(/<Title\b[^>]*?color=(?:"(#[0-9a-fA-F]{6})
 const lowC = [...new Set(titleCols)].filter((h) => contrast(h, palJson.kartu) < palJson.aturan.kontrasTeksDiKartu);
 titleCols.length ? (lowC.length ? bad(`warna judul di kartu kontras < ${palJson.aturan.kontrasTeksDiKartu}: ${lowC.map((h) => `${h} (${contrast(h, palJson.kartu).toFixed(1)})`).join(', ')}`) : ok(`warna judul (${[...new Set(titleCols)].length}) kontras ≥ ${palJson.aturan.kontrasTeksDiKartu} di kartu`)) : 0;
 out.push('  info  peran warna (cek mata di sheet): koral = masalah/sorotan, biru = dingin/air/negatif, sage = solusi/benar; objek utama berkontras ≥ 1,8 terhadap latar → `python3 tools/cek-visual.py frame <palet> <still...>`');
+
+
+// --- 9. KUNCI KARAKTER (CLAUDE.md, 17 Nov): teks ≤2 lapis, objek ≥1/3 layar, tidak terpotong, tidak tumpang-tindih ---
+out.push('\n9. KUNCI KARAKTER (teks, ukuran objek, tepi layar)');
+const empt = titles.filter((x) => !x.small.trim() || !x.big.trim());
+empt.length ? bad(`kartu judul dengan baris kosong: ${empt.map((x) => `"${x.text}"`).join(', ')}`) : ok('semua kartu judul berisi dua baris');
+const clash = titles.filter((x, i) => titles.some((y, j) => j > i && y.a < x.b - 0.05 && x.a < y.b - 0.05));
+clash.length ? bad(`kartu judul tumpang-tindih waktu: ${clash.map((x) => `${f1(x.a)}–${f1(x.b)}`).join(', ')} (maks 1 kartu; teks maksimal dua lapis)`) : ok('maks 1 kartu judul tampil bersamaan');
+if (J) {
+  const lateT = titles.filter((x) => x.b > J.komentar.mulai + 0.05 && x.a < J.komentar.keluar);
+  lateT.length ? bad(`judul masih tampil saat gelembung komentar masuk (${J.komentar.mulai} dtk): akhiri judul sebelum overlay penutup (bug #19)`) : ok('judul berakhir sebelum gelembung komentar');
+  const badX = (J.stiker || []).filter((st) => st.xy && (st.xy[0] < 250 || st.xy[0] > 900));
+  badX.length ? bad(`stiker di luar x 250..900: ${badX.map((x) => x.teks).join(', ')}`) : ok('stiker berada di zona aman (x 250..900)');
+  const FOVR = 34 * Math.PI / 180, tanH = Math.tan(FOVR / 2);
+  J.adegan.forEach((a, i) => {
+    if (!a.ukuran) { hm(`adegan ${i} (${a.objek}/${a.mode}) tanpa "ukuran": [lebar, tinggi] objek kunci; ukuran layar tidak bisa diperiksa`); return; }
+    const mid = a.kamera[Math.floor((a.kamera.length - 1) / 2)], end = a.kamera.at(-1);
+    for (const k of [a.kamera[0], mid, end]) {
+      const d = len(sub(k.pos, a.pusat ?? k.look));
+      const hv = 2 * d * tanH, wv = hv * (1080 / 1920);
+      const fracH = a.ukuran[1] / hv, fracW = a.ukuran[0] / wv;
+      if (fracH < 1 / 3 && fracW < 0.6) { bad(`adegan ${i} (${a.mode}) di ${f1(k.t)} dtk: objek ${(fracW * 100).toFixed(0)}% lebar / ${(fracH * 100).toFixed(0)}% tinggi layar (aturan: ≥1/3 tinggi atau ≥60% lebar): dekatkan kamera`); break; }
+      if (fracW > 1.6) { hm(`adegan ${i} (${a.mode}) di ${f1(k.t)} dtk: objek ${(fracW * 100).toFixed(0)}% lebar layar, terlalu terpotong`); break; }
+    }
+  });
+  ok('periksa ukuran objek terhadap 1/3 layar selesai (lihat GAGAL/SARAN di atas, dan cocokkan dengan mata di sheet vs #8/#14)');
+} else {
+  hm('video ini bukan berbasis beats.json: ukuran objek & tepi layar tidak dicek otomatis (periksa dengan mata di contact sheet vs #8/#14)');
+}
 
 console.log(`CEK SUTRADARA · video #${NN} · ${f1(END)} dtk`);
 console.log(out.join('\n'));
