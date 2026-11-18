@@ -12,11 +12,17 @@ export const V21_FRAMES = Math.ceil(V21_END * FPS);
 export const PL = PALET.batu;
 const B = (data as unknown as DataVideo).beats;
 
+// celah retak bergerigi (kiri-kanan tidak lurus), lebar rata-rata = gap
+const zig = (gap: number) => {
+  const n = 9, L: string[] = [], R: string[] = [];
+  for (let i = 0; i <= n; i++) { const y = 4 + (78 * i) / n, j = Math.sin(i * 2.3) * 5 + (i % 2 ? 4 : -4), w = Math.max(3, gap * (0.7 + 0.5 * Math.abs(Math.sin(i * 1.7)))); L.push(`${-w / 2 + j},${y}`); R.unshift(`${w / 2 + j},${y}`); }
+  return [...L, ...R].join(' ');
+};
 const Penampang: React.FC<{x: number; y: number; gap: number; besi: boolean; label: string; color: string; p: number}> = ({x, y, gap, besi, label, color, p}) => (
   <g opacity={p} transform={`translate(${x} ${y + (1 - p) * 30})`}>
     <rect x={-380 - gap / 2} y={0} width={380} height={86} rx={12} fill="#f1f1ec" stroke={INK} strokeWidth={6} />
     <rect x={gap / 2} y={0} width={380} height={86} rx={12} fill="#f1f1ec" stroke={INK} strokeWidth={6} />
-    <rect x={-gap / 2} y={4} width={gap} height={78} fill={PL.accent} opacity={0.9} />
+    <polygon points={zig(gap)} fill="#25262b" />
     {besi && <line x1={-370} y1={22} x2={370} y2={22} stroke={PL.good} strokeWidth={9} strokeLinecap="round" />}
     <text x={0} y={-22} textAnchor="middle" fontFamily="Inter" fontWeight={900} fontSize={46} fill={color}>{label}</text>
   </g>

@@ -4,6 +4,7 @@
 import {Bx, Cy} from '../prim';
 import type {V3} from '../waktu';
 import {Mobil, Motor} from './Kendaraan';
+import {Retak} from './Retak';
 
 export const BETON = '#f1f1ec', TANAH = '#a07850', BESI = '#59616d', MOTOR = '#e9a23b'; // motor kuning-jingga (beda dari mobil biru)
 const W = 2.2, D = 2.4, HL = 0.5, HU = 0.25, SOIL = 0.4;
@@ -47,8 +48,20 @@ export const Pelat: React.FC<PelatP> = ({warna, gap = 0, glow = 0, meshY, pour =
       {/* tanah */}
       <Bx p={[-(W + 0.5) / 4, -soilH / 2 - 0.01, 0]} s={[(W + 0.5) / 2, soilH, D + 0.3]} c={TANAH} />
       <Bx p={[(W + 0.5) / 4, -soilH / 2 - 0.01 - drop, 0]} s={[(W + 0.5) / 2, soilH, D + 0.3]} c={TANAH} />
-      {/* retak: celah berwarna koral */}
-      {g > 0 && <Bx p={[0, (HL + HU) / 2 * pour - drop / 2, 0]} s={[g, (HL + HU) * pour + drop, D - 0.01]} c={warna.accent} edge={false} />}
+      {/* retak: celah gelap + retak bergerigi ala retak tembok di permukaan atas, undakan, dan muka depan (R4) */}
+      {g > 0 && <Bx p={[0, (HL + HU) / 2 * pour - drop / 2, 0]} s={[g, (HL + HU) * pour + drop, D - 0.01]} c="#25262b" edge={false} />}
+      {g > 0 && pour > 0.99 && (
+        <group>
+          {penuh ? <Retak g={g} bidang="atas" a0={-D / 2} a1={D / 2} pos={lowH + upH + 0.004} seed={3} /> : (
+            <group>
+              <Retak g={g} bidang="atas" a0={-D / 2} a1={0} pos={lowH + upH + 0.004} seed={3} />
+              <Retak g={g} bidang="atas" a0={0} a1={D / 2} pos={lowH + 0.004} seed={9} />
+              <group position={[0, 0, 0.004]}><Retak g={g} bidang="muka" a0={lowH} a1={lowH + upH} pos={0} seed={5} /></group>
+            </group>
+          )}
+          <Retak g={g} bidang="muka" a0={0} a1={lowH + (penuh ? upH : 0)} pos={D / 2 + 0.004} seed={7} />
+        </group>
+      )}
       {block(-1)}{block(1)}
       {/* jaring besi: batang sejajar x menyeberangi retak; batang sejajar z menempel di tiap blok */}
       {mesh && (
