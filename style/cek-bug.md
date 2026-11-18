@@ -42,3 +42,8 @@ Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) s
 - Bidang halaman (lantai luar) berujung terlihat sebagai tepi terang/gelap: buat bidang luar sangat besar (60 m).
 - Daun pintu membuka ke arah kamera menutup objek kunci: buka ke dalam.
 - Judul yang masih tampil saat gelembung komentar/tombol follow masuk menimpa (#19: Title denah sampai 50,0). Akhiri judul sebelum overlay penutup muncul.
+
+## Bug #20 (18 Nov 2026)
+- Adegan majemuk (setrika + stop kontak + tanah) dengan kamera terlalu dekat: objek tertutup kartu judul dan keluar layar. Atur kamera dari jarak ±10 dan geser look.x supaya semua objek utama masuk lebar layar.
+- Steker dekat kamera menutupi stop kontak: kamera dari samping, look.x digeser ke arah stop kontak.
+- Stiker yang diposisikan dengan proj() terpotong tepi layar: selalu clamp x ke 250..900 (#20 'ada klip logam?').

@@ -1,0 +1,47 @@
+1
+00:00:00,000 --> 00:00:02,179
+Stop kontak di rumahmu mirip hidung babi?
+
+2
+00:00:02,740 --> 00:00:07,967
+Dua lubang bulat itu sudah jadi kebiasaan di Eropa sejak sekitar tahun seribu sembilan ratus.
+
+3
+00:00:08,167 --> 00:00:12,652
+Pabrik waktu itu memilih satu bentuk bersama supaya semua colokan cocok.
+
+4
+00:00:13,013 --> 00:00:16,535
+Belum ada sumber yang menyebut bulat lebih aman daripada pipih.
+
+5
+00:00:16,961 --> 00:00:22,392
+Di stop kontak tipe Schuko, dua klip logam di tepi lubang adalah pembumian, atau ground.
+
+6
+00:00:22,696 --> 00:00:27,880
+Waktu steker dicolok, klip ini menyentuh lebih dulu, baru kedua pin yang berarus.
+
+7
+00:00:28,095 --> 00:00:36,992
+Kalau kabel di dalam setrika atau mesin cuci bocor ke badan logamnya, arus dialirkan lewat kabel ground ke tanah, jadi tidak mengenai badanmu.
+
+8
+00:00:37,441 --> 00:00:43,966
+Steker Schuko juga bisa masuk ke stop kontak dua lubang tanpa ground, tapi perlindungannya tidak ikut bekerja.
+
+9
+00:00:44,429 --> 00:00:47,574
+Cek stop kontakmu, ada klip logam di tepinya atau enggak.
+
+10
+00:00:48,091 --> 00:00:49,850
+Kalau ragu, tanya tukang listrik.
+
+11
+00:00:50,330 --> 00:00:52,243
+Stop kontakmu ada klip logamnya?
+
+12
+00:00:52,712 --> 00:00:54,910
+Follow buat fakta rumah berikutnya!

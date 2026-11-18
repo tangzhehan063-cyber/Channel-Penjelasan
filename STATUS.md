@@ -1,6 +1,14 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
-## Posisi terakhir (17 Nov 2026, siang)
+## Posisi terakhir (18 Nov 2026)
+- **Video #20 selesai:** "Kenapa Stop Kontak Mirip Hidung Babi?" (cara kerja bagian rumah: klip ground Schuko), 55,0 dtk, −14,7 LUFS, `remotion/src/v20/`, palet **`madu`** (user pilih). VO ElevenLabs Riri Rida 1 take (flow `a18yToEDaW4diMDMP8p7`); TTS memakai "Syuko" untuk "Schuko" (belum didengar user, cek bagian detik ±17 dan ±38). Timestamp `tools/align_teks.py`. Drive #20 `1LMumppD0iiNKEmpEU-pmFqz0EzoR5Esx` (cover, info, versi ringan 540p); MP4 penuh + SRT + cover dikirim ke user.
+- **Alur topik #20 (pelajaran):** "cara kerja seperti biasa" ternyata berarti video CARA KERJA alat/bagian rumah (bukan mitos). Draf mitos "kasur lurus ke pintu" ditunda di `naskah/video-20-kasur-lurus-pintu.*` dan `riset/2026-11-18-kasur-lurus-pintu.md`. Tanyakan arti bila instruksi user ambigu.
+- **Kelemahan #20 yang diterima user:** adegan "lari ke tanah" (±33 dtk) objek lebih kecil dan setrika terpotong tepi kiri. Jalur arus (setrika, klip, tanah) = penyederhanaan visual.
+- **Bug baru** di `style/cek-bug.md`: kamera terlalu dekat di adegan majemuk, stiker proj() terpotong tepi layar.
+- Teknik isometrik (3 aturan) sudah di skill `remotion-fitur`; belum dipakai di video. Perpustakaan referensi: `referensi/moodboard/` (kosong; user tidak menemukan referensi yang cocok, gaya #19 dijadikan patokan).
+- Video berikutnya: cek nomor (kemungkinan #21; #18 "rumah hadap barat" dikerjakan sesi lain). Ide cara kerja: sifon pipa U wastafel, rice cooker mati sendiri, kulkas, saklar tangga, kran.
+
+## Posisi sebelumnya (17 Nov 2026, siang)
 - **Video #19 selesai:** "Pintu Depan Sejajar Pintu Belakang: Rezeki Lewat?" (Bukan Sial #04), 52,5 dtk, −14,5 LUFS, `remotion/src/v19/`, palet **`mint`** (user ACC rekomendasi). VO ElevenLabs Riri Rida 1 take (flow `KPqcwGVUrgFEA0rp4pee`); timestamp `tools/align_teks.py`. Drive #19 `1rnxaURKj5cWoth1y8_R2U_3fGYD4yyeJ` (cover + info); MP4 + SRT + cover + versi ringan dikirim ke user. Tanpa angka; klaim "maling" dibuang (tanpa sumber). Sumber = artikel populer, bukan kajian akademik.
 - **Aturan baru KUNCI KARAKTER** (`CLAUDE.md`, perintah user 17 Nov setelah #16/#17 dinilai sangat jelek): video baru wajib kerangka v08/v14, objek besar satu per adegan, teks ≤2 lapis, sheet berdampingan dengan #8/#14 sebelum ACC; menyimpang = buang dan mulai dari awal. #19 lolos dan di-ACC user ("nah ini mantap").
 - **#18 "rumah hadap barat"** dikerjakan sesi lain (cabang `happy-mendel-0268t4`), belum di-merge saat #19 dibuat. Video berikutnya: cek nomor lagi (kemungkinan #20). Ide mitos lanjutan: tiang listrik depan pagar, cermin/tangga di depan pintu, rumah hook (`riset/2026-11-17-ide-video-17-mitos.md`).
