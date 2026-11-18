@@ -1,0 +1,2 @@
+Model kendaraan (vehicle-*.glb) dan Textures/colormap.png berasal dari Kenney Starter-Kit-Racing
+https://github.com/KenneyNL/starter-kit-racing (model 3D dan suara berlisensi CC0, kode MIT). Dipakai untuk uji (18 Nov 2026).

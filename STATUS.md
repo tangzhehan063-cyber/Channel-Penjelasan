@@ -1,5 +1,8 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
+## Aset luar untuk kit (18 Nov 2026, malam, berlaku untuk video berikutnya)
+- User minta cara menggambar objek lebih detail untuk SEMUA benda (alat rumah, struktur bangunan, jalan, benda fungsional). Dibuat: `kit/model.tsx` (`useModels`, `Model3D`, `Siluet`, `Gambar`), `kit/objek/SedanSiluet.tsx`, komposisi `KatalogAset`, aset di `remotion/public/aset-luar/` (Kenney CC0: kota, arena, racing), katalog `style/aset-luar.md`. Jebakan: render kosong bila tanpa `<Gambar>` (lihat katalog). Belum dipakai di video. Paket tambahan (19 Nov: perabot 140, mobil 50, rumah suburban 40, bangunan modular 79, properti jalan 100, alat survival 80, ubin jalan 100) dari repo agregat `series-ai/jam-ready-assets` (CC0 Kenney), lihat `style/aset-luar.md` dan `tools/ambil-aset.sh`. Belum ada kran/pipa U/saklar/MCB/stop kontak/genteng/kunci (lapis 2 atau 3).
+
 ## Posisi terakhir (18 Nov 2026, malam): Video #21 selesai
 - **Video #21 selesai:** "Cor Garasi Pakai Besi, Kok Masih Retak?" (cara kerja), 63,7 dtk, −14,2 LUFS, `remotion/src/v21/` (beats.json + Video21 + Cover21), palet **`batu`** (user "oke"), dirakit dari kit `<Penjelasan>` dengan objek baru `kit/objek/Pelat.tsx`, `Kendaraan.tsx` (motor kuning-jingga, mobil biru), `Retak.tsx` (retak bergerigi). VO **Gemini TTS Achernar** (ElevenLabs gagal: kredit 673/844, flow `bcxCKSLbvpSoOkBklKLC`, 0 terpakai); durasi 63,7 di atas 50–60 diterima user. Drive #21 `1dDMejml7sLOXX5L-T-g8dSHqOefoO2s1` (cover, info, versi ringan 480p); MP4 penuh + SRT + cover dikirim ke user.
 - **Revisi user (R1–R4, semua selesai):** kendaraan di atas beton, bentuk motor/mobil diperbaiki, warna dibedakan, retak bergerigi ala retak tembok. Moodboard di-ACC (`referensi/moodboard/v21-moodboard.jpg`).

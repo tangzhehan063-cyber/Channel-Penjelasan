@@ -16,6 +16,9 @@ Rujukan visual: `referensi/moodboard/` (still #8, #14, #19, #20). Kode: `remotio
 
 Belum diekstrak (masih di berkas video asal, salin bila perlu lalu pindahkan ke kit): kasur/AC/`Room` (v14), `Hall` lorong pintu (v19), lampu (`Lamp15`). Aturan: objek yang dipakai ≥2 video pindah ke `kit/objek/` dengan parameter `warna` dari palet, bukan konstanta.
 
+## 1b. Aset luar (model CC0 dan siluet SVG)
+Objek yang sulit dibuat dari bentuk dasar: lihat `style/aset-luar.md` (katalog, cara pakai, jebakan render kosong). Coba lapis 1 (model CC0), lalu 2 (siluet SVG), baru 3 (kode).
+
 ## 2. Alur video baru dengan kit
 1. Checklist (`checklist/_template.md`), gerbang T1–T5 tetap berlaku. Palet = keputusan user.
 2. `remotion/src/vNN/beats.json` (salin `v20/beats.json`), `vNN/VideoNNData.tsx` (salin `Video20Data.tsx`), daftarkan di `Root.tsx`.
