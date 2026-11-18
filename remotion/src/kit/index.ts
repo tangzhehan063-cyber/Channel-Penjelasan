@@ -11,3 +11,4 @@ export {OBJEK} from './objek/registry';
 export {AdeganStopkontak} from './objek/AdeganStopkontak';
 export {AdeganPelat} from './objek/AdeganPelat';
 export {Pelat} from './objek/Pelat';
+export {Mobil, Motor} from './objek/Kendaraan';

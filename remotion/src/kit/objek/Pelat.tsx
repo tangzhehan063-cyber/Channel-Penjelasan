@@ -3,6 +3,7 @@
 // Penyederhanaan visual: ukuran tidak skala; retak = celah vertikal yang melebar.
 import {Bx, Cy} from '../prim';
 import type {V3} from '../waktu';
+import {Mobil, Motor} from './Kendaraan';
 
 export const BETON = '#f1f1ec', TANAH = '#a07850', BESI = '#59616d';
 const W = 2.2, D = 2.4, HL = 0.5, HU = 0.25, SOIL = 0.4;
@@ -17,13 +18,15 @@ export type PelatP = {
   drop?: number;         // turunnya tanah+pelat sisi kanan (tanah turun)
   tekan?: number;        // 0..1 panah tekan (biru) dari atas
   tarik?: number;        // 0..1 panah tarik (koral) ke samping
-  roda?: number;         // 0..1 roda mobil menekan dari atas (tinggi turun)
+  mobil?: number;        // 0..1 mobil masuk dari depan ke pelat (0 = tidak ada)
+  motor?: boolean;       // motor parkir di separuh belakang pelat
+  penuh?: boolean;       // lapis atas beton penuh (tanpa potongan)
   chairs?: boolean;      // kursi penopang jaring
   mesh?: boolean;
   squash?: number;       // 0..1 tanah dipadatkan
 };
 
-export const Pelat: React.FC<PelatP> = ({warna, gap = 0, glow = 0, meshY, pour = 1, drop = 0, tekan = 0, tarik = 0, roda = 0, chairs = false, mesh = true, squash = 0}) => {
+export const Pelat: React.FC<PelatP> = ({warna, gap = 0, glow = 0, meshY, pour = 1, drop = 0, tekan = 0, tarik = 0, mobil = 0, motor = false, penuh = false, chairs = false, mesh = true, squash = 0}) => {
   const g = gap, hw = (W - g) / 2;            // lebar tiap blok
   const lowH = HL * pour, upH = HU * pour;
   const my = meshY ?? HL + 0.045;
@@ -34,7 +37,7 @@ export const Pelat: React.FC<PelatP> = ({warna, gap = 0, glow = 0, meshY, pour =
     return (
       <group key={side} position={[0, dy, 0]}>
         <Bx p={[cx, lowH / 2, 0]} s={[hw, Math.max(lowH, 0.001), D]} c={BETON} />
-        <Bx p={[cx, lowH + upH / 2, -D / 4]} s={[hw, Math.max(upH, 0.001), D / 2]} c={BETON} />
+        <Bx p={[cx, lowH + upH / 2, penuh ? 0 : -D / 4]} s={[hw, Math.max(upH, 0.001), penuh ? D : D / 2]} c={BETON} />
       </group>
     );
   };
@@ -59,13 +62,9 @@ export const Pelat: React.FC<PelatP> = ({warna, gap = 0, glow = 0, meshY, pour =
       {/* panah tekan (biru, dari atas) dan tarik (koral, ke samping) */}
       {tekan > 0 && [-0.8, 0, 0.8].map((x) => <group key={x} position={[x, 0.95 - 0.12 * tekan, 0.9]}><Cy p={[0, 0.25, 0]} rad={0.06} h={0.5} c={warna.cool} rot={[0, 0, 0]} edge={false} /><mesh position={[0, -0.04, 0]} rotation={[Math.PI, 0, 0]}><coneGeometry args={[0.16, 0.28, 24]} /><meshStandardMaterial color={warna.cool} roughness={0.5} /></mesh></group>)}
       {tarik > 0 && [-1, 1].map((s) => <group key={s} position={[s * (W / 2 + 0.2 + 0.3 * tarik), HL * 0.7 - (s === 1 ? drop : 0), 0.9]} rotation={[0, 0, -s * Math.PI / 2]} scale={[tarik, tarik, tarik]}><Cy p={[0, -0.3, 0]} rad={0.07} h={0.6} c={warna.accent} rot={[0, 0, 0]} edge={false} /><mesh><coneGeometry args={[0.18, 0.32, 24]} /><meshStandardMaterial color={warna.accent} roughness={0.5} /></mesh></group>)}
-      {/* roda mobil */}
-      {roda > 0 && (
-        <group position={[0.65, HL + HU + 0.4 - 0.0 * roda + (1 - roda) * 1.6 - drop, 0.8]}>
-          <Cy p={[0, 0, 0]} rad={0.42} h={0.38} c="#2c2c30" rot={[0, 0, Math.PI / 2]} />
-          <Cy p={[0, 0, 0]} rad={0.2} h={0.4} c="#c9ccd1" rot={[0, 0, Math.PI / 2]} edge={false} m={0.4} />
-        </group>
-      )}
+      {/* kendaraan: biru = beban */}
+      {motor && <group position={[0.56, lowH + upH - drop, -0.55]} rotation={[0, Math.PI / 2, 0]} scale={[1.15, 1.15, 1.15]}><Motor warna={warna.cool} /></group>}
+      {mobil > 0 && <group position={[0.62, lowH + upH - drop, 2.9 - 2.3 * mobil]}><Mobil warna={warna.cool} /></group>}
     </group>
   );
 };
