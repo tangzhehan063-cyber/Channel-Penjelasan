@@ -1,0 +1,679 @@
+{
+ "nomor": "22",
+ "palet": "terakota",
+ "durasi": 54.1,
+ "vo": "v22/vo.mp3",
+ "kicker": "FAKTA RUMAH · #22",
+ "hook": {
+  "pil": "BI naik, KPR kena?",
+  "hingga": 0.8
+ },
+ "beats": {
+  "hook": 0,
+  "apa": 3.94,
+  "naik": 7.79,
+  "tetap": 12.74,
+  "mengambang": 18.18,
+  "simulasi": 24.52,
+  "loncat": 33.2,
+  "kontrak": 42.64,
+  "tanya": 48.51,
+  "cta": 50.82,
+  "end": 54.1
+ },
+ "adegan": [
+  {
+   "dari": "hook",
+   "sampai": "apa",
+   "objek": "kpr",
+   "mode": "bank",
+   "kamera": [
+    {
+     "t": 0,
+     "pos": [
+      8.8,
+      9.600000000000001,
+      8.8
+     ],
+     "look": [
+      0,
+      0.8,
+      0
+     ]
+    },
+    {
+     "t": 4.05,
+     "pos": [
+      10.4,
+      11.200000000000001,
+      10.4
+     ],
+     "look": [
+      0,
+      0.8,
+      0
+     ]
+    }
+   ],
+   "ukuran": [
+    2.1,
+    1.6
+   ],
+   "iso": {
+    "zoom": 330
+   }
+  },
+  {
+   "dari": "apa",
+   "sampai": "naik",
+   "objek": "kpr",
+   "mode": "rumah",
+   "kamera": [
+    {
+     "t": 3.8,
+     "pos": [
+      10.0,
+      10.7,
+      10.0
+     ],
+     "look": [
+      0,
+      0.7,
+      0
+     ]
+    },
+    {
+     "t": 7.9,
+     "pos": [
+      8.6,
+      9.299999999999999,
+      8.6
+     ],
+     "look": [
+      0,
+      0.7,
+      0
+     ]
+    }
+   ],
+   "ukuran": [
+    1.9,
+    1.5
+   ],
+   "iso": {
+    "zoom": 360
+   }
+  },
+  {
+   "dari": "naik",
+   "sampai": "tetap",
+   "objek": "kpr",
+   "mode": "naik",
+   "kamera": [
+    {
+     "t": 7.6,
+     "pos": [
+      10.0,
+      10.55,
+      10.0
+     ],
+     "look": [
+      0,
+      0.55,
+      0
+     ]
+    },
+    {
+     "t": 12.8,
+     "pos": [
+      10.0,
+      10.9,
+      10.0
+     ],
+     "look": [
+      0,
+      0.9,
+      0
+     ]
+    }
+   ],
+   "ukuran": [
+    1.5,
+    1.0
+   ],
+   "w": {
+    "tambah": [
+     9.6,
+     10.4
+    ]
+   },
+   "iso": {
+    "zoom": 430
+   }
+  },
+  {
+   "dari": "tetap",
+   "sampai": "mengambang",
+   "objek": "kpr",
+   "mode": "tetap",
+   "kamera": [
+    {
+     "t": 12.5,
+     "pos": [
+      10.0,
+      10.55,
+      10.0
+     ],
+     "look": [
+      0,
+      0.55,
+      0
+     ]
+    },
+    {
+     "t": 18.3,
+     "pos": [
+      8.6,
+      9.15,
+      8.6
+     ],
+     "look": [
+      0,
+      0.55,
+      0
+     ]
+    }
+   ],
+   "ukuran": [
+    1.6,
+    1.4
+   ],
+   "iso": {
+    "zoom": 420
+   }
+  },
+  {
+   "dari": "mengambang",
+   "sampai": "simulasi",
+   "objek": "kpr",
+   "mode": "mengambang",
+   "kamera": [
+    {
+     "t": 18.0,
+     "pos": [
+      8.8,
+      9.5,
+      8.8
+     ],
+     "look": [
+      0,
+      0.7,
+      0
+     ]
+    },
+    {
+     "t": 24.6,
+     "pos": [
+      10.4,
+      11.1,
+      10.4
+     ],
+     "look": [
+      0,
+      0.7,
+      0
+     ]
+    }
+   ],
+   "ukuran": [
+    1.7,
+    1.5
+   ],
+   "iso": {
+    "zoom": 400
+   }
+  },
+  {
+   "dari": "simulasi",
+   "sampai": "loncat",
+   "objek": "kpr",
+   "mode": "simulasi",
+   "kamera": [
+    {
+     "t": 24.3,
+     "pos": [
+      10.0,
+      10.55,
+      10.0
+     ],
+     "look": [
+      0,
+      0.55,
+      0
+     ]
+    },
+    {
+     "t": 33.3,
+     "pos": [
+      8.6,
+      9.15,
+      8.6
+     ],
+     "look": [
+      0,
+      0.55,
+      0
+     ]
+    }
+   ],
+   "ukuran": [
+    1.5,
+    1.2
+   ],
+   "iso": {
+    "zoom": 430
+   }
+  },
+  {
+   "dari": "loncat",
+   "sampai": "kontrak",
+   "objek": "kpr",
+   "mode": "loncat",
+   "kamera": [
+    {
+     "t": 33.0,
+     "pos": [
+      10.0,
+      11.0,
+      10.0
+     ],
+     "look": [
+      0,
+      1.0,
+      0
+     ]
+    },
+    {
+     "t": 42.7,
+     "pos": [
+      10.0,
+      11.35,
+      10.0
+     ],
+     "look": [
+      0,
+      1.35,
+      0
+     ]
+    }
+   ],
+   "ukuran": [
+    1.2,
+    1.8
+   ],
+   "w": {
+    "naik": [
+     37.8,
+     41.6
+    ]
+   },
+   "iso": {
+    "zoom": 340
+   }
+  },
+  {
+   "dari": "kontrak",
+   "sampai": "tanya",
+   "objek": "kpr",
+   "mode": "kontrak",
+   "kamera": [
+    {
+     "t": 42.4,
+     "pos": [
+      9.75,
+      10.55,
+      10.0
+     ],
+     "look": [
+      -0.25,
+      0.55,
+      0
+     ]
+    },
+    {
+     "t": 48.6,
+     "pos": [
+      10.25,
+      10.55,
+      10.0
+     ],
+     "look": [
+      0.25,
+      0.55,
+      0
+     ]
+    }
+   ],
+   "ukuran": [
+    1.5,
+    1.1
+   ],
+   "iso": {
+    "zoom": 420
+   }
+  },
+  {
+   "dari": "tanya",
+   "sampai": "cta",
+   "objek": "kpr",
+   "mode": "tanya",
+   "kamera": [
+    {
+     "t": 48.3,
+     "pos": [
+      10.0,
+      10.8,
+      10.0
+     ],
+     "look": [
+      0,
+      0.8,
+      0
+     ]
+    },
+    {
+     "t": 50.9,
+     "pos": [
+      8.6,
+      9.4,
+      8.6
+     ],
+     "look": [
+      0,
+      0.8,
+      0
+     ]
+    }
+   ],
+   "ukuran": [
+    1.9,
+    2.0
+   ],
+   "iso": {
+    "zoom": 330
+   }
+  },
+  {
+   "dari": "cta",
+   "sampai": "end",
+   "objek": "kpr",
+   "mode": "cta",
+   "kamera": [
+    {
+     "t": 50.6,
+     "pos": [
+      8.8,
+      9.5,
+      8.8
+     ],
+     "look": [
+      0,
+      0.7,
+      0
+     ]
+    },
+    {
+     "t": 54.1,
+     "pos": [
+      10.4,
+      11.1,
+      10.4
+     ],
+     "look": [
+      0,
+      0.7,
+      0
+     ]
+    }
+   ],
+   "ukuran": [
+    1.9,
+    1.5
+   ],
+   "iso": {
+    "zoom": 360
+   }
+  }
+ ],
+ "hantu": [],
+ "judul": [
+  {
+   "dari": 0.2,
+   "sampai": 4.9,
+   "kecil": "BI naikkan bunga,",
+   "besar": "JADI 6%",
+   "warna": "accent",
+   "ukuran": 140
+  },
+  {
+   "dari": 4.9,
+   "sampai": "naik",
+   "kecil": "Dampaknya buat",
+   "besar": "KPR RUMAHMU?",
+   "warna": "accent",
+   "ukuran": 112
+  },
+  {
+   "dari": "naik",
+   "sampai": "tetap",
+   "kecil": "Naiknya cuma",
+   "besar": "SEPEREMPAT PERSEN",
+   "warna": "accent",
+   "ukuran": 78
+  },
+  {
+   "dari": "tetap",
+   "sampai": "mengambang",
+   "kecil": "KPR bunga tetap,",
+   "besar": "CICILAN AMAN",
+   "warna": "good",
+   "ukuran": 110
+  },
+  {
+   "dari": "mengambang",
+   "sampai": "simulasi",
+   "kecil": "Bunga mengambang,",
+   "besar": "BANK BISA IKUT",
+   "warna": "cool",
+   "ukuran": 98
+  },
+  {
+   "dari": "simulasi",
+   "sampai": "loncat",
+   "kecil": "500 jt, 20 tahun:",
+   "besar": "+RP83 RIBU",
+   "warna": "accent",
+   "ukuran": 124
+  },
+  {
+   "dari": "loncat",
+   "sampai": 38.0,
+   "kecil": "Masa tetap habis,",
+   "besar": "BUNGA LONCAT",
+   "warna": "accent",
+   "ukuran": 104
+  },
+  {
+   "dari": 38.0,
+   "sampai": "kontrak",
+   "kecil": "Cicilan hampir",
+   "besar": "2 KALI LIPAT",
+   "warna": "accent",
+   "ukuran": 112
+  },
+  {
+   "dari": "kontrak",
+   "sampai": "tanya",
+   "kecil": "Tetap atau mengambang?",
+   "besar": "CEK KONTRAKMU",
+   "warna": "accent",
+   "ukuran": 92
+  },
+  {
+   "dari": "tanya",
+   "sampai": 50.6,
+   "kecil": "Masa tetapmu,",
+   "besar": "SAMPAI KAPAN?",
+   "warna": "accent",
+   "ukuran": 104
+  }
+ ],
+ "stiker": [
+  {
+   "teks": "tidak langsung, tidak otomatis",
+   "warna": "cool",
+   "ukuran": 40,
+   "waktu": [
+    21.0,
+    21.4,
+    24.0,
+    24.4
+   ]
+  },
+  {
+   "teks": "(perkiraan)",
+   "warna": "cool",
+   "ukuran": 46,
+   "waktu": [
+    29.5,
+    29.9,
+    32.6,
+    33.0
+   ]
+  },
+  {
+   "teks": "promo 3% → 13%",
+   "warna": "accent",
+   "ukuran": 46,
+   "waktu": [
+    34.6,
+    35.0,
+    37.6,
+    38.0
+   ]
+  }
+ ],
+ "komentar": {
+  "kata": "sampai kapan?",
+  "mulai": 50.82,
+  "y": 600,
+  "keluar": 53.8
+ },
+ "follow": {
+  "mulai": 52.1,
+  "klik": 53.2,
+  "y": 1250
+ },
+ "sfx": [
+  [
+   "pop",
+   0.4,
+   0.4
+  ],
+  [
+   "whoosh",
+   3.9,
+   0.3
+  ],
+  [
+   "pop",
+   5.0,
+   0.35
+  ],
+  [
+   "whoosh",
+   7.6,
+   0.3
+  ],
+  [
+   "tick",
+   9.9,
+   0.4
+  ],
+  [
+   "whoosh",
+   12.6,
+   0.3
+  ],
+  [
+   "ting",
+   14.0,
+   0.4
+  ],
+  [
+   "whoosh",
+   18.0,
+   0.3
+  ],
+  [
+   "knock",
+   21.0,
+   0.35
+  ],
+  [
+   "whoosh",
+   24.3,
+   0.3
+  ],
+  [
+   "pop",
+   26.0,
+   0.4
+  ],
+  [
+   "thud",
+   31.0,
+   0.4
+  ],
+  [
+   "whoosh",
+   33.0,
+   0.3
+  ],
+  [
+   "riser",
+   34.2,
+   0.3
+  ],
+  [
+   "chime",
+   41.6,
+   0.35
+  ],
+  [
+   "whoosh",
+   42.4,
+   0.3
+  ],
+  [
+   "pop",
+   44.0,
+   0.35
+  ],
+  [
+   "pop",
+   48.4,
+   0.4
+  ],
+  [
+   "whoosh",
+   50.6,
+   0.3
+  ],
+  [
+   "chime",
+   52.2,
+   0.4
+  ]
+ ]
+}

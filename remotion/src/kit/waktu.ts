@@ -13,7 +13,7 @@ export const r = (t: number, a: number, b: number, e = ease) =>
   interpolate(t, [a, b], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: e});
 
 export type V3 = [number, number, number];
-export type Key = {t: number; pos: V3; look: V3};
+export type Key = {t: number; pos: V3; look: V3; zoom?: number};
 export const lerp3 = (a: V3, b: V3, k: number): V3 => [a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k, a[2] + (b[2] - a[2]) * k];
 
 /** kamera di detik t dari daftar keyframe (CAM_*). */
@@ -21,7 +21,7 @@ export function camAt(keys: Key[], t: number): Key {
   if (t <= keys[0].t) return keys[0];
   for (let i = 0; i < keys.length - 1; i++) {
     const a = keys[i], b = keys[i + 1];
-    if (t <= b.t) { const k = ease((t - a.t) / (b.t - a.t)); return {t, pos: lerp3(a.pos, b.pos, k), look: lerp3(a.look, b.look, k)}; }
+    if (t <= b.t) { const k = ease((t - a.t) / (b.t - a.t)); return {t, pos: lerp3(a.pos, b.pos, k), look: lerp3(a.look, b.look, k), zoom: a.zoom !== undefined && b.zoom !== undefined ? a.zoom + (b.zoom - a.zoom) * k : undefined}; }
   }
   return keys[keys.length - 1];
 }

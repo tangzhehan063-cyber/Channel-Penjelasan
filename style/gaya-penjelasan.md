@@ -16,6 +16,9 @@ Rujukan visual: `referensi/moodboard/` (still #8, #14, #19, #20). Kode: `remotio
 
 Belum diekstrak (masih di berkas video asal, salin bila perlu lalu pindahkan ke kit): kasur/AC/`Room` (v14), `Hall` lorong pintu (v19), lampu (`Lamp15`). Aturan: objek yang dipakai ≥2 video pindah ke `kit/objek/` dengan parameter `warna` dari palet, bukan konstanta.
 
+## 1b. Aset luar (model CC0 dan siluet SVG)
+Objek yang sulit dibuat dari bentuk dasar: lihat `style/aset-luar.md` (katalog, cara pakai, jebakan render kosong). Coba lapis 1 (model CC0), lalu 2 (siluet SVG), baru 3 (kode).
+
 ## 2. Alur video baru dengan kit
 1. Checklist (`checklist/_template.md`), gerbang T1–T5 tetap berlaku. Palet = keputusan user.
 2. `remotion/src/vNN/beats.json` (salin `v20/beats.json`), `vNN/VideoNNData.tsx` (salin `Video20Data.tsx`), daftarkan di `Root.tsx`.
@@ -62,3 +65,6 @@ Hook ≤ 4 dtk; beat rata-rata 3–5 dtk dengan variasi (CV ≥ 0,25: satu beat 
 3. `style/cek-bug.md` dibaca; kicker tidak tertutup 3D, judul berakhir sebelum gelembung komentar, tidak ada z-fighting.
 4. Teks maksimal dua lapis; subtitle per frasa utuh; kontras tegas, warna datar, bentuk membulat.
 5. Penyimpangan dari karakter = buang dan mulai dari awal (bukan tambal-sulam).
+
+## 8. Kamera isometrik di kit (19 Nov 2026, dipakai di #22)
+Per adegan di `beats.json`: tambahkan `"iso": {"zoom": N}`; kamera memakai `CanvasIso` (ortografis, arah X=Y=Z, cahaya satu arah `LightsIso`). Gerak lewat `pos` dan `look` dalam `kamera`: jarak `pos.z - look.z` hanya mengatur zoom (`zoom = N × d0 / d`: kecil = push, besar = pull), perubahan `look` = pan atau crane. Zoom awal yang dipakai #22: bank 330, rumah 360, tumpukan uang 430, gembok 420, jam 400, map 420, kalender 330 (objek ±1,5–2 satuan, satuan dunia = piksel per zoom). `cek-sutradara` bagian 9 mengukur ukuran objek isometrik dari `zoom` dan `ukuran: [lebar, tinggi]`. Pakai untuk SATU objek besar per adegan; dilarang untuk diorama lebar. Uang gepokan: ikat biru (Rp50 ribu, dasar) + merah (Rp100 ribu, tambahan); map kontrak coklat (kraft).

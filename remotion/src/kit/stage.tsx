@@ -25,3 +25,18 @@ export const Seg: React.FC<{a: number; b: number; f: number; first?: boolean; ch
   const o = interpolate(f, [fa, fa + 2 * OV, fb - 2 * OV, fb], [first ? 1 : 0, 1, 1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return <Sequence from={fa} durationInFrames={fb - fa} layout="none"><AbsoluteFill style={{opacity: o}}>{children}</AbsoluteFill></Sequence>;
 };
+
+/** Kamera isometrik (ortografis, arah X=Y=Z): zoom = piksel per satuan dunia. Gerak: zoom (push/pull) dan look (pan/crane); arah kamera tetap. Teknik: .claude/skills/remotion-fitur (isometrik). */
+const IsoRig: React.FC<{k: Key}> = ({k}) => {
+  const cam = useThree((s) => s.camera) as THREE.OrthographicCamera;
+  cam.position.set(k.look[0] + 20, k.look[1] + 20, k.look[2] + 20); cam.zoom = k.zoom ?? 300; cam.near = -50; cam.far = 120;
+  cam.updateProjectionMatrix(); cam.lookAt(...k.look);
+  return null;
+};
+/** cahaya satu arah: sisi atas paling terang, kiri sedang, kanan paling gelap; tidak boleh berubah antar-adegan */
+export const LightsIso: React.FC = () => (<><ambientLight intensity={0.6} /><directionalLight position={[-5, 9, 4]} intensity={2.3} /></>);
+export const CanvasIso: React.FC<{k: Key; children: React.ReactNode}> = ({k, children}) => (
+  <ThreeCanvas orthographic width={1080} height={1920} camera={{position: [20, 20, 20], zoom: k.zoom ?? 300, near: -50, far: 120}} gl={{alpha: true, antialias: true}}>
+    <LightsIso /><IsoRig k={k} />{children}
+  </ThreeCanvas>
+);

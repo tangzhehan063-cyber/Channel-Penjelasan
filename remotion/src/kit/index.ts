@@ -12,3 +12,6 @@ export {AdeganStopkontak} from './objek/AdeganStopkontak';
 export {AdeganPelat} from './objek/AdeganPelat';
 export {Pelat} from './objek/Pelat';
 export {Mobil, Motor} from './objek/Kendaraan';
+export * from './model';
+export * from './objek/SedanSiluet';
+export * from './objek/Kpr21';

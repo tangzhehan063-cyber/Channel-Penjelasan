@@ -184,6 +184,15 @@ if (J) {
   J.adegan.forEach((a, i) => {
     if (!a.ukuran) { hm(`adegan ${i} (${a.objek}/${a.mode}) tanpa "ukuran": [lebar, tinggi] objek kunci; ukuran layar tidak bisa diperiksa`); return; }
     const mid = a.kamera[Math.floor((a.kamera.length - 1) / 2)], end = a.kamera.at(-1);
+    if (a.iso) { // kamera isometrik: ukuran di layar dari zoom (piksel per satuan dunia); lebar ≈ 1,13·w, tinggi ≈ 0,82·h + 0,4·w
+      const dd = (k) => Math.max(0.5, k.pos[2] - k.look[2]), d0 = dd(a.kamera[0]);
+      for (const k of [a.kamera[0], mid, end]) {
+        const z = a.iso.zoom * d0 / dd(k), fw = 1.13 * a.ukuran[0] * z / 1080, fh = (0.82 * a.ukuran[1] + 0.4 * a.ukuran[0]) * z / 1920;
+        if (fh < 1 / 3 && fw < 0.6) { bad(`adegan ${i} (${a.mode}, isometrik) di ${f1(k.t)} dtk: objek ${(fw * 100).toFixed(0)}% lebar / ${(fh * 100).toFixed(0)}% tinggi layar (aturan: ≥1/3 tinggi atau ≥60% lebar): naikkan zoom`); break; }
+        if (fw > 1.6) { hm(`adegan ${i} (${a.mode}, isometrik) di ${f1(k.t)} dtk: objek ${(fw * 100).toFixed(0)}% lebar layar, terlalu terpotong`); break; }
+      }
+      return;
+    }
     for (const k of [a.kamera[0], mid, end]) {
       const d = len(sub(k.pos, a.pusat ?? k.look));
       const hv = 2 * d * tanH, wv = hv * (1080 / 1920);

@@ -7,7 +7,7 @@ import {Ghost} from '../pengetahuan/Scene';
 import {Grain, TikTokBox} from '../aset/Aset';
 import {Kicker, CommentBubble, FollowButton} from '../aset/Gabung';
 import {PaperPalet, PALET, type PaletName} from '../aset/PaperPalet';
-import {Canvas3D, Seg} from './stage';
+import {Canvas3D, CanvasIso, Seg} from './stage';
 import {Captions, Chip, TemaProvider, Title, type KataVO} from './teks';
 import {FPS, camAt, proj, r, type Key, type V3} from './waktu';
 import {OBJEK} from './objek/registry';
@@ -17,7 +17,7 @@ export type DataVideo = {
   nomor: string; palet: PaletName; durasi: number; vo: string; // vo: path di public/, mis. 'v20/vo.mp3'
   kicker: string; hook: {pil: string; hingga: number};
   beats: Record<string, number>;
-  adegan: {dari: T; sampai: T; objek: string; mode: string; kamera: Key[]; w?: Record<string, [number, number]>; ulang?: boolean}[];
+  adegan: {dari: T; sampai: T; objek: string; mode: string; kamera: Key[]; w?: Record<string, [number, number]>; ulang?: boolean; iso?: {zoom: number}}[];
   hantu?: {dari: T; sampai: T; baris: [string, string]}[];
   judul: {dari: T; sampai: T; kecil: string; besar: string; warna?: 'accent' | 'cool' | 'good'; ukuran?: number}[];
   stiker: {teks: string; warna: 'accent' | 'cool' | 'good'; ukuran?: number; waktu: [number, number, number, number]; xy?: [number, number];
@@ -34,7 +34,13 @@ export const Penjelasan: React.FC<{data: DataVideo; words: KataVO[]; ekstra?: Re
   const warna = {accent: PL.accent, good: PL.good, cool: PL.cool};
   const B = data.beats;
   const T = (x: T) => (typeof x === 'number' ? x : B[x]);
-  const cams = data.adegan.map((a) => camAt(a.kamera, t));
+  const cams = data.adegan.map((a) => {
+    const k = camAt(a.kamera, t);
+    if (!a.iso) return k;
+    // isometrik: jarak (pos-look) hanya mengatur zoom; arah kamera tetap. zoom = zoom0 * d0 / d
+    const d = (kk: Key) => Math.max(0.5, kk.pos[2] - kk.look[2]), d0 = d(a.kamera[0]);
+    return {...k, zoom: a.iso.zoom * d0 / d(k)};
+  });
   return (
     <TemaProvider value={tema}>
       <AbsoluteFill>
@@ -43,7 +49,7 @@ export const Penjelasan: React.FC<{data: DataVideo; words: KataVO[]; ekstra?: Re
 
         {data.adegan.map((a, i) => {
           const O = OBJEK[a.objek];
-          return <Seg key={i} a={T(a.dari)} b={T(a.sampai)} f={f} first={i === 0}><Canvas3D k={cams[i]}><O t={t} mode={a.mode} w={a.w} warna={warna} /></Canvas3D></Seg>;
+          return <Seg key={i} a={T(a.dari)} b={T(a.sampai)} f={f} first={i === 0}>{a.iso ? <CanvasIso k={cams[i]}><O t={t} mode={a.mode} w={a.w} warna={warna} /></CanvasIso> : <Canvas3D k={cams[i]}><O t={t} mode={a.mode} w={a.w} warna={warna} /></Canvas3D>}</Seg>;
         })}
 
         <Kicker text={data.kicker} y={292} start={0} color={tema.accent} />
