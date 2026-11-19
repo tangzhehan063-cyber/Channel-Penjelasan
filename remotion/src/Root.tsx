@@ -33,6 +33,7 @@ import {Cover20} from './v20/Cover20';
 import {Video20Data} from './v20/Video20Data';
 import {Video21, V21_FRAMES} from './v21/Video21';
 import {Video22, V22_FRAMES} from './v22/Video22';
+import {PilotSifon, PILOT_SIFON_FRAMES} from './v23/PilotSifon';
 import {Cover22} from './v22/Cover22';
 import {KatalogAset, KatalogRumah1, KatalogRumah2} from './kit/KatalogAset';
 import {UjiGayaAset} from './kit/UjiGayaAset';
@@ -55,6 +56,7 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="KatalogRumah1" component={KatalogRumah1} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="KatalogRumah2" component={KatalogRumah2} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="KatalogAset" component={KatalogAset} durationInFrames={1} fps={30} width={1080} height={1920} />
+  <Composition id="PilotSifon" component={PilotSifon} durationInFrames={PILOT_SIFON_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Video22" component={Video22} durationInFrames={V22_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Cover22" component={Cover22} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Video21" component={Video21} durationInFrames={V21_FRAMES} fps={30} width={1080} height={1920} />

@@ -1,0 +1,7 @@
+{
+  "_catatan": "Target gerak sementara (19 Nov 2026, mode SARAN, bukan GAGAL). Dasar: ref-analyze pada #8, #14, #19 (cuplikan 10 dtk), #21, #22. Ganti dengan angka referensi sungguhan (mis. video bergaya Lesics) setelah diukur.",
+  "stillShareMaks": 0.40,
+  "meanFlowMin": 1.0,
+  "meanDiffMin": 1.5,
+  "holdTerpanjangMaksDtk": 1.5
+}
