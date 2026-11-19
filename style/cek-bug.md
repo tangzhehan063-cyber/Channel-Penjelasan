@@ -60,3 +60,10 @@ Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) s
 - Objek diorama kertas #11 (bank, uang, kalender, map) berukuran kecil: besarkan dengan `scale` grup 2,2 sampai 3 dan atur kamera jarak ±3,5–5.
 - Objek gaya #21 (Kpr21) terpotong tepi bila jarak kamera < ±5,5 untuk objek ±1,5 satuan; pakai jarak 5,6–7 dan cek `cek-sutradara` (ukuran ≥ 1/3 tinggi atau ≥ 60% lebar).
 - Kamera isometrik: `cek-sutradara` versi lama menghitung jarak perspektif (pos-look) dan menandai semua adegan isometrik GAGAL; kini adegan ber-`iso` diukur dari `zoom`. Objek ±1,5 satuan butuh zoom ≥ ±330 agar ≥60% lebar layar.
+
+## Bug #24 (19 Nov 2026, rumah hook)
+- **Objek bantu 3D yang hanya untuk satu beat (panah harga) tidak dimatikan sesudah beat selesai**: panah tetap tampil di 5 adegan berikutnya dan menabrak kicker. Setiap objek per-beat wajib punya waktu hilang.
+- **Kamera terlalu dekat ke objek hook sehingga elemen yang dijanjikan hook (mobil) ada di luar layar**: hitung posisi layar (x−z)/√2 tiap elemen bergerak sebelum menulis kamera; lihat still di detik 0, bukan di tengah adegan.
+- **Berkas lampu transparan yang jatuh ke ruang kosong terbaca sebagai poligon abu-abu**: buat memudar bertahap dan jangan melewati tepi jalan.
+- **Kamera pan mengikuti mobil dari ketinggian rendah**: mobil menutupi rumah dan jendela tidak terlihat silau (dibatalkan). Efek sorot harus terlihat dengan mobil DAN jendela dalam satu frame.
+- Dinding krem terang pada palet malam menyembunyikan sinar lampu (tidak terlihat lebih terang); pakai dinding lebih gelap supaya sorotan terbaca.

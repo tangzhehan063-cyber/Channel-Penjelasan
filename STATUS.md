@@ -1,5 +1,12 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
+## Video #24 DALAM PROSES (19 Nov 2026): "Rumah Hook Bawa Sial?" (Bukan Sial #05), menunggu ACC contact sheet user
+- Dasar keputusan: ekspor YouTube Studio user 19 Nov (14 video, 20.862 views, 21 subscriber): video mitos rata-rata ±1.825 views / ±40% ditonton vs teknis ±1.290 / ±21%; #9 tusuk sate terbaik. Maka #24 memakai formula #9 (kepercayaan yang ditakuti, lalu alasan nyata). Kolom thumbnail Studio hampir tak berarti untuk Shorts (±93% views dari feed).
+- User memilih: topik Rumah Hook, hook "gerak dulu", kerangka v08/v14 + gerak terus, palet `malam`, suara Gemini (kunci otomatis), naskah ACC (klaim [⚠ CEK] diterima).
+- T1–T3 selesai: riset `riset/2026-11-19-rumah-hook.md`, naskah `naskah/video-24-rumah-hook.md`, VO Gemini Achernar 53,2 dtk (take1 62,8 dtk cadangan), timestamp `audio/video-24-words.json`, caption `caption/video-24-rumah-hook.md`.
+- T4–T5: `kit/objek/AdeganHook.tsx` (rumah sudut malam, mobil, berkas lampu, pita angin, pagar, tanaman), `remotion/src/v24/` (beats.json, Video24). `cek-sutradara` 0 GAGAL. Kelemahan jujur: nuansa diorama (jalan L), momen "lampu nyorot ke jendela" lemah (mobil tidak di layar saat jendela silau), dinding/jalan kurang tegas dibanding #8/#14. Bug baru di `style/cek-bug.md`.
+- Belum: ACC sheet user, render penuh (`tools/produksi.sh final|bagian 24 <slug>`), cover (`Cover24` belum dibuat), Drive, PR ke main.
+
 ## Video #23 selesai (19 Nov 2026): "Kenapa Pipa Wastafel Dibengkokkan Kayak U?" (Cara Kerja Rumah)
 - 57,1 dtk, −14,7 LUFS, `remotion/src/v23/` (beats.json + Video23 + Cover23), palet **`mint`** (user), VO **Gemini TTS Achernar** gaya santai (1 generasi, 56,6 dtk, kunci diambil otomatis dari env `GEMINI_API_KEY`). Timestamp `tools/align_teks.py`. Drive #23 `1Hrk1YfFM8dCV9neBbhdvj5Qmectf1rGb` (cover, info, versi ringan 540p); MP4 penuh + SRT + cover dikirim ke user.
 - **Pertama kali arah "mekanisme minimal ala Lesics"** dirakit penuh lewat kit `<Penjelasan>`: objek baru `kit/objek/AdeganSifon.tsx` (membungkus `Sifon.tsx`, kini mendukung air diam, bongkar, aliran, air menguap, bau lolos, isi ulang; muka air diturunkan ke sambungan agar air ikut turun saat dibongkar), satu garis waktu objek untuk semua adegan, hanya kamera yang berganti. Pola pemutus = banjir koral saat bau datang (28,7 dtk). Naskah: `naskah/video-23-sifon-pipa-u.md`, riset `riset/2026-11-19-sifon-pipa-u.md`, caption `caption/video-23-sifon-pipa-u.md`.

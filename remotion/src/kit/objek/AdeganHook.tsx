@@ -31,7 +31,7 @@ function pose(rev: boolean, s: number): Pose {
 const MOBIL: {rev: boolean; T: number; v: number; warna: string}[] = [
   {rev: false, T: 0.5, v: 6, warna: '#7fa8e8'},
   {rev: true, T: 2.7, v: 6, warna: '#e9e4d4'},
-  {rev: true, T: 25.9, v: 5, warna: '#e9e4d4'},
+  {rev: true, T: 25.9, v: 8, warna: '#e9e4d4'},
   {rev: false, T: 29.0, v: 8, warna: '#f2c14e'},
   {rev: true, T: 29.6, v: 8, warna: '#7fa8e8'},
   {rev: false, T: 47.4, v: 8, warna: '#7fa8e8'},
