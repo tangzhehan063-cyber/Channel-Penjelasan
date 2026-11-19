@@ -18,7 +18,7 @@ Catatan: pilihan user menyebut "angker"; sumber hanya mendukung "sial / rezeki s
 - **Ritme:** gerak sejak detik 0 (target frame diam < 40%, hook ≤ 3 dtk); napas pendek di payoff; pola pemutus (panel 2D/banjir koral) di titik balik beat 4.
 - Kosakata kamera final ditulis di Tahap 4 setelah membaca `style/gaya-penjelasan.md` dan skill `sutradara`.
 
-## Teks TTS (versi humanis, ±125 kata)
+## Teks TTS (versi humanis, 148 kata, ±57–60 dtk bila tempo seperti #23)
 1. Rumah hook katanya bikin rezeki seret? Coba lihat harganya dulu.
 2. Rumah hook itu rumah di sudut jalan, jadi dua sisinya menghadap jalan. Semua ceritanya berawal dari dua sisi itu.
 3. Dua sisi terbuka bikin cahaya dan angin masuk dari dua arah. Tanahnya biasanya lebih luas, dan tetangga yang menempel cuma satu. Makanya pengembang berani pasang harga lebih tinggi.
