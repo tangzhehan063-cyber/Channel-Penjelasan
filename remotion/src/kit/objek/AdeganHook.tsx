@@ -31,7 +31,7 @@ function pose(rev: boolean, s: number): Pose {
 const MOBIL: {rev: boolean; T: number; v: number; warna: string}[] = [
   {rev: false, T: 0.5, v: 6, warna: '#7fa8e8'},
   {rev: true, T: 2.7, v: 6, warna: '#e9e4d4'},
-  {rev: true, T: 25.9, v: 8, warna: '#e9e4d4'},
+  {rev: true, T: 25.9, v: 5, warna: '#e9e4d4'},
   {rev: false, T: 29.0, v: 8, warna: '#f2c14e'},
   {rev: true, T: 29.6, v: 8, warna: '#7fa8e8'},
   {rev: false, T: 47.4, v: 8, warna: '#7fa8e8'},
@@ -130,8 +130,8 @@ export const AdeganHook: React.FC<AdeganP> = ({t, w, warna}) => {
       <Jendela p={[SISI + 0.03, 1.1, -0.7]} s={[0.04, 0.55, 0.7]} />
 
       {/* sinar di fasad dan silau di jendela */}
-      {depan.map((v, i) => v > 0.02 && <Baji2 key={`d${i}`} p={[-SISI + (i + 0.5) * LS, 0.9, SISI + 0.012]} s={[LS * 0.98, 1.7, 0.01]} c="#fff3c4" o={0.65 * v} />)}
-      {kanan.map((v, i) => v > 0.02 && <Baji2 key={`k${i}`} p={[SISI + 0.012, 0.9, SISI - (i + 0.5) * LS]} s={[0.01, 1.7, LS * 0.98]} c="#fff3c4" o={0.65 * v} />)}
+      {depan.map((v, i) => v > 0.02 && <Baji2 key={`d${i}`} p={[-SISI + (i + 0.5) * LS, 0.9, SISI + 0.012]} s={[LS * 0.98, 1.7, 0.01]} c="#fff3c4" o={0.9 * v} />)}
+      {kanan.map((v, i) => v > 0.02 && <Baji2 key={`k${i}`} p={[SISI + 0.012, 0.9, SISI - (i + 0.5) * LS]} s={[0.01, 1.7, LS * 0.98]} c="#fff3c4" o={0.9 * v} />)}
       {depan[idxD] > 0.02 && <Baji2 p={[0.55, 1.1, SISI + 0.075]} s={[0.7, 0.55, 0.01]} c={KACA_SILAU} o={Math.min(0.97, depan[idxD] * 2.2)} />}
       {kanan[idxK1] > 0.02 && <Baji2 p={[SISI + 0.075, 1.1, 0.55]} s={[0.01, 0.55, 0.7]} c={KACA_SILAU} o={Math.min(0.97, kanan[idxK1] * 2.2)} />}
       {kanan[idxK2] > 0.02 && <Baji2 p={[SISI + 0.075, 1.1, -0.7]} s={[0.01, 0.55, 0.7]} c={KACA_SILAU} o={Math.min(0.97, kanan[idxK2] * 2.2)} />}
