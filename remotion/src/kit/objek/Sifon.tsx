@@ -78,7 +78,7 @@ export const Sifon: React.FC<{t: number; gap?: number; w: {buka: number; ujung: 
     return {x, y: y + Math.sin(i * 2.1 + t * 3) * 0.03, s: 0.09 + 0.02 * (i % 3), op, ok: k > 0};
   });
   const g2 = w.gas2 ? r(t, w.gas2[0], w.gas2[1], Easing.inOut(Easing.cubic)) : 0;
-  const gasLolos = Array.from({length: 5}, (_, i) => { const k = Math.min(1, Math.max(0, g2 * 1.3 - i * 0.1)); const p = at(1 - k * 0.98); return {x: p.x, y: p.y, s: 0.1 + 0.02 * (i % 3), op: (k > 0 ? 1 : 0) * (1 - r(t, w.gas2![1] - 0.5, w.gas2![1] + 0.3)), ok: k > 0.001}; });
+  const gasLolos = Array.from({length: 5}, (_, i) => { const k = Math.min(1, Math.max(0, g2 * 1.3 - i * 0.1)); const p = at(1 - k * 0.98); return {x: p.x, y: p.y, s: 0.1 + 0.02 * (i % 3), op: (k > 0 ? 1 : 0) * (1 - r(t, (w.gas2?.[1] ?? 0) - 0.5, (w.gas2?.[1] ?? 0) + 0.3)), ok: k > 0.001}; });
   return (
     <group position={[0, 0, 0]}>
       {/* wastafel: mangkuk keramik + keran */}
