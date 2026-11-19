@@ -28,13 +28,15 @@ function pose(rev: boolean, s: number): Pose {
   return {x: p.x + hz * 0.3, z: p.z - hx * 0.3, hx, hz};
 }
 
+// warna mobil: nada redup yang menyatu dengan latar malam (R2 user 19 Nov), tanpa putih/kuning terang
+const BIRU = '#5f7fb5', TERAKOTA = '#b9806f', SAGE = '#6f9a85';
 const MOBIL: {rev: boolean; T: number; v: number; warna: string}[] = [
-  {rev: false, T: 0.5, v: 6, warna: '#7fa8e8'},
-  {rev: true, T: 2.7, v: 6, warna: '#e9e4d4'},
-  {rev: true, T: 25.9, v: 8, warna: '#e9e4d4'},
-  {rev: false, T: 29.0, v: 8, warna: '#f2c14e'},
-  {rev: true, T: 29.6, v: 8, warna: '#7fa8e8'},
-  {rev: false, T: 47.4, v: 8, warna: '#7fa8e8'},
+  {rev: false, T: 0.5, v: 6, warna: BIRU},
+  {rev: true, T: 2.7, v: 6, warna: TERAKOTA},
+  {rev: true, T: 26.5, v: 8, warna: SAGE},
+  {rev: false, T: 29.0, v: 8, warna: TERAKOTA},
+  {rev: true, T: 29.6, v: 8, warna: BIRU},
+  {rev: false, T: 47.4, v: 8, warna: SAGE},
 ];
 const sActive = (m: (typeof MOBIL)[number], t: number) => (t - (m.T - (L1 + ARC / 2) / m.v)) * m.v;
 
