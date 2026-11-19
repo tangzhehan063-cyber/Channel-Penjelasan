@@ -65,6 +65,7 @@ const Atap: React.FC<{c: string}> = ({c}) => {
   return <mesh geometry={geo} position={[0, 1.8, 0]} rotation={[0, Math.PI / 2, 0]} castShadow><meshStandardMaterial color={c} roughness={0.5} /><Edges color={INK} threshold={35} lineWidth={1.4} /></mesh>;
 };
 
+const Jendela: React.FC<{p: V3; s: V3}> = ({p, s}) => (<mesh position={p}><boxGeometry args={s} /><meshBasicMaterial color={JENDELA} /><Edges color={INK} lineWidth={1.6} /></mesh>);
 const Baji2: React.FC<{p: V3; s: V3; c: string; o?: number}> = ({p, s, c, o = 1}) => (
   <mesh position={p}><boxGeometry args={s} /><meshBasicMaterial color={c} transparent opacity={o} depthWrite={false} /></mesh>
 );
@@ -82,11 +83,11 @@ const Pita: React.FC<{t: number; a: number; dari: V3; ke: V3; warna: string}> = 
   const dir = new THREE.Vector3(ke[0] - dari[0], 0, ke[2] - dari[2]), yaw = Math.atan2(dir.x, dir.z);
   const out: React.ReactElement[] = [];
   for (let lane = 0; lane < 3; lane++) for (let k = 0; k < 6; k++) {
-    const f = (((t * 0.45 + k / 6 + lane * 0.13) % 1) + 1) % 1, v = Math.sin(Math.PI * f) * a;
+    const f = (((t * 0.5 + k / 6 + lane * 0.13) % 1) + 1) % 1, v = Math.sin(Math.PI * f) * a;
     if (v < 0.02) continue;
     const y = 1.1 + (lane - 1) * 0.17 + Math.sin(f * 6.28 + lane) * 0.07;
     out.push(<group key={`${lane}-${k}`} position={[dari[0] + (ke[0] - dari[0]) * f, y, dari[2] + (ke[2] - dari[2]) * f]} rotation={[0, yaw, 0]} scale={[v, v, 1]}>
-      <mesh><boxGeometry args={[0.05, 0.05, 0.3]} /><meshStandardMaterial color={warna} roughness={0.5} /></mesh></group>);
+      <mesh><boxGeometry args={[0.1, 0.1, 0.6]} /><meshStandardMaterial color={warna} roughness={0.5} /></mesh></group>);
   }
   return <>{out}</>;
 };
@@ -122,15 +123,13 @@ export const AdeganHook: React.FC<AdeganP> = ({t, w, warna}) => {
       <Atap c={warna.accent} />
       <Bx p={[-0.6, 0.55, SISI + 0.02]} s={[0.55, 1.1, 0.06]} c={KAYU} />
       {/* jendela depan (x=0,55) dan kanan (z=0,55 dan -0,7), menyala dari dalam */}
-      <Bx p={[0.55, 1.1, SISI + 0.03]} s={[0.7, 0.55, 0.04]} c={JENDELA} />
-      <Bx p={[SISI + 0.03, 1.1, 0.55]} s={[0.04, 0.55, 0.7]} c={JENDELA} />
-      <Bx p={[SISI + 0.03, 1.1, -0.7]} s={[0.04, 0.55, 0.7]} c={JENDELA} />
-      <Sp p={[0.55, 1.03, SISI + 0.06]} rad={0.09} c={INK} />
-      <mesh position={[0.55, 0.88, SISI + 0.06]}><boxGeometry args={[0.34, 0.2, 0.03]} /><meshStandardMaterial color={INK} /></mesh>
+      <Jendela p={[0.55, 1.1, SISI + 0.03]} s={[0.7, 0.55, 0.04]} />
+      <Jendela p={[SISI + 0.03, 1.1, 0.55]} s={[0.04, 0.55, 0.7]} />
+      <Jendela p={[SISI + 0.03, 1.1, -0.7]} s={[0.04, 0.55, 0.7]} />
 
       {/* sinar di fasad dan silau di jendela */}
-      {depan.map((v, i) => v > 0.02 && <Baji2 key={`d${i}`} p={[-SISI + (i + 0.5) * LS, 0.9, SISI + 0.012]} s={[LS * 0.98, 1.7, 0.01]} c="#fff3c4" o={0.5 * v} />)}
-      {kanan.map((v, i) => v > 0.02 && <Baji2 key={`k${i}`} p={[SISI + 0.012, 0.9, SISI - (i + 0.5) * LS]} s={[0.01, 1.7, LS * 0.98]} c="#fff3c4" o={0.5 * v} />)}
+      {depan.map((v, i) => v > 0.02 && <Baji2 key={`d${i}`} p={[-SISI + (i + 0.5) * LS, 0.9, SISI + 0.012]} s={[LS * 0.98, 1.7, 0.01]} c="#fff3c4" o={0.65 * v} />)}
+      {kanan.map((v, i) => v > 0.02 && <Baji2 key={`k${i}`} p={[SISI + 0.012, 0.9, SISI - (i + 0.5) * LS]} s={[0.01, 1.7, LS * 0.98]} c="#fff3c4" o={0.65 * v} />)}
       {depan[idxD] > 0.02 && <Baji2 p={[0.55, 1.1, SISI + 0.075]} s={[0.7, 0.55, 0.01]} c={KACA_SILAU} o={Math.min(0.95, depan[idxD] * 1.6)} />}
       {kanan[idxK1] > 0.02 && <Baji2 p={[SISI + 0.075, 1.1, 0.55]} s={[0.01, 0.55, 0.7]} c={KACA_SILAU} o={Math.min(0.95, kanan[idxK1] * 1.6)} />}
       {kanan[idxK2] > 0.02 && <Baji2 p={[SISI + 0.075, 1.1, -0.7]} s={[0.01, 0.55, 0.7]} c={KACA_SILAU} o={Math.min(0.95, kanan[idxK2] * 1.6)} />}
@@ -146,7 +145,7 @@ export const AdeganHook: React.FC<AdeganP> = ({t, w, warna}) => {
 
       {/* panah harga naik di atas atap */}
       {panah > 0.01 && (
-        <group position={[0.9, 3.1 + naik, 0.9]} scale={[panah, panah, panah]}>
+        <group position={[0.9, 3.05 + naik * 0.6, 0.9]} scale={[panah * 0.8, panah * 0.8, panah * 0.8]}>
           <Cy p={[0, 0, 0]} rad={0.13} h={0.7} c={warna.accent} rot={[0, 0, 0]} />
           <mesh position={[0, 0.55, 0]} castShadow><coneGeometry args={[0.34, 0.5, 28]} /><meshStandardMaterial color={warna.accent} roughness={0.5} /><Edges color={INK} threshold={30} lineWidth={1.2} /></mesh>
         </group>
@@ -158,20 +157,21 @@ export const AdeganHook: React.FC<AdeganP> = ({t, w, warna}) => {
         const zp = 2.1 - i * 0.385, xp = 2.1 - i * 0.385;
         return (
           <group key={i}>
-            <group position={[2.1, 0, zp]} scale={[1, gI, 1]}><Bx p={[0, 0.5, 0]} s={[0.13, 1.0, 0.13]} c="#e8dfc8" /></group>
-            {i > 0 && <group position={[xp, 0, 2.1]} scale={[1, gI, 1]}><Bx p={[0, 0.5, 0]} s={[0.13, 1.0, 0.13]} c="#e8dfc8" /></group>}
+            <group position={[2.1, 0, zp]} scale={[1, gI, 1]}><Bx p={[0, 0.36, 0]} s={[0.13, 0.72, 0.13]} c="#e8dfc8" /></group>
+            {i > 0 && <group position={[xp, 0, 2.1]} scale={[1, gI, 1]}><Bx p={[0, 0.36, 0]} s={[0.13, 0.72, 0.13]} c="#e8dfc8" /></group>}
           </group>
         );
       })}
-      {pagar > 0.5 && <Bx p={[2.1, 0.88, 0.35]} s={[0.07, 0.08, 3.9 * Math.min(1, (pagar - 0.5) * 2)]} c="#e8dfc8" edge={false} />}
-      {pagar > 0.5 && <Bx p={[0.35, 0.88, 2.1]} s={[3.9 * Math.min(1, (pagar - 0.5) * 2), 0.08, 0.07]} c="#e8dfc8" edge={false} />}
+      {pagar > 0.5 && <Bx p={[2.1, 0.64, 0.35]} s={[0.07, 0.08, 3.9 * Math.min(1, (pagar - 0.5) * 2)]} c="#e8dfc8" edge={false} />}
+      {pagar > 0.5 && <Bx p={[0.35, 0.64, 2.1]} s={[3.9 * Math.min(1, (pagar - 0.5) * 2), 0.08, 0.07]} c="#e8dfc8" edge={false} />}
       {tanam > 0.01 && ([[1.72, 1.45], [1.72, -0.05], [1.72, -1.1], [0.05, 1.72], [-1.1, 1.72]] as [number, number][]).map(([x, z], i) => {
         const s = Math.max(0.001, Math.min(1, tanam * 1.5 - i * 0.12));
         return (
           <group key={i} position={[x, 0, z]} scale={[s, s, s]}>
-            <Cy p={[0, 0.25, 0]} rad={0.06} h={0.5} c="#7b5a48" rot={[0, 0, 0]} edge={false} />
-            <Sp p={[0, 0.62, 0]} rad={0.3} c={warna.good} />
-            <Sp p={[0.1, 0.92, 0.05]} rad={0.22} c={warna.good} />
+            <Cy p={[0, 0.4, 0]} rad={0.07} h={0.8} c="#7b5a48" rot={[0, 0, 0]} edge={false} />
+            <Sp p={[0, 0.7, 0]} rad={0.36} c={warna.good} />
+            <Sp p={[0.05, 1.15, 0.03]} rad={0.3} c={warna.good} />
+            <Sp p={[0, 1.5, 0]} rad={0.2} c={warna.good} />
           </group>
         );
       })}
@@ -180,7 +180,7 @@ export const AdeganHook: React.FC<AdeganP> = ({t, w, warna}) => {
       {aktif.map(({m, p}, i) => (
         <group key={i}>
           <group position={[p.x, 0, p.z]} rotation={[0, Math.atan2(p.hx, p.hz), 0]} scale={[0.85, 0.85, 0.85]}><Mobil warna={m.warna} /></group>
-          <Sorot pose={p} panjang={7 * (0.35 + 0.65 * att)} o={0.2 * (0.35 + 0.65 * att)} />
+          <Sorot pose={p} panjang={7 * (0.35 + 0.65 * att)} o={0.34 * (0.35 + 0.65 * att)} />
         </group>
       ))}
     </group>
