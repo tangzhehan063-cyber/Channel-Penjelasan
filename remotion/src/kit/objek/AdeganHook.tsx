@@ -107,8 +107,17 @@ export const AdeganHook: React.FC<AdeganP> = ({t, w, warna}) => {
   const cool = warna.cool ?? '#7fa8e8';
 
   const aktif = MOBIL.map((m) => ({m, s: sActive(m, t)})).filter(({s}) => s >= 0 && s <= TOT).map(({m, s}) => ({m, p: pose(m.rev, s)}));
-  const depan = Array.from({length: NS}, (_, i) => Math.min(1, aktif.reduce((a, {p}) => a + sinar(p, -SISI + (i + 0.5) * LS, SISI), 0)) * att);
-  const kanan = Array.from({length: NS}, (_, i) => Math.min(1, aktif.reduce((a, {p}) => a + sinar(p, SISI, SISI - (i + 0.5) * LS), 0)) * att);
+  // sisa silau: terang di fasad/jendela memudar bertahap ±0,5 dtk sesudah lampu lewat, jadi mobil yang sudah masuk layar tetap terlihat bersama jendela yang silau
+  const hitung = (tt: number) => {
+    const ak = MOBIL.map((m) => sActive(m, tt) >= 0 && sActive(m, tt) <= TOT ? pose(m.rev, sActive(m, tt)) : null).filter((x): x is Pose => x !== null);
+    return {
+      d: Array.from({length: NS}, (_, i) => Math.min(1, ak.reduce((a, q) => a + sinar(q, -SISI + (i + 0.5) * LS, SISI), 0))),
+      k: Array.from({length: NS}, (_, i) => Math.min(1, ak.reduce((a, q) => a + sinar(q, SISI, SISI - (i + 0.5) * LS), 0))),
+    };
+  };
+  const LV = [0, 0.15, 0.3, 0.45, 0.6].map((dt, j) => ({h: hitung(t - dt), f: [1, 0.9, 0.75, 0.55, 0.35][j]}));
+  const depan = Array.from({length: NS}, (_, i) => Math.max(...LV.map(({h, f}) => h.d[i] * f)) * att);
+  const kanan = Array.from({length: NS}, (_, i) => Math.max(...LV.map(({h, f}) => h.k[i] * f)) * att);
   const idxD = Math.floor((0.55 + SISI) / LS), idxK1 = Math.floor((SISI - 0.55) / LS), idxK2 = Math.floor((SISI + 0.7) / LS);
 
   const garisK = r(t, s0, s0 + 1.3), garisD = r(t, s0 + 0.5, s0 + 1.8), garisHilang = r(t, s1, s1 + 0.6);
