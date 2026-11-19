@@ -1,0 +1,672 @@
+{
+ "nomor": "24",
+ "palet": "malam",
+ "durasi": 53.6,
+ "vo": "v24/vo.mp3",
+ "kicker": "FAKTA RUMAH · #24",
+ "hook": {
+  "pil": "Rumah hook, sial?",
+  "hingga": 0.8
+ },
+ "beats": {
+  "hook": 0,
+  "dua": 3.95,
+  "plus": 10.9,
+  "minus": 21.6,
+  "payoff": 31.4,
+  "akal": 37.1,
+  "cek": 43.9,
+  "end": 53.6
+ },
+ "adegan": [
+  {
+   "dari": 0,
+   "sampai": "dua",
+   "objek": "hook",
+   "mode": "hook",
+   "kamera": [
+    {
+     "t": 0,
+     "pos": [
+      7.0,
+      2.3,
+      7.4
+     ],
+     "look": [
+      1.0,
+      1.2,
+      1.0
+     ]
+    },
+    {
+     "t": 3.95,
+     "pos": [
+      6.2,
+      2.0,
+      6.5
+     ],
+     "look": [
+      1.0,
+      1.2,
+      1.0
+     ]
+    }
+   ],
+   "ukuran": [
+    3.7,
+    2.6
+   ],
+   "w": {
+    "sisi": [
+     4.3,
+     7.4
+    ],
+    "angin": [
+     10.9,
+     21.4
+    ],
+    "panah": [
+     15.2,
+     21.2
+    ],
+    "pagar": [
+     38.3,
+     40.3
+    ],
+    "tanam": [
+     40.0,
+     43.0
+    ]
+   }
+  },
+  {
+   "dari": "dua",
+   "sampai": "plus",
+   "objek": "hook",
+   "mode": "hook",
+   "kamera": [
+    {
+     "t": 3.95,
+     "pos": [
+      5.2,
+      6.8,
+      5.4
+     ],
+     "look": [
+      1.4,
+      0.4,
+      1.4
+     ]
+    },
+    {
+     "t": 10.9,
+     "pos": [
+      6.6,
+      2.6,
+      6.8
+     ],
+     "look": [
+      1.1,
+      1.0,
+      1.1
+     ]
+    }
+   ],
+   "ukuran": [
+    3.7,
+    2.6
+   ],
+   "w": {
+    "sisi": [
+     4.3,
+     7.4
+    ],
+    "angin": [
+     10.9,
+     21.4
+    ],
+    "panah": [
+     15.2,
+     21.2
+    ],
+    "pagar": [
+     38.3,
+     40.3
+    ],
+    "tanam": [
+     40.0,
+     43.0
+    ]
+   }
+  },
+  {
+   "dari": "plus",
+   "sampai": "minus",
+   "objek": "hook",
+   "mode": "hook",
+   "kamera": [
+    {
+     "t": 10.9,
+     "pos": [
+      2.8,
+      2.2,
+      9.0
+     ],
+     "look": [
+      0.9,
+      1.5,
+      0.9
+     ]
+    },
+    {
+     "t": 21.6,
+     "pos": [
+      8.8,
+      2.2,
+      3.0
+     ],
+     "look": [
+      0.9,
+      1.5,
+      0.9
+     ]
+    }
+   ],
+   "ukuran": [
+    3.7,
+    2.6
+   ],
+   "w": {
+    "sisi": [
+     4.3,
+     7.4
+    ],
+    "angin": [
+     10.9,
+     21.4
+    ],
+    "panah": [
+     15.2,
+     21.2
+    ],
+    "pagar": [
+     38.3,
+     40.3
+    ],
+    "tanam": [
+     40.0,
+     43.0
+    ]
+   }
+  },
+  {
+   "dari": "minus",
+   "sampai": "payoff",
+   "objek": "hook",
+   "mode": "hook",
+   "kamera": [
+    {
+     "t": 21.6,
+     "pos": [
+      6.4,
+      1.7,
+      6.6
+     ],
+     "look": [
+      1.3,
+      1.1,
+      -0.2
+     ]
+    },
+    {
+     "t": 31.4,
+     "pos": [
+      5.6,
+      1.6,
+      5.8
+     ],
+     "look": [
+      -0.2,
+      1.1,
+      1.3
+     ]
+    }
+   ],
+   "ukuran": [
+    3.7,
+    2.6
+   ],
+   "w": {
+    "sisi": [
+     4.3,
+     7.4
+    ],
+    "angin": [
+     10.9,
+     21.4
+    ],
+    "panah": [
+     15.2,
+     21.2
+    ],
+    "pagar": [
+     38.3,
+     40.3
+    ],
+    "tanam": [
+     40.0,
+     43.0
+    ]
+   }
+  },
+  {
+   "dari": "payoff",
+   "sampai": "akal",
+   "objek": "hook",
+   "mode": "hook",
+   "kamera": [
+    {
+     "t": 31.4,
+     "pos": [
+      5.6,
+      1.6,
+      5.8
+     ],
+     "look": [
+      1.0,
+      1.2,
+      1.0
+     ]
+    },
+    {
+     "t": 37.1,
+     "pos": [
+      7.2,
+      2.4,
+      7.4
+     ],
+     "look": [
+      1.0,
+      1.2,
+      1.0
+     ]
+    }
+   ],
+   "ukuran": [
+    3.7,
+    2.6
+   ],
+   "w": {
+    "sisi": [
+     4.3,
+     7.4
+    ],
+    "angin": [
+     10.9,
+     21.4
+    ],
+    "panah": [
+     15.2,
+     21.2
+    ],
+    "pagar": [
+     38.3,
+     40.3
+    ],
+    "tanam": [
+     40.0,
+     43.0
+    ]
+   }
+  },
+  {
+   "dari": "akal",
+   "sampai": "cek",
+   "objek": "hook",
+   "mode": "hook",
+   "kamera": [
+    {
+     "t": 37.1,
+     "pos": [
+      7.2,
+      2.6,
+      7.2
+     ],
+     "look": [
+      1.2,
+      1.0,
+      1.2
+     ]
+    },
+    {
+     "t": 43.9,
+     "pos": [
+      5.2,
+      1.6,
+      5.4
+     ],
+     "look": [
+      1.2,
+      1.0,
+      1.2
+     ]
+    }
+   ],
+   "ukuran": [
+    3.7,
+    2.6
+   ],
+   "w": {
+    "sisi": [
+     4.3,
+     7.4
+    ],
+    "angin": [
+     10.9,
+     21.4
+    ],
+    "panah": [
+     15.2,
+     21.2
+    ],
+    "pagar": [
+     38.3,
+     40.3
+    ],
+    "tanam": [
+     40.0,
+     43.0
+    ]
+   }
+  },
+  {
+   "dari": "cek",
+   "sampai": "end",
+   "objek": "hook",
+   "mode": "hook",
+   "kamera": [
+    {
+     "t": 43.9,
+     "pos": [
+      5.4,
+      1.5,
+      5.6
+     ],
+     "look": [
+      1.2,
+      1.1,
+      1.2
+     ]
+    },
+    {
+     "t": 53.6,
+     "pos": [
+      8.6,
+      3.0,
+      8.8
+     ],
+     "look": [
+      1.2,
+      1.1,
+      1.2
+     ]
+    }
+   ],
+   "ukuran": [
+    3.7,
+    2.6
+   ],
+   "w": {
+    "sisi": [
+     4.3,
+     7.4
+    ],
+    "angin": [
+     10.9,
+     21.4
+    ],
+    "panah": [
+     15.2,
+     21.2
+    ],
+    "pagar": [
+     38.3,
+     40.3
+    ],
+    "tanam": [
+     40.0,
+     43.0
+    ]
+   }
+  }
+ ],
+ "judul": [
+  {
+   "dari": 0.3,
+   "sampai": 3.8,
+   "kecil": "Rumah di sudut jalan,",
+   "besar": "REZEKI SERET?",
+   "warna": "accent",
+   "ukuran": 96
+  },
+  {
+   "dari": 4.4,
+   "sampai": 10.6,
+   "kecil": "Rumah hook punya",
+   "besar": "DUA SISI JALAN",
+   "warna": "cool",
+   "ukuran": 88
+  },
+  {
+   "dari": 11.4,
+   "sampai": 14.8,
+   "kecil": "Dari dua arah masuk",
+   "besar": "CAHAYA + ANGIN",
+   "warna": "good",
+   "ukuran": 84
+  },
+  {
+   "dari": 15.3,
+   "sampai": 21.3,
+   "kecil": "Pengembang pasang",
+   "besar": "HARGA LEBIH TINGGI",
+   "warna": "accent",
+   "ukuran": 78
+  },
+  {
+   "dari": 22.0,
+   "sampai": 27.6,
+   "kecil": "Malam hari",
+   "besar": "LAMPU NYOROT",
+   "warna": "accent",
+   "ukuran": 96
+  },
+  {
+   "dari": 28.0,
+   "sampai": 31.2,
+   "kecil": "Dua jalan lewat",
+   "besar": "LEBIH RAMAI",
+   "warna": "cool",
+   "ukuran": 96
+  },
+  {
+   "dari": 32.2,
+   "sampai": 37.0,
+   "kecil": "Yang nyata di balik sial",
+   "besar": "SILAU + BISING",
+   "warna": "accent",
+   "ukuran": 88
+  },
+  {
+   "dari": 37.5,
+   "sampai": 43.8,
+   "kecil": "Pagar + tanaman",
+   "besar": "TAHAN SOROT LAMPU",
+   "warna": "good",
+   "ukuran": 78
+  },
+  {
+   "dari": 44.4,
+   "sampai": 48.4,
+   "kecil": "Cari rumah hook?",
+   "besar": "CEK MALAM HARI",
+   "warna": "cool",
+   "ukuran": 88
+  }
+ ],
+ "stiker": [
+  {
+   "teks": "BUKAN SIAL",
+   "warna": "accent",
+   "ukuran": 64,
+   "waktu": [
+    2.9,
+    3.2,
+    4.0,
+    4.3
+   ],
+   "xy": [
+    540,
+    1210
+   ]
+  },
+  {
+   "teks": "HARGA ↑",
+   "warna": "accent",
+   "ukuran": 52,
+   "waktu": [
+    18.4,
+    18.7,
+    21.1,
+    21.5
+   ],
+   "xy": [
+    760,
+    1210
+   ]
+  }
+ ],
+ "komentar": {
+  "kata": "rumahmu di sudut?",
+  "mulai": 48.7,
+  "y": 600,
+  "keluar": 51.1
+ },
+ "follow": {
+  "mulai": 51.2,
+  "klik": 52.4,
+  "y": 1250
+ },
+ "sfx": [
+  [
+   "engine",
+   0.0,
+   0.35
+  ],
+  [
+   "whoosh",
+   0.75,
+   0.35
+  ],
+  [
+   "pop",
+   3.0,
+   0.5
+  ],
+  [
+   "whoosh",
+   3.95,
+   0.3
+  ],
+  [
+   "tick",
+   4.6,
+   0.3
+  ],
+  [
+   "whoosh",
+   10.9,
+   0.3
+  ],
+  [
+   "pop",
+   15.4,
+   0.4
+  ],
+  [
+   "riser",
+   20.6,
+   0.4
+  ],
+  [
+   "thud",
+   21.7,
+   0.6
+  ],
+  [
+   "engine",
+   23.4,
+   0.3
+  ],
+  [
+   "whoosh",
+   24.5,
+   0.35
+  ],
+  [
+   "engine",
+   27.6,
+   0.3
+  ],
+  [
+   "whoosh",
+   28.4,
+   0.3
+  ],
+  [
+   "whoosh",
+   30.0,
+   0.3
+  ],
+  [
+   "whoosh",
+   31.4,
+   0.3
+  ],
+  [
+   "chime",
+   33.4,
+   0.4
+  ],
+  [
+   "pop",
+   38.5,
+   0.4
+  ],
+  [
+   "pop",
+   40.2,
+   0.35
+  ],
+  [
+   "engine",
+   45.6,
+   0.3
+  ],
+  [
+   "whoosh",
+   46.6,
+   0.35
+  ],
+  [
+   "pop",
+   48.7,
+   0.4
+  ],
+  [
+   "chime",
+   52.4,
+   0.4
+  ]
+ ]
+}
