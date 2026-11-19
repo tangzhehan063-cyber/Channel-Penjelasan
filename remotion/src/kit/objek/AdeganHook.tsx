@@ -11,7 +11,7 @@ import {Bx, Cy, Sp, INK} from '../prim';
 import {Mobil} from './Kendaraan';
 import type {AdeganP} from './AdeganStopkontak';
 
-const DINDING = '#f0e6cf', JENDELA = '#ffd98a', KACA_SILAU = '#fffbe6', JALAN = '#4b5a7e', GARIS = '#e9e4d1', PLOT = '#33426f', KAYU = '#8a5a44';
+const DINDING = '#c9c2b0', JENDELA = '#ffd98a', KACA_SILAU = '#fffbe6', JALAN = '#4b5a7e', GARIS = '#e9e4d1', PLOT = '#33426f', KAYU = '#8a5a44';
 const SISI = 1.3; // setengah lebar rumah (2,6 x 2,6)
 const RR = 1, L1 = 12.2, ARC = (Math.PI / 2) * RR, TOT = 2 * L1 + ARC;
 
@@ -29,11 +29,12 @@ function pose(rev: boolean, s: number): Pose {
 }
 
 const MOBIL: {rev: boolean; T: number; v: number; warna: string}[] = [
-  {rev: false, T: 0.9, v: 8, warna: '#7fa8e8'},
-  {rev: true, T: 24.6, v: 8, warna: '#e9e4d4'},
-  {rev: false, T: 28.5, v: 8, warna: '#f2c14e'},
-  {rev: true, T: 30.0, v: 8, warna: '#7fa8e8'},
-  {rev: false, T: 46.6, v: 8, warna: '#7fa8e8'},
+  {rev: false, T: 0.5, v: 6, warna: '#7fa8e8'},
+  {rev: true, T: 2.7, v: 6, warna: '#e9e4d4'},
+  {rev: true, T: 25.9, v: 8, warna: '#e9e4d4'},
+  {rev: false, T: 29.0, v: 8, warna: '#f2c14e'},
+  {rev: true, T: 29.6, v: 8, warna: '#7fa8e8'},
+  {rev: false, T: 47.4, v: 8, warna: '#7fa8e8'},
 ];
 const sActive = (m: (typeof MOBIL)[number], t: number) => (t - (m.T - (L1 + ARC / 2) / m.v)) * m.v;
 
@@ -74,7 +75,7 @@ const Sorot: React.FC<{pose: Pose; panjang: number; o: number}> = ({pose: p, pan
   const geo = useMemo(() => { const w = Math.tan(HALF); const s = new THREE.Shape(); s.moveTo(0, 0); s.lineTo(-w, 1); s.lineTo(w, 1); s.closePath(); return new THREE.ShapeGeometry(s); }, []);
   return (
     <group position={[p.x + p.hx * 0.75, 0.42, p.z + p.hz * 0.75]} rotation={[0, Math.atan2(p.hx, p.hz), 0]}>
-      <mesh geometry={geo} rotation={[Math.PI / 2, 0, 0]} scale={[panjang, panjang, panjang]}><meshBasicMaterial color="#fff3c4" transparent opacity={o} side={THREE.DoubleSide} depthWrite={false} /></mesh>
+      <mesh geometry={geo} rotation={[Math.PI / 2, 0, 0]} scale={[panjang, panjang, panjang]}><meshBasicMaterial color="#ffe9a8" transparent opacity={o} side={THREE.DoubleSide} depthWrite={false} /></mesh>
     </group>
   );
 };
@@ -94,7 +95,7 @@ const Pita: React.FC<{t: number; a: number; dari: V3; ke: V3; warna: string}> = 
 
 export const AdeganHook: React.FC<AdeganP> = ({t, w, warna}) => {
   const g = (k: string, d: [number, number]): [number, number] => (w && w[k]) || d;
-  const [s0, s1] = g('sisi', [4.3, 7.4]), [a0, a1] = g('angin', [10.9, 21.4]), [p0, p1] = g('panah', [15.2, 21.2]);
+  const [s0, s1] = g('sisi', [4.3, 7.4]), [a0, a1] = g('angin', [10.9, 21.4]);
   const [f0, f1] = g('pagar', [38.3, 40.3]), [n0, n1] = g('tanam', [40.0, 43.0]);
   const pagar = r(t, f0, f1, Easing.out(Easing.cubic)), tanam = r(t, n0, n1, Easing.out(Easing.cubic));
   const att = 1 - 0.9 * (0.5 * pagar + 0.5 * tanam);
@@ -107,8 +108,7 @@ export const AdeganHook: React.FC<AdeganP> = ({t, w, warna}) => {
 
   const garisK = r(t, s0, s0 + 1.3), garisD = r(t, s0 + 0.5, s0 + 1.8), garisHilang = r(t, s1, s1 + 0.6);
   const garis = (pa: number) => pa * (1 - garisHilang);
-  const panah = r(t, p0, p0 + 0.9, Easing.out(Easing.back(2))), naik = r(t, p0 + 0.9, p1) * 0.7;
-
+  
   return (
     <group>
       {/* tapak dan jalan L */}
@@ -139,17 +139,10 @@ export const AdeganHook: React.FC<AdeganP> = ({t, w, warna}) => {
       {garis(garisD) > 0.01 && <Bx p={[0.0, 0.06, SISI + 0.42]} s={[2.6 * garis(garisD), 0.12, 0.1]} c={warna.accent} edge={false} />}
 
       {/* pita angin masuk dari dua arah */}
-      <Pita t={t} a={r(t, a0, a0 + 0.8) * (1 - r(t, a1 - 0.6, a1))} dari={[1.6, 1.1, 4.5]} ke={[0.55, 1.1, SISI + 0.1]} warna={cool} />
-      <Pita t={t} a={r(t, a0, a0 + 0.8) * (1 - r(t, a1 - 0.6, a1))} dari={[4.5, 1.1, 1.6]} ke={[SISI + 0.1, 1.1, 0.55]} warna={cool} />
-      <Pita t={t} a={r(t, a0 + 0.3, a0 + 1.1) * (1 - r(t, a1 - 0.6, a1))} dari={[4.5, 1.1, -0.2]} ke={[SISI + 0.1, 1.1, -0.7]} warna={cool} />
+      <Pita t={t} a={r(t, a0, a0 + 0.8) * (1 - r(t, a1 - 0.6, a1))} dari={[-2.0, 1.1, 3.4]} ke={[0.55, 1.1, SISI + 0.1]} warna={cool} />
+      <Pita t={t} a={r(t, a0, a0 + 0.8) * (1 - r(t, a1 - 0.6, a1))} dari={[3.6, 1.1, -2.2]} ke={[SISI + 0.1, 1.1, 0.55]} warna={cool} />
+      <Pita t={t} a={r(t, a0 + 0.3, a0 + 1.1) * (1 - r(t, a1 - 0.6, a1))} dari={[3.6, 1.1, -3.4]} ke={[SISI + 0.1, 1.1, -0.7]} warna={cool} />
 
-      {/* panah harga naik di atas atap */}
-      {panah > 0.01 && (
-        <group position={[0.9, 3.05 + naik * 0.6, 0.9]} scale={[panah * 0.8, panah * 0.8, panah * 0.8]}>
-          <Cy p={[0, 0, 0]} rad={0.13} h={0.7} c={warna.accent} rot={[0, 0, 0]} />
-          <mesh position={[0, 0.55, 0]} castShadow><coneGeometry args={[0.34, 0.5, 28]} /><meshStandardMaterial color={warna.accent} roughness={0.5} /><Edges color={INK} threshold={30} lineWidth={1.2} /></mesh>
-        </group>
-      )}
 
       {/* pagar dan tanaman di sisi tikungan */}
       {pagar > 0.01 && Array.from({length: 10}, (_, i) => {
