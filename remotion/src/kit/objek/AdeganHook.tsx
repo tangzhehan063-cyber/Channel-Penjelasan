@@ -42,14 +42,15 @@ const sActive = (m: (typeof MOBIL)[number], t: number) => (t - (m.T - (L1 + ARC 
 
 const HALF = (40 * Math.PI) / 180, JAUH = 9;
 /** seberapa terang titik (px,pz) oleh lampu mobil di pose p */
+const HALF_F = (62 * Math.PI) / 180; // sinar ke fasad lebih lebar: lampu yang lewat tetap menyilaukan jendela
 function sinar(p: Pose, px: number, pz: number) {
   const vx = px - p.x, vz = pz - p.z, d = Math.hypot(vx, vz);
   if (d < 0.01 || d > JAUH) return 0;
   const c = (vx * p.hx + vz * p.hz) / d;
   if (c <= 0) return 0;
   const ang = Math.acos(Math.min(1, c));
-  if (ang > HALF) return 0;
-  return Math.pow(1 - ang / HALF, 0.4) * Math.pow(1 - d / JAUH, 0.5);
+  if (ang > HALF_F) return 0;
+  return Math.pow(1 - ang / HALF_F, 0.5) * Math.pow(1 - d / JAUH, 0.5);
 }
 
 const NS = 9, LS = (2 * SISI) / NS;
@@ -78,7 +79,7 @@ const Sorot: React.FC<{pose: Pose; panjang: number; o: number}> = ({pose: p, pan
   return (
     <group position={[p.x + p.hx * 0.75, 0.42, p.z + p.hz * 0.75]} rotation={[0, Math.atan2(p.hx, p.hz), 0]}>
       {[1, 0.66, 0.33].map((k, i) => (
-        <mesh key={i} geometry={geo} rotation={[Math.PI / 2, 0, 0]} position={[0, i * 0.002, 0]} scale={[panjang * k, panjang * k, panjang * k]}><meshBasicMaterial color="#ffe9a8" transparent opacity={o * 0.5} side={THREE.DoubleSide} depthWrite={false} /></mesh>
+        <mesh key={i} geometry={geo} rotation={[Math.PI / 2, 0, 0]} position={[0, i * 0.002, 0]} scale={[panjang * k, panjang * k, panjang * k]}><meshBasicMaterial color="#ffeeaa" transparent opacity={o * 0.5} side={THREE.DoubleSide} depthWrite={false} /></mesh>
       ))}
     </group>
   );
@@ -177,7 +178,7 @@ export const AdeganHook: React.FC<AdeganP> = ({t, w, warna}) => {
       {aktif.map(({m, p}, i) => (
         <group key={i}>
           <group position={[p.x, 0, p.z]} rotation={[0, Math.atan2(p.hx, p.hz), 0]} scale={[0.85, 0.85, 0.85]}><Mobil warna={m.warna} /></group>
-          <Sorot pose={p} panjang={7 * (0.35 + 0.65 * att)} o={0.34 * (0.35 + 0.65 * att)} />
+          <Sorot pose={p} panjang={7 * (0.35 + 0.65 * att)} o={0.5 * (0.35 + 0.65 * att)} />
         </group>
       ))}
     </group>
