@@ -29,3 +29,13 @@ Dua fungsi palet menurut sutradara: latar (`bg`) dan warna material objek (`acce
 | `mint` (rekomendasi) | #dcebe4 | #3f7fb8 | #d6462f | #2f8a57 | air + kebersihan; biru air jelas di hijau pucat; terakhir dipakai #19 (jeda 3 video) |
 | `langit` | #dbeaf6 | #2f6aa8 | #d6462f | #2f7a4f | air biru kurang kontras di latar biru |
 | `krem` | #f3f2ef | #5d8fd6 | #e2563f | #4d9a6a | paling netral, aman, tapi hambar |
+
+## NASKAH FINAL (19 Nov, ACC user, lewat humanizer; hook A, palet mint, "sesekali" menggantikan "seminggu sekali")
+1. Kenapa pipa di bawah wastafel dibengkokkan kayak huruf U?
+2. Padahal pipa lurus lebih murah dan lebih cepat dipasang. Coba bongkar: di lengkungannya selalu ada air yang tertinggal.
+3. Tiap kamu cuci tangan, air baru masuk dan mendorong air lama keluar. Lengkungannya tetap terisi, jadi di titik itu pipa nggak pernah benar-benar kosong.
+4. Air yang tertahan itu jadi sumbat. Bau got dari saluran pembuangan naik, mentok di air, dan nggak bisa lewat ke kamarmu.
+5. Makanya kamar mandi yang jarang dipakai, misalnya kamar mandi tamu, bisa bau. Airnya menguap pelan-pelan, sumbatnya habis, lalu bau got naik.
+6. Benerinya gampang. Nyalakan kran atau siram lantainya beberapa detik, dan lengkungannya terisi lagi. Cukup lakukan sesekali.
+7. Follow buat fakta rumah berikutnya!
+(±125 kata; penyederhanaan: tidak ada angka, lama menguap tidak disebut)
