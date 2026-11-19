@@ -9,7 +9,7 @@ export const Cover24: React.FC = () => (
   <AbsoluteFill>
     <PaperPalet palet="malam" />
     <Canvas3D k={{t: 0, pos: [8.2, 4.6, 8.4], look: [1.6, 1.4, 1.6]}}>
-      <AdeganHook t={1.0} mode="hook" warna={{accent: PL.accent, cool: PL.cool, good: PL.good}} />
+      <AdeganHook t={8.0} mode="hook" warna={{accent: PL.accent, cool: PL.cool, good: PL.good}} />
     </Canvas3D>
     <div style={{position: 'absolute', left: 50, right: 50, top: 290, padding: '30px 30px 26px', borderRadius: 36, background: 'rgba(250,249,246,0.94)', border: `6px solid ${INK}`, fontFamily: 'Inter', color: INK}}>
       <div style={{fontSize: 60, fontWeight: 700, letterSpacing: -1, marginBottom: 18}}>Rumah hook katanya</div>
