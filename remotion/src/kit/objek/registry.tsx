@@ -2,9 +2,11 @@
 import {AdeganStopkontak, type AdeganP} from './AdeganStopkontak';
 import {AdeganPelat} from './AdeganPelat';
 import {AdeganKpr} from './AdeganKpr';
+import {AdeganSifon} from './AdeganSifon';
 
 export const OBJEK: Record<string, React.FC<AdeganP>> = {
   stopkontak: AdeganStopkontak,
   pelat: AdeganPelat as React.FC<AdeganP>,
   kpr: AdeganKpr,
+  sifon: AdeganSifon,
 };
