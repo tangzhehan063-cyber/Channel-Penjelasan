@@ -38,7 +38,7 @@ const MOBIL: {rev: boolean; T: number; v: number; warna: string}[] = [
 ];
 const sActive = (m: (typeof MOBIL)[number], t: number) => (t - (m.T - (L1 + ARC / 2) / m.v)) * m.v;
 
-const HALF = (34 * Math.PI) / 180, JAUH = 8;
+const HALF = (40 * Math.PI) / 180, JAUH = 9;
 /** seberapa terang titik (px,pz) oleh lampu mobil di pose p */
 function sinar(p: Pose, px: number, pz: number) {
   const vx = px - p.x, vz = pz - p.z, d = Math.hypot(vx, vz);
@@ -47,7 +47,7 @@ function sinar(p: Pose, px: number, pz: number) {
   if (c <= 0) return 0;
   const ang = Math.acos(Math.min(1, c));
   if (ang > HALF) return 0;
-  return Math.pow(1 - ang / HALF, 0.7) * (1 - d / JAUH);
+  return Math.pow(1 - ang / HALF, 0.4) * Math.pow(1 - d / JAUH, 0.5);
 }
 
 const NS = 9, LS = (2 * SISI) / NS;
@@ -75,7 +75,9 @@ const Sorot: React.FC<{pose: Pose; panjang: number; o: number}> = ({pose: p, pan
   const geo = useMemo(() => { const w = Math.tan(HALF); const s = new THREE.Shape(); s.moveTo(0, 0); s.lineTo(-w, 1); s.lineTo(w, 1); s.closePath(); return new THREE.ShapeGeometry(s); }, []);
   return (
     <group position={[p.x + p.hx * 0.75, 0.42, p.z + p.hz * 0.75]} rotation={[0, Math.atan2(p.hx, p.hz), 0]}>
-      <mesh geometry={geo} rotation={[Math.PI / 2, 0, 0]} scale={[panjang, panjang, panjang]}><meshBasicMaterial color="#ffe9a8" transparent opacity={o} side={THREE.DoubleSide} depthWrite={false} /></mesh>
+      {[1, 0.66, 0.33].map((k, i) => (
+        <mesh key={i} geometry={geo} rotation={[Math.PI / 2, 0, 0]} position={[0, i * 0.002, 0]} scale={[panjang * k, panjang * k, panjang * k]}><meshBasicMaterial color="#ffe9a8" transparent opacity={o * 0.5} side={THREE.DoubleSide} depthWrite={false} /></mesh>
+      ))}
     </group>
   );
 };
@@ -130,9 +132,9 @@ export const AdeganHook: React.FC<AdeganP> = ({t, w, warna}) => {
       {/* sinar di fasad dan silau di jendela */}
       {depan.map((v, i) => v > 0.02 && <Baji2 key={`d${i}`} p={[-SISI + (i + 0.5) * LS, 0.9, SISI + 0.012]} s={[LS * 0.98, 1.7, 0.01]} c="#fff3c4" o={0.65 * v} />)}
       {kanan.map((v, i) => v > 0.02 && <Baji2 key={`k${i}`} p={[SISI + 0.012, 0.9, SISI - (i + 0.5) * LS]} s={[0.01, 1.7, LS * 0.98]} c="#fff3c4" o={0.65 * v} />)}
-      {depan[idxD] > 0.02 && <Baji2 p={[0.55, 1.1, SISI + 0.075]} s={[0.7, 0.55, 0.01]} c={KACA_SILAU} o={Math.min(0.95, depan[idxD] * 1.6)} />}
-      {kanan[idxK1] > 0.02 && <Baji2 p={[SISI + 0.075, 1.1, 0.55]} s={[0.01, 0.55, 0.7]} c={KACA_SILAU} o={Math.min(0.95, kanan[idxK1] * 1.6)} />}
-      {kanan[idxK2] > 0.02 && <Baji2 p={[SISI + 0.075, 1.1, -0.7]} s={[0.01, 0.55, 0.7]} c={KACA_SILAU} o={Math.min(0.95, kanan[idxK2] * 1.6)} />}
+      {depan[idxD] > 0.02 && <Baji2 p={[0.55, 1.1, SISI + 0.075]} s={[0.7, 0.55, 0.01]} c={KACA_SILAU} o={Math.min(0.97, depan[idxD] * 2.2)} />}
+      {kanan[idxK1] > 0.02 && <Baji2 p={[SISI + 0.075, 1.1, 0.55]} s={[0.01, 0.55, 0.7]} c={KACA_SILAU} o={Math.min(0.97, kanan[idxK1] * 2.2)} />}
+      {kanan[idxK2] > 0.02 && <Baji2 p={[SISI + 0.075, 1.1, -0.7]} s={[0.01, 0.55, 0.7]} c={KACA_SILAU} o={Math.min(0.97, kanan[idxK2] * 2.2)} />}
 
       {/* dua sisi: garis koral di kaki dinding yang menghadap jalan */}
       {garis(garisK) > 0.01 && <Bx p={[SISI + 0.42, 0.06, 0.0]} s={[0.1, 0.12, 2.6 * garis(garisK)]} c={warna.accent} edge={false} rot={[0, 0, 0]} />}
