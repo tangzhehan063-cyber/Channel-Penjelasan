@@ -25,6 +25,9 @@ const KURVA = new THREE.CatmullRomCurve3(POLY, false, 'centripetal');
 const at = (u: number) => KURVA.getPointAt(Math.max(0, Math.min(1, u)));
 /** u (0..1) pertama di mana jalur melewati y = YAIR pada kaki kiri (turun) dan kaki kanan (naik) */
 const U_KIRI = (() => { for (let u = 0; u <= 1; u += 0.001) if (at(u).y <= YAIR) return u; return 0.3; })();
+const Y_SAMB = 0.7; // tinggi sambungan di kedua kaki (mur slip)
+const U_A = (() => { for (let u = 0; u <= 1; u += 0.001) if (at(u).y <= Y_SAMB) return u; return 0.35; })();
+const U_B = (() => { let mid = false; for (let u = 0; u <= 1; u += 0.001) { const p = at(u); if (p.x > 0 && p.y > YB) mid = true; if (mid && p.y >= Y_SAMB) return u; } return 0.62; })();
 const U_KANAN = (() => { let mid = false; for (let u = 0; u <= 1; u += 0.001) { const p = at(u); if (p.x > 0 && p.y > YB) mid = true; if (mid && p.y >= YAIR) return u; } return 0.6; })();
 
 const Air: React.FC<{u0: number; u1: number; c: string}> = ({u0, u1, c}) => {
@@ -37,8 +40,15 @@ const Air: React.FC<{u0: number; u1: number; c: string}> = ({u0, u1, c}) => {
   return geo ? <mesh geometry={geo}><meshStandardMaterial color={c} roughness={0.25} /></mesh> : null;
 };
 
+const Bagian: React.FC<{u0: number; u1: number; opacity?: number}> = ({u0, u1}) => {
+  const geo = useMemo(() => { const pts: THREE.Vector3[] = []; for (let k = 0; k <= 60; k++) pts.push(at(u0 + ((u1 - u0) * k) / 60)); return new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 120, RPIPA, 18, false); }, [u0, u1]);
+  return <mesh geometry={geo}><meshStandardMaterial color="#e8eef2" transparent opacity={0.3} depthWrite={false} roughness={0.2} /></mesh>;
+};
+/** pembongkaran: lengkungan U (bagian B) turun dilepas dari pipa tegak (A) dan pipa ke dinding (C); mur slip dan karet penyekat terlihat. gap 0 = terpasang, 1 = terbongkar. */
+export const GAP_B = 0.95;
+
 /** t = detik absolut; w = jendela waktu (detik): buka (keran buka, aliran mulai), mengalir (kepala air tiba di ujung), tutup (keran tutup, air surut), gas (bau datang) */
-export const Sifon: React.FC<{t: number; w: {buka: number; ujung: number; tutup: number; surut: number; gas: number; gasSelesai: number}; warna: Warna}> = ({t, w, warna}) => {
+export const Sifon: React.FC<{t: number; gap?: number; w: {buka: number; ujung: number; tutup: number; surut: number; gas: number; gasSelesai: number}; warna: Warna}> = ({t, w, warna, gap = 0}) => {
   const head = r(t, w.buka + 0.3, w.ujung, Easing.inOut(Easing.cubic));            // kepala air berjalan 0 -> 1
   const turun = r(t, w.tutup, w.surut, Easing.inOut(Easing.cubic));               // pangkal air surut ke muka air kiri, ujung air surut ke muka air kanan
   const u0 = turun * U_KIRI, u1 = 1 - turun * (1 - U_KANAN);
@@ -65,7 +75,17 @@ export const Sifon: React.FC<{t: number; w: {buka: number; ujung: number; tutup:
       {/* dinding kanan */}
       <Bx p={[XWALL + 0.45, 1.5, 0]} s={[0.5, 3.2, 1.4]} c={KAPUR} />
       {/* pipa kaca bening + mur sambungan */}
-      <mesh><tubeGeometry args={[KURVA, 220, RPIPA, 18, false]} /><meshStandardMaterial color="#e8eef2" transparent opacity={0.3} depthWrite={false} roughness={0.2} /></mesh>
+      <Bagian u0={0} u1={U_A} />
+      <group position={[0, -GAP_B * gap, 0]}><Bagian u0={U_A} u1={U_B} /></group>
+      <Bagian u0={U_B} u1={1} />
+      {/* karet penyekat (cincin gelap) dan mur slip di dua sambungan */}
+      {[0, 1].map((i) => { const pt = at(i === 0 ? U_A : U_B); const dy = -GAP_B * gap;
+        return (
+          <group key={i}>
+            <Cy p={[pt.x, pt.y + dy * 0.2 + 0.0, 0]} rad={RPIPA + 0.03} h={0.05} c="#2c2c30" rot={[0, 0, 0]} />
+            <Cy p={[pt.x, pt.y + dy * 0.55 + 0.02, 0]} rad={RPIPA + 0.1} h={0.2} c={KAPUR} rot={[0, 0, 0]} />
+          </group>
+        ); })}
       <Cy p={[XL, 2.06, 0]} rad={RPIPA + 0.06} h={0.14} c={KAPUR} rot={[0, 0, 0]} />
       <Cy p={[XWALL - 0.05, YOUT, 0]} rad={RPIPA + 0.06} h={0.14} c={KAPUR} rot={[0, 0, Math.PI / 2]} />
       <Cy p={[XR + 0.62, YOUT, 0]} rad={RPIPA + 0.05} h={0.12} c={KAPUR} rot={[0, 0, Math.PI / 2]} />
