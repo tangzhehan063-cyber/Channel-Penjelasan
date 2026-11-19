@@ -10,7 +10,8 @@ const PL = PALET.mint;
 const W = {buka: 6.5, ujung: 9.0, tutup: 10.2, surut: 11.6, gas: 12.0, gasSelesai: 14.2};
 const CAM: Key[] = [
   {t: 0, pos: [-1.2, 3.4, 11.4], look: [0.55, 2.0, 0]}, {t: 2.0, pos: [-2.4, 2.4, 12.8], look: [0.6, 1.6, 0]}, {t: 4.0, pos: [-0.2, 0.9, 9.6], look: [0.1, 0.4, 0]},
-  {t: 6.2, pos: [0.6, 2.9, 10.6], look: [0.6, 1.9, 0]}, {t: 10.5, pos: [1.4, 2.7, 10.2], look: [0.6, 1.8, 0]}, {t: 15, pos: [2.4, 2.5, 9.8], look: [0.6, 1.7, 0]}];
+  {t: 6.2, pos: [-2.8, 2.9, 10.6], look: [0.6, 1.9, 0]}, {t: 9.0, pos: [0.8, 2.2, 9.4], look: [0.3, 1.3, 0]},
+  {t: 11.0, pos: [0.3, 1.1, 6.8], look: [0.0, 0.7, 0]}, {t: 12.8, pos: [3.2, 1.7, 8.4], look: [0.3, 0.9, 0]}, {t: 15, pos: [4.4, 2.6, 10.6], look: [0.6, 1.7, 0]}];
 const ease = Easing.inOut(Easing.cubic);
 
 export const PilotSifon: React.FC = () => {
