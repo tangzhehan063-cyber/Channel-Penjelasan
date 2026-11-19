@@ -8,7 +8,7 @@ import {Easing} from 'remotion';
 
 export const KAPUR = '#f1f1ec', BAJA = '#59616d';
 type Warna = {accent: string; cool: string; good: string};
-const RPIPA = 0.2, RAIR = 0.155, YAIR = 0.95, YOUT = 1.15, XL = -0.6, XR = 0.6, YB = 0.4, XWALL = 2.0;
+const RPIPA = 0.2, RAIR = 0.155, YAIR = 0.7, YOUT = 1.15, XL = -0.6, XR = 0.6, YB = 0.4, XWALL = 2.0;
 
 /** titik jalur pipa (rapat) */
 function jalurTitik(): THREE.Vector3[] {
@@ -48,13 +48,26 @@ const Bagian: React.FC<{u0: number; u1: number; opacity?: number}> = ({u0, u1}) 
 export const GAP_B = 0.95;
 
 /** t = detik absolut; w = jendela waktu (detik): buka (keran buka, aliran mulai), mengalir (kepala air tiba di ujung), tutup (keran tutup, air surut), gas (bau datang) */
-export const Sifon: React.FC<{t: number; gap?: number; w: {buka: number; ujung: number; tutup: number; surut: number; gas: number; gasSelesai: number}; warna: Warna}> = ({t, w, warna, gap = 0}) => {
+export const Sifon: React.FC<{t: number; gap?: number; w: {buka: number; ujung: number; tutup: number; surut: number; gas: number; gasSelesai: number; awal?: boolean; kering?: [number, number]; gas2?: [number, number]; isi?: [number, number, number, number]}; warna: Warna}> = ({t, w, warna, gap = 0}) => {
   const head = r(t, w.buka + 0.3, w.ujung, Easing.inOut(Easing.cubic));            // kepala air berjalan 0 -> 1
   const turun = r(t, w.tutup, w.surut, Easing.inOut(Easing.cubic));               // pangkal air surut ke muka air kiri, ujung air surut ke muka air kanan
   const u0 = turun * U_KIRI, u1 = 1 - turun * (1 - U_KANAN);
   const kepala = t < w.tutup ? head : 1;                                          // sebelum tutup: air memenuhi sampai kepala
   const ujung = Math.min(kepala, u1);
-  const keranBuka = t >= w.buka && t < w.tutup;
+  const keranBuka = (t >= w.buka && t < w.tutup) || (!!w.isi && t >= w.isi[0] && t < w.isi[3]);
+  // potongan air (u awal, u akhir) menurut fase. awal = lengkungan berisi air diam sebelum keran dibuka; kering = air menguap; isi = diisi lagi
+  let segs: [number, number][] = []; let rest = false;
+  const UM = (() => { let b = 0, y = 9; for (let u = 0; u <= 1; u += 0.002) { const q = at(u).y; if (q < y) { y = q; b = u; } } return b; })();
+  if (w.isi && t >= w.isi[0]) {
+    if (t >= w.isi[3]) { segs = [[U_KIRI, U_KANAN]]; rest = true; }
+    else { const f = r(t, w.isi[0], w.isi[1], Easing.inOut(Easing.cubic)), top = U_KIRI * r(t, w.isi[2], w.isi[3], Easing.inOut(Easing.cubic)); segs = [[top, U_KANAN * f]]; }
+  } else if (w.kering && t >= w.kering[0]) {
+    const q = r(t, w.kering[0], w.kering[1], Easing.inOut(Easing.cubic));
+    segs = [[U_KIRI + q * (UM - U_KIRI), U_KANAN - q * (U_KANAN - UM)]]; rest = q < 0.5;
+  } else if (w.awal && t < w.buka) { segs = [[U_KIRI, U_KANAN]]; rest = true; }
+  else if (w.awal && t < w.tutup) { const rise = r(t, w.buka, w.buka + 0.6, Easing.out(Easing.cubic)); segs = [[0, U_KIRI * rise], [U_KIRI, Math.max(U_KANAN, ujung)]]; }
+  else { segs = [[u0, Math.max(u0, ujung)]]; rest = t >= w.surut && !(w.kering && t >= w.kering[0]); }
+  const dyAir = rest ? -GAP_B * gap : 0;                                            // air dalam lengkungan ikut turun saat dibongkar
   // bau got: bola koral masuk dari dinding, sampai muka air kanan, tertahan lalu memudar
   const gas = r(t, w.gas, w.gasSelesai, Easing.out(Easing.cubic));
   const gasPuff = Array.from({length: 5}, (_, i) => {
@@ -64,6 +77,8 @@ export const Sifon: React.FC<{t: number; gap?: number; w: {buka: number; ujung: 
     const op = (k > 0 ? 1 : 0) * (1 - r(t, w.gasSelesai - 0.6, w.gasSelesai + 0.4));
     return {x, y: y + Math.sin(i * 2.1 + t * 3) * 0.03, s: 0.09 + 0.02 * (i % 3), op, ok: k > 0};
   });
+  const g2 = w.gas2 ? r(t, w.gas2[0], w.gas2[1], Easing.inOut(Easing.cubic)) : 0;
+  const gasLolos = Array.from({length: 5}, (_, i) => { const k = Math.min(1, Math.max(0, g2 * 1.3 - i * 0.1)); const p = at(1 - k * 0.98); return {x: p.x, y: p.y, s: 0.1 + 0.02 * (i % 3), op: (k > 0 ? 1 : 0) * (1 - r(t, (w.gas2?.[1] ?? 0) - 0.5, (w.gas2?.[1] ?? 0) + 0.3)), ok: k > 0.001}; });
   return (
     <group position={[0, 0, 0]}>
       {/* wastafel: mangkuk keramik + keran */}
@@ -90,7 +105,7 @@ export const Sifon: React.FC<{t: number; gap?: number; w: {buka: number; ujung: 
       <Cy p={[XWALL - 0.05, YOUT, 0]} rad={RPIPA + 0.06} h={0.14} c={KAPUR} rot={[0, 0, Math.PI / 2]} />
       <Cy p={[XR + 0.62, YOUT, 0]} rad={RPIPA + 0.05} h={0.12} c={KAPUR} rot={[0, 0, Math.PI / 2]} />
       {/* air */}
-      <Air u0={u0} u1={Math.max(u0, ujung)} c={warna.cool} />
+      <group position={[0, dyAir, 0]}>{segs.map((sg, i) => <Air key={i} u0={sg[0]} u1={sg[1]} c={warna.cool} />)}</group>
       {/* gelembung kecil ikut mengalir (hanya saat air benar-benar mengalir) */}
       {t >= w.buka + 0.5 && t < w.surut && Array.from({length: 14}, (_, i) => {
         const fr = (((t - w.buka) * 0.42 + i / 14) % 1), uu = u0 + (Math.max(u0 + 0.01, ujung) - u0) * fr;
@@ -99,7 +114,8 @@ export const Sifon: React.FC<{t: number; gap?: number; w: {buka: number; ujung: 
         return alir > 0.02 ? <group key={i} position={[p.x + off, p.y, off]} scale={alir}><Sp p={[0, 0, 0]} rad={0.045 + 0.015 * (i % 3)} c="#eaf4fb" /></group> : null;
       })}
       {/* muka air diam bergetar halus (penutup bau) */}
-      {t >= w.surut && <mesh position={[XL, YAIR + 0.002, 0]} rotation={[Math.PI / 2, 0, 0]} scale={[1 + 0.03 * Math.sin(t * 5), 1 + 0.03 * Math.cos(t * 5), 1]}><circleGeometry args={[RAIR * 1.02, 24]} /><meshStandardMaterial color="#cfe6f5" roughness={0.2} /></mesh>}
+      {rest && <mesh position={[XL, YAIR + 0.002 + dyAir, 0]} rotation={[Math.PI / 2, 0, 0]} scale={[1 + 0.03 * Math.sin(t * 5), 1 + 0.03 * Math.cos(t * 5), 1]}><circleGeometry args={[RAIR * 1.02, 24]} /><meshStandardMaterial color="#cfe6f5" roughness={0.2} /></mesh>}
+      {gasLolos.map((g, i) => g.ok && g.op > 0.02 ? <group key={`l${i}`} position={[g.x, g.y, 0]} scale={g.op}><Sp p={[0, 0, 0]} rad={g.s} c={warna.accent} /></group> : null)}
       {/* bau got */}
       {gasPuff.map((g, i) => g.ok && g.op > 0.02 ? <group key={i} position={[g.x, g.y, 0]} scale={g.op}><Sp p={[0, 0, 0]} rad={g.s} c={warna.accent} /></group> : null)}
     </group>
