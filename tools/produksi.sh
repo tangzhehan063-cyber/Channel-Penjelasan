@@ -31,6 +31,8 @@ for w in ws:
 if cur: print(f"{cur[0]['start']:6.2f}  {' '.join(x['word'] for x in cur)}")
 EOF
   ;;
+gerak)
+  "$ROOT/tools/cek-gerak.sh" "${3:?file.mp4}" ;;
 sheet)
   gerbang 3
   node "$(dirname "$0")/cek-sutradara.mjs" "$NN" || echo "!! cek-sutradara: ada GAGAL, perbaiki dulu"
@@ -57,7 +59,8 @@ bagian)
   ffmpeg -y -v error -i "$P/video.mp4" -i "$P/audio.aac" -map 0:v -map 1:a -c:v copy -af loudnorm=I=-14:TP=-1.5:LRA=11 -ar 48000 -c:a aac -b:a 192k -shortest "$ROOT/video/$slug.mp4"
   "$ROOT/tools/produksi.sh" srt "$NN" "$slug"
   ffprobe -v error -show_entries format=duration -of csv=p=0 "$ROOT/video/$slug.mp4"
-  ffmpeg -y -v error -i "$ROOT/video/$slug.mp4" -vf "fps=1/6.5,scale=270:-1,tile=6x2" -frames:v 1 "$SC/qc-v$NN.jpg"; echo "QC sheet: $SC/qc-v$NN.jpg" ;;
+  ffmpeg -y -v error -i "$ROOT/video/$slug.mp4" -vf "fps=1/6.5,scale=270:-1,tile=6x2" -frames:v 1 "$SC/qc-v$NN.jpg"; echo "QC sheet: $SC/qc-v$NN.jpg"
+  "$ROOT/tools/cek-gerak.sh" "$ROOT/video/$slug.mp4" || true ;;
 srt)
   slug="$3"
   python3 - "$R/public/v$NN/words.json" "$ROOT/video/$slug.srt" <<'EOF'
