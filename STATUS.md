@@ -1,5 +1,8 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
+## Video #26 dimulai (20 Nov 2026): breakdown dua benda (topik belum dipilih)
+- Cabang `claude/video-26-breakdown-dua-benda` (dari cabang #25 karena kit belum di-merge). `checklist/v26.md` dibuat (T1: nomor dicek). Ide dan rekomendasi (kran ulir vs kran keramik) di `riset/2026-11-20-ide-video-26.md`; rencana sudut kamera isometrik berganti di `style/rencana-sudut-kamera-iso.md`. Menunggu user memilih topik, lalu riset Tahap 1, naskah, palet (keputusan user), suara.
+
 ## Video #25 selesai dirender (20 Nov 2026): "Dinding Retak, Rumah Mau Roboh?" (mitos, percobaan gaya breakdown isometrik terang)
 - 54,4 dtk, −14,3 LUFS, `remotion/src/v25/` (beats.json + Video25 + Cover25), objek baru `kit/objek/AdeganDinding.tsx` (breakdown isometrik, terdaftar sebagai `dinding`), palet **`krem`** (user: siang krem/beige, malam sedikit kebiruan), VO **Gemini TTS Achernar** (1 generasi, 54,1 dtk, `audio/video-25-words.json`). Drive #25 `15zpiHrFIw1P_Q5fD4fen1N91_Sr43iBI` (cover, info); MP4 + SRT + cover + versi ringan dikirim ke user. Cabang `claude/video-25-breakdown-isometrik`, BELUM di-merge ke `main`: user menilai hasil "mantap" tetapi menunda merge (20 Nov: "belum terlalu yakin"); jangan buat PR sebelum user memutuskan.
 - **Alur:** topik user (dinding retak), naskah 126 kata ACC, tiga klaim [⚠ CEK] diterima (sumber blog/jurnal tanpa SNI, "seminggu" satu sumber, "nggak tembus ke bata" penyederhanaan). Revisi user: R1 warna material nyata, R2 tembok biru lawan krem, R3 lapisan dinding lebih tipis, R4 callout bergaris (retak, cat, aci · semen halus, plester · semen + pasir, bata). 5 still ACC 20 Nov.
