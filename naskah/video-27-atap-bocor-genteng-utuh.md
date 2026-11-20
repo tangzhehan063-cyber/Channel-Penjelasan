@@ -1,7 +1,7 @@
 # STORYBOARD · VIDEO #27 · TAHAP 2 · DRAFT (20 Nov 2026)
 ## Atap Bocor Padahal Genteng Utuh? 4 Biang Keroknya
 **Format:** mitos/ketakutan + daftar bernomor (4 penyebab), mode HYBRID, **video lebih panjang ±80–85 dtk** (user 20 Nov: "iya" atas usul 80–90 dtk). 1080×1920.
-**Gaya:** breakdown isometrik terang + sudut kamera berganti (dari #25/#26). Palet: menunggu keputusan user (rekomendasi `langit`).
+**Gaya:** breakdown isometrik terang + sudut kamera berganti (dari #25/#26). Palet: **`langit`** (keputusan user 20 Nov).
 Jangkar layar: kicker `FAKTA RUMAH · #27` + kotak hook "Netes padahal utuh?". Penghitung `1/4 … 4/4` di layar tiap penyebab.
 Riset: `riset/2026-11-20-atap-bocor-genteng-utuh.md`. Kerangka retensi: `riset/2026-11-20-retensi-video-panjang.md`.
 
@@ -59,3 +59,7 @@ Hook visual (detik 0): tetesan jatuh dari plafon ke ember, kamera naik menembus 
 **Payoff kedua satu kalimat:** "Titik netes di plafon belum tentu titik air masuknya."
 **Pemicu share:** "Bagian atap rumahmu yang mana yang paling kamu curigai?" (komentar) + "yang lagi atap bocor, kirim ke tukangmu".
 **Ide lanjutan:** (1) plafon bocor di kamar mandi: 3 titik, (2) kenapa atap bocor hanya saat hujan angin, (3) genteng metal vs keramik: bocor di mana.
+
+## Timing VO (dari `audio/video-27-words.json`, 20 Nov; VO 82,5 dtk, kata terakhir 82,0)
+Awal kalimat/frasa: hook 0,2 ("Plafonmu netes padahal gentengnya utuh?" sampai 3,2; 3,0 dtk) · janji 3,5 ("Ada empat biang keroknya" sampai 8,0) · 1/4 sambungan 8,5 (flashing 16,4; "kalau pasangnya nggak rapat" 21,1) · 2/4 kemiringan 25,0 ("sekitar tiga puluh derajat" 30,1; "kalau terlalu landai" 31,7) · 3/4 talang 36,4 ("air hujan nggak bisa turun" 39,5) · 4/4 genteng bergeser 43,2 ("bubungan" 46,2; "gentengnya nggak pecah" 47,5; "kena angin kencang" 50,5) · salah tebak 52,0 ("titik netes" 54,8; "jadi yang diperbaiki malah" 59,1 sampai 63,8) · aksi 64,4 ("cek empat tempat" 66,2; "naik ke atap berbahaya" 72,0; "bagian atap rumahmu" 76,9; "follow" 80,2) · akhir 82,0.
+Catatan: janji kedua dibayar di 54,8–63,8 dtk (±67–78% durasi), sesuai kerangka retensi.
