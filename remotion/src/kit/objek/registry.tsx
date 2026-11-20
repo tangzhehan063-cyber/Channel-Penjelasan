@@ -6,6 +6,7 @@ import {AdeganSifon} from './AdeganSifon';
 import {AdeganHook} from './AdeganHook';
 import {AdeganDinding} from './AdeganDinding';
 import {AdeganKran} from './AdeganKran';
+import {AdeganAtap} from './AdeganAtap';
 
 export const OBJEK: Record<string, React.FC<AdeganP>> = {
   stopkontak: AdeganStopkontak,
@@ -15,4 +16,5 @@ export const OBJEK: Record<string, React.FC<AdeganP>> = {
   hook: AdeganHook,
   dinding: AdeganDinding,
   kran: AdeganKran,
+  atap: AdeganAtap,
 };

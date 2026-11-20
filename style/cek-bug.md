@@ -84,3 +84,11 @@ Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) s
 - Kran di hook terlalu kecil: kurangi jarak kamera 0,6 pada dua adegan pertama.
 - Panel 2D pola pemutus (jalur zigzag vs lurus) terlalu tinggi dan kosong di bawah: tinggi 470, di antara kartu judul dan subtitle (top ≥ 780).
 - Cahaya harus ikut berputar bersama kamera (`LightsIso az`), kalau tidak pembagian tiga nada berubah saat sudut berganti.
+
+## Bug #27 (20 Nov 2026, atap bocor padahal genteng utuh, format panjang)
+- Orbit kamera isometrik dengan `az` > 90° (kamera di belakang dinding) menyembunyikan atap di balik dinding: pada potongan dengan dinding di sisi +x, batasi `az` ke −80…60; putar lewat sisi talang (`az` negatif) untuk melihat potongan.
+- Callout 3D "titik netes" menumpuk dengan label panel 2D pada detik yang sama: beri jendela waktu callout setelah panel menghilang.
+- Adegan hanya berganti `el` dan `look` kecil dinilai "diam total": beri dorong ≥ 2% (jarak 8,6 → 7,8).
+- Beat cepat (≤ 2,5 dtk) untuk kerangka retensi didapat dengan memecah hook jadi dua potongan (ember dekat 0–1,7 dtk, naik ke atap 1,7–3,5 dtk).
+- Model atap penuh (dua bidang + bubungan) terlalu rumit untuk potongan samping; dipakai atap miring menempel dinding (lean-to) supaya sambungan atap-dinding, kemiringan, talang, genteng bergeser, dan bubungan tetap terlihat di satu objek.
+- Partikel air digambar di bidang potong (z depan); terlihat melayang bila kamera berputar jauh: dipakai hanya sebagai diagram.
