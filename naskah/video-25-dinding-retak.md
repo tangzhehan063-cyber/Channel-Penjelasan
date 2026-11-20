@@ -51,3 +51,18 @@ Riset: `riset/2026-11-20-dinding-retak.md`.
 **Payoff satu kalimat:** "Jadi lihat bentuknya, dan lihat apakah dia makin lebar."
 **Pemicu share:** "Retak di rumahmu bentuknya kayak apa?" (komentar).
 **Ide lanjutan (mini-seri "Bongkar Dinding"):** (1) kenapa dinding bata perlu kolom praktis, (2) cat mengelupas di dinding lembap.
+
+## Warna material (R1–R2, 20 Nov; dipakai di T4)
+Latar `krem` (`#f3f2ef`). Material memakai warna nyata; tembok memakai warna dingin sebagai lawan krem hangat.
+| Bagian | Warna | Catatan |
+|---|---|---|
+| Bata merah | `#b5543c` (sisi gelap `#8f3f2e`) | warna bata tanah liat |
+| Spesi antar bata | `#a9a59d` | abu semen hangat |
+| Plester semen | `#b8b4ac` | abu semen |
+| Aci | `#e6e8e8` | putih kapur dingin; wajib tepi tinta (dekat warna latar) |
+| Cat tembok | `#6e9ac8` (biru, dekat `cool` palet) | lawan krem; kontras jelas dengan bata dan plester |
+| Beton pondasi/kolom | `#8d8f92` | abu beton |
+| Tanah | `#8b6b4a` (turun: `#6f5238`) | coklat tanah |
+| Kusen kayu / kaca | `#a06f45` / `#bfd9e6` | pintu dan jendela |
+| Retak | `#2a2724` arang; ujung yang merambat/disorot koral `#e2563f` | retak harus kontras di semua lapis |
+`cek-visual`: jalankan dengan `--extra #b5543c,#8b6b4a,#a06f45` (warna nyata yang sengaja).
