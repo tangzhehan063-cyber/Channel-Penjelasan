@@ -1,0 +1,634 @@
+{
+"words": [
+{
+"word": "Dinding",
+"start": 0.0,
+"end": 0.46
+},
+{
+"word": "rumahmu",
+"start": 0.46,
+"end": 0.919
+},
+{
+"word": "retak?",
+"start": 0.919,
+"end": 1.248
+},
+{
+"word": "Belum",
+"start": 1.763,
+"end": 2.037
+},
+{
+"word": "tentu",
+"start": 2.037,
+"end": 2.31
+},
+{
+"word": "rumahnya",
+"start": 2.31,
+"end": 2.748
+},
+{
+"word": "mau",
+"start": 2.748,
+"end": 2.912
+},
+{
+"word": "roboh.",
+"start": 2.912,
+"end": 3.185
+},
+{
+"word": "Lihat",
+"start": 3.822,
+"end": 4.089
+},
+{
+"word": "dulu",
+"start": 4.089,
+"end": 4.302
+},
+{
+"word": "bentuk",
+"start": 4.302,
+"end": 4.622
+},
+{
+"word": "retaknya.",
+"start": 4.622,
+"end": 5.048
+},
+{
+"word": "Retak",
+"start": 5.687,
+"end": 5.978
+},
+{
+"word": "itu",
+"start": 5.978,
+"end": 6.152
+},
+{
+"word": "ada",
+"start": 6.152,
+"end": 6.326
+},
+{
+"word": "dua",
+"start": 6.326,
+"end": 6.501
+},
+{
+"word": "macam:",
+"start": 6.501,
+"end": 6.791
+},
+{
+"word": "yang",
+"start": 7.344,
+"end": 7.584
+},
+{
+"word": "cuma",
+"start": 7.584,
+"end": 7.825
+},
+{
+"word": "di",
+"start": 7.825,
+"end": 7.946
+},
+{
+"word": "permukaan,",
+"start": 7.946,
+"end": 8.487
+},
+{
+"word": "dan",
+"start": 8.879,
+"end": 9.043
+},
+{
+"word": "yang",
+"start": 9.043,
+"end": 9.262
+},
+{
+"word": "tembus",
+"start": 9.262,
+"end": 9.59
+},
+{
+"word": "sampai",
+"start": 9.59,
+"end": 9.919
+},
+{
+"word": "struktur.",
+"start": 9.919,
+"end": 10.357
+},
+{
+"word": "Dinding",
+"start": 11.202,
+"end": 11.597
+},
+{
+"word": "itu",
+"start": 11.597,
+"end": 11.766
+},
+{
+"word": "berlapis:",
+"start": 11.766,
+"end": 12.217
+},
+{
+"word": "cat,",
+"start": 12.676,
+"end": 13.095
+},
+{
+"word": "aci,",
+"start": 13.425,
+"end": 13.885
+},
+{
+"word": "plester,",
+"start": 14.268,
+"end": 14.777
+},
+{
+"word": "lalu",
+"start": 15.087,
+"end": 15.345
+},
+{
+"word": "bata.",
+"start": 15.345,
+"end": 15.604
+},
+{
+"word": "Plester",
+"start": 16.497,
+"end": 16.858
+},
+{
+"word": "menyusut",
+"start": 16.858,
+"end": 17.271
+},
+{
+"word": "waktu",
+"start": 17.271,
+"end": 17.529
+},
+{
+"word": "mengering,",
+"start": 17.529,
+"end": 17.994
+},
+{
+"word": "jadi",
+"start": 18.29,
+"end": 18.535
+},
+{
+"word": "retak",
+"start": 18.535,
+"end": 18.842
+},
+{
+"word": "halus",
+"start": 18.842,
+"end": 19.149
+},
+{
+"word": "muncul",
+"start": 19.149,
+"end": 19.517
+},
+{
+"word": "di",
+"start": 19.517,
+"end": 19.639
+},
+{
+"word": "situ.",
+"start": 19.639,
+"end": 19.885
+},
+{
+"word": "Setipis",
+"start": 20.36,
+"end": 20.812
+},
+{
+"word": "garis",
+"start": 20.812,
+"end": 21.134
+},
+{
+"word": "pensil,",
+"start": 21.134,
+"end": 21.522
+},
+{
+"word": "nggak",
+"start": 21.845,
+"end": 22.081
+},
+{
+"word": "tembus",
+"start": 22.081,
+"end": 22.364
+},
+{
+"word": "ke",
+"start": 22.364,
+"end": 22.458
+},
+{
+"word": "bata,",
+"start": 22.458,
+"end": 22.646
+},
+{
+"word": "dan",
+"start": 22.995,
+"end": 23.166
+},
+{
+"word": "biasanya",
+"start": 23.166,
+"end": 23.621
+},
+{
+"word": "cukup",
+"start": 23.621,
+"end": 23.906
+},
+{
+"word": "ditambal.",
+"start": 23.906,
+"end": 24.361
+},
+{
+"word": "Tapi",
+"start": 25.19,
+"end": 25.424
+},
+{
+"word": "kalau",
+"start": 25.424,
+"end": 25.717
+},
+{
+"word": "tanah",
+"start": 25.717,
+"end": 26.01
+},
+{
+"word": "di",
+"start": 26.01,
+"end": 26.127
+},
+{
+"word": "bawah",
+"start": 26.127,
+"end": 26.42
+},
+{
+"word": "pondasi",
+"start": 26.42,
+"end": 26.83
+},
+{
+"word": "turun,",
+"start": 26.83,
+"end": 27.123
+},
+{
+"word": "dinding",
+"start": 27.433,
+"end": 27.818
+},
+{
+"word": "ikut",
+"start": 27.818,
+"end": 28.039
+},
+{
+"word": "tertarik",
+"start": 28.039,
+"end": 28.892
+},
+{
+"word": "dan",
+"start": 28.892,
+"end": 29.057
+},
+{
+"word": "retaknya",
+"start": 29.057,
+"end": 29.498
+},
+{
+"word": "tembus",
+"start": 29.498,
+"end": 29.828
+},
+{
+"word": "semua",
+"start": 29.828,
+"end": 30.103
+},
+{
+"word": "lapis.",
+"start": 30.103,
+"end": 30.378
+},
+{
+"word": "Bentuknya",
+"start": 30.851,
+"end": 31.337
+},
+{
+"word": "miring",
+"start": 31.337,
+"end": 31.661
+},
+{
+"word": "dari",
+"start": 31.661,
+"end": 31.877
+},
+{
+"word": "sudut",
+"start": 31.877,
+"end": 32.146
+},
+{
+"word": "pintu",
+"start": 32.146,
+"end": 32.416
+},
+{
+"word": "atau",
+"start": 32.416,
+"end": 32.632
+},
+{
+"word": "jendela,",
+"start": 32.632,
+"end": 33.01
+},
+{
+"word": "mendatar,",
+"start": 33.409,
+"end": 33.931
+},
+{
+"word": "atau",
+"start": 34.257,
+"end": 34.483
+},
+{
+"word": "bertangga",
+"start": 34.483,
+"end": 34.991
+},
+{
+"word": "mengikuti",
+"start": 34.991,
+"end": 35.499
+},
+{
+"word": "susunan",
+"start": 35.499,
+"end": 35.895
+},
+{
+"word": "bata.",
+"start": 35.895,
+"end": 36.12
+},
+{
+"word": "Pintu",
+"start": 36.647,
+"end": 36.905
+},
+{
+"word": "dan",
+"start": 36.905,
+"end": 37.06
+},
+{
+"word": "jendela",
+"start": 37.06,
+"end": 37.42
+},
+{
+"word": "jadi",
+"start": 37.42,
+"end": 37.626
+},
+{
+"word": "macet.",
+"start": 37.626,
+"end": 37.884
+},
+{
+"word": "Jadi",
+"start": 38.726,
+"end": 38.983
+},
+{
+"word": "lihat",
+"start": 38.983,
+"end": 39.305
+},
+{
+"word": "bentuknya,",
+"start": 39.305,
+"end": 39.885
+},
+{
+"word": "dan",
+"start": 40.278,
+"end": 40.455
+},
+{
+"word": "lihat",
+"start": 40.455,
+"end": 40.751
+},
+{
+"word": "apakah",
+"start": 40.751,
+"end": 41.107
+},
+{
+"word": "dia",
+"start": 41.107,
+"end": 41.284
+},
+{
+"word": "makin",
+"start": 41.284,
+"end": 41.58
+},
+{
+"word": "lebar.",
+"start": 41.58,
+"end": 41.877
+},
+{
+"word": "Tandai",
+"start": 42.566,
+"end": 42.92
+},
+{
+"word": "ujung",
+"start": 42.92,
+"end": 43.214
+},
+{
+"word": "retaknya",
+"start": 43.214,
+"end": 43.686
+},
+{
+"word": "pakai",
+"start": 43.686,
+"end": 43.981
+},
+{
+"word": "pensil,",
+"start": 43.981,
+"end": 44.334
+},
+{
+"word": "tulis",
+"start": 44.587,
+"end": 44.868
+},
+{
+"word": "tanggalnya,",
+"start": 44.868,
+"end": 45.429
+},
+{
+"word": "cek",
+"start": 45.737,
+"end": 45.906
+},
+{
+"word": "lagi",
+"start": 45.906,
+"end": 46.133
+},
+{
+"word": "seminggu",
+"start": 46.133,
+"end": 46.586
+},
+{
+"word": "kemudian.",
+"start": 46.586,
+"end": 47.038
+},
+{
+"word": "Kalau",
+"start": 47.482,
+"end": 47.754
+},
+{
+"word": "melebar",
+"start": 47.754,
+"end": 48.134
+},
+{
+"word": "atau",
+"start": 48.134,
+"end": 48.352
+},
+{
+"word": "miring,",
+"start": 48.352,
+"end": 48.678
+},
+{
+"word": "panggil",
+"start": 48.909,
+"end": 49.316
+},
+{
+"word": "ahli",
+"start": 49.316,
+"end": 49.549
+},
+{
+"word": "bangunan.",
+"start": 49.549,
+"end": 50.014
+},
+{
+"word": "Retak",
+"start": 50.316,
+"end": 50.572
+},
+{
+"word": "di",
+"start": 50.572,
+"end": 50.674
+},
+{
+"word": "rumahmu",
+"start": 50.674,
+"end": 51.032
+},
+{
+"word": "bentuknya",
+"start": 51.032,
+"end": 51.492
+},
+{
+"word": "kayak",
+"start": 51.492,
+"end": 51.748
+},
+{
+"word": "apa?",
+"start": 51.748,
+"end": 51.901
+},
+{
+"word": "Follow",
+"start": 52.347,
+"end": 52.626
+},
+{
+"word": "buat",
+"start": 52.626,
+"end": 52.811
+},
+{
+"word": "fakta",
+"start": 52.811,
+"end": 53.043
+},
+{
+"word": "rumah",
+"start": 53.043,
+"end": 53.275
+},
+{
+"word": "berikutnya!",
+"start": 53.275,
+"end": 53.739
+}
+]
+}

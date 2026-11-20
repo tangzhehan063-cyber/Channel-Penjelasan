@@ -67,3 +67,11 @@ Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) s
 - **Berkas lampu transparan yang jatuh ke ruang kosong terbaca sebagai poligon abu-abu**: buat memudar bertahap dan jangan melewati tepi jalan.
 - **Kamera pan mengikuti mobil dari ketinggian rendah**: mobil menutupi rumah dan jendela tidak terlihat silau (dibatalkan). Efek sorot harus terlihat dengan mobil DAN jendela dalam satu frame.
 - Dinding krem terang pada palet malam menyembunyikan sinar lampu (tidak terlihat lebih terang); pakai dinding lebih gelap supaya sorotan terbaca.
+
+## Bug #25 (20 Nov 2026, dinding retak, adegan breakdown isometrik)
+- Lapisan terurai sepanjang sumbu z di kamera isometrik bergeser diagonal kiri-bawah dan menjauh dari tengah layar: pusatkan tumpukan (geser grup z = -0,57 × gap) dan jaga jarak antar-lapisan ≤ 0,4.
+- Titik `look` kamera isometrik harus dihitung dari posisi dunia objek (termasuk geseran grup); `proj()` kit memakai kamera perspektif, jadi untuk stiker di adegan isometrik hitung piksel dari rumus isometrik (zoom = 2640/jarak) dan beri `xy` tetap.
+- Stiker penanda lapisan dengan waktu yang tumpang-tindih di titik yang sama saling menimpa (PLESTER di bawah BATA): beri tiap stiker jendela waktu sendiri.
+- Penurunan satu sisi (`turun`) terlalu besar terbaca sebagai dinding patah, bukan retak: geser 0,035 × s horizontal dan 0,08 × s vertikal.
+- Puncak dinding menyentuh kicker saat dive/push: naikkan `look.y` (objek turun) +0,3 untuk jarak ≥ 7,4 dan +0,35 untuk dive.
+- Sorot lapisan harus tetap aktif selama VO membahas lapisan itu (plester sampai "nggak tembus ke bata"), kalau tidak semua lapisan meredup dan retak halus hilang.

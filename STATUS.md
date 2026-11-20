@@ -2,7 +2,7 @@
 
 ## Video #25 sedang jalan (20 Nov 2026): "Dinding Retak, Rumah Mau Roboh?" (mitos, percobaan gaya breakdown isometrik terang)
 - Cabang `claude/video-25-breakdown-isometrik`. T1–T3 selesai: topik user, riset `riset/2026-11-20-dinding-retak.md`, naskah ACC (126 kata, `naskah/video-25-dinding-retak.md`), palet **`krem`** (user: siang krem/beige, malam sedikit kebiruan), VO **Gemini TTS Achernar** 54,1 dtk, timestamp `audio/video-25-words.json`, caption `caption/video-25-dinding-retak.md`. Tiga klaim [⚠ CEK] diterima (sumber blog/jurnal, tanpa SNI).
-- Revisi tertampung (R1–R2, dikerjakan di T4): warna material nyata (bata, spesi, plester, aci, beton, tanah, kayu) + cat tembok biru sebagai lawan krem; tabel di storyboard. Berikutnya T4: bangun adegan breakdown isometrik (objek `AdeganBreakdown` di kit, belum dibuat), baca `style/gaya-penjelasan.md` + skill `sutradara`.
+- Revisi tertampung (R1–R2, dikerjakan di T4): warna material nyata (bata, spesi, plester, aci, beton, tanah, kayu) + cat tembok biru sebagai lawan krem; tabel di storyboard. T4 selesai 20 Nov: objek `kit/objek/AdeganDinding.tsx` (breakdown isometrik, terdaftar di `registry.tsx` sebagai `dinding`), `remotion/src/v25/` (beats.json, Video25, Cover25), VO di `remotion/public/v25/`. `cek-sutradara` 0 GAGAL. Menunggu ACC contact sheet (T5) lalu `tools/produksi.sh bagian 25 <slug>`.
 - Pengecualian gaya "breakdown isometrik" belum ditulis di `CLAUDE.md` (menunggu hasil dan keputusan user).
 
 ## Video #24 selesai (19 Nov 2026): "Rumah Hook Bawa Sial?" (Bukan Sial #05)
