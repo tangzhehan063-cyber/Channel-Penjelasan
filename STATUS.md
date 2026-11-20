@@ -1,5 +1,10 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
+## Video #25 sedang jalan (20 Nov 2026): "Dinding Retak, Rumah Mau Roboh?" (mitos, percobaan gaya breakdown isometrik terang)
+- Cabang `claude/video-25-breakdown-isometrik`. T1–T3 selesai: topik user, riset `riset/2026-11-20-dinding-retak.md`, naskah ACC (126 kata, `naskah/video-25-dinding-retak.md`), palet **`krem`** (user: siang krem/beige, malam sedikit kebiruan), VO **Gemini TTS Achernar** 54,1 dtk, timestamp `audio/video-25-words.json`, caption `caption/video-25-dinding-retak.md`. Tiga klaim [⚠ CEK] diterima (sumber blog/jurnal, tanpa SNI).
+- Revisi tertampung (R1–R2, dikerjakan di T4): warna material nyata (bata, spesi, plester, aci, beton, tanah, kayu) + cat tembok biru sebagai lawan krem; tabel di storyboard. Berikutnya T4: bangun adegan breakdown isometrik (objek `AdeganBreakdown` di kit, belum dibuat), baca `style/gaya-penjelasan.md` + skill `sutradara`.
+- Pengecualian gaya "breakdown isometrik" belum ditulis di `CLAUDE.md` (menunggu hasil dan keputusan user).
+
 ## Video #24 selesai (19 Nov 2026): "Rumah Hook Bawa Sial?" (Bukan Sial #05)
 - 53,6 dtk, −14,3 LUFS, `remotion/src/v24/` (beats.json + Video24 + Cover24), objek baru `kit/objek/AdeganHook.tsx` (rumah sudut malam, mobil, berkas lampu, pita angin, pagar, tanaman), palet **`malam`** (user), VO **Gemini TTS Achernar** (2 generasi: 62,8 dtk lalu tempo rapat 53,2 dtk dipakai). Drive #24 `1QQTUxesQgUcl-bMapSQYW_a0xU06Dfjn` (cover, info, versi ringan 540p); MP4 penuh + SRT + cover dikirim ke user. Riset `riset/2026-11-19-rumah-hook.md`, naskah `naskah/video-24-rumah-hook.md`, caption `caption/video-24-rumah-hook.md`.
 - **Dasar keputusan:** ekspor YouTube Studio user 19 Nov (14 video, 20.862 views, 21 subscriber): video mitos rata-rata ±1.825 views / ±40% ditonton vs teknis ±1.290 / ±21%; #9 tusuk sate terbaik. Karena itu #24 memakai formula #9 (kepercayaan yang ditakuti, lalu alasan nyata). Kolom thumbnail Studio hampir tak berarti untuk Shorts (±93% views dari feed). Hipotesis yang diuji: lima video mitos berikutnya; bandingkan views dan % ditonton.

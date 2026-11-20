@@ -1,6 +1,6 @@
 # STORYBOARD · VIDEO #25 · TAHAP 2 · DRAFT (20 Nov 2026)
 ## Dinding Retak, Rumah Mau Roboh?
-**Format:** mitos vs fakta (HYBRID: hook ketakutan personal, isi mekanisme berlapis). 1080×1920, ±55 dtk.
+**Format:** mitos vs fakta (HYBRID: hook ketakutan personal, isi mekanisme berlapis). 1080×1920, ±54 dtk.
 **Percobaan gaya (keputusan user 20 Nov):** adegan **breakdown isometrik terang** (terurai, irisan, sorot satu bagian, kamera isometrik kit); naskah, subtitle, suara, caption tetap alur channel. Palet: **`krem` (bawaan, siang)** keputusan user 20 Nov.
 Jangkar layar: kicker `FAKTA RUMAH · #25` + kotak hook.
 Riset: `riset/2026-11-20-dinding-retak.md`.
@@ -17,7 +17,7 @@ Riset: `riset/2026-11-20-dinding-retak.md`.
 - **Ritme:** gerak sejak detik 0 (dinding terurai lapis demi lapis), sorot satu lapis per beat; pola pemutus (panel 2D/banjir koral) di titik balik beat 4.
 - Kamera dan kosakata final ditulis di Tahap 4 setelah membaca `style/gaya-penjelasan.md` dan skill `sutradara`.
 
-## Teks TTS (versi humanis, 137 kata, ±55 dtk bila tempo 2,5 kata/dtk)
+## Teks TTS (versi humanis, 126 kata; VO jadi 54,1 dtk, Gemini Achernar)
 1. Dinding rumahmu retak? Belum tentu rumahnya mau roboh. Lihat dulu bentuk retaknya.
 2. Retak itu ada dua macam: yang cuma di permukaan, dan yang tembus sampai struktur.
 3. Dinding itu berlapis: cat, aci, plester, lalu bata. Plester menyusut waktu mengering, jadi retak halus muncul di situ. Setipis garis pensil, nggak tembus ke bata, dan biasanya cukup ditambal.
@@ -66,3 +66,7 @@ Latar `krem` (`#f3f2ef`). Material memakai warna nyata; tembok memakai warna din
 | Kusen kayu / kaca | `#a06f45` / `#bfd9e6` | pintu dan jendela |
 | Retak | `#2a2724` arang; ujung yang merambat/disorot koral `#e2563f` | retak harus kontras di semua lapis |
 `cek-visual`: jalankan dengan `--extra #b5543c,#8b6b4a,#a06f45` (warna nyata yang sengaja).
+
+## Timing VO (dari `audio/video-25-words.json`, 20 Nov)
+Awal kalimat: 1 hook 0,0 · 2 dua macam 5,7 · 3 lapis dinding 11,2 (plester 16,5, setipis 20,4) · 4 retak struktur 25,2 (bentuknya 30,9, pintu 36,7) · 5 payoff 38,7 · 6 cek+CTA 42,6 (kalau melebar 47,5, retak di rumahmu 50,3, follow 52,4) · akhir 53,7.
+Catatan: kalimat hook penuh 5,7 dtk; teks layar + kotak hook muncul ≤3 dtk, gerak mulai detik 0.
