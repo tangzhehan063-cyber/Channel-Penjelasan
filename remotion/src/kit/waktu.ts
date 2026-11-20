@@ -46,3 +46,9 @@ export const kamera = {
   pull: (t0: number, t1: number, look: V3, dari = 10.6, ke = 9.4): Key[] => [
     {t: t0, pos: [look[0] - 0.2, look[1] + 1.6, look[2] + dari], look}, {t: t1, pos: [look[0] - 0.1, look[1] + 1.0, look[2] + ke], look}],
 };
+
+/** proyeksi isometrik (kamera ortografis X=Y=Z, lihat IsoRig di stage.tsx): titik dunia -> piksel 1080x1920. Dipakai stiker/callout yang menempel di adegan `iso`. Clamp sendiri. */
+export function projIso(cam: Key, p: V3): [number, number] {
+  const z = cam.zoom ?? 300, a = p[0] - cam.look[0], b = p[1] - cam.look[1], c = p[2] - cam.look[2];
+  return [540 + z * (a - c) / Math.SQRT2, 960 - z * (-a + 2 * b - c) / Math.sqrt(6)];
+}

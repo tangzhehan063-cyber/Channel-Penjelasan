@@ -29,12 +29,12 @@ const RETAK_TANGGA: P2[] = [[0.15, 0.3], [0.35, 0.3], [0.35, 0.42], [0.65, 0.42]
 
 // lapisan dari belakang ke depan: [tebal, z awal, kunci waktu sorot]
 const LAPIS = [
-  {k: 'bata', tebal: 0.46, z: 0.0, warna: C.bata},
-  {k: 'plester', tebal: 0.14, z: 0.46, warna: C.plester},
-  {k: 'aci', tebal: 0.08, z: 0.6, warna: C.aci},
-  {k: 'cat', tebal: 0.06, z: 0.68, warna: C.cat},
+  {k: 'bata', tebal: 0.26, z: 0.0, warna: C.bata},
+  {k: 'plester', tebal: 0.08, z: 0.26, warna: C.plester},
+  {k: 'aci', tebal: 0.05, z: 0.34, warna: C.aci},
+  {k: 'cat', tebal: 0.035, z: 0.39, warna: C.cat},
 ];
-const GAPZ = 0.38;
+const GAPZ = 0.34;
 
 const useBata = () => useMemo(() => {
   const c = document.createElement('canvas'); c.width = 256; c.height = 86; const g = c.getContext('2d')!;
@@ -109,7 +109,7 @@ export const AdeganDinding: React.FC<AdeganP> = ({t, w}) => {
   const tick: P2[] = [[0.78, 0.4], [0.9, 0.5]];
   const px = lerpPensil(pPensil);
   return (
-    <group position={[-W / 2, 0.3, -0.4 - 0.57 * gap]}>
+    <group position={[-W / 2, 0.3, -0.21 - 1.5 * GAPZ * gap]}>
       {/* inti gelap di belakang: terlihat lewat celah retak */}
       <mesh position={[W / 2, H / 2, -0.03]}><boxGeometry args={[W - 0.02, H - 0.02, 0.02]} /><meshBasicMaterial color={C.retak} /></mesh>
       {/* kiri */}
@@ -140,10 +140,10 @@ export const AdeganDinding: React.FC<AdeganP> = ({t, w}) => {
         </group>
       )}
       {/* pondasi + tanah (kiri tetap, kanan turun) */}
-      <Bx p={[(-0.1 + X0) / 2, -0.15, 0.4]} s={[X0 + 0.1, 0.3, 1.0]} c={C.beton} />
-      <Bx p={[(X0 + W + 0.1) / 2 + geserR[0], -0.15 + geserR[1], 0.4]} s={[W + 0.1 - X0, 0.3, 1.0]} c={C.beton} />
-      <Bx p={[(-0.35 + X0) / 2, -0.6, 0.4]} s={[X0 + 0.35, 0.6, 1.25]} c={C.tanah} />
-      <Bx p={[(X0 + W + 0.35) / 2, -0.6 - 0.12 * Math.min(1.4, s) / 2, 0.4]} s={[W + 0.35 - X0, 0.6 + 0.12 * Math.min(1.4, s), 1.25]} c={tanahWarna} />
+      <Bx p={[(-0.1 + X0) / 2, -0.12, 0.21]} s={[X0 + 0.1, 0.24, 0.6]} c={C.beton} />
+      <Bx p={[(X0 + W + 0.1) / 2 + geserR[0], -0.12 + geserR[1], 0.21]} s={[W + 0.1 - X0, 0.24, 0.6]} c={C.beton} />
+      <Bx p={[(-0.35 + X0) / 2, -0.45, 0.21]} s={[X0 + 0.35, 0.42, 0.9]} c={C.tanah} />
+      <Bx p={[(X0 + W + 0.35) / 2, -0.45 - 0.12 * Math.min(1.4, s) / 2, 0.21]} s={[W + 0.35 - X0, 0.42 + 0.12 * Math.min(1.4, s), 0.9]} c={tanahWarna} />
     </group>
   );
 };

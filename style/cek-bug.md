@@ -75,3 +75,4 @@ Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) s
 - Penurunan satu sisi (`turun`) terlalu besar terbaca sebagai dinding patah, bukan retak: geser 0,035 × s horizontal dan 0,08 × s vertikal.
 - Puncak dinding menyentuh kicker saat dive/push: naikkan `look.y` (objek turun) +0,3 untuk jarak ≥ 7,4 dan +0,35 untuk dive.
 - Sorot lapisan harus tetap aktif selama VO membahas lapisan itu (plester sampai "nggak tembus ke bata"), kalau tidak semua lapisan meredup dan retak halus hilang.
+- (R3/R4, 20 Nov) Lapisan dinding setebal 0,46/0,14/0,08/0,06 terasa tebal dan berat bagi user: pakai 0,26/0,08/0,05/0,035; blok pondasi/tanah ikut ditipiskan. Stiker `tempel` di adegan `iso` memakai proyeksi perspektif dan meleset: kit kini memakai `projIso` otomatis untuk adegan ber-`iso`; callout bergaris = stiker dengan `garis: true`.

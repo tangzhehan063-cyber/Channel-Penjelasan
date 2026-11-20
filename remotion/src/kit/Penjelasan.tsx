@@ -1,6 +1,7 @@
 // Kit Penjelasan: template video berbasis data (beats.json). Satu komposisi merakit: palet, adegan 3D (objek + kamera), kartu judul,
 // stiker, subtitle, kicker, komentar, follow, audio+SFX. Lapisan 2D khusus (panel pemutus pola) dikirim lewat prop `ekstra`.
 // Format data: style/gaya-penjelasan.md (bagian "beats.json"). Contoh nyata: remotion/src/v20/beats.json (menghasilkan #20 piksel-identik).
+import {Fragment} from 'react';
 import {Audio} from '@remotion/media';
 import {AbsoluteFill, Easing, Sequence, staticFile, useCurrentFrame} from 'remotion';
 import {Ghost} from '../pengetahuan/Scene';
@@ -9,7 +10,7 @@ import {Kicker, CommentBubble, FollowButton} from '../aset/Gabung';
 import {PaperPalet, PALET, type PaletName} from '../aset/PaperPalet';
 import {Canvas3D, CanvasIso, Seg} from './stage';
 import {Captions, Chip, TemaProvider, Title, type KataVO} from './teks';
-import {FPS, camAt, proj, r, type Key, type V3} from './waktu';
+import {FPS, camAt, proj, projIso, r, type Key, type V3} from './waktu';
 import {OBJEK} from './objek/registry';
 
 type T = number | string; // detik, atau nama beat di `beats`
@@ -20,7 +21,7 @@ export type DataVideo = {
   adegan: {dari: T; sampai: T; objek: string; mode: string; kamera: Key[]; w?: Record<string, [number, number]>; ulang?: boolean; iso?: {zoom: number}}[];
   hantu?: {dari: T; sampai: T; baris: [string, string]}[];
   judul: {dari: T; sampai: T; kecil: string; besar: string; warna?: 'accent' | 'cool' | 'good'; ukuran?: number}[];
-  stiker: {teks: string; warna: 'accent' | 'cool' | 'good'; ukuran?: number; waktu: [number, number, number, number]; xy?: [number, number];
+  stiker: {teks: string; warna: 'accent' | 'cool' | 'good'; ukuran?: number; waktu: [number, number, number, number]; xy?: [number, number]; garis?: boolean;
            tempel?: {adegan: number; titik: V3; dx?: number; dy?: number; x?: [number, number]; y?: [number, number]}}[];
   komentar: {kata: string; mulai: number; y: number; keluar: number};
   follow: {mulai: number; klik: number; y: number};
@@ -61,12 +62,26 @@ export const Penjelasan: React.FC<{data: DataVideo; words: KataVO[]; ekstra?: Re
         {data.stiker.map((s, i) => {
           const [a, b, c, d] = s.waktu;
           let [x, y] = s.xy ?? [540, 1210];
+          let anc: [number, number] | null = null;
           if (s.tempel) {
-            const [px, py] = proj(cams[s.tempel.adegan], s.tempel.titik);
+            const isoA = !!data.adegan[s.tempel.adegan].iso; // adegan isometrik memakai proyeksi isometrik, bukan perspektif
+            const [px, py] = (isoA ? projIso : proj)(cams[s.tempel.adegan], s.tempel.titik);
+            anc = [px, py];
             const [x0, x1] = s.tempel.x ?? [250, 900], [y0, y1] = s.tempel.y ?? [900, 1260];
             x = Math.max(x0, Math.min(x1, px + (s.tempel.dx ?? 0))); y = Math.max(y0, Math.min(y1, py + (s.tempel.dy ?? 0)));
           }
-          return <Chip key={i} x={x} y={y} p={r(t, a, b) * (1 - r(t, c, d))} text={s.teks} color={tema[s.warna]} size={s.ukuran} />;
+          const pp = r(t, a, b) * (1 - r(t, c, d));
+          return (
+            <Fragment key={i}>
+              {s.garis && anc && pp > 0 && (
+                <svg width={1080} height={1920} viewBox="0 0 1080 1920" style={{position: 'absolute', left: 0, top: 0, opacity: pp, pointerEvents: 'none'}}>
+                  <line x1={x} y1={y} x2={anc[0]} y2={anc[1]} stroke="#1c1c1e" strokeWidth={3.5} strokeLinecap="round" />
+                  <circle cx={anc[0]} cy={anc[1]} r={11} fill={tema[s.warna]} stroke="#1c1c1e" strokeWidth={3} />
+                </svg>
+              )}
+              <Chip x={x} y={y} p={pp} text={s.teks} color={tema[s.warna]} size={s.ukuran} />
+            </Fragment>
+          );
         })}
         <CommentBubble word={data.komentar.kata} start={Math.round(data.komentar.mulai * FPS)} y={data.komentar.y} out={Math.round(data.komentar.keluar * FPS)} />
         <FollowButton start={Math.round(data.follow.mulai * FPS)} click={Math.round(data.follow.klik * FPS)} y={data.follow.y} />
