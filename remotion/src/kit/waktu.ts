@@ -13,7 +13,9 @@ export const r = (t: number, a: number, b: number, e = ease) =>
   interpolate(t, [a, b], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: e});
 
 export type V3 = [number, number, number];
-export type Key = {t: number; pos: V3; look: V3; zoom?: number};
+export type Key = {t: number; pos: V3; look: V3; zoom?: number; az?: number; el?: number}; // az/el (derajat) hanya untuk kamera isometrik; bawaan 45 dan 35,264 (isometrik murni)
+export const AZ0 = 45, EL0 = 35.264;
+const lerpOpt = (x: number | undefined, y: number | undefined, d: number, k: number) => (x === undefined && y === undefined ? undefined : (x ?? d) + ((y ?? d) - (x ?? d)) * k);
 export const lerp3 = (a: V3, b: V3, k: number): V3 => [a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k, a[2] + (b[2] - a[2]) * k];
 
 /** kamera di detik t dari daftar keyframe (CAM_*). */
@@ -21,7 +23,7 @@ export function camAt(keys: Key[], t: number): Key {
   if (t <= keys[0].t) return keys[0];
   for (let i = 0; i < keys.length - 1; i++) {
     const a = keys[i], b = keys[i + 1];
-    if (t <= b.t) { const k = ease((t - a.t) / (b.t - a.t)); return {t, pos: lerp3(a.pos, b.pos, k), look: lerp3(a.look, b.look, k), zoom: a.zoom !== undefined && b.zoom !== undefined ? a.zoom + (b.zoom - a.zoom) * k : undefined}; }
+    if (t <= b.t) { const k = ease((t - a.t) / (b.t - a.t)); return {t, pos: lerp3(a.pos, b.pos, k), look: lerp3(a.look, b.look, k), zoom: a.zoom !== undefined && b.zoom !== undefined ? a.zoom + (b.zoom - a.zoom) * k : undefined, az: lerpOpt(a.az, b.az, AZ0, k), el: lerpOpt(a.el, b.el, EL0, k)}; }
   }
   return keys[keys.length - 1];
 }
@@ -49,6 +51,9 @@ export const kamera = {
 
 /** proyeksi isometrik (kamera ortografis X=Y=Z, lihat IsoRig di stage.tsx): titik dunia -> piksel 1080x1920. Dipakai stiker/callout yang menempel di adegan `iso`. Clamp sendiri. */
 export function projIso(cam: Key, p: V3): [number, number] {
-  const z = cam.zoom ?? 300, a = p[0] - cam.look[0], b = p[1] - cam.look[1], c = p[2] - cam.look[2];
-  return [540 + z * (a - c) / Math.SQRT2, 960 - z * (-a + 2 * b - c) / Math.sqrt(6)];
+  const z = cam.zoom ?? 300, az = (cam.az ?? AZ0) * Math.PI / 180, el = (cam.el ?? EL0) * Math.PI / 180;
+  const a = p[0] - cam.look[0], b = p[1] - cam.look[1], c = p[2] - cam.look[2];
+  // kamera di arah (cos el·sin az, sin el, cos el·cos az) dari titik look; kanan = (cos az, 0, −sin az); atas = (−sin el·sin az, cos el, −sin el·cos az)
+  const x = a * Math.cos(az) - c * Math.sin(az), y = -a * Math.sin(el) * Math.sin(az) + b * Math.cos(el) - c * Math.sin(el) * Math.cos(az);
+  return [540 + z * x, 960 - z * y];
 }

@@ -76,3 +76,11 @@ Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) s
 - Puncak dinding menyentuh kicker saat dive/push: naikkan `look.y` (objek turun) +0,3 untuk jarak ≥ 7,4 dan +0,35 untuk dive.
 - Sorot lapisan harus tetap aktif selama VO membahas lapisan itu (plester sampai "nggak tembus ke bata"), kalau tidak semua lapisan meredup dan retak halus hilang.
 - (R3/R4, 20 Nov) Lapisan dinding setebal 0,46/0,14/0,08/0,06 terasa tebal dan berat bagi user: pakai 0,26/0,08/0,05/0,035; blok pondasi/tanah ikut ditipiskan. Stiker `tempel` di adegan `iso` memakai proyeksi perspektif dan meleset: kit kini memakai `projIso` otomatis untuk adegan ber-`iso`; callout bergaris = stiker dengan `garis: true`.
+
+## Bug #26 (20 Nov 2026, kran putar vs kran tuas, sudut kamera isometrik berganti)
+- `cek-sutradara` menandai adegan yang hanya berganti sudut (`az`/`el`, jarak dan `look` tetap) sebagai "diam total": skrip kini menghitung `az` ≥ 10° sebagai orbit dan `el` ≥ 10° sebagai crane.
+- Tampak atas (`el` 80°) tidak menampilkan jalur air yang digambar di bidang x–y: pakai tampak atas hanya untuk objek yang pola pentingnya ada di bidang x–z (bola kran bola). Untuk kran putar pakai tampak samping.
+- Gagang merah kran putar mencuat ke zona kicker/pil hook: turunkan `look.y` +0,45 (objek turun) untuk adegan kran putar, +0,15 untuk kran bola.
+- Kran di hook terlalu kecil: kurangi jarak kamera 0,6 pada dua adegan pertama.
+- Panel 2D pola pemutus (jalur zigzag vs lurus) terlalu tinggi dan kosong di bawah: tinggi 470, di antara kartu judul dan subtitle (top ≥ 780).
+- Cahaya harus ikut berputar bersama kamera (`LightsIso az`), kalau tidak pembagian tiga nada berubah saat sudut berganti.

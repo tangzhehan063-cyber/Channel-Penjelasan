@@ -64,6 +64,9 @@ const moveOf = (k0, k1) => {
   if (Math.abs(a1 - a0) > 0.12) t.push('orbit');
   if (Math.abs((k1.pos[1] - k1.look[1]) / d1 - (k0.pos[1] - k0.look[1]) / d0) > 0.12) t.push('crane');
   if (len(sub(k1.look, k0.look)) > 0.25) t.push('pan');
+  // kamera isometrik berganti sudut (R5): az berubah ≥10° = orbit, el berubah ≥10° = crane
+  if (Math.abs((k1.az ?? 45) - (k0.az ?? 45)) >= 10 && !t.includes('orbit')) t.push('orbit');
+  if (Math.abs((k1.el ?? 35.264) - (k0.el ?? 35.264)) >= 10 && !t.includes('crane')) t.push('crane');
   return t.length ? t : ['diam'];
 };
 const types = new Set();
@@ -187,7 +190,8 @@ if (J) {
     if (a.iso) { // kamera isometrik: ukuran di layar dari zoom (piksel per satuan dunia); lebar ≈ 1,13·w, tinggi ≈ 0,82·h + 0,4·w
       const dd = (k) => Math.max(0.5, k.pos[2] - k.look[2]), d0 = dd(a.kamera[0]);
       for (const k of [a.kamera[0], mid, end]) {
-        const z = a.iso.zoom * d0 / dd(k), fw = 1.13 * a.ukuran[0] * z / 1080, fh = (0.82 * a.ukuran[1] + 0.4 * a.ukuran[0]) * z / 1920;
+        const z = a.iso.zoom * d0 / dd(k), AZr = (k.az ?? 45) * Math.PI / 180, ELr = (k.el ?? 35.264) * Math.PI / 180; // az/el berganti (R5): faktor dihitung dari sudut; di 45°/35,264° hasilnya = 1,13·w dan 0,82·h + 0,4·w
+        const fw = (Math.abs(Math.cos(AZr)) + 0.6 * Math.abs(Math.sin(AZr))) * a.ukuran[0] * z / 1080, fh = (Math.cos(ELr) * a.ukuran[1] + Math.sin(ELr) * (Math.abs(Math.sin(AZr)) + Math.abs(Math.cos(AZr))) * 0.5 * a.ukuran[0]) * z / 1920;
         if (fh < 1 / 3 && fw < 0.6) { bad(`adegan ${i} (${a.mode}, isometrik) di ${f1(k.t)} dtk: objek ${(fw * 100).toFixed(0)}% lebar / ${(fh * 100).toFixed(0)}% tinggi layar (aturan: ≥1/3 tinggi atau ≥60% lebar): naikkan zoom`); break; }
         if (fw > 1.6) { hm(`adegan ${i} (${a.mode}, isometrik) di ${f1(k.t)} dtk: objek ${(fw * 100).toFixed(0)}% lebar layar, terlalu terpotong`); break; }
       }
