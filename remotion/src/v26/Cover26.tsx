@@ -8,7 +8,7 @@ const INK = '#1c1c1e', PL = PALET.mint;
 export const Cover26: React.FC = () => (
   <AbsoluteFill>
     <PaperPalet palet="mint" />
-    <CanvasIso k={{t: 0, pos: [8, 9, 8], look: [0.1, 0.55, 0], zoom: 300, az: 55, el: 30}}>
+    <CanvasIso k={{t: 0, pos: [8, 9.2, 8], look: [0.1, 1.7, 0], zoom: 320, az: 55, el: 30}}>
       <AdeganKran t={14.5} mode="putar" warna={{accent: PL.accent, cool: PL.cool, good: PL.good}} w={{berg: [13, 14], putar: [99, 100]}} />
     </CanvasIso>
     <div style={{position: 'absolute', left: 50, right: 50, top: 290, padding: '30px 30px 26px', borderRadius: 36, background: 'rgba(250,249,246,0.94)', border: `6px solid ${INK}`, fontFamily: 'Inter', color: INK}}>
