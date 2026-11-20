@@ -10,24 +10,24 @@ import {camAt, FPS, projIso, r, type Key, type V3} from '../kit/waktu';
 export const SB_FRAMES = 30 * FPS;
 const BG = '#0a2a4d', LINE = '#8fe3ff', FILL = '#13508c', HI = '#2f8fe0';
 const mix = (a: string, b: string, k: number) => new THREE.Color(a).lerp(new THREE.Color(b), k).getStyle();
-const ez = Easing.inOut(Easing.cubic);
-const LOOK: V3 = [0, 0.55, 0.55];
+export const ez = Easing.inOut(Easing.cubic);
+export const LOOK: V3 = [0, 0.55, 0.55];
 
 const K = (t: number, az: number, el: number, zoom: number, look: V3 = LOOK): Key => ({t, pos: [0, 0, 0], look, zoom, az, el});
-const CAM: Key[] = [
+export const CAM: Key[] = [
   K(0, 45, 35.3, 400), K(4, 30, 32, 400), K(7, 15, 26, 340, [0, 0.7, 0.9]), K(10.5, -25, 28, 340, [0, 0.7, 0.9]),
   K(14, -55, 22, 350, [0, 0.6, 0.5]), K(17.5, 65, 22, 340, [0, 0.8, 0.4]), K(21, 78, 40, 330, [0, 0.4, 0.4]),
   K(24, 45, 62, 330, [0, 0.4, 0.5]), K(27, 40, 35.3, 380), K(30, 25, 30, 360),
 ];
 
 // jendela sorot per lapisan [mulai, selesai]
-const SOROT: Record<string, [number, number]> = {
+export const SOROT: Record<string, [number, number]> = {
   cat: [6.2, 8.4], aci: [8.4, 10.6], plester: [10.6, 12.8], bata: [12.8, 15.0], besi: [15.0, 17.4], kolom: [17.4, 19.8], sloof: [19.8, 22.0], tanah: [22.0, 24.2],
 };
-const NAMA: Record<string, string[]> = {cat: ['CAT TEMBOK'], aci: ['ACI', '(ACIAN)'], plester: ['PLESTER', 'SEMEN'], bata: ['BATA MERAH', '+ SPESI'], besi: ['BESI', 'TULANGAN'], kolom: ['KOLOM PRAKTIS', '(BETON)'], sloof: ['SLOOF', '(BETON BERTULANG)'], tanah: ['TANAH DASAR']};
-const URUT = ['cat', 'aci', 'plester', 'bata', 'besi', 'kolom', 'sloof', 'tanah'];
+export const NAMA: Record<string, string[]> = {cat: ['CAT TEMBOK'], aci: ['ACI', '(ACIAN)'], plester: ['PLESTER', 'SEMEN'], bata: ['BATA MERAH', '+ SPESI'], besi: ['BESI', 'TULANGAN'], kolom: ['KOLOM PRAKTIS', '(BETON)'], sloof: ['SLOOF', '(BETON BERTULANG)'], tanah: ['TANAH DASAR']};
+export const URUT = ['cat', 'aci', 'plester', 'bata', 'besi', 'kolom', 'sloof', 'tanah'];
 
-function layout(t: number) {
+export function layout(t: number) {
   const e = r(t, 4.2, 6.2, ez) - r(t, 24.6, 27.2, ez);
   const sorot = (k: string) => { const [a, b] = SOROT[k]; return r(t, a, a + 0.35, ez) * (1 - r(t, b - 0.35, b, ez)); };
   const anyHi = Math.max(...URUT.map(sorot));
@@ -65,7 +65,7 @@ const useBataTex = () => useMemo(() => {
   const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
 }, []);
 
-const Rig: React.FC<{k: Key}> = ({k}) => {
+export const Rig: React.FC<{k: Key}> = ({k}) => {
   const cam = useThree((s) => s.camera) as THREE.OrthographicCamera;
   const az = (k.az ?? 45) * Math.PI / 180, el = (k.el ?? 35.3) * Math.PI / 180, D = 34.64;
   cam.position.set(k.look[0] + D * Math.cos(el) * Math.sin(az), k.look[1] + D * Math.sin(el), k.look[2] + D * Math.cos(el) * Math.cos(az));
@@ -98,7 +98,7 @@ const Scene: React.FC<{t: number}> = ({t}) => {
 };
 
 /** titik tempel label pada tiap lapisan (dunia) */
-function anchor(k: string, t: number): V3 {
+export function anchor(k: string, t: number): V3 {
   const {P} = layout(t);
   switch (k) {
     case 'cat': return [P.cat.c[0] + 0.7, P.cat.c[1] + 0.55, P.cat.c[2]];
