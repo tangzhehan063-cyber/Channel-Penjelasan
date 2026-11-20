@@ -40,6 +40,7 @@ import {Video24, V24_FRAMES} from './v24/Video24';
 import {Cover24} from './v24/Cover24';
 import {Video25, V25_FRAMES} from './v25/Video25';
 import {Cover25} from './v25/Cover25';
+import {SampelBlueprint, SB_FRAMES} from './sampel/SampelBlueprint';
 import {Video26, V26_FRAMES} from './v26/Video26';
 import {Cover26} from './v26/Cover26';
 import {Video27, V27_FRAMES} from './v27/Video27';
@@ -73,6 +74,7 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="Cover23" component={Cover23} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Cover24" component={Cover24} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Video25" component={Video25} durationInFrames={V25_FRAMES} fps={30} width={1080} height={1920} />
+  <Composition id="SampelBlueprint" component={SampelBlueprint} durationInFrames={SB_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Cover25" component={Cover25} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Video26" component={Video26} durationInFrames={V26_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Cover26" component={Cover26} durationInFrames={1} fps={30} width={1080} height={1920} />
