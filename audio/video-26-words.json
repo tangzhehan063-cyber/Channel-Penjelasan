@@ -1,0 +1,634 @@
+{
+"words": [
+{
+"word": "Kran",
+"start": 0.258,
+"end": 0.602
+},
+{
+"word": "putar",
+"start": 0.602,
+"end": 1.032
+},
+{
+"word": "dan",
+"start": 1.032,
+"end": 1.289
+},
+{
+"word": "kran",
+"start": 1.289,
+"end": 1.633
+},
+{
+"word": "tuas,",
+"start": 1.633,
+"end": 1.976
+},
+{
+"word": "sama",
+"start": 1.976,
+"end": 2.32
+},
+{
+"word": "saja?",
+"start": 2.32,
+"end": 2.664
+},
+{
+"word": "Dua-duanya",
+"start": 3.063,
+"end": 3.652
+},
+{
+"word": "memang",
+"start": 3.652,
+"end": 4.045
+},
+{
+"word": "buka",
+"start": 4.045,
+"end": 4.306
+},
+{
+"word": "tutup",
+"start": 4.306,
+"end": 4.633
+},
+{
+"word": "air,",
+"start": 4.633,
+"end": 4.83
+},
+{
+"word": "tapi",
+"start": 5.133,
+"end": 5.446
+},
+{
+"word": "jalan",
+"start": 5.446,
+"end": 5.837
+},
+{
+"word": "airnya",
+"start": 5.837,
+"end": 6.307
+},
+{
+"word": "di",
+"start": 6.307,
+"end": 6.464
+},
+{
+"word": "dalam",
+"start": 6.464,
+"end": 6.855
+},
+{
+"word": "beda.",
+"start": 6.855,
+"end": 7.168
+},
+{
+"word": "Di",
+"start": 7.655,
+"end": 7.792
+},
+{
+"word": "kran",
+"start": 7.792,
+"end": 8.068
+},
+{
+"word": "putar,",
+"start": 8.068,
+"end": 8.412
+},
+{
+"word": "air",
+"start": 8.412,
+"end": 8.619
+},
+{
+"word": "harus",
+"start": 8.619,
+"end": 8.963
+},
+{
+"word": "berbelok",
+"start": 8.963,
+"end": 9.514
+},
+{
+"word": "dua",
+"start": 9.514,
+"end": 9.72
+},
+{
+"word": "kali",
+"start": 9.72,
+"end": 9.996
+},
+{
+"word": "sebelum",
+"start": 9.996,
+"end": 10.478
+},
+{
+"word": "keluar,",
+"start": 10.478,
+"end": 10.891
+},
+{
+"word": "bahkan",
+"start": 11.182,
+"end": 11.591
+},
+{
+"word": "waktu",
+"start": 11.591,
+"end": 11.932
+},
+{
+"word": "dibuka",
+"start": 11.932,
+"end": 12.341
+},
+{
+"word": "penuh.",
+"start": 12.341,
+"end": 12.682
+},
+{
+"word": "Jalur",
+"start": 13.174,
+"end": 13.487
+},
+{
+"word": "berbelok",
+"start": 13.487,
+"end": 13.987
+},
+{
+"word": "bikin",
+"start": 13.987,
+"end": 14.3
+},
+{
+"word": "aliran",
+"start": 14.3,
+"end": 14.675
+},
+{
+"word": "lebih",
+"start": 14.675,
+"end": 14.988
+},
+{
+"word": "bergolak,",
+"start": 14.988,
+"end": 15.488
+},
+{
+"word": "dan",
+"start": 15.669,
+"end": 15.865
+},
+{
+"word": "bukaannya",
+"start": 15.865,
+"end": 16.455
+},
+{
+"word": "bisa",
+"start": 16.455,
+"end": 16.717
+},
+{
+"word": "diatur",
+"start": 16.717,
+"end": 17.111
+},
+{
+"word": "pelan-pelan.",
+"start": 17.111,
+"end": 17.766
+},
+{
+"word": "Tapi",
+"start": 18.307,
+"end": 18.545
+},
+{
+"word": "di",
+"start": 18.545,
+"end": 18.664
+},
+{
+"word": "dalamnya",
+"start": 18.664,
+"end": 19.14
+},
+{
+"word": "ada",
+"start": 19.14,
+"end": 19.318
+},
+{
+"word": "karet",
+"start": 19.318,
+"end": 19.616
+},
+{
+"word": "yang",
+"start": 19.616,
+"end": 19.854
+},
+{
+"word": "menekan",
+"start": 19.854,
+"end": 20.27
+},
+{
+"word": "lubang.",
+"start": 20.27,
+"end": 20.627
+},
+{
+"word": "Lama-lama",
+"start": 21.104,
+"end": 21.742
+},
+{
+"word": "karet",
+"start": 21.742,
+"end": 22.14
+},
+{
+"word": "itu",
+"start": 22.14,
+"end": 22.379
+},
+{
+"word": "aus,",
+"start": 22.379,
+"end": 22.618
+},
+{
+"word": "dan",
+"start": 22.839,
+"end": 23.065
+},
+{
+"word": "kran",
+"start": 23.065,
+"end": 23.367
+},
+{
+"word": "jadi",
+"start": 23.367,
+"end": 23.669
+},
+{
+"word": "menetes.",
+"start": 23.669,
+"end": 24.197
+},
+{
+"word": "Kran",
+"start": 24.893,
+"end": 25.153
+},
+{
+"word": "tuas",
+"start": 25.153,
+"end": 25.413
+},
+{
+"word": "jenis",
+"start": 25.413,
+"end": 25.738
+},
+{
+"word": "bola",
+"start": 25.738,
+"end": 25.998
+},
+{
+"word": "punya",
+"start": 25.998,
+"end": 26.323
+},
+{
+"word": "bola",
+"start": 26.323,
+"end": 26.583
+},
+{
+"word": "berlubang",
+"start": 26.583,
+"end": 27.168
+},
+{
+"word": "di",
+"start": 27.168,
+"end": 27.298
+},
+{
+"word": "dalamnya.",
+"start": 27.298,
+"end": 27.818
+},
+{
+"word": "Tuas",
+"start": 28.248,
+"end": 28.481
+},
+{
+"word": "diputar",
+"start": 28.481,
+"end": 28.89
+},
+{
+"word": "seperempat",
+"start": 28.89,
+"end": 29.474
+},
+{
+"word": "putaran,",
+"start": 29.474,
+"end": 29.882
+},
+{
+"word": "lubangnya",
+"start": 30.154,
+"end": 30.708
+},
+{
+"word": "sejajar",
+"start": 30.708,
+"end": 31.138
+},
+{
+"word": "pipa,",
+"start": 31.138,
+"end": 31.384
+},
+{
+"word": "dan",
+"start": 31.68,
+"end": 31.889
+},
+{
+"word": "air",
+"start": 31.889,
+"end": 32.099
+},
+{
+"word": "lewat",
+"start": 32.099,
+"end": 32.449
+},
+{
+"word": "lurus",
+"start": 32.449,
+"end": 32.798
+},
+{
+"word": "tanpa",
+"start": 32.798,
+"end": 33.148
+},
+{
+"word": "belok.",
+"start": 33.148,
+"end": 33.497
+},
+{
+"word": "Hambatannya",
+"start": 33.847,
+"end": 34.499
+},
+{
+"word": "kecil,",
+"start": 34.499,
+"end": 34.795
+},
+{
+"word": "jadi",
+"start": 35.134,
+"end": 35.41
+},
+{
+"word": "air",
+"start": 35.41,
+"end": 35.617
+},
+{
+"word": "lewat",
+"start": 35.617,
+"end": 35.962
+},
+{
+"word": "lancar,",
+"start": 35.962,
+"end": 36.375
+},
+{
+"word": "tapi",
+"start": 36.709,
+"end": 36.944
+},
+{
+"word": "kurang",
+"start": 36.944,
+"end": 37.296
+},
+{
+"word": "cocok",
+"start": 37.296,
+"end": 37.589
+},
+{
+"word": "buat",
+"start": 37.589,
+"end": 37.824
+},
+{
+"word": "atur",
+"start": 37.824,
+"end": 38.058
+},
+{
+"word": "debit",
+"start": 38.058,
+"end": 38.352
+},
+{
+"word": "sedikit-sedikit.",
+"start": 38.352,
+"end": 39.173
+},
+{
+"word": "Jadi",
+"start": 39.759,
+"end": 40.052
+},
+{
+"word": "bedanya",
+"start": 40.052,
+"end": 40.564
+},
+{
+"word": "ada",
+"start": 40.564,
+"end": 40.784
+},
+{
+"word": "di",
+"start": 40.784,
+"end": 40.93
+},
+{
+"word": "jalan",
+"start": 40.93,
+"end": 41.297
+},
+{
+"word": "air:",
+"start": 41.297,
+"end": 41.516
+},
+{
+"word": "berbelok",
+"start": 41.835,
+"end": 42.434
+},
+{
+"word": "atau",
+"start": 42.434,
+"end": 42.733
+},
+{
+"word": "lurus.",
+"start": 42.733,
+"end": 43.108
+},
+{
+"word": "Mau",
+"start": 43.496,
+"end": 43.673
+},
+{
+"word": "atur",
+"start": 43.673,
+"end": 43.909
+},
+{
+"word": "debit",
+"start": 43.909,
+"end": 44.203
+},
+{
+"word": "pelan-pelan,",
+"start": 44.203,
+"end": 44.792
+},
+{
+"word": "pakai",
+"start": 44.792,
+"end": 45.087
+},
+{
+"word": "yang",
+"start": 45.087,
+"end": 45.323
+},
+{
+"word": "putar.",
+"start": 45.323,
+"end": 45.617
+},
+{
+"word": "Mau",
+"start": 45.934,
+"end": 46.15
+},
+{
+"word": "buka",
+"start": 46.15,
+"end": 46.437
+},
+{
+"word": "tutup",
+"start": 46.437,
+"end": 46.797
+},
+{
+"word": "cepat,",
+"start": 46.797,
+"end": 47.156
+},
+{
+"word": "pakai",
+"start": 47.156,
+"end": 47.515
+},
+{
+"word": "tuas.",
+"start": 47.515,
+"end": 47.803
+},
+{
+"word": "Di",
+"start": 48.144,
+"end": 48.26
+},
+{
+"word": "rumahmu",
+"start": 48.26,
+"end": 48.664
+},
+{
+"word": "pakai",
+"start": 48.664,
+"end": 48.952
+},
+{
+"word": "yang",
+"start": 48.952,
+"end": 49.183
+},
+{
+"word": "mana?",
+"start": 49.183,
+"end": 49.414
+},
+{
+"word": "Follow",
+"start": 49.891,
+"end": 50.213
+},
+{
+"word": "buat",
+"start": 50.213,
+"end": 50.428
+},
+{
+"word": "fakta",
+"start": 50.428,
+"end": 50.696
+},
+{
+"word": "rumah",
+"start": 50.696,
+"end": 50.965
+},
+{
+"word": "berikutnya!",
+"start": 50.965,
+"end": 51.502
+}
+]
+}

@@ -1,7 +1,7 @@
 # STORYBOARD · VIDEO #26 · TAHAP 2 · DRAFT (20 Nov 2026)
 ## Kran Putar vs Kran Tuas: Jalan Airnya Beda
 **Format:** Bongkar Barang / VS dua kubu (breakdown dua benda: A lalu B), mode HYBRID. 1080×1920, ±55 dtk.
-**Gaya (keputusan user 20 Nov):** adegan breakdown isometrik terang (dari #25) + sudut kamera isometrik berganti (R5, rencana `style/rencana-sudut-kamera-iso.md`). Palet: menunggu keputusan user.
+**Gaya (keputusan user 20 Nov):** adegan breakdown isometrik terang (dari #25) + sudut kamera isometrik berganti (R5, rencana `style/rencana-sudut-kamera-iso.md`). Palet: **`mint`** (keputusan user 20 Nov).
 Jangkar layar: kicker `FAKTA RUMAH · #26` + kotak hook "Putar vs tuas?".
 Ide dari user (20 Nov): kran membuka air melingkar vs lurus. Riset: `riset/2026-11-20-kran-aliran.md`.
 
@@ -53,3 +53,7 @@ Ide dari user (20 Nov): kran membuka air melingkar vs lurus. Riset: `riset/2026-
 **Payoff satu kalimat:** "Jadi bedanya ada di jalan air: berbelok atau lurus."
 **Pemicu share:** "Di rumahmu pakai yang mana?" (komentar).
 **Ide lanjutan (mini-seri Bongkar Barang: A vs B):** (1) toilet 2 tombol vs 1 tombol, (2) MCB vs sekring, (3) kran keramik vs kran karet.
+
+## Timing VO (dari `audio/video-26-words.json`, 20 Nov; VO 51,9 dtk, kata terakhir 51,5)
+Awal kalimat: 1 hook 0,3 ("Kran putar dan kran tuas, sama saja?" sampai 3,0) · 2 dua kran 3,1 · 3 belok dua kali 7,7 · 4 bergolak 13,2 · 5 karet 18,3 (lama-lama 21,1) · 6 kran bola 24,9 (tuas diputar 28,3) · 7 hambatan 33,9 · 8 payoff 39,8 · 9 aksi 43,5 (buka tutup cepat 45,9, rumahmu 48,1, follow 49,9) · akhir 51,5.
+Catatan: hook (kalimat pertama) 2,8 dtk, sesuai batas ≤4 dtk.
