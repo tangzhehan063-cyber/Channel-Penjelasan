@@ -1,7 +1,7 @@
 # STORYBOARD · VIDEO #25 · TAHAP 2 · DRAFT (20 Nov 2026)
 ## Dinding Retak, Rumah Mau Roboh?
 **Format:** mitos vs fakta (HYBRID: hook ketakutan personal, isi mekanisme berlapis). 1080×1920, ±55 dtk.
-**Percobaan gaya (keputusan user 20 Nov):** adegan **breakdown isometrik terang** (terurai, irisan, sorot satu bagian, kamera isometrik kit); naskah, subtitle, suara, caption tetap alur channel. Palet: menunggu keputusan user.
+**Percobaan gaya (keputusan user 20 Nov):** adegan **breakdown isometrik terang** (terurai, irisan, sorot satu bagian, kamera isometrik kit); naskah, subtitle, suara, caption tetap alur channel. Palet: **`krem` (bawaan, siang)** keputusan user 20 Nov.
 Jangkar layar: kicker `FAKTA RUMAH · #25` + kotak hook.
 Riset: `riset/2026-11-20-dinding-retak.md`.
 
