@@ -1,5 +1,10 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
 
+## #27 selesai render & distribusi (20 Nov 2026)
+- Render 82,7 dtk, −15,0 LUFS. Cover + info di Drive `#27 Atap Bocor Padahal Genteng Utuh` (id 12mmwbdb7CFlvE9yoWr0DmfM6TKc9vvRs). MP4, SRT, cover, versi ringan sudah dikirim ke user.
+- Kelemahan jujur: cek-gerak 61% frame diam (hold 2,03 dtk), objek berbentuk balok (kurang membulat), partikel air skematik, loudness di bawah −14, suara/gerak belum didengar user, efek retensi belum terbukti (banyak variabel diubah sekaligus).
+- PR/merge #25–#27 ke `main` ditunda user. Menunggu evaluasi user atas #27.
+
 ## Video #27 dimulai (20 Nov 2026): format lebih panjang, hook lebih kuat, fokus retensi (atap bocor padahal genteng utuh, 4 biang kerok)
 - Cabang `claude/video-27-retensi-panjang` (dari cabang #26). `checklist/v27.md` dibuat (T1: nomor dicek; durasi target menunggu keputusan user, usul 80–90 dtk, melonggarkan aturan 50–60 dtk khusus #27). Kerangka retensi (hook 0–3 dtk, janji berstruktur, re-hook tiap ±12–15 dtk, bayar janji di ±75–80%, akhir looping) dan 4 ide topik (rekomendasi: atap bocor padahal genteng utuh) di `riset/2026-11-20-retensi-video-panjang.md`. Topik dan durasi 80–90 dtk diterima user ("iya"); riset `riset/2026-11-20-atap-bocor-genteng-utuh.md`, naskah ±190 kata `naskah/video-27-atap-bocor-genteng-utuh.md` (T2 draft). T1–T3 selesai 20 Nov: palet **`langit`**, [⚠ CEK] diterima, naskah ACC (188 kata), VO **Gemini TTS Achernar** 82,5 dtk (`audio/video-27-words.json`), caption `caption/video-27-atap-bocor-genteng-utuh.md`. T4 selesai 20 Nov: objek `kit/objek/AdeganAtap.tsx` (potongan samping atap miring menempel dinding + plafon + ember; mode `atap`; usuk, membran, reng, genteng terurai, flashing, talang, jalur air entri vs titik netes), `remotion/src/v27/` (beats.json 13 adegan, Video27 dengan panel 2D "titik masuk vs titik netes", Cover27), `cek-sutradara` 0 GAGAL. Menunggu ACC 5 still (T5) lalu `tools/produksi.sh bagian 27 <slug>`.
 
