@@ -18,3 +18,5 @@ Tambahkan baris baru di bawah, jangan mengedit yang lama (beri tanggal). Bila do
 | 16 Nov | Setiap video selesai: PR ke `main` lalu Claude langsung merge sendiri (semua channel); cek nomor video terakhir di `main` sebelum mulai | `STATUS.md` |
 | 23 Nov | E1: skill `breakdown` dipakai selektif per video (hanya shot yang butuh bongkar struktur), Remotion + Three.js saja, tanpa HyperFrames/API AI, bukan workflow terpisah | `WORKFLOW.md` Breakdown |
 | 23 Nov | E1: semua aset visual dibuat dari kode (Remotion + Three.js + React/TS + CSS/SVG); API AI eksternal untuk gambar/video/3D/tekstur dilarang; AI hanya asisten kode; cek `node tools/cek-mandiri.mjs`. Struktur workflow, gerbang approval, evaluasi tidak berubah | `WORKFLOW.md`, `e1/AUDIT-ketergantungan-api.md` |
+| 23 Nov | E1: naskah 50–70 dtk (±110–155 kata), tidak terlalu pendek dan tidak terlalu panjang; disisipi perbandingan kasus nyata (real-life) yang dicari sendiri, bersumber dan berlisensi | `WORKFLOW.md` Perbandingan real-life |
+| 23 Nov | Topik E1 dicari sendiri (bukan dari usulan awal); contoh topik dari user hanya ilustrasi | chat |

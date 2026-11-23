@@ -58,7 +58,7 @@ Sebisa mungkin, faktor berikut harus dipertahankan:
 | Story structure | Mengikuti struktur storytelling video #9 |
 | Hook | Menggunakan format hook yang sama |
 | Narration | Menggunakan suara TTS yang sama |
-| Duration | Target 47–50 detik |
+| Duration | Target 50–70 detik |
 | Pacing | Mengikuti pacing referensi #9 |
 | Sound design | Menggunakan pendekatan yang konsisten |
 | CTA | Menggunakan format penutup yang sama |
@@ -241,7 +241,7 @@ Script harus:
 - Memiliki curiosity gap.
 - Tidak mengulang informasi.
 - Menggunakan angka yang ditulis dengan kata untuk TTS.
-- Menyesuaikan panjang dengan target 47–50 detik.
+- Menyesuaikan panjang dengan target 50–70 detik.
 
 CTA tetap:
 
@@ -388,6 +388,16 @@ Berlaku di setiap video E1. Bukan tahap baru dan bukan workflow terpisah: dipaka
 6. **Sederhanakan** geometri objek yang terlalu kompleks tanpa membuang informasi penting (urutan lapisan, ketebalan relatif, posisi komponen); catat penyederhanaan sebagai "penyederhanaan visual" di fact note.
 7. **Cek still sebelum render final:** objek, lapisan, label, kamera, dan animasi terbaca jelas (tiap lapisan terpisah, tidak ada z-fighting, label tidak menimpa objek/teks, label terbaca di layar HP). Breakdown yang tidak terpahami dalam 1–2 detik diperbaiki atau diganti diagram.
 8. Prioritas: storytelling dan pemahaman penonton, bukan efek.
+
+## Perbandingan real-life (sisipan kasus nyata)
+
+Di sela penjelasan visual kode, video boleh menyisipkan 1–3 momen **perbandingan dengan kasus nyata** (rumah, kejadian, atau kondisi sungguhan) untuk membuktikan bahwa penjelasannya terjadi di dunia nyata.
+
+1. **Cari kasus nyata yang terverifikasi** (berita, laporan, instansi): lokasi, tahun, dan angka dicatat di Research dan Sources. Tanpa sumber = tidak dipakai.
+2. **Foto/video orang lain tidak diambil begitu saja.** Foto berita dan hasil pencarian umum berhak cipta. Sumber visual yang diperbolehkan: Wikimedia Commons (CC, kredit wajib), Pexels/Unsplash (lisensi bebas), foto milik channel, atau **kartu kasus** buatan kode (judul kasus, kota, tahun, angka, nama media) tanpa foto.
+3. **Persetujuan pemilik channel** sebelum aset foto dipakai (aset lokal eksternal). Catat file, sumber, lisensi, dan kredit di `e1/eNN-*.md` bagian Sources; kredit ditulis di deskripsi YouTube.
+4. Foto real-life disimpan lokal (`remotion/public/`), tidak diunduh saat render, dan tidak dihasilkan AI.
+5. Perbandingan harus menambah pemahaman (misalnya model kode di kiri, kasus nyata di kanan), bukan dekorasi. Beat sheet memuat kolom tambahan **Real-life**.
 
 ---
 
@@ -663,7 +673,7 @@ Visual harus langsung dapat dipahami dalam 1–2 detik.
 
 Target durasi:
 
-**47–50 detik.**
+**50–70 detik.**
 
 ## Retention framework
 
