@@ -1,5 +1,5 @@
 # E1 #01: Rumah Belanda Tua Kok Adem Tanpa AC? (DRAFT, menunggu ACC script)
-Seri E1, Phase 2. Narasi di `e1-01-rumah-belanda-adem.txt` (±144 kata, ±58–65 dtk). VO: tanya user Gemini atau ElevenLabs setelah ACC.
+Seri E1, Phase 2. Narasi di `e1-01-rumah-belanda-adem.txt` (135 kata, ±55–61 dtk). VO: tanya user Gemini atau ElevenLabs setelah ACC.
 
 ## 3 alternatif hook (ACC memilih satu)
 - **A (dipakai):** "Rumah zaman Belanda adem tanpa AC. Orang bilang itu gara-gara temboknya tebal." (kepercayaan populer, lalu dibantah)
