@@ -29,14 +29,18 @@ export const Seg: React.FC<{a: number; b: number; f: number; first?: boolean; ch
 /** Kamera isometrik (ortografis, arah X=Y=Z): zoom = piksel per satuan dunia. Gerak: zoom (push/pull) dan look (pan/crane); arah kamera tetap. Teknik: .claude/skills/remotion-fitur (isometrik). */
 const IsoRig: React.FC<{k: Key}> = ({k}) => {
   const cam = useThree((s) => s.camera) as THREE.OrthographicCamera;
-  cam.position.set(k.look[0] + 20, k.look[1] + 20, k.look[2] + 20); cam.zoom = k.zoom ?? 300; cam.near = -50; cam.far = 120;
+  const az = (k.az ?? 45) * Math.PI / 180, el = Math.min(84, k.el ?? 35.264) * Math.PI / 180, D = 34.64; // jarak tetap; az/el berganti = kamera mengitari objek (tetap ortografis)
+  cam.position.set(k.look[0] + D * Math.cos(el) * Math.sin(az), k.look[1] + D * Math.sin(el), k.look[2] + D * Math.cos(el) * Math.cos(az)); cam.zoom = k.zoom ?? 300; cam.near = -50; cam.far = 120;
   cam.updateProjectionMatrix(); cam.lookAt(...k.look);
   return null;
 };
 /** cahaya satu arah: sisi atas paling terang, kiri sedang, kanan paling gelap; tidak boleh berubah antar-adegan */
-export const LightsIso: React.FC = () => (<><ambientLight intensity={0.6} /><directionalLight position={[-5, 9, 4]} intensity={2.3} /></>);
+export const LightsIso: React.FC<{az?: number}> = ({az = 45}) => {
+  const f = (az - 45) * Math.PI / 180, x = -5, z = 4; // cahaya ikut berputar bersama kamera: pembagian tiga nada (atas terang, kiri sedang, kanan gelap) tetap
+  return <><ambientLight intensity={0.6} /><directionalLight position={[x * Math.cos(f) + z * Math.sin(f), 9, -x * Math.sin(f) + z * Math.cos(f)]} intensity={2.3} /></>;
+};
 export const CanvasIso: React.FC<{k: Key; children: React.ReactNode}> = ({k, children}) => (
   <ThreeCanvas orthographic width={1080} height={1920} camera={{position: [20, 20, 20], zoom: k.zoom ?? 300, near: -50, far: 120}} gl={{alpha: true, antialias: true}}>
-    <LightsIso /><IsoRig k={k} />{children}
+    <LightsIso az={k.az} /><IsoRig k={k} />{children}
   </ThreeCanvas>
 );

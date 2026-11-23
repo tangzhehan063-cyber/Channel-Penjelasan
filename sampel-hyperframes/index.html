@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<script src="vendor/gsap.min.js"></script>
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1920px;overflow:hidden;background:#0c0827}
+  #root{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:"Trebuchet MS","Arial Rounded MT Bold",Arial,sans-serif;
+    background:radial-gradient(ellipse at 50% 45%,#3b2a86 0%,#1e1559 45%,#0c0827 100%)}
+  #stars,#cv,#ln{position:absolute;inset:0;width:1080px;height:1920px}
+  #judul{position:absolute;left:60px;top:70px;font-weight:800;font-size:40px;color:#ffd24a;letter-spacing:2px}
+  .lb{position:absolute;left:0;top:0;opacity:0;white-space:nowrap;background:rgba(14,10,44,.85);border:5px solid #fff;border-radius:44px;padding:18px 34px;display:flex;align-items:center;gap:22px;color:#fff;font-weight:800}
+  .lb i{font-style:normal;width:56px;height:56px;border-radius:28px;color:#17123f;font-size:32px;display:flex;align-items:center;justify-content:center}
+  .lb div{font-size:52px;line-height:1.05}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="30" data-width="1080" data-height="1920">
+  <canvas id="stars" width="1080" height="1920"></canvas>
+  <canvas id="cv" class="clip" data-start="0" data-duration="30" data-track-index="1" width="1080" height="1920"></canvas>
+  <svg id="ln" viewBox="0 0 1080 1920"></svg>
+  <div id="judul">ISI DINDING BATA</div>
+  <div id="lbs"></div>
+</div>
+<script>
+  window.__sc = {t:0, render:null};
+  const tl = gsap.timeline({paused:true});
+  tl.to(window.__sc,{t:30,duration:30,ease:"none",onUpdate:()=>{ if(window.__sc.render) window.__sc.render(window.__sc.t); }});
+  window.__timelines = window.__timelines || {};
+  window.__timelines["main"] = tl;
+  window.__hf = window.__hf || {}; window.__hf.buildReady = window.__hf.buildReady || {};
+  window.__hf.buildReady["main"] = new Promise(res=>{ window.__sc.ready=res; });
+</script>
+<script type="module">
+import * as THREE from "three";
+import {RoundedBoxGeometry} from "./vendor/RoundedBoxGeometry.js";
+const SC = window.__sc;
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const ez=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const rr=(t,a,b)=>ez(clamp((t-a)/(b-a)));
+const WARNA={cat:'#4aa8f0',aci:'#f4f1ea',plester:'#cfc6b4',bata:'#e8643c',besi:'#ffc933',kolom:'#9ea6b3',sloof:'#8790a0',tanah:'#8a5a3a'};
+const NAMA={cat:['CAT TEMBOK'],aci:['ACI','(ACIAN)'],plester:['PLESTER','SEMEN'],bata:['BATA MERAH','+ SPESI'],besi:['BESI','TULANGAN'],kolom:['KOLOM PRAKTIS','(BETON)'],sloof:['SLOOF','(BETON BERTULANG)'],tanah:['TANAH DASAR']};
+const URUT=['cat','aci','plester','bata','besi','kolom','sloof','tanah'];
+const SOROT={cat:[6.2,8.4],aci:[8.4,10.6],plester:[10.6,12.8],bata:[12.8,15],besi:[15,17.4],kolom:[17.4,19.8],sloof:[19.8,22],tanah:[22,24.2]};
+const L0=[0,.55,.55];
+const K=(t,az,el,zoom,look=L0)=>({t,az,el,zoom,look});
+const CAM=[K(0,45,35.3,400),K(4,30,32,400),K(7,15,26,340,[0,.7,.9]),K(10.5,-25,28,340,[0,.7,.9]),K(14,-55,22,350,[0,.6,.5]),K(17.5,65,22,340,[0,.8,.4]),K(21,78,40,330,[0,.4,.4]),K(24,45,62,330,[0,.4,.5]),K(27,40,35.3,380),K(30,25,30,360)];
+const lp=(a,b,k)=>a+(b-a)*k;
+function camAt(t){
+  if(t<=CAM[0].t) return CAM[0];
+  for(let i=0;i<CAM.length-1;i++){const a=CAM[i],b=CAM[i+1]; if(t<=b.t){const k=ez((t-a.t)/(b.t-a.t));
+    return {az:lp(a.az,b.az,k),el:lp(a.el,b.el,k),zoom:lp(a.zoom,b.zoom,k),look:a.look.map((v,j)=>lp(v,b.look[j],k))};}}
+  return CAM[CAM.length-1];
+}
+function layout(t){
+  const e=rr(t,4.2,6.2)-rr(t,24.6,27.2);
+  const sorot=k=>{const[a,b]=SOROT[k];return rr(t,a,a+.35)*(1-rr(t,b-.35,b));};
+  const anyHi=Math.max(...URUT.map(sorot)), g=.42*e;
+  return {e,anyHi,sorot,P:{
+    bata:{c:[0,.8,.12],s:[2.1,1.3,.24]}, plester:{c:[0,.75,.275+g],s:[2.4,1.5,.07]}, aci:{c:[0,.75,.33+2*g],s:[2.4,1.5,.04]}, cat:{c:[0,.75,.3625+3*g],s:[2.4,1.5,.025]},
+    kolomL:{c:[-1.125-.32*e,.75,.12],s:[.15,1.5,.24]}, kolomR:{c:[1.125+.32*e,.75,.12],s:[.15,1.5,.24]},
+    sloof:{c:[0,-.1-.22*e,.12],s:[2.4,.2,.3]}, tanah:{c:[0,-.45-.5*e,.12],s:[3,.5,1]}}};
+}
+function anchor(k,t){const{P}=layout(t);
+  switch(k){case'cat':return[P.cat.c[0]+.7,P.cat.c[1]+.55,P.cat.c[2]];case'aci':return[P.aci.c[0]+.7,P.aci.c[1]+.55,P.aci.c[2]];case'plester':return[P.plester.c[0]+.7,P.plester.c[1]+.55,P.plester.c[2]];
+  case'bata':return[.2,.8,P.bata.c[2]+.12];case'besi':return[P.kolomR.c[0],1,P.kolomR.c[2]];case'kolom':return[P.kolomL.c[0],1.3,P.kolomL.c[2]+.12];case'sloof':return[-.6,P.sloof.c[1],P.sloof.c[2]+.15];default:return[.6,P.tanah.c[1],P.tanah.c[2]+.5];}}
+function projIso(c,p){const az=c.az*Math.PI/180,el=c.el*Math.PI/180,a=p[0]-c.look[0],b=p[1]-c.look[1],d=p[2]-c.look[2];
+  const x=a*Math.cos(az)-d*Math.sin(az),y=-a*Math.sin(el)*Math.sin(az)+b*Math.cos(el)-d*Math.sin(el)*Math.cos(az);return[540+c.zoom*x,960-c.zoom*y];}
+
+// bintang (kanvas 2D, seek-safe)
+const sc2=document.getElementById('stars').getContext('2d');
+const bintang=Array.from({length:90},(_,i)=>{const h=x=>{const v=Math.sin(i*127.1+x*311.7)*43758.5453;return v-Math.floor(v);};return{x:h(1)*1080,y:h(2)*1920,s:1+h(3)*2.6,o:.25+h(4)*.6};});
+function drawStars(t){sc2.clearRect(0,0,1080,1920);bintang.forEach((b,i)=>{sc2.globalAlpha=b.o*(.7+.3*Math.sin(t*2+i));sc2.fillStyle='#fff';sc2.beginPath();sc2.arc(b.x,b.y,b.s,0,7);sc2.fill();});}
+
+const renderer=new THREE.WebGLRenderer({canvas:document.getElementById('cv'),alpha:true,antialias:true});
+renderer.setSize(1080,1920,false);renderer.setPixelRatio(1);
+const scene=new THREE.Scene();
+const cam=new THREE.OrthographicCamera(-540,540,960,-960,-50,120);
+scene.add(new THREE.AmbientLight(0xffffff,1.9));
+const d1=new THREE.DirectionalLight(0xffffff,2.6);d1.position.set(-3,6,5);scene.add(d1);
+const d2=new THREE.DirectionalLight(0xa9b8ff,.9);d2.position.set(4,2,-3);scene.add(d2);
+
+const tc=document.createElement('canvas');tc.width=tc.height=512;{const g=tc.getContext('2d');g.fillStyle='#f2d9c4';g.fillRect(0,0,512,512);g.fillStyle='#e8643c';const bh=512/13,bw=512/7;for(let j=0;j<13;j++){const off=j%2?-bw/2:0;for(let x=off;x<512;x+=bw)g.fillRect(x+4,j*bh+4,bw-8,bh-8);}}
+const tex=new THREE.CanvasTexture(tc);tex.colorSpace=THREE.SRGBColorSpace;
+const mk=(key,warna,t)=>{const s=layout(0).P[key].s;const geo=new RoundedBoxGeometry(s[0],s[1],s[2],3,Math.min(.03,Math.min(...s)/2.2));
+  const m=new THREE.MeshStandardMaterial({color:t?0xffffff:warna,map:t||null,roughness:.9,metalness:0,transparent:true});const me=new THREE.Mesh(geo,m);scene.add(me);return me;};
+const M={tanah:mk('tanah',WARNA.tanah),sloof:mk('sloof',WARNA.sloof),bata:mk('bata',WARNA.bata,tex),kolomL:mk('kolomL',WARNA.kolom),kolomR:mk('kolomR',WARNA.kolom),plester:mk('plester',WARNA.plester),aci:mk('aci',WARNA.aci),cat:mk('cat',WARNA.cat)};
+const rodMat=new THREE.MeshStandardMaterial({color:WARNA.besi,roughness:.5,transparent:true});
+const rodV=[],rodH=[];
+const off=[[-.045,-.07],[.045,-.07],[-.045,.07],[.045,.07]];
+['kolomL','kolomR'].forEach(k=>off.forEach(o=>{const m=new THREE.Mesh(new THREE.CylinderGeometry(.022,.022,1.46,12),rodMat);scene.add(m);rodV.push({m,k,o});}));
+[-.07,.07].forEach(dz=>[-.06,.06].forEach(dy=>{const m=new THREE.Mesh(new THREE.CylinderGeometry(.022,.022,2.36,12),rodMat);m.rotation.z=Math.PI/2;scene.add(m);rodH.push({m,dz,dy});}));
+
+const lbs=document.getElementById('lbs'),ln=document.getElementById('ln');const NS='http://www.w3.org/2000/svg';
+const LB={};
+URUT.forEach((k,i)=>{const el=document.createElement('div');el.className='lb';el.style.borderColor=WARNA[k];el.innerHTML='<i style="background:'+WARNA[k]+'">'+(i+1)+'</i><div>'+NAMA[k].join('<br>')+'</div>';lbs.appendChild(el);
+  const p=document.createElementNS(NS,'path');p.setAttribute('stroke','#fff');p.setAttribute('stroke-width','4');p.setAttribute('fill','none');p.setAttribute('stroke-linejoin','round');p.setAttribute('stroke-linecap','round');
+  const c=document.createElementNS(NS,'circle');c.setAttribute('r','12');c.setAttribute('fill',WARNA[k]);c.setAttribute('stroke','#fff');c.setAttribute('stroke-width','4');ln.appendChild(p);ln.appendChild(c);LB[k]={el,p,c};});
+
+SC.render=(t)=>{
+  const c=camAt(t),az=c.az*Math.PI/180,el=c.el*Math.PI/180,D=34.64;
+  cam.position.set(c.look[0]+D*Math.cos(el)*Math.sin(az),c.look[1]+D*Math.sin(el),c.look[2]+D*Math.cos(el)*Math.cos(az));
+  cam.zoom=c.zoom;cam.updateProjectionMatrix();cam.lookAt(...c.look);
+  const{anyHi,P,sorot}=layout(t),dim=anyHi*.9;
+  const hiOf={tanah:sorot('tanah'),sloof:sorot('sloof'),bata:sorot('bata'),kolomL:sorot('kolom'),kolomR:sorot('kolom'),plester:sorot('plester'),aci:sorot('aci'),cat:sorot('cat')};
+  for(const k in M){const me=M[k];me.position.set(...P[k].c);const redup=dim*(1-hiOf[k]);me.material.opacity=1-.8*redup;me.material.depthWrite=redup<.5;
+    const w=me.material.color; me.material.emissive=new THREE.Color(k==='bata'?0xffffff:WARNA[k]);me.material.emissiveIntensity=.18*hiOf[k]; }
+  const hb=sorot('besi');rodMat.opacity=1-.8*dim*(1-hb);
+  rodV.forEach(r=>r.m.position.set(P[r.k].c[0]+r.o[0],P[r.k].c[1],P[r.k].c[2]+r.o[1]));
+  rodH.forEach(r=>r.m.position.set(0,P.sloof.c[1]+r.dy,P.sloof.c[2]+r.dz));
+  renderer.render(scene,cam);drawStars(t);
+  URUT.forEach(k=>{const[a,b]=SOROT[k],o=rr(t,a,a+.35)*(1-rr(t,b-.35,b)),L=LB[k];
+    if(o<=.01){L.el.style.opacity=0;L.p.style.display='none';L.c.style.display='none';return;}
+    const[ax,ay]=projIso(c,anchor(k,t)),left=ax>520,by=Math.max(150,Math.min(1560,ay-330)),bx=left?80:1000;
+    L.el.style.opacity=o;L.el.style.top=(by+(1-o)*24)+'px';L.el.style.left=left?bx+'px':'auto';L.el.style.right=left?'auto':(1080-bx)+'px';
+    L.p.style.display='';L.c.style.display='';L.p.setAttribute('opacity',o);L.c.setAttribute('opacity',o);
+    L.p.setAttribute('d','M '+ax+' '+ay+' L '+(left?430:650)+' '+(by+50)+' L '+bx+' '+(by+50));L.c.setAttribute('cx',ax);L.c.setAttribute('cy',ay);});
+};
+SC.render(0);SC.ready();
+</script>
+</body>
+</html>
