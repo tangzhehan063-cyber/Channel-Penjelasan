@@ -8,3 +8,7 @@ take-vo/
 video/*.mp4
 cover/*.png
 tools/.venv-ref/
+sampel-hyperframes/vendor/
+sampel-hyperframes/.tmp/
+sampel-hyperframes/.hyperframes/
+sampel-hyperframes/node_modules/

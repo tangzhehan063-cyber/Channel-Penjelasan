@@ -38,6 +38,8 @@ import {Cover22} from './v22/Cover22';
 import {Video23, V23_FRAMES} from './v23/Video23';
 import {Video24, V24_FRAMES} from './v24/Video24';
 import {Cover24} from './v24/Cover24';
+import {SampelBlueprint, SB_FRAMES} from './sampel/SampelBlueprint';
+import {SampelKurz, SK_FRAMES} from './sampel/SampelKurz';
 import {Cover23} from './v23/Cover23';
 import {KatalogAset, KatalogRumah1, KatalogRumah2} from './kit/KatalogAset';
 import {UjiGayaAset} from './kit/UjiGayaAset';
@@ -66,6 +68,8 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="Video24" component={Video24} durationInFrames={V24_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Cover23" component={Cover23} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Cover24" component={Cover24} durationInFrames={1} fps={30} width={1080} height={1920} />
+  <Composition id="SampelBlueprint" component={SampelBlueprint} durationInFrames={SB_FRAMES} fps={30} width={1080} height={1920} />
+  <Composition id="SampelKurz" component={SampelKurz} durationInFrames={SK_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Cover22" component={Cover22} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Video21" component={Video21} durationInFrames={V21_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Cover21" component={Cover21} durationInFrames={1} fps={30} width={1080} height={1920} />
