@@ -1,4 +1,10 @@
-# STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md` E1; riwayat di bawah sebagian besar untuk alur 3D lama)
+# STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md` v3; riwayat di bawah sebagian besar untuk alur lama)
+
+## 23 Nov 2026 (malam): Creative & Visual Overhaul, Stage 1-7 selesai (menunggu penilaian pemilik)
+- Audit: `AUDIT_REPORT.md`; usulan: `PROPOSAL_ARCHITECTURE.md`; hasil: `CHANGELOG_CREATIVE.md`.
+- Workflow baru 10 tahap di `WORKFLOW.md` (arsip versi lama di `arsip/`); skill baru `visual-director` (`.claude/skills/visual-director/`); alat baru `tools/cek_shots.py`, `tools/review_video.py`, `tools/animatic.py`; pustaka `remotion/src/e1/lib/`.
+- **Pilot #02** (`Pilot02`, 10,6 dtk, sequence "Di bawah rumah"): `e1/02/{direction.md,shots.json,qa.md,storyboard/,review/}`; MP4 `remotion/out/pilot02.mp4` (tidak di-commit). Hasil: lebih terarah dari versi lama (transisi footage-3D bermakna), tapi P3-P4 masih terasa diagram dan belum ada desain suara. Detail jujur di `e1/02/qa.md`.
+- Video #02 penuh (versi lama) dan #01 tidak diubah. Masih terbuka: cover #01/#02, publish, ambience/SFX, foto resolusi lebih tinggi, perbaikan P3-P4, keputusan memperluas pilot.
 
 ## 23 Nov 2026 (malam): E1 #02 "Tanah Turun, Lantai Rumah Ditinggikan Berkali-kali" SELESAI dirender (belum publish)
 - Topik #6 dari 10 ide, naskah ACC hook A (131 kata), VO **Gemini Achernar** lolos `tools/cek_suara.py` (58,1 dtk, 180 Hz, 2,25 kata/dtk) di percobaan pertama. Folder Drive `#02 - Tanah Turun Lantai Ditinggikan` (id `10RK0J-1Z6zuiqll0gQuo7LuaOakIGH6h`). Foto user (3 berkas) di folder itu, disalin lokal (di-gitignore).

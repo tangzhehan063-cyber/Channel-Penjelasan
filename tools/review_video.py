@@ -13,7 +13,7 @@ import numpy as np
 from PIL import Image, ImageDraw
 
 ap = argparse.ArgumentParser(); ap.add_argument('mp4'); ap.add_argument('--shots'); ap.add_argument('--out'); ap.add_argument('--tiap', type=float, default=0.5)
-ap.add_argument('--mulai', type=float, default=0.0); ap.add_argument('--akhir', type=float, default=None); ap.add_argument('--kolom', type=int, default=8)
+ap.add_argument('--mulai', type=float, default=0.0); ap.add_argument('--akhir', type=float, default=None); ap.add_argument('--kolom', type=int, default=8); ap.add_argument('--offset', type=float, default=0.0, help='detik pada shots.json yang bersesuaian dengan detik 0 MP4 (mis. 20.4 untuk pilot)')
 a = ap.parse_args()
 out = a.out or a.mp4 + '.review'; os.makedirs(out, exist_ok=True)
 dur = float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', a.mp4]).decode().strip())
@@ -38,7 +38,7 @@ for si in range(0, len(fr), per):
 # 2. metrik gerak (10 fps, gambar kecil)
 g = frames(10, 54, 96).astype(np.float32).mean(axis=3)
 dif = np.abs(np.diff(g, axis=0)).mean(axis=(1, 2)) if len(g) > 1 else np.array([0.0])
-diam = float((dif < 0.25).mean()); keras = [round(a.mulai + (i + 1) / 10, 1) for i in np.nonzero(dif > 12)[0]]
+diam = float((dif < 0.25).mean()); keras = [round(float(a.mulai + (i + 1) / 10), 1) for i in np.nonzero(dif > 12)[0]]
 sec = [float(dif[i:i + 10].mean()) for i in range(0, len(dif), 10)]
 L = [f'berkas: {a.mp4}  durasi {dur:.2f} dtk (ditinjau {a.mulai:.1f}-{t1:.1f})',
      f'rasio frame hampir diam (selisih <0,25): {diam * 100:.0f}% (angka tinggi bukan salah bila disengaja; periksa dengan mata)',
@@ -49,7 +49,7 @@ L = [f'berkas: {a.mp4}  durasi {dur:.2f} dtk (ditinjau {a.mulai:.1f}-{t1:.1f})',
 if a.shots:
     D = json.load(open(a.shots)); S = D['shots']
     for s in S:
-        ts = [s['mulai'] + 0.1, s['mulai'] + s['durasi'] / 2, s['mulai'] + s['durasi'] - 0.1]; ts = [min(max(t, 0), dur - 0.05) for t in ts]
+        m0 = s['mulai'] - a.offset; ts = [m0 + 0.1, m0 + s['durasi'] / 2, m0 + s['durasi'] - 0.1]; ts = [min(max(t, 0), dur - 0.05) for t in ts]
         im = Image.new('RGB', (3 * 270, 480), (20, 20, 20))
         for i, t in enumerate(ts):
             p = f'{out}/_t.png'; subprocess.run(['ffmpeg', '-v', 'error', '-y', '-ss', f'{t:.3f}', '-i', a.mp4, '-frames:v', '1', '-vf', 'scale=270:480', p]); im.paste(Image.open(p), (i * 270, 0))
@@ -59,6 +59,6 @@ if a.shots:
     L += ['', f'shots.json: {len(S)} shot; kamera {sorted(set(ks))}; mode {sorted(set(ms))}', f'durasi shot: min {min(du):.1f}, maks {max(du):.1f}, rata-rata {sum(du) / len(du):.1f} dtk',
           'per shot (gerak rata-rata dalam rentangnya):']
     for s in S:
-        i0, i1 = int((s['mulai'] - a.mulai) * 10), int((s['mulai'] + s['durasi'] - a.mulai) * 10)
+        i0, i1 = int((s['mulai'] - a.offset - a.mulai) * 10), int((s['mulai'] - a.offset + s['durasi'] - a.mulai) * 10)
         seg = dif[max(0, i0):max(i0 + 1, i1)]; L.append(f'  {s["id"]:>4} {s["mode"]:<9} {s["gerak_kamera"]["jenis"]:<11} {s["durasi"]:4.1f}s gerak {seg.mean() if len(seg) else 0:4.1f}')
 open(f'{out}/laporan.txt', 'w').write('\n'.join(L)); print('\n'.join(L)); print(f'\nberkas tinjauan: {out}/ (strip_*.jpg, shot_*.jpg). LIHAT strip dan shot sebelum menilai.')

@@ -18,7 +18,7 @@ Satu berkas per video: `e1/NN/shots.json`. Divalidasi `python3 tools/cek_shots.p
       "subjek": "dasar rumah + tangga", "lingkungan": "jalan kampung, mendung",
       "ukuran_shot": "sedang",                  // lebar | sedang | dekat | detail
       "sudut_kamera": "sejajar mata, frontal",
-      "posisi_kamera": {"dari": [-1.2, -0.5, 17], "ke": [-1.2, -0.3, 14.5]},
+      "posisi_kamera": {"dari": {"pos": [-0.1, -0.3, 19.0], "look": [-0.1, -0.3, 1.5]}, "ke": {"pos": [-0.1, 0.1, 16.5], "look": [-0.1, 0.1, 1.5]}},  // dibaca lib/kamera.ts (kameraShots)
       "gerak_kamera": {"jenis": "push", "easing": "in-out", "alasan": "Mendekat ke dasar rumah tempat jawabannya."},
       "gerak_subjek": [],
       "cahaya": "mendung difus, sesuai foto",
