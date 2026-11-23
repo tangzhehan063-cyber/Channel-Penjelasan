@@ -1,5 +1,13 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md` E1; riwayat di bawah sebagian besar untuk alur 3D lama)
 
+## 23 Nov 2026 (malam): E1 #01 "Rumah Belanda Adem Tanpa AC" selesai dirender (belum publish)
+- 61,5 dtk, 1080x1920, −13,8 LUFS (audio dinormalkan loudnorm dua-pass dari −19,4), `remotion/src/e1/Rumah01.tsx` (komposisi `Rumah01`), VO **Gemini TTS Achernar** 1 take (60,6 dtk), timestamp `tools/align_teks.py`. Render 9 mnt 11 dtk. `cek-mandiri` OK.
+- Alur: topik "1" dari 10 ide (`riset/2026-11-23-ide-e1.md`), naskah ACC hook B (`naskah/e1-01-rumah-belanda-adem.*`, 146 kata), foto real-life: user menaruh 2 foto di folder Drive #01 (asal-usul tidak diketahui, **dipakai atas risiko user**, tanpa kredit, di-gitignore). Foto Commons gagal diunduh (Wikimedia 429) dan tidak dipakai.
+- Drive: `Fakta Rumah / E1 / #01 - Rumah Belanda Adem Tanpa AC` (id `14uYdcmFHYc0T6GIvd46TSHVv4bYv7uRd`): naskah, caption-dan-info, versi ringan 540p, 2 foto user. MP4 penuh dikirim ke user lewat chat.
+- **Belum:** cover (wajib), approval style reference (pilot lolos sebagai arah?), publish, log metrik 24/48 jam, `cek-sutradara`/`cek-gerak` tidak dijalankan (alat 3D lama). QC mata hanya dari 11 still, video penuh belum ditonton Claude.
+- Catatan teknis: Wikimedia membatasi laju dari IP keluar bersama (429); host `dimensi.petra.ac.id`, `commons.wikimedia.org`, `upload.wikimedia.org` ditambahkan ke environment (disetujui user), jurnal Petra tetap diblokir Cloudflare.
+- Kelemahan: rumah masih kotak/datar (belum semi-realistis penuh), partikel udara satu-satunya penanda aliran, tidak ada foto perumahan baru sebagai pembanding, klaim "banyak rumah baru…" tanpa sumber, angka 35/30 °C satu sumber.
+
 ## 23 Nov 2026: Workflow E1 diganti ke visual 100% kode (belum ada video E1 dibuat)
 - `WORKFLOW.md` v2: Step 4 (style + scene build) dan Step 5 (animasi + render) menggantikan keyframe AI dan image-to-video; QC, pilot, resource management (kredit generator = 0), log, urutan eksekusi disesuaikan. Struktur 13 bagian, 8 step, gerbang approval, benchmark B0/#9, hemat token **tidak diubah**.
 - Baru: `e1/AUDIT-ketergantungan-api.md` (hapus / dokumentasi / diganti kode), `style/e1-visual-kode.md` (tabel metode visual, template rencana adegan, sistem aset, cek otomatis), `tools/cek-mandiri.mjs` (pindai kode visual dari API AI/jaringan; kode saat ini 0 temuan).

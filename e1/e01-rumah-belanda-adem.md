@@ -11,10 +11,10 @@
 | Topic | Rumah kolonial adem (plafon tinggi + ventilasi atas) |
 | Date published | |
 | Visual style | Semi-realistic |
-| Duration | |
+| Duration | 61,5 dtk |
 | Hook | |
 | Production time | |
-| Waktu render / putaran revisi kode | |
+| Waktu render / putaran revisi kode | render 9 mnt 11 dtk; 3 putaran perbaikan still |
 | Views at 24h | |
 | Views at 48h | |
 | Average watch time | |
