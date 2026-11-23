@@ -11,8 +11,11 @@ import {Captions} from '../kit/teks';
 import {camAt, FPS, r, type Key, type V3} from '../kit/waktu';
 import {Bar, Bx, C, Kicker, Label, M as Mat, type Lb} from './AnatomiRumah';
 import wordsJson from '../../public/e1-01/words.json';
+import peta from '../../public/e1-01/peta.json';
 
-export const R01_FRAMES = Math.round(61.4 * FPS);
+export const R01_FRAMES = Math.round(58.94 * FPS);
+// Semua cue adegan di bawah ditulis dalam "waktu lama" (VO v1). VO diganti, jadi waktu nyata dipetakan per kalimat ke waktu lama.
+const wt = (x: number) => { const B = peta.baru, L = peta.lama; if (x <= B[0]) return L[0]; for (let i = 0; i < B.length - 1; i++) if (x <= B[i + 1]) return L[i] + (L[i + 1] - L[i]) * (x - B[i]) / (B[i + 1] - B[i]); return L[L.length - 1]; };
 // Foto real-life dari user (public/e1-01/foto-a.jpg, foto-b.jpg; di-gitignore, asal-usul/lisensi: risiko user, 23 Nov 2026)
 const D = 0.9, WI = 3.0;
 type Rm = {cx: number; H: number; tw: number; rise: number; floor: string; ceil: string; wall: string};
@@ -86,8 +89,8 @@ const Potong: React.FC<{rm: Rm; kind: 'K' | 'M'; t: number}> = ({rm, kind, t}) =
     {(() => { const g = isK ? r(t, 25.0, 25.7) * (1 - r(t, 29.4, 30)) : r(t, 44.4, 45) * (1 - r(t, 50, 50.4)); const o = g * (0.5 + 0.2 * Math.sin(t * 5));
       return o > 0.02 ? [-1, 1].map((s) => <mesh key={s} position={[cx + s * xw, (vh[0] + vh[1]) / 2, 0]}><boxGeometry args={[tw + 0.6, vh[1] - vh[0] + 0.1, D * 0.95]} /><meshBasicMaterial color="#ffe07a" transparent opacity={o} depthWrite={false} /></mesh>) : null; })()}
     <Orang x={cx + 0.6} />
-    <Layer cx={cx} y0={H - hotH} y1={H} col="#ff7a3c" o={hotO} />
-    <Layer cx={cx} y0={0} y1={H - hotH} col="#5aa7ff" o={0.1} />
+    <Layer cx={cx} y0={H - hotH} y1={H - 0.02} col="#ff7a3c" o={hotO} />
+    <Layer cx={cx} y0={0.03} y1={H - hotH} col="#5aa7ff" o={0.1} />
     <Udara rm={rm} t={t} vent={ventOpen} win={isK ? 1 : Math.min(winL, winR)} vis={r(t, 0.6, 2)} />
   </group>);
 };
@@ -170,8 +173,9 @@ const KartuKasus: React.FC<{t: number}> = ({t}) => {
   </>);
 };
 
-export const Rumah01: React.FC = () => {
-  const f = useCurrentFrame(), t = f / FPS, ms = t * 1000, cam = camAt(KEYS, t);
+export const Rumah01: React.FC<{nudge?: number}> = ({nudge = 0}) => {
+  // nudge: geser kamera sangat kecil, hanya untuk uji z-fighting (render frame sama dua kali, bandingkan)
+  const f = useCurrentFrame(), tr = f / FPS, t = wt(tr), ms = tr * 1000, c0 = camAt(KEYS, t), cam: Key = {...c0, pos: [c0.pos[0] + nudge, c0.pos[1], c0.pos[2]]};
   const words = (wordsJson as {words: {word: string; start: number; end: number}[]}).words;
   const sun = Math.max(r(t, 0.5, 1.5) * (1 - r(t, 8.6, 9.2)), r(t, 50.4, 51.2) * (1 - r(t, 57.4, 58.2)));
   const hide = r(t, 30.0, 30.6) * (1 - r(t, 37.0, 37.5));
@@ -181,9 +185,9 @@ export const Rumah01: React.FC = () => {
       <ThreeCanvas width={1080} height={1920} camera={{position: cam.pos, fov: 34}} gl={{alpha: true, antialias: true}} shadows>
         <Env intensity={0.8} /><Rig k={cam} />
         <hemisphereLight args={['#dbeaff', '#8a7a62', 0.55]} />
-        <directionalLight position={[-6, 12, 8]} intensity={2.6} color="#fff4e0" castShadow shadow-mapSize={[2048, 2048]} shadow-camera-left={-9} shadow-camera-right={9} shadow-camera-top={9} shadow-camera-bottom={-3} shadow-camera-near={1} shadow-camera-far={45} shadow-bias={-0.0004} />
+        <directionalLight position={[-6, 12, 8]} intensity={2.6} color="#fff4e0" castShadow shadow-mapSize={[2048, 2048]} shadow-camera-left={-9} shadow-camera-right={9} shadow-camera-top={9} shadow-camera-bottom={-3} shadow-camera-near={1} shadow-camera-far={45} shadow-bias={-0.0004} shadow-normalBias={0.03} />
         <fog attach="fog" args={['#e8eef0', 40, 90]} />
-        <Bx p={[0, -0.55, 0]} s={[16, 1, 6]} c="#7b6650" /><Bx p={[0, -0.03, 1.6]} s={[16, 0.06, 3.4]} c="#7aa05a" r={1} />
+        <Bx p={[0, -0.6, 0]} s={[16, 1, 6]} c="#7b6650" /><Bx p={[0, -0.07, 1.6]} s={[16, 0.06, 3.4]} c="#7aa05a" r={1} />
         <Potong rm={K} kind="K" t={t} /><Potong rm={MD} kind="M" t={t} /><Panah t={t} />
       </ThreeCanvas>
       {LABELS.map((l) => <Label key={l.text} l={l} t={t} e={0} e2={0} cam={cam} />)}
