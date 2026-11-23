@@ -85,3 +85,8 @@ Kandidat: sibolga (CC BY-SA 3.0, Pratyeka), perumahan (CC BY-SA 4.0, Achmad-habi
 Folder: Fakta Rumah / E1 / #01 - Rumah Belanda Adem Tanpa AC
 https://drive.google.com/drive/folders/14uYdcmFHYc0T6GIvd46TSHVv4bYv7uRd (id `14uYdcmFHYc0T6GIvd46TSHVv4bYv7uRd`, dibuat 23 Nov 2026)
 Isi saat ini: naskah-final.txt, caption-dan-info.txt. Menunggu: foto Commons (sibolga, perumahan), MP4 final, cover.
+
+## Foto dari user (23 Nov 2026, diunggah ke folder Drive #01)
+- foto-a: `desain-rumah-belanda-atap-limasan.jpg` (1280x1280): rumah Belanda berpintu kaca, lubang angin berjalusi di atas jendela, atap limasan genteng tanah liat.
+- foto-b: `8061addf947158fef15aaf7594bbb59a.jpg` (1600x899): rumah indis atap limasan tinggi, deretan lubang angin persegi di bawah atap dan di atas jendela.
+- **Asal-usul dan lisensi belum diketahui** (nama berkas dari internet, bukan dari Commons). Disimpan lokal di `remotion/public/e1-01/` dan di-gitignore. Tidak dipakai di render sampai user menjawab status hak pakainya.
