@@ -2,13 +2,15 @@
 
 Alur ini meneruskan cara kerja 4 video pertama (referensi di `referensi/`), dengan tambahan dari ScriptForge. Semua visual memakai gaya editorial 3D di `style/style.md` + kit aset di `style/aset.md`.
 
+> **STATUS (E1):** alur ini untuk video 3D lama (#1–#26). Untuk video E1, penulisan script memakai skill `script-writer` + `prompts/ScriptForge.md` dan alur produksi `WORKFLOW.md`. Jika bentrok: durasi **47–50 dtk** (bukan 50–60), **satu pesan utama per layar** (bukan wajib 2 baris), kosakata aset 3D di Tahap 4–5 tidak dipakai. Yang masih berlaku: identitas konten dan audiens, cek tren (Tahap 1), aturan TTS/timestamp (Tahap 3), caption setelah render.
+
 ## Identitas konten (dari video #1–#4)
 - Seri **"fakta rumah"**: benda & sistem di rumah sehari-hari (bata, semen, meteran listrik, keramik → berikutnya: pipa, atap, kabel, kulkas, cat, kloset, genteng, dsb.).
 - Audiens **35+** (pemilik rumah, tukang, bapak-ibu). Bahasa **santai**: "nggak", "kayak", "Nah", "-mu", "Pernah perhatiin?". Tanpa istilah teknis yang tidak dijelaskan.
 - Durasi **50–60 dtk** (keputusan user 12 Nov), beat menyesuaikan, 9:16. Penomoran video berlanjut (berikutnya **#5**).
 - Penutup tetap: **"Follow buat fakta rumah berikutnya!"**
 
-> **Lapisan viral:** saat Tahap 1–2, terapkan juga skill `.claude/skills/naskah-viral/SKILL.md` (hook 3 alternatif, isi berlapis, payoff, pemicu share, tanda [⚠ CEK]). Dasar data: `riset/2026-11-08-bedah-10-video-viral.md`.
+> **Lapisan viral (skill diarsipkan di `arsip/skills/naskah-viral/`; untuk E1 pakai `script-writer`):** pola lama (hook 3 alternatif, isi berlapis, payoff, pemicu share, tanda [⚠ CEK]). Dasar data: `riset/2026-11-08-bedah-10-video-viral.md`.
 
 ## Tahap 1: Ide
 1. Beri **3–5 ide + 1 rekomendasi** dalam seri fakta rumah (format ScriptForge langkah 2: judul ≤ 60 karakter + satu baris hook/alasan orang klik). Campur format: "kenapa…", "cara … bekerja", "mitos vs fakta", "bahaya yang nggak kelihatan".
