@@ -15,5 +15,5 @@
 | `remotion/` | Kode Remotion + three.js (objek 3D prosedural) |
 | `tools/` | `produksi.sh` (satu pintu produksi), `mix-audio.mjs`, `cek-sutradara.mjs`, `animatic.mjs` (tabel timing), `align_teks.py`, TTS dan konversi timeline |
 | `WORKFLOW.md`, `KEPUTUSAN.md` | Alur 0–7 dan daftar keputusan user yang berlaku |
-| `prompts/` | ScriptForge |
+| `prompts/ScriptForge.md` | ScriptForge (versi PDF lama di `arsip/`) |
 | `.claude/skills/naskah-viral/` | Skill Claude Code `/naskah-viral`: pola naskah viral |
