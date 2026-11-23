@@ -35,6 +35,7 @@ import {Video21, V21_FRAMES} from './v21/Video21';
 import {Video22, V22_FRAMES} from './v22/Video22';
 import {PilotSifon, PILOT_SIFON_FRAMES} from './v23/PilotSifon';
 import {AnatomiRumah, ANATOMI_FRAMES} from './e1/AnatomiRumah';
+import {Rumah01, R01_FRAMES} from './e1/Rumah01';
 import {Cover22} from './v22/Cover22';
 import {Video23, V23_FRAMES} from './v23/Video23';
 import {Video24, V24_FRAMES} from './v24/Video24';
@@ -56,6 +57,7 @@ import {BakeAset} from './aset/BakeAset';
 export const RemotionRoot: React.FC = () => (
   <>
   <Composition id="AnatomiRumah" component={AnatomiRumah} durationInFrames={ANATOMI_FRAMES} fps={30} width={1080} height={1920} />
+  <Composition id="Rumah01" component={Rumah01} durationInFrames={R01_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Video13" component={Video13} durationInFrames={V13_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Cover14" component={Cover14} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Cover16" component={Cover16} durationInFrames={1} fps={30} width={1080} height={1920} />

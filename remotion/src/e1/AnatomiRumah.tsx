@@ -13,7 +13,7 @@ import {camAt, FPS, proj, r, type Key, type V3} from '../kit/waktu';
 export const ANATOMI_FRAMES = 36 * FPS;
 const W = 4, D = 3.2, T = 0.15, H = 2.8; // lebar, dalam, tebal dinding, tinggi dinding
 const SX = 30; // posisi potongan dinding di dunia
-const C = {tanah: '#7b6650', rumput: '#6f9150', bata: '#b8573b', plester: '#e8e1d4', beton: '#a3a29d', kayu: '#a97b42', kayuTua: '#7d5a30', genteng: '#b24d2c', batu: '#78756f', lantai: '#d8cfc0', kaca: '#a9d3e6', besi: '#4a4f57', cat: '#f3efe6', aksen: '#ef6a4c'};
+export const C = {tanah: '#7b6650', rumput: '#6f9150', bata: '#b8573b', plester: '#e8e1d4', beton: '#a3a29d', kayu: '#a97b42', kayuTua: '#7d5a30', genteng: '#b24d2c', batu: '#78756f', lantai: '#d8cfc0', kaca: '#a9d3e6', besi: '#4a4f57', cat: '#f3efe6', aksen: '#ef6a4c'};
 
 // ---------- tekstur prosedural (CanvasTexture, seed tetap) ----------
 const rng = (s: number) => () => { s = (s + 0x6d2b79f5) | 0; let t = Math.imul(s ^ (s >>> 15), 1 | s); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
@@ -23,7 +23,7 @@ function tex(w: number, h: number, draw: (g: CanvasRenderingContext2D, rnd: () =
   const t = new THREE.CanvasTexture(cv); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(...rep); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
   return t;
 }
-const useTex = () => useMemo(() => ({
+export const useTex = () => useMemo(() => ({
   // tile 0,5 m x 0,28 m: 4 baris bata, 2 bata per baris
   bata: tex(256, 256, (g, rd) => {
     g.fillStyle = '#d9d2c4'; g.fillRect(0, 0, 256, 256);
@@ -50,11 +50,11 @@ const useTex = () => useMemo(() => ({
 }), []);
 
 // ---------- primitif ----------
-const M: React.FC<{c: string; map?: THREE.Texture; r?: number; m?: number; o?: number}> = ({c, map, r: ro = 0.8, m = 0, o = 1}) =>
+export const M: React.FC<{c: string; map?: THREE.Texture; r?: number; m?: number; o?: number}> = ({c, map, r: ro = 0.8, m = 0, o = 1}) =>
   <meshStandardMaterial color={map ? '#ffffff' : c} map={map} roughness={ro} metalness={m} transparent={o < 1} opacity={o} depthWrite={o >= 1} />;
-const Bx: React.FC<{p: V3; s: V3; c: string; map?: THREE.Texture; o?: number; r?: number; m?: number}> = ({p, s, c, map, o = 1, r: ro, m}) =>
+export const Bx: React.FC<{p: V3; s: V3; c: string; map?: THREE.Texture; o?: number; r?: number; m?: number}> = ({p, s, c, map, o = 1, r: ro, m}) =>
   <mesh position={p} castShadow receiveShadow><boxGeometry args={s} /><M c={c} map={map} o={o} r={ro} m={m} /></mesh>;
-const Bar: React.FC<{a: V3; b: V3; th: number; c: string; o?: number}> = ({a, b, th, c, o = 1}) => {
+export const Bar: React.FC<{a: V3; b: V3; th: number; c: string; o?: number}> = ({a, b, th, c, o = 1}) => {
   const va = new THREE.Vector3(...a), vb = new THREE.Vector3(...b), d = vb.clone().sub(va), len = d.length();
   const q = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), d.clone().normalize());
   return <mesh position={va.clone().add(vb).multiplyScalar(0.5).toArray()} quaternion={q} castShadow receiveShadow><boxGeometry args={[th, len, th]} /><M c={c} r={0.9} o={o} /></mesh>;
@@ -189,7 +189,7 @@ const KC: Key[] = [orb(24.6, -35, 18, 22, [0, 1.8, 0]), orb(31, 20, 16, 21, [0, 
 const camera = (t: number): Key => (t < 14.2 ? camAt(KA, t) : t < 24.6 ? camAt(KB, t) : camAt(KC, t));
 
 // ---------- label ----------
-type Lb = {a: number; b: number; text: string; sub?: string; at: V3 | ((e: number, e2: number) => V3); side: 'L' | 'R'; dy?: number};
+export type Lb = {a: number; b: number; text: string; sub?: string; at: V3 | ((e: number, e2: number) => V3); side: 'L' | 'R'; dy?: number};
 const lift = (y: number, k: number): ((e: number) => V3) => (e) => [W / 2 - 0.1, y + e * k, D / 2];
 const LABELS: Lb[] = [
   {a: 8.6, b: 14, text: 'Genteng', at: (e) => [1.2, 4.9 + e * OFF.genteng - 0.3, 0.9], side: 'R'},
@@ -209,7 +209,7 @@ const LABELS: Lb[] = [
   {a: 27.2, b: 31.4, text: 'Turun lewat kolom', at: () => [W / 2 - T / 2, 1.8, D / 2 - T / 2], side: 'L'},
   {a: 28.6, b: 31.4, text: 'Disebar pondasi ke tanah', at: () => [W / 2 + 0.25, -0.5, D / 2 + 0.3], side: 'R'},
 ];
-const Label: React.FC<{l: Lb; t: number; e: number; e2: number; cam: Key}> = ({l, t, e, e2, cam}) => {
+export const Label: React.FC<{l: Lb; t: number; e: number; e2: number; cam: Key}> = ({l, t, e, e2, cam}) => {
   const i = r(t, l.a, l.a + 0.35, Easing.out(Easing.cubic)), o = 1 - r(t, l.b - 0.3, l.b);
   if (i * o <= 0.01) return null;
   const [px, py0] = proj(cam, typeof l.at === 'function' ? l.at(e, e2) : l.at), py = Math.max(260, Math.min(1330, py0 + (l.dy ?? 0)));
@@ -223,7 +223,7 @@ const Label: React.FC<{l: Lb; t: number; e: number; e2: number; cam: Key}> = ({l
   </>);
 };
 
-const Kicker: React.FC<{t: number; a: number; b: number; text: string}> = ({t, a, b, text}) => {
+export const Kicker: React.FC<{t: number; a: number; b: number; text: string}> = ({t, a, b, text}) => {
   const p = r(t, a, a + 0.5, Easing.out(Easing.cubic)) * (1 - r(t, b - 0.4, b));
   if (p <= 0.01) return null;
   return <div style={{position: 'absolute', left: 0, right: 0, top: 150, textAlign: 'center', fontFamily: 'Inter', fontWeight: 900, fontSize: 76, letterSpacing: -2, color: '#25252a', opacity: p, transform: `translateY(${(1 - p) * -24}px)`, textShadow: '0 2px 0 rgba(255,255,255,0.7)'}}>{text}</div>;
