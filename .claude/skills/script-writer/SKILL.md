@@ -1,6 +1,6 @@
 ---
 name: script-writer
-description: Dipanggil otomatis setiap kali Claude diminta menulis, mengembangkan, menganalisis, atau merevisi script/naskah video Fakta Rumah. Mencakup kemampuan menulis, storytelling, hook, retention, dan revisi script (durasi 47–50 detik, narasi Indonesia natural). Hanya fokus kualitas script, tidak mengubah workflow produksi.
+description: Dipanggil otomatis setiap kali Claude diminta menulis, mengembangkan, menganalisis, atau merevisi script/naskah video Fakta Rumah. Mencakup kemampuan menulis, storytelling, hook, retention, dan revisi script (durasi 50–70 detik, ±110–155 kata, narasi Indonesia natural). Fokus kualitas script; bekerja sama dengan tahap Sudut cerita, Audit cerita, dan Arahan visual di WORKFLOW.md.
 ---
 
 # SCRIPT WRITER — FAKTA RUMAH
@@ -247,6 +247,13 @@ Only include storytelling, pronunciation, or emphasis notes if they genuinely im
 Do not automatically produce a complete video production workflow, technical pipeline, asset list, or production instructions.
 
 Storyboard and production details should only be generated when explicitly requested or when the existing project workflow requires them.
+
+## 12. Integrasi dengan arahan visual (WORKFLOW E1 v3)
+- Mulai dari `e1/NN/angle.md` (sudut cerita yang sudah di-ACC): pertanyaan sentral, ekspektasi yang dibalik, wahyu utama, penutup. Naskah melayani wahyu itu.
+- Tulis untuk telinga **dan** untuk gambar: tiap beat penting memuat sesuatu yang bisa diperlihatkan; jangan menulis kalimat yang hanya mengulang apa yang pasti terlihat di layar.
+- Setelah tahap Arahan Visual, kamu boleh diminta merevisi naskah demi visual (memangkas kalimat yang mengulang gambar, memindahkan wahyu agar jatuh bersama reveal visual). Revisi boleh sampai animatic di-ACC; sesudahnya naskah dikunci.
+- Subtitle default mati: naskah tidak boleh bergantung pada pembacaan teks di layar. Beri tanda kata/angka kunci (untuk teks penekanan selektif) di `.md`.
+- Batas 110–155 kata adalah pagar, bukan target: cerita yang kuat dan pas boleh lebih pendek.
 
 ## 10. Script Revision
 
