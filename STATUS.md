@@ -1,5 +1,12 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md` E1; riwayat di bawah sebagian besar untuk alur 3D lama)
 
+## 23 Nov 2026: Workflow E1 diganti ke visual 100% kode (belum ada video E1 dibuat)
+- `WORKFLOW.md` v2: Step 4 (style + scene build) dan Step 5 (animasi + render) menggantikan keyframe AI dan image-to-video; QC, pilot, resource management (kredit generator = 0), log, urutan eksekusi disesuaikan. Struktur 13 bagian, 8 step, gerbang approval, benchmark B0/#9, hemat token **tidak diubah**.
+- Baru: `e1/AUDIT-ketergantungan-api.md` (hapus / dokumentasi / diganti kode), `style/e1-visual-kode.md` (tabel metode visual, template rencana adegan, sistem aset, cek otomatis), `tools/cek-mandiri.mjs` (pindai kode visual dari API AI/jaringan; kode saat ini 0 temuan).
+- Diperbarui: `CLAUDE.md` ARAH AKTIF, skill `remotion-fitur`, `e1/_template-log.md`, `KEPUTUSAN.md`.
+- **Keputusan pemilik yang masih terbuka:** (1) VO tetap Gemini/ElevenLabs (layanan AI audio, di luar aset visual) atau alternatif lokal; (2) perlu dirapikan komponen arsitektur parametrik (`kit/arsitektur/`, belum ditulis) dan pustaka material/lighting preset sebelum pilot; (3) variabel eksperimen kini "procedural semi-realistis vs diorama kertas", keduanya Three.js, jadi perbedaan harus terlihat jelas di pilot.
+- Pilot berikutnya: 1 adegan rumah (mis. #9 POV mobil) dengan material PBR + matahari nyata, lalu minta approval style reference.
+
 ## Video #24 selesai (19 Nov 2026): "Rumah Hook Bawa Sial?" (Bukan Sial #05)
 - 53,6 dtk, −14,3 LUFS, `remotion/src/v24/` (beats.json + Video24 + Cover24), objek baru `kit/objek/AdeganHook.tsx` (rumah sudut malam, mobil, berkas lampu, pita angin, pagar, tanaman), palet **`malam`** (user), VO **Gemini TTS Achernar** (2 generasi: 62,8 dtk lalu tempo rapat 53,2 dtk dipakai). Drive #24 `1QQTUxesQgUcl-bMapSQYW_a0xU06Dfjn` (cover, info, versi ringan 540p); MP4 penuh + SRT + cover dikirim ke user. Riset `riset/2026-11-19-rumah-hook.md`, naskah `naskah/video-24-rumah-hook.md`, caption `caption/video-24-rumah-hook.md`.
 - **Dasar keputusan:** ekspor YouTube Studio user 19 Nov (14 video, 20.862 views, 21 subscriber): video mitos rata-rata ±1.825 views / ±40% ditonton vs teknis ±1.290 / ±21%; #9 tusuk sate terbaik. Karena itu #24 memakai formula #9 (kepercayaan yang ditakuti, lalu alasan nyata). Kolom thumbnail Studio hampir tak berarti untuk Shorts (±93% views dari feed). Hipotesis yang diuji: lima video mitos berikutnya; bandingkan views dan % ditonton.

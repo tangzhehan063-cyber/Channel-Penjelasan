@@ -16,3 +16,4 @@ Tambahkan baris baru di bawah, jangan mengedit yang lama (beri tanggal). Bila do
 | 14 Nov | Identitas channel = sistem (kartu terang, kicker, tipografi, bentuk membulat, peran warna), bukan warna latar; latar boleh berganti lewat palet (`style/palet.json`) | `style/identitas.md` |
 | 14 Nov | `cek-sutradara` memeriksa animasi, bentuk, warna; `cek-visual.py` memeriksa perpaduan warna dari still | `.claude/skills/sutradara/SKILL.md` F |
 | 16 Nov | Setiap video selesai: PR ke `main` lalu Claude langsung merge sendiri (semua channel); cek nomor video terakhir di `main` sebelum mulai | `STATUS.md` |
+| 23 Nov | E1: semua aset visual dibuat dari kode (Remotion + Three.js + React/TS + CSS/SVG); API AI eksternal untuk gambar/video/3D/tekstur dilarang; AI hanya asisten kode; cek `node tools/cek-mandiri.mjs`. Struktur workflow, gerbang approval, evaluasi tidak berubah | `WORKFLOW.md`, `e1/AUDIT-ketergantungan-api.md` |
