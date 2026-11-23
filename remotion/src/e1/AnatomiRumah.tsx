@@ -16,8 +16,8 @@ export const SX = 30; // posisi potongan dinding di dunia
 export const C = {tanah: '#7b6650', rumput: '#6f9150', bata: '#b8573b', plester: '#e8e1d4', beton: '#a3a29d', kayu: '#a97b42', kayuTua: '#7d5a30', genteng: '#b24d2c', batu: '#78756f', lantai: '#d8cfc0', kaca: '#a9d3e6', besi: '#4a4f57', cat: '#f3efe6', aksen: '#ef6a4c'};
 
 // ---------- tekstur prosedural (CanvasTexture, seed tetap) ----------
-const rng = (s: number) => () => { s = (s + 0x6d2b79f5) | 0; let t = Math.imul(s ^ (s >>> 15), 1 | s); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
-function tex(w: number, h: number, draw: (g: CanvasRenderingContext2D, rnd: () => number) => void, rep: [number, number], seed = 1) {
+export const rng = (s: number) => () => { s = (s + 0x6d2b79f5) | 0; let t = Math.imul(s ^ (s >>> 15), 1 | s); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+export function tex(w: number, h: number, draw: (g: CanvasRenderingContext2D, rnd: () => number) => void, rep: [number, number], seed = 1) {
   const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
   draw(cv.getContext('2d')!, rng(seed));
   const t = new THREE.CanvasTexture(cv); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(...rep); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;

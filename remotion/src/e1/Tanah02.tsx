@@ -3,19 +3,22 @@
 // Aturan z-fighting (cek_kilau): tak ada permukaan sebidang; benda yang menumpu menancap 0,02 m ke penopangnya.
 // Breakdown (skill breakdown) = SATU scene khusus (20,9-30,4 dtk): potongan tanah terurai + pemampatan lempung.
 import {ThreeCanvas} from '@remotion/three';
+import {useMemo} from 'react';
 import {AbsoluteFill, Audio, Easing, staticFile, useCurrentFrame} from 'remotion';
 import '@fontsource/inter/600.css'; import '@fontsource/inter/900.css';
 import {Env} from '../pengetahuan/Scene';
 import {Rig} from '../kit/stage';
 import {Captions} from '../kit/teks';
 import {camAt, FPS, nudgeKey, r, type Key, type V3} from '../kit/waktu';
-import {Bx, C, Kicker, Label, type Lb} from './AnatomiRumah';
+import {Bx, C, Kicker, Label, useTex, type Lb} from './AnatomiRumah';
+import {Blok, Kampung, RumahKampung, useBahan} from './look';
+import * as THREE from 'three';
 import {FotoMomen} from './Rumah01';
 import wordsJson from '../../public/e1-02/words.json';
 
 export const R02_FRAMES = Math.round(58.4 * FPS);
 // Foto real-life dari user: ubah true setelah berkas ada di public/e1-02/ (rumah-ditinggikan.jpg, rob-permukiman.jpg, rumah-tertanam.jpg)
-const FOTO = {rumah: false, rob: false, tertanam: false};
+const FOTO = {rumah: true, rob: true, tertanam: true};
 const SB = 40; // posisi scene breakdown di dunia
 const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
 const orb = (t: number, az: number, el: number, d: number, look: V3): Key => { const A = az * Math.PI / 180, E = el * Math.PI / 180; return {t, pos: [look[0] + d * Math.cos(E) * Math.sin(A), look[1] + d * Math.sin(E), look[2] + d * Math.cos(E) * Math.cos(A)], look}; };
@@ -33,39 +36,35 @@ const keadaan = (t: number) => {
 };
 
 // ---------- dunia: tanah berlapis + rumah + air + tiang acuan ----------
-const GX = 0.3, GW = 6.6, GD = 1.2; // blok tanah
+const GX = 0.4, GW = 11, GD = 3.4; // blok tanah
+const useBahanE1 = () => { const b = useBahan(), x = useTex(); return {b, genteng: x.genteng, beton: x.beton, tanah: x.tanah}; };
 const Dunia: React.FC<{t: number}> = ({t}) => {
-  const tex = useTexSafe();
+  const {b, genteng, beton, tanah} = useBahanE1();
   const {sea, drop, extra} = keadaan(t);
   const floor = 0.9 + extra; // tinggi lantai di atas permukaan tanah
+  const air = useMemo(() => { const m = b.air.clone(); m.needsUpdate = true; return m; }, [b]);
+  air.offset.x = (t * 0.04) % 1; air.offset.y = Math.sin(t * 0.8) * 0.01;
   return (<group>
     {/* tiang acuan tetap (tertanam di tanah keras) + penggaris merah-putih tiap 0,5 m */}
-    <mesh position={[-2.0, -0.2, 0.75]}><cylinderGeometry args={[0.06, 0.06, 7.4, 12]} /><meshStandardMaterial color="#f4f1ea" roughness={0.6} /></mesh>
-    {Array.from({length: 13}, (_, i) => -2 + i * 0.5).map((y, i) => <mesh key={i} position={[-2.0, y + 0.12, 0.75]}><cylinderGeometry args={[0.075, 0.075, 0.12, 12]} /><meshStandardMaterial color="#e2563f" roughness={0.6} /></mesh>)}
+    <mesh position={[-2.6, -0.2, 1.95]}><cylinderGeometry args={[0.06, 0.06, 7.4, 12]} /><meshStandardMaterial color="#f4f1ea" roughness={0.6} /></mesh>
+    {Array.from({length: 13}, (_, i) => -2 + i * 0.5).map((y, i) => <mesh key={i} position={[-2.6, y + 0.12, 1.95]}><cylinderGeometry args={[0.075, 0.075, 0.12, 12]} /><meshStandardMaterial color="#e2563f" roughness={0.6} /></mesh>)}
     {/* garis permukaan tanah awal */}
-    <Bx p={[GX, 0.0, 0.66]} s={[GW + 0.4, 0.025, 0.025]} c="#ef6a4c" />
-    {/* tanah (turun bersama rumah) */}
+    <Bx p={[GX, 0.0, 1.85]} s={[GW + 0.4, 0.025, 0.025]} c="#ef6a4c" />
+    {/* tanah berlapis (turun bersama rumah) */}
     <group position={[0, -drop, 0]}>
-      <Bx p={[GX, -0.25, 0]} s={[GW, 0.5, GD]} c="#8a7355" map={tex.tanah} />
-      <Bx p={[GX, -1.2, 0]} s={[GW, 1.4, GD]} c="#7f8f98" r={0.9} />
-      <Bx p={[GX, -2.15, 0]} s={[GW, 0.5, GD]} c="#d4bb7e" r={0.95} />
-      <Bx p={[GX, -3.2, 0]} s={[GW, 1.6, GD]} c="#565b63" r={0.95} />
-      {/* rumah: 3 lapis urugan lama + urugan baru (extra) */}
-      {[0, 1, 2].map((k) => <Bx key={k} p={[0.4, 0.15 + k * 0.3 - 0.01, 0]} s={[3.4, 0.3, 1.0]} c={k % 2 ? '#8f8a7f' : '#cfcabd'} map={tex.beton} />)}
-      {extra > 0.01 && <Bx p={[0.4, 0.9 - 0.02 + extra / 2, 0]} s={[3.4, extra, 1.0]} c="#b59f78" map={tex.tanah} />}
-      <group position={[0.4, floor - 0.02, 0]}>
-        <Bx p={[0, 1.1, -0.42]} s={[3.1, 2.2, 0.12]} c="#e6dcc6" />
-        <Bx p={[-1.62, 1.1, 0]} s={[0.14, 2.2, 0.9]} c="#cbbfa4" /><Bx p={[1.62, 1.1, 0]} s={[0.14, 2.2, 0.9]} c="#cbbfa4" />
-        {[-1, 1].map((s) => <mesh key={s} position={[s * 0.95, 2.62, 0]} rotation={[0, 0, -s * 0.42]}><boxGeometry args={[2.2, 0.08, 1.15]} /><meshStandardMaterial color={C.genteng} roughness={0.8} /></mesh>)}
-      </group>
+      <Blok p={[GX, 0.0, 0]} s={[GW, 0.06, GD]} map={b.rumput} rep={[5, 1.5]} bump={0.8} r={1} />
+      <Blok p={[GX, -0.265, 0]} s={[GW, 0.47, GD]} map={tanah} rep={[5, 1]} bump={0.8} />
+      <Blok p={[GX, -1.2, 0]} s={[GW, 1.4, GD]} map={b.lempung} rep={[4, 1]} bump={0.5} />
+      <Blok p={[GX, -2.15, 0]} s={[GW, 0.5, GD]} map={b.pasir} rep={[4, 1]} bump={0.6} />
+      <Blok p={[GX, -3.2, 0]} s={[GW, 1.6, GD]} map={b.batuan} rep={[4, 1]} bump={0.9} />
+      <group position={[0.4, 0, 0]}><RumahKampung floor={floor} extra={extra} b={b} genteng={genteng} beton={beton} tanah={tanah} /></group>
+      <Kampung b={b} genteng={genteng} />
     </group>
-    {/* air: menembus rumah, dasar di bawah permukaan tanah supaya tidak sebidang */}
-    <mesh position={[GX, (sea - drop - 0.03) / 2, 0.02]}><boxGeometry args={[GW - 0.1, sea + drop + 0.03, GD + 0.5]} /><meshBasicMaterial color="#3d8fd6" transparent opacity={0.4} depthWrite={false} /></mesh>
+    {/* air: dasar menancap 0,03 m ke tanah atas (tidak sebidang), bergerak pelan */}
+    <mesh position={[GX, (sea - drop - 0.015) / 2, 0.02]}><boxGeometry args={[GW - 0.1, sea + drop + 0.015, GD + 0.5]} /><meshStandardMaterial map={air} color="#ffffff" transparent opacity={0.5} roughness={0.15} depthWrite={false} /></mesh>
   </group>);
 };
-// tekstur kecil lokal (CanvasTexture, seed tetap) lewat useTex milik AnatomiRumah
-import {useTex} from './AnatomiRumah';
-const useTexSafe = () => { const t = useTex(); return {tanah: t.tanah, beton: t.beton}; };
+const useTexSafe = () => { const t = useBahanE1(); return {tanah: t.tanah, beton: t.beton, b: t.b}; };
 
 // ---------- BREAKDOWN: potongan tanah terurai, lempung memampat, air tersedot ----------
 const Bongkar: React.FC<{t: number}> = ({t}) => {
@@ -77,12 +76,12 @@ const Bongkar: React.FC<{t: number}> = ({t}) => {
   const act = r(t, 24.0, 24.8) * (1 - r(t, 29.8, 30.6));
   return (<group position={[SB, 0, 0]}>
     <Bx p={[0, -0.06, 0]} s={[5, 0.1, 3.2]} c="#cfc8ba" r={0.9} />
-    <Bx p={[0, y0 + h.dasar / 2, 0]} s={[W, h.dasar, D]} c="#565b63" r={0.95} />
-    <Bx p={[0, y1 + h.pasir / 2, 0]} s={[W, h.pasir, D]} c="#d4bb7e" r={0.95} />
-    <Bx p={[0, y2 + h.lempung / 2, 0]} s={[W, h.lempung, D]} c="#7f8f98" r={0.9} />
-    <Bx p={[0, y3 + h.urug / 2, 0]} s={[W, h.urug, D]} c="#9a8f7c" map={tex.tanah} />
+    <Blok p={[0, y0 + h.dasar / 2, 0]} s={[W, h.dasar, D]} map={tex.b.batuan} rep={[1.5, 1]} bump={0.9} />
+    <Blok p={[0, y1 + h.pasir / 2, 0]} s={[W, h.pasir, D]} map={tex.b.pasir} rep={[1.5, 1]} bump={0.6} />
+    <Blok p={[0, y2 + h.lempung / 2, 0]} s={[W, h.lempung, D]} map={tex.b.lempung} rep={[1.5, 1.2]} bump={0.5} />
+    <Blok p={[0, y3 + h.urug / 2, 0]} s={[W, h.urug, D]} map={tex.tanah} rep={[1.5, 1]} bump={0.8} />
     <group position={[0, y4 - 0.02, 0]}>
-      <Bx p={[0, 0.45, 0]} s={[1.5, 0.9, 0.8]} c="#e6dcc6" /><mesh position={[0, 0.93, 0]}><boxGeometry args={[1.7, 0.1, 1.0]} /><meshStandardMaterial color={C.genteng} roughness={0.8} /></mesh>
+      <Blok p={[0, 0.45, 0]} s={[1.5, 0.9, 0.8]} map={tex.b.plester} rep={[1, 1]} bump={0.4} /><mesh position={[0, 0.93, 0]}><boxGeometry args={[1.7, 0.1, 1.0]} /><meshStandardMaterial color={C.genteng} roughness={0.8} /></mesh>
     </group>
     {/* sumur bor di sisi kanan: pipa + pompa + pipa isap ke lapisan pasir */}
     <mesh position={[1.75, (y1 + h.pasir / 2 + y4 + 0.95) / 2, 0]}><cylinderGeometry args={[0.07, 0.07, y4 + 0.95 - (y1 + h.pasir / 2), 12]} /><meshStandardMaterial color="#4a4f57" metalness={0.7} roughness={0.4} /></mesh>
@@ -118,13 +117,13 @@ const bongkarLabels = (t: number): Lb[] => {
 };
 
 // ---------- kamera ----------
-const KD: Key[] = [orb(0, 8, 6, 16, [0.0, 2.1, 0]), orb(5.6, -6, 6, 15.5, [0.0, 2.1, 0]), orb(9.8, -16, 5, 15, [-0.4, 1.7, 0]), orb(16.5, 0, 6, 16, [0.0, 1.0, 0]),
-  orb(20.4, -8, 8, 17.5, [0.1, 0.6, 0]), orb(30.9, 4, 8, 17.5, [0.1, 0.8, 0]), orb(38.9, 0, 5, 15.5, [0.0, 2.0, 0]), orb(45.5, 6, 6, 15.5, [0.0, 1.8, 0]), orb(52, 0, 8, 19, [0.0, 1.8, 0]), orb(58.4, -4, 9, 21, [0.0, 1.8, 0])];
+const KD: Key[] = [orb(0, 8, 6, 20, [0.4, 2.0, 0]), orb(5.6, -6, 6, 19.5, [0.4, 2.0, 0]), orb(9.8, -16, 5, 19, [0.0, 1.5, 0]), orb(16.5, 0, 6, 20, [0.4, 0.8, 0]),
+  orb(20.4, -8, 8, 21, [0.4, 0.4, 0]), orb(30.9, 4, 8, 21, [0.4, 0.6, 0]), orb(38.9, 0, 5, 19.5, [0.4, 1.9, 0]), orb(45.5, 6, 6, 19.5, [0.4, 1.5, 0]), orb(52, 0, 8, 22, [0.4, 1.6, 0]), orb(58.4, -4, 9, 24, [0.4, 1.6, 0])];
 const KB: Key[] = [orb(20.9, 22, 8, 16, [SB, 3.0, 0]), orb(25.5, -4, 11, 16, [SB, 2.9, 0]), orb(30.4, -22, 14, 16.5, [SB, 2.7, 0])];
 
 // ---------- overlay 2D ----------
 const Penghitung: React.FC<{t: number}> = ({t}) => {
-  const p = r(t, 10.6, 11.2) * (1 - r(t, 20.6, 21.0)); if (p <= 0.01) return null;
+  const foto = r(t, 11.4, 11.8) * (1 - r(t, 14.4, 14.8)), p = r(t, 10.6, 11.2) * (1 - r(t, 20.6, 21.0)) * (1 - foto); if (p <= 0.01) return null;
   const d = keadaan(t).drop, th = Math.min(10, Math.round(d * 10));
   return (<div style={{position: 'absolute', left: 0, right: 0, top: 215, textAlign: 'center', fontFamily: 'Inter', opacity: p}}>
     <div style={{display: 'inline-block', padding: '10px 30px 14px', borderRadius: 24, background: 'rgba(250,249,246,0.95)', boxShadow: '0 10px 32px rgba(30,30,30,0.2)'}}>
@@ -166,7 +165,15 @@ const Saran: React.FC<{t: number}> = ({t}) => {
     </div>
   </>);
 };
-const Matahari: React.FC = () => null;
+const Langit: React.FC<{t: number}> = ({t}) => (
+  <svg width={1080} height={1000} style={{position: 'absolute', left: 0, top: 0}}>
+    <defs><filter id="kabur"><feGaussianBlur stdDeviation="18" /></filter><radialGradient id="mt" cx="0.15" cy="0.05" r="0.6"><stop offset="0" stopColor="#fff6d8" stopOpacity="0.85" /><stop offset="1" stopColor="#fff6d8" stopOpacity="0" /></radialGradient></defs>
+    <rect width={1080} height={1000} fill="url(#mt)" />
+    {[[120, 300, 210, 46, 7], [620, 220, 260, 52, 5], [900, 420, 200, 40, 9], [330, 520, 240, 44, 6]].map(([x, y, rx, ry, v], i) => <g key={i} filter="url(#kabur)" opacity={0.7}>
+      <ellipse cx={((x + t * v) % 1500) - 200} cy={y} rx={rx} ry={ry} fill="#ffffff" /><ellipse cx={((x + t * v) % 1500) - 200 + rx * 0.5} cy={y - ry * 0.5} rx={rx * 0.6} ry={ry * 0.8} fill="#ffffff" />
+    </g>)}
+  </svg>
+);
 
 export const Tanah02: React.FC<{nudge?: number}> = ({nudge = 0}) => {
   const f = useCurrentFrame(), t = f / FPS, ms = t * 1000, words = (wordsJson as {words: {word: string; start: number; end: number}[]}).words;
@@ -176,6 +183,8 @@ export const Tanah02: React.FC<{nudge?: number}> = ({nudge = 0}) => {
   return (
     <AbsoluteFill style={{background: 'linear-gradient(180deg,#bcd8ee 0%,#e6eef0 55%,#f3e9d6 100%)'}}>
       <Audio src={staticFile('e1-02/vo.wav')} />
+      <Langit t={t} />
+      <AbsoluteFill style={{filter: 'contrast(1.07) saturate(1.12)'}}>
       <ThreeCanvas width={1080} height={1920} camera={{position: cam.pos, fov: 34}} gl={{alpha: true, antialias: true}} shadows>
         <Env intensity={0.8} /><Rig k={cam} />
         <hemisphereLight args={['#dbeaff', '#8a7a62', 0.55]} />
@@ -184,6 +193,8 @@ export const Tanah02: React.FC<{nudge?: number}> = ({nudge = 0}) => {
         {!bk && <Dunia t={t} />}
         {bk && <Bongkar t={t} />}
       </ThreeCanvas>
+      </AbsoluteFill>
+      <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 55%, rgba(20,24,34,0.3) 100%)', pointerEvents: 'none'}} />
       {L.map((l) => <Label key={l.text} l={l} t={t} e={0} e2={0} cam={cam} />)}
       <Penghitung t={t} />
       {FOTO.rumah && <FotoMomen src="e1-02/rumah-ditinggikan.jpg" t={t} a={0.3} b={4.9} w={1000} h={640} kotak={[]} teks="Rumah ini" />}

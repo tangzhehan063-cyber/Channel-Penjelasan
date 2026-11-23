@@ -15,3 +15,6 @@ sampel-hyperframes/node_modules/
 
 # E1 #01: foto dari user, asal-usul/lisensi belum terkonfirmasi, jangan di-commit
 remotion/public/e1-01/foto-*.jpg
+
+# E1 #02: foto dari user (asal-usul/lisensi: risiko user)
+remotion/public/e1-02/*.jpg
