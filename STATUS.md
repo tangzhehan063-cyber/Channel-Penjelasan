@@ -1,11 +1,12 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md` E1; riwayat di bawah sebagian besar untuk alur 3D lama)
 
-## 23 Nov 2026 (malam): E1 #02 "Tanah Turun, Lantai Rumah Ditinggikan Berkali-kali" dibangun (belum dirender)
+## 23 Nov 2026 (malam): E1 #02 "Tanah Turun, Lantai Rumah Ditinggikan Berkali-kali" SELESAI dirender (belum publish)
 - Topik #6 dari 10 ide, naskah ACC hook A (131 kata), VO **Gemini Achernar** lolos `tools/cek_suara.py` (58,1 dtk, 180 Hz, 2,25 kata/dtk) di percobaan pertama. Folder Drive `#02 - Tanah Turun Lantai Ditinggikan` (id `10RK0J-1Z6zuiqll0gQuo7LuaOakIGH6h`). Foto user (3 berkas) di folder itu, disalin lokal (di-gitignore).
 - `remotion/src/e1/Tanah02.tsx` (+ `look.tsx` = **tampilan E1**: material prosedural berrelief (plester lumut, bata, genteng, rumput, lempung, pasir, batuan, jalan, kayu, air bergerak), `RumahKampung` (pintu, jendela jalusi, atap genteng, tiang, tangga, pondasi bertumpuk), `Kampung`, langit berawan, vinyet + grading). Satu scene breakdown khusus 20,9–30,4 dtk (potongan tanah terurai, lempung memampat, air tersedot).
 - **Gerbang kualitas:** `tools/cek_suara.py` OK; `tools/cek_kilau.py` OK (maks 79 piksel; sempat GAGAL 832 piksel pada percobaan sebelumnya: permukaan sebidang di strip 1–2 cm, sudah diperbaiki); `cek-mandiri` OK.
 - **Umpan balik user:** gaya #01 dan #02 awal terlalu datar ("bukankah di awal 3D?"). Dijawab dengan `look.tsx`. #01 belum di-upgrade.
-- Belum: render penuh (menunggu ACC still), cover, loudness akhir, publish. Pastikan foto banjir asli (tampak sangat halus, bisa jadi hasil AI).
+- **Render selesai:** 58,5 dtk, 1080x1920, −14,0 LUFS (puncak −1,4 dB), `cek_suara.py --video` OK. User: tampilan cukup 60–80% mirip foto, lanjut. MP4 dikirim ke user lewat chat; versi ringan 540p ada di Drive #02.
+- Belum: cover, publish, log metrik. Pastikan foto banjir asli (tampak sangat halus, bisa jadi hasil AI).
 
 ## 23 Nov 2026 (malam): E1 #01 "Rumah Belanda Adem Tanpa AC" selesai dirender (belum publish)
 - **Versi 2 (suara dan lantai diperbaiki):** 59,0 dtk, 1080x1920, −13,95 LUFS (loudnorm dua-pass). Versi 1 (61,5 dtk) dibuang: suara terlalu tinggi (F0 198 Hz) dan lantai berkedip (z-fighting). Detail di `style/cek-bug.md`.

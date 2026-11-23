@@ -11,7 +11,7 @@
 | Topic | Penurunan tanah pesisir (Semarang) |
 | Date published | |
 | Visual style | Semi-realistic |
-| Duration | |
+| Duration | 58,5 dtk |
 | Hook | |
 | Production time | |
 | Waktu render / putaran revisi kode | |
@@ -83,7 +83,7 @@ Folder: Fakta Rumah / E1 / #02 - Tanah Turun Lantai Ditinggikan
 https://drive.google.com/drive/folders/10RK0J-1Z6zuiqll0gQuo7LuaOakIGH6h (id `10RK0J-1Z6zuiqll0gQuo7LuaOakIGH6h`, dibuat 23 Nov 2026). Isi: naskah-final.txt, caption-dan-info.txt. Foto (rumah-ditinggikan, rob-permukiman, rumah-tertanam) diunggah user ke folder ini.
 
 ## Gerbang kualitas (wajib sebelum render)
-- [ ] VO lolos `python3 tools/cek_suara.py` (sebelum adegan dibangun)
-- [ ] `python3 tools/cek_kilau.py` OK
-- [ ] Loudness akhir -15..-13 LUFS
-- [ ] `node tools/cek-mandiri.mjs` OK + satu sheet still terhadap `style/cek-bug.md`
+- [x] VO lolos `python3 tools/cek_suara.py` (sebelum adegan dibangun)
+- [x] `python3 tools/cek_kilau.py` OK (maks 79 piksel)
+- [x] Loudness akhir -15..-13 LUFS (-14,0)
+- [x] `node tools/cek-mandiri.mjs` OK + sheet still dicek
