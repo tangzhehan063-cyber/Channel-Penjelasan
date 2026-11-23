@@ -15,6 +15,8 @@ Acuan untuk `WORKFLOW.md` Step 3–5 dan bagian 05. Prinsip: **visual = fungsi m
 
 Semi-realistis bukan tujuan akhir: bila diagram menjelaskan lebih cepat dalam 1–2 detik, pakai diagram. Catat pilihannya di rencana adegan.
 
+Untuk shot yang menjelaskan struktur/lapisan/mekanisme, pakai skill `breakdown` secara selektif (aturan di `WORKFLOW.md` bagian Breakdown; tanpa HyperFrames).
+
 ## 2. Rencana adegan (wajib per shot, menggantikan prompt generator)
 Isi di beat sheet (Step 3) selain kolom lama (Shot ID, Duration, VO, Text overlay, SFX, Fact note, Transition):
 | Field | Isi |

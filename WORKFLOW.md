@@ -376,6 +376,21 @@ Approval required:
 
 ---
 
+## Breakdown (teknik visual tambahan, skill `breakdown`)
+
+Berlaku di setiap video E1. Bukan tahap baru dan bukan workflow terpisah: dipakai di dalam Step 3 (perencanaan) dan Step 4–5 (pembuatan adegan).
+
+1. **Analisis dulu.** Saat beat sheet disusun, tandai shot yang butuh penjelasan struktur, komponen, lapisan material, mekanisme kerja, atau objek yang perlu dibongkar. Tulis alasannya di kolom Metode visual ("breakdown: ...").
+2. **Selektif.** Hanya shot yang pemahamannya benar-benar meningkat. Dilarang di setiap shot. Bila tidak ada shot yang cocok, jangan dipaksakan dan catat "tanpa breakdown" di beat sheet.
+3. **Implementasi** dengan skill `breakdown`, di mesin Remotion + Three.js yang sudah ada. Objek, geometri, material, animasi bongkar, kamera, lighting, label, dan transisi semuanya kode.
+4. **Dilarang:** API AI eksternal untuk gambar/video/model 3D (`cek-mandiri`), HyperFrames (gaya 4 di skill `breakdown`), dan engine produksi lain.
+5. **Konsisten** dengan shot lain: komposisi, palet/material E1, pacing, kamera (preset yang sama), dan transisi. Gaya breakdown mengikuti arah E1, bukan gaya sampel (blueprint/Kurzgesagt) kecuali diputuskan pemilik.
+6. **Sederhanakan** geometri objek yang terlalu kompleks tanpa membuang informasi penting (urutan lapisan, ketebalan relatif, posisi komponen); catat penyederhanaan sebagai "penyederhanaan visual" di fact note.
+7. **Cek still sebelum render final:** objek, lapisan, label, kamera, dan animasi terbaca jelas (tiap lapisan terpisah, tidak ada z-fighting, label tidak menimpa objek/teks, label terbaca di layar HP). Breakdown yang tidak terpahami dalam 1–2 detik diperbaiki atau diganti diagram.
+8. Prioritas: storytelling dan pemahaman penonton, bukan efek.
+
+---
+
 # PHASE C — ANIMATION
 
 ### STEP 5 — Animation and render
