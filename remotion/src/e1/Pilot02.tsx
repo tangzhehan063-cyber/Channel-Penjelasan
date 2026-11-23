@@ -28,13 +28,13 @@ const rnd = (i: number, k: number) => { const x = Math.sin(i * 127.1 + k * 311.7
 const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
 
 // pemampatan lempung (ilustrasi): bertahan, menekan, melambat; beban memperparah di akhir
-const kompres = (t: number) => { const c0 = r(t, 26.2, 28.1), beban = r(t, 28.7, 29.7); return Math.min(1, c0 * 0.76 + beban * 0.24); };
-const SINK = 0.57;
+export const kompres = (t: number) => { const c0 = r(t, 26.2, 28.1), beban = r(t, 28.7, 29.7); return Math.min(1, c0 * 0.76 + beban * 0.24); };
+export const SINK = 0.57;
 
 
 // Tekstur penampang khusus pilot: lebih gelap, basah, berlapis (prosedural, ber-seed). Menggantikan tampilan "kertas krem" putaran pertama.
 const R_ = (rd: () => number, a: number, b: number) => a + (b - a) * rd();
-const usePenampang = () => useMemo(() => ({
+export const usePenampang = () => useMemo(() => ({
   urugan: tex(256, 256, (g, rd) => {
     g.fillStyle = '#5d4a37'; g.fillRect(0, 0, 256, 256);
     for (let i = 0; i < 900; i++) { const v = R_(rd, 60, 120); g.fillStyle = `rgba(${v + 30},${v + 14},${v - 4},${R_(rd, 0.25, 0.55)})`; g.fillRect(rd() * 256, rd() * 256, R_(rd, 2, 5), R_(rd, 2, 4)); }
@@ -107,7 +107,7 @@ import type * as THREE from 'three';
 const FotoCtx = createContext<THREE.Texture | null>(null);
 const useFotoCtx = () => useContext(FotoCtx);
 
-const Grain: React.FC<{f: number}> = ({f}) => (
+export const Grain: React.FC<{f: number}> = ({f}) => (
   <svg width={1080} height={1920} style={{position: 'absolute', left: 0, top: 0, mixBlendMode: 'overlay', opacity: 0.16, pointerEvents: 'none'}}>
     <filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed={f % 6} stitchTiles="stitch" /><feColorMatrix type="saturate" values="0" /></filter>
     <rect width={1080} height={1920} filter="url(#g)" />

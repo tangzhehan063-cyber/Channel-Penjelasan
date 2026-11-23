@@ -1,0 +1,13 @@
+berkas: remotion/out/pilot02b.mp4  durasi 10.60 dtk (ditinjau 0.0-10.6)
+rasio frame hampir diam (selisih <0,25): 1% (angka tinggi bukan salah bila disengaja; periksa dengan mata)
+potongan keras terdeteksi (selisih >12) di detik: [1.7, 1.8, 1.9, 2.0, 2.1, 2.2, 2.3, 2.4, 4.3, 8.7, 8.8, 8.9, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5, 9.6, 9.7, 9.8, 9.9]
+gerak rata-rata per detik (0=diam): 5.7 11.3 10.8 3.9 10.1 2.0 4.4 2.4 9.1 24.5 3.6
+
+shots.json: 5 shot; kamera ['crane-naik', 'crane-turun', 'dolly-in', 'push', 'terkunci']; mode ['3d']
+durasi shot: min 1.2, maks 2.7, rata-rata 2.1 dtk
+per shot (gerak rata-rata dalam rentangnya):
+    P1 3d        push         1.2s gerak  4.8
+    P2 3d        crane-turun  1.7s gerak 13.0
+    P3 3d        dolly-in     2.7s gerak  5.6
+    P4 3d        terkunci     2.5s gerak  3.0
+    P5 3d        crane-naik   2.5s gerak 14.7

@@ -39,6 +39,7 @@ Jawab berurutan, tulis 1 kalimat tiap butir:
 ## Referensi (baca hanya yang relevan dengan tahap)
 | Berkas (`style/visual/`) | Isi |
 |---|---|
+| `arahan-animasi.md` | **Brief Animation Director/Art Director (wajib dibaca di tahap 5, 6, 9, 10)**: audit penyebab, makna adegan, koreografi, kualitas gerak, kamera, cahaya/material/lingkungan, foto = referensi rekonstruksi, kritik render |
 | `mode-visual.md` | Pohon keputusan mode; jenis reveal; kapan footage↔3D↔tipografi↔hening |
 | `bahasa-kamera.md` | Gerak kamera: tujuan, parameter angka, kapan dilarang; cara menggabungkan |
 | `komposisi.md` | Ukuran shot, penempatan, kedalaman, hierarki, 9:16 |

@@ -38,6 +38,7 @@ import {AnatomiRumah, ANATOMI_FRAMES} from './e1/AnatomiRumah';
 import {Rumah01, R01_FRAMES} from './e1/Rumah01';
 import {Tanah02, R02_FRAMES} from './e1/Tanah02';
 import {Pilot02, PILOT02_FRAMES} from './e1/Pilot02';
+import {Pilot02B, PILOT02B_FRAMES} from './e1/Pilot02B';
 import {Cover22} from './v22/Cover22';
 import {Video23, V23_FRAMES} from './v23/Video23';
 import {Video24, V24_FRAMES} from './v24/Video24';
@@ -61,6 +62,7 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="AnatomiRumah" component={AnatomiRumah} durationInFrames={ANATOMI_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Rumah01" component={Rumah01} durationInFrames={R01_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Tanah02" component={Tanah02} durationInFrames={R02_FRAMES} fps={30} width={1080} height={1920} />
+  <Composition id="Pilot02B" component={Pilot02B} durationInFrames={PILOT02B_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Pilot02" component={Pilot02} durationInFrames={PILOT02_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Video13" component={Video13} durationInFrames={V13_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Cover14" component={Cover14} durationInFrames={1} fps={30} width={1080} height={1920} />

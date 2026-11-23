@@ -1,0 +1,427 @@
+{
+  "video": "e1-02",
+  "komposisi": "Pilot02B",
+  "skala": "pilot",
+  "catatan": "v2 (Animation Director): rekonstruksi 3D dari foto referensi, tanpa foto di layar. Bidang potong z (dolhouse) menyapu dari depan ke tengah rumah. Dunia 1 satuan = 1 m; penampang di z=0; kamera melihat sepanjang -z. Pose: pos=[x,y,z], look=[x,y,0].",
+  "vo": "remotion/public/e1-02/words.json",
+  "kalimat": {
+    "s8": [
+      20.94,
+      23.5
+    ],
+    "s9": [
+      24.06,
+      28.04
+    ],
+    "s10": [
+      28.7,
+      30.37
+    ]
+  },
+  "shots": [
+    {
+      "id": "P1",
+      "ref_kalimat": [
+        "s8"
+      ],
+      "mulai": 20.4,
+      "durasi": 1.2,
+      "narasi": "Di bawah rumah",
+      "tujuan_visual": "Penonton berdiri di jalan, melihat rumah yang ditinggikan lengkap dengan lingkungannya, lalu melihat dunia diiris terbuka di bawah rumah.",
+      "mode": "3d",
+      "alasan_mode": "Rekonstruksi 3D rumah dari foto referensi: dasar tinggi, tangga, teras bertiang, atap berteritis. Foto tidak ditampilkan (brief: referensi, bukan isi).",
+      "subjek": "dasar rumah dan tangga (kaki bangunan)",
+      "lingkungan": "jalan kampung, langit mendung",
+      "ukuran_shot": "lebar",
+      "sudut_kamera": "rendah, tiga perempat dari kiri (seperti foto referensi), tiang listrik dan kabel di latar depan",
+      "posisi_kamera": {
+        "dari": {
+          "pos": [
+            -7.5,
+            1.4,
+            17.0
+          ],
+          "look": [
+            1.0,
+            2.4,
+            0
+          ]
+        },
+        "ke": {
+          "pos": [
+            -4.6,
+            1.5,
+            14.0
+          ],
+          "look": [
+            0.5,
+            2.4,
+            0
+          ]
+        }
+      },
+      "gerak_kamera": {
+        "jenis": "push",
+        "easing": "out",
+        "alasan": "Mendekati kaki bangunan tempat bidang potong akan menyapu."
+      },
+      "gerak_subjek": [],
+      "cahaya": "mendung difus mengikuti foto; di bawah garis tanah gelap (belum terlihat)",
+      "komposisi": "rumah di sepertiga kiri, jalan basah dan tiang listrik sebagai kedalaman, kabut",
+      "kedalaman": "bidang foto + tirai gelap; tidak ada parallax palsu",
+      "fokus": "kaki bangunan dan garis tanah",
+      "teks": [],
+      "transisi": {
+        "keluar": "bidang potong menyapu",
+        "alasan": "Dunia diiris sampai tengah rumah supaya yang tersembunyi terlihat, bukan potongan ke diagram."
+      },
+      "frame_akhir": "garis tanah sedikit di bawah tengah layar, dinding dasar dan tangga terbaca, bagian bawah gelap",
+      "aset": [],
+      "implementasi": "remotion/src/e1/Pilot02.tsx (FotoBidang di lib/footage.tsx)",
+      "footage": null
+    },
+    {
+      "id": "P2",
+      "ref_kalimat": [
+        "s8"
+      ],
+      "mulai": 21.6,
+      "durasi": 1.7,
+      "narasi": "ada lempung lunak yang penuh air",
+      "tujuan_visual": "Penonton melihat tanah di bawah rumah itu 'dibuka' pada garis yang sama, dan melihat pondasi bertumpu di atas lapisan lempung.",
+      "mode": "3d",
+      "alasan_mode": "Yang dijelaskan tersembunyi (di bawah tanah), jadi harus ditunjukkan dari dalam potongan.",
+      "subjek": "penampang tanah, pondasi, lapisan lempung",
+      "lingkungan": "potongan tanah (lapisan urugan, lempung, pasir, batuan)",
+      "ukuran_shot": "sedang",
+      "sudut_kamera": "frontal pada muka potongan, kamera turun",
+      "posisi_kamera": {
+        "dari": {
+          "pos": [
+            -4.6,
+            1.5,
+            14.0
+          ],
+          "look": [
+            0.5,
+            2.4,
+            0
+          ]
+        },
+        "ke": {
+          "pos": [
+            0.6,
+            -1.3,
+            13.5
+          ],
+          "look": [
+            0.0,
+            -0.6,
+            0
+          ]
+        }
+      },
+      "gerak_kamera": {
+        "jenis": "crane-turun",
+        "easing": "in-out",
+        "alasan": "Kamera turun melewati garis tanah dari yang terlihat ke yang tersembunyi; foto menempel di permukaan sehingga naik keluar layar."
+      },
+      "gerak_subjek": [
+        {
+          "apa": "bidang potong menyapu dari depan ke tengah rumah",
+          "dari_detik": 21.45,
+          "sampai_detik": 22.6,
+          "easing": "in-out",
+          "tujuan": "membuka dunia di bawah rumah"
+        }
+      ],
+      "cahaya": "penampang disinari dari depan-kiri agar relief tanah terbaca; foto tak berubah",
+      "komposisi": "foto di atas, tanah di bawah, garis merah sebagai pembagi; pondasi di kiri-tengah",
+      "kedalaman": "bidang foto (z 1,55), muka penampang (z 1,5), pondasi menonjol 2 cm",
+      "fokus": "garis merah lalu lapisan lempung",
+      "teks": [
+        {
+          "jenis": "label",
+          "isi": "Pondasi",
+          "kapan": [
+            22.3,
+            23.6
+          ],
+          "posisi": "kiri, tempel ke pondasi",
+          "alasan": "pondasi tak ada di foto; label menghubungkannya dengan dinding yang terlihat"
+        }
+      ],
+      "transisi": {
+        "keluar": "lanjut kamera",
+        "alasan": "gerak turun berlanjut menjadi masuk ke lapisan"
+      },
+      "frame_akhir": "kamera di bawah muka tanah menghadap penampang: lantai, pondasi, lempung",
+      "aset": [],
+      "implementasi": "remotion/src/e1/Pilot02.tsx (GroundSlice di lib/transisi.tsx)",
+      "footage": null
+    },
+    {
+      "id": "P3",
+      "ref_kalimat": [
+        "s9"
+      ],
+      "mulai": 23.3,
+      "durasi": 2.7,
+      "narasi": "Air tanah disedot, lempungnya",
+      "tujuan_visual": "Penonton melihat air meninggalkan lempung, mengalir ke lapisan pasir, dan tersedot naik lewat sumur.",
+      "mode": "3d",
+      "alasan_mode": "Aliran air di dalam tanah hanya bisa ditunjukkan lewat potongan.",
+      "subjek": "titik air, lapisan pasir, pipa sumur",
+      "lingkungan": "dalam penampang",
+      "ukuran_shot": "dekat",
+      "sudut_kamera": "frontal, kamera masuk mendekat",
+      "posisi_kamera": {
+        "dari": {
+          "pos": [
+            0.6,
+            -1.3,
+            13.5
+          ],
+          "look": [
+            0.0,
+            -0.6,
+            0
+          ]
+        },
+        "ke": {
+          "pos": [
+            0.9,
+            -1.7,
+            9.2
+          ],
+          "look": [
+            0.9,
+            -1.6,
+            0
+          ]
+        }
+      },
+      "gerak_kamera": {
+        "jenis": "dolly-in",
+        "easing": "in-out",
+        "alasan": "Masuk lebih dekat ke lapisan lempung dan pasir, tempat air bergerak."
+      },
+      "gerak_subjek": [
+        {
+          "apa": "titik air mengalir dari lempung ke pasir lalu naik di pipa sumur",
+          "dari_detik": 24.0,
+          "sampai_detik": 28.6,
+          "easing": "linear",
+          "tujuan": "menunjukkan air tanah disedot"
+        }
+      ],
+      "cahaya": "sama dengan P2",
+      "komposisi": "lempung kiri-tengah, sumur di kanan sebagai ruang gerak air",
+      "kedalaman": "titik air di depan muka penampang (z 1,53-1,58)",
+      "fokus": "titik air",
+      "teks": [
+        {
+          "jenis": "label",
+          "isi": "Lempung lunak",
+          "kapan": [
+            23.7,
+            28.4
+          ],
+          "posisi": "kiri",
+          "alasan": "memberi nama lapisan yang akan menjadi pusat penjelasan"
+        },
+        {
+          "jenis": "label",
+          "isi": "Pasir berair",
+          "kapan": [
+            24.3,
+            28.4
+          ],
+          "posisi": "kiri",
+          "alasan": "nama lapisan tempat air terkumpul"
+        },
+        {
+          "jenis": "label",
+          "isi": "Sumur bor",
+          "kapan": [
+            24.6,
+            28.4
+          ],
+          "posisi": "kanan",
+          "alasan": "tempat air disedot keluar"
+        }
+      ],
+      "transisi": {
+        "keluar": "lanjut kamera",
+        "alasan": "kamera berhenti: pemampatan akan terjadi di dalam frame yang diam"
+      },
+      "frame_akhir": "lempung dan pasir memenuhi layar; sumur di kanan; permukaan tanah dengan sepertiga foto di atas",
+      "aset": [],
+      "implementasi": "remotion/src/e1/Pilot02.tsx (Penampang)",
+      "footage": null
+    },
+    {
+      "id": "P4",
+      "ref_kalimat": [
+        "s9"
+      ],
+      "mulai": 26.0,
+      "durasi": 2.5,
+      "narasi": "memampat, kayak spons diperas",
+      "tujuan_visual": "Penonton melihat lempung benar-benar mengecil seperti spons diperas, dan permukaan tanah (beserta foto rumah) ikut turun dari garis acuan.",
+      "mode": "3d",
+      "alasan_mode": "Inti penjelasan: mekanisme pemampatan. Kamera dibuat diam agar perubahan di dalam frame yang bekerja.",
+      "subjek": "lapisan lempung yang mengecil, permukaan tanah, garis acuan merah",
+      "lingkungan": "penampang",
+      "ukuran_shot": "dekat",
+      "sudut_kamera": "frontal, hampir terkunci",
+      "posisi_kamera": {
+        "dari": {
+          "pos": [
+            0.9,
+            -1.7,
+            9.2
+          ],
+          "look": [
+            0.9,
+            -1.6,
+            0
+          ]
+        },
+        "ke": {
+          "pos": [
+            0.95,
+            -1.5,
+            8.9
+          ],
+          "look": [
+            0.95,
+            -1.45,
+            0
+          ]
+        }
+      },
+      "gerak_kamera": {
+        "jenis": "terkunci",
+        "easing": "linear",
+        "alasan": "Tidak ada gerak kamera supaya satu-satunya perubahan di layar adalah lempung yang memampat dan permukaan yang turun terhadap garis merah."
+      },
+      "gerak_subjek": [
+        {
+          "apa": "lempung memampat 0,57 m (ilustrasi): bertahan, menekan cepat, melambat, diam",
+          "dari_detik": 26.2,
+          "sampai_detik": 28.1,
+          "easing": "in-out",
+          "tujuan": "pemampatan seperti spons diperas"
+        },
+        {
+          "apa": "permukaan tanah dan bagian bawah foto rumah turun bersama lempung",
+          "dari_detik": 26.2,
+          "sampai_detik": 28.1,
+          "easing": "in-out",
+          "tujuan": "menghubungkan pemampatan dengan turunnya rumah nyata"
+        }
+      ],
+      "cahaya": "sama dengan P3",
+      "komposisi": "garis merah dan permukaan tanah mendekati sepertiga atas; lempung di tengah",
+      "kedalaman": "garis acuan di depan (z 1,58)",
+      "fokus": "celah antara garis merah dan permukaan",
+      "teks": [],
+      "transisi": {
+        "keluar": "lanjut kamera",
+        "alasan": "setelah mekanisme selesai, mundur melihat akibatnya"
+      },
+      "frame_akhir": "permukaan sudah turun di bawah garis merah",
+      "aset": [],
+      "implementasi": "remotion/src/e1/Pilot02.tsx",
+      "footage": null
+    },
+    {
+      "id": "P5",
+      "ref_kalimat": [
+        "s10"
+      ],
+      "mulai": 28.5,
+      "durasi": 2.5,
+      "narasi": "Beban bangunan ikut menekannya",
+      "tujuan_visual": "Penonton melihat bidang potong menutup dan dunia yang sama dengan pembuka, kini rumah lebih rendah dari tiang acuan dan air tetap menggenangi jalan dan tangga.",
+      "mode": "3d",
+      "alasan_mode": "Kembali ke komposisi pembuka (callback) dengan perubahan nyata: rumah lebih rendah dari tiang acuan, air menggenangi jalan.",
+      "subjek": "rumah pada foto, garis acuan merah, panah beban",
+      "lingkungan": "foto + penampang",
+      "ukuran_shot": "lebar",
+      "sudut_kamera": "frontal, kamera naik dan mundur",
+      "posisi_kamera": {
+        "dari": {
+          "pos": [
+            0.95,
+            -1.5,
+            8.9
+          ],
+          "look": [
+            0.95,
+            -1.45,
+            0
+          ]
+        },
+        "ke": {
+          "pos": [
+            -7.5,
+            1.4,
+            17.0
+          ],
+          "look": [
+            1.0,
+            2.4,
+            0
+          ]
+        }
+      },
+      "gerak_kamera": {
+        "jenis": "crane-naik",
+        "easing": "in-out",
+        "alasan": "Naik dan mundur dari yang tersembunyi ke yang terlihat, dari sebab ke akibat."
+      },
+      "gerak_subjek": [
+        {
+          "apa": "panah beban menekan rumah",
+          "dari_detik": 28.7,
+          "sampai_detik": 30.0,
+          "easing": "out",
+          "tujuan": "beban bangunan ikut menekan"
+        },
+        {
+          "apa": "bidang potong menutup kembali",
+          "dari_detik": 29.7,
+          "sampai_detik": 30.7,
+          "easing": "in-out",
+          "tujuan": "kembali ke dunia utuh untuk melihat akibatnya"
+        }
+      ],
+      "cahaya": "sama",
+      "komposisi": "foto di atas, garis merah memotong di bawah dinding dasar, celah kecil tampak antara garis dan permukaan",
+      "kedalaman": "foto (z 1,55) di atas penampang",
+      "fokus": "celah antara garis merah dan dasar rumah",
+      "teks": [
+        {
+          "jenis": "label",
+          "isi": "Posisi awal",
+          "kapan": [
+            29.3,
+            31.0
+          ],
+          "posisi": "kanan, tempel ke garis merah",
+          "alasan": "memberi arti pada garis acuan setelah rumah turun darinya"
+        }
+      ],
+      "transisi": {
+        "keluar": "potong ke shot berikutnya (kartu studi)",
+        "alasan": "bagian berikutnya berganti ke bukti data (studi)"
+      },
+      "frame_akhir": "rumah di foto sedikit lebih rendah dari garis merah; komposisi mirip P1 tetapi berbeda",
+      "aset": [],
+      "implementasi": "remotion/src/e1/Pilot02.tsx",
+      "footage": null
+    }
+  ]
+}
