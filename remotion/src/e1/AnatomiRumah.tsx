@@ -12,7 +12,7 @@ import {camAt, FPS, proj, r, type Key, type V3} from '../kit/waktu';
 
 export const ANATOMI_FRAMES = 36 * FPS;
 const W = 4, D = 3.2, T = 0.15, H = 2.8; // lebar, dalam, tebal dinding, tinggi dinding
-const SX = 30; // posisi potongan dinding di dunia
+export const SX = 30; // posisi potongan dinding di dunia
 export const C = {tanah: '#7b6650', rumput: '#6f9150', bata: '#b8573b', plester: '#e8e1d4', beton: '#a3a29d', kayu: '#a97b42', kayuTua: '#7d5a30', genteng: '#b24d2c', batu: '#78756f', lantai: '#d8cfc0', kaca: '#a9d3e6', besi: '#4a4f57', cat: '#f3efe6', aksen: '#ef6a4c'};
 
 // ---------- tekstur prosedural (CanvasTexture, seed tetap) ----------
@@ -138,11 +138,13 @@ const Rumah: React.FC<{e: number; o: number}> = ({e, o}) => {
 };
 
 // ---------- potongan dinding (di x = SX) ----------
-const Potongan: React.FC<{e: number}> = ({e}) => {
+const mixC = (a: string, b: string, k: number) => '#' + new THREE.Color(a).lerp(new THREE.Color(b), Math.max(0, Math.min(1, k))).getHexString();
+/** warm: 0..1 pemanasan lapisan luar (breakdown E1 #01); kolom=false menyembunyikan kolom+besi; bataTh = tebal bata (m, disederhanakan) */
+export const Potongan: React.FC<{e: number; warm?: number; kolom?: boolean; bataTh?: number}> = ({e, warm = 0, kolom = true, bataTh = 0.1}) => {
   const t = useTex();
   const g = 0.34 * e, hh = 1.7, ww = 1.4;
   // urutan dari luar (+z) ke dalam (-z): cat, plester, bata, plester, cat
-  const L: [string, number, string, THREE.Texture | undefined, number][] = [['cat l', 0.012, '#e9c978', undefined, 2], ['plester l', 0.03, C.plester, undefined, 1], ['bata', 0.1, C.bata, t.bata, 0], ['plester d', 0.03, C.plester, undefined, -1], ['cat d', 0.012, '#9fc4cf', undefined, -2]];
+  const L: [string, number, string, THREE.Texture | undefined, number][] = [['cat l', 0.012, mixC('#e9c978', '#ff7a3c', warm * 0.8), undefined, 2], ['plester l', 0.03, mixC(C.plester, '#ff8a4a', warm * 0.75), undefined, 1], ['bata', bataTh, mixC(C.bata, '#ff6a2a', warm * 0.55), t.bata, 0], ['plester d', 0.03, C.plester, undefined, -1], ['cat d', 0.012, '#9fc4cf', undefined, -2]];
   let zc = 0; const pos = L.map(([, th, , , i]) => { const z = i * (0.07 + g) * 1; zc += th; return z; });
   return (
     <group position={[SX, 0, 0]}>
@@ -151,14 +153,14 @@ const Potongan: React.FC<{e: number}> = ({e}) => {
         <mesh key={n} position={[-0.05, hh / 2, pos[i]]} castShadow receiveShadow><boxGeometry args={[1.2, hh, th]} /><M c={c} map={map} r={n === 'bata' ? 0.9 : 0.6} /></mesh>
       ))}
       {/* kolom beton transparan + besi */}
-      <group position={[0.7 + e * 0.12, 0, 0]}>
+      {kolom && <group position={[0.7 + e * 0.12, 0, 0]}>
         <mesh position={[0, hh / 2, 0]} castShadow><boxGeometry args={[0.16, hh, 0.16]} /><M c={C.beton} map={t.beton} o={1 - 0.65 * Math.min(1, e * 1.6)} /></mesh>
         {[[-1, -1], [1, -1], [-1, 1], [1, 1]].map(([a, b]) => <mesh key={`${a}${b}`} position={[a * 0.055, hh / 2, b * 0.055]} castShadow><cylinderGeometry args={[0.014, 0.014, hh + 0.1, 10]} /><M c={C.besi} r={0.4} m={0.8} /></mesh>)}
         {Array.from({length: 8}, (_, i) => 0.12 + i * 0.2).map((y) => <group key={y} position={[0, y, 0]}>
           {[[0, 0.06, 0.14, 0.008], [0, -0.06, 0.14, 0.008]].map(([x, z, w, h], k) => <Bx key={k} p={[x, 0, z]} s={[w, h, 0.008]} c={C.besi} m={0.8} r={0.4} />)}
           {[-0.06, 0.06].map((x) => <Bx key={x} p={[x, 0, 0]} s={[0.008, 0.008, 0.14]} c={C.besi} m={0.8} r={0.4} />)}
         </group>)}
-      </group>
+      </group>}
     </group>
   );
 };

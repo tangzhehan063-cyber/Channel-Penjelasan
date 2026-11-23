@@ -8,8 +8,8 @@ import '@fontsource/inter/600.css'; import '@fontsource/inter/900.css';
 import {Env} from '../pengetahuan/Scene';
 import {Rig} from '../kit/stage';
 import {Captions} from '../kit/teks';
-import {camAt, FPS, r, type Key, type V3} from '../kit/waktu';
-import {Bar, Bx, C, Kicker, Label, M as Mat, type Lb} from './AnatomiRumah';
+import {camAt, FPS, nudgeKey, r, type Key, type V3} from '../kit/waktu';
+import {Bar, Bx, C, Kicker, Label, M as Mat, Potongan, SX, type Lb} from './AnatomiRumah';
 import wordsJson from '../../public/e1-01/words.json';
 import peta from '../../public/e1-01/peta.json';
 
@@ -95,22 +95,29 @@ const Potong: React.FC<{rm: Rm; kind: 'K' | 'M'; t: number}> = ({rm, kind, t}) =
   </group>);
 };
 
-// panah panas matahari ke dinding tebal (9–14 dtk)
-const Panah: React.FC<{t: number}> = ({t}) => {
-  const p = r(t, 9.4, 10.6), o = (1 - r(t, 13.4, 14.2));
-  if (p <= 0 || o <= 0) return null;
-  const wx = K.cx - (WI / 2 + K.tw);
+// BREAKDOWN (skill breakdown): potongan dinding terurai. Panah panas matahari menembus lapisan, lapisan luar memanas, sisa kecil di dalam.
+const Z_LAYER = (e2: number, i: number) => i * (0.07 + 0.34 * e2);
+const PanahTembok: React.FC<{t: number; e2: number}> = ({t, e2}) => {
+  const a = r(t, 10.2, 11.6), o = 1 - r(t, 13.6, 14.1), res = r(t, 12.3, 12.9) * o;
+  if (a <= 0 || o <= 0) return null;
+  const zb = Z_LAYER(e2, 0);
+  const Ar: React.FC<{x: number; y: number; z0: number; z1: number; op: number}> = ({x, y, z0, z1, op}) => {
+    const len = Math.abs(z1 - z0); if (len < 0.02) return null;
+    return (<group position={[SX + x, y, 0]}>
+      <mesh position={[0, 0, (z0 + z1) / 2]} renderOrder={20}><boxGeometry args={[0.028, 0.028, len]} /><meshBasicMaterial color="#ff7a3c" transparent opacity={op} depthTest={false} /></mesh>
+      <mesh position={[0, 0, z1]} rotation={[-Math.PI / 2, 0, 0]} renderOrder={20}><coneGeometry args={[0.06, 0.16, 14]} /><meshBasicMaterial color="#ff7a3c" transparent opacity={op} depthTest={false} /></mesh>
+    </group>);
+  };
   return (<group>
-    {[0, 0.7, 1.4].map((dy, i) => {
-      const a: V3 = [wx - 1.7, 4.0 + dy * 0.5, 0.2 - dy * 0.15], b: V3 = [lerp(a[0], wx - 0.05, p), lerp(a[1], 2.9 + dy * 0.5, p), a[2]];
-      return <Bar key={i} a={a} b={b} th={0.045} c="#ff7a3c" o={o} />;
-    })}
-    <Bx p={[wx - 0.03, 2.2, 0.02]} s={[0.04, 3.3, D * 0.98]} c="#ffb04a" o={0.35 * p * o} />
+    {[[-0.35, 1.2], [0.05, 1.42], [0.4, 1.62]].map(([x, y], k) => <Ar key={k} x={x} y={y} z0={3.0} z1={lerp(3.0, zb + 0.06, a)} op={o} />)}
+    {[[-0.35, 1.2], [0.4, 1.62]].map(([x, y], k) => <Ar key={`r${k}`} x={x} y={y} z0={Z_LAYER(e2, -1) - 0.02} z1={Z_LAYER(e2, -1) - 0.02 - 0.7 * res} op={0.3 * res} />)}
   </group>);
 };
 
 const LABELS: Lb[] = [
-  {a: 10.2, b: 14.0, text: 'Tembok tebal', at: [K.cx - WI / 2 - K.tw, 2.3, 0.45], side: 'L'},
+  {a: 11.2, b: 14.0, text: 'Plester luar', at: (_, g) => [SX + 0.45, 0.95, Z_LAYER(g, 1)], side: 'L'},
+  {a: 11.8, b: 14.0, text: 'Bata', at: (_, g) => [SX + 0.45, 0.6, Z_LAYER(g, 0)], side: 'L'},
+  {a: 12.5, b: 14.0, text: 'Plester dalam', at: (_, g) => [SX + 0.45, 0.25, Z_LAYER(g, -1)], side: 'L'},
   {a: 17.4, b: 22.6, text: 'Plafon tinggi', at: [K.cx + 1.4, 4.0, 0.45], side: 'R'},
   {a: 19.0, b: 22.6, text: 'Panas naik', at: [K.cx - 0.6, 3.3, 0], side: 'L'},
   {a: 25.6, b: 29.8, text: 'Lubang angin', at: [K.cx + WI / 2 + K.tw / 2, 3.6, 0.45], side: 'R'},
@@ -121,7 +128,8 @@ const LABELS: Lb[] = [
   {a: 47.0, b: 50.4, text: 'Jendela berhadapan', at: [MD.cx - WI / 2 - MD.tw / 2, 1.4, 0.45], side: 'L'},
 ];
 
-const KEYS: Key[] = [orb(0, 3, 8, 30, [0, 1.8, 0]), orb(9, 3, 8, 28, [0, 1.8, 0]), orb(9.9, -14, 6, 12.5, [-3.3, 2.0, 0]), orb(14, -14, 6, 13, [-3.3, 2.0, 0]),
+const KEYS_W: Key[] = [orb(9.8, 42, 12, 6.2, [SX, 0.85, 0]), orb(12.6, 62, 14, 6.4, [SX, 0.85, 0]), orb(14.2, 52, 20, 6.2, [SX, 0.85, 0])];
+const KEYS: Key[] = [orb(0, 3, 8, 30, [0, 1.8, 0]), orb(9, 3, 8, 28, [0, 1.8, 0]), orb(14.2, 3, 8, 28, [0, 1.8, 0]),
   orb(15.6, 0, 4, 16, [-2.1, 2.0, 0]), orb(22.4, 0, 4, 15.5, [-2.1, 2.2, 0]), orb(29.6, 8, 5, 16, [-2.1, 2.1, 0]), orb(30.2, 8, 8, 19, [-1.4, 1.8, 0]),
   orb(37.2, 6, 8, 18, [-0.6, 1.7, 0]), orb(38.6, 0, 4, 12.5, [2.1, 1.1, 0]), orb(43.4, 0, 4, 12.5, [2.1, 1.2, 0]), orb(50.3, -8, 5, 13, [2.1, 1.3, 0]),
   orb(53.6, 3, 8, 29, [0, 1.8, 0]), orb(61.4, -4, 9, 31, [0, 1.8, 0])];
@@ -175,10 +183,12 @@ const KartuKasus: React.FC<{t: number}> = ({t}) => {
 
 export const Rumah01: React.FC<{nudge?: number}> = ({nudge = 0}) => {
   // nudge: geser kamera sangat kecil, hanya untuk uji z-fighting (render frame sama dua kali, bandingkan)
-  const f = useCurrentFrame(), tr = f / FPS, t = wt(tr), ms = tr * 1000, c0 = camAt(KEYS, t), cam: Key = {...c0, pos: [c0.pos[0] + nudge, c0.pos[1], c0.pos[2]]};
+  const f = useCurrentFrame(), tr = f / FPS, t = wt(tr), ms = tr * 1000, wall = t >= 9.8 && t < 14.2, c0 = camAt(wall ? KEYS_W : KEYS, t), cam: Key = nudgeKey(c0, nudge);
   const words = (wordsJson as {words: {word: string; start: number; end: number}[]}).words;
-  const sun = Math.max(r(t, 0.5, 1.5) * (1 - r(t, 8.6, 9.2)), r(t, 50.4, 51.2) * (1 - r(t, 57.4, 58.2)));
+  const sun = Math.max(r(t, 0.5, 1.5) * (1 - r(t, 8.6, 9.2)), r(t, 9.9, 10.5) * (1 - r(t, 13.6, 14.2)), r(t, 50.4, 51.2) * (1 - r(t, 57.4, 58.2)));
   const hide = r(t, 30.0, 30.6) * (1 - r(t, 37.0, 37.5));
+  const e2 = r(t, 10.6, 12.6, Easing.inOut(Easing.cubic)), warm = r(t, 10.4, 13.2);
+  const dip = Math.max(0, r(t, 9.3, 9.8) * (1 - r(t, 9.8, 10.3)) + r(t, 13.7, 14.2) * (1 - r(t, 14.2, 14.7)));
   return (
     <AbsoluteFill style={{background: 'linear-gradient(180deg,#bcd8ee 0%,#e6eef0 55%,#f3e9d6 100%)'}}>
       <Audio src={staticFile('e1-01/vo.wav')} />
@@ -188,9 +198,10 @@ export const Rumah01: React.FC<{nudge?: number}> = ({nudge = 0}) => {
         <directionalLight position={[-6, 12, 8]} intensity={2.6} color="#fff4e0" castShadow shadow-mapSize={[2048, 2048]} shadow-camera-left={-9} shadow-camera-right={9} shadow-camera-top={9} shadow-camera-bottom={-3} shadow-camera-near={1} shadow-camera-far={45} shadow-bias={-0.0004} shadow-normalBias={0.03} />
         <fog attach="fog" args={['#e8eef0', 40, 90]} />
         <Bx p={[0, -0.6, 0]} s={[16, 1, 6]} c="#7b6650" /><Bx p={[0, -0.07, 1.6]} s={[16, 0.06, 3.4]} c="#7aa05a" r={1} />
-        <Potong rm={K} kind="K" t={t} /><Potong rm={MD} kind="M" t={t} /><Panah t={t} />
+        {!wall && <><Potong rm={K} kind="K" t={t} /><Potong rm={MD} kind="M" t={t} /></>}
+        {wall && <><Potongan e={e2} warm={warm} kolom={false} bataTh={0.22} /><PanahTembok t={t} e2={e2} /></>}
       </ThreeCanvas>
-      {LABELS.map((l) => <Label key={l.text} l={l} t={t} e={0} e2={0} cam={cam} />)}
+      {LABELS.map((l) => <Label key={l.text} l={l} t={t} e={0} e2={wall ? e2 : 0} cam={cam} />)}
       <Matahari p={sun} />
       <FotoMomen src="e1-01/foto-b.jpg" t={t} a={6.8} b={9.5} w={1000} h={562} kotak={[]} teks="Rumah zaman Belanda" />
       <FotoMomen src="e1-01/foto-a.jpg" t={t} a={22.4} b={25.5} w={1000} h={700} pos="50% 32%" kotak={[[215, 385, 130, 100], [480, 395, 130, 100]]} teks="Lubang angin di atas jendela" />
@@ -203,6 +214,7 @@ export const Rumah01: React.FC<{nudge?: number}> = ({nudge = 0}) => {
       <Kicker t={t} a={50.8} b={57.6} text="Rumahmu?" />
       <Kicker t={t} a={58.0} b={61.4} text="Fakta Rumah" />
       <KartuKasus t={t} />
+      <AbsoluteFill style={{background: '#fbf8f1', opacity: dip, pointerEvents: 'none'}} />
       <div style={{opacity: 1 - hide * 0}}><Captions ms={ms} words={words} /></div>
     </AbsoluteFill>
   );
