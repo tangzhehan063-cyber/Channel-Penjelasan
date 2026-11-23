@@ -1,5 +1,29 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md` E1; riwayat di bawah sebagian besar untuk alur 3D lama)
 
+## 23 Nov 2026 (malam): E1 #02 "Tanah Turun, Lantai Rumah Ditinggikan Berkali-kali" SELESAI dirender (belum publish)
+- Topik #6 dari 10 ide, naskah ACC hook A (131 kata), VO **Gemini Achernar** lolos `tools/cek_suara.py` (58,1 dtk, 180 Hz, 2,25 kata/dtk) di percobaan pertama. Folder Drive `#02 - Tanah Turun Lantai Ditinggikan` (id `10RK0J-1Z6zuiqll0gQuo7LuaOakIGH6h`). Foto user (3 berkas) di folder itu, disalin lokal (di-gitignore).
+- `remotion/src/e1/Tanah02.tsx` (+ `look.tsx` = **tampilan E1**: material prosedural berrelief (plester lumut, bata, genteng, rumput, lempung, pasir, batuan, jalan, kayu, air bergerak), `RumahKampung` (pintu, jendela jalusi, atap genteng, tiang, tangga, pondasi bertumpuk), `Kampung`, langit berawan, vinyet + grading). Satu scene breakdown khusus 20,9–30,4 dtk (potongan tanah terurai, lempung memampat, air tersedot).
+- **Gerbang kualitas:** `tools/cek_suara.py` OK; `tools/cek_kilau.py` OK (maks 79 piksel; sempat GAGAL 832 piksel pada percobaan sebelumnya: permukaan sebidang di strip 1–2 cm, sudah diperbaiki); `cek-mandiri` OK.
+- **Umpan balik user:** gaya #01 dan #02 awal terlalu datar ("bukankah di awal 3D?"). Dijawab dengan `look.tsx`. #01 belum di-upgrade.
+- **Render selesai:** 58,5 dtk, 1080x1920, −14,0 LUFS (puncak −1,4 dB), `cek_suara.py --video` OK. User: tampilan cukup 60–80% mirip foto, lanjut. MP4 dikirim ke user lewat chat; versi ringan 540p ada di Drive #02.
+- Belum: cover, publish, log metrik. Pastikan foto banjir asli (tampak sangat halus, bisa jadi hasil AI).
+
+## 23 Nov 2026 (malam): E1 #01 "Rumah Belanda Adem Tanpa AC" selesai dirender (belum publish)
+- **Versi 2 (suara dan lantai diperbaiki):** 59,0 dtk, 1080x1920, −13,95 LUFS (loudnorm dua-pass). Versi 1 (61,5 dtk) dibuang: suara terlalu tinggi (F0 198 Hz) dan lantai berkedip (z-fighting). Detail di `style/cek-bug.md`.
+- (versi 1 dulu: 61,5 dtk, −13,8 LUFS), `remotion/src/e1/Rumah01.tsx` (komposisi `Rumah01`), VO **Gemini TTS Achernar** gaya netral, 3 generasi gratis (dipakai yang ke-3: 58,9 dtk, F0 174 Hz), timestamp `tools/align_teks.py`. Render 9 mnt 11 dtk. `cek-mandiri` OK.
+- Alur: topik "1" dari 10 ide (`riset/2026-11-23-ide-e1.md`), naskah ACC hook B (`naskah/e1-01-rumah-belanda-adem.*`, 146 kata), foto real-life: user menaruh 2 foto di folder Drive #01 (asal-usul tidak diketahui, **dipakai atas risiko user**, tanpa kredit, di-gitignore). Foto Commons gagal diunduh (Wikimedia 429) dan tidak dipakai.
+- Drive: `Fakta Rumah / E1 / #01 - Rumah Belanda Adem Tanpa AC` (id `14uYdcmFHYc0T6GIvd46TSHVv4bYv7uRd`): naskah, caption-dan-info, versi ringan 540p, 2 foto user. MP4 penuh dikirim ke user lewat chat.
+- **Belum:** cover (wajib), approval style reference (pilot lolos sebagai arah?), publish, log metrik 24/48 jam, `cek-sutradara`/`cek-gerak` tidak dijalankan (alat 3D lama). QC mata hanya dari 11 still, video penuh belum ditonton Claude.
+- Catatan teknis: Wikimedia membatasi laju dari IP keluar bersama (429); host `dimensi.petra.ac.id`, `commons.wikimedia.org`, `upload.wikimedia.org` ditambahkan ke environment (disetujui user), jurnal Petra tetap diblokir Cloudflare.
+- Kelemahan: rumah masih kotak/datar (belum semi-realistis penuh), partikel udara satu-satunya penanda aliran, tidak ada foto perumahan baru sebagai pembanding, klaim "banyak rumah baru…" tanpa sumber, angka 35/30 °C satu sumber.
+
+## 23 Nov 2026: Workflow E1 diganti ke visual 100% kode (belum ada video E1 dibuat)
+- `WORKFLOW.md` v2: Step 4 (style + scene build) dan Step 5 (animasi + render) menggantikan keyframe AI dan image-to-video; QC, pilot, resource management (kredit generator = 0), log, urutan eksekusi disesuaikan. Struktur 13 bagian, 8 step, gerbang approval, benchmark B0/#9, hemat token **tidak diubah**.
+- Baru: `e1/AUDIT-ketergantungan-api.md` (hapus / dokumentasi / diganti kode), `style/e1-visual-kode.md` (tabel metode visual, template rencana adegan, sistem aset, cek otomatis), `tools/cek-mandiri.mjs` (pindai kode visual dari API AI/jaringan; kode saat ini 0 temuan).
+- Diperbarui: `CLAUDE.md` ARAH AKTIF, skill `remotion-fitur`, `e1/_template-log.md`, `KEPUTUSAN.md`.
+- **Keputusan pemilik yang masih terbuka:** (1) VO tetap Gemini/ElevenLabs (layanan AI audio, di luar aset visual) atau alternatif lokal; (2) perlu dirapikan komponen arsitektur parametrik (`kit/arsitektur/`, belum ditulis) dan pustaka material/lighting preset sebelum pilot; (3) variabel eksperimen kini "procedural semi-realistis vs diorama kertas", keduanya Three.js, jadi perbedaan harus terlihat jelas di pilot.
+- Pilot berikutnya: 1 adegan rumah (mis. #9 POV mobil) dengan material PBR + matahari nyata, lalu minta approval style reference.
+
 ## Video #24 selesai (19 Nov 2026): "Rumah Hook Bawa Sial?" (Bukan Sial #05)
 - 53,6 dtk, −14,3 LUFS, `remotion/src/v24/` (beats.json + Video24 + Cover24), objek baru `kit/objek/AdeganHook.tsx` (rumah sudut malam, mobil, berkas lampu, pita angin, pagar, tanaman), palet **`malam`** (user), VO **Gemini TTS Achernar** (2 generasi: 62,8 dtk lalu tempo rapat 53,2 dtk dipakai). Drive #24 `1QQTUxesQgUcl-bMapSQYW_a0xU06Dfjn` (cover, info, versi ringan 540p); MP4 penuh + SRT + cover dikirim ke user. Riset `riset/2026-11-19-rumah-hook.md`, naskah `naskah/video-24-rumah-hook.md`, caption `caption/video-24-rumah-hook.md`.
 - **Dasar keputusan:** ekspor YouTube Studio user 19 Nov (14 video, 20.862 views, 21 subscriber): video mitos rata-rata ±1.825 views / ±40% ditonton vs teknis ±1.290 / ±21%; #9 tusuk sate terbaik. Karena itu #24 memakai formula #9 (kepercayaan yang ditakuti, lalu alasan nyata). Kolom thumbnail Studio hampir tak berarti untuk Shorts (±93% views dari feed). Hipotesis yang diuji: lima video mitos berikutnya; bandingkan views dan % ditonton.

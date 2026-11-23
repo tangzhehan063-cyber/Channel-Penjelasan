@@ -57,3 +57,6 @@ export function projIso(cam: Key, p: V3): [number, number] {
   const x = a * Math.cos(az) - c * Math.sin(az), y = -a * Math.sin(el) * Math.sin(az) + b * Math.cos(el) - c * Math.sin(el) * Math.cos(az);
   return [540 + z * x, 960 - z * y];
 }
+
+/** Uji z-fighting (tools/cek_kilau.py): geser kamera sangat kecil. Komposisi E1 wajib menerima prop `nudge?: number` dan memanggil ini. */
+export const nudgeKey = (k: Key, nudge = 0): Key => (nudge ? {...k, pos: [k.pos[0] + nudge, k.pos[1], k.pos[2]]} : k);

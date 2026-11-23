@@ -1,0 +1,734 @@
+{
+"words": [
+{
+"word": "Dua",
+"start": 0.317,
+"end": 0.638
+},
+{
+"word": "rumah,",
+"start": 0.638,
+"end": 1.172
+},
+{
+"word": "matahari",
+"start": 1.452,
+"end": 1.983
+},
+{
+"word": "yang",
+"start": 1.983,
+"end": 2.248
+},
+{
+"word": "sama.",
+"start": 2.248,
+"end": 2.513
+},
+{
+"word": "Yang",
+"start": 3.037,
+"end": 3.407
+},
+{
+"word": "satu",
+"start": 3.407,
+"end": 3.776
+},
+{
+"word": "adem",
+"start": 3.776,
+"end": 4.146
+},
+{
+"word": "tanpa",
+"start": 4.146,
+"end": 4.608
+},
+{
+"word": "AC,",
+"start": 4.608,
+"end": 4.792
+},
+{
+"word": "yang",
+"start": 5.152,
+"end": 5.532
+},
+{
+"word": "satu",
+"start": 5.532,
+"end": 5.911
+},
+{
+"word": "panas.",
+"start": 5.911,
+"end": 6.386
+},
+{
+"word": "Yang",
+"start": 6.925,
+"end": 7.182
+},
+{
+"word": "adem",
+"start": 7.182,
+"end": 7.44
+},
+{
+"word": "rumah",
+"start": 7.44,
+"end": 7.762
+},
+{
+"word": "zaman",
+"start": 7.762,
+"end": 8.085
+},
+{
+"word": "Belanda.",
+"start": 8.085,
+"end": 8.536
+},
+{
+"word": "Orang",
+"start": 9.097,
+"end": 9.412
+},
+{
+"word": "bilang",
+"start": 9.412,
+"end": 9.79
+},
+{
+"word": "gara-gara",
+"start": 9.79,
+"end": 10.293
+},
+{
+"word": "temboknya",
+"start": 10.293,
+"end": 10.86
+},
+{
+"word": "tebal.",
+"start": 10.86,
+"end": 11.174
+},
+{
+"word": "Tembok",
+"start": 11.736,
+"end": 12.111
+},
+{
+"word": "tebal",
+"start": 12.111,
+"end": 12.423
+},
+{
+"word": "memang",
+"start": 12.423,
+"end": 12.799
+},
+{
+"word": "menahan",
+"start": 12.799,
+"end": 13.236
+},
+{
+"word": "panas.",
+"start": 13.236,
+"end": 13.549
+},
+{
+"word": "Tapi",
+"start": 14.111,
+"end": 14.425
+},
+{
+"word": "yang",
+"start": 14.425,
+"end": 14.738
+},
+{
+"word": "bikin",
+"start": 14.738,
+"end": 15.129
+},
+{
+"word": "adem",
+"start": 15.129,
+"end": 15.442
+},
+{
+"word": "ada",
+"start": 15.442,
+"end": 15.677
+},
+{
+"word": "di",
+"start": 15.677,
+"end": 15.834
+},
+{
+"word": "atas",
+"start": 15.834,
+"end": 16.147
+},
+{
+"word": "kepalamu.",
+"start": 16.147,
+"end": 16.773
+},
+{
+"word": "Plafonnya",
+"start": 17.248,
+"end": 17.758
+},
+{
+"word": "tinggi.",
+"start": 17.758,
+"end": 18.098
+},
+{
+"word": "Udara",
+"start": 18.738,
+"end": 19.078
+},
+{
+"word": "panas",
+"start": 19.078,
+"end": 19.418
+},
+{
+"word": "itu",
+"start": 19.418,
+"end": 19.621
+},
+{
+"word": "ringan,",
+"start": 19.621,
+"end": 20.029
+},
+{
+"word": "jadi",
+"start": 20.317,
+"end": 20.595
+},
+{
+"word": "naik",
+"start": 20.595,
+"end": 20.873
+},
+{
+"word": "dan",
+"start": 20.873,
+"end": 21.082
+},
+{
+"word": "ngumpul",
+"start": 21.082,
+"end": 21.569
+},
+{
+"word": "di",
+"start": 21.569,
+"end": 21.708
+},
+{
+"word": "atas.",
+"start": 21.708,
+"end": 21.986
+},
+{
+"word": "Lalu",
+"start": 22.544,
+"end": 22.784
+},
+{
+"word": "ada",
+"start": 22.784,
+"end": 22.963
+},
+{
+"word": "lubang",
+"start": 22.963,
+"end": 23.323
+},
+{
+"word": "angin",
+"start": 23.323,
+"end": 23.623
+},
+{
+"word": "kecil",
+"start": 23.623,
+"end": 23.923
+},
+{
+"word": "di",
+"start": 23.923,
+"end": 24.043
+},
+{
+"word": "atas",
+"start": 24.043,
+"end": 24.282
+},
+{
+"word": "pintu",
+"start": 24.282,
+"end": 24.582
+},
+{
+"word": "dan",
+"start": 24.582,
+"end": 24.762
+},
+{
+"word": "jendela.",
+"start": 24.762,
+"end": 25.182
+},
+{
+"word": "Udara",
+"start": 25.77,
+"end": 26.092
+},
+{
+"word": "panas",
+"start": 26.092,
+"end": 26.414
+},
+{
+"word": "keluar",
+"start": 26.414,
+"end": 26.8
+},
+{
+"word": "lewat",
+"start": 26.8,
+"end": 27.123
+},
+{
+"word": "situ,",
+"start": 27.123,
+"end": 27.38
+},
+{
+"word": "udara",
+"start": 27.652,
+"end": 27.975
+},
+{
+"word": "sejuk",
+"start": 27.975,
+"end": 28.297
+},
+{
+"word": "masuk",
+"start": 28.297,
+"end": 28.62
+},
+{
+"word": "dari",
+"start": 28.62,
+"end": 28.878
+},
+{
+"word": "bawah.",
+"start": 28.878,
+"end": 29.201
+},
+{
+"word": "Di",
+"start": 29.995,
+"end": 30.133
+},
+{
+"word": "sebuah",
+"start": 30.133,
+"end": 30.549
+},
+{
+"word": "rumah",
+"start": 30.549,
+"end": 30.896
+},
+{
+"word": "kuno",
+"start": 30.896,
+"end": 31.173
+},
+{
+"word": "di",
+"start": 31.173,
+"end": 31.312
+},
+{
+"word": "Solo",
+"start": 31.312,
+"end": 31.589
+},
+{
+"word": "yang",
+"start": 31.589,
+"end": 31.866
+},
+{
+"word": "diteliti",
+"start": 31.866,
+"end": 32.421
+},
+{
+"word": "dosen",
+"start": 32.421,
+"end": 32.767
+},
+{
+"word": "UMS,",
+"start": 32.767,
+"end": 32.975
+},
+{
+"word": "suhu",
+"start": 33.355,
+"end": 33.588
+},
+{
+"word": "luar",
+"start": 33.588,
+"end": 33.822
+},
+{
+"word": "tiga",
+"start": 33.822,
+"end": 34.055
+},
+{
+"word": "puluh",
+"start": 34.055,
+"end": 34.347
+},
+{
+"word": "lima",
+"start": 34.347,
+"end": 34.581
+},
+{
+"word": "derajat.",
+"start": 34.581,
+"end": 34.989
+},
+{
+"word": "Di",
+"start": 35.374,
+"end": 35.502
+},
+{
+"word": "dalam,",
+"start": 35.502,
+"end": 35.822
+},
+{
+"word": "sekitar",
+"start": 35.822,
+"end": 36.269
+},
+{
+"word": "tiga",
+"start": 36.269,
+"end": 36.524
+},
+{
+"word": "puluh.",
+"start": 36.524,
+"end": 36.844
+},
+{
+"word": "Banyak",
+"start": 37.511,
+"end": 37.872
+},
+{
+"word": "rumah",
+"start": 37.872,
+"end": 38.173
+},
+{
+"word": "baru",
+"start": 38.173,
+"end": 38.413
+},
+{
+"word": "plafonnya",
+"start": 38.413,
+"end": 38.954
+},
+{
+"word": "rendah",
+"start": 38.954,
+"end": 39.651
+},
+{
+"word": "dan",
+"start": 39.651,
+"end": 39.831
+},
+{
+"word": "lubang",
+"start": 39.831,
+"end": 40.192
+},
+{
+"word": "anginnya",
+"start": 40.192,
+"end": 40.673
+},
+{
+"word": "ditutup",
+"start": 40.673,
+"end": 41.094
+},
+{
+"word": "demi",
+"start": 41.094,
+"end": 41.335
+},
+{
+"word": "AC.",
+"start": 41.335,
+"end": 41.455
+},
+{
+"word": "Panasnya",
+"start": 41.971,
+"end": 42.417
+},
+{
+"word": "terjebak.",
+"start": 42.417,
+"end": 42.863
+},
+{
+"word": "Kamu",
+"start": 43.581,
+"end": 43.773
+},
+{
+"word": "nggak",
+"start": 43.773,
+"end": 44.012
+},
+{
+"word": "perlu",
+"start": 44.012,
+"end": 44.252
+},
+{
+"word": "bangun",
+"start": 44.252,
+"end": 44.539
+},
+{
+"word": "rumah",
+"start": 44.539,
+"end": 44.779
+},
+{
+"word": "Belanda.",
+"start": 44.779,
+"end": 45.114
+},
+{
+"word": "Kasih",
+"start": 45.609,
+"end": 45.935
+},
+{
+"word": "panas",
+"start": 45.935,
+"end": 46.26
+},
+{
+"word": "jalan",
+"start": 46.26,
+"end": 46.586
+},
+{
+"word": "keluar:",
+"start": 46.586,
+"end": 46.977
+},
+{
+"word": "ventilasi",
+"start": 47.39,
+"end": 47.867
+},
+{
+"word": "dekat",
+"start": 47.867,
+"end": 48.132
+},
+{
+"word": "plafon",
+"start": 48.132,
+"end": 48.45
+},
+{
+"word": "dan",
+"start": 48.45,
+"end": 48.609
+},
+{
+"word": "jendela",
+"start": 48.609,
+"end": 48.981
+},
+{
+"word": "yang",
+"start": 48.981,
+"end": 49.193
+},
+{
+"word": "saling",
+"start": 49.193,
+"end": 49.511
+},
+{
+"word": "berhadapan.",
+"start": 49.511,
+"end": 50.041
+},
+{
+"word": "Jadi",
+"start": 50.601,
+"end": 50.846
+},
+{
+"word": "ademnya",
+"start": 50.846,
+"end": 51.276
+},
+{
+"word": "rumah",
+"start": 51.276,
+"end": 51.583
+},
+{
+"word": "Belanda",
+"start": 51.583,
+"end": 52.013
+},
+{
+"word": "itu",
+"start": 52.013,
+"end": 52.198
+},
+{
+"word": "soal",
+"start": 52.198,
+"end": 52.443
+},
+{
+"word": "jalan",
+"start": 52.443,
+"end": 52.75
+},
+{
+"word": "keluar",
+"start": 52.75,
+"end": 53.119
+},
+{
+"word": "buat",
+"start": 53.119,
+"end": 53.364
+},
+{
+"word": "panas.",
+"start": 53.364,
+"end": 53.671
+},
+{
+"word": "Rumahmu",
+"start": 54.396,
+"end": 54.747
+},
+{
+"word": "masih",
+"start": 54.747,
+"end": 54.998
+},
+{
+"word": "punya",
+"start": 54.998,
+"end": 55.249
+},
+{
+"word": "lubang",
+"start": 55.249,
+"end": 55.551
+},
+{
+"word": "angin",
+"start": 55.551,
+"end": 55.802
+},
+{
+"word": "di",
+"start": 55.802,
+"end": 55.902
+},
+{
+"word": "atas",
+"start": 55.902,
+"end": 56.103
+},
+{
+"word": "pintu,",
+"start": 56.103,
+"end": 56.354
+},
+{
+"word": "atau",
+"start": 56.697,
+"end": 56.882
+},
+{
+"word": "sudah",
+"start": 56.882,
+"end": 57.114
+},
+{
+"word": "ditutup?",
+"start": 57.114,
+"end": 57.439
+},
+{
+"word": "Follow",
+"start": 58.13,
+"end": 58.52
+},
+{
+"word": "buat",
+"start": 58.52,
+"end": 58.781
+},
+{
+"word": "fakta",
+"start": 58.781,
+"end": 59.106
+},
+{
+"word": "rumah",
+"start": 59.106,
+"end": 59.432
+},
+{
+"word": "berikutnya!",
+"start": 59.432,
+"end": 60.083
+}
+]
+}

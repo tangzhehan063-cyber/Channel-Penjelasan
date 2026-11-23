@@ -1,13 +1,16 @@
 # E1 — VISUAL EXPERIMENT WORKFLOW
 ## Fakta Rumah
-**Eksperimen visual semi-realistis AI-generated**
+**Eksperimen visual semi-realistis, dibuat 100% dari kode (Remotion + Three.js)**
 
-**Status:** DRAFT — Menunggu persetujuan pemilik channel  
+**Status:** DRAFT v2 (23 Nov 2026: metode visual diganti kode, struktur dan gerbang tetap) — Menunggu persetujuan pemilik channel  
 **Eksperimen:** E1  
 **Tujuan:** Menguji pengaruh perubahan visual terhadap performa video  
 **Format:** TikTok / Facebook Reels / short-form video vertikal
 
 > Workflow 3D diorama lama (langkah 0–7, gerbang T1–T7) diarsipkan di `arsip/WORKFLOW-3d-diorama-lama.md`.
+
+> **ATURAN MANDIRI (23 Nov 2026, perintah pemilik channel):** semua aset visual dibuat dengan kode: Remotion (timeline, komposisi, render), Three.js (objek 3D, kamera, lighting, material), React + TypeScript (komponen modular), CSS/SVG (diagram, tipografi, motion graphic), JS/TS (prosedural, simulasi). **AI hanya asisten penulis kode.** Dilarang ada API AI eksternal (gambar, video, model 3D, tekstur) di jalur produksi atau render. Cek wajib: `node tools/cek-mandiri.mjs`. Panduan metode & aset: `style/e1-visual-kode.md`. Audit perubahan: `e1/AUDIT-ketergantungan-api.md`.
+> Yang TIDAK diubah: workflow script, approval script, storyboard, semua gerbang approval, sistem evaluasi & benchmark, struktur folder, QC, aturan hemat token.
 
 ---
 
@@ -15,7 +18,7 @@
 
 ## Tujuan eksperimen
 
-Eksperimen E1 bertujuan menguji apakah visual semi-realistis yang dihasilkan menggunakan AI dapat meningkatkan performa video Fakta Rumah dibandingkan gaya visual yang saat ini digunakan.
+Eksperimen E1 bertujuan menguji apakah visual semi-realistis arsitektural yang dibangun dari kode (Three.js + Remotion, tanpa generator AI) dapat meningkatkan performa video Fakta Rumah dibandingkan gaya visual yang saat ini digunakan.
 
 Gaya visual sebelumnya menggunakan pendekatan **stylized 3D paper diorama**, seperti yang terlihat pada video #9.
 
@@ -44,7 +47,7 @@ Namun, peningkatan performa tidak boleh langsung dianggap berasal dari visual. T
 Visual style.
 
 - Control: Existing stylized 3D paper-diorama style.
-- Experiment: Semi-realistic AI-generated visual style.
+- Experiment: Semi-realistic procedural visual style (Three.js, materials + lighting realistis, tanpa generator AI).
 
 ## Variabel yang dijaga tetap
 
@@ -55,7 +58,7 @@ Sebisa mungkin, faktor berikut harus dipertahankan:
 | Story structure | Mengikuti struktur storytelling video #9 |
 | Hook | Menggunakan format hook yang sama |
 | Narration | Menggunakan suara TTS yang sama |
-| Duration | Target 47–50 detik |
+| Duration | Target 50–70 detik |
 | Pacing | Mengikuti pacing referensi #9 |
 | Sound design | Menggunakan pendekatan yang konsisten |
 | CTA | Menggunakan format penutup yang sama |
@@ -154,7 +157,7 @@ Lakukan revisi apabila:
 - Visual menarik, tetapi terdapat masalah konsistensi.
 - Beberapa shot terlihat bagus, tetapi sebagian lainnya gagal.
 - Biaya produksi terlalu tinggi.
-- Motion AI masih terlalu tidak stabil.
+- Gerak kamera/objek masih kaku atau tidak natural.
 
 Perbaikan harus diarahkan ke masalah yang ditemukan, bukan mengganti seluruh workflow.
 
@@ -238,7 +241,7 @@ Script harus:
 - Memiliki curiosity gap.
 - Tidak mengulang informasi.
 - Menggunakan angka yang ditulis dengan kata untuk TTS.
-- Menyesuaikan panjang dengan target 47–50 detik.
+- Menyesuaikan panjang dengan target 50–70 detik.
 
 CTA tetap:
 
@@ -288,35 +291,50 @@ Setiap shot harus memiliki:
 | Fact note | Catatan faktual |
 | Transition | Transisi ke shot berikutnya |
 
+Untuk setiap shot, beat sheet juga memuat **rencana adegan visual** (template di `style/e1-visual-kode.md` §2):
+
+| Field | Description |
+|---|---|
+| Tujuan penjelasan | Apa yang harus dipahami penonton |
+| Objek utama | Satu objek kunci |
+| Geometri | Primitif/ekstrusi/lathe/BufferGeometry yang dibutuhkan, ukuran nyata |
+| Metode visualisasi | 3D, cutaway/cross-section/exploded view, diagram, simulasi, flow, perbandingan |
+| Gerakan | Objek: apa, kapan, easing |
+| Kamera | Preset + alasan |
+| Komposisi | Fokus, ruang teks |
+| Material | Dari pustaka material |
+| Lighting | Preset |
+
+Visual harus memperjelas narasi, bukan dekorasi. Pilih metode yang paling efektif menjelaskan konsep, bukan yang paling realistis; bila diagram atau cross-section lebih jelas, pakai itu.
+
 Claude harus menghindari membuat shot hanya untuk memenuhi jumlah.
 
 Setiap perubahan shot harus memiliki alasan visual atau storytelling.
 
 ---
 
-### STEP 4 — Style development and keyframes
+### STEP 4 — Style development and scene build
 
-Sebelum membuat seluruh keyframe, Claude harus menetapkan visual direction.
+Sebelum membangun seluruh adegan, Claude harus menetapkan visual direction.
 
 ## Visual identity
 
 Target gaya:
 
-**Semi-realistic cinematic architectural visualization.**
+**Semi-realistic cinematic architectural visualization, dibangun dari kode.**
 
 Karakter visual:
 
-- Realistic materials.
-- Natural lighting.
+- Material PBR procedural (roughness, bump noise, variasi warna halus).
+- Natural lighting (satu matahari dari azimut nyata + hemisphere, bayangan lembut).
 - Cinematic composition.
-- Realistic proportions.
-- Subtle imperfections.
-- Detailed environments.
-- Atmospheric depth.
-- Natural shadows.
+- Proporsi nyata (1 satuan = 1 meter).
+- Subtle imperfections (noise warna ±3%, sambungan tidak sempurna).
+- Detailed environments (instancing untuk objek berulang).
+- Atmospheric depth (fog tipis, gradien langit).
 - Controlled color grading.
 
-Visual tidak harus photorealistic sempurna.
+Visual tidak harus photorealistic sempurna. Konsep sulit divisualisasikan secara realistis memakai diagram, simulasi sederhana, perbandingan visual, cross-section, highlight, atau flow animation.
 
 Targetnya adalah:
 
@@ -324,35 +342,33 @@ Targetnya adalah:
 
 ## Style consistency
 
-Setiap video harus memiliki style reference yang sama.
+Setiap video memiliki satu **style reference**: still render dari scene Three.js (bukan gambar AI).
 
-Elemen yang harus dijaga:
+Elemen yang dijaga lewat konstanta bersama (satu sumber, bukan prompt):
 
-- Lighting.
+- Lighting preset.
 - Color palette.
-- Material.
+- Material library.
 - Architectural proportions.
 - Environment.
 - Weather.
 - Time of day.
-- Camera characteristics.
+- Camera characteristics (FOV, lensa).
 
-Jika terdapat rumah yang sama di beberapa shot, bentuk rumah harus tetap konsisten.
+Rumah yang sama di beberapa shot memakai **komponen yang sama dengan parameter yang sama**, jadi bentuknya tidak mungkin berubah.
 
-Claude harus menggunakan reference image yang tersedia sebagai panduan visual untuk shot berikutnya.
-
-## Keyframe generation
+## Scene build
 
 Workflow:
 
-1. Generate satu style reference.
+1. Bangun satu style reference (still dari kode).
 2. Pemilik channel menyetujui style reference.
-3. Generate keyframe per shot.
-4. Review konsistensi.
-5. Revisi keyframe yang gagal.
-6. Setelah keyframe disetujui, lanjut ke animasi.
+3. Bangun adegan per shot dari komponen reusable (`remotion/src/kit/`).
+4. Review konsistensi dan kualitas (`remotion still`, 1 sheet per putaran).
+5. Revisi kode adegan yang gagal.
+6. Setelah adegan disetujui, lanjut ke animasi dan render.
 
-Jangan generate seluruh video sebelum style reference disetujui.
+Jangan render seluruh video sebelum style reference disetujui.
 
 Approval required:
 
@@ -360,13 +376,38 @@ Approval required:
 
 ---
 
+## Breakdown (teknik visual tambahan, skill `breakdown`)
+
+Berlaku di setiap video E1. Bukan tahap baru dan bukan workflow terpisah: dipakai di dalam Step 3 (perencanaan) dan Step 4–5 (pembuatan adegan).
+
+1. **Analisis dulu.** Saat beat sheet disusun, tandai shot yang butuh penjelasan struktur, komponen, lapisan material, mekanisme kerja, atau objek yang perlu dibongkar. Tulis alasannya di kolom Metode visual ("breakdown: ...").
+2. **Selektif.** Hanya shot yang pemahamannya benar-benar meningkat. Dilarang di setiap shot. Bila tidak ada shot yang cocok, jangan dipaksakan dan catat "tanpa breakdown" di beat sheet.
+3. **Implementasi** dengan skill `breakdown`, di mesin Remotion + Three.js yang sudah ada. Objek, geometri, material, animasi bongkar, kamera, lighting, label, dan transisi semuanya kode.
+4. **Dilarang:** API AI eksternal untuk gambar/video/model 3D (`cek-mandiri`), HyperFrames (gaya 4 di skill `breakdown`), dan engine produksi lain.
+5. **Konsisten** dengan shot lain: komposisi, palet/material E1, pacing, kamera (preset yang sama), dan transisi. Gaya breakdown mengikuti arah E1, bukan gaya sampel (blueprint/Kurzgesagt) kecuali diputuskan pemilik.
+6. **Sederhanakan** geometri objek yang terlalu kompleks tanpa membuang informasi penting (urutan lapisan, ketebalan relatif, posisi komponen); catat penyederhanaan sebagai "penyederhanaan visual" di fact note.
+7. **Cek still sebelum render final:** objek, lapisan, label, kamera, dan animasi terbaca jelas (tiap lapisan terpisah, tidak ada z-fighting, label tidak menimpa objek/teks, label terbaca di layar HP). Breakdown yang tidak terpahami dalam 1–2 detik diperbaiki atau diganti diagram.
+8. Prioritas: storytelling dan pemahaman penonton, bukan efek.
+
+## Perbandingan real-life (sisipan kasus nyata)
+
+Di sela penjelasan visual kode, video boleh menyisipkan 1–3 momen **perbandingan dengan kasus nyata** (rumah, kejadian, atau kondisi sungguhan) untuk membuktikan bahwa penjelasannya terjadi di dunia nyata.
+
+1. **Cari kasus nyata yang terverifikasi** (berita, laporan, instansi): lokasi, tahun, dan angka dicatat di Research dan Sources. Tanpa sumber = tidak dipakai.
+2. **Foto/video orang lain tidak diambil begitu saja.** Foto berita dan hasil pencarian umum berhak cipta. Sumber visual yang diperbolehkan: Wikimedia Commons (CC, kredit wajib), Pexels/Unsplash (lisensi bebas), foto milik channel, atau **kartu kasus** buatan kode (judul kasus, kota, tahun, angka, nama media) tanpa foto.
+3. **Persetujuan pemilik channel** sebelum aset foto dipakai (aset lokal eksternal). Catat file, sumber, lisensi, dan kredit di `e1/eNN-*.md` bagian Sources; kredit ditulis di deskripsi YouTube.
+4. Foto real-life disimpan lokal (`remotion/public/`), tidak diunduh saat render, dan tidak dihasilkan AI.
+5. Perbandingan harus menambah pemahaman (misalnya model kode di kiri, kasus nyata di kanan), bukan dekorasi. Beat sheet memuat kolom tambahan **Real-life**.
+
+---
+
 # PHASE C — ANIMATION
 
-### STEP 5 — Image-to-video
+### STEP 5 — Animation and render
 
-Setiap keyframe diubah menjadi video.
+Setiap adegan dianimasikan dengan kode dan dirender oleh Remotion. Tidak ada image-to-video.
 
-Target durasi klip:
+Target durasi shot:
 
 **4–8 detik sebagai titik awal, bukan aturan mutlak.**
 
@@ -380,7 +421,7 @@ Durasi harus disesuaikan dengan:
 
 ## Camera movement
 
-Gunakan satu gerakan kamera utama per shot.
+Gunakan satu gerakan kamera utama per shot (`camAt` keyframe + preset di kit).
 
 | Camera movement | Intended feeling | Usage |
 |---|---|---|
@@ -400,22 +441,24 @@ Gunakan satu gerakan kamera utama per shot.
 - Gerakan kamera harus mendukung narasi.
 - Hindari gerakan objek yang tidak diperlukan.
 - Jangan membuat kamera dan objek bergerak secara kompleks dalam satu shot.
-- Hindari physics yang tidak realistis.
-- Hindari perubahan bentuk bangunan.
-- Hindari flickering.
-- Hindari warping.
-- Hindari perubahan material.
-- Hindari perubahan lighting yang tidak konsisten.
+- Gerak harus mengikuti logika fisik yang masuk akal (simulasi sederhana boleh, jangan menyesatkan fakta).
+- Semua animasi fungsi dari nomor frame (`useCurrentFrame`), bukan `Date`, `Math.random()`, atau CSS transition.
+- Acak memakai seed tetap supaya render selalu identik.
+- Hindari z-fighting, clipping objek, dan celah antar-geometri.
+- Hindari perubahan lighting yang tidak disengaja antar-shot.
 
-## Start and end frame
+## Keyframe animasi
 
-Jika generator mendukung:
+- Gunakan keyframe awal untuk menjaga komposisi.
+- Gunakan keyframe akhir untuk mengarahkan perubahan visual.
+- Easing dipilih sesuai maksud (ease in-out untuk kamera, spring untuk objek jatuh/memantul).
 
-- Gunakan start frame untuk menjaga komposisi.
-- Gunakan end frame untuk mengarahkan perubahan visual.
-- Gunakan reference image bila diperlukan untuk menjaga konsistensi.
+Jangan memaksakan endpoint yang ketat apabila gerakan alami lebih baik.
 
-Jangan memaksakan end frame apabila gerakan alami lebih baik tanpa endpoint yang ketat.
+## Render dan cek
+
+- Sebelum render penuh: `node tools/cek-mandiri.mjs` (harus OK) dan cek komposisi (`tools/cek-sutradara.mjs`).
+- Render lewat Remotion (`npx remotion render`), berjalan lokal tanpa jaringan.
 
 ---
 
@@ -494,9 +537,7 @@ Aturan:
 - Hindari teks terlalu kecil.
 - Hindari terlalu banyak animasi.
 
-Jika generator tidak mampu menghasilkan teks dengan benar, teks harus ditambahkan saat editing.
-
-Jangan mengandalkan AI video generation untuk menulis teks yang harus akurat.
+Semua teks dibuat dari React/SVG di Remotion (tidak ada teks yang digambar generator), sehingga selalu akurat dan dapat diedit.
 
 ---
 
@@ -516,18 +557,19 @@ Sebelum posting, video harus melewati checklist berikut.
 
 ## Visual QC
 
-- [ ] Tidak ada perubahan bentuk rumah.
-- [ ] Tidak ada objek yang berubah secara tidak wajar.
-- [ ] Tidak ada warping.
-- [ ] Tidak ada flickering yang mengganggu.
+- [ ] `node tools/cek-mandiri.mjs` OK (tanpa API AI/jaringan).
+- [ ] Rumah/objek sama di semua shot (komponen dan parameter identik).
+- [ ] Tidak ada z-fighting, objek tembus, atau celah geometri.
+- [ ] Tidak ada flickering akibat bayangan/aliasing yang mengganggu.
 - [ ] Tidak ada gerakan fisik yang salah.
+- [ ] Proporsi masuk akal (ukuran nyata) dan cutaway/diagram tidak menyesatkan fakta.
 - [ ] Lighting konsisten.
 - [ ] Warna konsisten.
 - [ ] Material konsisten.
 - [ ] Kamera tidak bergerak secara tidak sengaja.
 - [ ] Tidak ada wajah atau identitas orang nyata yang tidak diperlukan.
 - [ ] Tidak ada logo atau merek yang tidak relevan.
-- [ ] Tidak ada teks AI yang rusak.
+- [ ] Teks terbaca di layar HP dan tidak terpotong tepi layar.
 
 ## Audio QC
 
@@ -563,9 +605,9 @@ Isi folder:
 - Sources.
 - Script.
 - Beat sheet.
-- Style reference.
-- Keyframes.
-- Video clips.
+- Style reference (still render).
+- Kode adegan (commit/branch) dan still keyframe.
+- Klip render per adegan (opsional).
 - Voice-over.
 - SFX.
 - Final video.
@@ -575,7 +617,7 @@ Isi folder:
 
 # 05. VISUAL LANGUAGE
 
-## Semi-realistic style
+## Semi-realistic style (procedural)
 
 Visual harus berada di antara:
 
@@ -587,9 +629,9 @@ E1 juga tidak harus terlihat seperti rekaman kamera sungguhan.
 
 Target:
 
-- Architectural realism.
+- Architectural realism (proporsi dan detail nyata).
 - Cinematic lighting.
-- Realistic materials.
+- Realistic procedural materials.
 - Natural depth.
 - Slightly stylized composition.
 - Controlled atmosphere.
@@ -621,6 +663,8 @@ Prioritaskan:
 
 Jangan membuat gambar terlalu ramai.
 
+Saat visual realistis kalah jelas dari diagram, cross-section, atau perbandingan sederhana, pilih yang lebih jelas.
+
 Visual harus langsung dapat dipahami dalam 1–2 detik.
 
 ---
@@ -629,7 +673,7 @@ Visual harus langsung dapat dipahami dalam 1–2 detik.
 
 Target durasi:
 
-**47–50 detik.**
+**50–70 detik.**
 
 ## Retention framework
 
@@ -677,9 +721,9 @@ Use:
 - Approaching a dangerous situation.
 - Experiencing the scene directly.
 
-Prompt concept:
+Implementasi:
 
-`First-person camera moving forward toward the subject, controlled motion, realistic perspective, smooth movement, cinematic composition.`
+Kamera perspektif (FOV tetap) bergerak maju sepanjang jalur `camAt` ke arah subjek, kecepatan terkontrol, ease in-out, sedikit goyang halus (noise ber-seed) bila perlu.
 
 ## Slow push-in
 
@@ -747,9 +791,9 @@ Menguji:
 
 - Visual quality.
 - Style consistency.
-- Image-to-video quality.
+- Kualitas render dan animasi kode.
 - Motion reliability.
-- Credit consumption.
+- Waktu render.
 - Production time.
 - Editing workflow.
 - Text overlay workflow.
@@ -758,7 +802,7 @@ Menguji:
 
 Buat:
 
-**1 keyframe + 1 video clip, durasi sekitar 5 detik.**
+**1 adegan 3D (still keyframe) + 1 klip render, durasi sekitar 5 detik.**
 
 Pilot menggunakan salah satu shot yang paling representatif dari video #9.
 
@@ -770,7 +814,7 @@ Pilot menggunakan salah satu shot yang paling representatif dari video #9.
 | Style | Apakah sesuai arah visual? |
 | Motion | Apakah gerakan natural? |
 | Consistency | Apakah dapat direplikasi? |
-| Cost | Berapa kredit yang digunakan? |
+| Cost | Berapa waktu render dan jumlah revisi kode? (kredit generator = 0) |
 | Time | Berapa lama prosesnya? |
 | Usability | Apakah workflow dapat dijalankan? |
 
@@ -778,55 +822,54 @@ Pilot menggunakan salah satu shot yang paling representatif dari video #9.
 
 Jika pilot tidak memenuhi standar:
 
-- Revisi prompt.
+- Revisi kode adegan (geometri, material, lighting).
 - Revisi style.
 - Ubah camera movement.
-- Uji model lain yang tersedia.
-- Evaluasi ulang biaya.
+- Ganti metode visual (mis. cutaway atau diagram).
+- Evaluasi ulang waktu produksi.
 
 Jangan lanjut ke produksi penuh sebelum pilot disetujui.
 
 ---
 
-# 09. CREDIT AND RESOURCE MANAGEMENT
+# 09. RESOURCE MANAGEMENT
 
-## Credit policy
+Kredit generator visual = **0** (tidak ada generator). Sumber daya yang dikelola: waktu render, token, dan kredit suara.
 
-Tidak boleh melakukan produksi massal sebelum pilot selesai.
+## Resource policy
+
+Tidak boleh render penuh sebelum pilot selesai.
 
 Claude harus:
 
-1. Mengidentifikasi model yang tersedia.
-2. Memeriksa dokumentasi model.
-3. Memahami biaya penggunaan.
-4. Mengestimasi kebutuhan kredit.
-5. Memberikan estimasi sebelum produksi.
-6. Menghindari regenerate berulang tanpa alasan.
-7. Menggunakan satu generation sebagai default awal apabila memungkinkan.
+1. Mengikuti aturan hemat token (CLAUDE.md): revisi ditampung, 1 sheet cek per putaran, render di latar belakang.
+2. Memperkirakan waktu render sebelum render penuh (±25 menit untuk 50 detik di container tanpa GPU).
+3. Mendahulukan cek lewat skrip (`cek-mandiri`, `cek-sutradara`, `tsc`) daripada melihat gambar.
+4. Menghindari render ulang tanpa alasan; render penuh hanya setelah still disetujui.
+5. Memakai aset reusable dari kit sebelum membuat komponen baru.
+6. Suara tetap: VO 1 take, aturan hemat ElevenLabs (CLAUDE.md) berlaku.
 
-## Before generation
+## Before heavy render
 
 Claude harus melaporkan:
 
-- Model yang akan digunakan.
-- Output yang akan dibuat.
-- Jumlah generation.
-- Estimasi credit.
-- Risiko generation.
-- Alasan penggunaan model.
+- Komposisi yang akan dirender.
+- Durasi dan estimasi waktu render.
+- Hasil `cek-mandiri` dan `cek-sutradara`.
+- Risiko (tembus objek, teks terpotong, gerak kaku).
 
-## Regeneration policy
+## Re-render policy
 
-Regenerate hanya apabila:
+Render ulang hanya apabila:
 
 - Visual tidak sesuai brief.
 - Ada kesalahan komposisi.
 - Ada masalah konsistensi.
-- Motion gagal.
+- Animasi gagal.
 - Fakta visual salah.
 - Output tidak layak digunakan.
 
-Jangan regenerate hanya untuk perubahan kosmetik kecil yang tidak memengaruhi kualitas final.
+Jangan render ulang hanya untuk perubahan kosmetik kecil yang tidak memengaruhi kualitas final.
 
 ---
 
@@ -842,7 +885,7 @@ Claude bertindak sebagai production assistant dan research assistant, bukan pemi
 - Hook alternatives.
 - Beat sheet.
 - Shot planning.
-- Prompt drafting.
+- Scene planning dan penulisan kode adegan (draf).
 - Organizing project files.
 - Quality-control review.
 - Performance analysis.
@@ -853,26 +896,26 @@ Claude bertindak sebagai production assistant dan research assistant, bukan pemi
 - Selecting final topic.
 - Finalizing script.
 - Approving style reference.
-- Generating large batches of images.
-- Generating large batches of videos.
-- Spending significant generator credits.
+- Rendering batch besar (banyak video/komposisi sekaligus).
+- Memakai aset lokal eksternal baru (tetap harus berlisensi dan disetujui).
+- Spending kredit suara dalam jumlah signifikan.
 - Publishing.
 - Uploading to public platforms.
 - Merging changes into main branch.
 
-## Before using generator
+## Before heavy render
 
 Claude must first provide:
 
 1. Production plan.
-2. Model selection.
-3. Prompt plan.
-4. Estimated cost.
+2. Rencana adegan (WORKFLOW Step 3).
+3. Hasil `cek-mandiri` dan `cek-sutradara`.
+4. Estimasi waktu render.
 5. Expected output.
 6. Risks.
 7. Required approval.
 
-**No approval = no large-scale generation.**
+**No approval = no large-scale rendering.**
 
 ---
 
@@ -890,7 +933,7 @@ Setiap video harus memiliki log tersendiri.
 | Duration | |
 | Hook | |
 | Production time | |
-| Credits used | |
+| Waktu render / jumlah putaran revisi kode | |
 | Views at 24h | |
 | Views at 48h | |
 | Average watch time | |
@@ -905,11 +948,11 @@ Catat juga masalah produksi.
 
 Contoh:
 
-- Keyframe inconsistency.
-- Motion failure.
+- Inkonsistensi komponen/material antar-shot.
+- Animasi kaku atau gagal.
 - Camera movement failure.
 - Text overlay issue.
-- Excessive credit usage.
+- Render terlalu lama.
 - Editing delay.
 
 ---
@@ -920,10 +963,11 @@ Keputusan berikut belum final:
 
 1. Final selection of 3 experiment topics.
 2. TTS voice: Gemini or ElevenLabs.
-3. Final semi-realistic visual direction.
-4. Generator model selection.
-5. Credit budget.
+3. Final semi-realistic visual direction (pustaka material dan lighting preset).
+4. Persetujuan aset lokal eksternal (mis. model CC0), bila dipakai.
+5. Anggaran waktu render.
 6. Text overlay workflow.
+6a. Suara: tetap Gemini/ElevenLabs atau alternatif lokal (di luar cakupan aset visual).
 7. Final publishing schedule.
 8. Drive permission.
 9. Git branch and merge policy.
@@ -949,13 +993,13 @@ Topic → Sources → Fact verification → Research summary
 
 **PHASE 3 — Visual development**
 
-Style reference → Pilot keyframe → Pilot animation → Owner approval
+Style reference (still kode) → Pilot adegan → Pilot animasi/render → Owner approval
 
 ↓
 
 **PHASE 4 — Production**
 
-Keyframes → Animation → Voice-over → Editing → QC
+Scene code → Animation → Voice-over → Composition → `cek-mandiri` + QC → Render
 
 ↓
 

@@ -135,7 +135,7 @@ Do not add artificial suspense or unnecessary filler.
 
 ## 5. Script Structure
 
-Use this structure as a flexible guideline for approximately 47–50-second videos.
+Use this structure as a flexible guideline for approximately 50–70-second videos.
 
 **Hook — 0–3 seconds**
 Immediately create curiosity.
@@ -209,8 +209,8 @@ Never ridicule the audience's beliefs.
 
 Default target:
 
-- Duration: 47–50 seconds.
-- Indonesian narration: approximately 100–125 words.
+- Duration: 50–70 seconds.
+- Indonesian narration: approximately 110–155 words.
 - Adjust word count according to natural narration speed.
 
 Do not sacrifice clarity or storytelling to hit an arbitrary word count.

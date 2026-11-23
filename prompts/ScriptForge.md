@@ -94,9 +94,9 @@ If the user already provides an approved script angle or hook, do not unnecessar
 
 # STEP 3 — FINAL SHORT-FORM SCRIPT
 
-Write a complete narration script designed for approximately **47–50 seconds**.
+Write a complete narration script designed for approximately **50–70 seconds** (not too short, not too long).
 
-Target approximately **100–125 Indonesian words**, depending on narration speed.
+Target approximately **110–155 Indonesian words** (≈2,2 words/second), depending on narration speed.
 
 Prioritize natural delivery and timing over strict word count.
 

@@ -14,7 +14,7 @@
 | Duration | |
 | Hook | |
 | Production time | |
-| Credits used | |
+| Waktu render / putaran revisi kode | |
 | Views at 24h | |
 | Views at 48h | |
 | Average watch time | |
@@ -30,14 +30,15 @@ Isi tanggal hanya setelah user menjawab di chat.
 - [ ] Topik final: 
 - [ ] Script final: 
 - [ ] Style reference: 
-- [ ] Batch keyframe / video (jumlah + estimasi kredit disetujui): 
+- [ ] Render batch besar (komposisi + estimasi waktu disetujui): 
 - [ ] Publish: 
 - [ ] Merge ke `main`: 
 
-## 3. Rencana generator (isi sebelum generate, WORKFLOW 09–10)
-| Model | Output | Jumlah generasi | Estimasi kredit | Risiko | Alasan |
-|---|---|---|---|---|---|
-| | | | | | |
+## 3. Rencana adegan visual (isi sebelum render, WORKFLOW Step 3 dan 09–10)
+| Shot | Tujuan penjelasan | Objek utama | Geometri | Metode visual | Gerakan | Kamera | Komposisi | Material | Lighting | Durasi |
+|---|---|---|---|---|---|---|---|---|---|---|
+| | | | | | | | | | | |
+- [ ] `node tools/cek-mandiri.mjs` OK
 
 ## 4. Pilot (hanya video pertama, WORKFLOW 08)
 | Kriteria | Hasil |
@@ -46,25 +47,25 @@ Isi tanggal hanya setelah user menjawab di chat.
 | Style | |
 | Motion | |
 | Consistency | |
-| Cost (kredit) | |
+| Cost (waktu render, revisi; kredit generator = 0) | |
 | Time | |
 | Usability | |
-- Keputusan pilot: [ ] lanjut  [ ] revisi (prompt / style / kamera / model lain)
+- Keputusan pilot: [ ] lanjut  [ ] revisi (kode adegan / style / kamera / metode visual)
 
-## 5. Log generasi
-| Shot ID | Jenis (keyframe / klip) | Model | Kredit | Percobaan ke- | Hasil (lolos / gagal) | Catatan |
+## 5. Log render
+| Shot ID | Jenis (still / klip / penuh) | Komposisi | Waktu render | Putaran ke- | Hasil (lolos / gagal) | Catatan |
 |---|---|---|---|---|---|---|
 | | | | | | | |
 
 ## 6. Masalah produksi
-Contoh: keyframe inconsistency, motion failure, camera movement failure, text overlay issue, kredit berlebih, editing delay.
+Contoh: inkonsistensi komponen/material, animasi kaku, camera movement failure, text overlay issue, render terlalu lama, editing delay.
 | Masalah | Shot | Penyebab | Tindakan |
 |---|---|---|---|
 | | | | |
 
 ## 7. QC akhir (WORKFLOW Step 8)
 - [ ] Fact check: klaim utama bersumber, tanpa angka tak terverifikasi, simplifikasi tidak menyesatkan
-- [ ] Visual: bentuk rumah, lighting, warna, material konsisten; tanpa warping/flicker/teks AI rusak/logo tak relevan
+- [ ] Visual: komponen rumah, lighting, warna, material konsisten; tanpa z-fighting/objek tembus/flicker; teks terbaca; logo tak relevan tidak ada
 - [ ] Audio: VO jelas, tanpa clipping, volume stabil, musik tidak mengganggu
 - [ ] Editing: hook langsung, tanpa dead space, CTA singkat, 9:16, bisa dipahami tanpa audio
 - [ ] Caption + komentar pin lewat humanizer
