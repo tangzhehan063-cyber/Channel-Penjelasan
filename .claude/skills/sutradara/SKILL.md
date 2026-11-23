@@ -1,9 +1,12 @@
 ---
 name: sutradara
-description: Keahlian sutradara untuk video "fakta rumah" — mempertahankan DNA motion graphic video #7–#8 lalu menambah lapisan penyutradaraan (shot list, ritme, kamera beralasan, suara, waktu baca) dari repo Motion-videos. Pakai di Tahap 2 (storyboard → shot list) dan Tahap 5–6 (animasi, cek sebelum render); jalankan `node tools/cek-sutradara.mjs NN`. Juga memeriksa bentuk, animasi, dan perpaduan warna material (palet latar fleksibel, identitas tetap): `node tools/cek-sutradara.mjs NN` bagian 6–8 dan `python3 tools/cek-visual.py`.
+description: [Video 3D lama; prinsip bagian B juga berlaku umum untuk E1] Keahlian sutradara untuk video "fakta rumah" — mempertahankan DNA motion graphic video #7–#8 lalu menambah lapisan penyutradaraan (shot list, ritme, kamera beralasan, suara, waktu baca) dari repo Motion-videos. Pakai di Tahap 2 (storyboard → shot list) dan Tahap 5–6 (animasi, cek sebelum render); jalankan `node tools/cek-sutradara.mjs NN`. Juga memeriksa bentuk, animasi, dan perpaduan warna material (palet latar fleksibel, identitas tetap): `node tools/cek-sutradara.mjs NN` bagian 6–8 dan `python3 tools/cek-visual.py`.
 ---
 
 # Sutradara "fakta rumah"
+
+> **STATUS (E1):** bagian **A, C, D, E, F** (DNA 3D kertas, Remotion, cek warna/bentuk, `cek-sutradara`) khusus video 3D lama. Bagian **B** (logline, akhir menggema pembuka, kamera beralasan, ritme tidak rata, waktu baca, SFX 1 frame setelah gambar, hening ±0,9 dtk sebelum payoff, hierarki gerak) berlaku umum dan boleh dipakai untuk perencanaan shot E1; kosakata gerak kamera E1 ada di `WORKFLOW.md` bagian 07. Untuk E1 tidak ada pemeriksaan otomatis `cek-sutradara`.
+
 
 Sumber (MIT, diringkas & disesuaikan ke Remotion 9:16 yang dikunci ke VO): `lemo-opuscar/DIRECTOR.md`, `LottieFiles/motion-design-skill/director/*`, `lab/prompts/04-numbers.md` + `03-banned.md` di repo `tangzhehan063-cyber/Motion-videos`.
 Urutan nilai film: **suara → ritme → kamera → penyutradaraan**. Frame cantik hanya titik awal.

@@ -1,9 +1,12 @@
 ---
 name: remotion-fitur
-description: Aturan Remotion + three.js dan fitur peningkat kualitas (transisi, light leak, color correction, motion blur, audio-reaktif) untuk video "fakta rumah". Pakai saat Tahap 4–5 (animasi/render) atau saat user minta video lebih halus/"mahal".
+description: [Dipakai untuk teks/penyusunan E1 dan video 3D lama] Aturan Remotion + three.js dan fitur peningkat kualitas (transisi, light leak, color correction, motion blur, audio-reaktif) untuk video "fakta rumah". Pakai saat Tahap 4–5 (animasi/render) atau saat user minta video lebih halus/"mahal".
 ---
 
 # Remotion: aturan & fitur siap pakai
+
+> **STATUS (E1):** visual E1 = keyframe AI → image-to-video, bukan Remotion/three.js. Skill ini tetap dipakai bila Remotion dipakai untuk **teks overlay, penyusunan, subtitle, transisi, color correction, light leak**, atau untuk video 3D lama. Bagian aturan 3D wajib dan teknik isometrik hanya relevan untuk adegan three.js. Teks overlay tidak boleh bergantung pada generator AI (lihat `WORKFLOW.md` Step 7).
+
 
 Paket sudah terpasang di `remotion/package.json` (versi harus sama dengan `remotion`, saat ini 4.0.541):
 `@remotion/three`, `@remotion/transitions`, `@remotion/motion-blur`, `@remotion/effects`, `@remotion/media-utils`, `@remotion/captions`.

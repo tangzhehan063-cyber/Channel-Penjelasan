@@ -10,6 +10,7 @@ Channel pengetahuan, seri utama **"fakta rumah"**, Bahasa Indonesia santai, audi
 - **Persetujuan wajib (pemilik channel)** sebelum: memilih topik final, finalisasi script, style reference, generate batch besar gambar/video, memakai kredit generator dalam jumlah signifikan, publish/upload publik, dan **merge ke `main`**. Tanpa approval = tanpa generasi skala besar. **Claude TIDAK merge sendiri** (aturan "PR ke main, Claude merge sendiri" dicabut untuk E1). PR hanya dibuat bila user minta.
 - **Pilot dulu:** 1 keyframe + 1 klip ±5 dtk sebelum produksi 3 video; lapor model, jumlah generasi, estimasi kredit, risiko sebelum generate.
 - **Tetap berlaku dari aturan lama:** fakta akurat dan bersumber (tandai `[CEK]`), humanizer untuk semua teks publik, CTA "Follow buat fakta rumah berikutnya!", hemat ElevenLabs, caption/komentar pin, penyimpanan hasil di Google Drive (struktur `Fakta Rumah / E1 / #NN - Judul Video`), VO tanya pilihan TTS (Gemini atau ElevenLabs) ke user.
+- **Status alat lama (diaudit 23 Nov):** `tools/produksi.sh`, `tools/gerbang.mjs`, `checklist/`, skill `sutradara`, `remotion-fitur`, dan `naskah/alur-naskah.md` = alat pipeline 3D/Remotion; **tidak dipanggil oleh alur E1**, tetap berfungsi dan sengaja tidak diubah. Prinsip umum sutradara (bagian B) dan Remotion untuk teks/penyusunan boleh dipakai di E1.
 - **Awal setiap sesi:** baca `STATUS.md`, lalu `WORKFLOW.md` hanya bagian tahap yang dikerjakan. Perbarui `STATUS.md` setiap ada kemajuan dan push (cabang kerja, bukan `main`). Catat log per video E1 (WORKFLOW bagian 11).
 
 ---
