@@ -11,7 +11,7 @@ Channel pengetahuan, seri utama **"fakta rumah"**, Bahasa Indonesia santai, audi
 - **Pilot dulu:** 1 keyframe + 1 klip ±5 dtk sebelum produksi 3 video; lapor model, jumlah generasi, estimasi kredit, risiko sebelum generate.
 - **Tetap berlaku dari aturan lama:** fakta akurat dan bersumber (tandai `[CEK]`), humanizer untuk semua teks publik, CTA "Follow buat fakta rumah berikutnya!", hemat ElevenLabs, caption/komentar pin, penyimpanan hasil di Google Drive (struktur `Fakta Rumah / E1 / #NN - Judul Video`), VO tanya pilihan TTS (Gemini atau ElevenLabs) ke user.
 - **Status alat lama (diaudit 23 Nov):** `tools/produksi.sh`, `tools/gerbang.mjs`, `checklist/`, skill `sutradara`, `remotion-fitur`, dan `naskah/alur-naskah.md` = alat pipeline 3D/Remotion; **tidak dipanggil oleh alur E1**, tetap berfungsi dan sengaja tidak diubah. Prinsip umum sutradara (bagian B) dan Remotion untuk teks/penyusunan boleh dipakai di E1.
-- **Awal setiap sesi:** baca `STATUS.md`, lalu `WORKFLOW.md` hanya bagian tahap yang dikerjakan. Perbarui `STATUS.md` setiap ada kemajuan dan push (cabang kerja, bukan `main`). Catat log per video E1 (WORKFLOW bagian 11).
+- **Awal setiap sesi:** baca `STATUS.md`, lalu `WORKFLOW.md` hanya bagian tahap yang dikerjakan. Perbarui `STATUS.md` setiap ada kemajuan dan push (cabang kerja, bukan `main`). Catat log per video E1 dari template `e1/_template-log.md` (WORKFLOW bagian 11).
 
 ---
 # ATURAN LAMA: video 3D diorama (#1–#26). Hanya berlaku bila user secara eksplisit meminta video bergaya 3D lama; untuk E1 abaikan bagian ini kecuali yang disebut "tetap berlaku" di atas.
