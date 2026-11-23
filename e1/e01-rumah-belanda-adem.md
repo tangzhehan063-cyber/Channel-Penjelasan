@@ -28,7 +28,7 @@
 ## 2. Approval (pemilik channel)
 Isi tanggal hanya setelah user menjawab di chat.
 - [x] Topik final: 23 Nov 2026 (user: "1")
-- [ ] Script final: 
+- [x] Script final: 23 Nov 2026 (user: "acc", hook B)
 - [ ] Style reference: 
 - [ ] Render batch besar (komposisi + estimasi waktu disetujui): 
 - [ ] Publish: 
@@ -77,3 +77,6 @@ Contoh: inkonsistensi komponen/material, animasi kaku, camera movement failure, 
 | Views 48 jam ≥ 2.000 | | |
 - Keputusan sementara video ini: [ ] CONTINUE  [ ] ITERATE  [ ] STOP
 - Catatan: keputusan eksperimen diambil dari ketiga video, bukan satu video.
+
+## Aset foto real-life (disetujui user 23 Nov 2026: "pakai foto commons")
+Kandidat: sibolga (CC BY-SA 3.0, Pratyeka), perumahan (CC BY-SA 4.0, Achmad-habib), asrama (Public domain, BPCB). Unduhan dari Commons terblokir 429 (laju dibatasi) pada 23 Nov; foto belum dilihat. Simpan lokal di `remotion/public/e1-01/` + `kredit.json`.
