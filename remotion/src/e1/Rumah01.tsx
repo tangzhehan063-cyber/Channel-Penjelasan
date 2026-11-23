@@ -142,7 +142,7 @@ const Matahari: React.FC<{p: number}> = ({p}) => p <= 0.01 ? null : (
   </svg>);
 type Kotak = [number, number, number, number]; // x, y, lebar, tinggi di dalam kartu foto
 /** momen real-life: foto menutup layar sebentar, lingkaran/kotak menyorot lubang angin */
-const FotoMomen: React.FC<{src: string; t: number; a: number; b: number; w: number; h: number; pos?: string; kotak: Kotak[]; teks: string}> = ({src, t, a, b, w, h, pos = 'center', kotak, teks}) => {
+export const FotoMomen: React.FC<{src: string; t: number; a: number; b: number; w: number; h: number; pos?: string; kotak: Kotak[]; teks: string}> = ({src, t, a, b, w, h, pos = 'center', kotak, teks}) => {
   const i = r(t, a, a + 0.35, Easing.out(Easing.cubic)), o = 1 - r(t, b - 0.35, b), p = i * o;
   if (p <= 0.01) return null;
   const ring = r(t, a + 0.5, a + 1.1);
