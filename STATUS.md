@@ -1,7 +1,8 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md` E1; riwayat di bawah sebagian besar untuk alur 3D lama)
 
 ## 23 Nov 2026 (malam): E1 #01 "Rumah Belanda Adem Tanpa AC" selesai dirender (belum publish)
-- 61,5 dtk, 1080x1920, −13,8 LUFS (audio dinormalkan loudnorm dua-pass dari −19,4), `remotion/src/e1/Rumah01.tsx` (komposisi `Rumah01`), VO **Gemini TTS Achernar** 1 take (60,6 dtk), timestamp `tools/align_teks.py`. Render 9 mnt 11 dtk. `cek-mandiri` OK.
+- **Versi 2 (suara dan lantai diperbaiki):** 59,0 dtk, 1080x1920, −13,95 LUFS (loudnorm dua-pass). Versi 1 (61,5 dtk) dibuang: suara terlalu tinggi (F0 198 Hz) dan lantai berkedip (z-fighting). Detail di `style/cek-bug.md`.
+- (versi 1 dulu: 61,5 dtk, −13,8 LUFS), `remotion/src/e1/Rumah01.tsx` (komposisi `Rumah01`), VO **Gemini TTS Achernar** gaya netral, 3 generasi gratis (dipakai yang ke-3: 58,9 dtk, F0 174 Hz), timestamp `tools/align_teks.py`. Render 9 mnt 11 dtk. `cek-mandiri` OK.
 - Alur: topik "1" dari 10 ide (`riset/2026-11-23-ide-e1.md`), naskah ACC hook B (`naskah/e1-01-rumah-belanda-adem.*`, 146 kata), foto real-life: user menaruh 2 foto di folder Drive #01 (asal-usul tidak diketahui, **dipakai atas risiko user**, tanpa kredit, di-gitignore). Foto Commons gagal diunduh (Wikimedia 429) dan tidak dipakai.
 - Drive: `Fakta Rumah / E1 / #01 - Rumah Belanda Adem Tanpa AC` (id `14uYdcmFHYc0T6GIvd46TSHVv4bYv7uRd`): naskah, caption-dan-info, versi ringan 540p, 2 foto user. MP4 penuh dikirim ke user lewat chat.
 - **Belum:** cover (wajib), approval style reference (pilot lolos sebagai arah?), publish, log metrik 24/48 jam, `cek-sutradara`/`cek-gerak` tidak dijalankan (alat 3D lama). QC mata hanya dari 11 still, video penuh belum ditonton Claude.
