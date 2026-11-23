@@ -1,4 +1,4 @@
-# STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md`)
+# STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md` E1; riwayat di bawah sebagian besar untuk alur 3D lama)
 
 ## Video #24 selesai (19 Nov 2026): "Rumah Hook Bawa Sial?" (Bukan Sial #05)
 - 53,6 dtk, −14,3 LUFS, `remotion/src/v24/` (beats.json + Video24 + Cover24), objek baru `kit/objek/AdeganHook.tsx` (rumah sudut malam, mobil, berkas lampu, pita angin, pagar, tanaman), palet **`malam`** (user), VO **Gemini TTS Achernar** (2 generasi: 62,8 dtk lalu tempo rapat 53,2 dtk dipakai). Drive #24 `1QQTUxesQgUcl-bMapSQYW_a0xU06Dfjn` (cover, info, versi ringan 540p); MP4 penuh + SRT + cover dikirim ke user. Riset `riset/2026-11-19-rumah-hook.md`, naskah `naskah/video-24-rumah-hook.md`, caption `caption/video-24-rumah-hook.md`.

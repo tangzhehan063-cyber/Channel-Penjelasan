@@ -1,9 +1,19 @@
 # Channel Penjelasan: aturan kerja untuk Claude
 
-Channel pengetahuan, seri utama **"fakta rumah"**, Bahasa Indonesia santai, audiens 35+, gaya visual **editorial 3D bersih**.
+Channel pengetahuan, seri utama **"fakta rumah"**, Bahasa Indonesia santai, audiens 35+.
 (Channel stickman self-improvement ada di repo terpisah `RAKA`; jangan campur gaya.)
 
-**Alur kerja lengkap ada di `WORKFLOW.md` (ikuti langkah 0–7, termasuk distribusi: PR ke `main` → Claude merge sendiri).** Di awal setiap sesi baca `STATUS.md` saja, lalu baca file lain hanya sesuai tahap yang dikerjakan (lihat "Hemat token"). Perbarui `STATUS.md` setiap ada kemajuan dan push ke repo; jangan menunggu akhir sesi.
+## ARAH AKTIF: EKSPERIMEN E1 (semi-realistis AI), menang atas semua aturan lama di bawah
+- **Alur kerja video baru = `WORKFLOW.md` (E1 Visual Experiment Workflow).** Workflow 3D diorama lama ada di `arsip/WORKFLOW-3d-diorama-lama.md`.
+- **Penulisan script:** skill `script-writer` (otomatis dipanggil saat menulis, mengembangkan, menganalisis, atau merevisi script) + `prompts/ScriptForge.md` (3 langkah: ide, riset & angle, script). Target **47–50 dtk, ±100–125 kata**, struktur mengikuti video #9. Skill lama `naskah-viral` diarsipkan di `arsip/skills/`.
+- **Visual E1:** semi-realistic cinematic architectural visualization (keyframe AI → image-to-video). **Bukan** gaya 3D prosedural/diorama dan **bukan** Remotion untuk visual; Remotion hanya boleh untuk penyusunan/teks bila perlu.
+- **Persetujuan wajib (pemilik channel)** sebelum: memilih topik final, finalisasi script, style reference, generate batch besar gambar/video, memakai kredit generator dalam jumlah signifikan, publish/upload publik, dan **merge ke `main`**. Tanpa approval = tanpa generasi skala besar. **Claude TIDAK merge sendiri** (aturan "PR ke main, Claude merge sendiri" dicabut untuk E1). PR hanya dibuat bila user minta.
+- **Pilot dulu:** 1 keyframe + 1 klip ±5 dtk sebelum produksi 3 video; lapor model, jumlah generasi, estimasi kredit, risiko sebelum generate.
+- **Tetap berlaku dari aturan lama:** fakta akurat dan bersumber (tandai `[CEK]`), humanizer untuk semua teks publik, CTA "Follow buat fakta rumah berikutnya!", hemat ElevenLabs, caption/komentar pin, penyimpanan hasil di Google Drive (struktur `Fakta Rumah / E1 / #NN - Judul Video`), VO tanya pilihan TTS (Gemini atau ElevenLabs) ke user.
+- **Awal setiap sesi:** baca `STATUS.md`, lalu `WORKFLOW.md` hanya bagian tahap yang dikerjakan. Perbarui `STATUS.md` setiap ada kemajuan dan push (cabang kerja, bukan `main`). Catat log per video E1 (WORKFLOW bagian 11).
+
+---
+# ATURAN LAMA: video 3D diorama (#1–#26). Hanya berlaku bila user secara eksplisit meminta video bergaya 3D lama; untuk E1 abaikan bagian ini kecuali yang disebut "tetap berlaku" di atas.
 
 ## ATURAN KAKU: gerbang tahap (perintah user 16 Nov 2026, TIDAK BOLEH dilewati)
 - Setiap video punya `checklist/vNN.md` (salin dari `checklist/_template.md` di awal, sebelum langkah apa pun). **Selama masih ada langkah `[ ]` di tahap sebelumnya, DILARANG masuk tahap berikutnya.** Centang `[x]` hanya setelah benar-benar selesai; keputusan milik user (palet, suara, ACC) hanya dicentang bila user sudah menjawab di chat.
@@ -32,7 +42,7 @@ Video baru HARUS terlihat seperti keluarga **#7, #8, #10, #13, #14**. Bukan eksp
 5. Render berjalan di latar belakang dan tidak memakai token; satu notifikasi selesai, tanpa laporan progres.
 
 ## Hemat token (wajib)
-- Baca sesuai tahap: Tahap 1–2 → `naskah/alur-naskah.md` + skill `naskah-viral`; Tahap 4–5 → `style/style.md` + `style/aset.md` (Gaya A) atau `style/diorama-kertas/README.md` (Gaya B, diorama kertas); caption → bagian caption di file ini. Jangan membaca ulang file yang tidak berubah.
+- Baca sesuai tahap: Tahap 1–2 → skill `script-writer` + `prompts/ScriptForge.md` (E1); alur lama `naskah/alur-naskah.md` hanya untuk video 3D lama; Tahap 4–5 → `style/style.md` + `style/aset.md` (Gaya A) atau `style/diorama-kertas/README.md` (Gaya B, diorama kertas); caption → bagian caption di file ini. Jangan membaca ulang file yang tidak berubah.
 - Pakai `grep`/`sed -n` untuk bagian tertentu, bukan membaca file utuh. Gambar dibaca hanya untuk cek visual: still `--scale=0.5`, gabung jadi satu contact sheet, maks. 1–2 sheet per putaran.
 - Video baru = salin `remotion/src/v08/` sebagai template, ganti data (timeline beat, judul, kamera), jangan menulis ulang dari nol.
 - **Sebelum render penuh, cek contact sheet still terhadap `style/cek-bug.md`** (daftar bug yang pernah terjadi; tambahkan bug baru di sana).
@@ -46,7 +56,7 @@ Video baru HARUS terlihat seperti keluarga **#7, #8, #10, #13, #14**. Bukan eksp
 - **Platform utama: YouTube (Shorts), sejak 11 Nov 2026** (progres paling cepat). Riset di YouTube: ScrapeMedsos `v1_youtube_search` / `v1_youtube_shorts_trending` + `v1_youtube_video_comments` (bahasa penonton). Facebook hanya cadangan; TikTok untuk repo `RAKA`. **Semua output ditulis ringkas** (riset, storyboard, caption, laporan).
 - Tahap ide: riset tren YouTube + **saran improvisasi topik** + satu rekomendasi; simpan ringkas ke `riset/`.
 - Skill tambahan `social-video-scriptwriting` (umum: review naskah user, skor kualitas, analisis performa); aturan channel tetap menang.
-- **Saat menulis/merevisi naskah, pakai skill `naskah-viral`** (`.claude/skills/naskah-viral/SKILL.md`, panggil `/naskah-viral <topik>`): lapisan pola viral di atas `naskah/alur-naskah.md`.
+- **Saat menulis/merevisi naskah, pakai skill `script-writer`** (otomatis; kerangka tiga langkah di `prompts/ScriptForge.md`). `naskah-viral` sudah diarsipkan (`arsip/skills/naskah-viral/`); `naskah/alur-naskah.md` dan `riset/2026-11-08-bedah-10-video-viral.md` tinggal acuan data untuk video 3D lama.
 - Storyboard (Tahap 2) memuat bagian "Fakta, tren & asumsi" lalu tabel beat; contoh nada & format di `referensi/` (video #1–#4).
 - **Setelah video selesai, SELALU buat caption posting + cover**: caption ringkas ke `caption/<slug>.md` (Facebook/Reels, YouTube Shorts, komentar pin, 3 judul alternatif, 5 tag), cover 1080×1920 ke `cover/<slug>.png`.
 - **Hasil jadi disimpan di Google Drive, BUKAN GitHub (perintah user, 11 Nov 2026, berlaku untuk semua video ke depan):** video render (MP4), cover, dan info video (caption, komentar pin, judul/deskripsi YouTube, judul alternatif, tag) diunggah ke folder Drive "Fakta Rumah" (`1Dx9nqhifWRbixFb_2u4XrHMIaHHJloAt`), satu subfolder per video `#NN <judul singkat>`. MP4 & PNG cover tidak di-commit ke repo (`.gitignore`). Konektor Drive dari cloud maks ±3 MB per panggilan: cover (kompres bila perlu) + info langsung diunggah; MP4 dikirim ke user (SendUserFile, versi ringan <10 MB juga) untuk diunggah manual, kecuali user memberi cara lain.

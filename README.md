@@ -14,6 +14,6 @@
 | `arsip/origami/` | Sumber engine kertas origami video #1–#4 + VO asli |
 | `remotion/` | Kode Remotion + three.js (objek 3D prosedural) |
 | `tools/` | `produksi.sh` (satu pintu produksi), `mix-audio.mjs`, `cek-sutradara.mjs`, `animatic.mjs` (tabel timing), `align_teks.py`, TTS dan konversi timeline |
-| `WORKFLOW.md`, `KEPUTUSAN.md` | Alur 0–7 dan daftar keputusan user yang berlaku |
+| `WORKFLOW.md`, `KEPUTUSAN.md` | Workflow E1 (semi-realistis AI) dan daftar keputusan user (sebagian untuk alur 3D lama) |
 | `prompts/ScriptForge.md` | ScriptForge (versi PDF lama di `arsip/`) |
-| `.claude/skills/naskah-viral/` | Skill Claude Code `/naskah-viral`: pola naskah viral |
+| `.claude/skills/script-writer/` | Skill penulisan script Fakta Rumah (otomatis); `naskah-viral` lama di `arsip/skills/` |
