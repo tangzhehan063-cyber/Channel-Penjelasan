@@ -12,7 +12,7 @@ Yg plafonnya tinggi atau punya lubang angin di atas pintu, kerasa bedanya gak sa
 
 ## YouTube Shorts
 **Judul:** Rahasia Rumah Belanda Adem Tanpa AC #shorts #faktarumah
-**Deskripsi:** Rumah zaman Belanda terasa sejuk bukan karena satu hal. Plafon tinggi membuat udara panas naik, dan lubang angin di atas pintu dan jendela memberinya jalan keluar. Di sebuah rumah kuno di Solo, suhu luar sekitar 35 °C dan di dalam sekitar 30 °C (penelitian dosen UMS di Kampung Batik Laweyan, dikutip detikProperti, 18 Feb 2025; hasil satu rumah, bukan angka umum). Visual penjelasan adalah penyederhanaan.
+**Deskripsi:** Rumah zaman Belanda terasa sejuk karena beberapa hal sekaligus. Plafon tinggi membuat udara panas naik, dan lubang angin di atas pintu dan jendela memberinya jalan keluar. Di sebuah rumah kuno di Solo, suhu luar sekitar 35 °C dan di dalam sekitar 30 °C (penelitian dosen UMS di Kampung Batik Laweyan, dikutip detikProperti, 18 Feb 2025; hasil satu rumah, bukan angka umum). Visual penjelasan adalah penyederhanaan.
 Sumber: https://www.detik.com/properti/arsitektur/d-7783178/rumah-peninggalan-belanda-terasa-sejuk-meski-tanpa-ac-ternyata-ini-rahasianya
 Foto (Wikimedia Commons, lisensi sesuai halaman file, isi final menunggu foto terpilih):
 - Colonial heritage house in Sibolga, Pratyeka, CC BY-SA 3.0, https://commons.wikimedia.org/wiki/File:Colonial-heritage-house-in-sibolga-2013-10-18.jpg

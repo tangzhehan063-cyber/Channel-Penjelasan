@@ -80,3 +80,8 @@ Contoh: inkonsistensi komponen/material, animasi kaku, camera movement failure, 
 
 ## Aset foto real-life (disetujui user 23 Nov 2026: "pakai foto commons")
 Kandidat: sibolga (CC BY-SA 3.0, Pratyeka), perumahan (CC BY-SA 4.0, Achmad-habib), asrama (Public domain, BPCB). Unduhan dari Commons terblokir 429 (laju dibatasi) pada 23 Nov; foto belum dilihat. Simpan lokal di `remotion/public/e1-01/` + `kredit.json`.
+
+## Drive
+Folder: Fakta Rumah / E1 / #01 - Rumah Belanda Adem Tanpa AC
+https://drive.google.com/drive/folders/14uYdcmFHYc0T6GIvd46TSHVv4bYv7uRd (id `14uYdcmFHYc0T6GIvd46TSHVv4bYv7uRd`, dibuat 23 Nov 2026)
+Isi saat ini: naskah-final.txt, caption-dan-info.txt. Menunggu: foto Commons (sibolga, perumahan), MP4 final, cover.
