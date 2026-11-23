@@ -28,7 +28,7 @@
 ## 2. Approval (pemilik channel)
 Isi tanggal hanya setelah user menjawab di chat.
 - [x] Topik final: 23 Nov 2026 (user di chat)
-- [ ] Script final: draft di `naskah/e1-01-rumah-lebih-rendah.md`, menunggu ACC (angle + hook 1 sudah disetujui 23 Nov)
+- [x] Script final: ACC 23 Nov 2026 (`naskah/e1-01-rumah-lebih-rendah.md`)
 - [ ] Style reference: 
 - [ ] Batch keyframe / video (jumlah + estimasi kredit disetujui): 
 - [ ] Publish: 

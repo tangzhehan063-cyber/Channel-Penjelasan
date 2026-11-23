@@ -1,4 +1,4 @@
-# E1 #01: Rumah Lebih Rendah dari Jalan (DRAFT script, menunggu ACC)
+# E1 #01: Rumah Lebih Rendah dari Jalan (SCRIPT FINAL, ACC user 23 Nov 2026)
 Angle disetujui 23 Nov: "Air hujan nggak percaya feng shui. Yang dihitung lantai, bukan tanah." Hook 1 dipilih. VO: Gemini TTS Achernar (beda dari #9, dicatat di log). Riset: `riset/2026-11-23-e1-rumah-lebih-rendah.md`.
 
 ## Title
