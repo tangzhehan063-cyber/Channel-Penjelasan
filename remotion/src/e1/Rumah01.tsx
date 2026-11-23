@@ -13,8 +13,7 @@ import {Bar, Bx, C, Kicker, Label, M as Mat, type Lb} from './AnatomiRumah';
 import wordsJson from '../../public/e1-01/words.json';
 
 export const R01_FRAMES = Math.round(61.4 * FPS);
-// Foto real-life Wikimedia Commons: ubah true setelah berkas ada di public/e1-01/ (lihat kredit.json)
-const FOTO = {sibolga: false, perumahan: false};
+// Foto real-life dari user (public/e1-01/foto-a.jpg, foto-b.jpg; di-gitignore, asal-usul/lisensi: risiko user, 23 Nov 2026)
 const D = 0.9, WI = 3.0;
 type Rm = {cx: number; H: number; tw: number; rise: number; floor: string; ceil: string; wall: string};
 const K: Rm = {cx: -2.1, H: 4.0, tw: 0.35, rise: 1.5, floor: '#8a6a45', ceil: '#a88458', wall: '#d8c294'};
@@ -84,7 +83,7 @@ const Potong: React.FC<{rm: Rm; kind: 'K' | 'M'; t: number}> = ({rm, kind, t}) =
     {[-1, 1].map((s) => <Bar key={`r${s}`} a={[cx + s * hsp, H + 0.06, D / 2 - 0.03]} b={[cx, H + 0.06 + rise, D / 2 - 0.03]} th={0.07} c={C.kayu} />)}
     <Bar a={[cx, H + 0.06, D / 2 - 0.03]} b={[cx, H + 0.06 + rise, D / 2 - 0.03]} th={0.06} c={C.kayuTua} />
     {!isK && <Bx p={[cx - WI / 2 + 0.2, 2.15, 0]} s={[0.35, 0.22, 0.7]} c="#f6f6f4" r={0.4} />}
-    {(() => { const g = isK ? r(t, 22.5, 23.2) * (1 - r(t, 29.4, 30)) : r(t, 44.4, 45) * (1 - r(t, 50, 50.4)); const o = g * (0.5 + 0.2 * Math.sin(t * 5));
+    {(() => { const g = isK ? r(t, 25.0, 25.7) * (1 - r(t, 29.4, 30)) : r(t, 44.4, 45) * (1 - r(t, 50, 50.4)); const o = g * (0.5 + 0.2 * Math.sin(t * 5));
       return o > 0.02 ? [-1, 1].map((s) => <mesh key={s} position={[cx + s * xw, (vh[0] + vh[1]) / 2, 0]}><boxGeometry args={[tw + 0.6, vh[1] - vh[0] + 0.1, D * 0.95]} /><meshBasicMaterial color="#ffe07a" transparent opacity={o} depthWrite={false} /></mesh>) : null; })()}
     <Orang x={cx + 0.6} />
     <Layer cx={cx} y0={H - hotH} y1={H} col="#ff7a3c" o={hotO} />
@@ -111,7 +110,7 @@ const LABELS: Lb[] = [
   {a: 10.2, b: 14.0, text: 'Tembok tebal', at: [K.cx - WI / 2 - K.tw, 2.3, 0.45], side: 'L'},
   {a: 17.4, b: 22.6, text: 'Plafon tinggi', at: [K.cx + 1.4, 4.0, 0.45], side: 'R'},
   {a: 19.0, b: 22.6, text: 'Panas naik', at: [K.cx - 0.6, 3.3, 0], side: 'L'},
-  {a: 22.7, b: 29.8, text: 'Lubang angin', at: [K.cx + WI / 2 + K.tw / 2, 3.6, 0.45], side: 'R'},
+  {a: 25.6, b: 29.8, text: 'Lubang angin', at: [K.cx + WI / 2 + K.tw / 2, 3.6, 0.45], side: 'R'},
   {a: 26.0, b: 29.8, text: 'Udara sejuk masuk', at: [K.cx - WI / 2 - K.tw / 2, 1.5, 0.45], side: 'L'},
   {a: 38.2, b: 43.5, text: 'Plafon rendah', at: [MD.cx + 1.3, 2.6, 0.45], side: 'R'},
   {a: 41.6, b: 43.5, text: 'Panas terjebak', at: [MD.cx - 0.4, 2.1, 0], side: 'L'},
@@ -130,11 +129,23 @@ const Matahari: React.FC<{p: number}> = ({p}) => p <= 0.01 ? null : (
     {Array.from({length: 12}, (_, i) => <line key={i} x1={0} y1={-78} x2={0} y2={-108} stroke="#f5a623" strokeWidth={9} strokeLinecap="round" transform={`rotate(${i * 30})`} />)}
     <circle r={58} fill="#ffcf4a" stroke="#f5a623" strokeWidth={6} />
   </svg>);
-const FotoKartu: React.FC<{src: string; p: number; left: number; top: number; rot: number; kredit: string}> = ({src, p, left, top, rot, kredit}) => p <= 0.01 ? null : (
-  <div style={{position: 'absolute', left, top, width: 500, padding: 12, borderRadius: 18, background: '#fbf8f1', boxShadow: '0 12px 36px rgba(30,30,30,0.3)', transform: `rotate(${rot}deg) scale(${0.92 + 0.08 * p})`, opacity: p}}>
-    <Img src={staticFile(src)} style={{width: 476, height: 340, objectFit: 'cover', borderRadius: 10, display: 'block'}} />
-    <div style={{fontFamily: 'Inter', fontWeight: 600, fontSize: 22, color: '#555', marginTop: 8}}>{kredit}</div>
-  </div>);
+type Kotak = [number, number, number, number]; // x, y, lebar, tinggi di dalam kartu foto
+/** momen real-life: foto menutup layar sebentar, lingkaran/kotak menyorot lubang angin */
+const FotoMomen: React.FC<{src: string; t: number; a: number; b: number; w: number; h: number; pos?: string; kotak: Kotak[]; teks: string}> = ({src, t, a, b, w, h, pos = 'center', kotak, teks}) => {
+  const i = r(t, a, a + 0.35, Easing.out(Easing.cubic)), o = 1 - r(t, b - 0.35, b), p = i * o;
+  if (p <= 0.01) return null;
+  const ring = r(t, a + 0.5, a + 1.1);
+  return (<>
+    <AbsoluteFill style={{background: '#f6f1e6', opacity: 0.9 * p}} />
+    <div style={{position: 'absolute', left: (1080 - w) / 2, top: 300, width: w, height: h, opacity: p, transform: `scale(${0.95 + 0.05 * p})`, borderRadius: 22, overflow: 'hidden', boxShadow: '0 16px 48px rgba(30,30,30,0.35)', border: '8px solid #fbf8f1', boxSizing: 'content-box'}}>
+      <Img src={staticFile(src)} style={{width: w, height: h, objectFit: 'cover', objectPosition: pos, display: 'block'}} />
+      <svg width={w} height={h} style={{position: 'absolute', left: 0, top: 0}}>
+        {kotak.map(([x, y, kw, kh], k) => <rect key={k} x={x} y={y} width={kw} height={kh} rx={16} fill="none" stroke="#ef6a4c" strokeWidth={8} strokeDasharray={2 * (kw + kh)} strokeDashoffset={2 * (kw + kh) * (1 - ring)} />)}
+      </svg>
+    </div>
+    <div style={{position: 'absolute', left: 0, right: 0, top: 300 + h + 50, textAlign: 'center', opacity: p, fontFamily: 'Inter', fontWeight: 700, fontSize: 44, color: '#2a2a2e'}}>{teks}</div>
+  </>);
+};
 const Termo: React.FC<{x: number; label: string; val: string; fill: number; col: string}> = ({x, label, val, fill, col}) => (
   <g transform={`translate(${x},0)`}>
     <rect x={-34} y={0} width={68} height={420} rx={34} fill="#e9e4d8" /><rect x={-34} y={420 * (1 - fill)} width={68} height={420 * fill} rx={34} fill={col} />
@@ -177,8 +188,9 @@ export const Rumah01: React.FC = () => {
       </ThreeCanvas>
       {LABELS.map((l) => <Label key={l.text} l={l} t={t} e={0} e2={0} cam={cam} />)}
       <Matahari p={sun} />
-      {FOTO.sibolga && <FotoKartu src="e1-01/sibolga.jpg" p={r(t, 1.2, 1.8) * (1 - r(t, 8.4, 9))} left={50} top={330} rot={-3} kredit="Foto: Pratyeka, CC BY-SA 3.0, Wikimedia Commons" />}
-      {FOTO.perumahan && <FotoKartu src="e1-01/perumahan.jpg" p={r(t, 38.0, 38.6) * (1 - r(t, 43.0, 43.6))} left={530} top={240} rot={3} kredit="Foto: Achmad-habib, CC BY-SA 4.0, Wikimedia Commons" />}
+      <FotoMomen src="e1-01/foto-b.jpg" t={t} a={6.8} b={9.5} w={1000} h={562} kotak={[]} teks="Rumah zaman Belanda" />
+      <FotoMomen src="e1-01/foto-a.jpg" t={t} a={22.4} b={25.5} w={1000} h={700} pos="50% 32%" kotak={[[215, 385, 130, 100], [480, 395, 130, 100]]} teks="Lubang angin di atas jendela" />
+      <FotoMomen src="e1-01/foto-b.jpg" t={t} a={54.2} b={58.0} w={1000} h={562} kotak={[[470, 282, 380, 50]]} teks="Masih ada di rumahmu?" />
       <Kicker t={t} a={0.3} b={8.8} text="Adem vs panas" />
       <Kicker t={t} a={9.3} b={14.2} text="Tembok tebal" />
       <Kicker t={t} a={15.2} b={29.8} text="Jalan keluar panas" />
