@@ -44,6 +44,8 @@ import {LabTransisi} from './e1/lab/LabTransisi';
 import {Pilot02, PILOT02_FRAMES} from './e1/Pilot02';
 import {Pilot02B, PILOT02B_FRAMES} from './e1/Pilot02B';
 import {Pilot02C, PILOT02C_FRAMES} from './e1/Pilot02C';
+import {Tiang03, TIANG03_FRAMES} from './e1/Tiang03';
+import {Tiang03ContohA, Tiang03ContohB} from './e1/Tiang03Contoh';
 import {Cover22} from './v22/Cover22';
 import {Video23, V23_FRAMES} from './v23/Video23';
 import {Video24, V24_FRAMES} from './v24/Video24';
@@ -71,6 +73,9 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="LabSek" component={LabSek} durationInFrames={30} fps={30} width={1080} height={1920} defaultProps={{v: "diagram", u: 0}} />
   <Composition id="LabTransisi" component={LabTransisi} durationInFrames={60} fps={30} width={1080} height={1920} defaultProps={{v: "peel"}} />
   <Composition id="LabEfek" component={LabEfek} durationInFrames={30} fps={30} width={1080} height={1920} defaultProps={{v: "none", kind: "img"}} />
+  <Composition id="Tiang03ContohA" component={Tiang03ContohA} durationInFrames={30} fps={30} width={1080} height={1920} />
+  <Composition id="Tiang03ContohB" component={Tiang03ContohB} durationInFrames={30} fps={30} width={1080} height={1920} />
+  <Composition id="Tiang03" component={Tiang03} durationInFrames={TIANG03_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Pilot02C" component={Pilot02C} durationInFrames={PILOT02C_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Pilot02B" component={Pilot02B} durationInFrames={PILOT02B_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Pilot02" component={Pilot02} durationInFrames={PILOT02_FRAMES} fps={30} width={1080} height={1920} />

@@ -1,5 +1,10 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md` v4; riwayat di bawah sebagian besar untuk alur lama)
 
+## 24 Nov 2026 (malam): pilot v4 #03 tiang listrik; versi top-down 2D DITOLAK pemilik, menunggu pilihan 2,5D/3D
+- Brief/riset/naskah (hook B, disetujui)/storyboard (A denah + C proses) + VO Gemini Achernar (57,1 dtk, lolos cek suara) ada di `e1/03/`, `naskah/e1-03-*`, `audio/e1-03-*`. Komposisi `Tiang03` (denah dari atas, 2D) sudah dirender tetapi **ditolak pemilik** ("kacau", tak ingin 2D dari atas); kode dipertahankan sebagai riwayat, bukan hasil. Lintasan mobil kinematik: `tools/lintasan_mobil.py` (dapat dipakai ulang).
+- Pelajaran: storyboard tanpa sketsa per shot membuat pemilik menyetujui sesuatu yang tak terlihat. Sketsa/still contoh wajib sebelum coding.
+- Sekarang: dua still contoh (`Tiang03ContohA` 2,5D isometrik, `Tiang03ContohB` 3D terstilisasi) dikirim; menunggu pilihan, lalu storyboard bersketsa dan ACC sebelum coding ulang.
+
 ## 24 Nov 2026: pilot #02 (tanah turun) DIBATALKAN oleh pemilik; cari topik pilot lain
 - Brief/arah visual/storyboard v4 untuk #02 disimpan sebagai riwayat (`e1/02/brief.md`, `arah-visual.md`, `storyboard.md`), tidak dilanjutkan. Tidak ada kode/render. Kandidat topik baru: `riset/2026-11-23-ide-e1.md` (#2, #5, #7, #9 diusulkan). Menunggu pilihan pemilik.
 
