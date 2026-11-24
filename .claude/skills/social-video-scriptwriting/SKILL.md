@@ -5,6 +5,8 @@ description: Research, plan, and write high-retention short-form educational vid
 
 # Social Video Scriptwriting Skill
 
+> **Routing (24 Nov 2026):** di channel ini skill ini adalah **peninjau/strategis opsional**, bukan penulis naskah. Penulis naskah utama = `script-writer`. Pakai skill ini hanya untuk meninjau performa/retensi, membandingkan strategi konten, mengevaluasi hook, atau membaca data performa audiens. Jangan menghasilkan naskah ganda; temuan diserahkan ke `script-writer`. Fungsi inti skill (riset, sudut, hook, narasi, retensi) tetap utuh di bawah.
+
 > **Catatan channel ini:** skill umum. Untuk seri "fakta rumah", aturan `CLAUDE.md`, `naskah/alur-naskah.md` dan skill `naskah-viral` menang bila bertentangan (mis. penutup wajib "Follow buat fakta rumah berikutnya!", riset cukup Facebook, caption ikut `caption/gaya-caption.md`). Paling berguna untuk: review naskah dari user, skor kualitas 1–5, dan analisis data performa.
 
 

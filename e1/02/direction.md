@@ -1,6 +1,6 @@
 # Arahan visual #02, PILOT workflow v3: sequence "Di bawah rumah" (20,4–31,0 dtk)
 
-Dibuat dengan prosedur `visual-director` (mode-visual → reveal → kamera → footage → teks → ritme). Hanya sequence ini yang dikerjakan; sisa video #02 (versi lama) tidak diubah sampai pilot terbukti.
+Dibuat dengan prosedur skill `sutradara` (dulu `visual-director`) (mode-visual → reveal → kamera → footage → teks → ritme). Hanya sequence ini yang dikerjakan; sisa video #02 (versi lama) tidak diubah sampai pilot terbukti.
 
 ## Beat dan keputusan
 | Beat (narasi) | Fungsi | Penonton harus paham | Mode + alasan | Reveal |

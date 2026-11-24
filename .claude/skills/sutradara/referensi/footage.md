@@ -1,6 +1,6 @@
 # Footage nyata dalam video 100% kode
 
-> **Pembaruan (brief Animation Director, 23 Nov):** foto adalah REFERENSI untuk merekonstruksi objek/lingkungan dengan teknologi proyek (lihat `arahan-animasi.md` bagian 5), bukan adegan itu sendiri. Foto sebagai bidang/kartu hanya sebagai bukti singkat bila arahan memutuskan demikian. Resep transisi di bawah dipakai bila foto memang muncul; bila adegan direkonstruksi 3D, pemotongan/ungkap dilakukan langsung pada model.
+> **Keputusan pemilik (24 Nov 2026):** foto nyata boleh menjadi elemen visual yang DIOLAH (crop/reframing, layering, paralaks, kedalaman, masking, kamera, perlakuan cahaya, compositing, tipografi, elemen prosedural, transisi bermotif), dikombinasikan dengan Remotion, three.js, SVG, CSS. Tidak otomatis slideshow; tetap tanpa AI image/video API. Foto juga dipakai sebagai referensi rekonstruksi bila konsep memilihnya. Hasil uji perlakuan foto: `docs/visual-system/matriks/HASIL.md` §3.
 
 Foto dicari **user** (Claude hanya memberi nama berkas + spesifikasi). Dilarang menyintesis atau mengarang footage. Berkas ada di `remotion/public/e1-NN/`.
 

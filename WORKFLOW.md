@@ -6,7 +6,7 @@ Menggantikan E1 v2 (arsip: `arsip/WORKFLOW-E1-v2-lengkap.md`). Tujuan, hipotesis
 
 **Berkas per video** (`NN` = nomor, `slug` = judul pendek): `riset/<tgl>-<slug>.md`, `e1/NN/angle.md`, `naskah/e1-NN-<slug>.txt|md`, `e1/NN/audit-cerita.md`, `e1/NN/direction.md`, `e1/NN/shots.json`, `e1/NN/storyboard/`, `e1/NN/animatic.mp4`, `e1/NN/qa.md`, log `e1/eNN-<slug>.md` (dari `e1/_template-log.md`). Gerbang antar tahap = butir `[x]` di log; tahap sebelumnya belum `[x]` → berhenti.
 
-Keputusan visual (tahap 5–8) memakai skill **`visual-director`**. Skill itu berisi cara memutuskan, bukan daftar istilah.
+Keputusan visual (tahap 5–10) dipimpin skill **`sutradara`** (Visual Director), yang memanggil `breakdown` (referensi/struktur), `remotion-fitur` (implementasi), dan `script-writer` (naskah) bila perlu. Tidak ada kuota: variasi mengikuti cerita.
 
 ---
 
@@ -38,17 +38,17 @@ Keputusan visual (tahap 5–8) memakai skill **`visual-director`**. Skill itu be
 - **Selesai bila:** semua pertanyaan terjawab dan naskah direvisi sesuai.
 
 ## 5. Arahan visual (`e1/NN/direction.md`)
-- **Input:** naskah revisi. **Skill:** `visual-director`, prosedur "Memutuskan mode tiap beat".
+- **Input:** naskah revisi. **Skill:** `sutradara` (proses keputusan; eksplorasi 2-3 konsep untuk beat penting).
 - **Tugas:** per beat tulis: apa yang **dilihat**, dirasakan, dipahami penonton; mode (footage / 2D / 3D / tipografi / data / hening) **dan alasannya**; apa yang baru bergerak/berubah; peran teks (atau tanpa teks). Tentukan: 1 *signature shot*, 1 momen hening, 1 pemutus pola, ritme (cepat vs napas). Tandai foto nyata yang dibutuhkan (nama berkas + spesifikasi) untuk dicari user.
 - **Output:** `direction.md`.
-- **Kualitas:** tidak ada dua beat berurutan bermode dan tata letak sama tanpa alasan; ada beat tanpa animasi baru; tiap foto punya peran (bukti / konteks / titik masuk ke 3D), bukan dekorasi; informasi bisa dipahami tanpa subtitle.
+- **Kualitas:** setiap pilihan mode, kamera, dan teknik punya alasan tertulis (pengulangan boleh bila tepat; shot statis sah bila bertujuan); tiap foto punya peran (bukti / konteks / titik masuk ke 3D), bukan dekorasi; informasi bisa dipahami tanpa subtitle.
 - **Selesai bila:** tiap beat punya mode + alasan; daftar foto dikirim ke user.
 - Boleh kembali ke tahap 3–4 bila arahan visual menuntut naskah berubah.
 
 ## 6. Shot list (`e1/NN/shots.json`)
-- **Tugas:** tulis spesifikasi tiap shot sebagai data. Skema + contoh: skill `visual-director/style/visual/shots-skema.md`. Kamera dan gerak subjek terpisah; cue terikat ID kalimat (bukan detik hard-coded), supaya VO baru tidak merusak waktu.
+- **Tugas:** tulis spesifikasi tiap shot sebagai data. Skema + contoh: skill `sutradara/referensi/shots-skema.md`. Kamera dan gerak subjek terpisah; cue terikat ID kalimat (bukan detik hard-coded), supaya VO baru tidak merusak waktu.
 - **Output:** `shots.json`.
-- **Gerbang:** `python3 tools/cek_shots.py e1/NN/shots.json` lulus (skema lengkap, durasi menutup VO, ≥4 jenis gerak kamera, ≥3 mode, tidak ada dua shot berurutan identik, ada shot hening, footage punya `relasi_narasi`).
+- **Gerbang:** `python3 tools/cek_shots.py e1/NN/shots.json` lulus (skema lengkap, durasi menutup VO, footage punya `relasi_narasi`. Variasi kamera/mode/ritme hanya saran (PERINGATAN), bukan syarat).
 - **Selesai bila:** validator lulus.
 
 ## 7. Storyboard
@@ -78,7 +78,7 @@ Keputusan visual (tahap 5–8) memakai skill **`visual-director`**. Skill itu be
   6. Ada yang terlalu ramai? Hierarki jelas (satu fokus)?
   7. Informasi dapat dipahami tanpa subtitle?
   8. Foto nyata berperan (bukan dekorasi); transisi footage↔3D menjelaskan hubungan objek nyata dan mekanisme?
-  9. Variasi: ≥4 jenis kamera, ≥3 mode, tidak ada dua shot berturut-turut bertata letak sama.
+  9. Variasi: apakah ada pengulangan yang tidak disengaja (komposisi, kamera, transisi, teks, cahaya)? Variasi untuk memenuhi daftar periksa tidak diperlukan.
   10. Suara: lapis selain VO; loudness −15..−13 LUFS (`ffmpeg ... loudnorm`).
   11. Fakta: tiap klaim bersumber; ilustrasi tidak menyesatkan; `[CEK]` terselesaikan.
 - **Gagal →** perbaiki shot terkait (bukan tambal teks), render ulang bagian itu. Kegagalan di butir 3 → kembali ke tahap 5.

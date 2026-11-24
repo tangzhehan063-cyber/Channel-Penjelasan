@@ -24,7 +24,7 @@ Tulis di `shots.json`: `gerak_kamera: {jenis, dari, ke, easing, alasan}`. Kamera
 - **Easing:** in-out untuk dolly/crane; ease-out untuk reveal (cepat lalu tenang); linear hanya untuk loop/penghitung. Gerak kamera selalu lebih lambat dari gerak subjek.
 - **Kontinuitas sudut:** antar shot berurutan, ubah sudut ≥30° atau ukuran ≥1 tingkat (jump-cut halus); bila sama, sambung dengan gerak.
 - **Kecepatan layar HP:** perubahan jarak >50% dalam <1,2 dtk terasa mabuk, hindari kecuali pemutus pola.
-- Variasi video penuh: ≥4 jenis gerak berbeda (validator `cek_shots.py` memeriksa).
+- Tidak ada jumlah minimum jenis gerak. Pakai gerak yang dibutuhkan cerita; kamera terkunci adalah pilihan penuh bila bertujuan.
 
 ## Pasangan yang terbukti berguna (gunakan sebagai awal, bukan template)
 - Bukti → sebab: *push-in ke garis tanah* → *crane turun masuk potongan*.

@@ -3,7 +3,7 @@
 
 Pakai: python3 tools/cek_shots.py e1/NN/shots.json [--dur DETIK]
 Keluar kode 1 bila ada GAGAL. PERINGATAN tidak menggagalkan, tapi harus dibaca.
-Memeriksa struktur dan variasi; TIDAK menilai apakah videonya bagus (itu tugas menonton).
+Memeriksa STRUKTUR (kolom, tipe, celah waktu, footage). Variasi/ritme hanya SARAN (tidak pernah GAGAL). TIDAK menilai apakah videonya bagus (itu tugas menonton).
 """
 import json, sys, argparse
 
@@ -60,20 +60,14 @@ if S2 and a.dur is not None:
     tot = S2[-1]['mulai'] + S2[-1]['durasi'] - S2[0]['mulai']
     if abs(tot - a.dur) > 0.3 and not pilot: G(f'total shot {tot:.2f} dtk ≠ durasi {a.dur:.2f} dtk')
 
-# kontinuitas (dua shot berturut-turut identik)
+# pengulangan (saran): dua shot berturut-turut identik boleh bila disengaja
 for p, q in zip(S, S[1:]):
     kp = (p.get('mode'), p.get('ukuran_shot'), (p.get('gerak_kamera') or {}).get('jenis')); kq = (q.get('mode'), q.get('ukuran_shot'), (q.get('gerak_kamera') or {}).get('jenis'))
-    if kp == kq: G(f'{p["id"]}→{q["id"]}: mode, ukuran, dan gerak kamera identik berturut-turut ({kp})')
+    if kp == kq: W(f'saran: {p["id"]}→{q["id"]} mode, ukuran, dan gerak kamera sama berturut-turut {kp}; pastikan disengaja (mis. ritme tetap)')
 
-# variasi
+# variasi: HANYA SARAN (bukan syarat). Variasi mengikuti cerita; teknik boleh berulang, shot statis sah bila bertujuan.
 jk = {(s.get('gerak_kamera') or {}).get('jenis') for s in S}; md = {s.get('mode') for s in S}
-if not pilot or len(S) >= 8:
-    if len(jk) < 4: G(f'hanya {len(jk)} jenis gerak kamera (butuh ≥4): {sorted(x for x in jk if x)}')
-    if len(md) < 3: G(f'hanya {len(md)} mode visual (butuh ≥3): {sorted(x for x in md if x)}')
-    if not any((s.get('gerak_kamera') or {}).get('jenis') == 'terkunci' or s.get('mode') == 'hening' for s in S): G('tidak ada shot diam/hening yang disengaja')
-else:
-    if len(jk) < 3: W(f'pilot: hanya {len(jk)} jenis kamera')
-    if len(md) < 2: W(f'pilot: hanya {len(md)} mode')
+if len(S) >= 10 and len(jk) <= 1: W('saran: seluruh video memakai satu jenis gerak kamera; pastikan itu keputusan cerita')
 du = [s.get('durasi', 0) for s in S]
 if len(du) >= 4 and max(du) - min(du) < 0.8: W(f'durasi shot nyaris seragam ({min(du):.1f}-{max(du):.1f} dtk): ritme datar')
 

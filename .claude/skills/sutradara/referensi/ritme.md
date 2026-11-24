@@ -5,9 +5,9 @@ Ritme dibuat dari **kontras**: cepat vs tenang, padat vs kosong, bergerak vs dia
 
 ## Aturan praktis (untuk 50–70 dtk, ±10–16 shot)
 - **Hook ≤ 4 dtk**, gambar kuat sejak frame 0 (tanpa intro/logo). Jangan mulai dari kartu teks.
-- **Panjang shot bervariasi:** ada ≥1 shot cepat (≤1,5 dtk, mendekati belokan) dan ≥1 shot napas (≥4 dtk, hampir diam).
-- **Satu hening visual** (shot diam/terkunci) tepat sebelum wahyu utama; hening suara ±0,5–0,9 dtk bila memungkinkan.
-- **Satu pemutus pola** di titik balik: perubahan mode, rasio, warna, atau kontras potong yang tegas.
+- **Panjang shot mengikuti isi:** shot cepat untuk akselerasi, shot napas untuk payoff; tidak ada jumlah wajib (rekomendasi, bukan syarat).
+- **Hening visual/suara** sebelum wahyu bila cerita memintanya (rekomendasi).
+- **Pemutus pola** di titik balik bila membantu (rekomendasi).
 - Perubahan baru setiap 2–3 dtk (gerak, objek, informasi) menjaga perhatian, **tapi** tidak harus potongan baru: bisa gerak kamera atau elemen baru di shot yang sama.
 - Shot panjang (>5 dtk) harus punya **perubahan internal** (kamera, kedalaman, penanda) kecuali sengaja diam.
 

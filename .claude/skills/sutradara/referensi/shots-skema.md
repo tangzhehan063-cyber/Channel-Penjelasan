@@ -1,6 +1,6 @@
 # Skema `shots.json`
 
-Satu berkas per video: `e1/NN/shots.json`. Divalidasi `python3 tools/cek_shots.py e1/NN/shots.json`.
+Satu berkas per video: `e1/NN/shots.json`. Divalidasi `python3 tools/cek_shots.py e1/NN/shots.json` (struktur saja; variasi = saran). Kolom opsional `dimensi_penting` dan `suara` dapat ditambahkan.
 
 ```jsonc
 {
@@ -42,5 +42,5 @@ Satu berkas per video: `e1/NN/shots.json`. Divalidasi `python3 tools/cek_shots.p
 - Semua kolom wajib terisi (teks boleh `[]`). `footage` wajib bila `mode=="footage"` atau aset berupa foto, dengan `relasi_narasi` dan `peran` valid.
 - `gerak_kamera.jenis` ∈ push, pull, dolly-in, crane-turun, crane-naik, orbit, tracking, pan, tilt, macro, pov, terkunci, whip, rack-focus. Semua kamera punya `alasan`.
 - Shot berurutan menutup tanpa celah/tumpang-tindih >0,05 dtk; total ≈ durasi komposisi.
-- Variasi: ≥4 jenis gerak kamera, ≥3 mode (untuk video penuh ≥10 shot; pilot dikecualikan dengan flag `"skala": "pilot"`), tidak ada dua shot berturut-turut dengan (mode, ukuran_shot, gerak.jenis) sama, ≥1 shot `terkunci`/`hening`.
+- Variasi: **saran saja**. Tidak ada minimum jenis kamera/mode/shot diam; pengulangan berturut-turut hanya diberi PERINGATAN.
 - Peringatan: shot >5 dtk tanpa perubahan internal; teks yang memuat >70% kata narasi.

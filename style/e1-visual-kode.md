@@ -66,7 +66,7 @@ Batas jujur: Three.js tanpa path tracing tidak akan menyamai foto. Tujuan: "cuku
 | Cek | Alat |
 |---|---|
 | Tanpa API AI / jaringan | `node tools/cek-mandiri.mjs` (wajib sebelum render; GAGAL = berhenti) |
-| Komposisi, ukuran objek, teks | `node tools/cek-sutradara.mjs NN` |
-| Gerak (frame diam, hold) | `tools/cek-gerak.sh NN` |
+| Struktur shot list | `python3 tools/cek_shots.py e1/NN/shots.json` (variasi hanya saran; `cek-sutradara` diarsipkan di `arsip/alat-3d-lama/`) |
+| Gerak (frame diam, hold) | `python3 tools/review_video.py <mp4> --shots <shots.json>` (atau `tools/cek-gerak.sh`) |
 | Z-fighting, objek tembus, celah | Still di awal/tengah/akhir tiap shot (`remotion still`), cek manual 1 sheet |
 | Render deterministik | Render still frame sama dua kali, byte identik |
