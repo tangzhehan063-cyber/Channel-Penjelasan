@@ -1,0 +1,435 @@
+{
+  "video": "e1-02",
+  "komposisi": "Pilot02C",
+  "skala": "pilot",
+  "catatan": "v3 sutradara: foto low-key + garis cahaya + penampang noir + lempung berpori; satu dunia. Lihat direction-v3.md.",
+  "vo": "remotion/public/e1-02/words.json",
+  "kalimat": {
+    "s8": [
+      20.94,
+      23.5
+    ],
+    "s9": [
+      24.06,
+      28.04
+    ],
+    "s10": [
+      28.7,
+      30.37
+    ]
+  },
+  "shots": [
+    {
+      "id": "S1",
+      "ref_kalimat": [
+        "s8"
+      ],
+      "mulai": 20.4,
+      "durasi": 1.3,
+      "narasi": "Di bawah rumah",
+      "tujuan_visual": "Foto rumah ber-grade low-key dengan sorot hangat di kaki dinding; bawah layar gelap.",
+      "mode": "footage",
+      "alasan_mode": "Lihat e1/02/direction-v3.md",
+      "subjek": "dasar rumah dan tangga (kaki bangunan)",
+      "lingkungan": "jalan kampung, langit mendung",
+      "ukuran_shot": "sedang",
+      "sudut_kamera": "sejajar mata, hampir frontal",
+      "posisi_kamera": {
+        "dari": {
+          "pos": [
+            -0.1,
+            -0.2,
+            19.0
+          ],
+          "look": [
+            -0.1,
+            -0.2,
+            1.5
+          ]
+        },
+        "ke": {
+          "pos": [
+            -0.1,
+            0.1,
+            17.0
+          ],
+          "look": [
+            -0.1,
+            0.1,
+            1.5
+          ]
+        }
+      },
+      "gerak_kamera": {
+        "jenis": "push",
+        "easing": "out",
+        "alasan": "Dorong pelan ke kaki dinding: jawabannya ada di bawah garis tanah."
+      },
+      "gerak_subjek": [],
+      "cahaya": "mendung difus mengikuti foto; di bawah garis tanah gelap (belum terlihat)",
+      "komposisi": "foto sebagai pita lanskap di tengah; langit di atas menyatu lewat ujung berbulu; bagian bawah layar gelap (tanah yang belum terlihat); garis tanah sedikit di atas tengah layar",
+      "kedalaman": "bidang foto + tirai gelap; tidak ada parallax palsu",
+      "fokus": "kaki bangunan dan garis tanah",
+      "teks": [],
+      "transisi": {
+        "keluar": "ground-slice",
+        "alasan": "Garis tanah pada foto akan menjadi permukaan penampang 3D; objek nyata dan mekanismenya berbagi satu garis."
+      },
+      "frame_akhir": "garis tanah sedikit di bawah tengah layar, dinding dasar dan tangga terbaca, bagian bawah gelap",
+      "aset": [
+        "e1-02/rumah-ditinggikan.jpg"
+      ],
+      "implementasi": "remotion/src/e1/Pilot02C.tsx",
+      "footage": {
+        "sumber": "e1-02/rumah-ditinggikan.jpg",
+        "peran": "jangkar-ke-3D",
+        "alasan": "Rumah nyata sebagai bukti dan jangkar; di S5 kembali dengan perubahan terlihat.",
+        "bagian": [
+          0.1,
+          0.1,
+          0.65,
+          0.85
+        ],
+        "crop": "pita lanskap, ujung atas berbulu",
+        "gerak": "ikut kamera dunia",
+        "sorotan": "garis cahaya hangat di garis tanah",
+        "transisi_masuk": "-",
+        "transisi_keluar": "garis cahaya + strip jatuh",
+        "relasi_narasi": "Foto menunjukkan rumah nyata di atas tanah yang akan dibuka; di S5 rumah itu terlihat lebih rendah dari posisi awal."
+      }
+    },
+    {
+      "id": "S2",
+      "ref_kalimat": [
+        "s8"
+      ],
+      "mulai": 21.7,
+      "durasi": 1.7,
+      "narasi": "Di bawah rumah",
+      "tujuan_visual": "Garis cahaya hangat menggambar di garis tanah, strip jalan jatuh, penampang tersorot lampu hangat; foto naik keluar.",
+      "mode": "3d",
+      "alasan_mode": "Lihat e1/02/direction-v3.md",
+      "subjek": "dasar rumah dan tangga (kaki bangunan)",
+      "lingkungan": "jalan kampung, langit mendung",
+      "ukuran_shot": "sedang",
+      "sudut_kamera": "sejajar mata, hampir frontal",
+      "posisi_kamera": {
+        "dari": {
+          "pos": [
+            -0.1,
+            0.1,
+            17.0
+          ],
+          "look": [
+            -0.1,
+            0.1,
+            1.5
+          ]
+        },
+        "ke": {
+          "pos": [
+            -0.1,
+            -1.2,
+            14.0
+          ],
+          "look": [
+            -0.1,
+            -1.2,
+            1.5
+          ]
+        }
+      },
+      "gerak_kamera": {
+        "jenis": "crane-turun",
+        "easing": "in-out",
+        "alasan": "Crane turun mengikuti garis: dari yang terlihat ke yang tersembunyi."
+      },
+      "gerak_subjek": [
+        {
+          "apa": "garis cahaya menggambar",
+          "dari_detik": 21.7,
+          "sampai_detik": 22.3,
+          "easing": "in-out",
+          "tujuan": "motif tunggal: garis tanah = garis acuan"
+        },
+        {
+          "apa": "strip jalan jatuh",
+          "dari_detik": 22.1,
+          "sampai_detik": 22.7,
+          "easing": "in",
+          "tujuan": "membuka tanah"
+        },
+        {
+          "apa": "lampu hangat menyala",
+          "dari_detik": 22.0,
+          "sampai_detik": 22.9,
+          "easing": "out",
+          "tujuan": "menuntun mata ke pondasi"
+        }
+      ],
+      "cahaya": "mendung difus mengikuti foto; di bawah garis tanah gelap (belum terlihat)",
+      "komposisi": "foto sebagai pita lanskap di tengah; langit di atas menyatu lewat ujung berbulu; bagian bawah layar gelap (tanah yang belum terlihat); garis tanah sedikit di atas tengah layar",
+      "kedalaman": "bidang foto + tirai gelap; tidak ada parallax palsu",
+      "fokus": "kaki bangunan dan garis tanah",
+      "teks": [
+        {
+          "jenis": "label",
+          "isi": "Pondasi",
+          "kapan": [
+            22.9,
+            23.6
+          ],
+          "posisi": "kiri",
+          "alasan": "pondasi tak ada di foto"
+        }
+      ],
+      "transisi": {
+        "keluar": "ground-slice",
+        "alasan": "Garis tanah pada foto akan menjadi permukaan penampang 3D; objek nyata dan mekanismenya berbagi satu garis."
+      },
+      "frame_akhir": "garis tanah sedikit di bawah tengah layar, dinding dasar dan tangga terbaca, bagian bawah gelap",
+      "aset": [],
+      "implementasi": "remotion/src/e1/Pilot02C.tsx",
+      "footage": null
+    },
+    {
+      "id": "S3",
+      "ref_kalimat": [
+        "s8"
+      ],
+      "mulai": 23.4,
+      "durasi": 2.6,
+      "narasi": "Di bawah rumah",
+      "tujuan_visual": "Di dalam tanah: lempung berpori berisi air, titik air bercahaya ke pasir dan sumur, debu halus di cahaya lampu.",
+      "mode": "3d",
+      "alasan_mode": "Lihat e1/02/direction-v3.md",
+      "subjek": "dasar rumah dan tangga (kaki bangunan)",
+      "lingkungan": "jalan kampung, langit mendung",
+      "ukuran_shot": "dekat",
+      "sudut_kamera": "sejajar mata, hampir frontal",
+      "posisi_kamera": {
+        "dari": {
+          "pos": [
+            -0.1,
+            -1.2,
+            14.0
+          ],
+          "look": [
+            -0.1,
+            -1.2,
+            1.5
+          ]
+        },
+        "ke": {
+          "pos": [
+            0.2,
+            -1.7,
+            9.5
+          ],
+          "look": [
+            0.2,
+            -1.65,
+            1.5
+          ]
+        }
+      },
+      "gerak_kamera": {
+        "jenis": "dolly-in",
+        "easing": "in-out",
+        "alasan": "Dolly masuk pelan mengikuti air."
+      },
+      "gerak_subjek": [],
+      "cahaya": "mendung difus mengikuti foto; di bawah garis tanah gelap (belum terlihat)",
+      "komposisi": "foto sebagai pita lanskap di tengah; langit di atas menyatu lewat ujung berbulu; bagian bawah layar gelap (tanah yang belum terlihat); garis tanah sedikit di atas tengah layar",
+      "kedalaman": "bidang foto + tirai gelap; tidak ada parallax palsu",
+      "fokus": "kaki bangunan dan garis tanah",
+      "teks": [
+        {
+          "jenis": "label",
+          "isi": "Lempung lunak",
+          "kapan": [
+            23.8,
+            26.0
+          ],
+          "posisi": "kiri",
+          "alasan": "nama lapisan inti"
+        }
+      ],
+      "transisi": {
+        "keluar": "ground-slice",
+        "alasan": "Garis tanah pada foto akan menjadi permukaan penampang 3D; objek nyata dan mekanismenya berbagi satu garis."
+      },
+      "frame_akhir": "garis tanah sedikit di bawah tengah layar, dinding dasar dan tangga terbaca, bagian bawah gelap",
+      "aset": [],
+      "implementasi": "remotion/src/e1/Pilot02C.tsx",
+      "footage": null
+    },
+    {
+      "id": "S4",
+      "ref_kalimat": [
+        "s8"
+      ],
+      "mulai": 26.0,
+      "durasi": 2.5,
+      "narasi": "Di bawah rumah",
+      "tujuan_visual": "Lempung memampat, pori mengecil, air terperas; permukaan dan pondasi turun terhadap garis cahaya.",
+      "mode": "3d",
+      "alasan_mode": "Lihat e1/02/direction-v3.md",
+      "subjek": "dasar rumah dan tangga (kaki bangunan)",
+      "lingkungan": "jalan kampung, langit mendung",
+      "ukuran_shot": "dekat",
+      "sudut_kamera": "sejajar mata, hampir frontal",
+      "posisi_kamera": {
+        "dari": {
+          "pos": [
+            0.2,
+            -1.7,
+            9.5
+          ],
+          "look": [
+            0.2,
+            -1.65,
+            1.5
+          ]
+        },
+        "ke": {
+          "pos": [
+            0.22,
+            -1.6,
+            9.3
+          ],
+          "look": [
+            0.22,
+            -1.55,
+            1.5
+          ]
+        }
+      },
+      "gerak_kamera": {
+        "jenis": "terkunci",
+        "easing": "linear",
+        "alasan": "Terkunci: satu-satunya perubahan di layar adalah pemampatan."
+      },
+      "gerak_subjek": [
+        {
+          "apa": "lempung memampat 0,57 m (ilustrasi), pori mengecil, air terperas",
+          "dari_detik": 26.2,
+          "sampai_detik": 28.1,
+          "easing": "in-out",
+          "tujuan": "spons diperas"
+        }
+      ],
+      "cahaya": "mendung difus mengikuti foto; di bawah garis tanah gelap (belum terlihat)",
+      "komposisi": "foto sebagai pita lanskap di tengah; langit di atas menyatu lewat ujung berbulu; bagian bawah layar gelap (tanah yang belum terlihat); garis tanah sedikit di atas tengah layar",
+      "kedalaman": "bidang foto + tirai gelap; tidak ada parallax palsu",
+      "fokus": "kaki bangunan dan garis tanah",
+      "teks": [],
+      "transisi": {
+        "keluar": "ground-slice",
+        "alasan": "Garis tanah pada foto akan menjadi permukaan penampang 3D; objek nyata dan mekanismenya berbagi satu garis."
+      },
+      "frame_akhir": "garis tanah sedikit di bawah tengah layar, dinding dasar dan tangga terbaca, bagian bawah gelap",
+      "aset": [],
+      "implementasi": "remotion/src/e1/Pilot02C.tsx",
+      "footage": null
+    },
+    {
+      "id": "S5",
+      "ref_kalimat": [
+        "s8"
+      ],
+      "mulai": 28.5,
+      "durasi": 2.5,
+      "narasi": "Di bawah rumah",
+      "tujuan_visual": "Beban rumah menekan; kamera naik dan mundur kembali ke foto yang sama; rumah kini di bawah garis cahaya (POSISI AWAL).",
+      "mode": "footage",
+      "alasan_mode": "Lihat e1/02/direction-v3.md",
+      "subjek": "dasar rumah dan tangga (kaki bangunan)",
+      "lingkungan": "jalan kampung, langit mendung",
+      "ukuran_shot": "lebar",
+      "sudut_kamera": "sejajar mata, hampir frontal",
+      "posisi_kamera": {
+        "dari": {
+          "pos": [
+            0.22,
+            -1.6,
+            9.3
+          ],
+          "look": [
+            0.22,
+            -1.55,
+            1.5
+          ]
+        },
+        "ke": {
+          "pos": [
+            -0.1,
+            0.1,
+            17.0
+          ],
+          "look": [
+            -0.1,
+            0.1,
+            1.5
+          ]
+        }
+      },
+      "gerak_kamera": {
+        "jenis": "crane-naik",
+        "easing": "in-out",
+        "alasan": "Naik dan mundur dari sebab ke akibat."
+      },
+      "gerak_subjek": [
+        {
+          "apa": "beban menekan: rumah turun ekstra lalu mengendap",
+          "dari_detik": 28.7,
+          "sampai_detik": 29.9,
+          "easing": "out",
+          "tujuan": "berat bangunan"
+        }
+      ],
+      "cahaya": "mendung difus mengikuti foto; di bawah garis tanah gelap (belum terlihat)",
+      "komposisi": "foto sebagai pita lanskap di tengah; langit di atas menyatu lewat ujung berbulu; bagian bawah layar gelap (tanah yang belum terlihat); garis tanah sedikit di atas tengah layar",
+      "kedalaman": "bidang foto + tirai gelap; tidak ada parallax palsu",
+      "fokus": "kaki bangunan dan garis tanah",
+      "teks": [
+        {
+          "jenis": "label",
+          "isi": "POSISI AWAL",
+          "kapan": [
+            29.4,
+            31.4
+          ],
+          "posisi": "kanan, di garis cahaya",
+          "alasan": "memberi arti garis acuan setelah rumah turun"
+        }
+      ],
+      "transisi": {
+        "keluar": "ground-slice",
+        "alasan": "Garis tanah pada foto akan menjadi permukaan penampang 3D; objek nyata dan mekanismenya berbagi satu garis."
+      },
+      "frame_akhir": "garis tanah sedikit di bawah tengah layar, dinding dasar dan tangga terbaca, bagian bawah gelap",
+      "aset": [
+        "e1-02/rumah-ditinggikan.jpg"
+      ],
+      "implementasi": "remotion/src/e1/Pilot02C.tsx",
+      "footage": {
+        "sumber": "e1-02/rumah-ditinggikan.jpg",
+        "peran": "callback",
+        "alasan": "Rumah nyata sebagai bukti dan jangkar; di S5 kembali dengan perubahan terlihat.",
+        "bagian": [
+          0.1,
+          0.1,
+          0.65,
+          0.85
+        ],
+        "crop": "pita lanskap, ujung atas berbulu",
+        "gerak": "ikut kamera dunia",
+        "sorotan": "garis cahaya hangat di garis tanah",
+        "transisi_masuk": "kamera naik dari penampang",
+        "transisi_keluar": "potong",
+        "relasi_narasi": "Foto menunjukkan rumah nyata di atas tanah yang akan dibuka; di S5 rumah itu terlihat lebih rendah dari posisi awal."
+      }
+    }
+  ]
+}

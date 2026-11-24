@@ -19,13 +19,13 @@ const bulu = (px: number) => { // alpha: 0 di atas -> 1 setelah `px` dari 256
 };
 
 /** Potongan foto: `crop` = [u0, v0, u1, v1] dalam pecahan gambar (v dari BAWAH). lebar/tinggi dalam meter. Pusat bidang di (x,y,z). */
-export const FotoBidang: React.FC<{tx: THREE.Texture | null; crop: [number, number, number, number]; lebar: number; tinggi: number; p: [number, number, number]; buluAtas?: number; o?: number; rot?: number}> =
-  ({tx, crop, lebar, tinggi, p, buluAtas = 0, o = 1, rot = 0}) => {
+export const FotoBidang: React.FC<{tx: THREE.Texture | null; crop: [number, number, number, number]; lebar: number; tinggi: number; p: [number, number, number]; buluAtas?: number; o?: number; rot?: number; warna?: string}> =
+  ({tx, crop, lebar, tinggi, p, buluAtas = 0, o = 1, rot = 0, warna = '#ffffff'}) => {
     const m = useMemo(() => { if (!tx) return null; const c = tx.clone(); c.needsUpdate = true; c.repeat.set(crop[2] - crop[0], crop[3] - crop[1]); c.offset.set(crop[0], crop[1]); return c; }, [tx, crop[0], crop[1], crop[2], crop[3]]);
     const a = useMemo(() => (buluAtas > 0 ? bulu(buluAtas * 256) : undefined), [buluAtas]);
     if (!m) return null;
     return (<mesh position={p} rotation={[0, 0, rot]} renderOrder={2}>
       <planeGeometry args={[lebar, tinggi]} />
-      <meshBasicMaterial map={m} alphaMap={a} transparent={buluAtas > 0 || o < 1} opacity={o} toneMapped={false} depthWrite={o >= 1} />
+      <meshBasicMaterial color={warna} map={m} alphaMap={a} transparent={buluAtas > 0 || o < 1} opacity={o} toneMapped={false} depthWrite={o >= 1} />
     </mesh>);
   };

@@ -10,7 +10,7 @@ export type SliceWaktu = {garis: [number, number]; jatuh: [number, number]; tera
 export const GroundSlice: React.FC<{t: number; tx: THREE.Texture | null; w: SliceWaktu; lebar: number; xp: number; zb: number; zGaris: number; zTirai: number; cropStrip: [number, number, number, number]; tinggiStrip: number; lebarGaris?: number; warna?: string}> =
   ({t, tx, w, lebar, xp, zb, zGaris, zTirai, cropStrip, tinggiStrip, lebarGaris = 9, warna = '#ef6a4c'}) => {
     const g = r(t, w.garis[0], w.garis[1], Easing.inOut(Easing.cubic));
-    const j = r(t, w.jatuh[0], w.jatuh[1], Easing.in(Easing.cubic)), veil = 0.96 * (1 - r(t, w.terang[0], w.terang[1], Easing.out(Easing.cubic)));
+    const j = r(t, w.jatuh[0], w.jatuh[1], Easing.in(Easing.cubic)), veil = 0.9 * (1 - r(t, w.terang[0], w.terang[1], Easing.out(Easing.cubic)));
     return (<group>
       {j < 1 && <FotoBidang tx={tx} crop={cropStrip} lebar={lebar} tinggi={tinggiStrip} p={[xp, -tinggiStrip / 2 - j * (tinggiStrip + 5.5), zTirai - 0.02]} />}
       {veil > 0.01 && <mesh position={[0, -3.6 - tinggiStrip / 2, zTirai]} renderOrder={5}><planeGeometry args={[14, 7.2 - tinggiStrip]} /><meshBasicMaterial color="#0f1115" transparent opacity={veil} depthWrite={false} /></mesh>}

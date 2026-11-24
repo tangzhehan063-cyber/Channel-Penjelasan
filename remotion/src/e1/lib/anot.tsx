@@ -2,12 +2,22 @@
 import {Easing} from 'remotion';
 import {proj, r, type Key, type V3} from '../../kit/waktu';
 
-export type Anotasi = {a: number; b: number; teks: string; di: V3; sisi: 'L' | 'R'; dy?: number; warna?: string};
+export type Anotasi = {a: number; b: number; teks: string; di: V3; sisi: 'L' | 'R'; dy?: number; warna?: string; gaya?: 'pil' | 'huruf'};
 export const Anot: React.FC<{an: Anotasi; t: number; cam: Key}> = ({an, t, cam}) => {
   const i = r(t, an.a, an.a + 0.4, Easing.out(Easing.cubic)), o = 1 - r(t, an.b - 0.3, an.b), p = i * o;
   if (p <= 0.01) return null;
   const [px, py0] = proj(cam, an.di); const py = Math.max(300, Math.min(1500, py0 + (an.dy ?? 0))); const L = an.sisi === 'L'; const x0 = L ? 54 : 1026; const w = Math.round(an.teks.length * 23 + 52);
   const wr = an.warna ?? '#ffffff';
+  if (an.gaya === 'huruf') {
+    const wh = Math.round(an.teks.length * 26 + 20);
+    return (<>
+      <svg width={1080} height={1920} style={{position: 'absolute', left: 0, top: 0, opacity: p, pointerEvents: 'none'}}>
+        <path d={`M ${L ? x0 + wh : x0 - wh} ${py + 18} L ${px} ${py0}`} stroke={wr} strokeWidth={2} fill="none" strokeDasharray="1200" strokeDashoffset={1200 * (1 - i)} opacity={0.8} />
+        <circle cx={px} cy={py0} r={5} fill={wr} />
+      </svg>
+      <div style={{position: 'absolute', top: py - 12, [L ? 'left' : 'right']: L ? x0 : 1080 - x0, fontFamily: 'Inter', fontWeight: 600, fontSize: 30, letterSpacing: 6, color: wr, opacity: p, textTransform: 'uppercase', whiteSpace: 'nowrap', textShadow: '0 1px 8px rgba(0,0,0,0.8)'}}>{an.teks}</div>
+    </>);
+  }
   return (<>
     <svg width={1080} height={1920} style={{position: 'absolute', left: 0, top: 0, opacity: p, pointerEvents: 'none'}}>
       <path d={`M ${L ? x0 + w : x0 - w} ${py} L ${px} ${py0}`} stroke={wr} strokeWidth={3} fill="none" strokeLinecap="round" strokeDasharray="1200" strokeDashoffset={1200 * (1 - i)} style={{filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.5))'}} />
