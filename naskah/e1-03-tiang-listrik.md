@@ -1,5 +1,5 @@
 # E1 #03 (pilot v4): Tiang Listrik di Depan Pagar (DRAF, menunggu ACC naskah)
-Kategori: Mitos vs Fakta. Narasi: `e1-03-tiang-listrik.txt` (138 kata, perkiraan ±61 dtk). Riset: `riset/2026-11-24-tiang-listrik-depan-pagar.md`. VO: tanya Gemini atau ElevenLabs setelah ACC. Humanizer sudah dipakai (tanpa kontras "bukan X tapi Y", tanpa penutup berulang).
+Kategori: Mitos vs Fakta. Narasi: `e1-03-tiang-listrik.txt` (135 kata, perkiraan ±60 dtk). Riset: `riset/2026-11-24-tiang-listrik-depan-pagar.md`. VO: tanya Gemini atau ElevenLabs setelah ACC. Humanizer (mode berkas) dijalankan pada `.txt`: dibuang kalimat teaser "Masalah nyatanya lebih biasa" (diganti klaim konkret), penutup yang mengulang ("Jadi tiang … urusannya akses dan biaya pindah"), dan "Penghuni pun sempit" (janggal). Ditambah satu fakta berguna: pastikan dulu itu tiang PLN (cuplikan 2 sumber, `[CEK]` halaman penuh).
 
 ## Hook (3 alternatif)
 - **A (dipakai):** "Tiang listrik persis di depan pagar. Ada yang bilang itu bikin rezeki seret." **Catatan jujur:** saya belum menemukan sumber tertulis yang menyebut kepercayaan ini (dua kali pencarian). Premis ini datang dari daftar ide; "ada yang bilang" hanya boleh dipakai bila Anda tahu kepercayaan itu memang beredar.
