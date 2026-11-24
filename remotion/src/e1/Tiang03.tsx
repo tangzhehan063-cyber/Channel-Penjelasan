@@ -31,6 +31,7 @@ const KABEL_TR = 7.0, KABEL_TM = 8.7; // tinggi kabel tegangan rendah (pilin) da
 const pose = (t: number): {x: number; z: number; yaw: number} => {
   const a = r(t, 10.8, 15.4), b = r(t, 15.4, 20.3, Easing.inOut(Easing.quad));
   const shake = t > 20.3 && t < 21.0 ? Math.sin((t - 20.3) * 60) * 0.025 * (1 - (t - 20.3) / 0.7) : 0;
+  if (t >= 22.05) return {x: -1.95, z: -0.2, yaw: 0}; // setelah adegan denah: mobil kembali parkir
   return {x: lerp(-1.95, -2.18, b) + shake, z: lerp(lerp(-0.2, 3.1, a), 4.5, b), yaw: lerp(0, -25, b) * Math.PI / 180};
 };
 const keadaan = (t: number) => ({
@@ -101,9 +102,9 @@ const Rumah03: React.FC<{k: ReturnType<typeof keadaan>; b: ReturnType<typeof use
     {k.lt2 && <group position={[0, 0.15 + H1 + (1 - k.lantai2) * 4.0 - 0.02, 0]}>
       <Lantai y={0} h={H2} pintu={false} />
       {/* balkon menjorok ke depan, mendekati kabel */}
-      <Blok p={[-0.8, 0.05, FASAD_Z + 1.6]} s={[4.2, 0.16, 3.2]} c="#cfc9bd" map={x.beton} rep={[2, 1]} bump={0.3} />
-      {[-2.85, 1.25].map((xx) => <Blok key={xx} p={[xx, 0.6, FASAD_Z + 3.15]} s={[0.06, 1.0, 0.06]} c="#2f3236" r={0.4} />)}
-      <Blok p={[-0.8, 1.1, FASAD_Z + 3.15]} s={[4.2, 0.06, 0.06]} c="#2f3236" r={0.4} />
+      <Blok p={[1.8, 0.05, FASAD_Z + 1.5]} s={[3.4, 0.16, 3.0]} c="#cfc9bd" map={x.beton} rep={[2, 1]} bump={0.3} />
+      {[0.15, 3.45].map((xx) => <Blok key={xx} p={[xx, 0.6, FASAD_Z + 2.95]} s={[0.06, 1.0, 0.06]} c="#2f3236" r={0.4} />)}
+      <Blok p={[1.8, 1.1, FASAD_Z + 2.95]} s={[3.4, 0.06, 0.06]} c="#2f3236" r={0.4} />
     </group>}
     {/* atap pelana */}
     <group position={[0, 0.15 + atapY - 0.02, cz]}>
@@ -170,7 +171,7 @@ const Dunia: React.FC<{t: number}> = ({t}) => {
     <Pipa pts={[[TIANG[0], KABEL_TR - 0.05, TIANG[2] + 0.1], [1.4, 4.9, 0.3], [tempelRumah[0], tempelRumah[1], tempelRumah[2]]]} rad={0.015} c="#1d1e21" />
     {/* zona kabel bertegangan (ilustrasi, bukan ukuran resmi) */}
     {k.zona > 0.01 && <group>
-      <mesh position={[0, KABEL_TR + 0.6, TIANG[2]]} rotation={[0, 0, Math.PI / 2]}><cylinderGeometry args={[1.15, 1.15, 22, 32, 1, true]} /><meshBasicMaterial color="#ef4b33" transparent opacity={(0.14 + 0.08 * (k.lt2 ? Math.abs(Math.sin(t * 6)) : 0)) * k.zona} depthWrite={false} side={THREE.DoubleSide} /></mesh>
+      <mesh position={[0, KABEL_TR + 0.4, TIANG[2]]} rotation={[0, 0, Math.PI / 2]}><cylinderGeometry args={[0.85, 0.85, 22, 32, 1, true]} /><meshBasicMaterial color="#ef4b33" transparent opacity={(0.16 + 0.1 * (k.kanopi > 0.5 ? Math.abs(Math.sin(t * 5)) : 0)) * k.zona} depthWrite={false} side={THREE.DoubleSide} /></mesh>
     </group>}
     <group position={[p.x, 0.02, p.z]} rotation={[0, p.yaw, 0]}><Mobil03 hi={hiMobil} /></group>
   </group>);
@@ -178,11 +179,11 @@ const Dunia: React.FC<{t: number}> = ({t}) => {
 
 // ---------- kamera ----------
 // perspektif (adegan rumah) dan ortografis-isometrik (adegan denah mobil 10,2-22 dan breakdown 22-33,6)
-const KP: Key[] = [orb(0, 18, 6, 22, [-0.4, 3.6, 2.6]), orb(4.8, 8, 5, 16.5, [-0.4, 3.6, 2.8]), orb(9.9, -14, 8, 19, [0, 3.4, 1.5]),
+const KP: Key[] = [orb(0, 30, 4, 21, [1.4, 3.4, 2.6]), orb(4.8, 22, 4, 16.5, [1.2, 3.4, 2.8]), orb(9.9, -14, 8, 19, [0, 3.4, 1.5]),
   orb(33.6, 22, 6, 20, [0.6, 2.6, 1.5]), orb(41.0, 10, 6, 19, [0.6, 2.8, 1.8]), orb(45.8, -6, 9, 23, [2.0, 3.6, 2.0]), orb(57.6, -10, 9, 23, [1.4, 3.4, 2.0]),
   orb(58.4, 28, 4, 10.5, [-0.3, 2.6, 3.0]), orb(63.4, 38, 6, 9.5, [-0.3, 3.0, 3.0]), orb(64.2, 10, 10, 24, [0, 3.6, 1.5]), orb(68.4, 2, 14, 30, [0, 3.6, 1.0])];
-const KI: Key[] = [iso(10.2, [-1.2, 0, 2.2], 86, 30, 52), iso(15.5, [-1.2, 0, 2.6], 92, 26, 54), iso(21.8, [-0.9, 0.4, 3.0], 112, 22, 50),
-  iso(22.3, [-0.4, 4.6, 0.2], 92, 52, 22), iso(29.4, [-0.4, 4.8, 0.4], 96, 40, 20), iso(33.6, [-0.6, 5.2, 0.6], 102, 30, 18)];
+const KI: Key[] = [iso(10.2, [-1.4, 0.5, 2.6], 82, 20, 58), iso(15.5, [-1.4, 0.5, 3.0], 90, 16, 60), iso(21.8, [-1.0, 0.6, 3.4], 108, 12, 58),
+  iso(22.3, [0, 4.2, 0], 84, 62, 16), iso(29.4, [0, 4.4, 0.2], 86, 56, 15), iso(33.6, [0, 4.8, 0.4], 90, 48, 14)];
 const isIso = (t: number) => t >= 10.2 && t < 33.6;
 
 const IsoRig: React.FC<{k: Key}> = ({k}) => {
@@ -198,7 +199,7 @@ type Lb = {a: number; b: number; text: string; at: V3 | ((t: number) => V3); sid
 const Label2: React.FC<{l: Lb; t: number; cam: Key; isoCam: boolean}> = ({l, t, cam, isoCam}) => {
   const i = r(t, l.a, l.a + 0.35, Easing.out(Easing.cubic)), o = 1 - r(t, l.b - 0.3, l.b); if (i * o <= 0.01) return null;
   const at = typeof l.at === 'function' ? l.at(t) : l.at;
-  const [px, py0] = isoCam ? projIso(cam, at) : proj(cam, at), py = Math.max(300, Math.min(1320, py0 + (l.dy ?? 0)));
+  const [px, py0] = isoCam ? projIso(cam, at) : proj(cam, at), py = Math.max(400, Math.min(1320, py0 + (l.dy ?? 0)));
   const L = l.side === 'L', ex = L ? 60 : 1020, p = i * o, col = l.merah ? '#e0442e' : '#ef6a4c';
   return (<>
     <svg width={1080} height={1920} style={{position: 'absolute', left: 0, top: 0, opacity: p, pointerEvents: 'none'}}>
@@ -213,14 +214,14 @@ const LABELS: Lb[] = [
   {a: 0.6, b: 4.7, text: 'Tiang listrik', at: [TIANG[0], 5.5, TIANG[2]], side: 'R'},
   {a: 1.6, b: 4.7, text: 'Pagar', at: [2.6, 1.2, PAGAR_Z], side: 'R', dy: 120},
   {a: 15.4, b: 21.8, text: 'Belok tajam', at: (t) => sudut(t, 0, 2.1), side: 'L'},
-  {a: 20.4, b: 21.8, text: 'Spion', at: (t) => sudut(t, 0.98, -0.62), side: 'R', merah: true, dy: -90},
-  {a: 20.6, b: 21.8, text: 'Bemper', at: (t) => sudut(t, 0.8, -2.1), side: 'R', merah: true, dy: 40},
+  {a: 20.4, b: 21.8, text: 'Spion', at: (t) => sudut(t, 0.98, -0.62), side: 'R', merah: true, dy: -170},
+  {a: 20.6, b: 21.8, text: 'Bemper', at: (t) => sudut(t, 0.8, -2.1), side: 'R', merah: true, dy: 90},
   {a: 25.6, b: 33.4, text: 'Kabel bertegangan', at: [-4.2, KABEL_TR, TIANG[2] + 0.17], side: 'L'},
-  {a: 28.0, b: 33.4, text: 'Sambungan ke rumah', at: [1.6, 4.85, 0.4], side: 'R'},
-  {a: 30.6, b: 33.4, text: 'Lantai 2 + balkon', at: [-2.6, 4.2, FASAD_Z + 3.0], side: 'L', dy: 140},
-  {a: 31.8, b: 33.4, text: 'Kanopi', at: [-3.2, 3.05, 1.2], side: 'L', dy: 230},
+  {a: 28.0, b: 33.4, text: 'Sambungan ke rumah', at: [1.6, 4.85, 0.4], side: 'R', dy: -110},
+  {a: 30.6, b: 33.4, text: 'Lantai 2 + balkon', at: [2.6, 3.9, FASAD_Z + 2.9], side: 'R', dy: 110},
+  {a: 31.8, b: 33.4, text: 'Kanopi', at: [-2.6, 3.06, 1.6], side: 'L', dy: 60},
   {a: 58.6, b: 63.4, text: 'Aset PLN', at: [TIANG[0], 2.6, TIANG[2] + 0.2], side: 'R'},
-  {a: 59.6, b: 63.4, text: 'Kabel tetap bertegangan', at: [-1.6, KABEL_TR, TIANG[2] + 0.17], side: 'L', merah: true},
+  {a: 59.6, b: 63.4, text: 'Kabel tetap bertegangan', at: [-1.6, KABEL_TR, TIANG[2] + 0.17], side: 'L', merah: true, dy: 330},
 ];
 
 const Kartu: React.FC<{t: number; a: number; b: number; rows: [string, string, number][]; catatan?: string}> = ({t, a, b, rows, catatan}) => {
