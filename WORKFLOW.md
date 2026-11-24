@@ -29,4 +29,5 @@ Berkas per video (`NN`): `e1/NN/brief.md`, `riset/<tgl>-<slug>.md`, `e1/NN/arah-
 - **Output:** `qa.md` (jujur, termasuk sisa kelemahan). **ACC publikasi**; caption + komentar pin (humanizer), cover, Drive, MP4 dikirim ke pemilik.
 
 ## Kerja
+Tidak ada template video default: kit lama (`kit/Penjelasan.tsx`, `beats.json`, kicker/kartu/subtitle terkunci) hanya legacy. Aturan di `arsip/` tidak aktif. Aturan audio tetap manual (`tools/mix-audio.mjs` belum diadaptasi; di luar scope tahap ini).
 Render swangle ±10 mnt per ±58 dtk (2D SVG/CSS jauh lebih cepat). Perbarui `STATUS.md`; commit/push ke cabang kerja; bug baru → `style/cek-bug.md`.

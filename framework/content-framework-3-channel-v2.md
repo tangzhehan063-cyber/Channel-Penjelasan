@@ -1,3 +1,5 @@
+> **Catatan (24 Nov 2026):** kerangka konten lintas channel, bukan aturan visual E1; "signature shot"/momen khas di sini opsional (tanpa kuota). Visual E1: `docs/visual-system/VISUAL_STYLE_SPEC.md`.
+
 # CONTENT FRAMEWORK v2: Fakta Rumah | RAKA | Yesterlife
 
 Revisi 12 Nov 2026 dari dokumen user "Content Framework 3 Channel (Revisi)". Perubahan utama ada di bagian **Catatan revisi** (paling bawah).

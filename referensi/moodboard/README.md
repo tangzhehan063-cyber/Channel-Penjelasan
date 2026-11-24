@@ -1,3 +1,5 @@
+> **Catatan (24 Nov 2026):** moodboard video lama (#8, #14, ...), riwayat. Bukan patokan gaya E1; "KUNCI KARAKTER" sudah diarsipkan.
+
 # Perpustakaan referensi moodboard
 Still video yang sudah di-ACC/diterima user, dipakai sebagai patokan karakter (sheet pembanding KUNCI KARAKTER: ambil 2 still #8 + #14 berdampingan dengan 6 still video baru). Nama berkas `vNN-<detik>s.jpg`, 540×960.
 

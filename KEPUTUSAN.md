@@ -27,3 +27,6 @@ Tambahkan baris baru di bawah, jangan mengedit yang lama (beri tanggal). Bila do
 | 24 Nov | Identitas: stylized/flat illustration; detail B default (A/C fleksibel), outline tipis opsional, kartu/kicker/hook opsional, foto fleksibel, peran warna + preset (krem salah satu); bukan semi-realistis/PBR/CGI; teknik SVG/CSS → 2.5D → 3D terstilisasi | `docs/visual-system/VISUAL_STYLE_SPEC.md` |
 | 24 Nov | Workflow 8 langkah (brief+kategori → analisis → arah visual → naskah → storyboard → review → produksi → QA), anti-birokrasi; kategori video wajib dipastikan di proyek baru; breakdown hanya bila perlu | `WORKFLOW.md`, `CLAUDE.md` |
 | 24 Nov | Papan kategori = contoh visual language, bukan template; delapan langkah animasi = panduan berpikir; akurasi mekanisme dijaga; kualitas animasi prioritas | `VISUAL_STYLE_SPEC.md` §0 |
+
+## 24 Nov 2026 (lanjutan)
+- Aturan gaya lama yang bertentangan diarsipkan ke `arsip/style-lama/`, bukan sekadar diberi label. `kit/Penjelasan.tsx` + `beats.json` dipertahankan sebagai legacy, bukan template default. #01/#02 lama dibiarkan; #02 jadi pilot workflow baru tanpa menimpa. `mix-audio.mjs` tidak diadaptasi (audio manual). Draf usang diarsipkan.

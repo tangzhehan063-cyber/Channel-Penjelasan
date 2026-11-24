@@ -1,4 +1,4 @@
-// Kit Penjelasan (rencana kit, STATUS 18 Nov 2026). Impor semua dari '../kit'. Panduan: style/gaya-penjelasan.md
+// [LEGACY] Kit "Penjelasan" gaya lama (#7–#26). Bukan template default E1. Lihat remotion/src/kit/LEGACY.md.
 export * from './waktu';
 export * from './stage';
 export * from './prim';

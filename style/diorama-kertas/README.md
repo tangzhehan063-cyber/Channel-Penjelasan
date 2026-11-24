@@ -1,11 +1,13 @@
+> **Arsip konsep (24 Nov 2026):** gaya diorama kertas lama; tidak berlaku di E1. Identitas: `docs/visual-system/VISUAL_STYLE_SPEC.md`.
+
 # Gaya B: Diorama kertas (origami × editorial)
 
 Status: **konsep disetujui user (8 Nov 2026)**, belum ada kode/still. Calon gaya video #6.
-Gaya A (editorial 3D, aktif) ada di `style/style.md` + `style/aset.md`. Origami murni lama hanya arsip di `arsip/origami/` (tidak dipakai).
+Gaya A (editorial 3D, aktif) ada di `arsip/style-lama/style.md` + `arsip/style-lama/aset.md`. Origami murni lama hanya arsip di `arsip/origami/` (tidak dipakai).
 Moodboard: `moodboard.html` (buka di browser).
 
 ## Prinsip
-**Origami = panggung, sistem editorial = isi.** Semua elemen sistem gabungan (`style/aset.md`) tetap dipakai, tapi wujudnya benda kertas yang berdiri di atas meja seperti diorama, persis cara video #1–#4.
+**Origami = panggung, sistem editorial = isi.** Semua elemen sistem gabungan (`arsip/style-lama/aset.md`) tetap dipakai, tapi wujudnya benda kertas yang berdiri di atas meja seperti diorama, persis cara video #1–#4.
 
 ## Keputusan user
 1. **Latar krem kertas + bidang meja** (bukan gradasi abu-hijau lama). Alasan: kontras tinggi (revisi #5 "terlalu saru"), rasa buatan tangan (video clay betang 14 jt views di riset), beda dari feed kompetitor.
@@ -41,7 +43,7 @@ Tipografi sama dengan sistem gabungan: IBM Plex Mono (kicker, subtitle di kartu 
 
 ## Gerak & suara
 - Muncul = kartu terlipat berdiri (pop-up); ganti babak = **refold** kartu; whip pan = kertas digeser di atas meja.
-- Ritme tetap 0,4–0,6 dtk per kejadian (`style/aset.md`, bahasa gerak).
+- Ritme tetap 0,4–0,6 dtk per kejadian (`arsip/style-lama/aset.md`, bahasa gerak).
 - SFX kertas lama (lipat, geser, tap) boleh dipakai lagi + tick/chime/pop.
 
 ## Langkah berikutnya

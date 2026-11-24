@@ -1,4 +1,4 @@
-// Demo sistem gabungan (15 dtk) dengan fakta video #5. Lihat style/aset.md bagian "Sistem gabungan".
+// Demo sistem gabungan (15 dtk) dengan fakta video #5. Lihat arsip/style-lama/aset.md bagian "Sistem gabungan".
 import React from 'react';
 import {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';
 import {ThreeCanvas} from '@remotion/three';

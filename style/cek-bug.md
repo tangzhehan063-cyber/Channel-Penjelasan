@@ -1,4 +1,5 @@
 # Daftar cek bug visual (WAJIB sebelum render penuh)
+> Catatan 24 Nov 2026: butir tentang y subtitle/kartu judul/zona judul berasal dari tata letak lama; di E1 tata letak tidak terkunci. Yang berlaku: teks tidak terpotong/tertutup, objek tidak tembus, tidak ada z-fighting, gerak deterministik.
 Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) sebelum `remotion render`. Tambahkan bug baru di sini begitu ditemukan.
 
 ## Objek 3D
@@ -35,7 +36,7 @@ Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) s
 - Diorama/irisan tanah lebar membuat objek hanya ±1/3 lebar layar dan seperempat bawah layar kosong; label kecil tak terbaca di HP.
 - Kartu judul dengan baris kedua kosong; subtitle terpotong di tengah frasa; pil judul + kartu + subtitle saling mengulang.
 - Beda tinggi jalan-rumah dikecilkan demi referensi sampai inti pesan (rumah lebih rendah) tidak terlihat.
-- Revisi R1–R3 ditumpuk jadi tambal-sulam. Aturan: lihat "KUNCI KARAKTER" di `CLAUDE.md` (menyimpang = mulai dari awal).
+- Revisi R1–R3 ditumpuk jadi tambal-sulam. Aturan: jangan menumpuk revisi kecil; bila arah menyimpang dari arah visual yang disetujui, ulangi dari storyboard.
 
 ## Bug #19 (17 Nov 2026)
 - Kicker/pil hook tertutup 3D: komponen 3D (Seg) harus dirender SEBELUM Kicker dan TikTokBox di DOM, bila ada dinding/objek putih besar.
@@ -55,7 +56,7 @@ Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) s
 
 ## Bug #22 (18 Nov 2026)
 - Teks kalender `Calendar` (v11) terpotong tepi tekstur bila >9 huruf (MENGAMBANG): font otomatis 64 px untuk teks >9 huruf.
-- Dua objek kecil dalam satu adegan (tumpukan uang + amplop) terpotong tepi kiri/kanan walau diperbesar: pakai SATU objek per adegan (KUNCI KARAKTER 2).
+- Dua objek kecil dalam satu adegan (tumpukan uang + amplop) terpotong tepi kiri/kanan walau diperbesar: kurangi jumlah objek atau perbesar (aturan lama "satu objek per adegan" tidak lagi wajib; KUNCI KARAKTER 2).
 - Kalender/objek ber-sub-teks di bawah: sub-teks tertutup subtitle (y 1400+); naikkan objek (turunkan look.y dan pos.y bersama).
 - Objek diorama kertas #11 (bank, uang, kalender, map) berukuran kecil: besarkan dengan `scale` grup 2,2 sampai 3 dan atur kamera jarak ±3,5–5.
 - Objek gaya #21 (Kpr21) terpotong tepi bila jarak kamera < ±5,5 untuk objek ±1,5 satuan; pakai jarak 5,6–7 dan cek `cek-sutradara` (ukuran ≥ 1/3 tinggi atau ≥ 60% lebar).

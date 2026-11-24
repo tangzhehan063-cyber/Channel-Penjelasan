@@ -1,3 +1,5 @@
+> **Status (24 Nov 2026):** katalog model CC0 (Kenney, low-poly) **opsional**; pakai hanya bila cocok dengan gaya terstilisasi dan lebih jelas daripada SVG/CSS. Bukan default.
+
 # Aset luar: model CC0 dan siluet SVG (18 Nov 2026)
 Tiga lapis memilih objek (urutan dicoba): **1. model CC0 siap pakai** → **2. siluet SVG diekstrusi** → **3. bentuk dasar dari kode** (`kit/prim.tsx`, untuk objek sederhana atau yang perlu animasi khusus).
 Kit: `remotion/src/kit/model.tsx` (`useModels`, `Model3D`, `Siluet`, `Gambar`), katalog visual: komposisi `KatalogAset` (`npx remotion still KatalogAset out/katalog.png --scale=0.5`).
@@ -45,4 +47,4 @@ const {m, siap} = useModels(['kenney/kota/building-garage.glb']);   // di kompon
 - **Wajib** `<Gambar onSiap={siap} />` paling akhir di dalam kanvas: ia merender satu frame lalu melepas `delayRender`. Tanpa itu still/render bisa KOSONG (kejadian 18 Nov: gambar kosong karena foto diambil sebelum model tergambar; jeda waktu tetap tidak andal).
 - Muat model hanya di komponen DOM dan lempar sebagai prop; konteks React tidak menyeberang ke kanvas R3F.
 - Siluet SVG: `Siluet lapis={[{d, warna, depth, z, bevel}]} pusat skala`; lapisan kaca/lampu dibuat lebih tebal dari bodi supaya menonjol. Jalur gambar bebas pakai (atau buatan sendiri); dilarang menyalin SVG ber-hak-cipta.
-- Hormati KUNCI KARAKTER: warna datar sesuai palet video; satu objek besar per adegan. Model gaya "mainan" (Kenney) dipakai sebagai properti/objek, bukan diorama lebar.
+- Warna datar sesuai palet video (aturan KUNCI KARAKTER lama diarsipkan; jumlah objek per adegan mengikuti kebutuhan penjelasan). Model gaya "mainan" (Kenney) dipakai sebagai properti/objek, bukan diorama lebar.

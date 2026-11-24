@@ -1,5 +1,10 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md` v4; riwayat di bawah sebagian besar untuk alur lama)
 
+## 24 Nov 2026 (lanjutan): 5 keputusan pemilik diterapkan; menunggu review workflow final
+- Aturan gaya lama diarsipkan penuh ke `arsip/style-lama/` (style, identitas lama, gaya-penjelasan/kit, aset, rencana iso, e1-visual-kode lama); `style/identitas.md` dan `style/e1-visual-kode.md` ditulis ulang ringkas (palet + prinsip kode); `style/README.md` baru. Mode A `breakdown` lama -> `.claude/skills/breakdown/legacy/`.
+- `kit/Penjelasan.tsx` + `beats.json` = legacy (`remotion/src/kit/LEGACY.md`), bukan template default. Draf lama -> `arsip/visual-system-drafts/`. Indeks: `arsip/README.md`, `docs/visual-system/README.md`.
+- #01/#02 lama tidak diubah; #02 baru nanti dibuat lewat proses baru tanpa menimpa. `mix-audio.mjs` tidak diubah (audio manual). **Pilot #02 belum dimulai** (menunggu review workflow final).
+
 ## 24 Nov 2026: workflow v4 + Visual Style Specification DITERAPKAN (menunggu review pemilik)
 - Arah: stylized/flat illustration (bukan semi-realistis/3D realistis); detail B default (A/C fleksibel); outline tipis tidak wajib; kartu/kicker/hook opsional; foto fleksibel; peran warna dengan preset; kategori video ditanyakan dulu; alur 8 langkah anti-birokrasi; breakdown hanya bila perlu; animasi menjelaskan dan akurat. Sumber: `docs/visual-system/VISUAL_STYLE_SPEC.md`; laporan: `docs/visual-system/IMPLEMENTASI_V4.md`. Backup aturan lama: `arsip/v3-24nov/`, `.claude/skills/*/legacy/`.
 - `sutradara` = Visual Director (pusat); `breakdown`, `remotion-fitur`, `script-writer` spesialis.

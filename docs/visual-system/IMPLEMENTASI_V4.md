@@ -41,3 +41,6 @@ Kategori video ditanyakan dulu; identitas = stylized/flat illustration (B defaul
 
 ## 6. Berikutnya (menunggu Anda)
 Review hasil ini. Tidak ada pilot atau coding video sebelum Anda menyetujui. Setelah itu: pilot #02 dimulai dari brief + kategori + 2–3 arah visual stylized.
+
+## Addendum 24 Nov 2026: penerapan 5 keputusan
+Arsip: `arsip/style-lama/*`, `arsip/visual-system-drafts/`, `.claude/skills/breakdown/legacy/mode-A-gaya-isometrik-lama.md`. Ditulis ulang: `style/identitas.md`, `style/e1-visual-kode.md`, `breakdown/SKILL.md` (Mode A). Baru: `style/README.md`, `arsip/README.md`, `docs/visual-system/README.md`, `remotion/src/kit/LEGACY.md`. Catatan legacy/status: kit, aset, cek-bug, aset-luar, alur-naskah, framework, moodboard, diorama-kertas. Tes: tsc, cek-mandiri, cek-visual palet, cek_shots OK.

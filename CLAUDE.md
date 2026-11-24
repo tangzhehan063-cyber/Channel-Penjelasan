@@ -3,7 +3,7 @@
 Channel pengetahuan, seri utama **"fakta rumah"** (topik edukasi, penjelasan, fenomena, mitos, mekanisme, hal sehari-hari), Bahasa Indonesia santai, audiens 35+, YouTube Shorts 1080×1920, 50–70 dtk (±110–155 kata).
 (Channel stickman ada di repo terpisah `RAKA`; jangan campur gaya.)
 
-Aturan era lama (diorama kertas #1–#26, gerbang T1–T7, KUNCI KARAKTER) ada di `arsip/CLAUDE-aturan-lama.md`; versi sebelum perubahan 24 Nov di `arsip/v3-24nov/`. Tidak berlaku kecuali pemilik eksplisit meminta gaya lama.
+Aturan era lama (diorama kertas #1–#26, gerbang T1–T7, KUNCI KARAKTER) ada di `arsip/CLAUDE-aturan-lama.md`; versi sebelum perubahan 24 Nov di `arsip/v3-24nov/`. Tidak berlaku kecuali pemilik eksplisit meminta gaya lama. Isi `arsip/` (termasuk `arsip/style-lama/`) tidak dibaca sebagai pedoman. `remotion/src/kit/Penjelasan.tsx` + `beats.json` = sistem lama (legacy), **bukan template default** (`remotion/src/kit/LEGACY.md`).
 
 ## Proyek video baru: kategori dan pendekatan visual dulu
 - **Sebelum keputusan kreatif besar, pastikan kategori video dan pendekatan visual:** Breakdown / How it works · Mitos vs Fakta · Fenomena / Science · Perbandingan · Cerita / Investigasi · Hybrid (kategori dominan + pendukung). **Jangan menulis naskah, storyboard, atau kode sebelum kategori dikonfirmasi.**

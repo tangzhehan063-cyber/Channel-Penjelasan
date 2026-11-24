@@ -1,4 +1,4 @@
-// Kit aset prosedural "fakta rumah" (tanpa file/lisensi luar). Diterjemahkan dari referensi di style/referensi-visual/.
+// [LEGACY] Kit aset editorial gaya lama; opsional di E1. Katalog: arsip/style-lama/aset.md. Diterjemahkan dari referensi di style/referensi-visual/
 // Semua komponen menerima `p` (progres 0..1) supaya mudah diikat ke timestamp suara.
 import '@fontsource/inter/400.css'; import '@fontsource/inter/700.css'; import '@fontsource/inter/900.css';
 import '@fontsource/playfair-display/400-italic.css';

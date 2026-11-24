@@ -1,6 +1,6 @@
 # Alur naskah: STYLE PENGETAHUAN (seri "fakta rumah")
 
-Alur ini meneruskan cara kerja 4 video pertama (referensi di `referensi/`), dengan tambahan dari ScriptForge. Semua visual memakai gaya editorial 3D di `style/style.md` + kit aset di `style/aset.md`.
+Alur ini meneruskan cara kerja 4 video pertama (referensi di `referensi/`), dengan tambahan dari ScriptForge. Visual video lama memakai gaya editorial 3D (`arsip/style-lama/style.md`, `arsip/style-lama/aset.md`; riwayat). **Video E1: gaya mengikuti `docs/visual-system/VISUAL_STYLE_SPEC.md`.**
 
 > **STATUS (E1):** alur ini untuk video 3D lama (#1–#26). Untuk video E1, penulisan script memakai skill `script-writer` + `prompts/ScriptForge.md` dan alur produksi `WORKFLOW.md`. Jika bentrok: durasi **47–50 dtk** (bukan 50–60), **satu pesan utama per layar** (bukan wajib 2 baris), kosakata aset 3D di Tahap 4–5 tidak dipakai. Yang masih berlaku: identitas konten dan audiens, cek tren (Tahap 1), aturan TTS/timestamp (Tahap 3), caption setelah render.
 
@@ -37,7 +37,7 @@ Total **50–60 dtk ≈ 115–140 kata** (Riri ±2,3 kata/dtk). Waktu boleh berg
 | 1 Hook | 0–4 | Pertanyaan, mitos, atau salah kaprah; tanpa intro | Klaim mengejutkan tentang benda di rumahmu / "Pernah perhatiin? …" |
 | 2 Masalah / mitos | 4–12 | Kenapa anggapan itu penting, apa dampaknya | "Banyak yang kira … Salah!" / "Kalau dibiarkan, …" |
 | 3 Penjelasan | 12–30 | Fakta bertahap, 2–3 beat, tiap beat 1 ide + 1 angka | Kalimat pendek; tutup beat dengan "Tapi…", "Nah…" |
-| 4 Demonstrasi + momen khas | 30–45 | Simulasi / cutaway / exploded view / perbandingan; 1 signature shot | Narasi mengikuti gambar, bukan mengulang |
+| 4 Demonstrasi + momen khas | 30–45 | Simulasi / perbandingan / demonstrasi (cutaway/exploded hanya bila perlu); momen khas opsional | Narasi mengikuti gambar, bukan mengulang |
 | 5 Payoff | 45–55 | Jawaban yang dijanjikan di hook | 1 kalimat takeaway (TwoTier) |
 | 6 Aksi + CTA | 55–60 | 1 tindakan praktis ("cek ini sebelum beli") atau pertanyaan pilih pihak, lalu "Follow buat fakta rumah berikutnya!" | Pemicu share di sini |
 
@@ -50,7 +50,7 @@ Sub-format (struktur di atas tetap): **Hitung Rumah** (angka → cara hitung →
 - Timestamp: ElevenLabs Scribe → `tools/scribe_to_timeline.py` (angka jadi numeral di subtitle).
 
 ## Tahap 4–5: Animasi & render (style pengetahuan)
-Kosakata visual per beat (kode di `remotion/src/aset/Aset.tsx`, katalog di `style/aset.md`):
+Kosakata visual per beat, **gaya lama, tidak berlaku di E1** (kode di `remotion/src/aset/Aset.tsx`, katalog di `arsip/style-lama/aset.md`):
 | Beat | Aset yang dipakai |
 |---|---|
 | Hook | Objek 3D utama dipotong tepi layar + **TikTokBox** (pertanyaan hook, muncul kata per kata) + bayangan teralis/daun samar (**ShadowCast**) |
