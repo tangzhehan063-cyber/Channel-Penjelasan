@@ -1,38 +1,21 @@
-# Kualitas 3D (Three.js, 100% kode)
+# 3D terstilisasi (hanya bila perlu)
 
-## Cahaya (putuskan per shot, tulis di `cahaya`)
-- Dasar: satu matahari (`directionalLight`, bayangan lembut) + `hemisphereLight` + `fog` tipis. Warna matahari mengikuti cuaca foto bila 3D berdampingan dengan footage.
-- Arah matahari konsisten dalam satu urutan (tidak berubah antar shot yang saling terhubung).
-- Cutaway/penampang: cahaya depan-samping agar relief tanah terbaca; tambah pencahayaan lokal kecil pada titik fokus (spot hangat) bukan glow.
-- Suasana: mendung = difus, kontras rendah; ancaman = rendah, hangat-gelap; penjelasan = terang, jelas.
+Sumber gaya: `docs/visual-system/VISUAL_STYLE_SPEC.md` §1, §7, §8. **Bukan default.** Pakai SVG/CSS 2D dulu; naik ke 2.5D, lalu 3D, hanya bila hasilnya lebih jelas. Versi sebelumnya (cahaya low-key, kabut, material berrelief, bidang potong sinematik): `arsip/v3-24nov/skills-sutradara-referensi/kualitas-3d.md`, `legacy/`.
 
-## Material dan detail
-- Pakai `remotion/src/e1/look.tsx` (`useBahan`, `Blok`): relief bump, variasi warna ±3%, tekstur ber-seed. Skala tekstur = ukuran ubin nyata (jangan melar).
-- Penampang lapisan: batas tidak lurus sempurna; tambah sedikit variasi/lipatan; kerikil/akar kecil pada tanah dekat.
-- Detail dekat (macro) butuh tekstur lebih halus: jangan dolly ke permukaan yang tekstur prosedurnya kasar.
-- Air: transparan, bergerak pelan; partikel bukan bola neon: kecil, ber-seed, mengikuti arah fisika.
+## Kapan 3D benar-benar menolong
+Objek yang harus dilihat dari banyak sisi; potongan/exploded yang menjelaskan hubungan ruang; rotasi yang bermakna; kedalaman yang menjelaskan posisi. Bila tak satu pun berlaku: 2D.
 
-## Kedalaman dan lensa
-- Kabut jauh untuk pemisahan bidang; shot macro boleh latar lebih gelap/redup.
-- FOV baku 34°. Untuk kesan lebih intim, dekatkan kamera daripada memperbesar FOV.
-- Rack focus tiruan: redupkan bidang lain (opasitas/desaturasi), bukan blur gaussian murahan.
+## Aturan gaya
+- **Material:** datar atau 3 nada (toon/shading sederhana, atau `MeshStandardMaterial` roughness tinggi **tanpa** env map dan tanpa bump realistis). Perbedaan material lewat warna dan pola grafis (garis serat, titik), bukan tekstur realistis.
+- **Bentuk:** primitif membulat, proporsi konsisten, ciri pengenal terjaga.
+- **Outline:** tipis (`Edges` dari drei) bila tingkat detail B; boleh tanpa outline.
+- **Cahaya:** satu arah sederhana, konsisten; bayangan alas/jatuh lembut bila informasi. **Tanpa** pencahayaan realistis, lampu titik dramatis, kabut, rim light, pantulan, glow.
+- **Kamera:** sederhana, bertujuan; kamera tak bergerak bersamaan dengan informasi utama.
+- **Latar:** ilustrasi (warna/gradasi lembut/lingkungan datar), bukan lingkungan 3D realistis.
+- Foto tidak dijadikan tekstur permukaan 3D; foto masuk sebagai elemen 2D terkomposisi.
 
-## Skala dan fakta
-- 1 satuan = 1 m. Proporsi benda nyata (pintu 0,9×2,1; tembok 0,15–0,22; lantai ditinggikan sesuai angka).
-- Simulasi memakai angka bersumber dan konsisten (mis. 10 cm/th → 0,3 m = tahun 3, 1,0 m = tahun 10); tandai "ilustrasi/simulasi" di teks anotasi bila angka tidak diukur.
+## Skala dan akurasi
+Proporsi benda masuk akal; simulasi memakai angka bersumber dan konsisten; tandai ilustrasi. Penyederhanaan tidak boleh mengubah makna mekanisme.
 
-## Breakdown / potongan (selektif: satu adegan khusus per video)
-- Pakai bila ada struktur/lapisan/mekanisme tersembunyi. Bentuk: penampang (clip), exploded view (lapisan dipisah dengan `gap`), atau kamera masuk.
-- Labeling: nama saja (maks 2 baris), titik tempel ke lapisan, tidak menutupi subjek. Label muncul ketika kamera/cerita sampai ke lapisan itu, bukan serentak.
-- Setiap lapisan satu fungsi dalam cerita; lapisan tanpa fungsi dibuang.
-
-## Anti-bug (wajib; sejarah di `style/cek-bug.md`)
-1. **Z-fighting:** tak ada dua permukaan sebidang; tumpuan menancap ≥0,02 m; `shadow-normalBias`. Uji: `python3 tools/cek_kilau.py <Komposisi> --dur N` (probe geser kamera 0,0004 m, ambang 300 px).
-2. Objek tembus/clipping saat gerak: periksa still di awal, tengah, akhir tiap shot.
-3. Teks/label terpotong tepi layar atau tertutup subjek.
-4. Foto/billboard: bidang foto tidak boleh sebidang dengan bidang 3D di belakangnya (offset ≥0,02 m + `depthWrite`), `toneMapped={false}`, tekstur dimuat lewat `staticFile`.
-5. Render deterministik: tanpa `Math.random`/`Date`/`useFrame`; `nudge` prop untuk cek_kilau.
-6. Biaya render: swangle ±10 mnt per ±58 dtk; periksa lewat still dan rentang `--frames` dulu.
-
-## Batas jujur
-Three.js tanpa path tracing tidak akan menyamai foto. Tujuan: ilustrasi yang meyakinkan dan jelas, dilihat berdampingan dengan foto tanpa terasa mainan. Bila terlihat mainan: tambahkan material/detail/cahaya sebelum menambah gerak; bila masih terlihat mainan, pakai gaya diagram (2D bersih) alih-alih meniru realisme.
+## Anti-bug (wajib; `style/cek-bug.md`)
+Z-fighting (`python3 tools/cek_kilau.py`; tak ada permukaan sebidang, tumpuan menancap ≥0,02 m, `shadow-normalBias`); objek tembus; teks/label terpotong tepi layar; kamera tak masuk padatan; deterministik (tanpa `Math.random`/`Date`/`useFrame`); biaya render swangle (periksa dengan still dulu).

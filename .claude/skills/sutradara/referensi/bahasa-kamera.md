@@ -1,5 +1,7 @@
 # Bahasa kamera: tujuan, parameter, larangan
 
+Berlaku untuk kamera 3D dan, secara analog, geser/zoom lapisan 2D. **Panduan, bukan kuota:** kamera hanya bila bermotif; kamera dan informasi utama tidak bergerak bersamaan; kamera terkunci adalah pilihan penuh.
+
 Tulis di `shots.json`: `gerak_kamera: {jenis, dari, ke, easing, alasan}`. Kamera 3D = FOV 34° (kit), perspektif. Jarak dan sudut di bawah untuk objek ukuran rumah (1 satuan = 1 m).
 
 | Gerak | Tujuan (pesan ke penonton) | Parameter awal yang aman | Dilarang bila |

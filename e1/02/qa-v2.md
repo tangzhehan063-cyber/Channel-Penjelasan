@@ -1,4 +1,6 @@
 # QA pilot v2 (Animation Director): `Pilot02B`, rekonstruksi 3D tanpa foto di layar
+
+> **Catatan (24 Nov):** arah semi-realistis pilot ini (dan `Pilot02C`) ditolak pemilik; tersimpan sebagai riwayat.
 Bahan: `remotion/out/pilot02b.mp4` (10,6 dtk, 318 frame, render 3D dengan bayangan) ditinjau lewat strip 0,6 dtk (`e1/02/review2/`). Tidak diputar real-time. Gerbang: `cek_shots` lulus, `cek_kilau` lulus (maks 270 px, batas 300: mepet), `cek-mandiri` OK. Audio masih VO mentah (belum loudnorm, belum ada ambience/SFX).
 
 ## Yang berhasil

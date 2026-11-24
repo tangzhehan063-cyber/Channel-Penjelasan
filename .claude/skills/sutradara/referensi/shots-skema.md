@@ -1,4 +1,4 @@
-# Skema `shots.json`
+# Skema `shots.json` (opsional; storyboard.md cukup untuk video kecil)
 
 Satu berkas per video: `e1/NN/shots.json`. Divalidasi `python3 tools/cek_shots.py e1/NN/shots.json` (struktur saja; variasi = saran). Kolom opsional `dimensi_penting` dan `suara` dapat ditambahkan.
 
@@ -22,8 +22,8 @@ Satu berkas per video: `e1/NN/shots.json`. Divalidasi `python3 tools/cek_shots.p
       "gerak_kamera": {"jenis": "push", "easing": "in-out", "alasan": "Mendekat ke dasar rumah tempat jawabannya."},
       "gerak_subjek": [],
       "cahaya": "mendung difus, sesuai foto",
-      "komposisi": "foto sebagai pita; langit di atas; ruang gelap tanah di bawah",
-      "kedalaman": "billboard foto di z=1,5; kabut jauh",
+      "komposisi": "subjek di sepertiga kiri; ruang negatif di kanan untuk label",
+      "kedalaman": "latar ilustrasi datar, subjek, bayangan alas",
       "fokus": "dasar dinding + tangga",
       "teks": [],                               // [{jenis, isi, kapan, posisi, alasan}]
       "transisi": {"keluar": "ground-slice", "alasan": "Garis tanah foto = permukaan penampang 3D."},

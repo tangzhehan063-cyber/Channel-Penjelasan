@@ -1,5 +1,7 @@
 # Panduan gaya "Penjelasan" (kit, 18 Nov 2026)
 
+> **Status (24 Nov 2026):** panduan kit gaya diorama lama (#7–#26). Aturan skala objek, `cek-sutradara`, kosakata kamera, dan checklist di sini **tidak mengikat E1**; acuan gaya: `docs/visual-system/VISUAL_STYLE_SPEC.md`. Dipakai sebagai referensi teknis kit.
+
 Setara `brand/gaya-growkaz.md` di repo RAKA: satu rujukan supaya video baru tidak ditulis ulang dari nol. Melengkapi (tidak menggantikan) `CLAUDE.md` KUNCI KARAKTER dan `style/identitas.md`.
 Rujukan visual: `referensi/moodboard/` (still #8, #14, #19, #20). Kode: `remotion/src/kit/`.
 

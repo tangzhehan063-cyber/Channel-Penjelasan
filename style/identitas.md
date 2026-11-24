@@ -1,5 +1,8 @@
 # Identitas channel "fakta rumah" dan sistem palet
 
+> **Status (24 Nov 2026):** identitas visual yang berlaku ada di `docs/visual-system/VISUAL_STYLE_SPEC.md` (stylized/flat illustration; tingkat detail B default; peran warna; kartu/kicker/teks opsional). Berkas ini = riwayat gaya #7–#26 dan sumber preset palet; aturan 'wajib sama setiap video', 'SATU objek 3D glossy per adegan', dan jangkar tata letak **tidak lagi mengikat**. Salinan sebelum perubahan: `arsip/v3-24nov/`.
+
+
 **Prinsip:** identitas channel adalah *sistem* (bentuk, tipografi, tata letak, bahasa gerak, peran warna), bukan warna latar. Latar boleh berganti-ganti selama jangkar identitas di bawah tetap ada. Demo: `style/contoh-aset/palet-demo.jpg` (adegan sama di 7 latar).
 Palet: `style/palet.json`. Komponen: `remotion/src/aset/PaperPalet.tsx`. Cek: `python3 tools/cek-visual.py palet` dan `node tools/cek-sutradara.mjs NN` (bagian 6–8).
 

@@ -1,5 +1,7 @@
 # Matriks teknik visual: hasil (Tahap 3, 24 Nov 2026)
 
+> **Catatan (24 Nov 2026):** rekomendasi `noir3d`, grading low-key, dan foto ber-grade sinematik di §3–§4 **ditolak pemilik** (bukan identitas channel: stylized/flat). Yang tetap berguna: status teknik (efek canvas gagal di CPU; transisi/CSS/SVG/three.js jalan), temuan `editorial` 2D dan transisi bermotif (`peel`, `push`), dan masalah foto lanskap di layar potret.
+
 Tujuan: menilai **kualitas visual** teknik pada subjek nyata pilot (rumah ditinggikan → pondasi → lempung), bukan kecepatan render. Kode eksperimen: `remotion/src/e1/lab/` (LabEfek, LabFoto, LabSek, LabTransisi; komposisi terdaftar di `Root.tsx`, hanya eksperimen). Gambar: `efek_*.jpg`, `foto_matriks.jpg`, `sek_matriks.jpg`, `transisi_matriks.jpg` di folder ini.
 
 ## 0. Lingkungan: tidak ada GPU

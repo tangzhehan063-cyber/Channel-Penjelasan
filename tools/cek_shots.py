@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validator shot list E1 (skema: .claude/skills/visual-director/style/visual/shots-skema.md).
+"""Validator shot list E1 (skema: .claude/skills/sutradara/referensi/shots-skema.md).
 
 Pakai: python3 tools/cek_shots.py e1/NN/shots.json [--dur DETIK]
 Keluar kode 1 bila ada GAGAL. PERINGATAN tidak menggagalkan, tapi harus dibaca.

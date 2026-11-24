@@ -1,26 +1,20 @@
-# Aturan konsistensi (dipertahankan) dan batasan kreatif (diarsipkan)
+# Konsistensi (bukan keseragaman)
 
-Keputusan pemilik (23 Nov 2026): konsistensi identitas dan aturan anti-bug **tetap**; aturan yang membatasi komposisi/kamera/tata letak/animasi **diarsipkan** (`arsip/CLAUDE-aturan-lama.md`, `arsip/skills/sutradara/`). Preset lama = referensi.
+Sumber: `docs/visual-system/VISUAL_STYLE_SPEC.md` §15. Versi lama (pustaka material `look.tsx`, KUNCI KARAKTER): `arsip/v3-24nov/skills-sutradara-referensi/konsistensi.md`, `arsip/CLAUDE-aturan-lama.md`.
 
-## Dipertahankan (wajib)
+## Dipertahankan
 | Hal | Aturan |
 |---|---|
-| Skala | 1 satuan = 1 m; proporsi nyata |
-| Model berulang | Satu komponen untuk satu objek (rumah, tiang acuan, tanah) di semua shot: identik secara matematis |
-| Warna peran | aksen koral `#ef6a4c`/`#f27a63` = masalah/penanda perubahan; biru = air/dingin/negatif; hijau/sage = solusi/benar; netral = struktur |
-| Material | Pustaka `look.tsx` (plester, lempung, pasir, batuan, rumput, jalan, kayu, air); bahan sama = tampilan sama |
-| Penanda acuan | Garis/tiang acuan yang sama (merah-putih tiap 0,5 m) bila membuktikan perubahan |
-| Tipografi | Inter 600/900; satu keluarga |
-| Grading | Sedikit hangat, kontras tegas; satu "look" untuk 3D dan foto (grain + vignette ringan) |
-| Suara | VO netral (`cek_suara`), loudness −15..−13 LUFS, ada lapis selain VO |
+| Sistem peran warna | latar, objek utama, fokus/aksen, perbandingan, informasi, netral, tinta; peran semantik (aksen=masalah/fokus, dingin=air/negatif, baik=solusi/benar, kuning=cahaya); preset `style/palet.json` + variasi terkendali (≤5 keluarga, satu aksen) |
+| Bentuk | terstilisasi, geometris, ciri pengenal terjaga, proporsi masuk akal |
+| Tinta/outline | tipis, konsisten dalam satu video, **tidak wajib di tiap elemen** |
+| Bayangan | sederhana, sebagai penanda posisi/arah |
+| Tipografi | Inter / IBM Plex Mono / Playfair Italic |
+| Animasi | menjelaskan, akurat terhadap mekanisme |
+| Model berulang | satu komponen untuk satu objek berulang |
+| Anti-bug | `style/cek-bug.md` |
 | CTA | "Follow buat fakta rumah berikutnya!" |
-| Teknik | deterministik, anti z-fighting (`cek_kilau`), tanpa API AI (`cek-mandiri`) |
-
-## Diarsipkan (bukan aturan)
-- Subtitle di y=1400 dan kicker di atas sebagai tata letak wajib.
-- "Satu objek besar di tengah ≥1/3 layar"; larangan irisan/diorama lebar; larangan label kecil.
-- Maksimal 3 preset kamera; crossfade 8 frame seragam; kartu judul dua lapis.
-- Penegak otomatis tata letak (`cek-sutradara`), gerbang T1–T7, checklist per video.
-
-## Cara menjaga konsistensi tanpa membuatnya kaku
-Konsistensi di **sistem** (bahan, warna peran, model, tipografi, suara), variasi di **bahasa sinematik** (mode, kamera, komposisi, ritme). Bila ragu apakah suatu perubahan merusak identitas: tanya "apakah penonton masih mengenali ini sebagai Fakta Rumah dari model, warna, dan suara?" Bila ya, bebas.
+## Boleh bervariasi artistik
+Outline, bayangan, volume, dan detail antarobjek tidak harus identik (hero B/C, pendukung A); palet, perspektif, teknik, tata letak, ritme, ada/tidaknya teks dan kartu. Syarat: identitas channel tetap terbaca dan tidak ada realistis/PBR/kabut/glow.
+## Diarsipkan
+Tata letak tetap (subtitle y=1400, kicker, kartu judul), objek ≥1/3 layar, kuota kamera/mode, isometrik wajib, gaya semi-realistis (`look.tsx` dan sejenis), KUNCI KARAKTER.

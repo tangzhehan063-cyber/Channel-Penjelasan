@@ -21,7 +21,7 @@ Aturan: dua shot berturut-turut beda ukuran ≥1 tingkat, kecuali dihubungkan ge
 - Label dan garis penunjuk selalu lebih lemah dari subjek. Warna aksen (merah-koral) hanya untuk **satu hal per shot**: masalah/penanda perubahan.
 
 ## Kedalaman
-- Minimal 3 bidang pada shot 3D: depan (partikel/tiang), tengah (subjek), belakang (langit/kabut). Gunakan kabut tipis dan perbedaan terang-gelap, bukan blur palsu.
+- Kedalaman lewat bidang (depan, tengah, latar), skala relatif, tumpang tindih, dan bayangan alas sederhana; bukan kabut atau blur palsu. Bidang tak wajib tiga; ruang negatif juga kedalaman.
 - Parallax lewat gerak kamera lateral/orbit kecil; foto sebagai billboard mendapat parallax datar (tidak berbohong soal kedalaman: foto tetap datar, jangan diputar >15°).
 
 ## Garis dan bentuk
@@ -33,4 +33,4 @@ Aturan: dua shot berturut-turut beda ukuran ≥1 tingkat, kecuali dihubungkan ge
 2. Apa yang akan terbaca di HP 6 inci?
 3. Apakah subjek tidak selalu di tengah di 3 shot berturut-turut?
 4. Ada ruang kosong yang disengaja?
-5. Aksen warna hanya di satu elemen?
+5. Satu aksen sebagai fokus (kecuali perbandingan dua sisi)?

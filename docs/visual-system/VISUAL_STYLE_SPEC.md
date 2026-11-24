@@ -1,6 +1,14 @@
 # VISUAL STYLE SPECIFICATION (versi review, 24 Nov 2026)
 
-Status: **menunggu review pemilik**; belum berlaku. Menggabungkan identitas yang sudah ada (#7/#8/#10: `style/style.md`, `style/identitas.md`, `style/palet.json`) dengan keputusan pemilik 24 Nov. Papan gaya (`style-board/papan-gaya.png`, `papan-kategori.png`) hanyalah ilustrasi pendukung; **teks ini adalah acuan utama**. Identitas = **sistem**, bukan satu template.
+Status: **disetujui pemilik 24 Nov 2026 dengan enam penegasan (bagian 0); berlaku untuk E1.** Menggabungkan identitas yang sudah ada (#7/#8/#10: `style/style.md`, `style/identitas.md`, `style/palet.json`) dengan keputusan pemilik 24 Nov. Papan gaya (`style-board/papan-gaya.png`, `papan-kategori.png`) hanyalah ilustrasi pendukung; **teks ini adalah acuan utama**. Identitas = **sistem**, bukan satu template.
+
+## 0. Penegasan pemilik (mengikat cara membaca seluruh dokumen)
+1. **Papan kategori = contoh visual language, bukan template storyboard.** Tidak ada kewajiban jumlah panel, tata letak, atau urutan visual yang sama per kategori.
+2. **Delapan langkah animasi mekanisme = panduan berpikir, bukan checklist wajib.** Urutan ditentukan oleh mekanisme yang benar-benar perlu dijelaskan.
+3. **Akurasi informasi dijaga.** Visual boleh disederhanakan atau distilisasi; hubungan antar komponen, aliran, sebab-akibat, dan mekanisme **tidak boleh keliru** (bagian 12.1).
+4. **Konsistensi bukan keseragaman:** tidak semua objek harus punya outline, bayangan, volume, dan detail yang identik; variasi artistik boleh selama identitas channel terjaga.
+5. **Mitos dan lingkungan: jangan membongkar objek bila tak dibutuhkan.** Utamakan situasi, lingkungan, perspektif, demonstrasi, visualisasi yang sesuai narasi.
+6. **Kualitas animasi prioritas besar.** Bukan sekadar objek muncul, berpindah, atau zoom: perhatikan staging, timing, anticipation, urutan gerak, interaksi, hubungan sebab-akibat, dan kejelasan informasi (bagian 12).
 
 ## 1. Identitas
 Channel Penjelasan memakai **stylized illustration, flat graphic illustration, dan ilustrasi berdimensi sederhana**. Tujuannya: objek mudah dikenali, komposisi bersih, informasi mudah dipahami, dan animasi yang menjelaskan.
@@ -49,20 +57,23 @@ Inter (judul/label), IBM Plex Mono (catatan/kicker), Playfair Display Italic (ak
 Boleh: crop/reframing; pan/zoom bertujuan; layering dan parallax bila sesuai; masking dan reveal; anotasi; compositing dengan ilustrasi dan grafik. Duotone/posterize/treatment grafis **boleh bila cocok, tidak diwajibkan**; jangan memaksakan treatment demi konsistensi. Foto dipilih untuk bukti/konteks yang tak bisa digantikan ilustrasi, bukan sekadar latar. Foto dicari pemilik; tanpa sintesis AI. Resolusi: pan/zoom dibatasi sesuai ketajaman sumber (±1,8× untuk 1024 px); foto lanskap di layar potret perlu komposisi (jangan menyisakan ruang kosong). Catatan teknis: efek `@remotion/effects` tidak berfungsi di container CPU (lihat `matriks/HASIL.md`); gunakan CSS/SVG.
 
 ## 12. Animasi: bagaimana objek bergerak untuk menjelaskan
+**Prioritas:** kualitas animasi adalah prioritas besar. Rancang **staging** (di mana subjek berdiri, apa yang masuk lebih dulu), **timing** (berapa lama tiap hal terbaca), **anticipation** (isyarat sebelum aksi), **urutan gerak**, **interaksi** (benda mana menyentuh/memengaruhi benda mana), **sebab-akibat**, dan **kejelasan informasi**. Muncul, berpindah, dan zoom saja tidak cukup.
 **Prinsip:** setiap gerak menjawab: apa yang terjadi, bagian mana berinteraksi, apa penyebab, apa akibat, urutannya, mengapa. Bukan gerak agar tampak hidup.
-**Urutan mekanisme (8 langkah, dipakai bila ada proses):** 1 kondisi awal terlihat · 2 komponen relevan jadi fokus (yang lain redup, bukan hilang) · 3 sambungan/jalur diperlihatkan · 4 proses dimulai (pemicu jelas) · 5 aliran/gerak berurutan sesuai mekanisme nyata, bisa diikuti mata · 6 hubungan sebab-akibat terbaca (A menyebabkan B) · 7 hasil diperlihatkan · 8 jeda agar dipahami.
+**Panduan berpikir untuk mekanisme (bukan checklist; pilih, gabung, atau lewati menurut mekanisme yang benar-benar perlu dijelaskan; delapan langkah ini hanya titik awal):** 1 kondisi awal terlihat · 2 komponen relevan jadi fokus (yang lain redup, bukan hilang) · 3 sambungan/jalur diperlihatkan · 4 proses dimulai (pemicu jelas) · 5 aliran/gerak berurutan sesuai mekanisme nyata, bisa diikuti mata · 6 hubungan sebab-akibat terbaca (A menyebabkan B) · 7 hasil diperlihatkan · 8 jeda agar dipahami.
 **Kosakata gerak informatif:** aliran sepanjang jalur (listrik, air, panas, tekanan) dengan satu warna aksen yang berjalan; denyut titik (pulse) pada titik interaksi; terurai/menyatu (exploded, gap seragam, lapisan bawah dulu); sorot (komponen lain meredup); pembesaran detail (lingkaran pembesar, inset); perubahan ukuran/jumlah (bar, penghitung); transformasi (A menjadi B); before/after (slider, split); penanda ukur tetap sebagai acuan.
 **Waktu:** satu hal baru yang bergerak pada satu waktu (maks. satu pahlawan, pendukung mulai sedikit lebih lambat); langkah penjelasan 0,6-1,5 dtk, hasil tahan ≥0,8-1,2 dtk; masuk ease-out, perubahan struktur in-out, aliran linear/ease-out; antisipasi → aksi → tindak lanjut hanya pada gerak penting.
 **Kamera dan informasi:** kamera dan informasi utama tidak bergerak bersamaan; kamera hanya bergerak ke tempat informasi akan terjadi atau saat tak ada informasi bergerak. 2D: "kamera" = geser/zoom lapisan.
 **Hindari:** terlalu cepat/lambat; semua bergerak; gerak tanpa arah; transisi yang menutup informasi; gerak yang melanggar mekanisme nyata; animasi dekoratif; objek hanya berputar, zoom, melayang.
 Penegasan: **tahu bagaimana objek terlihat DAN bagaimana ia dianimasikan** adalah syarat storyboard.
+### 12.1 Akurasi informasi
+Sederhanakan bentuk, bukan fakta. Sebelum menganimasikan mekanisme: tuliskan hubungan sebenarnya (apa menggerakkan apa, arah aliran, urutan sebab-akibat, skala relatif penting) dan periksa terhadap sumber; tandai `[CEK]` bila belum pasti. Animasi tidak boleh menampilkan aliran, arah, atau urutan yang berlawanan dengan mekanisme nyata demi estetika. Simulasi/ilustrasi diberi tanda bila angka bukan hasil ukur. Bila penyederhanaan mengubah makna, jangan sederhanakan.
 
 ## 13. Penerapan per kategori
-Contoh visual: `style-board/papan-kategori.png`. Setiap scene tetap dianalisis dari narasi; kategori hanya titik awal.
+Contoh visual language: `style-board/papan-kategori.png` (**bukan template storyboard**: jumlah panel, layout, dan urutan berbeda di tiap video). Setiap scene dianalisis dari narasi; kategori hanya titik awal.
 ### 13.1 Breakdown / How it works
 Tujuan: mekanisme dan urutan interaksi komponen jelas. Pendekatan: objek utuh dikenali → terurai (nama + fungsi) → hubungan antarbagian → proses berurutan → hasil → kembali ke objek utuh dengan pemahaman; pembesaran detail; aliran listrik/panas/tekanan/gerak; perbandingan komponen. Detail: level B/C untuk komponen yang dibahas; A untuk lainnya. Teknik: SVG/CSS 2D samping/isometrik dahulu; 3D terstilisasi bila hubungan ruang butuh. **Pisahkan komponen hanya bila hubungan diterangkan** (garis sambungan, urutan, sebab-akibat). Contoh LED: utuh → chip, driver, pendingin, ulir → listrik masuk ulir → driver mengubah AC ke arus searah → chip memancarkan cahaya → sebagian energi jadi panas dibuang lewat pendingin.
 ### 13.2 Mitos vs fakta
-Tujuan: menguji anggapan dengan situasi dan bukti. Pendekatan: ilustrasi lingkungan utuh (jalan, rumah, kendaraan, persimpangan), situasi sehari-hari, POV/garis pandang, perbandingan, demonstrasi, simulasi bergaya, metafora; visual kondisi sebenarnya. **Tanpa membongkar objek** kecuali narasi memintanya. Contoh rumah hook: scene overhead persimpangan; kendaraan datang dengan arah lampu; garis pandang ke pintu (privasi); arah matahari dan bayangan; kondisi nyata vs anggapan (representasi visual kepercayaan). Teknik: overhead/elevasi 2D, animasi kendaraan, kerucut pandang SVG.
+Tujuan: menguji anggapan dengan situasi dan bukti. Pendekatan: ilustrasi lingkungan utuh (jalan, rumah, kendaraan, persimpangan), situasi sehari-hari, POV/garis pandang, perbandingan, demonstrasi, simulasi bergaya, metafora; visual kondisi sebenarnya. **Tanpa membongkar objek** kecuali narasi benar-benar memintanya; utamakan situasi, lingkungan, perspektif, demonstrasi. Contoh rumah hook: scene overhead persimpangan; kendaraan datang dengan arah lampu; garis pandang ke pintu (privasi); arah matahari dan bayangan; kondisi nyata vs anggapan (representasi visual kepercayaan). Teknik: overhead/elevasi 2D, animasi kendaraan, kerucut pandang SVG.
 ### 13.3 Fenomena / science explainer
 Pendekatan: simulasi bergaya, diagram, ilustrasi, partikel hanya bila relevan, transformasi skala (zoom ke yang kecil), proses tak terlihat divisualkan dengan metafora yang akurat. Hati-hati simulasi: tandai bila ilustrasi; angka bersumber.
 ### 13.4 Perbandingan
@@ -72,13 +83,13 @@ Pendekatan: lingkungan, rekonstruksi adegan terstilisasi, linimasa, benda terkai
 ### 13.6 Hybrid
 Tentukan kategori dominan dan pendukung; boleh berganti pendekatan antar scene, gaya tetap.
 ### 13.7 Menyatukan teknik berbeda
-Konsistensi dijaga oleh palet/peran warna, bentuk terstilisasi, tinta/outline, bayangan sederhana, tipografi, gerak menjelaskan; bukan oleh tata letak yang sama.
+Konsistensi (bukan keseragaman) dijaga oleh palet/peran warna, bentuk terstilisasi, tinta/outline, bayangan sederhana, tipografi, gerak menjelaskan; bukan oleh tata letak yang sama.
 
 ## 14. Hierarki teknik
 SVG/CSS 2D → berlapis/2.5D → 3D terstilisasi (hanya bila perlu) → foto yang diolah (bila konten butuh) → simulasi bergaya; Canvas bila relevan. Pilih yang paling jelas dan paling sesuai gaya. Tanpa AI image/video/3D API.
 
 ## 15. Yang tetap dan yang berganti
-**Tetap:** sistem peran warna; bentuk terstilisasi; tinta/outline tipis (default); bayangan sederhana; keluarga huruf; animasi menjelaskan; bukan-realistis; CTA "Follow buat fakta rumah berikutnya!". **Berganti:** preset/variasi palet, perspektif, teknik, tata letak, ritme, tingkat detail per objek, ada/tidaknya teks dan kartu, penggunaan foto.
+**Tetap:** sistem peran warna; bentuk terstilisasi; tinta/outline tipis (default); bayangan sederhana; keluarga huruf; animasi menjelaskan; bukan-realistis; CTA "Follow buat fakta rumah berikutnya!". **Boleh bervariasi secara artistik:** outline, bayangan, volume, dan detail antarobjek selama identitas terjaga. **Berganti:** preset/variasi palet, perspektif, teknik, tata letak, ritme, tingkat detail per objek, ada/tidaknya teks dan kartu, penggunaan foto.
 
 ## 16. Referensi
 Spesifikasi tertulis ini = sumber utama. Gambar/video referensi dianalisis (`breakdown` Mode B): bentuk, perspektif, warna, shading, gerak, detail, teknik; pisahkan yang dipertahankan dari yang diperbaiki; tidak menyalin komposisi mentah; tidak otomatis untuk semua kategori. Keputusan art direction per video dicatat di `arah-visual.md`.

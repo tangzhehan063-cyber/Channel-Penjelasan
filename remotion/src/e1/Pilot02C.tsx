@@ -1,3 +1,4 @@
+// CATATAN 24 Nov: gaya sinematik/semi-realistis; BUKAN arah channel (lihat docs/visual-system/VISUAL_STYLE_SPEC.md). Dipertahankan sebagai riwayat.
 // PILOT v3 E1 #02 (sutradara, 24 Nov): sequence 20,4-31,0 dtk. Satu dunia: foto rumah ber-grade low-key (elemen terolah) + garis cahaya hangat di garis tanah
 // + penampang noir 3D (lampu hangat, rim biru) + lempung BERPORI berisi air yang mengecil (metafora spons di dalam adegan) + kembali ke foto yang turun.
 // Arahan: e1/02/direction-v3.md; kamera dari e1/02/shots3.json. 1 satuan = 1 m. Pemampatan 0,57 m = ILUSTRASI. Deterministik (fungsi frame, seed).

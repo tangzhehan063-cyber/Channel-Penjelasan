@@ -1,5 +1,7 @@
 # Audit ketergantungan API AI untuk aset visual (23 Nov 2026)
 
+> **Catatan (24 Nov 2026):** audit ketergantungan API (riwayat). Larangan API AI tetap; istilah "semi-realistis" di dalamnya tidak lagi arah visual.
+
 Cakupan: `WORKFLOW.md`, `CLAUDE.md`, skill, `e1/_template-log.md`, `tools/`, `remotion/`. Hasil pindai kode: `node tools/cek-mandiri.mjs` = 98 berkas, **0 ketergantungan API AI** (kode Remotion/three.js yang ada sudah mandiri). Ketergantungan hanya ada di **instruksi workflow E1**, belum pernah dijalankan (belum ada generasi E1).
 
 ## A. Ketergantungan produksi yang DIHAPUS (diganti kode)

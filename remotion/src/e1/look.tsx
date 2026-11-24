@@ -1,3 +1,4 @@
+// CATATAN 24 Nov: material semi-realistis (gaya E1 lama); BUKAN arah channel (lihat docs/visual-system/VISUAL_STYLE_SPEC.md). Dipertahankan sebagai riwayat/untuk video lama.
 // "Tampilan E1": material prosedural berrelief + model rumah kampung detail + lingkungan. 100% kode (CanvasTexture ber-seed, three.js), tanpa aset luar.
 // Aturan z-fighting: benda yang menumpu menancap 0,02 m ke penopang; tak ada dua permukaan sebidang.
 import {useMemo} from 'react';

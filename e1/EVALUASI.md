@@ -1,4 +1,6 @@
 # E1 — VISUAL EXPERIMENT WORKFLOW
+
+> **Catatan (24 Nov 2026):** dokumen ini mencatat hipotesis eksperimen E1 awal (visual semi-realistis). Arah visual kini stylized/flat (`docs/visual-system/VISUAL_STYLE_SPEC.md`); metrik dan kerangka keputusan di sini tetap bisa dipakai, istilah "semi-realistis" dan "100% dari kode" diartikan sesuai spesifikasi baru.
 ## Fakta Rumah
 **Eksperimen visual semi-realistis, dibuat 100% dari kode (Remotion + Three.js)**
 

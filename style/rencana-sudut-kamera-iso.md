@@ -1,4 +1,6 @@
 # Rencana untuk video #26: sudut kamera isometrik yang berganti (R5 dari #25, disimpan 20 Nov 2026)
+
+> **Status (24 Nov 2026):** rencana kamera isometrik gaya lama; opsi, bukan kewajiban (tanpa kuota). Lihat `docs/visual-system/VISUAL_STYLE_SPEC.md`.
 Keputusan user 20 Nov: gaya breakdown isometrik terang dari #25 dinilai bagus, tetapi objek "diam di 1 angle". Kombinasi dengan sudut kamera yang berganti DISIMPAN untuk #26, tidak dikerjakan di #25. Merge #25 ke `main` ditunda user (belum yakin).
 Skill "isometric" yang dirujuk user tidak ada di repo/sesi; yang ada hanya ringkas 3 aturan di `.claude/skills/remotion-fitur/SKILL.md`. Bila user memberi isi/tautan skill itu, samakan gerakannya.
 

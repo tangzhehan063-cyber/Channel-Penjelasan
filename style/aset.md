@@ -1,5 +1,7 @@
 # Kit aset "fakta rumah"
 
+> **Status (24 Nov 2026):** katalog aset editorial gaya lama (kartu, kicker, TikTokBox, dll.); **opsional** di E1, bukan template wajib. Lihat `docs/visual-system/VISUAL_STYLE_SPEC.md`.
+
 Aset tambahan untuk memperkaya video bergaya editorial 3D (`style.md`). Semua aset **dibuat dengan kode** (prosedural): tanpa file luar, tanpa lisensi, dan bisa dipakai ulang di setiap video.
 Kode: `remotion/src/aset/Aset.tsx` · Demo: komposisi `AsetDemo` (`remotion/src/aset/AsetDemo.tsx`) · Contoh frame: `contoh-aset/`.
 

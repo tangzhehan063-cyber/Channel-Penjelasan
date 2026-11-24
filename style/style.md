@@ -1,5 +1,8 @@
 # STYLE PENGETAHUAN: channel pengetahuan (editorial 3D bersih)
 
+> **Status (24 Nov 2026):** identitas visual yang berlaku ada di `docs/visual-system/VISUAL_STYLE_SPEC.md` (stylized/flat illustration; tingkat detail B default; peran warna; kartu/kicker/teks opsional). Berkas ini = riwayat gaya #7–#26 dan sumber preset palet; aturan 'wajib sama setiap video', 'SATU objek 3D glossy per adegan', dan jangkar tata letak **tidak lagi mengikat**. Salinan sebelum perubahan: `arsip/v3-24nov/`.
+
+
 > **Patokan gaya (9 Nov 2026, ACC user): video #7 "Baja Ringan vs Kayu" & #8 "Bunyi Tek di Atap".** Jika aturan di bawah berbeda dengan dua video itu, ikuti dua video itu. Template kode: `remotion/src/v08/`.
 
 > **Dua gaya terpisah:** Gaya A = editorial 3D (file ini + `style/aset.md`, aktif). Gaya B = diorama kertas, origami × editorial (`style/diorama-kertas/`, konsep untuk video #6). Origami murni lama hanya arsip di `arsip/origami/`.

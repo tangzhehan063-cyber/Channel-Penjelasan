@@ -1,4 +1,6 @@
-# E1: visual 100% dari kode (Remotion + Three.js)
+# E1: visual dari kode (Remotion + React/SVG/CSS + Three.js bila perlu)
+
+> **Status (24 Nov 2026):** gaya visual mengikuti `docs/visual-system/VISUAL_STYLE_SPEC.md` (stylized/flat illustration). Bagian 4 ("semi-realistis") **dinonaktifkan**, dan rujukan material PBR/lampu realistis/fog di §3–§4 tidak lagi berlaku; teks asli: `arsip/v3-24nov/style-e1-visual-kode.md`. Prinsip "visual = fungsi murni dari nomor frame, tanpa API AI" tetap.
 
 Acuan untuk `WORKFLOW.md` Step 3–5 dan bagian 05. Prinsip: **visual = fungsi murni dari nomor frame**. Tanpa API AI, tanpa jaringan, hasil sama setiap render, biaya kredit nol. AI hanya membantu menulis kode.
 
@@ -50,17 +52,12 @@ Lokasi aset baru E1: `remotion/src/kit/arsitektur/` (daftarkan adegan di `kit/ob
 | Diagram, label, callout | Ada `Chip`, `Title`, `proj()` | SVG: panah, dimensi/ukuran, bagan, path-draw |
 | Background/environment | Ada palet latar | Gradien langit, kabut, `Environment` preset lokal |
 
-Prioritas tekstur: (1) material procedural Three.js (`MeshStandardMaterial`, roughness/metalness, bump dari noise) → (2) CSS/SVG → (3) `CanvasTexture` buatan sendiri (bata, kayu, noise; di-seed) → (4) aset lokal berlisensi yang sudah ada di proyek (persetujuan pemilik). Dilarang: tekstur/model hasil layanan AI, unduhan saat render.
+Prioritas bahan (disesuaikan gaya terstilisasi: warna datar/3 nada, pola grafis; bukan tekstur realistis). Catatan lama: (1) material procedural Three.js (`MeshStandardMaterial`, roughness/metalness, bump dari noise) → (2) CSS/SVG → (3) `CanvasTexture` buatan sendiri (bata, kayu, noise; di-seed) → (4) aset lokal berlisensi yang sudah ada di proyek (persetujuan pemilik). Dilarang: tekstur/model hasil layanan AI, unduhan saat render.
 
 Aturan kode: semua acak lewat `mulberry32(seed)`, bukan `Math.random()`; tanpa `fetch`; aset lewat `staticFile()`; tanpa animasi berbasis `Date`/CSS transition (Remotion hanya mengenal `useCurrentFrame`).
 
-## 4. "Semi-realistis" lewat kode (arah E1)
-Yang membedakan dari kontrol (diorama kertas, warna datar): 
-- Material PBR: roughness bervariasi, bump halus, sedikit ketidaksempurnaan (noise warna ±3%).
-- Cahaya: satu matahari + `HemisphereLight`, bayangan lembut (`PCFSoftShadowMap`/`VSM`), `fog` tipis untuk kedalaman.
-- Warna: grading di akhir (`@remotion/effects`/CSS filter), tidak terlalu jenuh.
-- Detail nyata: ukuran sesuai meter, ambang pintu, tebal dinding, overhang atap.
-Batas jujur: Three.js tanpa path tracing tidak akan menyamai foto. Tujuan: "cukup meyakinkan, jelas ilustrasi". Bila hasil pilot tampak seperti diorama polos, tambah material/cahaya dulu, jangan ganti arsitektur.
+## 4. (Dinonaktifkan 24 Nov 2026) "Semi-realistis" lewat kode
+Diganti: gaya terstilisasi. Rujuk `docs/visual-system/VISUAL_STYLE_SPEC.md` §3, §7, §8. Teks lama: `arsip/v3-24nov/style-e1-visual-kode.md`.
 
 ## 5. Cek otomatis (pengganti QC warping/flicker)
 | Cek | Alat |

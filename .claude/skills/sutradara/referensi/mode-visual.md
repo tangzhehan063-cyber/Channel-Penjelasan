@@ -1,33 +1,21 @@
-# Mode visual dan reveal
+# Memilih medium dan teknik per beat
 
-## Pohon keputusan mode (jawab berurutan, berhenti di "ya" pertama)
-| # | Pertanyaan tentang beat | Ya → mode | Catatan |
-|---|---|---|---|
-| 1 | Beat ini **membuktikan** bahwa sesuatu nyata/terjadi di dunia? | **footage** (foto nyata) | Foto harus menunjukkan hal yang diklaim. Tak ada foto yang cocok → jangan pakai footage; minta user cari, atau pindah mode. |
-| 2 | Beat menjelaskan sesuatu **tersembunyi** (bawah tanah, dalam dinding, di dalam material)? | **3D potongan / breakdown** | Idealnya dimasuki dari footage (resep di `footage.md`). |
-| 3 | Beat tentang **perubahan terhadap waktu/jumlah**? | **data** (grafik/penghitung) atau **3D simulasi** + penanda ukur | Pakai angka yang bersumber; tandai simulasi. |
-| 4 | Beat adalah **klaim/pembalikan** yang tajam (satu kalimat)? | **tipografi besar** atau **hening visual** | Biasanya di twist. Satu kata/angka, ruang kosong, tanpa objek lain. |
-| 5 | Beat tentang **hubungan ruang** (letak, ketinggian, arah)? | **3D eksterior** dengan kamera yang menunjukkan hubungan | Atau denah 2D bila lebih cepat dari 1–2 detik. |
-| 6 | Beat emosional/ancaman/suasana? | **footage dekat** atau 3D sempit dengan cahaya | Jangan paksakan dekorasi. |
-| 7 | Tak satu pun | **buang beat visualnya**: pertahankan shot sebelumnya atau diam | Beat tanpa fungsi visual tidak butuh gambar baru. |
+Kategori video (`kategori-video.md`) memberi titik awal; keputusan akhir per beat dari narasi. **Teknik berurutan: SVG/CSS 2D → berlapis/2.5D → 3D terstilisasi (hanya bila perlu) → foto diolah (bila konten butuh) → simulasi bergaya.** Pilih yang paling jelas dan paling sesuai gaya; 3D bukan default, diagram bukan default, tipografi bukan default.
 
-Aturan tambahan: bila dua beat berurutan jatuh ke mode sama, ubah **ukuran shot** atau **arah gerak**, atau beri satu beat mode "diam".
+| Pertanyaan tentang beat | Mengarah ke |
+|---|---|
+| Membuktikan sesuatu nyata/terjadi di dunia? | foto yang diolah (bukti/konteks) |
+| Menjelaskan mekanisme/bagian dalam yang tersembunyi? | penampang atau terurai 2D (samping/isometrik); 3D terstilisasi bila hubungan ruang menuntut |
+| Situasi, tata ruang, arah, jarak, privasi, matahari? | ilustrasi lingkungan (overhead/elevasi/POV) |
+| Perubahan terhadap waktu/jumlah? | bar/penghitung/penanda ukur, atau simulasi bergaya |
+| Perbandingan? | berdampingan/split/before-after |
+| Klaim tajam atau pembalikan? | tipografi besar atau jeda visual (hening) |
+| Proses tak terlihat (fenomena)? | simulasi/metafora akurat |
+| Tak ada fungsi visual baru? | pertahankan shot sebelumnya atau diam |
+Dua beat berurutan boleh bermedium sama bila perubahannya progresif; ubah medium/komposisi bila bermakna.
 
-## Hubungan footage ↔ 3D (inti E1)
-- **Footage → 3D** terjadi ketika narasi berpindah dari "apa yang kamu lihat" ke "kenapa begitu". Transisi harus memuat objek nyata yang sama sebagai jangkar (garis tanah, dinding, tangga).
-- **3D → footage** terjadi ketika narasi kembali ke akibat di dunia nyata. Kembali ke foto yang **sama** (callback) menguatkan; sertakan perubahan yang membuktikan mekanisme (mis. foto turun relatif terhadap garis acuan).
-- Jangan bolak-balik lebih dari 2× per video: tiap lompatan harus membawa pengertian baru.
+## Jenis ungkap (reveal), pilih bila ada wahyu penting
+Cut-in (dorong ke detail lalu masuk) · pull-back (mulai dari detail, mundur mengungkap skala) · potongan/penampang (garis potong menggeser lapisan) · scrub waktu (penanda ukur + perubahan) · kontras (potong tegas + hening) · fokus berpindah (lainnya meredup) · penanda ukur tetap.
 
-## Jenis reveal (pilih satu per wahyu penting)
-| Reveal | Cara | Cocok untuk |
-|---|---|---|
-| **Cut-in** | dorong ke detail kecil lalu masuk (match pada garis/bentuk) | "inilah sumbernya" |
-| **Pull-back** | mulai dari detail ketat, mundur mengungkap skala | "ternyata sebesar ini" |
-| **Potongan (peel)** | garis potong menggeser lapisan, kamera turun | struktur tersembunyi |
-| **Scrub waktu** | penanda ukur + objek bergerak cepat lalu pelan | perubahan perlahan |
-| **Kontras potong** | hard cut ke komposisi sangat berbeda + hening | twist |
-| **Rack focus** | fokus berpindah dari latar ke subjek (blur terkontrol) | perhatian berpindah |
-| **Penanda ukur** | garis acuan tetap, objek bergerak terhadapnya | bukti perubahan |
-
-## Menandai "bukan slide"
-Dalam satu video, setidaknya: 1 reveal dengan kamera yang masuk ke struktur; 1 shot diam sengaja; 1 beat dengan mode berbeda dari tetangganya; 1 momen di mana foto dan 3D berbagi satu garis/objek.
+## Foto ↔ ilustrasi
+Beralih dari "apa yang terlihat" (foto) ke "kenapa" (ilustrasi) dengan jangkar bersama (garis/objek yang sama) dan gerak bermotif; kembali ke foto bila akibat nyata perlu terlihat, bersama perubahan yang bisa dilihat. Tanpa transisi hiasan (wipe/glitch/zoom-blur) tanpa sebab. Kuota jumlah lompatan tidak ada; tiap lompatan harus membawa pengertian baru.

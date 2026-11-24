@@ -1,4 +1,9 @@
-# STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md` v3; riwayat di bawah sebagian besar untuk alur lama)
+# STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md` v4; riwayat di bawah sebagian besar untuk alur lama)
+
+## 24 Nov 2026: workflow v4 + Visual Style Specification DITERAPKAN (menunggu review pemilik)
+- Arah: stylized/flat illustration (bukan semi-realistis/3D realistis); detail B default (A/C fleksibel); outline tipis tidak wajib; kartu/kicker/hook opsional; foto fleksibel; peran warna dengan preset; kategori video ditanyakan dulu; alur 8 langkah anti-birokrasi; breakdown hanya bila perlu; animasi menjelaskan dan akurat. Sumber: `docs/visual-system/VISUAL_STYLE_SPEC.md`; laporan: `docs/visual-system/IMPLEMENTASI_V4.md`. Backup aturan lama: `arsip/v3-24nov/`, `.claude/skills/*/legacy/`.
+- `sutradara` = Visual Director (pusat); `breakdown`, `remotion-fitur`, `script-writer` spesialis.
+- Pilot `Pilot02B/C` (semi-realistis) ditolak sebagai arah; kode dipertahankan sebagai riwayat. **Belum ada pilot baru**; menunggu review. Video #01/#02 lama tidak diubah (gaya semi-realistis; nasib belum diputuskan).
 
 ## 23 Nov 2026 (malam): Creative & Visual Overhaul, Stage 1-7 selesai (menunggu penilaian pemilik)
 - Audit: `AUDIT_REPORT.md`; usulan: `PROPOSAL_ARCHITECTURE.md`; hasil: `CHANGELOG_CREATIVE.md`.

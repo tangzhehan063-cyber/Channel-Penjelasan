@@ -1,3 +1,4 @@
+// CATATAN 24 Nov: gaya semi-realistis; BUKAN arah channel (lihat docs/visual-system/VISUAL_STYLE_SPEC.md). Dipertahankan sebagai riwayat/teknik bidang potong.
 // PILOT v2 (Animation Director) E1 #02, sequence "Di bawah rumah" 20,4-31,0 dtk. Rekonstruksi 3D dari foto referensi (tanpa foto di layar).
 // Konsep: satu dunia kontinu. Kamera di jalan melihat rumah yang ditinggikan; bidang potong menyapu dari depan ke tengah rumah (irisan maket),
 // penampang memperlihatkan urugan, lantai, pondasi, lempung, pasir; lempung memampat, rumah + tanah turun terhadap tiang acuan; bidang potong

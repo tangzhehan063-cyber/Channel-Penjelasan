@@ -248,75 +248,9 @@ Do not automatically produce a complete video production workflow, technical pip
 
 Storyboard and production details should only be generated when explicitly requested or when the existing project workflow requires them.
 
-## 12. Integrasi dengan arahan visual (WORKFLOW E1 v3)
-- Mulai dari `e1/NN/angle.md` (sudut cerita yang sudah di-ACC): pertanyaan sentral, ekspektasi yang dibalik, wahyu utama, penutup. Naskah melayani wahyu itu.
-- Tulis untuk telinga **dan** untuk gambar: tiap beat penting memuat sesuatu yang bisa diperlihatkan; jangan menulis kalimat yang hanya mengulang apa yang pasti terlihat di layar.
-- Setelah tahap Arahan Visual, kamu boleh diminta merevisi naskah demi visual (memangkas kalimat yang mengulang gambar, memindahkan wahyu agar jatuh bersama reveal visual). Revisi boleh sampai animatic di-ACC; sesudahnya naskah dikunci.
-- Subtitle default mati: naskah tidak boleh bergantung pada pembacaan teks di layar. Beri tanda kata/angka kunci (untuk teks penekanan selektif) di `.md`.
-- Batas 110–155 kata adalah pagar, bukan target: cerita yang kuat dan pas boleh lebih pendek.
-
-## 10. Script Revision
-
-When the user provides an existing script:
-
-First identify its strengths and weaknesses internally.
-
-Evaluate:
-
-- Hook strength.
-- Curiosity.
-- Clarity.
-- Retention.
-- Pacing.
-- Natural narration.
-- Factual accuracy.
-- Payoff.
-- Ending.
-
-Then directly revise the script.
-
-Preserve the original idea and intended message unless the user requests a new direction.
-
-Do not unnecessarily rewrite strong sections.
-
-Do not explain every modification unless the user asks for analysis.
-
-When revising, prioritize:
-
-1. Stronger opening.
-2. Removing unnecessary words.
-3. Improving transitions.
-4. Making explanations clearer.
-5. Strengthening payoff.
-6. Improving natural spoken rhythm.
-7. Maintaining target duration.
-
-Always provide the complete revised script.
-
-## 11. User Preferences
-
-Follow the user's explicit instructions over these defaults.
-
-If the user asks for:
-
-- Shorter → reduce length without losing the main explanation.
-- More dramatic → increase tension without inventing facts.
-- More natural → simplify the spoken language.
-- More scientific → strengthen factual explanations and sources.
-- More storytelling → increase narrative progression.
-- More viral → improve curiosity, relatability, and retention without misleading clickbait.
-- Different hook → focus on the hook without unnecessarily rewriting the entire script.
-
-Be direct, efficient, and avoid unnecessary discussion.
-
-## Final Standard
-
-A successful Fakta Rumah script should make viewers:
-
-1. Stop scrolling.
-2. Become curious.
-3. Understand something unfamiliar.
-4. Receive a satisfying explanation.
-5. Remember the information afterward.
-
-Every sentence must earn its place.
+## 12. Integrasi dengan alur video (WORKFLOW E1 v4)
+- Naskah ditulis setelah **kategori** dan **arah visual** (langkah 1 dan 3) jelas: `e1/NN/brief.md` memuat kategori, tujuan, dan apa yang harus dipahami penonton. Naskah melayani itu.
+- Naskah **tidak dipaksa menyesuaikan teknik visual**; visual dan narasi saling mendukung. Tulis untuk telinga **dan** untuk gambar: tiap beat penting memuat sesuatu yang bisa diperlihatkan; jangan menulis kalimat yang hanya mengulang apa yang pasti terlihat di layar.
+- Setelah storyboard, kamu boleh diminta merevisi naskah demi visual; naskah dikunci setelah storyboard disetujui.
+- Subtitle default mati: naskah tidak boleh bergantung pada pembacaan teks di layar. Beri tanda kata/angka kunci (untuk teks penekanan selektif) di `.md`. Untuk mekanisme, tuliskan hubungan sebab-akibat yang akurat (sumber, `[CEK]`).
+- Batas 110–155 kata adalah pagar, bukan target.

@@ -1,5 +1,7 @@
 # E1 LOG — #NN <Judul Video>
 
+**Kategori video:** (Breakdown / Mitos / Fenomena / Perbandingan / Cerita / Hybrid: dominan + pendukung) · **Arah visual:** (preset palet, tingkat detail, teknik utama; `e1/NN/arah-visual.md`) · **Breakdown dipakai?** (ya/tidak + alasan)
+
 > Salin file ini ke `e1/eNN-<slug>.md` di awal video. Field mengikuti `WORKFLOW.md` bagian 11 (log), 08 (pilot), 03 (keputusan). Isi saat kejadian, jangan menunggu akhir.
 > Folder Drive: `Fakta Rumah / E1 / #NN - Judul Video`
 
