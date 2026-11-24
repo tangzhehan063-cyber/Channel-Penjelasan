@@ -37,6 +37,10 @@ import {PilotSifon, PILOT_SIFON_FRAMES} from './v23/PilotSifon';
 import {AnatomiRumah, ANATOMI_FRAMES} from './e1/AnatomiRumah';
 import {Rumah01, R01_FRAMES} from './e1/Rumah01';
 import {Tanah02, R02_FRAMES} from './e1/Tanah02';
+import {LabEfek} from './e1/lab/LabEfek';
+import {LabFoto} from './e1/lab/LabFoto';
+import {LabSek} from './e1/lab/LabSek';
+import {LabTransisi} from './e1/lab/LabTransisi';
 import {Pilot02, PILOT02_FRAMES} from './e1/Pilot02';
 import {Pilot02B, PILOT02B_FRAMES} from './e1/Pilot02B';
 import {Cover22} from './v22/Cover22';
@@ -62,6 +66,10 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="AnatomiRumah" component={AnatomiRumah} durationInFrames={ANATOMI_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Rumah01" component={Rumah01} durationInFrames={R01_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Tanah02" component={Tanah02} durationInFrames={R02_FRAMES} fps={30} width={1080} height={1920} />
+  <Composition id="LabFoto" component={LabFoto} durationInFrames={30} fps={30} width={1080} height={1920} defaultProps={{v: "raw", u: 0}} />
+  <Composition id="LabSek" component={LabSek} durationInFrames={30} fps={30} width={1080} height={1920} defaultProps={{v: "diagram", u: 0}} />
+  <Composition id="LabTransisi" component={LabTransisi} durationInFrames={60} fps={30} width={1080} height={1920} defaultProps={{v: "peel"}} />
+  <Composition id="LabEfek" component={LabEfek} durationInFrames={30} fps={30} width={1080} height={1920} defaultProps={{v: "none", kind: "img"}} />
   <Composition id="Pilot02B" component={Pilot02B} durationInFrames={PILOT02B_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Pilot02" component={Pilot02} durationInFrames={PILOT02_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Video13" component={Video13} durationInFrames={V13_FRAMES} fps={30} width={1080} height={1920} />
