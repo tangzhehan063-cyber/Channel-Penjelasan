@@ -1,5 +1,8 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md` v4; riwayat di bawah sebagian besar untuk alur lama)
 
+## 24 Nov 2026: pilot #02 (tanah turun) DIBATALKAN oleh pemilik; cari topik pilot lain
+- Brief/arah visual/storyboard v4 untuk #02 disimpan sebagai riwayat (`e1/02/brief.md`, `arah-visual.md`, `storyboard.md`), tidak dilanjutkan. Tidak ada kode/render. Kandidat topik baru: `riset/2026-11-23-ide-e1.md` (#2, #5, #7, #9 diusulkan). Menunggu pilihan pemilik.
+
 ## 24 Nov 2026 (lanjutan): 5 keputusan pemilik diterapkan; menunggu review workflow final
 - Aturan gaya lama diarsipkan penuh ke `arsip/style-lama/` (style, identitas lama, gaya-penjelasan/kit, aset, rencana iso, e1-visual-kode lama); `style/identitas.md` dan `style/e1-visual-kode.md` ditulis ulang ringkas (palet + prinsip kode); `style/README.md` baru. Mode A `breakdown` lama -> `.claude/skills/breakdown/legacy/`.
 - `kit/Penjelasan.tsx` + `beats.json` = legacy (`remotion/src/kit/LEGACY.md`), bukan template default. Draf lama -> `arsip/visual-system-drafts/`. Indeks: `arsip/README.md`, `docs/visual-system/README.md`.

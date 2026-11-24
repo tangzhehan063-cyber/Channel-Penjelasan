@@ -30,3 +30,5 @@ Tambahkan baris baru di bawah, jangan mengedit yang lama (beri tanggal). Bila do
 
 ## 24 Nov 2026 (lanjutan)
 - Aturan gaya lama yang bertentangan diarsipkan ke `arsip/style-lama/`, bukan sekadar diberi label. `kit/Penjelasan.tsx` + `beats.json` dipertahankan sebagai legacy, bukan template default. #01/#02 lama dibiarkan; #02 jadi pilot workflow baru tanpa menimpa. `mix-audio.mjs` tidak diadaptasi (audio manual). Draf usang diarsipkan.
+
+- 24 Nov 2026: pilot workflow baru TIDAK memakai topik #02 (tanah turun); topik lain dipilih dari daftar ide E1. Dokumen #02 v4 disimpan sebagai riwayat.
