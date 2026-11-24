@@ -1,4 +1,4 @@
-# E1 #03: Tiang Listrik di Depan Pagar, Tolak Rezeki? (DRAF, menunggu ACC)
+# E1 #03: Tiang Listrik di Depan Pagar, Tolak Rezeki? (ACC user 24 Nov, hook A)
 
 Target 50–70 dtk. Skill motion terpilih: iart-ai isometric-animation + threejs-animation.
 
