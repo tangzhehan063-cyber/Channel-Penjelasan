@@ -1,5 +1,5 @@
-# E1 #03 (pilot v4): Tiang Listrik di Depan Pagar (DRAF, menunggu ACC naskah)
-Kategori: Mitos vs Fakta. Narasi: `e1-03-tiang-listrik.txt` (135 kata, perkiraan ±60 dtk). Riset: `riset/2026-11-24-tiang-listrik-depan-pagar.md`. VO: tanya Gemini atau ElevenLabs setelah ACC. Humanizer (mode berkas) dijalankan pada `.txt`: dibuang kalimat teaser "Masalah nyatanya lebih biasa" (diganti klaim konkret), penutup yang mengulang ("Jadi tiang … urusannya akses dan biaya pindah"), dan "Penghuni pun sempit" (janggal). Ditambah satu fakta berguna: pastikan dulu itu tiang PLN (cuplikan 2 sumber, `[CEK]` halaman penuh).
+# E1 #03 (pilot v4): Tiang Listrik di Depan Pagar (naskah DISETUJUI pemilik dengan hook B; ada dua penyesuaian, lihat bawah)
+Kategori: Mitos vs Fakta. Narasi: `e1-03-tiang-listrik.txt` (135 kata, perkiraan ±66 dtk termasuk jeda). Riset: `riset/2026-11-24-tiang-listrik-depan-pagar.md`. VO: tanya Gemini atau ElevenLabs setelah ACC. Humanizer (mode berkas) dijalankan pada `.txt`: dibuang kalimat teaser "Masalah nyatanya lebih biasa" (diganti klaim konkret), penutup yang mengulang ("Jadi tiang … urusannya akses dan biaya pindah"), dan "Penghuni pun sempit" (janggal). Ditambah satu fakta berguna: pastikan dulu itu tiang PLN (cuplikan 2 sumber, `[CEK]` halaman penuh).
 
 ## Hook (3 alternatif)
 - **A (dipakai):** "Tiang listrik persis di depan pagar. Ada yang bilang itu bikin rezeki seret." **Catatan jujur:** saya belum menemukan sumber tertulis yang menyebut kepercayaan ini (dua kali pencarian). Premis ini datang dari daftar ide; "ada yang bilang" hanya boleh dipakai bila Anda tahu kepercayaan itu memang beredar.
@@ -23,3 +23,7 @@ Kategori: Mitos vs Fakta. Narasi: `e1-03-tiang-listrik.txt` (135 kata, perkiraan
 
 ## Isi visual yang disiapkan naskah (untuk storyboard)
 Mobil mundur dari gerbang (denah atas), lintasan menyapu, tiang sebagai penghalang; kabel; jalur resmi sebagai urutan pendek (123/PLN Mobile → survei → biaya → bayar lewat payment online bank); rentang biaya (tanpa satu angka tunggal).
+
+## Keputusan 24 Nov: hook B dipakai; penyesuaian akibatnya
+- Hook B menghapus premis "rezeki seret" (tanpa sumber), jadi baris "Belum ada buktinya…" diganti "Boleh, dan alasannya biasanya soal akses." Unsur mitos tidak lagi dibahas; video kini penjelasan praktis (lihat `e1/03/brief.md`).
+- **Koreksi akurasi:** "Ekor mobil menyapu ke samping" dihapus. Saat mundur sambil membelok, yang menyapu keluar adalah bagian **depan** mobil, bukan ekor. Diganti: "Setirnya harus dibelokkan menghindari tiang, dan ruang geraknya sempit." Juga ditambah "dan tampak depan rumah ikut terganggu" (dari sumber detikProperti).

@@ -5,3 +5,7 @@
 - **Preferensi visual:** stylized/flat + dimensi sederhana; animasi menjelaskan dan akurat; tidak ada pembongkaran objek; fokus situasi, lingkungan, perspektif, demonstrasi.
 - **Catatan jujur:** premis "katanya tolak rezeki" belum punya sumber (lihat riset). Naskah hanya memakai kata "katanya/banyak yang bilang" setelah ada sumber; bila tidak ada, hook diubah ke sisi praktis ("Tiang listrik di depan pagar, boleh dipindah?").
 - **Lingkup pilot:** seluruh video 50–70 dtk (naskah baru), atau segmen kunci dulu? (ditanyakan ke pemilik).
+
+## Keputusan pemilik (24 Nov 2026)
+- Hook B, naskah disetujui; arah visual **A lalu C** (denah dari atas, lalu urutan proses yang tetap terhubung ke tiang di denah); video penuh 60–70 dtk.
+- **Perubahan kategori akibat hook B:** unsur Mitos tidak ada lagi (tidak ada sumber kepercayaannya). Kategori kini **How it works / situasi sehari-hari (penjelasan praktis)**: dominan situasi lingkungan (akses) + proses (cara mengurus pindah tiang). Tidak ada pembongkaran objek.
