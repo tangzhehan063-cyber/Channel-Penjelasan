@@ -118,3 +118,4 @@ Contoh: inkonsistensi komponen/material, animasi kaku, camera movement failure, 
 - Contact sheet 16 still: 11 adegan lengkap & berurutan, dip krem di 6,2 / 23,3 / 30,9 / 40,4 / 46,3 dtk disengaja, bingkai akhir = hook.
 - Kelemahan: kristal garam kurang menonjol (31–40 dtk); kicker menimpa bodi di punch-in (5 dtk); teks larangan bersinggungan spion (±55 dtk).
 - Skill pustaka yang dipakai: short-form-video, shot-composition, beat-sync-editing (fase 4); particle-system, isometric-animation, threejs-animation, diagram-animation (fase 5).
+- **Diterima user 25 Nov ("sudah oke").** Cover dan unggah Drive tidak dibuat atas keputusan user; produksi #04 selesai di sini.

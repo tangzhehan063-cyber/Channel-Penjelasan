@@ -13,7 +13,7 @@ Riwayat lengkap sampai 25 Nov 2026: `arsip/riwayat/STATUS-riwayat-sampai-2026-11
 | 01 | Rumah Belanda Adem Tanpa AC | dirender (59,0 dtk), belum cover/publish | arah lama semi-realistis; log `e1/e01-rumah-belanda-adem.md` |
 | 02 | Tanah Turun, Lantai Ditinggikan | dirender (58,5 dtk), 540p di Drive, belum cover/publish | arah lama; log `e1/e02-tanah-turun.md` |
 | 03 | Tiang Listrik di Depan Pagar, Tolak Rezeki? | **berhasil, patokan visual**; dirender 68,4 dtk, MP4 dikirim ke user | log `e1/e03-tiang-listrik.md` |
-| 04 | Kenapa Air Rob Bikin Motor Karatan? | dirender 61,8 dtk (−14,6 LUFS), MP4 dikirim ke user; menunggu review user, belum cover/Drive/publish | log `e1/e04-karat-rob.md`; video pertama dengan pipeline 8 fase |
+| 04 | Kenapa Air Rob Bikin Motor Karatan? | **selesai, diterima user (25 Nov)**; 61,8 dtk (−14,6 LUFS), MP4 dikirim ke user; tanpa cover/Drive atas keputusan user | log `e1/e04-karat-rob.md`; video pertama dengan pipeline 8 fase |
 
 ### Hasil E1 #03 (berhasil)
 - Naskah ACC hook A (152 kata), VO Gemini Achernar 67,7 dtk (F0 163 Hz, lolos `cek_suara`), caption `caption/e1-03-tiang-listrik.md`.
@@ -22,7 +22,7 @@ Riwayat lengkap sampai 25 Nov 2026: `arsip/riwayat/STATUS-riwayat-sampai-2026-11
 - Pelajaran teknis (di `style/cek-bug.md`): satu `ThreeCanvas`, isometrik = kamera tele; render per bagian satu tab.
 
 ## Tugas terbuka
-- #04: review user atas video, cover 1080×1920, unggah Drive `Fakta Rumah / E1 / #04 - Air Rob dan Karat Motor`, publish (ACC), metrik. Klaim rangka patah Semarang masih [CEK].
+- #04: publish & metrik bila user memutuskan. Klaim rangka patah Semarang masih [CEK]. Cover/Drive tidak dibuat (keputusan user 25 Nov).
 - #03: cover 1080×1920, unggah Drive `Fakta Rumah / E1 / #03 - Tiang Listrik Depan Pagar` (cover, info, 540p), publish (ACC), metrik 24/48 jam.
 - #01, #02: cover, publish, metrik (keputusan user: tetap terbit dengan gaya lama atau tidak).
 - Merge cabang kerja ke `main`: menunggu ACC user (Claude tidak merge sendiri).
