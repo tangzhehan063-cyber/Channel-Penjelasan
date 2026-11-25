@@ -18,15 +18,20 @@ if (!tugas && fase === undefined) { console.log('Pakai: node tools/pilih-skill.m
 const token = (s) => s.toLowerCase().split(/[^a-z0-9à-ÿ]+/).filter((w) => w.length > 2);
 const q = token(tugas);
 const bobot = {utama: 3, cocok: 2, terbatas: 1, dilarang: 0, 'tidak-relevan': 0};
-const hasil = reg.skills
-  .filter((s) => semua || !['dilarang', 'tidak-relevan'].includes(s.status))
-  .filter((s) => fase === undefined || s.fase.includes(fase))
-  .map((s) => {
+const skor = (s) => {
     const kata = new Set(token(s.kata)), nama = new Set(token(s.id.replace(/[/-]/g, ' '))), desk = token(s.deskripsi);
-    let skor = 0;
-    for (const w of q) { if (kata.has(w)) skor += 3; if (nama.has(w)) skor += 3; skor += Math.min(2, desk.filter((d) => d.startsWith(w) || w.startsWith(d)).length) * 0.5; }
-    return {s, skor: q.length ? skor + (skor > 0 ? bobot[s.status] ?? 0 : 0) : bobot[s.status] ?? 0};
-  })
+    let n = 0;
+    for (const w of q) { if (kata.has(w)) n += 3; if (nama.has(w)) n += 3; n += Math.min(2, desk.filter((d) => d.startsWith(w) || w.startsWith(d)).length) * 0.5; }
+    return {s, skor: q.length ? n + (n > 0 ? bobot[s.status] ?? 0 : 0) : bobot[s.status] ?? 0};
+};
+const tersembunyi = (s) => ['dilarang', 'tidak-relevan'].includes(s.status);
+// skill dilarang/tidak relevan yang cocok kuat dengan tugas: beri tahu alasannya, jangan diam-diam diganti
+if (!semua && q.length) for (const x of reg.skills.filter(tersembunyi).map(skor).filter((x) => x.skor >= 6))
+  console.log(`[${x.s.status}] ${x.s.id} cocok dengan tugas ini tetapi TIDAK dipakai: ${x.s.catatan}`);
+const hasil = reg.skills
+  .filter((s) => semua || !tersembunyi(s))
+  .filter((s) => fase === undefined || s.fase.includes(fase))
+  .map(skor)
   .filter((x) => !q.length || x.skor > 0)
   .sort((a, b) => b.skor - a.skor)
   .slice(0, n);
