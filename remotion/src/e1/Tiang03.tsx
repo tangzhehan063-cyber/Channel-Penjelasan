@@ -10,9 +10,8 @@ import {AbsoluteFill, Audio, Easing, staticFile, useCurrentFrame} from 'remotion
 import '@fontsource/inter/600.css'; import '@fontsource/inter/700.css'; import '@fontsource/inter/900.css';
 import * as THREE from 'three';
 import {Env} from '../pengetahuan/Scene';
-import {Rig} from '../kit/stage';
 import {Captions} from '../kit/teks';
-import {camAt, FPS, nudgeKey, proj, projIso, r, type Key, type V3} from '../kit/waktu';
+import {camAt, FPS, nudgeKey, r, type Key, type V3} from '../kit/waktu';
 import {C, Kicker, useTex} from './AnatomiRumah';
 import {Blok, useBahan} from './look';
 import wordsJson from '../../public/e1-03/words.json';
@@ -83,11 +82,12 @@ const Ekstr: React.FC<{shape: THREE.Shape; w: number; bev: number; children: Rea
   const g = useMemo(() => { const e = new THREE.ExtrudeGeometry(shape, {depth: w, bevelEnabled: true, bevelSize: bev, bevelThickness: bev, bevelSegments: 4, curveSegments: 18}); e.translate(-PJ / 2, 0, -w / 2); return e; }, [shape, w, bev]);
   return <mesh geometry={g} castShadow receiveShadow>{children}</mesh>;
 };
+const Kaca: React.FC<{p: V3; s: V3; rot?: V3}> = ({p, s, rot = [0, 0, 0]}) => <mesh position={p} rotation={rot}><boxGeometry args={s} /><meshStandardMaterial color="#26313b" roughness={0.08} metalness={0.5} /></mesh>;
+const JENDELA = (() => { const w = new THREE.Shape(); w.moveTo(2.64, 1.0); w.lineTo(1.84, 1.41); w.lineTo(0.5, 1.41); w.lineTo(0.26, 1.0); w.closePath(); return w; })();
 const Mobil03: React.FC<{hi: number}> = ({hi}) => {
   const cat = '#9aa0a7', merah = new THREE.Color('#e0442e');
   const sorot = (c: string) => new THREE.Color(c).lerp(merah, hi);
   const badan = useMemo(profilBadan, []), kabin = useMemo(profilKabin, []);
-  const Kaca: React.FC<{p: V3; s: V3; rot?: V3}> = ({p, s, rot = [0, 0, 0]}) => <mesh position={p} rotation={rot}><boxGeometry args={s} /><meshStandardMaterial color="#26313b" roughness={0.08} metalness={0.5} /></mesh>;
   const hw = LB / 2 + 0.08; // setengah lebar badan (dengan bevel)
   return (<group rotation={[0, Math.PI / 2, 0]}>
     {/* sumbu lokal grup ini: x = panjang (hidung di +x), z = lebar */}
@@ -95,7 +95,7 @@ const Mobil03: React.FC<{hi: number}> = ({hi}) => {
     <Ekstr shape={kabin} w={1.18} bev={0.07}><meshStandardMaterial color={cat} roughness={0.34} metalness={0.6} /></Ekstr>
     {/* kaca samping (pilar hitam di tengah), kaca depan & belakang */}
     {[-1, 1].map((sd) => <group key={sd} position={[0, 0, sd * (1.18 / 2 + 0.075)]}>
-      <mesh position={[-PJ / 2, 0, 0]}><shapeGeometry args={[(() => { const w = new THREE.Shape(); w.moveTo(2.64, 1.0); w.lineTo(1.84, 1.41); w.lineTo(0.5, 1.41); w.lineTo(0.26, 1.0); w.closePath(); return w; })()]} /><meshStandardMaterial color="#202a33" roughness={0.08} metalness={0.5} side={THREE.DoubleSide} /></mesh>
+      <mesh position={[-PJ / 2, 0, 0]}><shapeGeometry args={[JENDELA]} /><meshStandardMaterial color="#202a33" roughness={0.08} metalness={0.5} side={THREE.DoubleSide} /></mesh>
       <mesh position={[1.62 - PJ / 2, 1.2, sd * 0.004]}><boxGeometry args={[0.1, 0.44, 0.006]} /><meshStandardMaterial color="#141618" roughness={0.6} /></mesh>
     </group>)}
     <Kaca p={[2.34 - PJ / 2, 1.265, 0]} s={[1.05, 0.02, 1.24]} rot={[0, 0, -0.48]} />
@@ -119,24 +119,24 @@ const Mobil03: React.FC<{hi: number}> = ({hi}) => {
   </group>);
 };
 
-/** rumah depan: carport kiri, teras + pintu + jendela kanan, atap pelana genteng. Fasad di z = FASAD_Z. Lantai 2 + balkon (breakdown). */
-const Rumah03: React.FC<{k: ReturnType<typeof keadaan>; b: ReturnType<typeof useBahan>; x: ReturnType<typeof useTex>}> = ({k, b, x}) => {
-  const D = 7, cz = FASAD_Z - D / 2, T = 0.16;
-  const tinggi = H1 + (k.lt2 ? H2 * Math.min(1, k.lantai2) : 0);
-  const atapY = tinggi + k.atapNaik * 2.6;
-  const Lantai: React.FC<{y: number; h: number; pintu: boolean}> = ({y, h, pintu}) => (<group position={[0, y, 0]}>
+const Lantai: React.FC<{y: number; h: number; pintu: boolean; b: ReturnType<typeof useBahan>}> = ({y, h, pintu, b}) => { const D = 7, cz = FASAD_Z - D / 2; return (<group position={[0, y, 0]}>
     <Blok p={[0, h / 2, cz]} s={[RW, h, D]} map={b.plester} rep={[3, 1.4]} bump={0.4} c="#e6dccb" />
     {/* bukaan fasad: pintu + jendela (menonjol 0,03 dari dinding) */}
     {pintu && <Blok p={[1.0, 1.0, FASAD_Z + 0.03]} s={[0.9, 2.0, 0.08]} map={b.kayu} bump={0.4} />}
     <Blok p={[pintu ? 2.6 : -1.6, h * 0.55, FASAD_Z + 0.03]} s={[1.3, 1.1, 0.06]} c="#86aac0" r={0.12} />
     <Blok p={[pintu ? 2.6 : -1.6, h * 0.55 - 0.6, FASAD_Z + 0.06]} s={[1.45, 0.08, 0.14]} map={b.kayu} />
     {!pintu && <Blok p={[1.6, h * 0.55, FASAD_Z + 0.03]} s={[1.3, 1.1, 0.06]} c="#86aac0" r={0.12} />}
-  </group>);
+  </group>); };
+/** rumah depan: carport kiri, teras + pintu + jendela kanan, atap pelana genteng. Fasad di z = FASAD_Z. Lantai 2 + balkon (breakdown). */
+const Rumah03: React.FC<{k: ReturnType<typeof keadaan>; b: ReturnType<typeof useBahan>; x: ReturnType<typeof useTex>}> = ({k, b, x}) => {
+  const D = 7, cz = FASAD_Z - D / 2, T = 0.16;
+  const tinggi = H1 + (k.lt2 ? H2 * Math.min(1, k.lantai2) : 0);
+  const atapY = tinggi + k.atapNaik * 2.6;
   return (<group>
-    <Lantai y={0.15} h={H1} pintu />
+    <Lantai y={0.15} h={H1} pintu b={b} />
     {/* lantai 2 jatuh dari atas (isometric build: angkat di sumbu Y, bukan skala) */}
     {k.lt2 && <group position={[0, 0.15 + H1 + (1 - k.lantai2) * 4.0 - 0.02, 0]}>
-      <Lantai y={0} h={H2} pintu={false} />
+      <Lantai y={0} h={H2} pintu={false} b={b} />
       {/* balkon menjorok ke depan, mendekati kabel */}
       <Blok p={[1.8, 0.05, FASAD_Z + 1.5]} s={[3.4, 0.16, 3.0]} c="#cfc9bd" map={x.beton} rep={[2, 1]} bump={0.3} />
       {[0.15, 3.45].map((xx) => <Blok key={xx} p={[xx, 0.6, FASAD_Z + 2.95]} s={[0.06, 1.0, 0.06]} c="#2f3236" r={0.4} />)}
@@ -218,24 +218,36 @@ const Dunia: React.FC<{t: number}> = ({t}) => {
 const KP: Key[] = [orb(0, 30, 4, 21, [1.4, 3.4, 2.6]), orb(4.8, 22, 4, 16.5, [1.2, 3.4, 2.8]), orb(9.9, -14, 8, 19, [0, 3.4, 1.5]),
   orb(33.6, 22, 6, 20, [0.6, 2.6, 1.5]), orb(41.0, 10, 6, 19, [0.6, 2.8, 1.8]), orb(45.8, -6, 9, 23, [2.0, 3.6, 2.0]), orb(57.6, -10, 9, 23, [1.4, 3.4, 2.0]),
   orb(58.4, 28, 4, 10.5, [-0.3, 2.6, 3.0]), orb(63.4, 38, 6, 9.5, [-0.3, 3.0, 3.0]), orb(64.2, 10, 10, 24, [0, 3.6, 1.5]), orb(68.4, 2, 14, 30, [0, 3.6, 1.0])];
-const KI: Key[] = [iso(10.2, [-1.4, 0.5, 2.6], 82, 20, 58), iso(15.5, [-1.4, 0.5, 3.0], 90, 16, 60), iso(21.8, [-1.0, 0.6, 3.4], 108, 12, 58),
-  iso(22.3, [0, 4.2, 0], 84, 62, 16), iso(29.4, [0, 4.4, 0.2], 86, 56, 15), iso(33.6, [0, 4.8, 0.4], 90, 48, 14)];
+const KI: Key[] = [iso(10.2, [-1.4, 0.5, 2.6], 112, 20, 58), iso(15.5, [-1.4, 0.5, 3.0], 122, 16, 60), iso(21.8, [-1.0, 0.6, 3.4], 148, 12, 58),
+  iso(22.3, [0, 4.2, 0], 108, 62, 16), iso(29.4, [0, 4.4, 0.2], 110, 56, 15), iso(33.6, [0, 4.8, 0.4], 116, 48, 14)];
 const isIso = (t: number) => t >= 10.2 && t < 33.6;
 
-const IsoRig: React.FC<{k: Key}> = ({k}) => {
-  const cam = useThree((s) => s.camera) as THREE.OrthographicCamera;
-  const az = (k.az ?? 45) * Math.PI / 180, el = (k.el ?? 35.264) * Math.PI / 180, D = 40;
-  cam.position.set(k.look[0] + D * Math.cos(el) * Math.sin(az), k.look[1] + D * Math.sin(el), k.look[2] + D * Math.cos(el) * Math.cos(az));
-  cam.zoom = k.zoom ?? 100; cam.near = -60; cam.far = 160; cam.updateProjectionMatrix(); cam.lookAt(...k.look);
+// Satu kanvas untuk semua adegan (berganti kanvas = konteks WebGL baru = frame rusak di render panjang).
+// "Isometrik" = kamera tele FOV 3° dari jauh: proyeksi nyaris paralel, zoom = piksel per meter.
+const TELE = 3;
+type Kam = Key & {fov: number};
+const tele = (k: Key): Kam => { const az = (k.az ?? 45) * Math.PI / 180, el = (k.el ?? 35.264) * Math.PI / 180, D = (1920 / (k.zoom ?? 100) / 2) / Math.tan(TELE / 2 * Math.PI / 180);
+  return {...k, fov: TELE, pos: [k.look[0] + D * Math.cos(el) * Math.sin(az), k.look[1] + D * Math.sin(el), k.look[2] + D * Math.cos(el) * Math.cos(az)]}; };
+const Rig2: React.FC<{k: Kam}> = ({k}) => {
+  const cam = useThree((st) => st.camera) as THREE.PerspectiveCamera;
+  cam.position.set(...k.pos); cam.fov = k.fov; cam.near = k.fov < 10 ? 50 : 0.1; cam.far = k.fov < 10 ? 2500 : 300; cam.updateProjectionMatrix(); cam.lookAt(...k.look);
   return null;
 };
+/** kabut tipis: jaraknya mengikuti mode kamera (objek tetap, hanya near/far yang berubah) */
+const Kabut: React.FC<{tele: boolean}> = ({tele}) => {
+  const scene = useThree((st) => st.scene);
+  if (!scene.fog) scene.fog = new THREE.Fog('#e8eef0', 40, 110);
+  const fg = scene.fog as THREE.Fog; fg.near = tele ? 1000 : 40; fg.far = tele ? 3000 : 110;
+  return null;
+};
+const proj2 = (k: Kam, p: V3): [number, number] => { const c = new THREE.PerspectiveCamera(k.fov, 1080 / 1920, 0.1, 3000); c.position.set(...k.pos); c.lookAt(...k.look); c.updateMatrixWorld(); c.updateProjectionMatrix(); const v = new THREE.Vector3(...p).project(c); return [(v.x + 1) * 540, (1 - v.y) * 960]; };
 
 // ---------- overlay 2D ----------
 type Lb = {a: number; b: number; text: string; at: V3 | ((t: number) => V3); side: 'L' | 'R'; dy?: number; merah?: boolean};
-const Label2: React.FC<{l: Lb; t: number; cam: Key; isoCam: boolean}> = ({l, t, cam, isoCam}) => {
+const Label2: React.FC<{l: Lb; t: number; cam: Kam}> = ({l, t, cam}) => {
   const i = r(t, l.a, l.a + 0.35, Easing.out(Easing.cubic)), o = 1 - r(t, l.b - 0.3, l.b); if (i * o <= 0.01) return null;
   const at = typeof l.at === 'function' ? l.at(t) : l.at;
-  const [px, py0] = isoCam ? projIso(cam, at) : proj(cam, at), py = Math.max(400, Math.min(1320, py0 + (l.dy ?? 0)));
+  const [px, py0] = proj2(cam, at), py = Math.max(400, Math.min(1320, py0 + (l.dy ?? 0)));
   const L = l.side === 'L', ex = L ? 60 : 1020, p = i * o, col = l.merah ? '#e0442e' : '#ef6a4c';
   return (<>
     <svg width={1080} height={1920} style={{position: 'absolute', left: 0, top: 0, opacity: p, pointerEvents: 'none'}}>
@@ -308,23 +320,19 @@ const Cahaya: React.FC = () => (<>
 export const Tiang03: React.FC<{nudge?: number}> = ({nudge = 0}) => {
   const f = useCurrentFrame(), t = f / FPS, ms = t * 1000, words = (wordsJson as {words: {word: string; start: number; end: number}[]}).words;
   const isoNow = isIso(t);
-  const cam = isoNow ? camAt(KI.filter((k) => (t < 22.05 ? k.t <= 21.8 : k.t >= 22.3)), t) : nudgeKey(camAt(KP, t), nudge);
+  const cam: Kam = isoNow ? tele(camAt(KI.filter((k) => (t < 22.05 ? k.t <= 21.8 : k.t >= 22.3)), t)) : {...nudgeKey(camAt(KP, t), nudge), fov: 34};
   const dip = Math.max(0, ...[10.2, 22.05, 33.6, 58.0, 64.0].map((c) => r(t, c - 0.35, c) * (1 - r(t, c, c + 0.35))));
   return (
     <AbsoluteFill style={{background: 'linear-gradient(180deg,#bcd8ee 0%,#e6eef0 55%,#f3e9d6 100%)'}}>
       <Audio src={staticFile('e1-03/vo.wav')} />
       <Langit t={t} />
       <AbsoluteFill style={{filter: 'contrast(1.07) saturate(1.1)'}}>
-        {isoNow
-          ? <ThreeCanvas orthographic width={1080} height={1920} camera={{position: [20, 20, 20], zoom: 100, near: -60, far: 160}} gl={{alpha: true, antialias: true}} shadows>
-              <Env intensity={0.8} /><IsoRig k={cam} /><Cahaya /><Dunia t={t} />
-            </ThreeCanvas>
-          : <ThreeCanvas width={1080} height={1920} camera={{position: cam.pos, fov: 34}} gl={{alpha: true, antialias: true}} shadows>
-              <Env intensity={0.8} /><Rig k={cam} /><Cahaya /><fog attach="fog" args={['#e8eef0', 40, 110]} /><Dunia t={t} />
-            </ThreeCanvas>}
+        <ThreeCanvas width={1080} height={1920} camera={{position: cam.pos, fov: 34}} gl={{alpha: true, antialias: true}} shadows>
+          <Env intensity={0.8} /><Rig2 k={cam} /><Cahaya /><Kabut tele={cam.fov < 10} /><Dunia t={t} />
+        </ThreeCanvas>
       </AbsoluteFill>
       <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 55%, rgba(20,24,34,0.3) 100%)', pointerEvents: 'none'}} />
-      {LABELS.map((l) => <Label2 key={l.text} l={l} t={t} cam={cam} isoCam={isoNow} />)}
+      {LABELS.map((l) => <Label2 key={l.text} l={l} t={t} cam={cam} />)}
       <Tawar t={t} />
       <Larangan t={t} />
       <Kicker t={t} a={0.3} b={4.8} text="Tolak rezeki?" />
