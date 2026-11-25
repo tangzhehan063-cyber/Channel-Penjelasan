@@ -1,5 +1,5 @@
 {
-  "_catatan": "Palet latar & material. Identitas channel TIDAK bergantung pada warna latar (lihat style/identitas.md). Peran: bg/bg2 = latar (gradien), ink = tinta, accent/cool/good = warna objek & stiker langsung di latar, *Teks = warna teks besar di kartu putih (kontras >= 3:1 terhadap kartu). Divalidasi: python3 tools/cek-visual.py palet",
+  "_catatan": "Palet latar & material. Identitas channel TIDAK bergantung pada warna latar (lihat arsip/style-lama/identitas.md). Peran: bg/bg2 = latar (gradien), ink = tinta, accent/cool/good = warna objek & stiker langsung di latar, *Teks = warna teks besar di kartu putih (kontras >= 3:1 terhadap kartu). Divalidasi: python3 tools/cek-visual.py palet",
   "kartu": "#faf9f6",
   "ink": "#1c1c1e",
   "presets": {

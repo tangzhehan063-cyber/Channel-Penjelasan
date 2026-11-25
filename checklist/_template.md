@@ -9,7 +9,7 @@
 
 ## T2 Naskah & storyboard
 - [ ] Storyboard Tahap 2 ditulis (hook 3 alternatif, fakta/asumsi, tabel beat)
-- [ ] **Palet latar diputuskan USER** (tabel di `style/identitas.md`; beri rekomendasi + alasan, tunggu jawaban)
+- [ ] **Palet latar diputuskan USER** (tabel di `arsip/style-lama/identitas.md`; beri rekomendasi + alasan, tunggu jawaban)
 - [ ] Semua [⚠ CEK] selesai ATAU diterima user secara eksplisit (catat di sini)
 - [ ] Naskah lewat humanizer
 - [ ] **Naskah di-ACC user**
@@ -22,7 +22,7 @@
 
 ## T4 Visual
 - [ ] Setiap referensi/revisi user ditulis di daftar `R` bawah, ditafsir 1 kalimat, lalu SEMUA selesai sebelum lanjut
-- [ ] Semua beat punya visual sesuai gaya channel (`style/identitas.md`: 2,5D prosedural, tanpa ornamen sudut, bukan realistis)
+- [ ] Semua beat punya visual sesuai gaya channel (`arsip/style-lama/identitas.md`: 2,5D prosedural, tanpa ornamen sudut, bukan realistis)
 - [ ] Palet T2 diterapkan di kode
 - [ ] **KUNCI KARAKTER** (`CLAUDE.md`): kode disalin dari `v08`/`v14`, bukan tata letak baru; tidak ada diorama lebar
 

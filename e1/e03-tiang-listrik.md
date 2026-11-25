@@ -10,11 +10,11 @@
 | Video ID | E1-03 |
 | Topic | Mitos tiang listrik depan pagar (ide #2 dari 10) |
 | Date published | |
-| Visual style | Semi-realistic |
+| Visual style | Gaya E1-03 (dunia miniatur 3D distilisasi) |
 | Duration | 68,4 dtk (VO 67,7) |
 | Hook | A: "Tiang listrik berdiri pas di depan pagar. Kata orang tua, rezeki rumah itu bakal seret." |
 | Production time | |
-| Waktu render / putaran revisi kode | |
+| Waktu render / putaran revisi kode | Render final per bagian 7×300 frame satu tab ±25 mnt; render utuh concurrency 2 ±10,5 mnt tetapi frame rusak (dibuang). Revisi: R1 mobil + 2 perbaikan teknis |
 | Views at 24h | |
 | Views at 48h | |
 | Average watch time | |
@@ -23,7 +23,7 @@
 | Shares | |
 | Saves | |
 | Comments | |
-| Notes | |
+| Notes | **Berhasil; dijadikan patokan visual aktif (25 Nov 2026), `style/gaya-e1-03.md`** |
 
 ## 2. Approval (pemilik channel)
 Isi tanggal hanya setelah user menjawab di chat.
@@ -91,3 +91,11 @@ Contoh: inkonsistensi komponen/material, animasi kaku, camera movement failure, 
 - Sumber: detik.com (prosedur PLN 123/PLN Mobile, survei, biaya pemohon Rp1–4 juta satu sumber; kasus Sidoarjo Rp11 juta). [CEK] tawar harga & kabel dekat lantai 2 = logika umum, tanpa angka jarak.
 - R1 (25 Nov): mobil kotak diganti hatchback 5 pintu generik dari foto referensi user (tanpa logo).
 - Komposisi `Tiang03` (`remotion/src/e1/Tiang03.tsx`).
+
+## Hasil render final (25 Nov 2026)
+- Berkas: `remotion/out/e1-03-final.mp4` (lokal, tidak di-commit), dikirim ke user: penuh 1080×1920 (CRF 20, ±41 MB) + 540p (±3,6 MB).
+- 68,4 dtk, 30 fps, −14,6 LUFS, true peak −1,3 dB (`cek_suara --video` OK).
+- `cek-mandiri` OK · `cek_kilau` maks 167 px (batas 300; adegan tele tidak tercakup nudge) · `cek-frame-rusak` 0 frame tile, 3 frame polos = dip penutup yang disengaja.
+- Masalah & perbaikan: (1) kanvas perspektif/ortografis berganti + komponen di dalam komponen → 3D hilang & frame tile; diganti satu kanvas + kamera tele; (2) render concurrency 2 tetap memberi ±90 frame tile → render per bagian satu tab (`tools/render-bagian.sh`).
+- Kelemahan tersisa: atap mobil polos dari atas; label "Kabel tetap bertegangan" sedikit tertutup ikon larangan (±60 dtk).
+- Still patokan: `referensi/e1-03/` · cadangan kode: branch `backup/e1-03-tiang-listrik` (commit 8539ed6).
