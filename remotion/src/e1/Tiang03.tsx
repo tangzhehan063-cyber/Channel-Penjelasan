@@ -32,7 +32,7 @@ const pose = (t: number): {x: number; z: number; yaw: number} => {
   const a = r(t, 10.8, 15.4), b = r(t, 15.4, 20.3, Easing.inOut(Easing.quad));
   const shake = t > 20.3 && t < 21.0 ? Math.sin((t - 20.3) * 60) * 0.025 * (1 - (t - 20.3) / 0.7) : 0;
   if (t >= 22.05) return {x: -1.95, z: -0.2, yaw: 0}; // setelah adegan denah: mobil kembali parkir
-  return {x: lerp(-1.95, -2.18, b) + shake, z: lerp(lerp(-0.2, 3.1, a), 4.5, b), yaw: lerp(0, -25, b) * Math.PI / 180};
+  return {x: lerp(-1.95, -1.95, b) + shake, z: lerp(lerp(-0.2, 3.0, a), 4.34, b), yaw: lerp(0, -25, b) * Math.PI / 180};
 };
 const keadaan = (t: number) => ({
   atapNaik: r(t, 29.6, 30.4, Easing.inOut(Easing.cubic)) * (1 - r(t, 31.0, 31.7, Easing.inOut(Easing.cubic))),
@@ -64,22 +64,58 @@ const TiangPLN: React.FC<{beton: THREE.Texture; o?: number; hi?: number}> = ({be
   </group>);
 };
 
-/** mobil skala nyata (4,2 x 1,75 x 1,5). Lokal: hidung ke -z. Spion & bemper bisa disorot merah. */
+/** city car hatchback 5 pintu generik (tanpa logo/merek), skala nyata 3,7 x 1,66 x 1,5. Lokal: hidung ke -z, lebar di x.
+ *  Badan = profil samping (lengkung roda dipotong langsung di bodi) diekstrusi + bevel; kabin lebih sempit. Spion & bemper bisa disorot merah. */
+const PJ = 3.7, LB = 1.5; // panjang, lebar inti ekstrusi (bevel 0,08 tiap sisi -> 1,66)
+const RODA: [number, number][] = [[0.62, 0.29], [3.02, 0.29]];
+const profilBadan = () => {
+  const s = new THREE.Shape(); s.moveTo(0.06, 0.34);
+  RODA.forEach(([u]) => { s.lineTo(u - 0.37, 0.34); s.absarc(u, 0.3, 0.37, Math.PI - 0.11, 0.11, true); });
+  s.lineTo(3.6, 0.34); s.quadraticCurveTo(3.72, 0.36, 3.72, 0.5); s.lineTo(3.73, 0.66); s.quadraticCurveTo(3.7, 0.8, 3.5, 0.84);
+  s.quadraticCurveTo(3.1, 0.92, 2.72, 0.98); s.lineTo(0.3, 1.0); s.quadraticCurveTo(0.08, 1.0, 0.04, 0.86); s.lineTo(0.0, 0.5); s.quadraticCurveTo(0.0, 0.36, 0.06, 0.34);
+  return s;
+};
+const profilKabin = () => {
+  const s = new THREE.Shape(); s.moveTo(2.78, 0.94); s.lineTo(1.82, 1.44); s.quadraticCurveTo(1.6, 1.5, 1.2, 1.5); s.lineTo(0.42, 1.47);
+  s.lineTo(0.2, 1.42); s.lineTo(0.12, 0.94); s.closePath(); return s;
+};
+const Ekstr: React.FC<{shape: THREE.Shape; w: number; bev: number; children: React.ReactNode}> = ({shape, w, bev, children}) => {
+  const g = useMemo(() => { const e = new THREE.ExtrudeGeometry(shape, {depth: w, bevelEnabled: true, bevelSize: bev, bevelThickness: bev, bevelSegments: 4, curveSegments: 18}); e.translate(-PJ / 2, 0, -w / 2); return e; }, [shape, w, bev]);
+  return <mesh geometry={g} castShadow receiveShadow>{children}</mesh>;
+};
 const Mobil03: React.FC<{hi: number}> = ({hi}) => {
-  const cat = '#7d8fa3', merah = new THREE.Color('#e0442e');
+  const cat = '#9aa0a7', merah = new THREE.Color('#e0442e');
   const sorot = (c: string) => new THREE.Color(c).lerp(merah, hi);
-  return (<group>
-    <mesh position={[0, 0.62, 0]} castShadow><boxGeometry args={[1.74, 0.62, 4.15]} /><meshStandardMaterial color={cat} roughness={0.35} metalness={0.3} /></mesh>
-    <mesh position={[0, 1.18, 0.25]} castShadow><boxGeometry args={[1.5, 0.52, 2.1]} /><meshStandardMaterial color={cat} roughness={0.35} metalness={0.3} /></mesh>
-    <mesh position={[0, 1.2, 0.25]}><boxGeometry args={[1.54, 0.4, 1.96]} /><meshStandardMaterial color="#2c3a48" roughness={0.1} metalness={0.4} /></mesh>
-    {[-1.32, 1.32].flatMap((z) => [-0.8, 0.8].map((x) => <mesh key={`${x}${z}`} position={[x, 0.33, z]} rotation={[0, 0, Math.PI / 2]} castShadow><cylinderGeometry args={[0.32, 0.32, 0.22, 20]} /><meshStandardMaterial color="#1e1f22" roughness={0.8} /></mesh>))}
-    {/* bemper depan & belakang */}
-    <mesh position={[0, 0.42, -2.1]}><boxGeometry args={[1.8, 0.26, 0.14]} /><meshStandardMaterial color={sorot('#3a3d42')} emissive={merah} emissiveIntensity={hi * 0.6} roughness={0.6} /></mesh>
-    <mesh position={[0, 0.42, 2.1]}><boxGeometry args={[1.8, 0.26, 0.14]} /><meshStandardMaterial color="#3a3d42" roughness={0.6} /></mesh>
-    {/* spion */}
-    {[-1, 1].map((s) => <mesh key={s} position={[s * 0.98, 1.0, -0.62]}><boxGeometry args={[0.24, 0.15, 0.12]} /><meshStandardMaterial color={sorot(cat)} emissive={merah} emissiveIntensity={hi * 0.6} roughness={0.4} /></mesh>)}
-    {[-0.55, 0.55].map((x) => <mesh key={x} position={[x, 0.7, -2.09]}><boxGeometry args={[0.36, 0.14, 0.04]} /><meshStandardMaterial color="#f4f0e0" roughness={0.3} /></mesh>)}
-    {[-0.6, 0.6].map((x) => <mesh key={x} position={[x, 0.75, 2.09]}><boxGeometry args={[0.32, 0.12, 0.04]} /><meshStandardMaterial color="#b43a2a" roughness={0.3} /></mesh>)}
+  const badan = useMemo(profilBadan, []), kabin = useMemo(profilKabin, []);
+  const Kaca: React.FC<{p: V3; s: V3; rot?: V3}> = ({p, s, rot = [0, 0, 0]}) => <mesh position={p} rotation={rot}><boxGeometry args={s} /><meshStandardMaterial color="#26313b" roughness={0.08} metalness={0.5} /></mesh>;
+  const hw = LB / 2 + 0.08; // setengah lebar badan (dengan bevel)
+  return (<group rotation={[0, Math.PI / 2, 0]}>
+    {/* sumbu lokal grup ini: x = panjang (hidung di +x), z = lebar */}
+    <Ekstr shape={badan} w={LB} bev={0.08}><meshStandardMaterial color={cat} roughness={0.34} metalness={0.6} /></Ekstr>
+    <Ekstr shape={kabin} w={1.18} bev={0.07}><meshStandardMaterial color={cat} roughness={0.34} metalness={0.6} /></Ekstr>
+    {/* kaca samping (pilar hitam di tengah), kaca depan & belakang */}
+    {[-1, 1].map((sd) => <group key={sd} position={[0, 0, sd * (1.18 / 2 + 0.075)]}>
+      <mesh position={[-PJ / 2, 0, 0]}><shapeGeometry args={[(() => { const w = new THREE.Shape(); w.moveTo(2.64, 1.0); w.lineTo(1.84, 1.41); w.lineTo(0.5, 1.41); w.lineTo(0.26, 1.0); w.closePath(); return w; })()]} /><meshStandardMaterial color="#202a33" roughness={0.08} metalness={0.5} side={THREE.DoubleSide} /></mesh>
+      <mesh position={[1.62 - PJ / 2, 1.2, sd * 0.004]}><boxGeometry args={[0.1, 0.44, 0.006]} /><meshStandardMaterial color="#141618" roughness={0.6} /></mesh>
+    </group>)}
+    <Kaca p={[2.34 - PJ / 2, 1.265, 0]} s={[1.05, 0.02, 1.24]} rot={[0, 0, -0.48]} />
+    <Kaca p={[0.075 - PJ / 2, 1.19, 0]} s={[0.02, 0.42, 1.1]} rot={[0, 0, -0.17]} />
+    {/* bemper depan (bisa disorot), gril, lampu */}
+    <mesh position={[3.69 - PJ / 2, 0.47, 0]}><boxGeometry args={[0.1, 0.24, LB + 0.1]} /><meshStandardMaterial color={sorot(cat)} emissive={merah} emissiveIntensity={hi * 0.6} roughness={0.3} metalness={0.4} /></mesh>
+    <mesh position={[3.75 - PJ / 2, 0.42, 0]}><boxGeometry args={[0.02, 0.1, 0.9]} /><meshStandardMaterial color="#1a1b1d" roughness={0.6} /></mesh>
+    <mesh position={[3.74 - PJ / 2, 0.66, 0]}><boxGeometry args={[0.02, 0.04, 0.6]} /><meshStandardMaterial color="#1a1b1d" roughness={0.6} /></mesh>
+    {[-1, 1].map((sd) => <mesh key={sd} position={[3.62 - PJ / 2, 0.77, sd * 0.58]} rotation={[0, sd * 0.5, -0.25]}><boxGeometry args={[0.22, 0.1, 0.36]} /><meshStandardMaterial color="#eef1f4" roughness={0.05} metalness={0.6} emissive="#fff6df" emissiveIntensity={0.15} /></mesh>)}
+    {[-1, 1].map((sd) => <mesh key={sd} position={[0.03 - PJ / 2, 0.86, sd * 0.68]}><boxGeometry args={[0.06, 0.22, 0.14]} /><meshStandardMaterial color="#b3241c" roughness={0.2} /></mesh>)}
+    {/* spion di pintu (bisa disorot) */}
+    {[-1, 1].map((sd) => <mesh key={sd} position={[2.55 - PJ / 2, 1.05, sd * (hw + 0.1)]}><boxGeometry args={[0.16, 0.13, 0.2]} /><meshStandardMaterial color={sorot(cat)} emissive={merah} emissiveIntensity={hi * 0.6} roughness={0.3} metalness={0.4} /></mesh>)}
+    {/* gagang pintu */}
+    {[-1, 1].flatMap((sd) => [1.15, 2.05].map((u) => <mesh key={`${sd}${u}`} position={[u - PJ / 2, 0.9, sd * (hw + 0.005)]}><boxGeometry args={[0.14, 0.03, 0.02]} /><meshStandardMaterial color="#8d9196" roughness={0.3} metalness={0.7} /></mesh>))}
+    {/* roda: ban + velg alloy 8 jari */}
+    {RODA.flatMap(([u, rr]) => [-1, 1].map((sd) => <group key={`${u}${sd}`} position={[u - PJ / 2, rr, sd * 0.66]} rotation={[Math.PI / 2, 0, 0]}>
+      <mesh castShadow><cylinderGeometry args={[rr, rr, 0.2, 28]} /><meshStandardMaterial color="#1b1c1f" roughness={0.85} /></mesh>
+      <mesh position={[0, sd * 0.101, 0]}><cylinderGeometry args={[rr * 0.66, rr * 0.66, 0.01, 28]} /><meshStandardMaterial color="#c9ccd0" roughness={0.25} metalness={0.8} /></mesh>
+      {Array.from({length: 8}, (_, i) => <mesh key={i} position={[0, sd * 0.108, 0]} rotation={[0, i * Math.PI / 4, 0]}><boxGeometry args={[0.035, 0.006, rr * 1.2]} /><meshStandardMaterial color="#5f6368" roughness={0.4} metalness={0.6} /></mesh>)}
+    </group>))}
   </group>);
 };
 
@@ -213,9 +249,9 @@ const sudut = (t: number, lx: number, lz: number): V3 => { const p = pose(t); co
 const LABELS: Lb[] = [
   {a: 0.6, b: 4.7, text: 'Tiang listrik', at: [TIANG[0], 5.5, TIANG[2]], side: 'R'},
   {a: 1.6, b: 4.7, text: 'Pagar', at: [2.6, 1.2, PAGAR_Z], side: 'R', dy: 120},
-  {a: 15.4, b: 21.8, text: 'Belok tajam', at: (t) => sudut(t, 0, 2.1), side: 'L'},
-  {a: 20.4, b: 21.8, text: 'Spion', at: (t) => sudut(t, 0.98, -0.62), side: 'R', merah: true, dy: -170},
-  {a: 20.6, b: 21.8, text: 'Bemper', at: (t) => sudut(t, 0.8, -2.1), side: 'R', merah: true, dy: 90},
+  {a: 15.4, b: 21.8, text: 'Belok tajam', at: (t) => sudut(t, 0, 1.85), side: 'L'},
+  {a: 20.4, b: 21.8, text: 'Spion', at: (t) => sudut(t, 0.98, -0.7), side: 'R', merah: true, dy: 90},
+  {a: 20.6, b: 21.8, text: 'Bemper', at: (t) => sudut(t, 0.75, -1.87), side: 'R', merah: true, dy: -170},
   {a: 25.6, b: 33.4, text: 'Kabel bertegangan', at: [-4.2, KABEL_TR, TIANG[2] + 0.17], side: 'L'},
   {a: 28.0, b: 33.4, text: 'Sambungan ke rumah', at: [1.6, 4.85, 0.4], side: 'R', dy: -110},
   {a: 30.6, b: 33.4, text: 'Lantai 2 + balkon', at: [2.6, 3.9, FASAD_Z + 2.9], side: 'R', dy: 110},
