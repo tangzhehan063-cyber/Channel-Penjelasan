@@ -19,7 +19,7 @@ import wordsJson from '../../public/e1-04/words.json';
 export const R04_FRAMES = Math.round(61.8 * FPS);
 const MK = 200, BC = 400, RG = 600; // lokasi adegan makro, breakdown cat, rangka
 const rnd = (i: number, k: number) => { const x = Math.sin(i * 127.1 + k * 311.7) * 43758.5453; return x - Math.floor(x); };
-const MOTOR: V3 = [-1.9, 0, 0.6]; // motor di carport, hidung ke -z (menghadap rumah)
+const MOTOR: V3 = [-1.9, 0.14, 0.6]; // motor di carport, hidung ke +z (menghadap jalan)
 
 // ---------- bahan bersama (modul, dibuat sekali) ----------
 const G = {bola: new THREE.SphereGeometry(1, 10, 8), kubus: new THREE.BoxGeometry(1, 1, 1)};
@@ -35,44 +35,97 @@ const Titik: React.FC<{n: number; c: string; f: (i: number) => [number, number, 
   return (<group>{Array.from({length: n}, (_, i) => { const [x, y, z, s] = f(i); return s > 0.001 ? <mesh key={i} geometry={kubus ? G.kubus : G.bola} material={m} rotation={kubus ? [i, i * 2, 0] : [0, 0, 0]} position={[x, y, z]} scale={s} /> : null; })}</group>);
 };
 
-// ---------- motor matic generik (±1,85 m), lokal: hidung ke -z ----------
-const PROFIL_MOTOR = (() => { // profil samping bodi (u = dari belakang 0 ke depan 1,85; v = tinggi)
-  const s = new THREE.Shape(); s.moveTo(0.05, 0.55); s.lineTo(0.2, 0.78); s.quadraticCurveTo(0.45, 0.86, 0.75, 0.8); s.lineTo(0.78, 0.45); s.lineTo(1.25, 0.42);
-  s.lineTo(1.32, 0.95); s.quadraticCurveTo(1.45, 1.05, 1.55, 0.98); s.lineTo(1.62, 0.6); s.quadraticCurveTo(1.5, 0.45, 1.3, 0.36); s.lineTo(0.55, 0.36); s.quadraticCurveTo(0.2, 0.36, 0.05, 0.55);
-  return s; })();
+// ---------- motor skuter matik generik (R3, referensi foto user 25 Nov; tanpa logo/merek) ----------
+// Lokal: x = panjang (hidung +x), y = atas (lantai y=0, ban menyentuh tepat y=0), z = lebar (+z = sisi kanan pengendara).
+// Panjang ±1,95 m, tinggi spion ±1,42 m, jarak sumbu roda 1,28 m, ban luar r 0,27.
+const RB = 0.27, XD = 0.66, XB = -0.62; // jari-jari luar ban, sumbu roda depan, belakang
+const ekstrusi = (s: THREE.Shape, d: number, bev: number) => { const e = new THREE.ExtrudeGeometry(s, {depth: d, bevelEnabled: true, bevelSize: bev, bevelThickness: bev, bevelSegments: 5, curveSegments: 24}); e.translate(0, 0, -d / 2); return e; };
+/** pahat lebar setelah ekstrusi: lebar (sumbu z) dikali f(x, y), supaya buritan meruncing dan moncong menyempit (bukan balok) */
+const pahat = (e: THREE.BufferGeometry, f: (x: number, y: number) => number) => { const p = e.attributes.position; for (let i = 0; i < p.count; i++) p.setZ(i, p.getZ(i) * f(p.getX(i), p.getY(i))); p.needsUpdate = true; return e; };
+const lebarBodi = (x: number, y: number) => { let k = 1; if (x < -0.35) k *= 1 - 0.5 * Math.min(1, (-0.35 - x) / 0.65); if (x > 0.6) k *= 1 - 0.32 * Math.min(1, (x - 0.6) / 0.28); if (y > 0.85 && x > 0.3) k *= 0.82; if (y < 0.4 && x < -0.2) k *= 0.85; return k; };
+const GM = (() => {
+  // bodi: buritan meruncing -> dek rata rendah -> tameng depan ±72° -> kepala depan, lengkung roda dipotong
+  const b = new THREE.Shape(); b.moveTo(-0.12, 0.36); b.lineTo(0.36, 0.36);
+  b.bezierCurveTo(0.42, 0.55, 0.47, 0.78, 0.52, 0.95); b.quadraticCurveTo(0.56, 1.02, 0.64, 1.0);
+  b.bezierCurveTo(0.8, 0.95, 0.88, 0.8, 0.86, 0.66); b.quadraticCurveTo(0.84, 0.58, 0.78, 0.6);
+  b.absarc(XD, RB, 0.36, 0.95, Math.PI - 0.2, false); b.lineTo(0.36, 0.25); b.lineTo(-0.12, 0.25);
+  b.bezierCurveTo(-0.28, 0.27, -0.33, 0.33, -0.36, 0.44); b.absarc(XB, RB, 0.33, 0.55, Math.PI - 0.62, false);
+  b.bezierCurveTo(-0.9, 0.55, -0.98, 0.7, -0.99, 0.8); b.quadraticCurveTo(-0.98, 0.86, -0.9, 0.84);
+  b.bezierCurveTo(-0.6, 0.79, -0.3, 0.78, -0.18, 0.78); b.quadraticCurveTo(-0.13, 0.7, -0.14, 0.5); b.quadraticCurveTo(-0.15, 0.38, -0.12, 0.36);
+  // jok bertingkat: pengendara lebih rendah dari pembonceng
+  const j = new THREE.Shape(); j.moveTo(0.04, 0.79); j.quadraticCurveTo(0.06, 0.86, 0.0, 0.87); j.lineTo(-0.48, 0.87);
+  j.quadraticCurveTo(-0.54, 0.87, -0.57, 0.92); j.lineTo(-0.88, 0.93); j.quadraticCurveTo(-0.97, 0.92, -0.95, 0.85); j.lineTo(-0.9, 0.8); j.closePath();
+  // batok kepala: trapesium membulat
+  const k = new THREE.Shape(); k.moveTo(0.5, 1.02); k.lineTo(0.78, 1.04); k.quadraticCurveTo(0.84, 1.1, 0.78, 1.17); k.lineTo(0.56, 1.2); k.quadraticCurveTo(0.46, 1.16, 0.5, 1.02);
+  // box CVT (sisi kiri) dengan sudut membulat
+  const c = new THREE.Shape(); c.moveTo(-0.08, 0.26); c.lineTo(-0.5, 0.2); c.quadraticCurveTo(-0.72, 0.2, -0.74, 0.32); c.quadraticCurveTo(-0.72, 0.46, -0.52, 0.46); c.lineTo(-0.1, 0.44); c.quadraticCurveTo(-0.04, 0.35, -0.08, 0.26);
+  return {bodi: pahat(ekstrusi(b, 0.36, 0.075), lebarBodi), jok: pahat(ekstrusi(j, 0.3, 0.045), (x) => (x < -0.6 ? 1 - 0.35 * Math.min(1, (-0.6 - x) / 0.35) : 1)), batok: pahat(ekstrusi(k, 0.34, 0.045), (x) => (x > 0.68 ? 0.8 : 1)), cvt: ekstrusi(c, 0.08, 0.035),
+    ban: new THREE.TorusGeometry(RB - 0.07, 0.07, 12, 32), velg: new THREE.CylinderGeometry(0.19, 0.19, 0.05, 28), cakram: new THREE.CylinderGeometry(0.11, 0.11, 0.008, 24),
+    spakbor: new THREE.TorusGeometry(RB + 0.05, 0.06, 8, 24, Math.PI * 0.62),
+    behel: new THREE.TubeGeometry(new THREE.CatmullRomCurve3([[-0.6, 0.93, 0.19], [-0.92, 0.95, 0.18], [-1.0, 0.95, 0], [-0.92, 0.95, -0.18], [-0.6, 0.93, -0.19]].map((p) => new THREE.Vector3(...(p as V3)))), 24, 0.016, 6, false),
+    spion: [-1, 1].map((s) => new THREE.TubeGeometry(new THREE.CatmullRomCurve3([[0.58, 1.17, s * 0.22], [0.57, 1.28, s * 0.27], [0.62, 1.38, s * 0.31]].map((p) => new THREE.Vector3(...(p as V3)))), 12, 0.01, 6, false)),
+    garpu: new THREE.CylinderGeometry(0.022, 0.022, 0.72, 10), knalpot: new THREE.CylinderGeometry(0.06, 0.055, 0.5, 18), tameng: new THREE.CylinderGeometry(0.075, 0.075, 0.36, 18, 1, true, 0, Math.PI),
+    standar: new THREE.CylinderGeometry(0.014, 0.012, 0.36, 8)};
+})();
+const Roda: React.FC<{x: number; depan?: boolean; karat: number; kk: ReturnType<typeof useKarat>}> = ({x, depan, karat, kk}) => (
+  <group position={[x, RB, 0]}>
+    <mesh geometry={GM.ban} castShadow><meshStandardMaterial color="#1b1c1f" roughness={0.85} /></mesh>
+    <mesh geometry={GM.velg} rotation={[Math.PI / 2, 0, 0]}><meshStandardMaterial color="#2a2c30" roughness={0.45} metalness={0.5} map={karat > 0.4 ? kk : undefined} /></mesh>
+    {Array.from({length: 5}, (_, i) => <mesh key={i} rotation={[0, 0, i * Math.PI * 2 / 5]} position={[0, 0, 0]}><boxGeometry args={[0.36, 0.025, 0.055]} /><meshStandardMaterial color="#3a3d42" roughness={0.4} metalness={0.5} /></mesh>)}
+    {depan && <mesh geometry={GM.cakram} rotation={[Math.PI / 2, 0, 0]} position={[0, 0, 0.07]}><meshStandardMaterial color="#b9bcc0" roughness={0.3} metalness={0.8} /></mesh>}
+  </group>);
 const Motor: React.FC<{basah: number; karat: number; kk: ReturnType<typeof useKarat>}> = ({basah, karat, kk}) => {
-  const bodi = useMemo(() => { const e = new THREE.ExtrudeGeometry(PROFIL_MOTOR, {depth: 0.36, bevelEnabled: true, bevelSize: 0.05, bevelThickness: 0.05, bevelSegments: 3, curveSegments: 14}); e.translate(-0.92, 0, -0.18); return e; }, []);
-  const cat = new THREE.Color('#2f6fb3');
-  return (<group rotation={[0, Math.PI / 2, 0]}>
-    {/* sumbu lokal grup: x = panjang (hidung di +x) */}
-    <mesh geometry={bodi} castShadow receiveShadow><meshStandardMaterial color={cat.clone().multiplyScalar(1 - 0.25 * basah)} roughness={0.55 - 0.45 * basah} metalness={0.2} /></mesh>
-    <mesh position={[-0.42, 0.88, 0]} castShadow><boxGeometry args={[0.62, 0.1, 0.3]} /><meshStandardMaterial color="#1c1d20" roughness={0.5 - 0.35 * basah} /></mesh>
-    {/* rangka (pipa baja) di bawah dek: tempat karat */}
-    <mesh position={[0.08, 0.3, 0]} rotation={[0, 0, 0.12]} castShadow><cylinderGeometry args={[0.035, 0.035, 1.25, 10]} /><meshStandardMaterial color="#4b4f55" map={karat > 0.02 ? kk : undefined} roughness={0.7} /></mesh>
-    {/* setang, lampu, spion */}
-    <mesh position={[0.68, 1.08, 0]} rotation={[Math.PI / 2, 0, 0]}><cylinderGeometry args={[0.022, 0.022, 0.62, 8]} /><meshStandardMaterial color="#1c1d20" /></mesh>
-    <mesh position={[0.74, 1.0, 0]}><boxGeometry args={[0.12, 0.1, 0.24]} /><meshStandardMaterial color="#eef1f4" emissive="#fff6df" emissiveIntensity={0.12} roughness={0.1} /></mesh>
-    {[-1, 1].map((s) => <group key={s}><mesh position={[0.66, 1.16, s * 0.27]} rotation={[s * 0.3, 0, 0]}><cylinderGeometry args={[0.01, 0.01, 0.16, 6]} /><meshStandardMaterial color="#1c1d20" /></mesh><mesh position={[0.64, 1.25, s * 0.3]} rotation={[0, 0, Math.PI / 2]} scale={[1, 0.35, 0.75]}><cylinderGeometry args={[0.07, 0.07, 0.1, 16]} /><meshStandardMaterial color="#1c1d20" roughness={0.3} /></mesh></group>)}
-    {/* roda 14 inci */}
-    {[-0.62, 0.7].map((x) => <group key={x} position={[x, 0.25, 0]} rotation={[Math.PI / 2, 0, 0]}>
-      <mesh castShadow><cylinderGeometry args={[0.25, 0.25, 0.1, 22]} /><meshStandardMaterial color="#1b1c1f" roughness={0.85 - 0.5 * basah} /></mesh>
-      <mesh position={[0, 0.052, 0]}><cylinderGeometry args={[0.15, 0.15, 0.01, 20]} /><meshStandardMaterial color="#9ea3a9" roughness={0.3} metalness={0.7} map={karat > 0.4 ? kk : undefined} /></mesh>
-    </group>)}
-    {/* bercak karat di kolong & rangka (tumbuh) */}
-    {Array.from({length: 26}, (_, i) => { const k = Math.min(1, Math.max(0, karat * 1.4 - rnd(i, 7) * 0.6)); return k > 0.02 ? <mesh key={i} geometry={G.bola} position={[-0.55 + rnd(i, 1) * 1.25, 0.24 + rnd(i, 2) * 0.12, (rnd(i, 3) - 0.5) * 0.3]} scale={[0.05 * k + 0.01, 0.015, 0.05 * k + 0.01]}><meshStandardMaterial color="#9a4f24" map={kk} roughness={0.95} /></mesh> : null; })}
+  const cat = new THREE.Color('#2f6fb3').multiplyScalar(1 - 0.22 * basah), kilap = 0.4 - 0.3 * basah;
+  const doff = (c = '#1d1e21', ro = 0.8) => <meshStandardMaterial color={c} roughness={Math.max(0.15, ro - 0.5 * basah)} />;
+  return (<group rotation={[0, -Math.PI / 2, 0]}>
+    {/* miring natural ±5° ke kiri di atas standar samping; poros = garis kontak ban (y=0) */}
+    <group rotation={[0.085, 0, 0]}>
+      <mesh geometry={GM.bodi} castShadow receiveShadow><meshStandardMaterial color={cat} roughness={kilap} metalness={0.25} /></mesh>
+      {/* dek pijakan & bagian bawah hitam (lebih lebar 0,02 dari bodi, tidak sebidang) */}
+      <mesh position={[0.12, 0.31, 0]} castShadow>{<boxGeometry args={[0.5, 0.13, 0.52]} />}{doff('#232428', 0.75)}</mesh>
+      <mesh geometry={GM.jok} castShadow>{doff('#1a1b1e', 0.8)}</mesh>
+      <mesh geometry={GM.behel}><meshStandardMaterial color="#2b2d31" roughness={0.35} metalness={0.6} /></mesh>
+      <mesh geometry={GM.batok} castShadow><meshStandardMaterial color={cat} roughness={kilap} metalness={0.25} /></mesh>
+      <mesh position={[0.83, 1.1, 0]} rotation={[0, 0, -0.25]}><boxGeometry args={[0.03, 0.08, 0.3]} /><meshStandardMaterial color="#fff3dc" emissive="#ffd9a0" emissiveIntensity={0.7} roughness={0.1} /></mesh>
+      {[-1, 1].map((s) => <mesh key={`l${s}`} position={[0.9, 0.8, s * 0.1]} rotation={[s * 0.45, -s * 0.35, -0.45]}><boxGeometry args={[0.03, 0.035, 0.17]} /><meshStandardMaterial color="#e9e4d6" emissive="#ffd9a0" emissiveIntensity={0.3} roughness={0.15} /></mesh>)}
+      <mesh position={[0.885, 0.66, 0]}><boxGeometry args={[0.02, 0.05, 0.16]} /><meshStandardMaterial color="#1d1e21" roughness={0.6} /></mesh>
+      {/* setang + grip, spion bertangkai lengkung */}
+      <mesh position={[0.58, 1.14, 0]} rotation={[Math.PI / 2, 0, 0]}><cylinderGeometry args={[0.016, 0.016, 0.74, 8]} /><meshStandardMaterial color="#2b2d31" metalness={0.5} roughness={0.4} /></mesh>
+      {[-1, 1].map((s) => <group key={s}>
+        <mesh position={[0.58, 1.14, s * 0.33]} rotation={[Math.PI / 2, 0, 0]}><cylinderGeometry args={[0.024, 0.024, 0.12, 10]} />{doff()}</mesh>
+        <mesh geometry={GM.spion[(s + 1) / 2]}><meshStandardMaterial color="#1d1e21" roughness={0.5} /></mesh>
+        <mesh position={[0.63, 1.41, s * 0.32]} rotation={[0, 0, Math.PI / 2 - 0.15]} scale={[1, 0.25, 0.7]}><cylinderGeometry args={[0.075, 0.075, 0.1, 18]} /><meshStandardMaterial color="#1d1e21" roughness={0.35} /></mesh>
+      </group>)}
+      {/* garpu teleskopik + spakbor depan (ikut garpu) */}
+      {[-1, 1].map((s) => <mesh key={s} geometry={GM.garpu} position={[(0.6 + XD) / 2, 0.62, s * 0.075]} rotation={[0, 0, 0.09]}><meshStandardMaterial color="#c3c6ca" metalness={0.8} roughness={0.25} /></mesh>)}
+      <mesh geometry={GM.spakbor} position={[XD, RB, 0]} rotation={[0, 0, 0.55]} scale={[1, 1, 1.6]}><meshStandardMaterial color={cat} roughness={kilap} metalness={0.25} /></mesh>
+      {/* lampu rem, spakbor belakang menggantung, pelat nomor polos hitam */}
+      <mesh position={[-0.985, 0.84, 0]}><boxGeometry args={[0.04, 0.07, 0.24]} /><meshStandardMaterial color="#c42a1e" emissive="#c42a1e" emissiveIntensity={0.35} roughness={0.2} /></mesh>
+      <mesh position={[-0.99, 0.62, 0]} rotation={[0, 0, -0.35]}>{<boxGeometry args={[0.04, 0.32, 0.16]} />}{doff('#202124', 0.7)}</mesh>
+      <mesh position={[-1.06, 0.5, 0]} rotation={[0, 0, -0.1]}>{<boxGeometry args={[0.02, 0.12, 0.25]} />}{doff('#111214', 0.6)}</mesh>
+      {/* box CVT sisi kiri (-z), knalpot + pelindung panas sisi kanan (+z) */}
+      <mesh geometry={GM.cvt} position={[0, 0, -0.2]} castShadow><meshStandardMaterial color="#3b3e43" roughness={0.5} metalness={0.3} map={karat > 0.2 ? kk : undefined} /></mesh>
+      <mesh geometry={GM.knalpot} position={[-0.62, 0.36, 0.2]} rotation={[0, 0, Math.PI / 2 + 0.12]}><meshStandardMaterial color="#5d6066" metalness={0.7} roughness={0.35} map={karat > 0.1 ? kk : undefined} /></mesh>
+      <mesh geometry={GM.tameng} position={[-0.62, 0.37, 0.215]} rotation={[0, Math.PI / 2, Math.PI / 2 + 0.12]}><meshStandardMaterial color="#1d1e21" roughness={0.8} side={THREE.DoubleSide} /></mesh>
+      <Roda x={XD} depan karat={karat} kk={kk} /><Roda x={XB} karat={karat} kk={kk} />
+      {/* bercak karat di kolong (bawah dek, CVT, dudukan knalpot) */}
+      {Array.from({length: 28}, (_, i) => { const k = Math.min(1, Math.max(0, karat * 1.4 - rnd(i, 7) * 0.6)); return k > 0.02 ? <mesh key={i} geometry={G.bola} position={[-0.6 + rnd(i, 1) * 1.0, 0.24, (rnd(i, 3) - 0.5) * 0.5]} scale={[0.04 * k + 0.012, 0.008, 0.04 * k + 0.012]}><meshStandardMaterial color="#9a4f24" map={kk} roughness={0.95} /></mesh> : null; })}
+    </group>
+    {/* standar samping kiri menopang */}
+    <mesh geometry={GM.standar} position={[-0.02, 0.15, -0.26]} rotation={[-0.55, 0, 0.25]}><meshStandardMaterial color="#2b2d31" metalness={0.5} roughness={0.4} /></mesh>
   </group>);
 };
 
 // ---------- dunia gang pesisir ----------
 const KR = {atapNaik: 0, lantai2: 0, kanopi: 1, zona: 0, dijual: 0, pindah: 0, lt2: false};
-const muka = (t: number) => lerp(0.3, -0.02, r(t, 0.0, 3.1)); // tinggi air rob
+const muka = (t: number) => lerp(0.36, -0.02, r(t, 0.0, 3.1)); // tinggi air rob
 const Dunia: React.FC<{t: number}> = ({t}) => {
   const b = useBahan(), x = useTex(), kk = useKarat();
-  const air = useMemo(() => { const m = b.air.clone(); m.repeat.set(6, 3); m.needsUpdate = true; return m; }, [b]);
+  const air = useMemo(() => { const m = b.lempung.clone(); m.wrapS = m.wrapT = THREE.RepeatWrapping; m.repeat.set(10, 4); m.needsUpdate = true; return m; }, [b]);
   air.offset.x = (t * 0.02) % 1;
   const h = muka(t), basah = 1 - r(t, 0.6, 3.0), karat = Math.max(r(t, 3.6, 5.6) * 0.5, r(t, 35.5, 40.0) * 0.9 + 0.5 * (t > 35 ? 1 : 0));
   const semprot = t > 46.4 && t < 53.6;
-  const target: V3 = t < 50.4 ? [MOTOR[0], 0.3, MOTOR[2]] : t < 51.1 ? [MOTOR[0], 0.25, MOTOR[2] + 0.7] : [MOTOR[0], 0.35, MOTOR[2] - 0.4];
+  const target: V3 = t < 50.4 ? [MOTOR[0], 0.38, MOTOR[2]] : t < 51.1 ? [MOTOR[0], 0.41, MOTOR[2] + 0.62] : [MOTOR[0], 0.4, MOTOR[2] - 0.3];
   const nozzle: V3 = [MOTOR[0] + 1.6, 0.9, MOTOR[2] + 0.9];
   return (<group>
     <Blok p={[0, -0.1, -2]} s={[40, 0.2, 14]} map={b.rumput} rep={[12, 4]} bump={0.6} />
@@ -82,13 +135,13 @@ const Dunia: React.FC<{t: number}> = ({t}) => {
     <Pagar b={b} dijual={0} />
     <Tetangga x0={-8.6} c="#d9e3dc" b={b} g={x.genteng} /><Tetangga x0={8.6} c="#e8dcc4" b={b} g={x.genteng} />
     {/* garis bekas rob di pagar dan tetangga (pita gelap tipis, di depan permukaan) */}
-    {[[2.0, PAGAR_Z + 0.115, 3.2], [-8.6, 2.65, 6.2], [8.6, 2.65, 6.2]].map(([px, pz, w], i) => <Blok key={i} p={[px, 0.17, pz]} s={[w, 0.34, 0.01]} c="#5d564c" o={0.35} bayang={false} />)}
+    {[[2.0, PAGAR_Z + 0.115, 3.2], [-8.6, 2.65, 6.2], [8.6, 2.65, 6.2]].map(([px, pz, w], i) => <Blok key={i} p={[px, 0.18, pz]} s={[w, 0.36, 0.01]} c="#6b5132" o={0.45} bayang={false} />)}
     {/* air rob surut */}
-    {h > 0 && <mesh position={[0, h / 2 - 0.12, 2.5]}><boxGeometry args={[40, h + 0.12, 13]} /><meshStandardMaterial map={air} color="#c9b48a" transparent opacity={0.6} roughness={0.15} depthWrite={false} /></mesh>}
+    {h > 0 && <mesh position={[0, h / 2 - 0.12, 2.5]}><boxGeometry args={[40, h + 0.12, 13]} /><meshStandardMaterial map={air} color="#8b6a44" transparent opacity={0.9} roughness={0.3} depthWrite={false} /></mesh>}
     <group position={MOTOR}><Motor basah={basah} karat={karat} kk={kk} /></group>
     {/* kerak garam di kolong + uap air tertarik (adegan 7-8) */}
     {t > 31 && t < 46.5 && <group position={MOTOR}>
-      <Titik n={60} kubus c="#f4f1ea" glow={0.05} f={(i) => [ (rnd(i, 4) - 0.5) * 0.3, 0.2 + rnd(i, 5) * 0.06, -0.6 + rnd(i, 6) * 1.3, 0.013 * r(t, 31.4 + rnd(i, 8) * 0.8, 32.4 + rnd(i, 8) * 0.8)]} />
+      <Titik n={60} kubus c="#f4f1ea" glow={0.05} f={(i) => [ (rnd(i, 4) - 0.5) * 0.3, 0.215 + rnd(i, 5) * 0.02, -0.6 + rnd(i, 6) * 1.3, 0.02 * r(t, 31.4 + rnd(i, 8) * 0.8, 32.4 + rnd(i, 8) * 0.8)]} />
       <Titik n={70} c="#7fc3ff" glow={0.5} f={(i) => { const u = ((t - 31.6) * 0.35 + rnd(i, 9)) % 1, a0 = rnd(i, 10) * 6.28, R0 = 0.9 + rnd(i, 11) * 0.6, k = Easing.in(Easing.quad)(u);
         const tx = (rnd(i, 4) - 0.5) * 0.3, tz = -0.6 + rnd(i, 6) * 1.3; return [lerp(Math.cos(a0) * R0, tx, k), lerp(0.4 + rnd(i, 12) * 0.9, 0.24, k), lerp(tz + Math.sin(a0) * R0, tz, k), t < 31.6 ? 0 : 0.011 * Math.min(1, u * 8, (1 - u) * 8)]; }} />
     </group>}
@@ -160,9 +213,9 @@ const Rangka: React.FC<{t: number}> = ({t}) => {
 };
 
 // ---------- kamera ----------
-const KP: Key[] = [orb(0, 26, 8, 8.6, [-1.4, 0.9, 1.0]), orb(3.2, 20, 8, 6.4, [-1.7, 0.7, 0.8]), orb(3.5, 30, 12, 4.0, MOTOR.map((v, i) => v + [0, 0.35, 0][i]) as V3), orb(6.2, 22, 6, 2.6, MOTOR.map((v, i) => v + [0, 0.3, 0][i]) as V3),
-  orb(31.0, 80, 3, 2.3, MOTOR.map((v, i) => v + [0, 0.32, 0][i]) as V3), orb(34.8, 70, 5, 2.6, MOTOR.map((v, i) => v + [0, 0.35, 0][i]) as V3), orb(40.4, -10, 10, 6.5, MOTOR.map((v, i) => v + [0, 0.6, 0][i]) as V3),
-  orb(46.3, 40, 10, 6.2, MOTOR.map((v, i) => v + [0, 0.5, 0][i]) as V3), orb(56.3, 18, 12, 6.0, MOTOR.map((v, i) => v + [0, 0.5, 0][i]) as V3), orb(61.8, 26, 8, 8.6, [-1.4, 0.9, 1.0])];
+const KP: Key[] = [orb(0, 24, 14, 7.6, [-1.6, 0.7, 1.0]), orb(3.2, 20, 14, 5.8, [-1.8, 0.6, 0.8]), orb(3.5, 30, 12, 4.0, MOTOR.map((v, i) => v + [0, 0.35, 0][i]) as V3), orb(6.2, 22, 6, 2.6, MOTOR.map((v, i) => v + [0, 0.3, 0][i]) as V3),
+  orb(31.0, 86, -3, 2.4, MOTOR.map((v, i) => v + [0, 0.24, 0][i]) as V3), orb(34.8, 78, 4, 3.4, MOTOR.map((v, i) => v + [0, 0.4, 0][i]) as V3), orb(40.4, -10, 10, 6.5, MOTOR.map((v, i) => v + [0, 0.6, 0][i]) as V3),
+  orb(46.3, 40, 10, 6.2, MOTOR.map((v, i) => v + [0, 0.5, 0][i]) as V3), orb(56.3, 18, 12, 6.0, MOTOR.map((v, i) => v + [0, 0.5, 0][i]) as V3), orb(61.8, 24, 14, 7.6, [-1.6, 0.7, 1.0])];
 const KM: Key[] = [iso(6.2, [MK, 0.2, 0], 300, 30, 32), iso(14.6, [MK, 0.2, 0], 320, 20, 30), iso(15.0, [MK - 0.2, 0.2, 0], 175, 0, 30), iso(19.0, [MK + 0.2, 0.2, 0], 180, -4, 30), iso(23.3, [MK + 0.4, 0.2, 0], 188, -8, 31)];
 const KB: Key[] = [iso(23.3, [BC - 0.6, 0.3, 0], 230, 28, 26), iso(30.4, [BC - 0.4, 0.2, 0], 250, 20, 20)];
 const KG: Key[] = [iso(40.4, [RG, 0.8, 0], 260, 25, 20), iso(46.3, [RG, 0.8, 0], 275, 18, 18)];
@@ -181,11 +234,11 @@ const LABELS: Lb[] = [
   {a: 23.9, b: 30.6, text: 'Goresan cat', at: [BC - 1.6, 0.12, 1.0], side: 'L', dy: -160},
   {a: 24.6, b: 30.6, text: 'Cat', at: [BC + 1.8, 0.1, 1.0], side: 'R', dy: -140},
   {a: 26.4, b: 30.6, text: 'Karat di bawah cat', at: [BC - 0.6, 0.03, 1.0], side: 'L', dy: 160, merah: true},
-  {a: 35.2, b: 40.2, text: 'Kelihatan kering', at: [MOTOR[0], 0.9, MOTOR[2]], side: 'R', dy: -100},
-  {a: 36.4, b: 40.2, text: 'Kolong tetap lembap', at: [MOTOR[0], 0.24, MOTOR[2]], side: 'L', dy: 120, merah: true},
-  {a: 50.5, b: 53.4, text: 'Kolong', at: [MOTOR[0], 0.3, MOTOR[2]], side: 'L', dy: 60},
-  {a: 51.2, b: 53.4, text: 'Pelek', at: [MOTOR[0], 0.25, MOTOR[2] + 0.7], side: 'R', dy: 40},
-  {a: 51.9, b: 53.4, text: 'Bagian bawah', at: [MOTOR[0], 0.35, MOTOR[2] - 0.4], side: 'L', dy: 190},
+  {a: 35.2, b: 40.2, text: 'Kelihatan kering', at: [MOTOR[0], 1.0, MOTOR[2]], side: 'R', dy: -100},
+  {a: 36.4, b: 40.2, text: 'Kolong tetap lembap', at: [MOTOR[0], 0.38, MOTOR[2]], side: 'L', dy: 120, merah: true},
+  {a: 50.5, b: 53.4, text: 'Kolong', at: [MOTOR[0], 0.38, MOTOR[2]], side: 'L', dy: 60},
+  {a: 51.2, b: 53.4, text: 'Pelek', at: [MOTOR[0] + 0.4, 0.41, MOTOR[2] + 0.62], side: 'R', dy: 40},
+  {a: 51.9, b: 53.4, text: 'Bagian bawah', at: [MOTOR[0], 0.4, MOTOR[2] - 0.3], side: 'L', dy: 190},
 ];
 const TagIlustrasi: React.FC<{t: number}> = ({t}) => { const p = r(t, 6.5, 7.0) * (1 - r(t, 30.4, 30.9)); return p > 0.01 ? <div style={{position: 'absolute', right: 40, top: 270, padding: '6px 16px', borderRadius: 12, background: 'rgba(42,42,46,0.72)', color: '#fff', fontFamily: 'Inter', fontWeight: 600, fontSize: 26, opacity: p}}>ilustrasi, diperbesar</div> : null; };
 const KartuKasus: React.FC<{t: number}> = ({t}) => {

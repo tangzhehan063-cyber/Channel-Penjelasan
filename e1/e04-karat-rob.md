@@ -101,3 +101,10 @@ Contoh: inkonsistensi komponen/material, animasi kaku, camera movement failure, 
 - Aset baru: motor prosedural (±1,9 m), air rob + garis bekas rob, kerak garam (instancing ±200), pelat besi makro + tetes air, lapisan cat bergelembung, tekstur karat ber-seed, selang + semprotan, pipa rangka berlubang. Dipakai ulang dari `Tiang03.tsx`: rumah/pagar/tetangga/jalan, langit, cahaya, `tele`/`Rig2`/`proj2`/`Kabut`, `Label2`, `Kartu`, `Larangan`, hatchback (latar).
 - Biaya CPU: satu kanvas; partikel lewat InstancedMesh ≤150 per adegan; tanpa post-processing. Estimasi render penuh ±10 mnt / 60 dtk (per bagian).
 - Style reference (fase 5): adegan 1 (hook), 3/5 (baterai makro), 6 (breakdown cat).
+
+## Fase 5: style reference & revisi (25 Nov 2026)
+- Style reference dikirim (hook, makro air hujan vs laut, breakdown cat). Revisi user:
+  - [x] R1 air rob keruh warna lumpur (tekstur lempung, cokelat, opasitas 0,9; garis bekas rob cokelat).
+  - [x] R2 kicker tidak tertimpa kanopi (kamera hook el 14°, bingkai akhir sama).
+  - [x] R3 motor skuter matik generik dirombak (foto referensi user): profil ekstrusi bezier + "pahat" lebar (buritan meruncing, moncong menyempit), dek rata, tameng ±72°, batok trapesium + lampu, spion bertangkai lengkung, jok bertingkat + behel, garpu teleskopik + spakbor depan, spakbor belakang + pelat polos, CVT kiri, knalpot + pelindung kanan, standar samping (miring ±5°), ban menyentuh y=0, motor menghadap jalan.
+- Tambahan Claude: motor di atas lantai carport (y 0,14), kamera adegan kerak garam, target semprotan & label mengikuti roda/kolong baru.
