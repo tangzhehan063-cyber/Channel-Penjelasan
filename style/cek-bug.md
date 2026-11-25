@@ -78,3 +78,8 @@ Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) s
 - Sebab: (1) berganti `ThreeCanvas` perspektif <-> ortografis di tengah video = konteks WebGL baru di tab yang sama; (2) komponen React didefinisikan DI DALAM komponen lain (`Lantai`, `Kaca`) dan `new THREE.Shape()` di `args` = dibuat ulang tiap frame, tekstur/geometri menumpuk.
 - Aturan: SATU `ThreeCanvas` per komposisi. Tampilan isometrik = kamera perspektif tele (FOV ±3°, jarak jauh; lihat `tele()` di `e1/Tiang03.tsx`), kabut diatur lewat `scene.fog` near/far. Komponen dan bentuk (Shape) didefinisikan di tingkat modul atau `useMemo`.
 - Cek wajib sebelum render penuh: render potongan 0-480 frame dengan `--concurrency=2`, lalu lihat 1 contact sheet. Still saja tidak cukup.
+
+## E1 #04 (25 Nov 2026): salah tanda alat QC + gerbang yang tidak berhenti
+- **`cek_kilau` pada close-up (kamera ±3 m):** geseran 0,4 mm sudah menggeser garis tepi antialias, sehingga ratusan piksel "berkedip" walau tidak ada permukaan sebidang. Bila GAGAL, buat gambar selisih (render nudge 0 dan 0,0004, tandai piksel beda >40): z-fighting = bercak di DALAM permukaan; salah tanda = hanya di garis tepi.
+- **`cek-frame-rusak.py`:** close-up dengan bidang warna seragam luas (bodi motor) dan dip dapat ditandai "tile". Selalu lihat frame yang ditandai; frame tile asli = seluruh layar berulang 4–5×.
+- **Rantai perintah QC:** `cmd | tail` menelan kode keluar, sehingga render tetap jalan walau `cek_kilau` GAGAL. Pakai `set -o pipefail` atau jalankan cek tanpa pipe sebelum render.

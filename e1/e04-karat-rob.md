@@ -108,3 +108,13 @@ Contoh: inkonsistensi komponen/material, animasi kaku, camera movement failure, 
   - [x] R2 kicker tidak tertimpa kanopi (kamera hook el 14°, bingkai akhir sama).
   - [x] R3 motor skuter matik generik dirombak (foto referensi user): profil ekstrusi bezier + "pahat" lebar (buritan meruncing, moncong menyempit), dek rata, tameng ±72°, batok trapesium + lampu, spion bertangkai lengkung, jok bertingkat + behel, garpu teleskopik + spakbor depan, spakbor belakang + pelat polos, CVT kiri, knalpot + pelindung kanan, standar samping (miring ±5°), ban menyentuh y=0, motor menghadap jalan.
 - Tambahan Claude: motor di atas lantai carport (y 0,14), kamera adegan kerak garam, target semprotan & label mengikuti roda/kolong baru.
+
+## Fase 7–8: render & QC (25 Nov 2026)
+- [x] Render batch besar: ACC user ("acc").
+- `cek-mandiri` OK · `tsc` OK · `render-bagian.sh` 7 bagian × 300 frame, satu tab: 23 mnt 10 dtk.
+- Hasil: `remotion/out/e1-04-karat-rob.mp4` (lokal, tidak di-commit), 1080×1920, 61,8 dtk (audio = video), −14,6 LUFS, puncak −1,4 dB, `cek_suara --video` OK. Dikirim ke user: penuh + 540p.
+- `cek_kilau`: GAGAL 35 dtk (384 px) & 37 dtk (488 px). Diperiksa dengan gambar selisih: piksel berubah hanya di garis tepi objek (close-up ±3 m), bukan permukaan sebidang → bukan z-fighting. Tidak diubah.
+- `cek-frame-rusak`: 22 frame (163–202) ditandai. Diperiksa mata: close-up motor (bidang biru seragam luas) + dip ke makro → salah tanda, bukan frame bertumpuk.
+- Contact sheet 16 still: 11 adegan lengkap & berurutan, dip krem di 6,2 / 23,3 / 30,9 / 40,4 / 46,3 dtk disengaja, bingkai akhir = hook.
+- Kelemahan: kristal garam kurang menonjol (31–40 dtk); kicker menimpa bodi di punch-in (5 dtk); teks larangan bersinggungan spion (±55 dtk).
+- Skill pustaka yang dipakai: short-form-video, shot-composition, beat-sync-editing (fase 4); particle-system, isometric-animation, threejs-animation, diagram-animation (fase 5).
