@@ -1,6 +1,6 @@
 // Kit Penjelasan: template video berbasis data (beats.json). Satu komposisi merakit: palet, adegan 3D (objek + kamera), kartu judul,
 // stiker, subtitle, kicker, komentar, follow, audio+SFX. Lapisan 2D khusus (panel pemutus pola) dikirim lewat prop `ekstra`.
-// Format data: style/gaya-penjelasan.md (bagian "beats.json"). Contoh nyata: remotion/src/v20/beats.json (menghasilkan #20 piksel-identik).
+// Format data: arsip/style-lama/gaya-penjelasan.md (bagian "beats.json"). Contoh nyata: remotion/src/v20/beats.json (menghasilkan #20 piksel-identik).
 import {Fragment} from 'react';
 import {Audio} from '@remotion/media';
 import {AbsoluteFill, Easing, Sequence, staticFile, useCurrentFrame} from 'remotion';

@@ -1,0 +1,694 @@
+{
+"words": [
+{
+"word": "Air",
+"start": 0.26,
+"end": 0.49
+},
+{
+"word": "rob",
+"start": 0.49,
+"end": 0.72
+},
+{
+"word": "sudah",
+"start": 0.72,
+"end": 1.103
+},
+{
+"word": "surut,",
+"start": 1.103,
+"end": 1.487
+},
+{
+"word": "motor",
+"start": 1.87,
+"end": 2.242
+},
+{
+"word": "sudah",
+"start": 2.242,
+"end": 2.614
+},
+{
+"word": "kering.",
+"start": 2.614,
+"end": 3.061
+},
+{
+"word": "Justru",
+"start": 3.39,
+"end": 3.875
+},
+{
+"word": "di",
+"start": 3.875,
+"end": 4.036
+},
+{
+"word": "situ",
+"start": 4.036,
+"end": 4.359
+},
+{
+"word": "karatnya",
+"start": 4.359,
+"end": 5.006
+},
+{
+"word": "mulai",
+"start": 5.006,
+"end": 5.41
+},
+{
+"word": "kerja.",
+"start": 5.41,
+"end": 5.814
+},
+{
+"word": "Karat",
+"start": 6.608,
+"end": 6.908
+},
+{
+"word": "itu",
+"start": 6.908,
+"end": 7.089
+},
+{
+"word": "sebenarnya",
+"start": 7.089,
+"end": 7.69
+},
+{
+"word": "kayak",
+"start": 7.69,
+"end": 7.99
+},
+{
+"word": "baterai",
+"start": 7.99,
+"end": 8.411
+},
+{
+"word": "kecil.",
+"start": 8.411,
+"end": 8.712
+},
+{
+"word": "Besi,",
+"start": 9.213,
+"end": 9.747
+},
+{
+"word": "air,",
+"start": 10.011,
+"end": 10.233
+},
+{
+"word": "sama",
+"start": 10.233,
+"end": 10.531
+},
+{
+"word": "oksigen",
+"start": 10.531,
+"end": 11.051
+},
+{
+"word": "saling",
+"start": 11.051,
+"end": 11.496
+},
+{
+"word": "oper",
+"start": 11.496,
+"end": 11.794
+},
+{
+"word": "listrik,",
+"start": 11.794,
+"end": 12.314
+},
+{
+"word": "dan",
+"start": 12.745,
+"end": 12.936
+},
+{
+"word": "besinya",
+"start": 12.936,
+"end": 13.38
+},
+{
+"word": "pelan-pelan",
+"start": 13.38,
+"end": 14.016
+},
+{
+"word": "habis.",
+"start": 14.016,
+"end": 14.334
+},
+{
+"word": "Air",
+"start": 15.11,
+"end": 15.324
+},
+{
+"word": "hujan",
+"start": 15.324,
+"end": 15.68
+},
+{
+"word": "lemah",
+"start": 15.68,
+"end": 16.037
+},
+{
+"word": "buat",
+"start": 16.037,
+"end": 16.322
+},
+{
+"word": "ngalirin",
+"start": 16.322,
+"end": 16.892
+},
+{
+"word": "listrik.",
+"start": 16.892,
+"end": 17.392
+},
+{
+"word": "Air",
+"start": 17.89,
+"end": 18.095
+},
+{
+"word": "laut",
+"start": 18.095,
+"end": 18.369
+},
+{
+"word": "kuat",
+"start": 18.369,
+"end": 18.643
+},
+{
+"word": "banget,",
+"start": 18.643,
+"end": 19.054
+},
+{
+"word": "karena",
+"start": 19.239,
+"end": 19.666
+},
+{
+"word": "isinya",
+"start": 19.666,
+"end": 20.093
+},
+{
+"word": "garam.",
+"start": 20.093,
+"end": 20.448
+},
+{
+"word": "Jadi",
+"start": 20.688,
+"end": 21.146
+},
+{
+"word": "baterainya",
+"start": 21.146,
+"end": 21.756
+},
+{
+"word": "jalan",
+"start": 21.756,
+"end": 22.061
+},
+{
+"word": "jauh",
+"start": 22.061,
+"end": 22.305
+},
+{
+"word": "lebih",
+"start": 22.305,
+"end": 22.609
+},
+{
+"word": "cepat.",
+"start": 22.609,
+"end": 22.914
+},
+{
+"word": "Garamnya",
+"start": 23.715,
+"end": 24.182
+},
+{
+"word": "juga",
+"start": 24.182,
+"end": 24.416
+},
+{
+"word": "nyelip",
+"start": 24.416,
+"end": 24.766
+},
+{
+"word": "lewat",
+"start": 24.766,
+"end": 25.058
+},
+{
+"word": "goresan",
+"start": 25.058,
+"end": 25.467
+},
+{
+"word": "cat.",
+"start": 25.467,
+"end": 25.642
+},
+{
+"word": "Karatnya",
+"start": 26.317,
+"end": 26.767
+},
+{
+"word": "tumbuh",
+"start": 26.767,
+"end": 27.105
+},
+{
+"word": "di",
+"start": 27.105,
+"end": 27.217
+},
+{
+"word": "bawah",
+"start": 27.217,
+"end": 27.498
+},
+{
+"word": "cat,",
+"start": 27.498,
+"end": 27.667
+},
+{
+"word": "nggak",
+"start": 27.914,
+"end": 28.218
+},
+{
+"word": "kelihatan,",
+"start": 28.218,
+"end": 28.765
+},
+{
+"word": "tahu-tahu",
+"start": 29.015,
+"end": 29.439
+},
+{
+"word": "catnya",
+"start": 29.439,
+"end": 29.757
+},
+{
+"word": "menggelembung.",
+"start": 29.757,
+"end": 30.445
+},
+{
+"word": "Yang",
+"start": 31.404,
+"end": 31.696
+},
+{
+"word": "bikin",
+"start": 31.696,
+"end": 32.061
+},
+{
+"word": "repot,",
+"start": 32.061,
+"end": 32.426
+},
+{
+"word": "garam",
+"start": 32.426,
+"end": 32.792
+},
+{
+"word": "laut",
+"start": 32.792,
+"end": 33.084
+},
+{
+"word": "itu",
+"start": 33.084,
+"end": 33.303
+},
+{
+"word": "narik",
+"start": 33.303,
+"end": 33.668
+},
+{
+"word": "air",
+"start": 33.668,
+"end": 33.887
+},
+{
+"word": "dari",
+"start": 33.887,
+"end": 34.179
+},
+{
+"word": "udara.",
+"start": 34.179,
+"end": 34.544
+},
+{
+"word": "Motornya",
+"start": 35.064,
+"end": 35.578
+},
+{
+"word": "kelihatan",
+"start": 35.578,
+"end": 36.156
+},
+{
+"word": "kering,",
+"start": 36.156,
+"end": 36.541
+},
+{
+"word": "tapi",
+"start": 36.541,
+"end": 36.798
+},
+{
+"word": "kerak",
+"start": 36.798,
+"end": 37.119
+},
+{
+"word": "garam",
+"start": 37.119,
+"end": 37.44
+},
+{
+"word": "di",
+"start": 37.44,
+"end": 37.569
+},
+{
+"word": "kolong",
+"start": 37.569,
+"end": 37.954
+},
+{
+"word": "tetap",
+"start": 37.954,
+"end": 38.276
+},
+{
+"word": "lembap,",
+"start": 38.276,
+"end": 38.661
+},
+{
+"word": "dan",
+"start": 38.661,
+"end": 38.854
+},
+{
+"word": "karatnya",
+"start": 38.854,
+"end": 39.368
+},
+{
+"word": "jalan",
+"start": 39.368,
+"end": 39.689
+},
+{
+"word": "terus.",
+"start": 39.689,
+"end": 40.01
+},
+{
+"word": "Makanya",
+"start": 40.746,
+"end": 41.14
+},
+{
+"word": "di",
+"start": 41.14,
+"end": 41.253
+},
+{
+"word": "pesisir",
+"start": 41.253,
+"end": 41.646
+},
+{
+"word": "Semarang",
+"start": 41.646,
+"end": 42.096
+},
+{
+"word": "yang",
+"start": 42.096,
+"end": 42.322
+},
+{
+"word": "langganan",
+"start": 42.322,
+"end": 42.828
+},
+{
+"word": "rob,",
+"start": 42.828,
+"end": 42.996
+},
+{
+"word": "ada",
+"start": 43.383,
+"end": 43.556
+},
+{
+"word": "motor",
+"start": 43.556,
+"end": 43.842
+},
+{
+"word": "yang",
+"start": 43.842,
+"end": 44.072
+},
+{
+"word": "rangkanya",
+"start": 44.072,
+"end": 44.588
+},
+{
+"word": "sampai",
+"start": 44.588,
+"end": 44.932
+},
+{
+"word": "keropos",
+"start": 44.932,
+"end": 45.334
+},
+{
+"word": "dan",
+"start": 45.334,
+"end": 45.506
+},
+{
+"word": "patah.",
+"start": 45.506,
+"end": 45.793
+},
+{
+"word": "Jadi",
+"start": 46.634,
+"end": 46.911
+},
+{
+"word": "habis",
+"start": 46.911,
+"end": 47.257
+},
+{
+"word": "lewat",
+"start": 47.257,
+"end": 47.604
+},
+{
+"word": "rob,",
+"start": 47.604,
+"end": 47.811
+},
+{
+"word": "siram",
+"start": 48.002,
+"end": 48.323
+},
+{
+"word": "pakai",
+"start": 48.323,
+"end": 48.643
+},
+{
+"word": "air",
+"start": 48.643,
+"end": 48.835
+},
+{
+"word": "tawar",
+"start": 48.835,
+"end": 49.155
+},
+{
+"word": "hari",
+"start": 49.155,
+"end": 49.411
+},
+{
+"word": "itu",
+"start": 49.411,
+"end": 49.604
+},
+{
+"word": "juga.",
+"start": 49.604,
+"end": 49.86
+},
+{
+"word": "Kolong,",
+"start": 50.496,
+"end": 50.933
+},
+{
+"word": "pelek,",
+"start": 50.933,
+"end": 51.297
+},
+{
+"word": "sama",
+"start": 51.297,
+"end": 51.589
+},
+{
+"word": "bagian",
+"start": 51.589,
+"end": 52.026
+},
+{
+"word": "bawah",
+"start": 52.026,
+"end": 52.39
+},
+{
+"word": "jangan",
+"start": 52.39,
+"end": 52.827
+},
+{
+"word": "kelewat.",
+"start": 52.827,
+"end": 53.337
+},
+{
+"word": "Kalau",
+"start": 53.947,
+"end": 54.219
+},
+{
+"word": "sampai",
+"start": 54.219,
+"end": 54.545
+},
+{
+"word": "terendam,",
+"start": 54.545,
+"end": 54.98
+},
+{
+"word": "jangan",
+"start": 54.98,
+"end": 55.306
+},
+{
+"word": "langsung",
+"start": 55.306,
+"end": 55.741
+},
+{
+"word": "dinyalakan.",
+"start": 55.741,
+"end": 56.285
+},
+{
+"word": "Motormu",
+"start": 56.93,
+"end": 57.329
+},
+{
+"word": "sering",
+"start": 57.329,
+"end": 57.67
+},
+{
+"word": "lewat",
+"start": 57.67,
+"end": 57.954
+},
+{
+"word": "rob",
+"start": 57.954,
+"end": 58.125
+},
+{
+"word": "juga?",
+"start": 58.125,
+"end": 58.353
+},
+{
+"word": "Follow",
+"start": 58.91,
+"end": 59.285
+},
+{
+"word": "buat",
+"start": 59.285,
+"end": 59.535
+},
+{
+"word": "fakta",
+"start": 59.535,
+"end": 59.847
+},
+{
+"word": "rumah",
+"start": 59.847,
+"end": 60.16
+},
+{
+"word": "berikutnya!",
+"start": 60.16,
+"end": 60.785
+}
+]
+}

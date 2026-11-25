@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Cek sutradara: membaca data beat (B), kamera (CAM_*), judul (<Title>) dan SFX dari remotion/src/vNN/VideoNN.tsx
-// + words.json, lalu menilai ritme, kamera, waktu baca, dan jeda sunyi. Aturan: .claude/skills/sutradara/SKILL.md
+// + words.json, lalu menilai ritme, kamera, waktu baca, dan jeda sunyi. Aturan: arsip/skills/sutradara/SKILL.arsip.md
 // Pakai: node tools/cek-sutradara.mjs 08      (keluar 1 bila ada GAGAL)
 import fs from 'node:fs';
 import path from 'node:path';
@@ -9,7 +9,7 @@ const NN = (process.argv[2] || '').padStart(2, '0');
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const src = path.join(root, `remotion/src/v${NN}/Video${NN}.tsx`);
 const jsonP = path.join(root, `remotion/src/v${NN}/beats.json`);
-const J = fs.existsSync(jsonP) ? JSON.parse(fs.readFileSync(jsonP, 'utf8')) : null; // video berbasis kit/template (style/gaya-penjelasan.md)
+const J = fs.existsSync(jsonP) ? JSON.parse(fs.readFileSync(jsonP, 'utf8')) : null; // video berbasis kit/template (arsip/style-lama/gaya-penjelasan.md)
 if (!fs.existsSync(src) && !J) { console.error(`tidak ada ${src} atau ${jsonP}`); process.exit(2); }
 const code = fs.existsSync(src) ? fs.readFileSync(src, 'utf8') : '';
 const ev = (s, scope = {}) => new Function(...Object.keys(scope), `return (${s});`)(...Object.values(scope));

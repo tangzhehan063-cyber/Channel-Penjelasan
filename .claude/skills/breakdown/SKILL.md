@@ -5,13 +5,11 @@ description: Adegan "breakdown" (potongan/penampang objek berlapis yang terurai,
 # /breakdown: bongkar objek berlapis, satu mesin, banyak gaya
 
 Konsep dari skill breakdown asli (exploded view), **diimplementasikan di mesin repo ini** (Remotion + three.js). Kit HyperFrames dari skill asli tidak tersedia; HyperFrames sendiri bisa dipakai (lihat gaya 4).
-Naskah, subtitle, suara, caption, tata letak video bernomor tetap mengikuti `CLAUDE.md` + `WORKFLOW.md` (gerbang T1–T7, KUNCI KARAKTER). Gaya selain "isometrik terang" belum diizinkan di video bernomor (pengecualian KUNCI KARAKTER belum diputuskan user); pakai hanya untuk sampel sampai user memutuskan.
-
-> **Aturan E1 (23 Nov 2026):** untuk video E1, pakai hanya mesin Remotion + three.js (gaya 1 sebagai dasar); **gaya 4 HyperFrames dilarang**; tanpa API AI. Pakai selektif sesuai `WORKFLOW.md` bagian Breakdown.
+> **Aturan aktif (25 Nov 2026):** untuk video baru, breakdown dibuat dalam **gaya E1-03** (`style/gaya-e1-03.md`): dunia miniatur yang sama, kamera tele (isometrik-semu) di kanvas yang sama, label bergaris ke titik 3D, contoh acuan = adegan lantai 2 + kanopi + zona kabel di `remotion/src/e1/Tiang03.tsx` (22–33,6 dtk). Dipakai selektif di fase 4–5 `WORKFLOW.md` (maks. satu momen khas per video), bersama skill pustaka `isometric-animation`. Tanpa API AI; **gaya 4 HyperFrames dilarang**. Tabel gaya 1–4 di bawah = katalog sampel lama (rujukan teknik, bukan gaya video baru); acuan "KUNCI KARAKTER", `v08`/`v14`, `cek-sutradara` hanya untuk video 3D lama.
 
 ## Cara kerja inti (semua gaya sama)
 1. **Satu objek berlapis**, balok/silinder bulat, posisi lapisan fungsi waktu: `terurai` (e: 0 rapat → 1 terbuka), lalu **sorot** satu lapisan (yang lain meredup), label nama muncul bergaris ke titik tempel.
-2. **Kamera ortografis isometrik** dengan kunci `{t, az, el, zoom, look}`: `az` (putar), `el` (naik/turun), bawaan 45°/35,264°. Ganti sudut tiap beat (putar pelan, tampak atas `el` 60–80°, sisi `az` ±65–80°, kembali isometrik). Hindari `az` > 80° pada objek tipis (tampak tepi). Detail kosakata: `style/gaya-penjelasan.md` bagian 11 dan `style/rencana-sudut-kamera-iso.md`.
+2. **Kamera ortografis isometrik** dengan kunci `{t, az, el, zoom, look}`: `az` (putar), `el` (naik/turun), bawaan 45°/35,264°. Ganti sudut tiap beat (putar pelan, tampak atas `el` 60–80°, sisi `az` ±65–80°, kembali isometrik). Hindari `az` > 80° pada objek tipis (tampak tepi). Kosakata lama: `arsip/style-lama/gaya-penjelasan.md` bagian 11 dan `arsip/style-lama/rencana-sudut-kamera-iso.md`.
 3. **Label = nama saja** (maks. 2 baris), diletakkan di tepi layar sisi berlawanan titik tempel (tidak pernah terpotong layar), garis penunjuk ke titik pada lapisan; nomor urut kecil. Objek ≥ 1/3 tinggi layar.
 4. Proyeksi label: `projIso(cam, titik)` di `remotion/src/kit/waktu.ts`.
 

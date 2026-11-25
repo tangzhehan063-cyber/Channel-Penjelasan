@@ -1,4 +1,4 @@
-// Kit Penjelasan (rencana kit, STATUS 18 Nov 2026). Impor semua dari '../kit'. Panduan: style/gaya-penjelasan.md
+// Kit Penjelasan (rencana kit, STATUS 18 Nov 2026). Impor semua dari '../kit'. Panduan: arsip/style-lama/gaya-penjelasan.md
 export * from './waktu';
 export * from './stage';
 export * from './prim';

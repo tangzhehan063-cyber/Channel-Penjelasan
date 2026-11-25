@@ -1,6 +1,6 @@
 ---
 name: script-writer
-description: Dipanggil otomatis setiap kali Claude diminta menulis, mengembangkan, menganalisis, atau merevisi script/naskah video Fakta Rumah. Mencakup kemampuan menulis, storytelling, hook, retention, dan revisi script (durasi 47–50 detik, narasi Indonesia natural). Hanya fokus kualitas script, tidak mengubah workflow produksi.
+description: Dipanggil otomatis setiap kali Claude diminta menulis, mengembangkan, menganalisis, atau merevisi script/naskah video Fakta Rumah. Mencakup kemampuan menulis, storytelling, hook, retention, dan revisi script (durasi 50–70 detik, ±110–155 kata, narasi Indonesia natural). Fase 1–2 `WORKFLOW.md`; hanya fokus kualitas script.
 ---
 
 # SCRIPT WRITER — FAKTA RUMAH

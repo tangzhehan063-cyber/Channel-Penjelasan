@@ -1,4 +1,4 @@
-// Latar berpalet: identitas channel tidak bergantung pada warna latar putih/krem (lihat style/identitas.md dan style/palet.json).
+// Latar berpalet: identitas channel tidak bergantung pada warna latar putih/krem (lihat arsip/style-lama/identitas.md dan style/palet.json).
 // 'krem' = latar baku (PaperPlus apa adanya, video #1–#14 tidak berubah). Preset lain: gradien palet + tekstur kertas dicampur.
 import {AbsoluteFill, Img, staticFile, useCurrentFrame} from 'remotion';
 import pal from '../../../style/palet.json';

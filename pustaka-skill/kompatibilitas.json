@@ -1,0 +1,414 @@
+{
+ "_catatan": "Lapisan integrasi channel. File SKILL.md asli tidak diubah. status: utama|cocok|terbatas|dilarang|tidak-relevan. fase = nomor fase WORKFLOW.md.",
+ "skill": {
+  "ad-video-skills/ad-creative-video": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  "ad-video-skills/launch-video": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  "ad-video-skills/testimonial-video": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  "b-roll-skills/talking-head-b-roll": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "b-roll talking head",
+   "catatan": "Channel tanpa rekaman presenter."
+  },
+  "data-animation-skills/animated-infographic": {
+   "status": "cocok",
+   "fase": [
+    5
+   ],
+   "kata": "infografis kartu angka statistik ikon",
+   "catatan": ""
+  },
+  "data-animation-skills/chart-animation": {
+   "status": "cocok",
+   "fase": [
+    5
+   ],
+   "kata": "grafik batang garis data angka statistik chart",
+   "catatan": ""
+  },
+  "data-animation-skills/presentation-video": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  "ecommerce-video-skills/photo-slideshow": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  "ecommerce-video-skills/product-demo-video": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  "ecommerce-video-skills/promo-video": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  "explainer-video-skills/diagram-animation": {
+   "status": "utama",
+   "fase": [
+    5
+   ],
+   "kata": "diagram panah alur flowchart angka count up hitung grafik reveal",
+   "catatan": ""
+  },
+  "explainer-video-skills/explainer-video": {
+   "status": "utama",
+   "fase": [
+    4,
+    5
+   ],
+   "kata": "explainer penjelasan storyboard narasi sinkron adegan cara kerja",
+   "catatan": "Naskah & VO sudah dikunci di fase 2-3; pakai bagian storyboard/scene build/sinkron saja."
+  },
+  "explainer-video-skills/isometric-animation": {
+   "status": "utama",
+   "fase": [
+    4,
+    5
+   ],
+   "kata": "isometrik denah breakdown bongkar lapisan exploded tumpuk lantai miniatur sudut miring",
+   "catatan": "Inti gaya E1-03. Kamera tele (FOV ±3°) di satu ThreeCanvas, bukan kanvas ortografis terpisah (lihat cek-bug E1 #03). Abaikan deliverable HTML; bangun sebagai adegan Remotion."
+  },
+  "explainer-video-skills/whiteboard-animation": {
+   "status": "terbatas",
+   "fase": [
+    5
+   ],
+   "kata": "garis digambar stroke draw-on sketsa",
+   "catatan": "Hanya teknik stroke draw-on untuk garis/panah; bukan gaya video."
+  },
+  "explainer-video-skills/wrapped-video": {
+   "status": "terbatas",
+   "fase": [
+    5
+   ],
+   "kata": "rekap data per baris template",
+   "catatan": "Jarang relevan."
+  },
+  "freelance-motion-skills/brand-motion-guidelines": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  "freelance-motion-skills/client-revisions": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  "freelance-motion-skills/creative-brief": {
+   "status": "terbatas",
+   "fase": [
+    1
+   ],
+   "kata": "brief",
+   "catatan": "Rujukan struktur saja."
+  },
+  "freelance-motion-skills/motion-pricing": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  "freelance-motion-skills/video-delivery-specs": {
+   "status": "cocok",
+   "fase": [
+    7,
+    8
+   ],
+   "kata": "ekspor codec bitrate loudness lufs spesifikasi platform shorts encode",
+   "catatan": ""
+  },
+  "generative-illustration-skills/generative-illustration": {
+   "status": "dilarang",
+   "fase": [],
+   "kata": "ilustrasi gambar ai",
+   "catatan": "Butuh API gambar AI (OpenRouter): melanggar aturan visual 100% kode."
+  },
+  "javascript-animation-skills/javascript-animation": {
+   "status": "terbatas",
+   "fase": [
+    5
+   ],
+   "kata": "canvas digambar per frame tanpa aset",
+   "catatan": "Prinsip saja; renderer tetap Remotion."
+  },
+  "javascript-animation-skills/soundtrack": {
+   "status": "cocok",
+   "fase": [
+    6
+   ],
+   "kata": "musik latar sfx bunyi audio sinkron potongan",
+   "catatan": "Hanya bagian musik dari kode (Web Audio/sintesis). references/ai-music.md TIDAK dipakai."
+  },
+  "kinetic-typography-skills/kinetic-typography": {
+   "status": "cocok",
+   "fase": [
+    5
+   ],
+   "kata": "tipografi judul kicker teks bergerak reveal huruf kata",
+   "catatan": ""
+  },
+  "lower-thirds-skills/lower-thirds": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  "manim-skills/manim": {
+   "status": "terbatas",
+   "fase": [
+    5
+   ],
+   "kata": "matematika rumus",
+   "catatan": "Renderer lain (Manim): jangan dipasang; ambil prinsip saja."
+  },
+  "map-animation-skills/map-animation": {
+   "status": "cocok",
+   "fase": [
+    5
+   ],
+   "kata": "peta lokasi kota rute wilayah",
+   "catatan": ""
+  },
+  "motion-design-skills/after-effects": {
+   "status": "terbatas",
+   "fase": [
+    8
+   ],
+   "kata": "after effects ekspor",
+   "catatan": "Bukan alat proyek; hanya bagian ekspor/warna sebagai rujukan."
+  },
+  "motion-design-skills/animation-principles": {
+   "status": "utama",
+   "fase": [
+    5
+   ],
+   "kata": "easing gerak alami kaku overshoot stagger durasi timing",
+   "catatan": ""
+  },
+  "motion-design-skills/beat-sync-editing": {
+   "status": "utama",
+   "fase": [
+    4,
+    6
+   ],
+   "kata": "potongan ritme pacing transisi match cut timeline edit",
+   "catatan": ""
+  },
+  "motion-design-skills/color-motion": {
+   "status": "cocok",
+   "fase": [
+    5,
+    8
+   ],
+   "kata": "warna palet grading gradien transisi warna kusam",
+   "catatan": ""
+  },
+  "motion-design-skills/logo-animation": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  "motion-design-skills/motion-art-direction": {
+   "status": "utama",
+   "fase": [
+    4
+   ],
+   "kata": "arahan visual bahasa gerak tone pacing konsisten apa yang dianimasikan",
+   "catatan": "Identitas visual E1-03 (style/gaya-e1-03.md) menang atas saran gaya skill."
+  },
+  "motion-design-skills/motion-background": {
+   "status": "cocok",
+   "fase": [
+    5
+   ],
+   "kata": "latar bergerak langit gradien",
+   "catatan": "Latar E1-03 = langit gradien + awan SVG; jangan ganti dengan shader berat."
+  },
+  "motion-design-skills/remotion-video": {
+   "status": "utama",
+   "fase": [
+    5,
+    6,
+    7
+   ],
+   "kata": "remotion komposisi render audio sinkron sequence frame",
+   "catatan": "Proyek Remotion sudah ada di remotion/: jangan inisialisasi proyek baru. Render lewat tools/render-bagian.sh."
+  },
+  "motion-design-skills/shot-composition": {
+   "status": "utama",
+   "fase": [
+    4
+   ],
+   "kata": "komposisi frame fokus safe area kamera parallax 9:16 tata letak",
+   "catatan": ""
+  },
+  "talking-head-skills/talking-head": {
+   "status": "dilarang",
+   "fase": [],
+   "kata": "presenter wajah",
+   "catatan": "Butuh AI video/ElevenLabs clone dari foto: dilarang & di luar format channel."
+  },
+  "text-message-video-skills/text-message-animation": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  "tiktok-video-skills/caption-animation": {
+   "status": "terbatas",
+   "fase": [
+    6
+   ],
+   "kata": "subtitle caption karaoke kata aktif teks",
+   "catatan": "Timing kata dari tools/align_teks.py (Whisper diblokir di cloud). Komponen Captions di remotion/src/kit/teks sudah dipakai; skill ini untuk gaya, bukan pipeline transkripsi."
+  },
+  "tiktok-video-skills/countdown-video": {
+   "status": "cocok",
+   "fase": [
+    5
+   ],
+   "kata": "hitung mundur timer angka berguling",
+   "catatan": ""
+  },
+  "tiktok-video-skills/lower-thirds": {
+   "status": "cocok",
+   "fase": [
+    5
+   ],
+   "kata": "label nama keterangan bawah kartu sumber",
+   "catatan": ""
+  },
+  "tiktok-video-skills/short-form-video": {
+   "status": "utama",
+   "fase": [
+    4
+   ],
+   "kata": "shorts reels hook 3 detik retensi pattern interrupt vertikal safe area loop",
+   "catatan": ""
+  },
+  "web-animation-skills/60fps-animation": {
+   "status": "terbatas",
+   "fase": [
+    5
+   ],
+   "kata": "performa halus",
+   "catatan": "Prinsip performa saja (web)."
+  },
+  "web-animation-skills/accessible-animation": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  "web-animation-skills/ascii-animation": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  "web-animation-skills/glassmorphism": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  "web-animation-skills/gsap-web": {
+   "status": "terbatas",
+   "fase": [
+    5
+   ],
+   "kata": "gsap timeline",
+   "catatan": "Konsep timeline saja; animasi tetap fungsi useCurrentFrame."
+  },
+  "web-animation-skills/lottie-animation": {
+   "status": "terbatas",
+   "fase": [
+    5
+   ],
+   "kata": "lottie ikon",
+   "catatan": "Hanya bila aset Lottie lokal sudah disetujui."
+  },
+  "web-animation-skills/micro-interaction": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  "web-animation-skills/page-transition-animation": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  "web-animation-skills/svg-animation": {
+   "status": "terbatas",
+   "fase": [
+    5
+   ],
+   "kata": "svg path garis ikon overlay",
+   "catatan": "Untuk overlay 2D (label, ikon, panah)."
+  },
+  "webgl-animation-skills/particle-system": {
+   "status": "cocok",
+   "fase": [
+    5
+   ],
+   "kata": "partikel air aliran debu asap hujan percikan arus listrik",
+   "catatan": "Hemat: maks ratusan partikel, posisi dari frame + seed."
+  },
+  "webgl-animation-skills/shader-glsl": {
+   "status": "terbatas",
+   "fase": [
+    5
+   ],
+   "kata": "shader efek distorsi noise",
+   "catatan": "Mahal di CPU (swangle). Hanya bila tak ada cara lain."
+  },
+  "webgl-animation-skills/threejs-animation": {
+   "status": "utama",
+   "fase": [
+    5
+   ],
+   "kata": "three 3d kamera lerp instancing geometri dispose memori adegan",
+   "catatan": "Semua gerak dari useCurrentFrame (bukan clock/useFrame). Bagian disposal wajib dipatuhi: komponen & Shape di tingkat modul/useMemo. Tanpa bloom/DOF berat (CPU)."
+  },
+  "youtube-video-skills/audiogram": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  "youtube-video-skills/youtube-intro-outro": {
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  }
+ }
+}

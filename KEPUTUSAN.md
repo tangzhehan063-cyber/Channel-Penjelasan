@@ -20,3 +20,7 @@ Tambahkan baris baru di bawah, jangan mengedit yang lama (beri tanggal). Bila do
 | 23 Nov | E1: semua aset visual dibuat dari kode (Remotion + Three.js + React/TS + CSS/SVG); API AI eksternal untuk gambar/video/3D/tekstur dilarang; AI hanya asisten kode; cek `node tools/cek-mandiri.mjs`. Struktur workflow, gerbang approval, evaluasi tidak berubah | `WORKFLOW.md`, `e1/AUDIT-ketergantungan-api.md` |
 | 23 Nov | E1: naskah 50–70 dtk (±110–155 kata), tidak terlalu pendek dan tidak terlalu panjang; disisipi perbandingan kasus nyata (real-life) yang dicari sendiri, bersumber dan berlisensi | `WORKFLOW.md` Perbandingan real-life |
 | 23 Nov | Topik E1 dicari sendiri (bukan dari usulan awal); contoh topik dari user hanya ilustrasi | chat |
+| 25 Nov | Patokan visual aktif = video E1-03 "Tiang Listrik" (dunia miniatur 3D distilisasi, `style/gaya-e1-03.md`); arah "semi-realistis"/PBR diarsipkan | chat (user) |
+| 25 Nov | Urutan produksi tunggal: Riset → Naskah dikunci → VO final → Perencanaan visual dari waktu VO → Produksi visual dengan skill → Integrasi → Render final → QC (`WORKFLOW.md`) | chat (user) |
+| 25 Nov | Pustaka 56 skill motion iart-ai disimpan lokal di `pustaka-skill/`, dipilih lewat registry/router, tidak memuat semua skill; skill tidak boleh mengubah identitas visual atau renderer | chat (user) |
+| 25 Nov | Claude tidak merge ke `main` sendiri (menggantikan baris 9 Nov dan 16 Nov); PR hanya bila user minta | `CLAUDE.md` |

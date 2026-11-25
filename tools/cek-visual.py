@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Cek visual "fakta rumah": perpaduan warna material, kontras, dan bentuk, langsung dari still hasil render.
 
-Dua mode (aturan: style/identitas.md, palet: style/palet.json):
+Dua mode (aturan: arsip/style-lama/identitas.md, palet: style/palet.json):
   python3 tools/cek-visual.py palet
       validasi semua preset palet (kontras aksen/teks, tinta, beda hue). Keluar 1 bila ada GAGAL.
   python3 tools/cek-visual.py frame <preset> <still1.png> [still2.png ...] [--extra #f6c445,#...]

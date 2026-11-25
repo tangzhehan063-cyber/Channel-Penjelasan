@@ -10,7 +10,7 @@
 | Video ID | |
 | Topic | |
 | Date published | |
-| Visual style | Semi-realistic |
+| Visual style | Gaya E1-03 (dunia miniatur 3D distilisasi) |
 | Duration | |
 | Hook | |
 | Production time | |
@@ -28,14 +28,15 @@
 ## 2. Approval (pemilik channel)
 Isi tanggal hanya setelah user menjawab di chat.
 - [ ] Topik final: 
-- [ ] Script final: 
+- [ ] Script final (dikunci): 
+- [ ] VO final: 
 - [ ] Style reference: 
 - [ ] Render batch besar (komposisi + estimasi waktu disetujui): 
 - [ ] Publish: 
 - [ ] Merge ke `main`: 
 
-## 3. Rencana adegan visual (isi sebelum render, WORKFLOW Step 3 dan 09–10)
-| Shot | Tujuan penjelasan | Objek utama | Geometri | Metode visual | Gerakan | Kamera | Komposisi | Material | Lighting | Durasi |
+## 3. Rencana adegan visual (fase 4 `WORKFLOW.md`, dari waktu VO final; tabel `style/gaya-e1-03.md` §7)
+| Adegan (detik VO) | Kalimat VO | Tujuan penjelasan | Objek utama | Metode visual | Gerakan | Kamera (mode + gerak + alasan) | Teks/label | Skill pustaka | Transisi/SFX | Durasi |
 |---|---|---|---|---|---|---|---|---|---|---|
 | | | | | | | | | | | |
 - [ ] `node tools/cek-mandiri.mjs` OK
