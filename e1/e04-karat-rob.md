@@ -28,7 +28,7 @@
 ## 2. Approval (pemilik channel)
 Isi tanggal hanya setelah user menjawab di chat.
 - [x] Topik final: 25 Nov ("iya pakai topik ini")
-- [ ] Script final (dikunci): 
+- [x] Script final (dikunci): 25 Nov, hook A, v1
 - [ ] VO final: 
 - [ ] Style reference: 
 - [ ] Render batch besar (komposisi + estimasi waktu disetujui): 

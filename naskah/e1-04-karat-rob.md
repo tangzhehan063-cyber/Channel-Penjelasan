@@ -1,4 +1,4 @@
-# E1 #04: Kenapa Air Rob Bikin Motor Karatan? (DRAF fase 2, menunggu ACC naskah)
+# E1 #04: Kenapa Air Rob Bikin Motor Karatan? (ACC user 25 Nov, hook A, DIKUNCI v1)
 
 Hook A (konsep ACC 25 Nov). Target 50–70 dtk.
 
