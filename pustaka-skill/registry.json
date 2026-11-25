@@ -1,0 +1,986 @@
+{
+ "dibuat": "node tools/skill-registry.mjs",
+ "jumlah": 56,
+ "skills": [
+  {
+   "id": "explainer-video-skills/diagram-animation",
+   "nama": "diagram-animation",
+   "pack": "explainer-video-skills",
+   "path": "pustaka-skill/motion/explainer-video-skills/skills/diagram-animation/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/explainer-video-skills/skills/diagram-animation/references/diagram-and-chart-recipes.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"animate this diagram\", \"build a flowchart that reveals step by step\", \"animate an architecture/sequence diagram\", \"make a chart animate in\", \"grow the bars / draw the line / count up the number\", \"show data flowing along a connector\", or \"turn a static diagram into a guided reveal\". Covers SVG, Framer Motion, D3, and Remotion.",
+   "status": "utama",
+   "fase": [
+    5
+   ],
+   "kata": "diagram panah alur flowchart angka count up hitung grafik reveal",
+   "catatan": ""
+  },
+  {
+   "id": "explainer-video-skills/explainer-video",
+   "nama": "explainer-video",
+   "pack": "explainer-video-skills",
+   "path": "pustaka-skill/motion/explainer-video-skills/skills/explainer-video/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/explainer-video-skills/skills/explainer-video/references/script-to-screen-workflow.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make an explainer video\", \"turn this into a short explainer\", \"write a script and storyboard for a product video\", \"produce a how-it-works/onboarding video\", \"sync narration and captions\", or \"build a 30–90s animated explainer\". Covers script→storyboard→scene build→narration/caption sync→edit→polish.",
+   "status": "utama",
+   "fase": [
+    4,
+    5
+   ],
+   "kata": "explainer penjelasan storyboard narasi sinkron adegan cara kerja",
+   "catatan": "Naskah & VO sudah dikunci di fase 2-3; pakai bagian storyboard/scene build/sinkron saja."
+  },
+  {
+   "id": "explainer-video-skills/isometric-animation",
+   "nama": "isometric-animation",
+   "pack": "explainer-video-skills",
+   "path": "pustaka-skill/motion/explainer-video-skills/skills/isometric-animation/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/explainer-video-skills/skills/isometric-animation/references/isometric-recipes.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make an isometric animation\", \"build a 2.5D isometric scene\", \"create an isometric infographic\", \"animate an exploded diagram\", \"do an isometric city/stack build\", \"show stacked layers in iso\", \"extrude blocks with depth\", or \"add a gentle camera drift to an iso scene\". Covers CSS 3D transforms, SVG iso planes, and Three.js OrthographicCamera for true 3D iso — no build step.",
+   "status": "utama",
+   "fase": [
+    4,
+    5
+   ],
+   "kata": "isometrik denah breakdown bongkar lapisan exploded tumpuk lantai miniatur sudut miring",
+   "catatan": "Inti gaya E1-03. Kamera tele (FOV ±3°) di satu ThreeCanvas, bukan kanvas ortografis terpisah (lihat cek-bug E1 #03). Abaikan deliverable HTML; bangun sebagai adegan Remotion."
+  },
+  {
+   "id": "motion-design-skills/animation-principles",
+   "nama": "animation-principles",
+   "pack": "motion-design-skills",
+   "path": "pustaka-skill/motion/motion-design-skills/skills/animation-principles/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/motion-design-skills/skills/animation-principles/references/easing-curves.md",
+    "pustaka-skill/motion/motion-design-skills/skills/animation-principles/references/easing-graph-editor.md",
+    "pustaka-skill/motion/motion-design-skills/skills/animation-principles/references/twelve-principles.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make this animation feel natural\", \"fix motion that feels stiff/floaty/cheap\", \"my animation looks robotic\", \"choose an easing curve\", \"how do I use the Graph Editor\", \"add overshoot or bounce\", \"Easy Ease isn't enough\", \"make snappy motion\", \"pick a duration for this transition\", \"stagger a list animation\", \"sync animation to a beat\", or \"review motion for good timing\". It is the tech-agnostic foundation for deciding how something should move.",
+   "status": "utama",
+   "fase": [
+    5
+   ],
+   "kata": "easing gerak alami kaku overshoot stagger durasi timing",
+   "catatan": ""
+  },
+  {
+   "id": "motion-design-skills/beat-sync-editing",
+   "nama": "beat-sync-editing",
+   "pack": "motion-design-skills",
+   "path": "pustaka-skill/motion/motion-design-skills/skills/beat-sync-editing/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/motion-design-skills/skills/beat-sync-editing/references/editing-techniques.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"cut to the beat\", \"fix the pacing\", \"edit this sequence\", \"sync cuts to music/BPM\", \"add a match cut / J-cut / L-cut\", \"build a speed ramp\", or \"plan a shot sequence / edit timeline\". Covers editing rhythm, transitions, retiming, and translating an edit plan to an NLE or a code timeline (Remotion/AE frames).",
+   "status": "utama",
+   "fase": [
+    4,
+    6
+   ],
+   "kata": "potongan ritme pacing transisi match cut timeline edit",
+   "catatan": ""
+  },
+  {
+   "id": "motion-design-skills/motion-art-direction",
+   "nama": "motion-art-direction",
+   "pack": "motion-design-skills",
+   "path": "pustaka-skill/motion/motion-design-skills/skills/motion-art-direction/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/motion-design-skills/skills/motion-art-direction/references/direction-playbook.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"direct a motion graphics video\", \"do creative/art direction for a video\", \"define a motion language\", \"set the tone and pacing\", \"make the animation feel consistent\", \"decide what to animate (and what not to)\", \"turn a brief/brand into motion choices\", or needs the senior creative judgment that sits above specific techniques (gsap/lottie/shader). Covers motion language, tone & energy, pacing/rhythm, motion hierarchy, restraint, and cross-shot consistency.",
+   "status": "utama",
+   "fase": [
+    4
+   ],
+   "kata": "arahan visual bahasa gerak tone pacing konsisten apa yang dianimasikan",
+   "catatan": "Identitas visual E1-03 (style/gaya-e1-03.md) menang atas saran gaya skill."
+  },
+  {
+   "id": "motion-design-skills/remotion-video",
+   "nama": "remotion-video",
+   "pack": "motion-design-skills",
+   "path": "pustaka-skill/motion/motion-design-skills/skills/remotion-video/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/motion-design-skills/skills/remotion-video/references/api-and-patterns.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make a video with Remotion\", \"create a programmatic/data-driven video in React\", \"render an MP4/GIF from code\", \"animate with useCurrentFrame/interpolate/spring\", \"sync video to audio/beats\", or \"render a templated video per record headlessly\". Covers building React compositions and rendering them via CLI or @remotion/renderer.",
+   "status": "utama",
+   "fase": [
+    5,
+    6,
+    7
+   ],
+   "kata": "remotion komposisi render audio sinkron sequence frame",
+   "catatan": "Proyek Remotion sudah ada di remotion/: jangan inisialisasi proyek baru. Render lewat tools/render-bagian.sh."
+  },
+  {
+   "id": "motion-design-skills/shot-composition",
+   "nama": "shot-composition",
+   "pack": "motion-design-skills",
+   "path": "pustaka-skill/motion/motion-design-skills/skills/shot-composition/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/motion-design-skills/skills/shot-composition/references/camera-and-grids.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"compose a frame\", \"set up a grid\", \"plan shot composition\", \"place the focal point\", \"decide where elements enter and exit\", \"add a parallax/camera move\", \"adapt a layout for 16:9 / 9:16 / 1:1\", or \"keep content inside safe areas\". Covers grids, safe areas, focal hierarchy, and 2D/3D camera framing.",
+   "status": "utama",
+   "fase": [
+    4
+   ],
+   "kata": "komposisi frame fokus safe area kamera parallax 9:16 tata letak",
+   "catatan": ""
+  },
+  {
+   "id": "tiktok-video-skills/short-form-video",
+   "nama": "short-form-video",
+   "pack": "tiktok-video-skills",
+   "path": "pustaka-skill/motion/tiktok-video-skills/skills/short-form-video/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/tiktok-video-skills/skills/short-form-video/references/retention-pacing.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make a Reels/TikTok/YouTube Shorts video\", \"build a short-form video template\", \"write a hook for a short\", \"edit for retention\", \"add pattern interrupts\", \"make a video loop\", \"fix the first 3 seconds\", \"pace cuts for a vertical video\", or \"set up 9:16 safe areas\". Covers the hook→retention→loop grammar of vertical short-form (distinct from a launch hype film).",
+   "status": "utama",
+   "fase": [
+    4
+   ],
+   "kata": "shorts reels hook 3 detik retensi pattern interrupt vertikal safe area loop",
+   "catatan": ""
+  },
+  {
+   "id": "webgl-animation-skills/threejs-animation",
+   "nama": "threejs-animation",
+   "pack": "webgl-animation-skills",
+   "path": "pustaka-skill/motion/webgl-animation-skills/skills/threejs-animation/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/webgl-animation-skills/skills/threejs-animation/references/r3f-and-perf.md",
+    "pustaka-skill/motion/webgl-animation-skills/skills/threejs-animation/references/resource-disposal.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"build a 3D hero section or WebGL background\", \"animate a Three.js scene\", \"play or crossfade GLTF animation clips\", \"move/lerp the camera or link it to scroll\", \"render thousands of objects with InstancedMesh\", \"set up React Three Fiber (R3F) motion\", \"add bloom/DOF post-processing\", or \"keep a Three.js/R3F animation smooth and leak-free (dispose geometries/materials/textures, free GPU memory on unmount)\". Covers scenes, render loops, camera moves, GLTF AnimationMixer, instancing, scroll-linked 3D, R3F, and animation performance/disposal.",
+   "status": "utama",
+   "fase": [
+    5
+   ],
+   "kata": "three 3d kamera lerp instancing geometri dispose memori adegan",
+   "catatan": "Semua gerak dari useCurrentFrame (bukan clock/useFrame). Bagian disposal wajib dipatuhi: komponen & Shape di tingkat modul/useMemo. Tanpa bloom/DOF berat (CPU)."
+  },
+  {
+   "id": "data-animation-skills/animated-infographic",
+   "nama": "animated-infographic",
+   "pack": "data-animation-skills",
+   "path": "pustaka-skill/motion/data-animation-skills/skills/animated-infographic/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/data-animation-skills/skills/animated-infographic/references/sequenced-infographic.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make an animated infographic\", \"create an infographic video\", \"build an infographic animation\", \"animate an explainer infographic\", \"do a sequenced reveal of icons and stats\", \"animate icons with key numbers and connectors\", or \"lay out a designed infographic that animates in sequence\". Covers infographic layout & visual hierarchy, staggered element reveals, animating icons/pictograms, key-number counters, connectors/flow, and section pacing. For heavy charting (bar chart race, charts from a CSV) use the chart-animation skill instead.",
+   "status": "cocok",
+   "fase": [
+    5
+   ],
+   "kata": "infografis kartu angka statistik ikon",
+   "catatan": ""
+  },
+  {
+   "id": "data-animation-skills/chart-animation",
+   "nama": "chart-animation",
+   "pack": "data-animation-skills",
+   "path": "pustaka-skill/motion/data-animation-skills/skills/chart-animation/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/data-animation-skills/skills/chart-animation/references/bar-chart-race.md",
+    "pustaka-skill/motion/data-animation-skills/skills/chart-animation/references/data-pipeline.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make a bar chart race\", \"turn a CSV into a video\", \"build an animated data visualization\", \"create an animated statistics video\", \"animate a chart/graph\", \"make a number counter/ticker\", \"animate a ranking over time\", or \"batch-render one chart template across many datasets\". Covers data-driven keyframing, value interpolation, rank transitions, counters, pacing, annotation, and template×data batch output.",
+   "status": "cocok",
+   "fase": [
+    5
+   ],
+   "kata": "grafik batang garis data angka statistik chart",
+   "catatan": ""
+  },
+  {
+   "id": "freelance-motion-skills/video-delivery-specs",
+   "nama": "video-delivery-specs",
+   "pack": "freelance-motion-skills",
+   "path": "pustaka-skill/motion/freelance-motion-skills/skills/video-delivery-specs/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/freelance-motion-skills/skills/video-delivery-specs/references/platform-specs.md",
+    "pustaka-skill/motion/freelance-motion-skills/skills/video-delivery-specs/references/qc-checklist.md",
+    "pustaka-skill/motion/freelance-motion-skills/skills/video-delivery-specs/references/repurposing-matrix.md",
+    "pustaka-skill/motion/freelance-motion-skills/skills/video-delivery-specs/references/safe-areas.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks \"what are the specs for Instagram Reels / TikTok / YouTube / broadcast\", \"export settings for social\", \"what aspect ratio and bitrate\", \"how do I repurpose 16:9 to 9:16\", \"safe area / title-safe for vertical\", \"pre-delivery checklist\", or \"collect files for handover\". It outputs per-platform spec sheets, a cutdown matrix, captioning/accessibility notes, and a QC + collect-files checklist.",
+   "status": "cocok",
+   "fase": [
+    7,
+    8
+   ],
+   "kata": "ekspor codec bitrate loudness lufs spesifikasi platform shorts encode",
+   "catatan": ""
+  },
+  {
+   "id": "javascript-animation-skills/soundtrack",
+   "nama": "soundtrack",
+   "pack": "javascript-animation-skills",
+   "path": "pustaka-skill/motion/javascript-animation-skills/skills/soundtrack/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/javascript-animation-skills/skills/soundtrack/references/ai-music.md"
+   ],
+   "skrip": [
+    "sync-check.mjs"
+   ],
+   "deskripsi": "This skill should be used when the user asks to \"add music to the animation\", \"make the music in code\", \"synthesize a soundtrack\", \"compose background music that fits the cuts\", \"sync the music to the video\", \"check if the audio lines up with the picture\", or \"the music is too sudden / startling\". Covers a code-synthesized score that lives inside the animation page (Web Audio API, rendered offline to WAV), AI-generated or user-supplied music, and an automatic check that cuts land on the beat without a startling jump in loudness.",
+   "status": "cocok",
+   "fase": [
+    6
+   ],
+   "kata": "musik latar sfx bunyi audio sinkron potongan",
+   "catatan": "Hanya bagian musik dari kode (Web Audio/sintesis). references/ai-music.md TIDAK dipakai."
+  },
+  {
+   "id": "kinetic-typography-skills/kinetic-typography",
+   "nama": "kinetic-typography",
+   "pack": "kinetic-typography-skills",
+   "path": "pustaka-skill/motion/kinetic-typography-skills/skills/kinetic-typography/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/kinetic-typography-skills/skills/kinetic-typography/references/reveal-recipes.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"animate a headline\", \"make a kinetic typography video\", \"do a split-text reveal\", \"stagger text by character/word/line\", \"make a lyric or caption video\", \"animate a variable font weight\", \"put text on a path\", or \"create an animated title card\". Covers reveal techniques in CSS, GSAP SplitText, Framer Motion, and Remotion.",
+   "status": "cocok",
+   "fase": [
+    5
+   ],
+   "kata": "tipografi judul kicker teks bergerak reveal huruf kata",
+   "catatan": ""
+  },
+  {
+   "id": "map-animation-skills/map-animation",
+   "nama": "map-animation",
+   "pack": "map-animation-skills",
+   "path": "pustaka-skill/motion/map-animation-skills/skills/map-animation/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/map-animation-skills/skills/map-animation/references/earth-studio-to-ae.md",
+    "pustaka-skill/motion/map-animation-skills/skills/map-animation/references/vector-maps.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make a Vox-style map animation\", \"animate a map zoom\", \"draw a route on a map\", \"highlight a country/region\", \"use Google Earth Studio\", \"drop pins on a map and animate them\", \"pan/orbit a camera over a map\", or \"add map graphics to an explainer video\". Covers Earth Studio→After Effects camera import, GeoJSON/SVG vector map motion, pins/routes/highlights/labels, the 12fps stutter cadence, and data-driven Remotion renders.",
+   "status": "cocok",
+   "fase": [
+    5
+   ],
+   "kata": "peta lokasi kota rute wilayah",
+   "catatan": ""
+  },
+  {
+   "id": "motion-design-skills/color-motion",
+   "nama": "color-motion",
+   "pack": "motion-design-skills",
+   "path": "pustaka-skill/motion/motion-design-skills/skills/color-motion/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/motion-design-skills/skills/color-motion/references/color-management.md",
+    "pustaka-skill/motion/motion-design-skills/skills/color-motion/references/palettes-and-interpolation.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"build a color palette for a motion piece\", \"make a gradient background\", \"animate a color transition\", \"interpolate colors smoothly\", \"fix muddy/gray gradients\", \"convert colors to OKLCH\", \"color-grade a video for mood\", \"fix washed-out After Effects renders\", \"gamma shift\", \"Rec.709 vs sRGB\", \"colors shifted after rendering\", or \"match preview to final video\". Covers palette construction, gradients, perceptual interpolation (OKLCH/Lab), grading order, and video/render color management.",
+   "status": "cocok",
+   "fase": [
+    5,
+    8
+   ],
+   "kata": "warna palet grading gradien transisi warna kusam",
+   "catatan": ""
+  },
+  {
+   "id": "motion-design-skills/motion-background",
+   "nama": "motion-background",
+   "pack": "motion-design-skills",
+   "path": "pustaka-skill/motion/motion-design-skills/skills/motion-background/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/motion-design-skills/skills/motion-background/references/background-recipes.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"add an animated background\", \"build a mesh/gradient background\", \"make an aurora/shader background\", \"add constellation/particle background\", \"animated hero background\", or \"a subtle looping background behind content\". Covers CSS mesh gradients, GLSL shader gradients (Three.js), canvas particle constellations, seamless loops, and reduced-motion/performance handling — fully self-contained.",
+   "status": "cocok",
+   "fase": [
+    5
+   ],
+   "kata": "latar bergerak langit gradien",
+   "catatan": "Latar E1-03 = langit gradien + awan SVG; jangan ganti dengan shader berat."
+  },
+  {
+   "id": "tiktok-video-skills/countdown-video",
+   "nama": "countdown-video",
+   "pack": "tiktok-video-skills",
+   "path": "pustaka-skill/motion/tiktok-video-skills/skills/countdown-video/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/tiktok-video-skills/skills/countdown-video/references/countdown-cookbook.md",
+    "pustaka-skill/motion/tiktok-video-skills/skills/countdown-video/references/digit-flip.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make a countdown timer video\", \"create a countdown animation\", \"build a stream starting soon countdown\", \"do an event/launch/sale countdown\", \"animate a mm:ss or dd:hh:mm:ss timer\", \"add digit roll/flip transitions to a counter\", or \"loop a countdown background\". Covers frame-accurate (drift-free) timers, digit flip/roll motion, time formatting, and a configurable duration prop.",
+   "status": "cocok",
+   "fase": [
+    5
+   ],
+   "kata": "hitung mundur timer angka berguling",
+   "catatan": ""
+  },
+  {
+   "id": "tiktok-video-skills/lower-thirds",
+   "nama": "lower-thirds",
+   "pack": "tiktok-video-skills",
+   "path": "pustaka-skill/motion/tiktok-video-skills/skills/lower-thirds/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/tiktok-video-skills/skills/lower-thirds/references/lower-third-component.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make an animated lower third\", \"add lower thirds\", \"create a name tag/name lower third\", \"build broadcast titles\", \"animate a title/name/role caption\", \"do a speaker name overlay\", or \"template lower thirds across a list of names\". Covers enter/exit animation (slide/wipe/mask reveal), in/out timing & dwell, safe-area & broadcast conventions, name-vs-role type hierarchy, brand styling, and rendering one design across many names.",
+   "status": "cocok",
+   "fase": [
+    5
+   ],
+   "kata": "label nama keterangan bawah kartu sumber",
+   "catatan": ""
+  },
+  {
+   "id": "webgl-animation-skills/particle-system",
+   "nama": "particle-system",
+   "pack": "webgl-animation-skills",
+   "path": "pustaka-skill/motion/webgl-animation-skills/skills/particle-system/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/webgl-animation-skills/skills/particle-system/references/particle-recipes.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"build a particle system\", \"make confetti/snow/smoke/sparks\", \"create a connected-dot/constellation network background\", \"add a flow-field or curl-noise particle effect\", \"render thousands of GPU particles with Three.js Points\", or \"animate emitters with forces\". Covers per-particle integration, forces, flow fields, burst/continuous emission, spatial-grid connected dots, and GPU points + shaders.",
+   "status": "cocok",
+   "fase": [
+    5
+   ],
+   "kata": "partikel air aliran debu asap hujan percikan arus listrik",
+   "catatan": "Hemat: maks ratusan partikel, posisi dari frame + seed."
+  },
+  {
+   "id": "explainer-video-skills/whiteboard-animation",
+   "nama": "whiteboard-animation",
+   "pack": "explainer-video-skills",
+   "path": "pustaka-skill/motion/explainer-video-skills/skills/whiteboard-animation/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/explainer-video-skills/skills/whiteboard-animation/references/draw-on-recipes.md",
+    "pustaka-skill/motion/explainer-video-skills/skills/whiteboard-animation/references/whiteboard-pipeline.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make a whiteboard animation\", \"draw-on explainer\", \"VideoScribe style\", \"hand-drawn explainer video\", \"animate a sketch being drawn\", \"do a doodle/scribe video\", \"show a hand drawing the illustration\", or \"animate handwriting appearing on a whiteboard\". Covers SVG stroke draw-on, a marker hand that follows the path tip, staggered reveal, erase/wipe transitions, and narrated export.",
+   "status": "terbatas",
+   "fase": [
+    5
+   ],
+   "kata": "garis digambar stroke draw-on sketsa",
+   "catatan": "Hanya teknik stroke draw-on untuk garis/panah; bukan gaya video."
+  },
+  {
+   "id": "explainer-video-skills/wrapped-video",
+   "nama": "wrapped-video",
+   "pack": "explainer-video-skills",
+   "path": "pustaka-skill/motion/explainer-video-skills/skills/wrapped-video/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/explainer-video-skills/skills/wrapped-video/references/batch-pipeline.md",
+    "pustaka-skill/motion/explainer-video-skills/skills/wrapped-video/references/remotion-recipes.md",
+    "pustaka-skill/motion/explainer-video-skills/skills/wrapped-video/references/scene-grammar.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make a Spotify Wrapped style video\", \"build a year in review / year-in-review video\", \"create a personalized data video\", \"generate a recap video\", \"build a wrapped video generator\", \"turn a data table into shareable videos\", or \"make per-user stat videos\". Covers the data row → one shareable video pattern, the Wrapped scene grammar (big-number reveals, top-X lists, superlatives), animated data counters, vertical 9:16 framing, and batch-rendering many personalized videos from one template.",
+   "status": "terbatas",
+   "fase": [
+    5
+   ],
+   "kata": "rekap data per baris template",
+   "catatan": "Jarang relevan."
+  },
+  {
+   "id": "freelance-motion-skills/creative-brief",
+   "nama": "creative-brief",
+   "pack": "freelance-motion-skills",
+   "path": "pustaka-skill/motion/freelance-motion-skills/skills/creative-brief/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/freelance-motion-skills/skills/creative-brief/references/clarifying-questions.md",
+    "pustaka-skill/motion/freelance-motion-skills/skills/creative-brief/references/vague-translator.md",
+    "pustaka-skill/motion/freelance-motion-skills/skills/creative-brief/references/worked-example.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"write a creative brief\", \"build a motion brief\", \"the client doesn't know what they want\", \"turn this vague client request into a brief\", \"what questions should I ask the client\", or \"make a brief I can get sign-off on\". It turns a fuzzy client ask into a structured, sign-off-ready motion design brief and the exact clarifying questions to send back.",
+   "status": "terbatas",
+   "fase": [
+    1
+   ],
+   "kata": "brief",
+   "catatan": "Rujukan struktur saja."
+  },
+  {
+   "id": "javascript-animation-skills/javascript-animation",
+   "nama": "javascript-animation",
+   "pack": "javascript-animation-skills",
+   "path": "pustaka-skill/motion/javascript-animation-skills/skills/javascript-animation/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/javascript-animation-skills/skills/javascript-animation/references/character.md",
+    "pustaka-skill/motion/javascript-animation-skills/skills/javascript-animation/references/forms.md",
+    "pustaka-skill/motion/javascript-animation-skills/skills/javascript-animation/references/qc.md",
+    "pustaka-skill/motion/javascript-animation-skills/skills/javascript-animation/references/storyboard.md",
+    "pustaka-skill/motion/javascript-animation-skills/skills/javascript-animation/references/techniques.md"
+   ],
+   "skrip": [
+    "asset-audit.mjs",
+    "layout-check.mjs",
+    "render.mjs"
+   ],
+   "deskripsi": "This skill should be used when the user asks to \"draw every frame in JavaScript\", \"make an animation with no image assets\", \"animate this in code / on a canvas\", \"make a hand-drawn style animated video\", \"turn this into a short animated film\", \"make an animated explainer drawn in code\", \"make an animated story / picture book of my photos\", or \"make a zero-asset animation like the Opus 5.5 ones\". Produces a single self-contained HTML file whose frames are computed on an HTML canvas (seekable, deterministic), renders it to MP4, and self-checks the result. Pairs with the soundtrack skill for code-synthesized music. NOT for charts from data (use chart-animation) or 3D/WebGL (use threejs-animation / shader-glsl from webgl-animation-skills); pure text motion and depth drawn by projection on the 2D canvas are in scope.",
+   "status": "terbatas",
+   "fase": [
+    5
+   ],
+   "kata": "canvas digambar per frame tanpa aset",
+   "catatan": "Prinsip saja; renderer tetap Remotion."
+  },
+  {
+   "id": "manim-skills/manim",
+   "nama": "manim",
+   "pack": "manim-skills",
+   "path": "pustaka-skill/motion/manim-skills/skills/manim/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/manim-skills/skills/manim/references/3d-and-camera.md",
+    "pustaka-skill/motion/manim-skills/skills/manim/references/graphs-and-updaters.md",
+    "pustaka-skill/motion/manim-skills/skills/manim/references/math-and-text.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make a math animation\", \"animate an equation\", \"use Manim\", \"make a 3Blue1Brown-style video\", \"plot or animate a graph/function\", \"visualize a math/physics/CS concept\", \"morph one formula into another\", \"animate a geometric proof\", or \"render a math explainer\". Covers Manim Community Edition — Scenes, Mobjects, animations, LaTeX/MathTex, graphs, updaters/ValueTracker, 3D, and rendering to MP4/GIF via the CLI.",
+   "status": "terbatas",
+   "fase": [
+    5
+   ],
+   "kata": "matematika rumus",
+   "catatan": "Renderer lain (Manim): jangan dipasang; ambil prinsip saja."
+  },
+  {
+   "id": "motion-design-skills/after-effects",
+   "nama": "after-effects",
+   "pack": "motion-design-skills",
+   "path": "pustaka-skill/motion/motion-design-skills/skills/after-effects/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/motion-design-skills/skills/after-effects/references/export-recipes.md",
+    "pustaka-skill/motion/motion-design-skills/skills/after-effects/references/expression-library.md",
+    "pustaka-skill/motion/motion-design-skills/skills/after-effects/references/expressions.md",
+    "pustaka-skill/motion/motion-design-skills/skills/after-effects/references/performance-triage.md",
+    "pustaka-skill/motion/motion-design-skills/skills/after-effects/references/project-hygiene.md"
+   ],
+   "skrip": [
+    "apply-effect-to-layers.jsx",
+    "batch-rename.jsx",
+    "sequential-offset.jsx"
+   ],
+   "deskripsi": "This skill should be used when the user asks anything about Adobe After Effects — to \"write an After Effects expression\", \"make a wiggle / loopOut / inertial bounce\", \"rig a control with a slider / null\", \"build a MOGRT / Essential Graphics template\", \"export AE to Lottie or Media Encoder\"; OR to \"export from After Effects\", \"export with transparency / an alpha channel\", \"fix a black background on export\", \"choose ProRes vs H.264\", \"which codec / what bitrate for 1080p / 4K\", \"stop H.264 disappearing from the Render Queue\"; OR when \"After Effects is slow / laggy / crashing / froze\", \"RAM preview won't play in real time\", \"AE is using all my memory / render takes forever\", \"how do I speed up After Effects\"; OR to \"organize my After Effects project\", \"relink missing footage\", \"fix broken links after moving files\", \"set a folder structure / naming conventions\", \"batch rename layers\", or \"write an ExtendScript / .jsx script\". Covers expressions & rigging, export recipes, performance triage, and project hygiene.",
+   "status": "terbatas",
+   "fase": [
+    8
+   ],
+   "kata": "after effects ekspor",
+   "catatan": "Bukan alat proyek; hanya bagian ekspor/warna sebagai rujukan."
+  },
+  {
+   "id": "tiktok-video-skills/caption-animation",
+   "nama": "caption-animation",
+   "pack": "tiktok-video-skills",
+   "path": "pustaka-skill/motion/tiktok-video-skills/skills/caption-animation/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/tiktok-video-skills/skills/caption-animation/references/word-timed-captions.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"add animated captions\", \"make TikTok captions\", \"karaoke captions\", \"word-by-word subtitles\", \"auto subtitles\", \"highlight the active word\", \"burn in captions to a video\", \"sync captions to a voiceover/narration\", or \"turn an SRT/transcript into animated text\". Covers word-level timing from Whisper, per-word pop/scale-in, active-word highlight, 9:16 safe-area placement, readable type, and burn-in vs sidecar SRT/VTT.",
+   "status": "terbatas",
+   "fase": [
+    6
+   ],
+   "kata": "subtitle caption karaoke kata aktif teks",
+   "catatan": "Timing kata dari tools/align_teks.py (Whisper diblokir di cloud). Komponen Captions di remotion/src/kit/teks sudah dipakai; skill ini untuk gaya, bukan pipeline transkripsi."
+  },
+  {
+   "id": "web-animation-skills/60fps-animation",
+   "nama": "60fps-animation",
+   "pack": "web-animation-skills",
+   "path": "pustaka-skill/motion/web-animation-skills/skills/60fps-animation/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/web-animation-skills/skills/60fps-animation/references/patterns-and-profiling.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"fix janky CSS animation\", \"make animation 60fps\", \"stop layout thrashing\", \"animate width/height/top/left smoothly\", \"convert animation to transform\", \"animate box-shadow performantly\", \"animate height auto\", \"FLIP animation\", or \"why is my scroll/hover animation choppy\".",
+   "status": "terbatas",
+   "fase": [
+    5
+   ],
+   "kata": "performa halus",
+   "catatan": "Prinsip performa saja (web)."
+  },
+  {
+   "id": "web-animation-skills/gsap-web",
+   "nama": "gsap-web",
+   "pack": "web-animation-skills",
+   "path": "pustaka-skill/motion/web-animation-skills/skills/gsap-web/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/web-animation-skills/skills/gsap-web/references/scrolltrigger-cookbook.md",
+    "pustaka-skill/motion/web-animation-skills/skills/gsap-web/references/scrolltrigger-lenis.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"build a scroll animation\", \"add ScrollTrigger\", \"pin a section while scrolling\", \"scrub an animation to scroll\", \"create a hero timeline\", \"do a horizontal scroll section\", \"split text and animate words\", \"animate a layout change with GSAP Flip\", \"sync ScrollTrigger with Lenis\", \"Lenis smooth scroll jittery\", \"ScrollTrigger markers drift\", \"ScrollTrigger pins break with Lenis/Locomotive\", or \"set up smooth scroll with GSAP pinning\". Covers GSAP timelines, ScrollTrigger, SplitText, Flip, and Lenis/Locomotive smooth-scroll sync for code-driven web motion.",
+   "status": "terbatas",
+   "fase": [
+    5
+   ],
+   "kata": "gsap timeline",
+   "catatan": "Konsep timeline saja; animasi tetap fungsi useCurrentFrame."
+  },
+  {
+   "id": "web-animation-skills/lottie-animation",
+   "nama": "lottie-animation",
+   "pack": "web-animation-skills",
+   "path": "pustaka-skill/motion/web-animation-skills/skills/lottie-animation/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/web-animation-skills/skills/lottie-animation/references/integration-and-export.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"add a Lottie animation\", \"play a .lottie or .json animation\", \"integrate a Bodymovin/After Effects animation on web or mobile\", \"control Lottie playback / segments\", \"make a scroll-driven Lottie\", \"recolor a Lottie at runtime\", or \"export an AE animation to Lottie\". Covers dotLottie/lottie-web integration, playback control, interactivity, theming, and the AE export checklist.",
+   "status": "terbatas",
+   "fase": [
+    5
+   ],
+   "kata": "lottie ikon",
+   "catatan": "Hanya bila aset Lottie lokal sudah disetujui."
+  },
+  {
+   "id": "web-animation-skills/svg-animation",
+   "nama": "svg-animation",
+   "pack": "web-animation-skills",
+   "path": "pustaka-skill/motion/web-animation-skills/skills/svg-animation/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/web-animation-skills/skills/svg-animation/references/svg-techniques.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"animate an SVG\", \"make a line draw itself on\", \"do a stroke draw-on / signature animation\", \"morph one shape into another\", \"move an element along a path\", \"animate an icon/logo\", or \"animate an SVG gradient or filter\". Covers stroke-dashoffset draw-on, path morphing, motion-along-path, and animated icons/gradients/filters via CSS, SMIL, and GSAP.",
+   "status": "terbatas",
+   "fase": [
+    5
+   ],
+   "kata": "svg path garis ikon overlay",
+   "catatan": "Untuk overlay 2D (label, ikon, panah)."
+  },
+  {
+   "id": "webgl-animation-skills/shader-glsl",
+   "nama": "shader-glsl",
+   "pack": "webgl-animation-skills",
+   "path": "pustaka-skill/motion/webgl-animation-skills/skills/shader-glsl/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/webgl-animation-skills/skills/shader-glsl/references/glsl-cookbook.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"write a fragment shader\", \"make a GLSL gradient/noise/plasma background\", \"create an image transition (dissolve, displacement, glitch)\", \"add distortion or chromatic aberration\", \"build an SDF shape shader\", \"wire up a Three.js ShaderMaterial with uniforms\", or \"do GPU post-processing\". Covers GLSL fragment shaders, noise/fbm, SDFs, domain warping, transitions, and Three.js integration.",
+   "status": "terbatas",
+   "fase": [
+    5
+   ],
+   "kata": "shader efek distorsi noise",
+   "catatan": "Mahal di CPU (swangle). Hanya bila tak ada cara lain."
+  },
+  {
+   "id": "generative-illustration-skills/generative-illustration",
+   "nama": "generative-illustration",
+   "pack": "generative-illustration-skills",
+   "path": "pustaka-skill/motion/generative-illustration-skills/skills/generative-illustration/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/generative-illustration-skills/skills/generative-illustration/references/asset-pipeline.md",
+    "pustaka-skill/motion/generative-illustration-skills/skills/generative-illustration/references/craft.md",
+    "pustaka-skill/motion/generative-illustration-skills/skills/generative-illustration/references/render-harness.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make an animated illustration\", \"animate an illustration\", \"make a generative motion piece\" / \"动态平面\", \"turn AI-generated art into something that moves\", \"make a poetic or ambient motion piece / motion poem\", \"make a visual metaphor\", or \"combine AI-generated visuals with code-driven motion\". Covers generating isolated illustration assets with AI, compositing them as sprites, frame-accurate deterministic rendering, and the craft of expressive, concept-driven motion. NOT for data charts (use chart-animation), pure text (use kinetic-typography), or 3D/particles (use webgl-animation).",
+   "status": "dilarang",
+   "fase": [],
+   "kata": "ilustrasi gambar ai",
+   "catatan": "Butuh API gambar AI (OpenRouter): melanggar aturan visual 100% kode."
+  },
+  {
+   "id": "talking-head-skills/talking-head",
+   "nama": "talking-head",
+   "pack": "talking-head-skills",
+   "path": "pustaka-skill/motion/talking-head-skills/skills/talking-head/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/talking-head-skills/skills/talking-head/references/workflow.md"
+   ],
+   "skrip": [
+    "core.mjs",
+    "pipeline.mjs",
+    "prepare-person.mjs",
+    "providers.mjs",
+    "render.mjs",
+    "talking-head.mjs"
+   ],
+   "deskripsi": "Create an AI talking head from the user's own photos plus a voice sample, or from a self-recorded video by extracting face frames and speech. Use an authorized cloned or existing ElevenLabs voice and a new script to generate speaking shots with fal MiniMax H3, narration and editable motion graphics, then render an MP4. Use for AI avatars, presenter videos, personal explainers and scripted on-camera clips. For a recording that only needs graphics without generating new speech, use a recording-editing workflow instead.",
+   "status": "dilarang",
+   "fase": [],
+   "kata": "presenter wajah",
+   "catatan": "Butuh AI video/ElevenLabs clone dari foto: dilarang & di luar format channel."
+  },
+  {
+   "id": "ad-video-skills/ad-creative-video",
+   "nama": "ad-creative-video",
+   "pack": "ad-video-skills",
+   "path": "pustaka-skill/motion/ad-video-skills/skills/ad-creative-video/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/ad-video-skills/skills/ad-creative-video/references/batch-ad-pipeline.md",
+    "pustaka-skill/motion/ad-video-skills/skills/ad-creative-video/references/platform-specs.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make a video ad\", \"create an animated ad\", \"build a performance/UGC-style ad\", \"batch-produce ad creative variations\", \"generate ad variants for A/B testing\", \"swap headline/offer/CTA across many ad versions\", or \"export one ad in multiple aspect ratios for Meta/TikTok/Reels\". Covers ad hook structures, hook→CTA message-match, data-driven variant generation (1 template × CSV = N ads), multi-aspect export, and platform specs.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  {
+   "id": "ad-video-skills/launch-video",
+   "nama": "launch-video",
+   "pack": "ad-video-skills",
+   "path": "pustaka-skill/motion/ad-video-skills/skills/launch-video/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/ad-video-skills/skills/launch-video/references/launch-structure.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make a launch video\", \"create a product hype/sizzle film\", \"build a teaser/trailer for a drop\", \"do a reveal montage with an end-card CTA\", \"cut a hero video to the beat\", or \"export a launch film in 16:9/9:16/1:1\". Covers the hook→tease→reveal→feature-montage→end-card arc and multi-aspect export.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  {
+   "id": "ad-video-skills/testimonial-video",
+   "nama": "testimonial-video",
+   "pack": "ad-video-skills",
+   "path": "pustaka-skill/motion/ad-video-skills/skills/testimonial-video/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/ad-video-skills/skills/testimonial-video/references/batch-and-typography.md",
+    "pustaka-skill/motion/ad-video-skills/skills/testimonial-video/references/quote-card.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make an animated testimonial\", \"create a quote video\", \"build a review video\", \"turn a customer testimonial into a graphic\", \"animate a customer review\", \"make a social proof video\", \"add an animated star rating\", or \"turn a list of reviews into videos\". Covers quote typography, staggered line reveals, kinetic emphasis on key phrases, animated star ratings, the author block (name/role/avatar/company), and templating one card across many quotes.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  {
+   "id": "b-roll-skills/talking-head-b-roll",
+   "nama": "talking-head-b-roll",
+   "pack": "b-roll-skills",
+   "path": "pustaka-skill/motion/b-roll-skills/skills/talking-head-b-roll/SKILL.md",
+   "referensi": [],
+   "skrip": [
+    "compare-timing.py",
+    "render.mjs",
+    "timing.test.mjs",
+    "transcribe.mjs"
+   ],
+   "deskripsi": "Add b-roll motion graphics to a talking-head video. Transcribes the recording with word timings, decides line by line when the speaker is shown, when a graphic is laid over them and when a full-frame graphic covers them, draws each graphic from what is actually said (numbers, comparisons, steps, key words) in JavaScript on a canvas, and renders the finished MP4 with the original sound, plus the b-roll alone with alpha for an editor. Use when someone has a recording of a person talking to camera (a talking head, a spoken explainer, a course lesson, an ad read, a podcast clip) and wants it more engaging to watch, wants b-roll, or wants motion graphics added to it.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "b-roll talking head",
+   "catatan": "Channel tanpa rekaman presenter."
+  },
+  {
+   "id": "data-animation-skills/presentation-video",
+   "nama": "presentation-video",
+   "pack": "data-animation-skills",
+   "path": "pustaka-skill/motion/data-animation-skills/skills/presentation-video/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/data-animation-skills/skills/presentation-video/references/sequencing.md",
+    "pustaka-skill/motion/data-animation-skills/skills/presentation-video/references/slide-components.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make an animated presentation\", \"turn a pitch deck into a video\", \"convert slides/a deck to video\", \"make a presentation video\", \"build a deck video\", \"narrate a slide deck as a video\", or \"auto-advance slides synced to a voiceover\". Covers rebuilding slides as motion graphics with staggered build reveals, slide-to-slide transitions, and timing locked to per-slide narration.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  {
+   "id": "ecommerce-video-skills/photo-slideshow",
+   "nama": "photo-slideshow",
+   "pack": "ecommerce-video-skills",
+   "path": "pustaka-skill/motion/ecommerce-video-skills/skills/photo-slideshow/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/ecommerce-video-skills/skills/photo-slideshow/references/aspect-and-layout.md",
+    "pustaka-skill/motion/ecommerce-video-skills/skills/photo-slideshow/references/ken-burns.md",
+    "pustaka-skill/motion/ecommerce-video-skills/skills/photo-slideshow/references/templating-folder.md",
+    "pustaka-skill/motion/ecommerce-video-skills/skills/photo-slideshow/references/timing-and-audio.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make a photo slideshow\", \"turn photos into a video\", \"create a photo montage video\", \"make a picture slideshow with music\", \"build a memories/recap video from photos\", \"add Ken Burns pan/zoom to photos\", \"sync slide changes to the music beat\", or \"render a video from a folder of images\". Covers per-photo Ken Burns motion, transitions, beat-synced timing, mixed aspect-ratio handling, captions/dates, intro/outro cards, and templating a photo folder into a finished video.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  {
+   "id": "ecommerce-video-skills/product-demo-video",
+   "nama": "product-demo-video",
+   "pack": "ecommerce-video-skills",
+   "path": "pustaka-skill/motion/ecommerce-video-skills/skills/product-demo-video/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/ecommerce-video-skills/skills/product-demo-video/references/annotation-and-transitions.md",
+    "pustaka-skill/motion/ecommerce-video-skills/skills/product-demo-video/references/screenshot-demo.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make a product demo video\", \"create an app demo video\", \"build a feature announcement video\", \"do a SaaS demo\", \"make a UI walkthrough video\", \"animate product screenshots into a demo\", \"add an animated cursor/click to a screenshot\", or \"zoom into part of a UI\". Covers turning static screenshots/designs (not screen recordings) into a clean animated demo: device/browser frames, animated cursor + click ripple, zoom/pan to focal UI, callout annotations, step pacing, screen-to-screen transitions, and feature captions.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  {
+   "id": "ecommerce-video-skills/promo-video",
+   "nama": "promo-video",
+   "pack": "ecommerce-video-skills",
+   "path": "pustaka-skill/motion/ecommerce-video-skills/skills/promo-video/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/ecommerce-video-skills/skills/promo-video/references/promo-components.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make a sale video\", \"create a promo video\", \"build a discount/percentage-off reveal\", \"animate a was→now price with a strike-through\", \"do a Black Friday / flash-sale / clearance video\", \"make a promo-code reveal with a countdown\", or \"batch a promo template across many products\". Covers the offer-announcement arc — discount reveal, price strike-through, promo code, urgency, product shot, CTA — and product+offer data → many videos.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  {
+   "id": "freelance-motion-skills/brand-motion-guidelines",
+   "nama": "brand-motion-guidelines",
+   "pack": "freelance-motion-skills",
+   "path": "pustaka-skill/motion/freelance-motion-skills/skills/brand-motion-guidelines/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/freelance-motion-skills/skills/brand-motion-guidelines/references/dos-and-donts.md",
+    "pustaka-skill/motion/freelance-motion-skills/skills/brand-motion-guidelines/references/full-template.md",
+    "pustaka-skill/motion/freelance-motion-skills/skills/brand-motion-guidelines/references/token-reference.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"write motion guidelines\", \"create a brand motion system\", \"define easing and timing tokens\", \"document our animation principles\", \"build a motion language like Slack/IBM/Klarna\", \"set up entrance/exit/transition rules\", or \"add a reduced-motion / accessibility section\". It outputs a fill-in-ready brand motion guidelines document.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  {
+   "id": "freelance-motion-skills/client-revisions",
+   "nama": "client-revisions",
+   "pack": "freelance-motion-skills",
+   "path": "pustaka-skill/motion/freelance-motion-skills/skills/client-revisions/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/freelance-motion-skills/skills/client-revisions/references/email-templates.md",
+    "pustaka-skill/motion/freelance-motion-skills/skills/client-revisions/references/feedback-translator.md",
+    "pustaka-skill/motion/freelance-motion-skills/skills/client-revisions/references/sow-clauses.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"stop scope creep\", \"limit revision rounds\", \"write SOW revision language\", \"the client keeps asking for changes\", \"how do I say this is out of scope\", \"translate vague feedback\", \"client said make it pop\", or \"write a change-order email\". It provides revision-cap contract language, a consolidated-feedback request, a vague-feedback translator, and a polite out-of-scope email.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  {
+   "id": "freelance-motion-skills/motion-pricing",
+   "nama": "motion-pricing",
+   "pack": "freelance-motion-skills",
+   "path": "pustaka-skill/motion/freelance-motion-skills/skills/motion-pricing/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/freelance-motion-skills/skills/motion-pricing/references/quote-template.md",
+    "pustaka-skill/motion/freelance-motion-skills/skills/motion-pricing/references/rate-card.md",
+    "pustaka-skill/motion/freelance-motion-skills/skills/motion-pricing/references/worked-example.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"quote a motion project\", \"estimate this animation job\", \"how much should I charge for this video\", \"what's my day rate\", \"build a quote\", \"price a 30-second explainer\", or \"is this estimate fair\". It explains motion-design pricing models, the day-rate math, the cost drivers, and outputs a line-itemed quote with a worked example.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  {
+   "id": "lower-thirds-skills/lower-thirds",
+   "nama": "lower-thirds",
+   "pack": "lower-thirds-skills",
+   "path": "pustaka-skill/motion/lower-thirds-skills/skills/lower-thirds/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/lower-thirds-skills/skills/lower-thirds/references/delivery.md"
+   ],
+   "skrip": [
+    "render.mjs"
+   ],
+   "deskripsi": "Make animated lower thirds and other broadcast overlays (name straps, corner bugs, subscribe reminders, scripture or song titles) as transparent video files, drawn frame by frame in JavaScript on a canvas and rendered to WebM with alpha for OBS and browsers, or ProRes 4444 for Premiere Pro, DaVinci Resolve and Final Cut. Use when someone wants a lower third, a name title, a chyron, a stream overlay, a corner bug, or any graphic with a transparent background to lay over their own footage or livestream.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  {
+   "id": "motion-design-skills/logo-animation",
+   "nama": "logo-animation",
+   "pack": "motion-design-skills",
+   "path": "pustaka-skill/motion/motion-design-skills/skills/logo-animation/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/motion-design-skills/skills/logo-animation/references/logo-patterns.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"animate our logo\", \"make a logo intro/stinger\", \"build a brand reveal\", \"create an app splash animation\", \"loop a loader logo\", \"draw on our SVG mark\", \"morph an icon into the wordmark\", or \"sync the logo to a sound-logo\". Covers web (SVG/Lottie), video, and app-splash delivery.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  {
+   "id": "text-message-video-skills/text-message-animation",
+   "nama": "text-message-animation",
+   "pack": "text-message-video-skills",
+   "path": "pustaka-skill/motion/text-message-video-skills/skills/text-message-animation/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/text-message-video-skills/skills/text-message-animation/references/bubble-recipes.md",
+    "pustaka-skill/motion/text-message-video-skills/skills/text-message-animation/references/data-driven.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make a fake text message video\", \"animate an iMessage conversation\", \"create a text story video\", \"do a chat reply animation\", \"WhatsApp/SMS conversation video\", \"typing indicator animation\", \"render a chat thread to a video\", or \"batch text-message videos from a script/CSV\". Covers sent/received bubble layout, staggered appear timing with typing indicators, read receipts/timestamps, per-message pop sound-sync, 9:16 safe-area, and data-driven render from a messages array.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  {
+   "id": "web-animation-skills/accessible-animation",
+   "nama": "accessible-animation",
+   "pack": "web-animation-skills",
+   "path": "pustaka-skill/motion/web-animation-skills/skills/accessible-animation/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/web-animation-skills/skills/accessible-animation/references/patterns.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"respect prefers-reduced-motion\", \"honor reduced motion\", \"make my animations accessible\", \"fix vestibular / motion-sickness issues\", \"add a useReducedMotion hook\", \"gate GSAP / Framer Motion / Lenis for reduced motion\", or \"meet WCAG 2.3.3 / C39\". Provides tiered (not all-or-nothing) reduced-motion patterns in CSS and JS.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  {
+   "id": "web-animation-skills/ascii-animation",
+   "nama": "ascii-animation",
+   "pack": "web-animation-skills",
+   "path": "pustaka-skill/motion/web-animation-skills/skills/ascii-animation/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/web-animation-skills/skills/ascii-animation/references/rendering.md"
+   ],
+   "skrip": [
+    "img-to-ascii.mjs"
+   ],
+   "deskripsi": "This skill should be used when the user asks to \"make an ASCII animation\", \"build a terminal/CLI intro or loader\", \"convert an image or video to ASCII art\", \"add an ASCII shader/post-effect to a canvas or Three.js scene\", \"create retro/hacker text-character motion\", or \"animate text characters with a brightness ramp\". Covers generative ASCII fields, image/video/3D-to-ASCII, and animated character art for both web and terminal.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  {
+   "id": "web-animation-skills/glassmorphism",
+   "nama": "glassmorphism",
+   "pack": "web-animation-skills",
+   "path": "pustaka-skill/motion/web-animation-skills/skills/glassmorphism/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/web-animation-skills/skills/glassmorphism/references/glass-recipes.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"add a glassmorphism effect\", \"frosted glass UI\", \"Apple liquid glass style\", \"frosted blur card\", \"translucent glass panel animation\", \"make a frosted nav bar\", \"build a glass modal/dialog\", \"animate a glass card on hover\", or \"add a refracting liquid-glass hero\". Covers frosted translucent panels with backdrop-filter blur, edge/specular highlights, SVG liquid-glass refraction, motion on hover/scroll/enter, and accessible reduced-transparency fallbacks.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  {
+   "id": "web-animation-skills/micro-interaction",
+   "nama": "micro-interaction",
+   "pack": "web-animation-skills",
+   "path": "pustaka-skill/motion/web-animation-skills/skills/micro-interaction/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/web-animation-skills/skills/micro-interaction/references/css-recipes.md",
+    "pustaka-skill/motion/web-animation-skills/skills/micro-interaction/references/framer-motion-recipes.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"add a hover/press effect\", \"animate a toggle or switch\", \"build an animated like button\", \"make a toast/snackbar slide in\", \"animate a drawer or modal\", \"animate list reordering or add/remove\", \"do a shared-element layout transition\", or \"polish UI feedback\". Covers UI motion with Framer Motion (motion/react) and modern CSS.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  {
+   "id": "web-animation-skills/page-transition-animation",
+   "nama": "page-transition-animation",
+   "pack": "web-animation-skills",
+   "path": "pustaka-skill/motion/web-animation-skills/skills/page-transition-animation/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/web-animation-skills/skills/page-transition-animation/references/full-examples.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"animate page or route transitions\", \"add a page transition or crossfade between views\", \"animate route changes in Next.js App Router\", \"use the View Transitions API\", \"AnimatePresence exit doesn't fire on navigation\", or \"Framer Motion exit animation not working / exit animation before unmount in Next.js\". Covers enter/exit page-transition animation with the View Transitions API and Framer Motion, for Next.js App Router and general SPA routing.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  {
+   "id": "youtube-video-skills/audiogram",
+   "nama": "audiogram",
+   "pack": "youtube-video-skills",
+   "path": "pustaka-skill/motion/youtube-video-skills/skills/audiogram/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/youtube-video-skills/skills/audiogram/references/waveform-render.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make an audiogram\", \"turn a podcast into a video\", \"create a waveform video\", \"make a podcast clip video\", \"convert audio to video\", \"animate a waveform/audio bars\", \"add a moving waveform to my voiceover\", or \"make a square/vertical clip for a podcast quote\". Covers amplitude-driven waveforms, frequency bars, synced captions, cover-art layout, a progress bar, and 1:1 / 9:16 social framing.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  },
+  {
+   "id": "youtube-video-skills/youtube-intro-outro",
+   "nama": "youtube-intro-outro",
+   "pack": "youtube-video-skills",
+   "path": "pustaka-skill/motion/youtube-video-skills/skills/youtube-intro-outro/SKILL.md",
+   "referensi": [
+    "pustaka-skill/motion/youtube-video-skills/skills/youtube-intro-outro/references/intro-outro.md"
+   ],
+   "skrip": [],
+   "deskripsi": "This skill should be used when the user asks to \"make a YouTube intro\", \"create a channel intro\", \"build a logo sting/bumper\", \"design an outro / end screen / end card\", \"add subscribe and next-video cards\", \"make an intro animation\", \"build a reusable intro template\", or \"sync the logo reveal to an audio sting\". Covers the 3-5s branded intro, the last-20s end-screen outro inside YouTube's element safe zones, timing conventions, audio-sting sync, and a swap-the-brand template.",
+   "status": "tidak-relevan",
+   "fase": [],
+   "kata": "",
+   "catatan": "Di luar format channel (iklan, web UI, slideshow, overlay streaming, dll.)."
+  }
+ ]
+}
