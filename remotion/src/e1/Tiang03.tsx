@@ -17,13 +17,13 @@ import {Blok, useBahan} from './look';
 import wordsJson from '../../public/e1-03/words.json';
 
 export const R03_FRAMES = Math.round(68.4 * FPS);
-const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
-const back = Easing.out(Easing.back(1.4));
-const orb = (t: number, az: number, el: number, d: number, look: V3): Key => { const A = az * Math.PI / 180, E = el * Math.PI / 180; return {t, pos: [look[0] + d * Math.cos(E) * Math.sin(A), look[1] + d * Math.sin(E), look[2] + d * Math.cos(E) * Math.cos(A)], look}; };
-const iso = (t: number, look: V3, zoom: number, az = 45, el = 35.264): Key => ({t, pos: [0, 0, 0], look, zoom, az, el});
+export const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
+export const back = Easing.out(Easing.back(1.4));
+export const orb = (t: number, az: number, el: number, d: number, look: V3): Key => { const A = az * Math.PI / 180, E = el * Math.PI / 180; return {t, pos: [look[0] + d * Math.cos(E) * Math.sin(A), look[1] + d * Math.sin(E), look[2] + d * Math.cos(E) * Math.cos(A)], look}; };
+export const iso = (t: number, look: V3, zoom: number, az = 45, el = 35.264): Key => ({t, pos: [0, 0, 0], look, zoom, az, el});
 
 // ---------- tata letak (meter) ----------
-const PAGAR_Z = 2.6, TIANG: V3 = [-0.3, 0, 3.0], FASAD_Z = -2.2, H1 = 3.2, H2 = 3.0, RW = 7.2;
+export const PAGAR_Z = 2.6, TIANG: V3 = [-0.3, 0, 3.0], FASAD_Z = -2.2, H1 = 3.2, H2 = 3.0, RW = 7.2;
 const KABEL_TR = 7.0, KABEL_TM = 8.7; // tinggi kabel tegangan rendah (pilin) dan menengah (3 kawat)
 
 // ---------- keadaan per waktu ----------
@@ -44,7 +44,7 @@ const keadaan = (t: number) => ({
 });
 
 // ---------- objek ----------
-const Pipa: React.FC<{pts: V3[]; rad: number; c: string; o?: number}> = ({pts, rad, c, o = 1}) => {
+export const Pipa: React.FC<{pts: V3[]; rad: number; c: string; o?: number}> = ({pts, rad, c, o = 1}) => {
   const g = useMemo(() => new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts.map((p) => new THREE.Vector3(...p))), 48, rad, 8, false), [JSON.stringify(pts), rad]);
   return <mesh geometry={g} castShadow={o >= 1}><meshStandardMaterial color={c} roughness={0.5} transparent={o < 1} opacity={o} depthWrite={o >= 1} /></mesh>;
 };
@@ -65,7 +65,7 @@ const TiangPLN: React.FC<{beton: THREE.Texture; o?: number; hi?: number}> = ({be
 
 /** city car hatchback 5 pintu generik (tanpa logo/merek), skala nyata 3,7 x 1,66 x 1,5. Lokal: hidung ke -z, lebar di x.
  *  Badan = profil samping (lengkung roda dipotong langsung di bodi) diekstrusi + bevel; kabin lebih sempit. Spion & bemper bisa disorot merah. */
-const PJ = 3.7, LB = 1.5; // panjang, lebar inti ekstrusi (bevel 0,08 tiap sisi -> 1,66)
+export const PJ = 3.7, LB = 1.5; // panjang, lebar inti ekstrusi (bevel 0,08 tiap sisi -> 1,66)
 const RODA: [number, number][] = [[0.62, 0.29], [3.02, 0.29]];
 const profilBadan = () => {
   const s = new THREE.Shape(); s.moveTo(0.06, 0.34);
@@ -84,7 +84,7 @@ const Ekstr: React.FC<{shape: THREE.Shape; w: number; bev: number; children: Rea
 };
 const Kaca: React.FC<{p: V3; s: V3; rot?: V3}> = ({p, s, rot = [0, 0, 0]}) => <mesh position={p} rotation={rot}><boxGeometry args={s} /><meshStandardMaterial color="#26313b" roughness={0.08} metalness={0.5} /></mesh>;
 const JENDELA = (() => { const w = new THREE.Shape(); w.moveTo(2.64, 1.0); w.lineTo(1.84, 1.41); w.lineTo(0.5, 1.41); w.lineTo(0.26, 1.0); w.closePath(); return w; })();
-const Mobil03: React.FC<{hi: number}> = ({hi}) => {
+export const Mobil03: React.FC<{hi: number}> = ({hi}) => {
   const cat = '#9aa0a7', merah = new THREE.Color('#e0442e');
   const sorot = (c: string) => new THREE.Color(c).lerp(merah, hi);
   const badan = useMemo(profilBadan, []), kabin = useMemo(profilKabin, []);
@@ -128,7 +128,7 @@ const Lantai: React.FC<{y: number; h: number; pintu: boolean; b: ReturnType<type
     {!pintu && <Blok p={[1.6, h * 0.55, FASAD_Z + 0.03]} s={[1.3, 1.1, 0.06]} c="#86aac0" r={0.12} />}
   </group>); };
 /** rumah depan: carport kiri, teras + pintu + jendela kanan, atap pelana genteng. Fasad di z = FASAD_Z. Lantai 2 + balkon (breakdown). */
-const Rumah03: React.FC<{k: ReturnType<typeof keadaan>; b: ReturnType<typeof useBahan>; x: ReturnType<typeof useTex>}> = ({k, b, x}) => {
+export const Rumah03: React.FC<{k: ReturnType<typeof keadaan>; b: ReturnType<typeof useBahan>; x: ReturnType<typeof useTex>}> = ({k, b, x}) => {
   const D = 7, cz = FASAD_Z - D / 2, T = 0.16;
   const tinggi = H1 + (k.lt2 ? H2 * Math.min(1, k.lantai2) : 0);
   const atapY = tinggi + k.atapNaik * 2.6;
@@ -160,7 +160,7 @@ const Rumah03: React.FC<{k: ReturnType<typeof keadaan>; b: ReturnType<typeof use
 };
 
 /** pagar: tembok rendah + teralis, gerbang carport terbuka (kiri) */
-const Pagar: React.FC<{b: ReturnType<typeof useBahan>; dijual: number}> = ({b, dijual}) => (<group position={[0, 0, PAGAR_Z]}>
+export const Pagar: React.FC<{b: ReturnType<typeof useBahan>; dijual: number}> = ({b, dijual}) => (<group position={[0, 0, PAGAR_Z]}>
   <Blok p={[2.0, 0.4, 0]} s={[3.2, 0.8, 0.2]} map={b.plester} rep={[2, 0.5]} bump={0.4} c="#e6dccb" />
   {Array.from({length: 13}, (_, i) => 0.55 + i * 0.25).map((xx) => <Blok key={xx} p={[xx, 1.15, 0]} s={[0.04, 0.7, 0.04]} c="#2f3236" r={0.4} />)}
   <Blok p={[2.0, 1.5, 0]} s={[3.2, 0.05, 0.05]} c="#2f3236" r={0.4} />
@@ -178,7 +178,7 @@ const Pagar: React.FC<{b: ReturnType<typeof useBahan>; dijual: number}> = ({b, d
   </group>}
 </group>);
 
-const Tetangga: React.FC<{x0: number; c: string; b: ReturnType<typeof useBahan>; g: THREE.Texture}> = ({x0, c, b, g}) => (<group position={[x0, 0, FASAD_Z - 3.5]}>
+export const Tetangga: React.FC<{x0: number; c: string; b: ReturnType<typeof useBahan>; g: THREE.Texture}> = ({x0, c, b, g}) => (<group position={[x0, 0, FASAD_Z - 3.5]}>
   <Blok p={[0, 1.6, 0]} s={[6.4, 3.2, 7]} c={c} map={b.plester} rep={[3, 1.4]} bump={0.4} />
   {[-1, 1].map((s) => <mesh key={s} position={[0, 3.9, s * 1.95]} rotation={[s * 0.62, 0, 0]} castShadow><boxGeometry args={[7.0, 0.08, 4.75]} /><meshStandardMaterial map={g} roughness={0.85} /></mesh>)}
   <Blok p={[0, 0.5, 6.1]} s={[6.2, 1.0, 0.2]} map={b.plester} rep={[2, 0.5]} c={c} bump={0.3} />
@@ -224,27 +224,27 @@ const isIso = (t: number) => t >= 10.2 && t < 33.6;
 
 // Satu kanvas untuk semua adegan (berganti kanvas = konteks WebGL baru = frame rusak di render panjang).
 // "Isometrik" = kamera tele FOV 3° dari jauh: proyeksi nyaris paralel, zoom = piksel per meter.
-const TELE = 3;
-type Kam = Key & {fov: number};
-const tele = (k: Key): Kam => { const az = (k.az ?? 45) * Math.PI / 180, el = (k.el ?? 35.264) * Math.PI / 180, D = (1920 / (k.zoom ?? 100) / 2) / Math.tan(TELE / 2 * Math.PI / 180);
+export const TELE = 3;
+export type Kam = Key & {fov: number};
+export const tele = (k: Key): Kam => { const az = (k.az ?? 45) * Math.PI / 180, el = (k.el ?? 35.264) * Math.PI / 180, D = (1920 / (k.zoom ?? 100) / 2) / Math.tan(TELE / 2 * Math.PI / 180);
   return {...k, fov: TELE, pos: [k.look[0] + D * Math.cos(el) * Math.sin(az), k.look[1] + D * Math.sin(el), k.look[2] + D * Math.cos(el) * Math.cos(az)]}; };
-const Rig2: React.FC<{k: Kam}> = ({k}) => {
+export const Rig2: React.FC<{k: Kam}> = ({k}) => {
   const cam = useThree((st) => st.camera) as THREE.PerspectiveCamera;
   cam.position.set(...k.pos); cam.fov = k.fov; cam.near = k.fov < 10 ? 50 : 0.1; cam.far = k.fov < 10 ? 2500 : 300; cam.updateProjectionMatrix(); cam.lookAt(...k.look);
   return null;
 };
 /** kabut tipis: jaraknya mengikuti mode kamera (objek tetap, hanya near/far yang berubah) */
-const Kabut: React.FC<{tele: boolean}> = ({tele}) => {
+export const Kabut: React.FC<{tele: boolean}> = ({tele}) => {
   const scene = useThree((st) => st.scene);
   if (!scene.fog) scene.fog = new THREE.Fog('#e8eef0', 40, 110);
   const fg = scene.fog as THREE.Fog; fg.near = tele ? 1000 : 40; fg.far = tele ? 3000 : 110;
   return null;
 };
-const proj2 = (k: Kam, p: V3): [number, number] => { const c = new THREE.PerspectiveCamera(k.fov, 1080 / 1920, 0.1, 3000); c.position.set(...k.pos); c.lookAt(...k.look); c.updateMatrixWorld(); c.updateProjectionMatrix(); const v = new THREE.Vector3(...p).project(c); return [(v.x + 1) * 540, (1 - v.y) * 960]; };
+export const proj2 = (k: Kam, p: V3): [number, number] => { const c = new THREE.PerspectiveCamera(k.fov, 1080 / 1920, 0.1, 3000); c.position.set(...k.pos); c.lookAt(...k.look); c.updateMatrixWorld(); c.updateProjectionMatrix(); const v = new THREE.Vector3(...p).project(c); return [(v.x + 1) * 540, (1 - v.y) * 960]; };
 
 // ---------- overlay 2D ----------
-type Lb = {a: number; b: number; text: string; at: V3 | ((t: number) => V3); side: 'L' | 'R'; dy?: number; merah?: boolean};
-const Label2: React.FC<{l: Lb; t: number; cam: Kam}> = ({l, t, cam}) => {
+export type Lb = {a: number; b: number; text: string; at: V3 | ((t: number) => V3); side: 'L' | 'R'; dy?: number; merah?: boolean};
+export const Label2: React.FC<{l: Lb; t: number; cam: Kam}> = ({l, t, cam}) => {
   const i = r(t, l.a, l.a + 0.35, Easing.out(Easing.cubic)), o = 1 - r(t, l.b - 0.3, l.b); if (i * o <= 0.01) return null;
   const at = typeof l.at === 'function' ? l.at(t) : l.at;
   const [px, py0] = proj2(cam, at), py = Math.max(400, Math.min(1320, py0 + (l.dy ?? 0)));
@@ -302,7 +302,7 @@ const Larangan: React.FC<{t: number}> = ({t}) => {
     <line x1={52} y1={52} x2={208} y2={208} stroke="#e0442e" strokeWidth={22} />
   </svg>);
 };
-const Langit: React.FC<{t: number}> = ({t}) => (
+export const Langit: React.FC<{t: number}> = ({t}) => (
   <svg width={1080} height={1100} style={{position: 'absolute', left: 0, top: 0}}>
     <defs><filter id="kabur3"><feGaussianBlur stdDeviation="18" /></filter><radialGradient id="mt3" cx="0.15" cy="0.05" r="0.6"><stop offset="0" stopColor="#fff6d8" stopOpacity="0.85" /><stop offset="1" stopColor="#fff6d8" stopOpacity="0" /></radialGradient></defs>
     <rect width={1080} height={1100} fill="url(#mt3)" />
@@ -312,7 +312,7 @@ const Langit: React.FC<{t: number}> = ({t}) => (
   </svg>
 );
 
-const Cahaya: React.FC = () => (<>
+export const Cahaya: React.FC = () => (<>
   <hemisphereLight args={['#dbeaff', '#8a7a62', 0.55]} />
   <directionalLight position={[-8, 14, 10]} intensity={2.6} color="#fff4e0" castShadow shadow-mapSize={[2048, 2048]} shadow-camera-left={-14} shadow-camera-right={14} shadow-camera-top={14} shadow-camera-bottom={-10} shadow-camera-near={1} shadow-camera-far={60} shadow-bias={-0.0004} shadow-normalBias={0.03} />
 </>);
