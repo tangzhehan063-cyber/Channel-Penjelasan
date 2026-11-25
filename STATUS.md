@@ -1,5 +1,13 @@
 # STATUS (baca ini dulu, lalu ikuti `WORKFLOW.md` E1; riwayat di bawah sebagian besar untuk alur 3D lama)
 
+## 25 Nov 2026: E1 #03 "Tiang Listrik di Depan Pagar, Tolak Rezeki?" SELESAI dirender (belum cover, Drive, publish)
+- Topik ide #2 (pilihan user), naskah ACC hook A (152 kata), VO **Gemini Achernar** 1 generasi (67,7 dtk, F0 163 Hz, lolos `cek_suara`). Caption + komentar pin di `caption/e1-03-tiang-listrik.md`. Log `e1/e03-tiang-listrik.md`.
+- **Skill motion baru (pilihan user): iart-ai `isometric-animation` + `threejs-animation`** (repo `motion-skills` hanya indeks; skill di-clone dari github.com/iart-ai/*). Dipakai di atas `look.tsx`: denah mobil isometrik + breakdown lantai 2/kanopi dekat kabel.
+- `remotion/src/e1/Tiang03.tsx`: tiang PLN 9 m, kabel TM/TR/SR, rumah carport + pagar, **city car hatchback generik** (R1 dari foto referensi user, profil berlengkung roda diekstrusi), papan DIJUAL, kartu harga, kartu 3 langkah PLN, ikon larangan.
+- **Render:** 68,4 dtk, 1080x1920, −14,6 LUFS. `cek-mandiri` OK, `cek_kilau` OK (maks 167 px). MP4 penuh + 540p dikirim ke user lewat chat.
+- **Pelajaran teknis (di `style/cek-bug.md`):** berganti ThreeCanvas perspektif/ortografis + komponen di dalam komponen = frame rusak/3D hilang di render panjang. Solusi: satu kanvas, isometrik = kamera tele FOV 3°; render per bagian 300 frame `--concurrency=1` lalu concat (concurrency 2 masih memberi frame bertumpuk). Detektor frame rusak: skrip periodisitas vertikal (lihat log #03).
+- Belum: cover, unggah Drive `Fakta Rumah / E1 / #03 - Tiang Listrik Depan Pagar`, publish, metrik 24/48 jam.
+
 ## 23 Nov 2026 (malam): E1 #02 "Tanah Turun, Lantai Rumah Ditinggikan Berkali-kali" SELESAI dirender (belum publish)
 - Topik #6 dari 10 ide, naskah ACC hook A (131 kata), VO **Gemini Achernar** lolos `tools/cek_suara.py` (58,1 dtk, 180 Hz, 2,25 kata/dtk) di percobaan pertama. Folder Drive `#02 - Tanah Turun Lantai Ditinggikan` (id `10RK0J-1Z6zuiqll0gQuo7LuaOakIGH6h`). Foto user (3 berkas) di folder itu, disalin lokal (di-gitignore).
 - `remotion/src/e1/Tanah02.tsx` (+ `look.tsx` = **tampilan E1**: material prosedural berrelief (plester lumut, bata, genteng, rumput, lempung, pasir, batuan, jalan, kayu, air bergerak), `RumahKampung` (pintu, jendela jalusi, atap genteng, tiang, tangga, pondasi bertumpuk), `Kampung`, langit berawan, vinyet + grading). Satu scene breakdown khusus 20,9–30,4 dtk (potongan tanah terurai, lempung memampat, air tersedot).
