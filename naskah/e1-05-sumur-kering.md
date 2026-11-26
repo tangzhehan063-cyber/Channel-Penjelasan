@@ -1,6 +1,6 @@
 # E1 #05: Sumur Kering gara-gara Sumur Bor Tetangga (DRAF, menunggu ACC naskah)
 
-Topik ACC user 26 Nov 2026. Hook A (konsep). Target 50–70 dtk. Belum dikunci.
+Topik ACC user 26 Nov 2026. v2: analogi es teh dari user (sedotan pendek vs panjang), lewat humanizer. Target 50–70 dtk. Belum dikunci.
 
 ## Naskah
 (lihat `e1-05-sumur-kering.txt`, teks TTS persis)
