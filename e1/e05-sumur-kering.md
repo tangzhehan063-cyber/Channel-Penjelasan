@@ -28,7 +28,7 @@
 ## 2. Approval (pemilik channel)
 Isi tanggal hanya setelah user menjawab di chat.
 - [x] Topik final: 26 Nov 2026 (user pilih di chat)
-- [ ] Script final (dikunci): 
+- [x] Script final (dikunci): 26 Nov 2026, v2 (VO: ElevenLabs)
 - [ ] VO final: 
 - [ ] Style reference: 
 - [ ] Render batch besar (komposisi + estimasi waktu disetujui): 

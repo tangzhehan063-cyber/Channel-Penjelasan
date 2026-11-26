@@ -1,4 +1,4 @@
-# E1 #05: Sumur Kering gara-gara Sumur Bor Tetangga (DRAF, menunggu ACC naskah)
+# E1 #05: Sumur Kering gara-gara Sumur Bor Tetangga (ACC user 26 Nov, v2, DIKUNCI)
 
 Topik ACC user 26 Nov 2026. v2: analogi es teh dari user (sedotan pendek vs panjang), lewat humanizer. Target 50–70 dtk. Belum dikunci.
 
