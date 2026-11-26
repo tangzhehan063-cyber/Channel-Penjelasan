@@ -23,7 +23,7 @@
 | Shares | |
 | Saves | |
 | Comments | |
-| Notes | |
+| Notes | Diterima user 26 Nov; tanpa cover/Drive (keputusan user) |
 
 ## 2. Approval (pemilik channel)
 Isi tanggal hanya setelah user menjawab di chat.
