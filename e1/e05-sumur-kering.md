@@ -64,7 +64,7 @@ Isi tanggal hanya setelah user menjawab di chat.
 ## 5. Log render
 | Shot ID | Jenis (still / klip / penuh) | Komposisi | Waktu render | Putaran ke- | Hasil (lolos / gagal) | Catatan |
 |---|---|---|---|---|---|---|
-| | | | | | | |
+| penuh | penuh | Sumur05 | ±12 mnt (+cek_kilau, uji 0-480) | 1 | lolos | 0 frame rusak; 5 frame polos = dip transisi 15,4/37,4/54,9; cek_kilau OK; −14,4 LUFS, puncak −1,4 dB; 66,6 dtk |
 
 ## 6. Masalah produksi
 Contoh: inkonsistensi komponen/material, animasi kaku, camera movement failure, text overlay issue, render terlalu lama, editing delay.
