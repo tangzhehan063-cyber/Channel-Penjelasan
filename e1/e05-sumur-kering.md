@@ -81,4 +81,5 @@ Contoh: inkonsistensi komponen/material, animasi kaku, camera movement failure, 
 
 ## Catatan VO (26 Nov 2026)
 - ElevenLabs flow_id `G9L2p6xRfMLhN5qzOUKf`, suara Riri Rida `tCKeP99grYL9wZRg6sQ9`, `eleven_v4`, 1 take.
-- Take 1 GAGAL: kuota habis (sisa 27 kredit, butuh 1.028). Tidak ada kredit terpakai. Menunggu keputusan user.
+- Take 1 GAGAL: kuota habis (sisa 27 kredit, butuh 1.028), tidak ada kredit terpakai.
+- User pilih Gemini TTS: Achernar, 65,9 dtk, 2,35 kata/dtk, F0 178 Hz, lolos `cek_suara`; words `audio/e05-words.json`. Menunggu ACC VO.
