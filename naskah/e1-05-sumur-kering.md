@@ -13,5 +13,5 @@ Topik ACC user 26 Nov 2026. v2: analogi es teh dari user (sedotan pendek vs panj
 - Pompa menimbulkan penurunan muka air berbentuk corong (cone of depression), makin kecil dengan jarak; kerucut dua sumur bisa tumpang tindih: Penn State EARTH 103/111 (bersumber USGS), USGS. Penjelasan "kolam bersama" = penyederhanaan.
 - Sumur bor dalam bisa menurunkan muka air akuifer dangkal, sumur dangkal warga mengering: jurnal Indonesia (UII JSTL, Unnes, dll). [CEK] syarat: lapisan air harus saling terhubung; akuifer tertekan terpisah punya efek berbeda.
 - Kasus Miliran: Jakarta Post 7 Agu 2014, Mongabay 2015 & 2022, tesis UIN Sunan Kalijaga. Izin pengambilan air hotel dicabut 1 Sep 2014; air kembali ±8 hari kemudian (laporan Mongabay). Hotel membantah; sebab belum dibuktikan ilmiah. [CEK] pakai kata "menurut laporan media".
-- [CEK] "Tanya dinas setempat soal izin": kewenangan izin air tanah (provinsi/ESDM) perlu dikonfirmasi.
+- "Tanya izinnya ke dinas setempat": sumur bor perlu izin/persetujuan air tanah (Permen ESDM 14/2024); kewenangan dibagi Kementerian ESDM, gubernur, bupati/wali kota sesuai kewenangan, jadi naskah sengaja menyebut "dinas setempat" (tidak menyebut satu instansi). Terverifikasi 26 Nov.
 - Tidak ada angka jarak aman, karena bergantung jenis tanah dan debit (tidak dikarang).

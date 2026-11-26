@@ -30,8 +30,8 @@ Isi tanggal hanya setelah user menjawab di chat.
 - [x] Topik final: 26 Nov 2026 (user pilih di chat)
 - [x] Script final (dikunci): 26 Nov 2026, v2 (VO: ElevenLabs)
 - [x] VO final: 26 Nov 2026 (Gemini Achernar, 65,9 dtk)
-- [ ] Style reference: 
-- [ ] Render batch besar (komposisi + estimasi waktu disetujui): 
+- [x] Style reference: 26 Nov 2026 (3 still referensi/e1-05)
+- [x] Render batch besar (komposisi + estimasi waktu disetujui): 26 Nov 2026, Sumur05 ±10 mnt
 - [ ] Publish: 
 - [ ] Merge ke `main`: 
 
