@@ -125,7 +125,7 @@ const Rumah: React.FC = () => {
     <Blok p={[0, -0.1, 0]} s={[60, 0.2, 60]} map={b.rumput} rep={[18, 18]} bump={0.6} />
     <Blok p={[0, 0.02, 0]} s={[10.4, 0.16, 6.4]} c="#cfc7b8" r={0.9} />
     {/* lantai: kayu (kamar), ubin (dapur); turun 0,02 dari tepi balok supaya tidak sebidang */}
-    <Blok p={[-2.5, 0.09, 0]} s={[4.94, 0.02, 5.94]} map={b.kayu} rep={[9, 9]} bump={0.2} />
+    <Blok p={[-2.5, 0.09, 0]} s={[4.94, 0.02, 5.94]} map={b.kayu} rep={[4, 4]} bump={0.15} />
     <Blok p={[2.5, 0.09, 0]} s={[4.94, 0.02, 5.94]} c="#e6e1d6" r={0.6} />
     {Array.from({length: 9}, (_, i) => <Blok key={`u${i}`} p={[0.3 + i * 0.55, 0.101, 0]} s={[0.012, 0.004, 5.94]} c="#c9c2b4" bayang={false} />)}
     {/* dinding belakang, samping, sekat rendah */}
@@ -207,6 +207,8 @@ const LABELS: Lb[] = [
   {a: 57.0, b: 57.8, text: 'Matikan', at: [MC[0] + 0.03, MJ + 0.115, MC[2] + 0.175], side: 'R', dy: 120},
   {a: 58.7, b: 61.4, text: 'Kabel panas / rusak', at: [SK[0] - 0.01, 0.31, -2.94], side: 'L', dy: 80, merah: true},
   {a: 61.6, b: 63.6, text: 'Cabut, demi keamanan', at: [SK[0], 0.3, SK[2] + 0.2], side: 'R', dy: -120},
+  {a: 64.8, b: 67.2, text: 'Charger: 1 keping', at: [KOIN1[0], LT + 0.04, KOIN1[2]], side: 'L', dy: 100},
+  {a: 65.2, b: 67.2, text: 'Magic com: 225', at: [MENARA[0], LT + TK * N_KOIN, MENARA[2]], side: 'R', dy: 40, merah: true},
 ];
 
 const kartuGaya = {borderRadius: 26, background: 'rgba(251,248,241,0.96)', boxShadow: '0 12px 34px rgba(30,30,30,0.2)', fontFamily: 'Inter'} as const;
