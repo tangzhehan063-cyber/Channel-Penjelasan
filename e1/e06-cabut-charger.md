@@ -28,7 +28,7 @@
 ## 2. Approval (pemilik channel)
 Isi tanggal hanya setelah user menjawab di chat.
 - [x] Topik final: 27 Nov 2026 (opsi A, chat)
-- [ ] Script final (dikunci): 
+- [x] Script final (dikunci): 27 Nov 2026 (hook A, 149 kata)
 - [ ] VO final: 
 - [ ] Style reference: 
 - [ ] Render batch besar (komposisi + estimasi waktu disetujui): 
