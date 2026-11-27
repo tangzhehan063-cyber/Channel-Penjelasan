@@ -11,7 +11,7 @@
 | Topic | |
 | Date published | |
 | Visual style | Gaya E1-03 (dunia miniatur 3D distilisasi) |
-| Duration | 67,2 dtk (−14,6 LUFS, puncak −1,4 dB) |
+| Duration | 67,2 dtk. Final = `Charger06Lama` (gaya lama v20, −14,0 LUFS, puncak −1,4 dB, 0 frame rusak). Versi E1-03 `Charger06` ditolak user |
 | Hook | |
 | Production time | |
 | Waktu render / putaran revisi kode | |

@@ -25,3 +25,4 @@ Tambahkan baris baru di bawah, jangan mengedit yang lama (beri tanggal). Bila do
 | 25 Nov | Pustaka 56 skill motion iart-ai disimpan lokal di `pustaka-skill/`, dipilih lewat registry/router, tidak memuat semua skill; skill tidak boleh mengubah identitas visual atau renderer | chat (user) |
 | 25 Nov | Claude tidak merge ke `main` sendiri (menggantikan baris 9 Nov dan 16 Nov); PR hanya bila user minta | `CLAUDE.md` |
 | 27 Nov | E1 #06 dan seterusnya: kembali ke **gaya lama sebelum perubahan besar 25 Nov** (kerangka v19/v20: satu objek besar per adegan, kartu judul dua baris, Chip, TikTokBox, PaperPalet). Hasil gaya E1-03 untuk #06 dinilai jelek. Naskah/VO tetap, hanya visual yang dibuat ulang (`remotion/src/e1/Charger06Lama.tsx`) | chat (user) |
+| 27 Nov | Hasil video cukup dikirim versi 1080p saja; versi 540p tidak perlu dibuat (menggantikan "+ versi 540p" di `CLAUDE.md`) | chat (user) |
