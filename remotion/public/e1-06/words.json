@@ -1,0 +1,749 @@
+{
+"words": [
+{
+"word": "Rajin",
+"start": 0.31,
+"end": 0.736
+},
+{
+"word": "nyabutin",
+"start": 0.736,
+"end": 1.417
+},
+{
+"word": "charger",
+"start": 1.417,
+"end": 2.014
+},
+{
+"word": "biar",
+"start": 2.014,
+"end": 2.355
+},
+{
+"word": "hemat",
+"start": 2.355,
+"end": 2.781
+},
+{
+"word": "listrik?",
+"start": 2.781,
+"end": 3.377
+},
+{
+"word": "Hematnya",
+"start": 3.891,
+"end": 4.481
+},
+{
+"word": "cuma",
+"start": 4.481,
+"end": 4.777
+},
+{
+"word": "sekitar",
+"start": 4.777,
+"end": 5.293
+},
+{
+"word": "seratus",
+"start": 5.293,
+"end": 5.81
+},
+{
+"word": "perak",
+"start": 5.81,
+"end": 6.179
+},
+{
+"word": "sebulan.",
+"start": 6.179,
+"end": 6.696
+},
+{
+"word": "Charger",
+"start": 7.397,
+"end": 7.913
+},
+{
+"word": "HP",
+"start": 7.913,
+"end": 8.061
+},
+{
+"word": "zaman",
+"start": 8.061,
+"end": 8.429
+},
+{
+"word": "sekarang,",
+"start": 8.429,
+"end": 9.019
+},
+{
+"word": "kalau",
+"start": 9.019,
+"end": 9.387
+},
+{
+"word": "nggak",
+"start": 9.387,
+"end": 9.756
+},
+{
+"word": "lagi",
+"start": 9.756,
+"end": 10.05
+},
+{
+"word": "ngisi,",
+"start": 10.05,
+"end": 10.419
+},
+{
+"word": "rata-rata",
+"start": 10.622,
+"end": 11.141
+},
+{
+"word": "cuma",
+"start": 11.141,
+"end": 11.4
+},
+{
+"word": "nyedot",
+"start": 11.4,
+"end": 11.79
+},
+{
+"word": "sepersepuluh",
+"start": 11.79,
+"end": 12.568
+},
+{
+"word": "watt.",
+"start": 12.568,
+"end": 12.827
+},
+{
+"word": "Dicolok",
+"start": 13.498,
+"end": 13.966
+},
+{
+"word": "sebulan",
+"start": 13.966,
+"end": 14.435
+},
+{
+"word": "penuh,",
+"start": 14.435,
+"end": 14.769
+},
+{
+"word": "totalnya",
+"start": 15.075,
+"end": 15.658
+},
+{
+"word": "sekitar",
+"start": 15.658,
+"end": 16.168
+},
+{
+"word": "nol",
+"start": 16.168,
+"end": 16.387
+},
+{
+"word": "koma",
+"start": 16.387,
+"end": 16.678
+},
+{
+"word": "nol",
+"start": 16.678,
+"end": 16.897
+},
+{
+"word": "tujuh",
+"start": 16.897,
+"end": 17.261
+},
+{
+"word": "kilowatt",
+"start": 17.261,
+"end": 17.844
+},
+{
+"word": "jam.",
+"start": 17.844,
+"end": 18.063
+},
+{
+"word": "Pakai",
+"start": 18.855,
+"end": 19.177
+},
+{
+"word": "tarif",
+"start": 19.177,
+"end": 19.498
+},
+{
+"word": "listrik",
+"start": 19.498,
+"end": 19.948
+},
+{
+"word": "nonsubsidi,",
+"start": 19.948,
+"end": 20.59
+},
+{
+"word": "kira-kira",
+"start": 20.771,
+"end": 21.394
+},
+{
+"word": "seratus",
+"start": 21.394,
+"end": 21.939
+},
+{
+"word": "rupiah.",
+"start": 21.939,
+"end": 22.406
+},
+{
+"word": "Kebiasaan",
+"start": 23.318,
+"end": 23.926
+},
+{
+"word": "nyabut",
+"start": 23.926,
+"end": 24.332
+},
+{
+"word": "charger",
+"start": 24.332,
+"end": 24.804
+},
+{
+"word": "muncul",
+"start": 24.804,
+"end": 25.21
+},
+{
+"word": "karena",
+"start": 25.21,
+"end": 25.615
+},
+{
+"word": "charger",
+"start": 25.615,
+"end": 26.088
+},
+{
+"word": "model",
+"start": 26.088,
+"end": 26.426
+},
+{
+"word": "lama",
+"start": 26.426,
+"end": 26.696
+},
+{
+"word": "memang",
+"start": 26.696,
+"end": 27.101
+},
+{
+"word": "lebih",
+"start": 27.101,
+"end": 27.439
+},
+{
+"word": "boros.",
+"start": 27.439,
+"end": 27.777
+},
+{
+"word": "Aturan",
+"start": 28.411,
+"end": 28.785
+},
+{
+"word": "efisiensi",
+"start": 28.785,
+"end": 29.348
+},
+{
+"word": "di",
+"start": 29.348,
+"end": 29.472
+},
+{
+"word": "banyak",
+"start": 29.472,
+"end": 29.847
+},
+{
+"word": "negara",
+"start": 29.847,
+"end": 30.222
+},
+{
+"word": "sekarang",
+"start": 30.222,
+"end": 30.722
+},
+{
+"word": "bikin",
+"start": 30.722,
+"end": 31.034
+},
+{
+"word": "angkanya",
+"start": 31.034,
+"end": 31.534
+},
+{
+"word": "turun",
+"start": 31.534,
+"end": 31.846
+},
+{
+"word": "jauh.",
+"start": 31.846,
+"end": 32.096
+},
+{
+"word": "Yang",
+"start": 32.874,
+"end": 33.153
+},
+{
+"word": "makan",
+"start": 33.153,
+"end": 33.501
+},
+{
+"word": "listrik",
+"start": 33.501,
+"end": 33.988
+},
+{
+"word": "tiap",
+"start": 33.988,
+"end": 34.266
+},
+{
+"word": "hari",
+"start": 34.266,
+"end": 34.544
+},
+{
+"word": "malah",
+"start": 34.544,
+"end": 34.892
+},
+{
+"word": "magic",
+"start": 34.892,
+"end": 35.24
+},
+{
+"word": "com",
+"start": 35.24,
+"end": 35.449
+},
+{
+"word": "di",
+"start": 35.449,
+"end": 35.588
+},
+{
+"word": "dapur,",
+"start": 35.588,
+"end": 35.936
+},
+{
+"word": "waktu",
+"start": 35.936,
+"end": 36.284
+},
+{
+"word": "lagi",
+"start": 36.284,
+"end": 36.562
+},
+{
+"word": "mode",
+"start": 36.562,
+"end": 36.841
+},
+{
+"word": "warm.",
+"start": 36.841,
+"end": 37.119
+},
+{
+"word": "Labelnya",
+"start": 37.827,
+"end": 38.317
+},
+{
+"word": "biasa",
+"start": 38.317,
+"end": 38.622
+},
+{
+"word": "nulis",
+"start": 38.622,
+"end": 38.928
+},
+{
+"word": "empat",
+"start": 38.928,
+"end": 39.234
+},
+{
+"word": "puluh",
+"start": 39.234,
+"end": 39.54
+},
+{
+"word": "sampai",
+"start": 39.54,
+"end": 39.907
+},
+{
+"word": "delapan",
+"start": 39.907,
+"end": 40.335
+},
+{
+"word": "puluh",
+"start": 40.335,
+"end": 40.641
+},
+{
+"word": "watt.",
+"start": 40.641,
+"end": 40.885
+},
+{
+"word": "Ambil",
+"start": 41.447,
+"end": 41.72
+},
+{
+"word": "empat",
+"start": 41.72,
+"end": 41.993
+},
+{
+"word": "puluh",
+"start": 41.993,
+"end": 42.266
+},
+{
+"word": "lima",
+"start": 42.266,
+"end": 42.485
+},
+{
+"word": "watt,",
+"start": 42.485,
+"end": 42.703
+},
+{
+"word": "nyala",
+"start": 43.083,
+"end": 43.413
+},
+{
+"word": "dua",
+"start": 43.413,
+"end": 43.611
+},
+{
+"word": "belas",
+"start": 43.611,
+"end": 43.94
+},
+{
+"word": "jam",
+"start": 43.94,
+"end": 44.138
+},
+{
+"word": "sehari,",
+"start": 44.138,
+"end": 44.533
+},
+{
+"word": "sebulan",
+"start": 44.934,
+"end": 45.344
+},
+{
+"word": "bisa",
+"start": 45.344,
+"end": 45.578
+},
+{
+"word": "sekitar",
+"start": 45.578,
+"end": 45.988
+},
+{
+"word": "dua",
+"start": 45.988,
+"end": 46.163
+},
+{
+"word": "puluh",
+"start": 46.163,
+"end": 46.456
+},
+{
+"word": "tiga",
+"start": 46.456,
+"end": 46.69
+},
+{
+"word": "ribu",
+"start": 46.69,
+"end": 46.924
+},
+{
+"word": "rupiah.",
+"start": 46.924,
+"end": 47.276
+},
+{
+"word": "Itu",
+"start": 47.922,
+"end": 48.11
+},
+{
+"word": "lebih",
+"start": 48.11,
+"end": 48.425
+},
+{
+"word": "dari",
+"start": 48.425,
+"end": 48.677
+},
+{
+"word": "dua",
+"start": 48.677,
+"end": 48.866
+},
+{
+"word": "ratus",
+"start": 48.866,
+"end": 49.18
+},
+{
+"word": "kali",
+"start": 49.18,
+"end": 49.432
+},
+{
+"word": "lipat",
+"start": 49.432,
+"end": 49.747
+},
+{
+"word": "charger",
+"start": 49.747,
+"end": 50.188
+},
+{
+"word": "tadi.",
+"start": 50.188,
+"end": 50.439
+},
+{
+"word": "Coba",
+"start": 51.11,
+"end": 51.374
+},
+{
+"word": "balik",
+"start": 51.374,
+"end": 51.705
+},
+{
+"word": "magic",
+"start": 51.705,
+"end": 52.036
+},
+{
+"word": "com",
+"start": 52.036,
+"end": 52.235
+},
+{
+"word": "di",
+"start": 52.235,
+"end": 52.367
+},
+{
+"word": "rumah",
+"start": 52.367,
+"end": 53.12
+},
+{
+"word": "dan",
+"start": 53.12,
+"end": 53.319
+},
+{
+"word": "cari",
+"start": 53.319,
+"end": 53.583
+},
+{
+"word": "angka",
+"start": 53.583,
+"end": 53.914
+},
+{
+"word": "warm",
+"start": 53.914,
+"end": 54.179
+},
+{
+"word": "di",
+"start": 54.179,
+"end": 54.311
+},
+{
+"word": "labelnya.",
+"start": 54.311,
+"end": 54.841
+},
+{
+"word": "Kalau",
+"start": 55.443,
+"end": 55.793
+},
+{
+"word": "nasinya",
+"start": 55.793,
+"end": 56.284
+},
+{
+"word": "habis",
+"start": 56.284,
+"end": 56.634
+},
+{
+"word": "siang,",
+"start": 56.634,
+"end": 56.984
+},
+{
+"word": "matikan",
+"start": 56.984,
+"end": 57.474
+},
+{
+"word": "aja.",
+"start": 57.474,
+"end": 57.685
+},
+{
+"word": "Charger",
+"start": 58.263,
+"end": 58.73
+},
+{
+"word": "yang",
+"start": 58.73,
+"end": 58.997
+},
+{
+"word": "kabelnya",
+"start": 58.997,
+"end": 59.532
+},
+{
+"word": "panas",
+"start": 59.532,
+"end": 59.866
+},
+{
+"word": "atau",
+"start": 59.866,
+"end": 60.133
+},
+{
+"word": "rusak",
+"start": 60.133,
+"end": 60.467
+},
+{
+"word": "tetap",
+"start": 60.467,
+"end": 61.041
+},
+{
+"word": "dicabut,",
+"start": 61.041,
+"end": 61.509
+},
+{
+"word": "karena",
+"start": 61.978,
+"end": 62.417
+},
+{
+"word": "itu",
+"start": 62.417,
+"end": 62.636
+},
+{
+"word": "urusan",
+"start": 62.636,
+"end": 63.075
+},
+{
+"word": "keamanan.",
+"start": 63.075,
+"end": 63.66
+},
+{
+"word": "Follow",
+"start": 64.335,
+"end": 64.695
+},
+{
+"word": "buat",
+"start": 64.695,
+"end": 64.935
+},
+{
+"word": "fakta",
+"start": 64.935,
+"end": 65.235
+},
+{
+"word": "rumah",
+"start": 65.235,
+"end": 65.535
+},
+{
+"word": "berikutnya!",
+"start": 65.535,
+"end": 66.135
+}
+]
+}

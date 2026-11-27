@@ -40,6 +40,7 @@ import {Tanah02, R02_FRAMES} from './e1/Tanah02';
 import {Tiang03, R03_FRAMES} from './e1/Tiang03';
 import {Karat04, R04_FRAMES} from './e1/Karat04';
 import {R05_FRAMES, Sumur05} from './e1/Sumur05';
+import {Charger06, R06_FRAMES} from './e1/Charger06';
 import {Cover22} from './v22/Cover22';
 import {Video23, V23_FRAMES} from './v23/Video23';
 import {Video24, V24_FRAMES} from './v24/Video24';
@@ -66,6 +67,7 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="Tiang03" component={Tiang03} durationInFrames={R03_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Karat04" component={Karat04} durationInFrames={R04_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Sumur05" component={Sumur05} durationInFrames={R05_FRAMES} fps={30} width={1080} height={1920} />
+  <Composition id="Charger06" component={Charger06} durationInFrames={R06_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Video13" component={Video13} durationInFrames={V13_FRAMES} fps={30} width={1080} height={1920} />
   <Composition id="Cover14" component={Cover14} durationInFrames={1} fps={30} width={1080} height={1920} />
   <Composition id="Cover16" component={Cover16} durationInFrames={1} fps={30} width={1080} height={1920} />
