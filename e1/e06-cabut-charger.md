@@ -11,7 +11,7 @@
 | Topic | |
 | Date published | |
 | Visual style | Gaya E1-03 (dunia miniatur 3D distilisasi) |
-| Duration | |
+| Duration | 67,2 dtk (−14,6 LUFS, puncak −1,4 dB) |
 | Hook | |
 | Production time | |
 | Waktu render / putaran revisi kode | |
@@ -31,7 +31,7 @@ Isi tanggal hanya setelah user menjawab di chat.
 - [x] Script final (dikunci): 27 Nov 2026 (hook A, 149 kata)
 - [x] VO final: 27 Nov 2026 (Gemini Achernar, 66,6 dtk)
 - [ ] Style reference: 
-- [ ] Render batch besar (komposisi + estimasi waktu disetujui): 
+- [x] Render batch besar (komposisi + estimasi waktu disetujui): 27 Nov 2026, Charger06 67,2 dtk
 - [ ] Publish: 
 - [ ] Merge ke `main`: 
 

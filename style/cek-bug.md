@@ -83,3 +83,7 @@ Dicatat dari bug nyata. Cek setiap poin di contact sheet still (`--scale=0.5`) s
 - **`cek_kilau` pada close-up (kamera ±3 m):** geseran 0,4 mm sudah menggeser garis tepi antialias, sehingga ratusan piksel "berkedip" walau tidak ada permukaan sebidang. Bila GAGAL, buat gambar selisih (render nudge 0 dan 0,0004, tandai piksel beda >40): z-fighting = bercak di DALAM permukaan; salah tanda = hanya di garis tepi.
 - **`cek-frame-rusak.py`:** close-up dengan bidang warna seragam luas (bodi motor) dan dip dapat ditandai "tile". Selalu lihat frame yang ditandai; frame tile asli = seluruh layar berulang 4–5×.
 - **Rantai perintah QC:** `cmd | tail` menelan kode keluar, sehingga render tetap jalan walau `cek_kilau` GAGAL. Pakai `set -o pipefail` atau jalankan cek tanpa pipe sebelum render.
+
+## Catatan #06 E1 (27 Nov 2026)
+- **Alarm palsu `cek-frame-rusak`**: adegan dengan dinding polos luas (close-up stop kontak) ditandai "tile" (37 frame). Render ulang 3× memberi frame yang sama persis, dan frame terlihat normal saat diperiksa. Frame rusak asli bersifat acak; bila hasil identik antar-render, periksa frame dengan mata sebelum render ulang semua.
+- `remotion/out/` belum ada di container baru: buat dulu (`mkdir -p remotion/out`), kalau tidak langkah akhir `render-bagian.sh` gagal menulis MP4.
