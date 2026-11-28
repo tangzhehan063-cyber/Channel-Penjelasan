@@ -28,7 +28,7 @@
 ## 2. Approval (pemilik channel)
 Isi tanggal hanya setelah user menjawab di chat.
 - [x] Topik final: 28 Nov 2026 (user pilih "rumah tipe 36" di chat)
-- [ ] Script final (dikunci): 
+- [x] Script final (dikunci): 28 Nov 2026, hook A, 154 kata
 - [ ] VO final: 
 - [ ] Style reference: 
 - [ ] Render batch besar (komposisi + estimasi waktu disetujui): 
