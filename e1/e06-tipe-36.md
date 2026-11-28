@@ -29,11 +29,24 @@
 Isi tanggal hanya setelah user menjawab di chat.
 - [x] Topik final: 28 Nov 2026 (user pilih "rumah tipe 36" di chat)
 - [x] Script final (dikunci): 28 Nov 2026, hook A, 154 kata
-- [ ] VO final: 
+- [x] VO final: 28 Nov 2026 (Gemini Achernar, 68,5 dtk)
 - [ ] Style reference: 
 - [ ] Render batch besar (komposisi + estimasi waktu disetujui): 
 - [ ] Publish: 
 - [ ] Merge ke `main`: 
+
+
+### Rencana E1 #06 (28 Nov, dari VO final 68,5 dtk; skill: isometric-animation + threejs-animation, breakdown 1 momen di adegan 4)
+| Adegan (dtk) | VO | Tujuan | Objek | Metode | Kamera | Label/teks | Transisi |
+|---|---|---|---|---|---|---|---|
+| 1 (0–6,2) | hook tim naik / melebar | memancing pilih kubu | deret rumah tipe 36 perumahan, rumah tengah | dunia miniatur; hantu oranye lantai 2 (2,6) + hantu biru perluasan belakang (3,9) | perspektif, dorong pelan dari depan-kanan | chip TIM NAIK / TIM MELEBAR; kicker "Naik atau melebar?" | dip |
+| 2 (6,2–11) | 6×6 di tanah 6×12 | ukuran | rumah + kavling | garis ukur oranye | tele (isometrik) atas-depan | "Bangunan 6 × 6 m", "Tanah 6 × 12 m" | dip |
+| 3 (11–25) | tim melebar, batas pemda, gelap, air | konsekuensi melebar | perluasan 3 m ke belakang, kartu persentase, jendela belakang gelap, hujan + genangan | build sumbu Y, kartu bar 50%→75% (36/72→54/72, garis batas ilustrasi [CEK angka per daerah]) | tele dari belakang, naik ke atas saat hujan | "Halaman belakang ditutup", "Jendela belakang ketutup", "Air nggak meresap" | dip |
+| 4 (25–35,5) | tim naik, rancangan 1 lantai, pondasi kecil | MOMEN KHAS: breakdown | atap terangkat, lantai 2 turun, dinding & tanah tembus pandang, pondasi/sloof/kolom praktis, panah beban merah | breakdown (x-ray) | perspektif orbit pelan, turun ke pondasi | "Dirancang 1 lantai", "Kolom kecil", "Pondasi", "Beban lantai 2" | dip |
+| 5 (35,5–47) | kasus Kab. Bandung 2024 | bukti nyata | rumah 3 lantai bertoko | ambruk (lantai 1 tertekan), putar balik ke "sebelum ambruk", lantai 1 merah | perspektif | "Dirombak 3 tahun sebelumnya", "Lantai 1: tembok lama", "Yang atas aman (kata penghuni)", sumber detikProperti | dip |
+| 6 (47–56,5) | kolom & pondasi sendiri, ahli struktur, PBG, aturan 5 tahun | solusi naik | kolom + pondasi telapak baru tumbuh dari bawah | x-ray | perspektif | "Kolom baru", "Pondasi baru", chip ahli struktur / PBG, kartu aturan 5 tahun | dip |
+| 7 (56,5–62,8) | jalan tengah | kompromi | perluasan 1,5 m + pondasi siap + hantu lantai 2 | build + x-ray tanah | tele dari belakang | "Melebar sedikit", "Pondasi siap 2 lantai" | dip |
+| 8 (62,8–68,9) | tim mana? follow | gema hook | sudut hook + dua hantu | sama dengan adegan 1 | perspektif tarik mundur | chip kubu, kicker "Tim mana?", "Fakta Rumah" | — |
 
 ## 3. Rencana adegan visual (fase 4 `WORKFLOW.md`, dari waktu VO final; tabel `style/gaya-e1-03.md` §7)
 | Adegan (detik VO) | Kalimat VO | Tujuan penjelasan | Objek utama | Metode visual | Gerakan | Kamera (mode + gerak + alasan) | Teks/label | Skill pustaka | Transisi/SFX | Durasi |
