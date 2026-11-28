@@ -13,6 +13,7 @@ Riwayat lengkap sampai 25 Nov 2026: `arsip/riwayat/STATUS-riwayat-sampai-2026-11
 | 01 | Rumah Belanda Adem Tanpa AC | dirender (59,0 dtk), belum cover/publish | arah lama semi-realistis; log `e1/e01-rumah-belanda-adem.md` |
 | 02 | Tanah Turun, Lantai Ditinggikan | dirender (58,5 dtk), 540p di Drive, belum cover/publish | arah lama; log `e1/e02-tanah-turun.md` |
 | 03 | Tiang Listrik di Depan Pagar, Tolak Rezeki? | **berhasil, patokan visual**; dirender 68,4 dtk, MP4 dikirim ke user | log `e1/e03-tiang-listrik.md` |
+| 06 | Rumah Tipe 36: Naik Tingkat atau Melebar? | fase 2: draf naskah menunggu ACC (28 Nov) | log `e1/e06-tipe-36.md`, riset `riset/2026-11-28-rumah-tipe-36.md`; audiens kini 25 sampai akhir 30-an |
 | 05 | Sumur Kering gara-gara Sumur Bor Tetangga | **selesai, diterima user (26 Nov)**; 66,6 dtk (−14,4 LUFS, puncak −1,4 dB), MP4 + 540p dikirim ke user; tanpa cover/Drive atas keputusan user | log `e1/e05-sumur-kering.md`; VO Gemini Achernar (ElevenLabs kuota habis) |
 | 04 | Kenapa Air Rob Bikin Motor Karatan? | **selesai, diterima user (25 Nov)**; 61,8 dtk (−14,6 LUFS), MP4 dikirim ke user; tanpa cover/Drive atas keputusan user | log `e1/e04-karat-rob.md`; video pertama dengan pipeline 8 fase |
 
