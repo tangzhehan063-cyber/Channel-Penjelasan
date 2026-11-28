@@ -78,3 +78,7 @@ Contoh: inkonsistensi komponen/material, animasi kaku, camera movement failure, 
 | Views 48 jam ≥ 2.000 | | |
 - Keputusan sementara video ini: [ ] CONTINUE  [ ] ITERATE  [ ] STOP
 - Catatan: keputusan eksperimen diambil dari ketiga video, bukan satu video.
+
+## Catatan VO (28 Nov 2026)
+- User pilih Gemini TTS (Achernar). Take 1 (gaya bawaan): 70,1 dtk, F0 195 Hz, gagal `cek_suara` (nada tinggi, rentang lebar). Take 2 (arahan "tenang, nada rendah, tempo agak cepat"): 72,6 dtk, 2,12 kata/dtk. Final = take 2 + `atempo=1.06` (nada tetap): 68,5 dtk, 2,25 kata/dtk, F0 170 Hz, lolos `cek_suara`.
+- Transkripsi balik (gemini-3.5-transcribe) cocok dengan naskah, tanpa kata terpotong. Words `audio/e06-words.json` (align proporsional). Menunggu ACC VO.
