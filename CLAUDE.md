@@ -1,7 +1,7 @@
 # Channel Penjelasan: instruksi utama untuk Claude
 
 ## Identitas
-Channel pengetahuan seri **"Fakta Rumah"**, Bahasa Indonesia santai, audiens 35+, YouTube Shorts (Facebook cadangan). Video 50–70 dtk, penutup "Follow buat fakta rumah berikutnya!".
+Channel pengetahuan seri **"Fakta Rumah"**, Bahasa Indonesia santai, audiens 25 sampai akhir 30-an, YouTube Shorts (Facebook cadangan). Video 50–70 dtk, penutup "Follow buat fakta rumah berikutnya!".
 Channel stickman self-improvement ada di repo terpisah `RAKA`; jangan campur gaya.
 
 ## Identitas visual (kritis)

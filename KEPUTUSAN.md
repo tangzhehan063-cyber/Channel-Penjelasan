@@ -24,3 +24,4 @@ Tambahkan baris baru di bawah, jangan mengedit yang lama (beri tanggal). Bila do
 | 25 Nov | Urutan produksi tunggal: Riset → Naskah dikunci → VO final → Perencanaan visual dari waktu VO → Produksi visual dengan skill → Integrasi → Render final → QC (`WORKFLOW.md`) | chat (user) |
 | 25 Nov | Pustaka 56 skill motion iart-ai disimpan lokal di `pustaka-skill/`, dipilih lewat registry/router, tidak memuat semua skill; skill tidak boleh mengubah identitas visual atau renderer | chat (user) |
 | 25 Nov | Claude tidak merge ke `main` sendiri (menggantikan baris 9 Nov dan 16 Nov); PR hanya bila user minta | `CLAUDE.md` |
+| 28 Nov | Rentang usia penonton channel: 25 sampai akhir 30-an (menggantikan "35+" di `CLAUDE.md`) | chat (user) |
